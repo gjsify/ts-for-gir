@@ -2,874 +2,895 @@ import { FormatGenerator } from "./generator.js";
 import { IntrospectedNamespace } from "../gir/namespace.js";
 
 import {
-  IntrospectedBaseClass,
-  GirRecord,
-  GirInterface,
-  IntrospectedClass,
-  filterConflicts,
-  filterFunctionConflict,
-  FilterBehavior,
-  promisifyFunctions
+    IntrospectedBaseClass,
+    IntrospectedRecord,
+    IntrospectedInterface,
+    IntrospectedClass,
+    filterConflicts,
+    filterFunctionConflict,
+    FilterBehavior,
+    promisifyFunctions
 } from "../gir/class.js";
 import { IntrospectedConstant } from "../gir/const.js";
 import { IntrospectedEnum, IntrospectedError, GirEnumMember } from "../gir/enum.js";
 import { GirProperty, Field } from "../gir/property.js";
 import { IntrospectedSignal, IntrospectedSignalType } from "../gir/signal.js";
-import { IntrospectedFunction, IntrospectedConstructor, IntrospectedFunctionParameter, IntrospectedCallback, IntrospectedDirectAllocationConstructor } from "../gir/function.js";
-import { IntrospectedClassFunction, IntrospectedStaticClassFunction, IntrospectedVirtualClassFunction } from "../gir/function.js";
+import {
+    IntrospectedFunction,
+    IntrospectedConstructor,
+    IntrospectedFunctionParameter,
+    IntrospectedCallback,
+    IntrospectedDirectAllocationConstructor
+} from "../gir/function.js";
+import {
+    IntrospectedClassFunction,
+    IntrospectedStaticClassFunction,
+    IntrospectedVirtualClassFunction
+} from "../gir/function.js";
 import { sanitizeIdentifierName, isInvalid, resolveDirectedType } from "../gir/util.js";
 import {
-  TypeExpression,
-  NativeType,
-  AnyType,
-  VoidType,
-  StringType,
-  NumberType,
-  ArrayType,
-  AnyFunctionType,
-  Generic,
-  ConflictType,
-  TypeConflict,
-  BinaryType,
-  GirBase
+    TypeExpression,
+    NativeType,
+    AnyType,
+    VoidType,
+    StringType,
+    NumberType,
+    ArrayType,
+    AnyFunctionType,
+    Generic,
+    ConflictType,
+    TypeConflict,
+    BinaryType,
+    GirBase
 } from "../gir.js";
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedAlias } from "../gir/alias.js";
 import { GenerationOptions } from "../types.js";
 
 export function versionImportFormat(versionFormat: string, namespace: string, version: string) {
-  const versionSlug = version.toLowerCase().split(".")[0];
-  const namespaceLowercase = namespace.toLowerCase();
+    const versionSlug = version.toLowerCase().split(".")[0];
+    const namespaceLowercase = namespace.toLowerCase();
 
-  return `${versionFormat.replace('{version}', version).replace('{version-slug}', versionSlug).replace('{namespace}', namespace).replace('{namespace-lower}', namespaceLowercase)}`;
+    return `${versionFormat
+        .replace("{version}", version)
+        .replace("{version-slug}", versionSlug)
+        .replace("{namespace}", namespace)
+        .replace("{namespace-lower}", namespaceLowercase)}`;
 }
 
 export abstract class DtsGenerator extends FormatGenerator<string> {
-  constructor(namespace: IntrospectedNamespace, options: GenerationOptions) {
-    super(namespace, options);
-  }
+    constructor(namespace: IntrospectedNamespace, options: GenerationOptions) {
+        super(namespace, options);
+    }
 
-  protected generateParameters(parameters: IntrospectedFunctionParameter[]): string {
-    return parameters
-      .map(p => {
-        return p.asString(this);
-      })
-      .join(", ");
-  }
+    protected generateParameters(parameters: IntrospectedFunctionParameter[]): string {
+        return parameters
+            .map(p => {
+                return p.asString(this);
+            })
+            .join(", ");
+    }
 
-  generateGenerics(nodes: Generic[], withDefaults = true) {
-    const { namespace, options } = this;
+    generateGenerics(nodes: Generic[], withDefaults = true) {
+        const { namespace, options } = this;
 
-    const list = nodes.map(generic => {
-      const Type = generic.type.rootPrint(namespace, options);
+        const list = nodes.map(generic => {
+            const Type = generic.type.rootPrint(namespace, options);
 
-      if (generic.defaultType && withDefaults) {
-        let defaultType = generic.defaultType.rootPrint(namespace, options);
+            if (generic.defaultType && withDefaults) {
+                const defaultType = generic.defaultType.rootPrint(namespace, options);
 
-        if (generic.constraint) {
-          let constraint = generic.constraint.rootPrint(namespace, options);
-          return `${Type} extends ${constraint} = ${defaultType}`;
+                if (generic.constraint) {
+                    const constraint = generic.constraint.rootPrint(namespace, options);
+                    return `${Type} extends ${constraint} = ${defaultType}`;
+                }
+
+                return `${Type} = ${defaultType}`;
+            } else if (generic.constraint && withDefaults) {
+                const constraint = generic.constraint.rootPrint(namespace, options);
+                return `${Type} extends ${constraint}`;
+            } else {
+                return `${Type}`;
+            }
+        });
+
+        if (list.length > 0) {
+            return `<${list.join(", ")}>`;
         }
 
-        return `${Type} = ${defaultType}`;
-      } else if (generic.constraint && withDefaults) {
-        let constraint = generic.constraint.rootPrint(namespace, options);
-        return `${Type} extends ${constraint}`;
-      } else {
-        return `${Type}`;
-      }
-    });
-
-    if (list.length > 0) {
-      return `<${list.join(", ")}>`;
+        return "";
     }
 
-    return "";
-  }
+    generateCallbackType(node: IntrospectedCallback): [string, string] {
+        const { namespace, options } = this;
 
-  generateCallbackType(node: IntrospectedCallback): [string, string] {
-    const { namespace, options } = this;
+        const Parameters = this.generateParameters(node.parameters);
 
-    const Parameters = this.generateParameters(node.parameters);
+        if (node.generics.length > 0) {
+            const GenericDefinitions = this.generateGenerics(node.generics);
 
-    if (node.generics.length > 0) {
-      const GenericDefinitions = this.generateGenerics(node.generics);
-
-      return [
-        `${GenericDefinitions}`,
-        `(${Parameters}) => ${node.return().resolve(namespace, options).print(namespace, options)}`
-      ];
-    }
-    return [``, `(${Parameters}) => ${node.return().resolve(namespace, options).print(namespace, options)}`];
-  }
-
-  generateCallback(node: IntrospectedCallback): string {
-    return `${this.docString(node)}export type ${node.name}${this.generateCallbackType(node).join(" = ")};`;
-  }
-
-  generateReturn(return_type: TypeExpression, output_parameters: IntrospectedFunctionParameter[]) {
-    const { namespace, options } = this;
-
-    let resolved_return_type =
-      resolveDirectedType(return_type, GirDirection.Out)?.resolve(namespace, options) ??
-      return_type.resolve(namespace, options);
-
-    const type = resolved_return_type.rootPrint(namespace, options);
-
-    if (output_parameters.length > 0) {
-      const exclude_first = type === "void" || type === "";
-      const returns = [
-        ...(exclude_first ? [] : [`${type}`]),
-        ...output_parameters
-          .map(op => {
-            return (
-              resolveDirectedType(op.type, GirDirection.Out)?.resolve(namespace, options) ??
-              op.type.resolve(namespace, options)
-            );
-          })
-          .map(p => p.rootPrint(namespace, options))
-      ];
-      if (returns.length > 1) {
-        return `[${returns.join(", ")}]`;
-      } else {
-        return `${returns[0]}`;
-      }
+            return [
+                `${GenericDefinitions}`,
+                `(${Parameters}) => ${node.return().resolve(namespace, options).print(namespace, options)}`
+            ];
+        }
+        return ["", `(${Parameters}) => ${node.return().resolve(namespace, options).print(namespace, options)}`];
     }
 
-    return type;
-  }
-
-  generateEnum(node: IntrospectedEnum): string {
-    const { namespace } = this;
-
-    const isInvalidEnum = Array.from(node.members.keys()).some(
-      name => name.match(/^[0-9]+$/) || name === "NaN" || name === "Infinity"
-    );
-
-    if (isInvalidEnum) {
-      return node.asClass().asString(this);
+    generateCallback(node: IntrospectedCallback): string {
+        return `${this.docString(node)}export type ${node.name}${this.generateCallbackType(node).join(" = ")};`;
     }
 
-    // So we can use GObject.GType
-    this.namespace.assertInstalledImport("GObject");
+    generateReturn(return_type: TypeExpression, output_parameters: IntrospectedFunctionParameter[]) {
+        const { namespace, options } = this;
 
-    return `
+        const resolved_return_type =
+            resolveDirectedType(return_type, GirDirection.Out)?.resolve(namespace, options) ??
+            return_type.resolve(namespace, options);
+
+        const type = resolved_return_type.rootPrint(namespace, options);
+
+        if (output_parameters.length > 0) {
+            const exclude_first = type === "void" || type === "";
+            const returns = [
+                ...(exclude_first ? [] : [`${type}`]),
+                ...output_parameters
+                    .map(op => {
+                        return (
+                            resolveDirectedType(op.type, GirDirection.Out)?.resolve(namespace, options) ??
+                            op.type.resolve(namespace, options)
+                        );
+                    })
+                    .map(p => p.rootPrint(namespace, options))
+            ];
+            if (returns.length > 1) {
+                return `[${returns.join(", ")}]`;
+            } else {
+                return `${returns[0]}`;
+            }
+        }
+
+        return type;
+    }
+
+    generateEnum(node: IntrospectedEnum): string {
+        const { namespace } = this;
+
+        const isInvalidEnum = Array.from(node.members.keys()).some(
+            name => name.match(/^[0-9]+$/) || name === "NaN" || name === "Infinity"
+        );
+
+        if (isInvalidEnum) {
+            return node.asClass().asString(this);
+        }
+
+        // So we can use GObject.GType
+        this.namespace.assertInstalledImport("GObject");
+
+        return `
 export namespace ${node.name} {
     export const $gtype: ${namespace.name !== "GObject" ? "GObject." : ""}GType<${node.name}>;
 }
 
 ${this.docString(node)}export enum ${node.name} {
     ${Array.from(node.members.values())
-      .map(member => `${member.asString(this)}`)
-      .join(`\n    `)}
+        .map(member => `${member.asString(this)}`)
+        .join("\n    ")}
 }`;
-  }
-
-  generateError(node: IntrospectedError): string {
-    const { namespace } = this;
-    const clazz = node.asClass();
-
-    clazz.members = [];
-    clazz.members.push(...Array.from(node.functions.values()));
-
-    const GLib = namespace.assertInstalledImport("GLib");
-    const GLibError = GLib.assertClass("Error");
-
-    clazz.parent = GLibError.getType();
-
-    // Manually construct a GLib.Error constructor.
-    clazz.mainConstructor = new IntrospectedConstructor({
-      name: "new",
-      parameters: [
-        new IntrospectedFunctionParameter({
-          name: "options",
-          type: NativeType.of("{ message: string, code: number}"),
-          direction: GirDirection.In
-        })
-      ],
-      return_type: clazz.getType()
-    });
-
-    return clazz.asString(this);
-  }
-
-  generateConst(node: IntrospectedConstant): string {
-    const { namespace, options } = this;
-
-    return `${this.docString(node)}export const ${node.name}: ${node.type.resolve(namespace, options).print(namespace, options)};`;
-  }
-
-  protected implements(node: IntrospectedClass) {
-    const { namespace, options } = this;
-
-    const interfaces = node.interfaces.map(i => {
-      const identifier = i.resolveIdentifier(namespace, options);
-
-      if (!identifier) {
-        throw new Error(
-          `Unable to resolve type: ${i.name} from ${i.namespace} in ${node.namespace.name} ${node.namespace.version}`
-        );
-      }
-
-      return identifier;
-    });
-
-    if (interfaces.length > 0) {
-      return ` implements ${interfaces
-        .map(i => {
-          const Type = i.print(namespace, options);
-          return `${Type}`;
-        })
-        .join(", ")}`;
     }
 
-    return "";
-  }
+    generateError(node: IntrospectedError): string {
+        const { namespace } = this;
+        const clazz = node.asClass();
 
-  protected extends(node: IntrospectedBaseClass) {
-    const { namespace: ns, options } = this;
-    if (node.parent) {
-      const ResolvedType = node.parent.resolveIdentifier(ns, options);
-      const Type = ResolvedType?.print(ns, options);
+        clazz.members = [];
+        clazz.members.push(...Array.from(node.functions.values()));
 
-      if (Type) {
-        return ` extends ${Type}`;
-      }
+        const GLib = namespace.assertInstalledImport("GLib");
+        const GLibError = GLib.assertClass("Error");
 
-      throw new Error(
-        `Unable to resolve type: ${node.parent.name} from ${node.parent.namespace} in ${node.namespace.name} ${node.namespace.version}`
-      );
+        clazz.parent = GLibError.getType();
+
+        // Manually construct a GLib.Error constructor.
+        clazz.mainConstructor = new IntrospectedConstructor({
+            name: "new",
+            parameters: [
+                new IntrospectedFunctionParameter({
+                    name: "options",
+                    type: NativeType.of("{ message: string, code: number}"),
+                    direction: GirDirection.In
+                })
+            ],
+            return_type: clazz.getType()
+        });
+
+        return clazz.asString(this);
     }
 
-    return "";
-  }
+    generateConst(node: IntrospectedConstant): string {
+        const { namespace, options } = this;
 
-  generateInterface(node: GirInterface): string {
-    const { namespace, options } = this;
-
-    const isGObject = node.someParent(p => p.namespace.name === "GObject" && p.name === "Object");
-
-    const name = node.name;
-
-    let generics = node.generics;
-
-    let Generics = "";
-    let GenericTypes = "";
-
-    if (generics.length > 0) {
-      Generics = `${this.generateGenerics(generics)}`;
-      GenericTypes = `${this.generateGenerics(generics, false)}`;
+        return `${this.docString(node)}export const ${node.name}: ${node.type
+            .resolve(namespace, options)
+            .print(namespace, options)};`;
     }
 
-    const Extends = this.extends(node);
-    const filteredFunctions = filterFunctionConflict(node.namespace, node, node.members, []);
-    const functions = options.promisify ? promisifyFunctions(filteredFunctions) : filteredFunctions;
+    protected implements(node: IntrospectedClass) {
+        const { namespace, options } = this;
 
-    const staticFunctions = functions.filter(f => f instanceof IntrospectedStaticClassFunction);
-    const staticFields = node.fields
-      .filter(f => f.isStatic)
-      .map(f =>
-        f.copy({
-          isStatic: false
-        })
-      );
+        const interfaces = node.interfaces.map(i => {
+            const identifier = i.resolveIdentifier(namespace, options);
 
-    const nonStaticFunctions = functions.filter(f => !(f instanceof IntrospectedStaticClassFunction));
-    const nonStaticFields = node.fields.filter(f => !f.isStatic);
+            if (!identifier) {
+                throw new Error(
+                    `Unable to resolve type: ${i.name} from ${i.namespace} in ${node.namespace.name} ${node.namespace.version}`
+                );
+            }
 
-    const hasNamespace = isGObject || staticFunctions.length > 0 || node.callbacks.length > 0;
+            return identifier;
+        });
 
-    if (isGObject) {
-      // So we can use GObject.GType
-      this.namespace.assertInstalledImport("GObject");
+        if (interfaces.length > 0) {
+            return ` implements ${interfaces
+                .map(i => {
+                    const Type = i.print(namespace, options);
+                    return `${Type}`;
+                })
+                .join(", ")}`;
+        }
+
+        return "";
     }
 
-    return `
+    protected extends(node: IntrospectedBaseClass) {
+        const { namespace: ns, options } = this;
+        if (node.parent) {
+            const ResolvedType = node.parent.resolveIdentifier(ns, options);
+            const Type = ResolvedType?.print(ns, options);
+
+            if (Type) {
+                return ` extends ${Type}`;
+            }
+
+            throw new Error(
+                `Unable to resolve type: ${node.parent.name} from ${node.parent.namespace} in ${node.namespace.name} ${node.namespace.version}`
+            );
+        }
+
+        return "";
+    }
+
+    generateInterface(node: IntrospectedInterface): string {
+        const { namespace, options } = this;
+
+        const isGObject = node.someParent(p => p.namespace.name === "GObject" && p.name === "Object");
+
+        const name = node.name;
+
+        const generics = node.generics;
+
+        let Generics = "";
+        let GenericTypes = "";
+
+        if (generics.length > 0) {
+            Generics = `${this.generateGenerics(generics)}`;
+            GenericTypes = `${this.generateGenerics(generics, false)}`;
+        }
+
+        const Extends = this.extends(node);
+        const filteredFunctions = filterFunctionConflict(node.namespace, node, node.members, []);
+        const functions = options.promisify ? promisifyFunctions(filteredFunctions) : filteredFunctions;
+
+        const staticFunctions = functions.filter(f => f instanceof IntrospectedStaticClassFunction);
+        const staticFields = node.fields
+            .filter(f => f.isStatic)
+            .map(f =>
+                f.copy({
+                    isStatic: false
+                })
+            );
+
+        const nonStaticFunctions = functions.filter(f => !(f instanceof IntrospectedStaticClassFunction));
+        const nonStaticFields = node.fields.filter(f => !f.isStatic);
+
+        const hasNamespace = isGObject || staticFunctions.length > 0 || node.callbacks.length > 0;
+
+        if (isGObject) {
+            // So we can use GObject.GType
+            this.namespace.assertInstalledImport("GObject");
+        }
+
+        return `
         ${
-          node.callbacks.length > 0
-            ? `export module ${name} {
-  ${node.callbacks.map(c => c.asString(this)).join(`\n`)}
+            node.callbacks.length > 0
+                ? `export module ${name} {
+  ${node.callbacks.map(c => c.asString(this)).join("\n")}
   }`
-            : ""
+                : ""
         }
       ${
-        hasNamespace
-          ? `${this.docString(node)}export interface ${name}Namespace {
+          hasNamespace
+              ? `${this.docString(node)}export interface ${name}Namespace {
     ${isGObject ? `$gtype: ${namespace.name !== "GObject" ? "GObject." : ""}GType<${name}>;` : ""}
     prototype: ${name}Prototype;
-    ${staticFields.length > 0 ? staticFields.map(sf => sf.asString(this)).join(`\n`) : ""}
+    ${staticFields.length > 0 ? staticFields.map(sf => sf.asString(this)).join("\n") : ""}
     ${
-      staticFunctions.length > 0
-        ? staticFunctions.map(sf => IntrospectedClassFunction.prototype.asString.call(sf, this)).join(`\n`)
-        : ""
+        staticFunctions.length > 0
+            ? staticFunctions.map(sf => IntrospectedClassFunction.prototype.asString.call(sf, this)).join("\n")
+            : ""
     }    
     }`
-          : ""
+              : ""
       }
 export type ${name}${Generics} = ${name}Prototype${GenericTypes};
-export interface ${name}Prototype${Generics}${Extends} {${
-      node.indexSignature ? `\n${node.indexSignature}\n` : ""
-    }
-    ${node.props.length > 0 ? `// Properties` : ""}
+export interface ${name}Prototype${Generics}${Extends} {${node.indexSignature ? `\n${node.indexSignature}\n` : ""}
+    ${node.props.length > 0 ? "// Properties" : ""}
     ${filterConflicts(node.namespace, node, node.props)
-      .map(p => p.asString(this))
-      .join(`\n`)}
-    ${nonStaticFields.length > 0 ? `// Fields` : ""}
+        .map(p => p.asString(this))
+        .join("\n")}
+    ${nonStaticFields.length > 0 ? "// Fields" : ""}
     ${filterConflicts(node.namespace, node, nonStaticFields)
-      .map(p => p.asString(this))
-      .join(`\n`)}
-    ${nonStaticFunctions.length > 0 ? `// Members\n` : ""}
-    ${nonStaticFunctions.map(m => m.asString(this)).join(`\n`)}
+        .map(p => p.asString(this))
+        .join("\n")}
+    ${nonStaticFunctions.length > 0 ? "// Members\n" : ""}
+    ${nonStaticFunctions.map(m => m.asString(this)).join("\n")}
     }${hasNamespace ? `\n\nexport const ${name}: ${name}Namespace;\n` : ""}`;
-  }
-
-  generateRecord(node: GirRecord): string {
-    const { options, namespace } = this;
-
-    const { name } = node;
-
-    const Extends = this.extends(node);
-
-    let Generics = "";
-
-    if (node.generics.length > 0) {
-      Generics = `${this.generateGenerics(node.generics)}`;
     }
 
-    let MainConstructor: string = "";
+    generateRecord(node: IntrospectedRecord): string {
+        const { options, namespace } = this;
 
-    if (node.isForeign()) {
-      MainConstructor = "";
-    } else if (node.mainConstructor) {
-      MainConstructor = node.mainConstructor.asString(this);
-    }
+        const { name } = node;
 
-    const hasCallbacks = node.callbacks.length > 0;
+        const Extends = this.extends(node);
 
-    const Properties = filterConflicts(node.namespace, node, node.props)
-      .map(v => v.asString(this))
-      .join(`\n`);
+        let Generics = "";
 
-    const Fields = filterConflicts(node.namespace, node, node.fields)
-      .map(v => v.asString(this))
-      .join(`\n`);
+        if (node.generics.length > 0) {
+            Generics = `${this.generateGenerics(node.generics)}`;
+        }
 
-    const Constructors = filterConflicts(node.namespace, node, node.constructors)
-      .map(v => this.generateConstructorFunction(v))
-      .join(`\n`);
+        let MainConstructor: string = "";
 
-    const FilteredMembers = filterFunctionConflict(node.namespace, node, node.members, []);
-    const Members = (options.promisify ? promisifyFunctions(FilteredMembers) : FilteredMembers)
-      .map(v => v.asString(this))
-      .join(`\n`);
+        if (node.isForeign()) {
+            MainConstructor = "";
+        } else if (node.mainConstructor) {
+            MainConstructor = node.mainConstructor.asString(this);
+        }
 
-    // So we can use GObject.GType
-    this.namespace.assertInstalledImport("GObject");
+        const hasCallbacks = node.callbacks.length > 0;
 
-    return `${
-      hasCallbacks
-        ? `export module ${name} {
-                ${node.callbacks.map(c => c.asString(this)).join(`\n`)}
+        const Properties = filterConflicts(node.namespace, node, node.props)
+            .map(v => v.asString(this))
+            .join("\n");
+
+        const Fields = filterConflicts(node.namespace, node, node.fields)
+            .map(v => v.asString(this))
+            .join("\n");
+
+        const Constructors = filterConflicts(node.namespace, node, node.constructors)
+            .map(v => this.generateConstructorFunction(v))
+            .join("\n");
+
+        const FilteredMembers = filterFunctionConflict(node.namespace, node, node.members, []);
+        const Members = (options.promisify ? promisifyFunctions(FilteredMembers) : FilteredMembers)
+            .map(v => v.asString(this))
+            .join("\n");
+
+        // So we can use GObject.GType
+        this.namespace.assertInstalledImport("GObject");
+
+        return `${
+            hasCallbacks
+                ? `export module ${name} {
+                ${node.callbacks.map(c => c.asString(this)).join("\n")}
 }`
-        : ``
-    }
+                : ""
+        }
   
-${this.docString(node)}export class ${name}${Generics}${Extends} {${node.indexSignature ? `\n${node.indexSignature}\n` : ""}
+${this.docString(node)}export class ${name}${Generics}${Extends} {${
+            node.indexSignature ? `\n${node.indexSignature}\n` : ""
+        }
     static $gtype: ${namespace.name !== "GObject" ? "GObject." : ""}GType<${name}>;
 
     ${MainConstructor}
     constructor(copy: ${node.name});
     
-    ${node.props.length > 0 ? `// Properties` : ""}
+    ${node.props.length > 0 ? "// Properties" : ""}
     ${Properties}
         
-    ${node.fields.length > 0 ? `// Fields` : ""}
+    ${node.fields.length > 0 ? "// Fields" : ""}
     ${Fields}
 
-    ${node.constructors.length > 0 ? `// Constructors` : ""}
+    ${node.constructors.length > 0 ? "// Constructors" : ""}
     ${Constructors}
       
-    ${node.members.length > 0 ? `// Members` : ""}
+    ${node.members.length > 0 ? "// Members" : ""}
     ${Members}
 }`;
-  }
-
-  generateClass(node: IntrospectedClass): string {
-    const { options, namespace } = this;
-
-    const name = node.name;
-
-    let injectConstructorBucket = !node.mainConstructor;
-
-    let Generics = "";
-    let GenericTypes = "";
-
-    if (node.generics.length > 0) {
-      Generics = `${this.generateGenerics(node.generics)}`;
-      GenericTypes = `${this.generateGenerics(node.generics, false)}`;
     }
 
-    const Extends = this.extends(node);
-    const Implements = this.implements(node);
+    generateClass(node: IntrospectedClass): string {
+        const { options, namespace } = this;
 
-    const implementedProperties = node.implementedProperties();
-    const implementedMethods = node.implementedMethods(implementedProperties);
+        const name = node.name;
 
-    let MainConstructor: string = "";
+        const injectConstructorBucket = !node.mainConstructor;
 
-    if (node.mainConstructor) {
-      MainConstructor = `\n${node.mainConstructor.asString(this)}`;
-    } else {
-      MainConstructor = `\nconstructor(properties?: Partial<${name}.ConstructorProperties${GenericTypes}>, ...args: any[]);\n`;
+        let Generics = "";
+        let GenericTypes = "";
 
-      if (!options.noInitTypes) {
-        MainConstructor += `_init(properties?: Partial<${name}.ConstructorProperties${GenericTypes}>, ...args: any[]): void;\n`;
-      } else {
-        MainConstructor += `_init(...args: any[]): void;\n`;
-      }
-    }
+        if (node.generics.length > 0) {
+            Generics = `${this.generateGenerics(node.generics)}`;
+            GenericTypes = `${this.generateGenerics(node.generics, false)}`;
+        }
 
-    const ConstructorProps = filterConflicts(
-      node.namespace,
-      node,
-      // TODO: Include properties from interface parents too.
-      node.props
-    )
-      .map(v => v.asString(this, true))
-      .join(`\n    `);
+        const Extends = this.extends(node);
+        const Implements = this.implements(node);
 
-    const Properties = filterConflicts(node.namespace, node, node.props)
-      .map(v => v.asString(this))
-      .join(`\n    `);
+        const implementedProperties = node.implementedProperties();
+        const implementedMethods = node.implementedMethods(implementedProperties);
 
-    const Fields = filterConflicts(node.namespace, node, node.fields)
-      .map(v => v.asString(this))
-      .join(`\n    `);
+        let MainConstructor: string = "";
 
-    const Constructors = filterFunctionConflict(node.namespace, node, node.constructors, [])
-      .map(v => this.generateConstructorFunction(v))
-      .join(`\n    `);
+        if (node.mainConstructor) {
+            MainConstructor = `\n${node.mainConstructor.asString(this)}`;
+        } else {
+            MainConstructor = `\nconstructor(properties?: Partial<${name}.ConstructorProperties${GenericTypes}>, ...args: any[]);\n`;
 
-    const FilteredMembers = filterFunctionConflict(node.namespace, node, node.members, []);
-    const Members = (options.promisify ? promisifyFunctions(FilteredMembers) : FilteredMembers)
-      .map(v => v.asString(this))
-      .join(`\n    `);
+            if (!options.noInitTypes) {
+                MainConstructor += `_init(properties?: Partial<${name}.ConstructorProperties${GenericTypes}>, ...args: any[]): void;\n`;
+            } else {
+                MainConstructor += "_init(...args: any[]): void;\n";
+            }
+        }
 
-    const ImplementedProperties = filterConflicts(node.namespace, node, implementedProperties)
-      .map(m => m.asString(this))
-      .join(`\n    `);
+        const ConstructorProps = filterConflicts(
+            node.namespace,
+            node,
+            // TODO: Include properties from interface parents too.
+            node.props
+        )
+            .map(v => v.asString(this, true))
+            .join("\n    ");
 
-    const FilteredImplMethods = filterFunctionConflict(node.namespace, node, implementedMethods, []);
-    const ImplementedMethods = (
-      options.promisify ? promisifyFunctions(FilteredImplMethods) : FilteredImplMethods
-    )
-      .map(m => m.asString(this))
-      .join(`\n    `);
+        const Properties = filterConflicts(node.namespace, node, node.props)
+            .map(v => v.asString(this))
+            .join("\n    ");
 
-    // TODO Move these to a cleaner place.
+        const Fields = filterConflicts(node.namespace, node, node.fields)
+            .map(v => v.asString(this))
+            .join("\n    ");
 
-    const Connect = new IntrospectedClassFunction({
-      name: "connect",
-      parent: node,
-      parameters: [
-        new IntrospectedFunctionParameter({
-          name: "id",
-          type: StringType,
-          direction: GirDirection.In
-        }),
-        new IntrospectedFunctionParameter({
-          name: "callback",
-          type: AnyFunctionType,
-          direction: GirDirection.In
-        })
-      ],
-      return_type: NumberType
-    });
+        const Constructors = filterFunctionConflict(node.namespace, node, node.constructors, [])
+            .map(v => this.generateConstructorFunction(v))
+            .join("\n    ");
 
-    const ConnectAfter = new IntrospectedClassFunction({
-      name: "connect_after",
-      parent: node,
-      parameters: [
-        new IntrospectedFunctionParameter({
-          name: "id",
-          type: StringType,
-          direction: GirDirection.In
-        }),
-        new IntrospectedFunctionParameter({
-          name: "callback",
-          type: AnyFunctionType,
-          direction: GirDirection.In
-        })
-      ],
-      return_type: NumberType
-    });
+        const FilteredMembers = filterFunctionConflict(node.namespace, node, node.members, []);
+        const Members = (options.promisify ? promisifyFunctions(FilteredMembers) : FilteredMembers)
+            .map(v => v.asString(this))
+            .join("\n    ");
 
-    const Emit = new IntrospectedClassFunction({
-      name: "emit",
-      parent: node,
-      parameters: [
-        new IntrospectedFunctionParameter({
-          name: "id",
-          type: StringType,
-          direction: GirDirection.In
-        }),
-        new IntrospectedFunctionParameter({
-          name: "args",
-          isVarArgs: true,
-          type: new ArrayType(AnyType),
-          direction: GirDirection.In
-        })
-      ],
-      return_type: VoidType
-    });
+        const ImplementedProperties = filterConflicts(node.namespace, node, implementedProperties)
+            .map(m => m.asString(this))
+            .join("\n    ");
 
-    let default_signals = [] as IntrospectedClassFunction[];
-    let hasConnect, hasConnectAfter, hasEmit;
+        const FilteredImplMethods = filterFunctionConflict(node.namespace, node, implementedMethods, []);
+        const ImplementedMethods = (options.promisify ? promisifyFunctions(FilteredImplMethods) : FilteredImplMethods)
+            .map(m => m.asString(this))
+            .join("\n    ");
 
-    if (node.signals.length > 0) {
-      hasConnect = node.members.some(m => m.name === "connect");
-      hasConnectAfter = node.members.some(m => m.name === "connect_after");
-      hasEmit = node.members.some(m => m.name === "emit");
+        // TODO Move these to a cleaner place.
 
-      if (!hasConnect) {
-        default_signals.push(Connect);
-      }
-      if (!hasConnectAfter) {
-        default_signals.push(ConnectAfter);
-      }
-      if (!hasEmit) {
-        default_signals.push(Emit);
-      }
+        const Connect = new IntrospectedClassFunction({
+            name: "connect",
+            parent: node,
+            parameters: [
+                new IntrospectedFunctionParameter({
+                    name: "id",
+                    type: StringType,
+                    direction: GirDirection.In
+                }),
+                new IntrospectedFunctionParameter({
+                    name: "callback",
+                    type: AnyFunctionType,
+                    direction: GirDirection.In
+                })
+            ],
+            return_type: NumberType
+        });
 
-      default_signals = filterConflicts(namespace, node, default_signals, FilterBehavior.DELETE);
+        const ConnectAfter = new IntrospectedClassFunction({
+            name: "connect_after",
+            parent: node,
+            parameters: [
+                new IntrospectedFunctionParameter({
+                    name: "id",
+                    type: StringType,
+                    direction: GirDirection.In
+                }),
+                new IntrospectedFunctionParameter({
+                    name: "callback",
+                    type: AnyFunctionType,
+                    direction: GirDirection.In
+                })
+            ],
+            return_type: NumberType
+        });
 
-      hasConnect = !default_signals.some(s => s.name === "connect");
-      hasConnectAfter = !default_signals.some(s => s.name === "connect_after");
-      hasEmit = !default_signals.some(s => s.name === "emit");
-    }
+        const Emit = new IntrospectedClassFunction({
+            name: "emit",
+            parent: node,
+            parameters: [
+                new IntrospectedFunctionParameter({
+                    name: "id",
+                    type: StringType,
+                    direction: GirDirection.In
+                }),
+                new IntrospectedFunctionParameter({
+                    name: "args",
+                    isVarArgs: true,
+                    type: new ArrayType(AnyType),
+                    direction: GirDirection.In
+                })
+            ],
+            return_type: VoidType
+        });
 
-    const SignalsList = [
-      // TODO Relocate these.
-      ...default_signals.map(s => s.asString(this)),
-      ...node.signals
-        .map(s => {
-          const methods = [] as string[];
+        let default_signals = [] as IntrospectedClassFunction[];
+        let hasConnect, hasConnectAfter, hasEmit;
 
-          if (!hasConnect) methods.push(s.asString(this, IntrospectedSignalType.CONNECT));
-          if (!hasConnectAfter) methods.push(s.asString(this, IntrospectedSignalType.CONNECT_AFTER));
-          if (!hasEmit) methods.push(s.asString(this, IntrospectedSignalType.EMIT));
+        if (node.signals.length > 0) {
+            hasConnect = node.members.some(m => m.name === "connect");
+            hasConnectAfter = node.members.some(m => m.name === "connect_after");
+            hasEmit = node.members.some(m => m.name === "emit");
 
-          return methods;
-        })
-        .flat()
-    ];
+            if (!hasConnect) {
+                default_signals.push(Connect);
+            }
+            if (!hasConnectAfter) {
+                default_signals.push(ConnectAfter);
+            }
+            if (!hasEmit) {
+                default_signals.push(Emit);
+            }
 
-    const hasSignals = SignalsList.length > 0;
-    const Signals = SignalsList.join(`\n`);
+            default_signals = filterConflicts(namespace, node, default_signals, FilterBehavior.DELETE);
 
-    const hasCallbacks = node.callbacks.length > 0;
-    const hasModule = injectConstructorBucket || hasCallbacks;
+            hasConnect = !default_signals.some(s => s.name === "connect");
+            hasConnectAfter = !default_signals.some(s => s.name === "connect_after");
+            hasEmit = !default_signals.some(s => s.name === "emit");
+        }
 
-    // So we can use GObject.GType
-    this.namespace.assertInstalledImport("GObject");
+        const SignalsList = [
+            // TODO Relocate these.
+            ...default_signals.map(s => s.asString(this)),
+            ...node.signals
+                .map(s => {
+                    const methods = [] as string[];
 
-    let [ExtendsInterface, ExtendsGenerics = ""] = Extends.split("<");
+                    if (!hasConnect) methods.push(s.asString(this, IntrospectedSignalType.CONNECT));
+                    if (!hasConnectAfter) methods.push(s.asString(this, IntrospectedSignalType.CONNECT_AFTER));
+                    if (!hasEmit) methods.push(s.asString(this, IntrospectedSignalType.EMIT));
 
-    if (ExtendsGenerics.length > 0) {
-      ExtendsGenerics = `<${ExtendsGenerics}`;
-    }
+                    return methods;
+                })
+                .flat()
+        ];
 
-    return `${
-      hasModule
-        ? `export module ${name} {
-                ${hasCallbacks ? node.callbacks.map(c => c.asString(this)).join(`\n`) : ""}
+        const hasSignals = SignalsList.length > 0;
+        const Signals = SignalsList.join("\n");
+
+        const hasCallbacks = node.callbacks.length > 0;
+        const hasModule = injectConstructorBucket || hasCallbacks;
+
+        // So we can use GObject.GType
+        this.namespace.assertInstalledImport("GObject");
+
+        const parts = Extends.split("<");
+        const ExtendsInterface = parts[0];
+        let ExtendsGenerics = parts[1] ?? "";
+
+        if (ExtendsGenerics.length > 0) {
+            ExtendsGenerics = `<${ExtendsGenerics}`;
+        }
+
+        return `${
+            hasModule
+                ? `export module ${name} {
+                ${hasCallbacks ? node.callbacks.map(c => c.asString(this)).join("\n") : ""}
                 ${
-                  injectConstructorBucket
-                    ? `export interface ConstructorProperties${Generics}${
-                        Extends ? `${ExtendsInterface}.ConstructorProperties${ExtendsGenerics}` : ""
-                      } {
+                    injectConstructorBucket
+                        ? `export interface ConstructorProperties${Generics}${
+                              Extends ? `${ExtendsInterface}.ConstructorProperties${ExtendsGenerics}` : ""
+                          } {
     [key: string]: any;
     ${ConstructorProps}
 }`
-                    : ""
+                        : ""
                 }
 }`
-        : ""
-    }
-      export ${node.isAbstract ? `abstract ` : ""}class ${name}${Generics}${Extends}${Implements} {${
-      node.indexSignature ? `\n${node.indexSignature}\n` : ""
-    }
+                : ""
+        }
+      export ${node.isAbstract ? "abstract " : ""}class ${name}${Generics}${Extends}${Implements} {${
+          node.indexSignature ? `\n${node.indexSignature}\n` : ""
+      }
       static $gtype: ${namespace.name !== "GObject" ? "GObject." : ""}GType<${name}>;
 
       ${MainConstructor}
       
-      ${node.props.length > 0 ? `// Properties` : ""}
+      ${node.props.length > 0 ? "// Properties" : ""}
       ${Properties}
       
-      ${node.fields.length > 0 ? `// Fields` : ""}
+      ${node.fields.length > 0 ? "// Fields" : ""}
       ${Fields}
   
-      ${hasSignals ? `// Signals\n` : ""}
+      ${hasSignals ? "// Signals\n" : ""}
       ${Signals}
     
-      ${implementedProperties.length > 0 ? `// Implemented Properties\n` : ""}
+      ${implementedProperties.length > 0 ? "// Implemented Properties\n" : ""}
       ${ImplementedProperties}
     
-      ${node.constructors.length > 0 ? `// Constructors\n` : ""}
+      ${node.constructors.length > 0 ? "// Constructors\n" : ""}
       ${Constructors}
       
-      ${node.members.length > 0 ? `// Members\n` : ""}
+      ${node.members.length > 0 ? "// Members\n" : ""}
       ${Members}
       
-      ${implementedMethods.length > 0 ? `// Implemented Members\n` : ""}
+      ${implementedMethods.length > 0 ? "// Implemented Members\n" : ""}
       ${ImplementedMethods}
 }`;
-  }
+    }
 
-  generateField(node: Field): string {
-    const { namespace, options } = this;
-    const { name, computed } = node;
-    const invalid = isInvalid(name);
+    generateField(node: Field): string {
+        const { namespace, options } = this;
+        const { name, computed } = node;
+        const invalid = isInvalid(name);
 
-    const Static = node.isStatic ? "static" : "";
-    const ReadOnly = node.writable ? "" : "readonly";
+        const Static = node.isStatic ? "static" : "";
+        const ReadOnly = node.writable ? "" : "readonly";
 
-    const Modifier = [Static, ReadOnly].filter(a => a !== "").join(" ");
+        const Modifier = [Static, ReadOnly].filter(a => a !== "").join(" ");
 
-    const Name = computed ? `[${name}]` : invalid ? `"${name}"` : name;
+        const Name = computed ? `[${name}]` : invalid ? `"${name}"` : name;
 
-    let { type } = node;
-    let fieldAnnotation = "";
-    if (type instanceof TypeConflict) {
-      if (type.conflictType === ConflictType.PROPERTY_ACCESSOR_CONFLICT) {
-        fieldAnnotation = `// This accessor conflicts with a property, field, or function name in a parent class or interface.
+        let { type } = node;
+        let fieldAnnotation = "";
+        if (type instanceof TypeConflict) {
+            if (type.conflictType === ConflictType.PROPERTY_ACCESSOR_CONFLICT) {
+                fieldAnnotation = `// This accessor conflicts with a property, field, or function name in a parent class or interface.
 // @ts-expect-error\n`;
-      }
+            }
 
-      type = new BinaryType(type.unwrap(), AnyType);
+            type = new BinaryType(type.unwrap(), AnyType);
+        }
+
+        return `${this.docString(node)}${fieldAnnotation}${Modifier} ${Name}${node.optional ? "?" : ""}: ${type
+            .resolve(namespace, options)
+            .rootPrint(namespace, options)};`;
     }
 
-    return `${this.docString(node)}${fieldAnnotation}${Modifier} ${Name}${node.optional ? "?" : ""}: ${type
-      .resolve(namespace, options)
-      .rootPrint(namespace, options)};`;
-  }
+    generateProperty(node: GirProperty, construct: boolean = false): string {
+        const { namespace, options } = this;
 
-  generateProperty(node: GirProperty, construct: boolean = false): string {
-    const { namespace, options } = this;
+        const invalid = isInvalid(node.name);
+        const Name = invalid ? `"${node.name}"` : node.name;
 
-    const invalid = isInvalid(node.name);
-    const Name = invalid ? `"${node.name}"` : node.name;
+        let type = node.type;
+        let getterAnnotation = "";
+        let setterAnnotation = "";
+        let getterSetterAnnotation = "";
 
-    let type = node.type;
-    let getterAnnotation = "";
-    let setterAnnotation = "";
-    let getterSetterAnnotation = "";
-
-    if (type instanceof TypeConflict) {
-      switch (type.conflictType) {
-        case ConflictType.FUNCTION_NAME_CONFLICT:
-        case ConflictType.FIELD_NAME_CONFLICT:
-          getterSetterAnnotation =
-            setterAnnotation = `// This accessor conflicts with a property, field, or function name in a parent class or interface.
+        if (type instanceof TypeConflict) {
+            switch (type.conflictType) {
+                case ConflictType.FUNCTION_NAME_CONFLICT:
+                case ConflictType.FIELD_NAME_CONFLICT:
+                    getterSetterAnnotation =
+                        setterAnnotation = `// This accessor conflicts with a property, field, or function name in a parent class or interface.
                   // @ts-expect-error\n`;
-        case ConflictType.ACCESSOR_PROPERTY_CONFLICT:
-          getterSetterAnnotation =
-            getterAnnotation = `// This accessor conflicts with a property, field, or function name in a parent class or interface.
+                case ConflictType.ACCESSOR_PROPERTY_CONFLICT:
+                    getterSetterAnnotation =
+                        getterAnnotation = `// This accessor conflicts with a property, field, or function name in a parent class or interface.
                   // @ts-expect-error\n`;
-          type = type.unwrap();
-          break;
-        case ConflictType.PROPERTY_ACCESSOR_CONFLICT:
-          type = new BinaryType(type.unwrap(), AnyType);
-          break;
-        case ConflictType.PROPERTY_NAME_CONFLICT:
-          getterSetterAnnotation =
-            setterAnnotation =
-            getterAnnotation =
-              `// This accessor conflicts with another accessor's type in a parent class or interface.\n`;
-          type = new BinaryType(type.unwrap(), AnyType);
-          break;
-      }
+                    type = type.unwrap();
+                    break;
+                case ConflictType.PROPERTY_ACCESSOR_CONFLICT:
+                    type = new BinaryType(type.unwrap(), AnyType);
+                    break;
+                case ConflictType.PROPERTY_NAME_CONFLICT:
+                    getterSetterAnnotation =
+                        setterAnnotation =
+                        getterAnnotation =
+                            "// This accessor conflicts with another accessor's type in a parent class or interface.\n";
+                    type = new BinaryType(type.unwrap(), AnyType);
+                    break;
+            }
 
-      if (construct && !(type instanceof BinaryType)) {
-        // For constructor properties we just convert to any.
-        type = new BinaryType(type, AnyType);
-      }
-    }
+            if (construct && !(type instanceof BinaryType)) {
+                // For constructor properties we just convert to any.
+                type = new BinaryType(type, AnyType);
+            }
+        }
 
-    let Type = type.resolve(namespace, options).rootPrint(namespace, options) || "any";
+        const Type = type.resolve(namespace, options).rootPrint(namespace, options) || "any";
 
-    if (construct) {
-      return `${Name}: ${Type};`;
-    }
+        if (construct) {
+            return `${Name}: ${Type};`;
+        }
 
-    const { readable, writable, constructOnly } = node;
+        const { readable, writable, constructOnly } = node;
 
-    let hasGetter = readable;
-    let hasSetter = writable && !constructOnly;
+        const hasGetter = readable;
+        const hasSetter = writable && !constructOnly;
 
-    if (node.parent instanceof GirInterface) {
-      if (!hasSetter && hasGetter) {
-        return `readonly ${Name}: ${Type};`;
-      } else {
-        return `${Name}: ${Type};`;
-      }
-    }
+        if (node.parent instanceof IntrospectedInterface) {
+            if (!hasSetter && hasGetter) {
+                return `readonly ${Name}: ${Type};`;
+            } else {
+                return `${Name}: ${Type};`;
+            }
+        }
 
-    if (hasGetter && hasSetter) {
-      return `${getterAnnotation} get ${Name}(): ${Type};
+        if (hasGetter && hasSetter) {
+            return `${getterAnnotation} get ${Name}(): ${Type};
               ${setterAnnotation} set ${Name}(val: ${Type});`;
-    } else if (hasGetter) {
-      return `${getterSetterAnnotation} get ${Name}(): ${Type};`;
-    } else {
-      return `${getterSetterAnnotation} set ${Name}(val: ${Type});`;
-    }
-  }
-
-  generateSignal(node: IntrospectedSignal, type: IntrospectedSignalType = IntrospectedSignalType.CONNECT): string {
-    switch (type) {
-      case IntrospectedSignalType.CONNECT:
-        return node.asConnect(false).asString(this);
-      case IntrospectedSignalType.CONNECT_AFTER:
-        return node.asConnect(true).asString(this);
-      case IntrospectedSignalType.EMIT:
-        return node.asEmit().asString(this);
-    }
-  }
-
-  generateEnumMember(node: GirEnumMember): string {
-    const invalid = isInvalid(node.name);
-    if (node.value != null && !Number.isNaN(Number.parseInt(node.value, 10))) {
-      return invalid ? `${this.docString(node)}"${node.name}" = ${node.value},` : `${this.docString(node)}${node.name} = ${node.value},`;
-    } else {
-      return invalid ? `${this.docString(node)}"${node.name}",` : `${this.docString(node)}${node.name},`;
-    }
-  }
-
-  generateParameter(node: IntrospectedFunctionParameter): string {
-    const { namespace, options } = this;
-
-    let type: string =
-      resolveDirectedType(node.type, node.direction)
-        ?.resolve(namespace, options)
-        .rootPrint(namespace, options) ?? node.type.resolve(namespace, options).rootPrint(namespace, options);
-
-    if (node.isVarArgs) {
-      return `...args: ${type}`;
+        } else if (hasGetter) {
+            return `${getterSetterAnnotation} get ${Name}(): ${Type};`;
+        } else {
+            return `${getterSetterAnnotation} set ${Name}(val: ${Type});`;
+        }
     }
 
-    if (node.isOptional) {
-      return `${node.name}?: ${type}`;
-    } else {
-      return `${node.name}: ${type}`;
+    generateSignal(node: IntrospectedSignal, type: IntrospectedSignalType = IntrospectedSignalType.CONNECT): string {
+        switch (type) {
+            case IntrospectedSignalType.CONNECT:
+                return node.asConnect(false).asString(this);
+            case IntrospectedSignalType.CONNECT_AFTER:
+                return node.asConnect(true).asString(this);
+            case IntrospectedSignalType.EMIT:
+                return node.asEmit().asString(this);
+        }
     }
-  }
 
-  docString(node: GirBase) {
-    // TODO: Support node.doc not being a string?
-    return typeof node.doc === 'string' && this.options.withDocs ? `/**
-${node.doc.split('\n').map(line => ` * ${line.trim()
-  .replace('*/', '*\\/')
-.replace(/@([a-z_]+?)([. ])/g, '`$1$2`')}`
-.replace(/@([a-z])/g, '$1'))
-.join('\n')}
-    */\n` : ''
-  }
+    generateEnumMember(node: GirEnumMember): string {
+        const invalid = isInvalid(node.name);
+        if (node.value != null && !Number.isNaN(Number.parseInt(node.value, 10))) {
+            return invalid
+                ? `${this.docString(node)}"${node.name}" = ${node.value},`
+                : `${this.docString(node)}${node.name} = ${node.value},`;
+        } else {
+            return invalid ? `${this.docString(node)}"${node.name}",` : `${this.docString(node)}${node.name},`;
+        }
+    }
 
-  generateFunction(node: IntrospectedFunction): string {
-    const { namespace } = this;
-    // Register our identifier with the sanitized identifiers.
-    // We avoid doing this in fromXML because other class-level function classes
-    // depends on that code.
-    sanitizeIdentifierName(namespace.name, node.raw_name);
+    generateParameter(node: IntrospectedFunctionParameter): string {
+        const { namespace, options } = this;
 
-    const Parameters = this.generateParameters(node.parameters);
-    const ReturnType = this.generateReturn(node.return(), node.output_parameters);
-    const Generics = this.generateGenerics(node.generics);
-    return `${this.docString(node)}export function ${node.name}${Generics}(${Parameters}): ${ReturnType};`;
-  }
+        const type: string =
+            resolveDirectedType(node.type, node.direction)?.resolve(namespace, options).rootPrint(namespace, options) ??
+            node.type.resolve(namespace, options).rootPrint(namespace, options);
 
-  generateConstructorFunction(node: IntrospectedConstructor): string {
-    const { namespace, options } = this;
+        if (node.isVarArgs) {
+            return `...args: ${type}`;
+        }
 
-    const Parameters = this.generateParameters(node.parameters);
+        if (node.isOptional) {
+            return `${node.name}?: ${type}`;
+        } else {
+            return `${node.name}: ${type}`;
+        }
+    }
 
-    const invalid = isInvalid(node.name);
-    const name = invalid ? `["${node.name}"]` : node.name;
-    const warning = node.getWarning();
-    return `${warning ? `${warning}\n` : ""}${this.docString(node)}static ${name}(${Parameters}): ${node
-      .return()
-      .resolve(namespace, options)
-      .rootPrint(namespace, options)};`;
-  }
+    docString(node: GirBase) {
+        // TODO: Support node.doc not being a string?
+        return typeof node.doc === "string" && this.options.withDocs
+            ? `/**
+${node.doc
+    .split("\n")
+    .map(line =>
+        ` * ${line
+            .trim()
+            .replace("*/", "*\\/")
+            .replace(/@([a-z_]+?)([. ])/g, "`$1$2`")}`.replace(/@([a-z])/g, "$1")
+    )
+    .join("\n")}
+    */\n`
+            : "";
+    }
 
-  generateConstructor(node: IntrospectedConstructor): string {
-    const Parameters = this.generateParameters(node.parameters);
+    generateFunction(node: IntrospectedFunction): string {
+        const { namespace } = this;
+        // Register our identifier with the sanitized identifiers.
+        // We avoid doing this in fromXML because other class-level function classes
+        // depends on that code.
+        sanitizeIdentifierName(namespace.name, node.raw_name);
 
-    return `constructor(${Parameters});`;
-  }
+        const Parameters = this.generateParameters(node.parameters);
+        const ReturnType = this.generateReturn(node.return(), node.output_parameters);
+        const Generics = this.generateGenerics(node.generics);
+        return `${this.docString(node)}export function ${node.name}${Generics}(${Parameters}): ${ReturnType};`;
+    }
 
-  generateDirectAllocationConstructor(node: IntrospectedDirectAllocationConstructor): string {
-    const ConstructorFields = node.fields.map(field => field.asString(this)).join(`\n`);
+    generateConstructorFunction(node: IntrospectedConstructor): string {
+        const { namespace, options } = this;
 
-    return `
+        const Parameters = this.generateParameters(node.parameters);
+
+        const invalid = isInvalid(node.name);
+        const name = invalid ? `["${node.name}"]` : node.name;
+        const warning = node.getWarning();
+        return `${warning ? `${warning}\n` : ""}${this.docString(node)}static ${name}(${Parameters}): ${node
+            .return()
+            .resolve(namespace, options)
+            .rootPrint(namespace, options)};`;
+    }
+
+    generateConstructor(node: IntrospectedConstructor): string {
+        const Parameters = this.generateParameters(node.parameters);
+
+        return `constructor(${Parameters});`;
+    }
+
+    generateDirectAllocationConstructor(node: IntrospectedDirectAllocationConstructor): string {
+        const ConstructorFields = node.fields.map(field => field.asString(this)).join("\n");
+
+        return `
     constructor(properties?: Partial<{
       ${ConstructorFields}
     }>);`;
-  }
-
-  generateClassFunction(node: IntrospectedClassFunction): string {
-    const invalid = isInvalid(node.name);
-
-    let parameters = node.parameters;
-    let output_parameters = node.output_parameters;
-    let return_type = node.return();
-
-    const Parameters = this.generateParameters(parameters);
-    let ReturnType = this.generateReturn(return_type, output_parameters);
-
-    const Generics = this.generateGenerics(node.generics);
-
-    if (node.shouldAnyify()) {
-      return `${
-        invalid ? `["${node.name}"]` : node.name
-      }: ${Generics}((${Parameters}) => ${ReturnType}) | any;`;
     }
 
-    const warning = node.getWarning();
-    return `${warning ? `${warning}\n` : ""}${this.docString(node)}${
-      invalid ? `["${node.name}"]` : node.name
-    }${Generics}(${Parameters}): ${ReturnType};`;
-  }
+    generateClassFunction(node: IntrospectedClassFunction): string {
+        const invalid = isInvalid(node.name);
 
-  generateStaticClassFunction(node: IntrospectedStaticClassFunction): string {
-    const Generics = this.generateGenerics(node.generics);
+        const parameters = node.parameters;
+        const output_parameters = node.output_parameters;
+        const return_type = node.return();
 
-    let ReturnType = this.generateReturn(node.return(), node.output_parameters);
+        const Parameters = this.generateParameters(parameters);
+        const ReturnType = this.generateReturn(return_type, output_parameters);
 
-    const warning = node.getWarning();
-    return `${warning ? `${warning}\n` : ""}${this.docString(node)}static ${node.name}${Generics}(${this.generateParameters(
-      node.parameters
-    )}): ${ReturnType};`;
-  }
+        const Generics = this.generateGenerics(node.generics);
 
-  generateAlias(node: IntrospectedAlias): string {
-    const { namespace, options } = this;
-    const Type = node.type.resolve(namespace, options).print(namespace, options);
-    const GenericBase = node.generics
-      .map(g => {
-        if (g.type) {
-          return `${g.name} = ${g.type.resolve(namespace, options).rootPrint(namespace, options)}`;
+        if (node.shouldAnyify()) {
+            return `${invalid ? `["${node.name}"]` : node.name}: ${Generics}((${Parameters}) => ${ReturnType}) | any;`;
         }
 
-        return `${g.name}`;
-      })
-      .join(", ");
-    const Generic = GenericBase ? `<${GenericBase}>` : "";
+        const warning = node.getWarning();
+        return `${warning ? `${warning}\n` : ""}${this.docString(node)}${
+            invalid ? `["${node.name}"]` : node.name
+        }${Generics}(${Parameters}): ${ReturnType};`;
+    }
 
-    return `${this.docString(node)}export type ${node.name}${Generic} = ${Type};`;
-  }
+    generateStaticClassFunction(node: IntrospectedStaticClassFunction): string {
+        const Generics = this.generateGenerics(node.generics);
 
-  generateVirtualClassFunction(node: IntrospectedVirtualClassFunction): string {
-    return this.generateClassFunction(node);
-  }
+        const ReturnType = this.generateReturn(node.return(), node.output_parameters);
+
+        const warning = node.getWarning();
+        return `${warning ? `${warning}\n` : ""}${this.docString(node)}static ${
+            node.name
+        }${Generics}(${this.generateParameters(node.parameters)}): ${ReturnType};`;
+    }
+
+    generateAlias(node: IntrospectedAlias): string {
+        const { namespace, options } = this;
+        const Type = node.type.resolve(namespace, options).print(namespace, options);
+        const GenericBase = node.generics
+            .map(g => {
+                if (g.type) {
+                    return `${g.name} = ${g.type.resolve(namespace, options).rootPrint(namespace, options)}`;
+                }
+
+                return `${g.name}`;
+            })
+            .join(", ");
+        const Generic = GenericBase ? `<${GenericBase}>` : "";
+
+        return `${this.docString(node)}export type ${node.name}${Generic} = ${Type};`;
+    }
+
+    generateVirtualClassFunction(node: IntrospectedVirtualClassFunction): string {
+        return this.generateClassFunction(node);
+    }
 }

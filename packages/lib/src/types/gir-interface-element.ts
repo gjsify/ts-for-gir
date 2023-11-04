@@ -19,7 +19,7 @@ export interface GirInterfaceElement extends PartOfModule, parser.GirInterfaceEl
     prerequisite?: GirPrerequisite[]
     implements?: GirImplements[]
     function?: GirFunctionElement[]
-    constructors?: GirConstructorElement[]
+    constructor?: GirConstructorElement[]
     method?: GirMethodElement[]
     'virtual-method'?: GirVirtualMethodElement[]
     field?: GirFieldElement[]

@@ -1,22 +1,22 @@
 import { FormatGenerator } from "./generator.js";
-import { GirNamespace } from "../gir/namespace.js";
+import { IntrospectedNamespace } from "../gir/namespace.js";
 
 import {
-  GirBaseClass,
+  IntrospectedBaseClass,
   GirRecord,
   GirInterface,
-  GirClass,
+  IntrospectedClass,
   filterConflicts,
   filterFunctionConflict,
   FilterBehavior,
   promisifyFunctions
 } from "../gir/class.js";
-import { GirConst } from "../gir/const.js";
-import { GirEnum, GirError, GirEnumMember } from "../gir/enum.js";
-import { GirProperty, GirField } from "../gir/property.js";
-import { GirSignal, GirSignalType } from "../gir/signal.js";
-import { GirFunction, GirConstructor, GirFunctionParameter, GirCallback, GirDirectAllocationConstructor } from "../gir/function.js";
-import { GirClassFunction, GirStaticClassFunction, GirVirtualClassFunction } from "../gir/function.js";
+import { IntrospectedConstant } from "../gir/const.js";
+import { IntrospectedEnum, IntrospectedError, GirEnumMember } from "../gir/enum.js";
+import { GirProperty, Field } from "../gir/property.js";
+import { IntrospectedSignal, IntrospectedSignalType } from "../gir/signal.js";
+import { IntrospectedFunction, IntrospectedConstructor, IntrospectedFunctionParameter, IntrospectedCallback, IntrospectedDirectAllocationConstructor } from "../gir/function.js";
+import { IntrospectedClassFunction, IntrospectedStaticClassFunction, IntrospectedVirtualClassFunction } from "../gir/function.js";
 import { sanitizeIdentifierName, isInvalid, resolveDirectedType } from "../gir/util.js";
 import {
   TypeExpression,
@@ -33,8 +33,8 @@ import {
   BinaryType,
   GirBase
 } from "../gir.js";
-import { Direction } from "@gi.ts/parser";
-import { GirAlias } from "../gir/alias.js";
+import { GirDirection } from "@gi.ts/parser";
+import { IntrospectedAlias } from "../gir/alias.js";
 import { GenerationOptions } from "../types.js";
 
 export function versionImportFormat(versionFormat: string, namespace: string, version: string) {
@@ -45,11 +45,11 @@ export function versionImportFormat(versionFormat: string, namespace: string, ve
 }
 
 export abstract class DtsGenerator extends FormatGenerator<string> {
-  constructor(namespace: GirNamespace, options: GenerationOptions) {
+  constructor(namespace: IntrospectedNamespace, options: GenerationOptions) {
     super(namespace, options);
   }
 
-  protected generateParameters(parameters: GirFunctionParameter[]): string {
+  protected generateParameters(parameters: IntrospectedFunctionParameter[]): string {
     return parameters
       .map(p => {
         return p.asString(this);
@@ -87,7 +87,7 @@ export abstract class DtsGenerator extends FormatGenerator<string> {
     return "";
   }
 
-  generateCallbackType(node: GirCallback): [string, string] {
+  generateCallbackType(node: IntrospectedCallback): [string, string] {
     const { namespace, options } = this;
 
     const Parameters = this.generateParameters(node.parameters);
@@ -103,15 +103,15 @@ export abstract class DtsGenerator extends FormatGenerator<string> {
     return [``, `(${Parameters}) => ${node.return().resolve(namespace, options).print(namespace, options)}`];
   }
 
-  generateCallback(node: GirCallback): string {
+  generateCallback(node: IntrospectedCallback): string {
     return `${this.docString(node)}export type ${node.name}${this.generateCallbackType(node).join(" = ")};`;
   }
 
-  generateReturn(return_type: TypeExpression, output_parameters: GirFunctionParameter[]) {
+  generateReturn(return_type: TypeExpression, output_parameters: IntrospectedFunctionParameter[]) {
     const { namespace, options } = this;
 
     let resolved_return_type =
-      resolveDirectedType(return_type, Direction.Out)?.resolve(namespace, options) ??
+      resolveDirectedType(return_type, GirDirection.Out)?.resolve(namespace, options) ??
       return_type.resolve(namespace, options);
 
     const type = resolved_return_type.rootPrint(namespace, options);
@@ -123,7 +123,7 @@ export abstract class DtsGenerator extends FormatGenerator<string> {
         ...output_parameters
           .map(op => {
             return (
-              resolveDirectedType(op.type, Direction.Out)?.resolve(namespace, options) ??
+              resolveDirectedType(op.type, GirDirection.Out)?.resolve(namespace, options) ??
               op.type.resolve(namespace, options)
             );
           })
@@ -139,7 +139,7 @@ export abstract class DtsGenerator extends FormatGenerator<string> {
     return type;
   }
 
-  generateEnum(node: GirEnum): string {
+  generateEnum(node: IntrospectedEnum): string {
     const { namespace } = this;
 
     const isInvalidEnum = Array.from(node.members.keys()).some(
@@ -165,7 +165,7 @@ ${this.docString(node)}export enum ${node.name} {
 }`;
   }
 
-  generateError(node: GirError): string {
+  generateError(node: IntrospectedError): string {
     const { namespace } = this;
     const clazz = node.asClass();
 
@@ -178,13 +178,13 @@ ${this.docString(node)}export enum ${node.name} {
     clazz.parent = GLibError.getType();
 
     // Manually construct a GLib.Error constructor.
-    clazz.mainConstructor = new GirConstructor({
+    clazz.mainConstructor = new IntrospectedConstructor({
       name: "new",
       parameters: [
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "options",
           type: NativeType.of("{ message: string, code: number}"),
-          direction: Direction.In
+          direction: GirDirection.In
         })
       ],
       return_type: clazz.getType()
@@ -193,13 +193,13 @@ ${this.docString(node)}export enum ${node.name} {
     return clazz.asString(this);
   }
 
-  generateConst(node: GirConst): string {
+  generateConst(node: IntrospectedConstant): string {
     const { namespace, options } = this;
 
     return `${this.docString(node)}export const ${node.name}: ${node.type.resolve(namespace, options).print(namespace, options)};`;
   }
 
-  protected implements(node: GirClass) {
+  protected implements(node: IntrospectedClass) {
     const { namespace, options } = this;
 
     const interfaces = node.interfaces.map(i => {
@@ -226,7 +226,7 @@ ${this.docString(node)}export enum ${node.name} {
     return "";
   }
 
-  protected extends(node: GirBaseClass) {
+  protected extends(node: IntrospectedBaseClass) {
     const { namespace: ns, options } = this;
     if (node.parent) {
       const ResolvedType = node.parent.resolveIdentifier(ns, options);
@@ -265,7 +265,7 @@ ${this.docString(node)}export enum ${node.name} {
     const filteredFunctions = filterFunctionConflict(node.namespace, node, node.members, []);
     const functions = options.promisify ? promisifyFunctions(filteredFunctions) : filteredFunctions;
 
-    const staticFunctions = functions.filter(f => f instanceof GirStaticClassFunction);
+    const staticFunctions = functions.filter(f => f instanceof IntrospectedStaticClassFunction);
     const staticFields = node.fields
       .filter(f => f.isStatic)
       .map(f =>
@@ -274,7 +274,7 @@ ${this.docString(node)}export enum ${node.name} {
         })
       );
 
-    const nonStaticFunctions = functions.filter(f => !(f instanceof GirStaticClassFunction));
+    const nonStaticFunctions = functions.filter(f => !(f instanceof IntrospectedStaticClassFunction));
     const nonStaticFields = node.fields.filter(f => !f.isStatic);
 
     const hasNamespace = isGObject || staticFunctions.length > 0 || node.callbacks.length > 0;
@@ -300,7 +300,7 @@ ${this.docString(node)}export enum ${node.name} {
     ${staticFields.length > 0 ? staticFields.map(sf => sf.asString(this)).join(`\n`) : ""}
     ${
       staticFunctions.length > 0
-        ? staticFunctions.map(sf => GirClassFunction.prototype.asString.call(sf, this)).join(`\n`)
+        ? staticFunctions.map(sf => IntrospectedClassFunction.prototype.asString.call(sf, this)).join(`\n`)
         : ""
     }    
     }`
@@ -394,7 +394,7 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${node.indexSi
 }`;
   }
 
-  generateClass(node: GirClass): string {
+  generateClass(node: IntrospectedClass): string {
     const { options, namespace } = this;
 
     const name = node.name;
@@ -468,62 +468,62 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${node.indexSi
 
     // TODO Move these to a cleaner place.
 
-    const Connect = new GirClassFunction({
+    const Connect = new IntrospectedClassFunction({
       name: "connect",
       parent: node,
       parameters: [
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "id",
           type: StringType,
-          direction: Direction.In
+          direction: GirDirection.In
         }),
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "callback",
           type: AnyFunctionType,
-          direction: Direction.In
+          direction: GirDirection.In
         })
       ],
       return_type: NumberType
     });
 
-    const ConnectAfter = new GirClassFunction({
+    const ConnectAfter = new IntrospectedClassFunction({
       name: "connect_after",
       parent: node,
       parameters: [
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "id",
           type: StringType,
-          direction: Direction.In
+          direction: GirDirection.In
         }),
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "callback",
           type: AnyFunctionType,
-          direction: Direction.In
+          direction: GirDirection.In
         })
       ],
       return_type: NumberType
     });
 
-    const Emit = new GirClassFunction({
+    const Emit = new IntrospectedClassFunction({
       name: "emit",
       parent: node,
       parameters: [
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "id",
           type: StringType,
-          direction: Direction.In
+          direction: GirDirection.In
         }),
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "args",
           isVarArgs: true,
           type: new ArrayType(AnyType),
-          direction: Direction.In
+          direction: GirDirection.In
         })
       ],
       return_type: VoidType
     });
 
-    let default_signals = [] as GirClassFunction[];
+    let default_signals = [] as IntrospectedClassFunction[];
     let hasConnect, hasConnectAfter, hasEmit;
 
     if (node.signals.length > 0) {
@@ -555,9 +555,9 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${node.indexSi
         .map(s => {
           const methods = [] as string[];
 
-          if (!hasConnect) methods.push(s.asString(this, GirSignalType.CONNECT));
-          if (!hasConnectAfter) methods.push(s.asString(this, GirSignalType.CONNECT_AFTER));
-          if (!hasEmit) methods.push(s.asString(this, GirSignalType.EMIT));
+          if (!hasConnect) methods.push(s.asString(this, IntrospectedSignalType.CONNECT));
+          if (!hasConnectAfter) methods.push(s.asString(this, IntrospectedSignalType.CONNECT_AFTER));
+          if (!hasEmit) methods.push(s.asString(this, IntrospectedSignalType.EMIT));
 
           return methods;
         })
@@ -626,7 +626,7 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${node.indexSi
 }`;
   }
 
-  generateField(node: GirField): string {
+  generateField(node: Field): string {
     const { namespace, options } = this;
     const { name, computed } = node;
     const invalid = isInvalid(name);
@@ -725,13 +725,13 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${node.indexSi
     }
   }
 
-  generateSignal(node: GirSignal, type: GirSignalType = GirSignalType.CONNECT): string {
+  generateSignal(node: IntrospectedSignal, type: IntrospectedSignalType = IntrospectedSignalType.CONNECT): string {
     switch (type) {
-      case GirSignalType.CONNECT:
+      case IntrospectedSignalType.CONNECT:
         return node.asConnect(false).asString(this);
-      case GirSignalType.CONNECT_AFTER:
+      case IntrospectedSignalType.CONNECT_AFTER:
         return node.asConnect(true).asString(this);
-      case GirSignalType.EMIT:
+      case IntrospectedSignalType.EMIT:
         return node.asEmit().asString(this);
     }
   }
@@ -745,7 +745,7 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${node.indexSi
     }
   }
 
-  generateParameter(node: GirFunctionParameter): string {
+  generateParameter(node: IntrospectedFunctionParameter): string {
     const { namespace, options } = this;
 
     let type: string =
@@ -775,7 +775,7 @@ ${node.doc.split('\n').map(line => ` * ${line.trim()
     */\n` : ''
   }
 
-  generateFunction(node: GirFunction): string {
+  generateFunction(node: IntrospectedFunction): string {
     const { namespace } = this;
     // Register our identifier with the sanitized identifiers.
     // We avoid doing this in fromXML because other class-level function classes
@@ -788,7 +788,7 @@ ${node.doc.split('\n').map(line => ` * ${line.trim()
     return `${this.docString(node)}export function ${node.name}${Generics}(${Parameters}): ${ReturnType};`;
   }
 
-  generateConstructorFunction(node: GirConstructor): string {
+  generateConstructorFunction(node: IntrospectedConstructor): string {
     const { namespace, options } = this;
 
     const Parameters = this.generateParameters(node.parameters);
@@ -802,13 +802,13 @@ ${node.doc.split('\n').map(line => ` * ${line.trim()
       .rootPrint(namespace, options)};`;
   }
 
-  generateConstructor(node: GirConstructor): string {
+  generateConstructor(node: IntrospectedConstructor): string {
     const Parameters = this.generateParameters(node.parameters);
 
     return `constructor(${Parameters});`;
   }
 
-  generateDirectAllocationConstructor(node: GirDirectAllocationConstructor): string {
+  generateDirectAllocationConstructor(node: IntrospectedDirectAllocationConstructor): string {
     const ConstructorFields = node.fields.map(field => field.asString(this)).join(`\n`);
 
     return `
@@ -817,7 +817,7 @@ ${node.doc.split('\n').map(line => ` * ${line.trim()
     }>);`;
   }
 
-  generateClassFunction(node: GirClassFunction): string {
+  generateClassFunction(node: IntrospectedClassFunction): string {
     const invalid = isInvalid(node.name);
 
     let parameters = node.parameters;
@@ -841,7 +841,7 @@ ${node.doc.split('\n').map(line => ` * ${line.trim()
     }${Generics}(${Parameters}): ${ReturnType};`;
   }
 
-  generateStaticClassFunction(node: GirStaticClassFunction): string {
+  generateStaticClassFunction(node: IntrospectedStaticClassFunction): string {
     const Generics = this.generateGenerics(node.generics);
 
     let ReturnType = this.generateReturn(node.return(), node.output_parameters);
@@ -852,7 +852,7 @@ ${node.doc.split('\n').map(line => ` * ${line.trim()
     )}): ${ReturnType};`;
   }
 
-  generateAlias(node: GirAlias): string {
+  generateAlias(node: IntrospectedAlias): string {
     const { namespace, options } = this;
     const Type = node.type.resolve(namespace, options).print(namespace, options);
     const GenericBase = node.generics
@@ -869,7 +869,7 @@ ${node.doc.split('\n').map(line => ` * ${line.trim()
     return `${this.docString(node)}export type ${node.name}${Generic} = ${Type};`;
   }
 
-  generateVirtualClassFunction(node: GirVirtualClassFunction): string {
+  generateVirtualClassFunction(node: IntrospectedVirtualClassFunction): string {
     return this.generateClassFunction(node);
   }
 }

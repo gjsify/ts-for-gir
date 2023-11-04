@@ -1,10 +1,10 @@
 import { AnyType, StringType } from "../gir.js";
-import { GirNamespace } from "../gir/namespace.js";
+import { IntrospectedNamespace } from "../gir/namespace.js";
 
 export default {
   namespace: "GLib",
   version: "2.0",
-  modifier: (namespace: GirNamespace) => {
+  modifier: (namespace: IntrospectedNamespace) => {
     const HashTable = namespace.getClass("HashTable");
 
     if (!HashTable) {

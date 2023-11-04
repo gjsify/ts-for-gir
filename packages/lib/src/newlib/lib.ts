@@ -1,4 +1,4 @@
-import { GirNSRegistry } from "./gir/registry.js";
+import { NSRegistry } from "./gir/registry.js";
 import { SanitizedIdentifiers } from "./gir/util.js";
 
 import { GenerationOptions, Metadata } from "./types.js";
@@ -14,15 +14,15 @@ export * from "./types.js";
 export * from "./gir.js";
 export * from "./gir/nodes.js";
 
-export { GirNSRegistry } from "./gir/registry.js";
+export { NSRegistry as GirNSRegistry } from "./gir/registry.js";
 export { Formatter } from "./formatters/formatter.js";
 
 export function getSanitizedIdentifiers(): ReadonlyMap<string, string> {
   return SanitizedIdentifiers;
 }
 
-export function createRegistry(): GirNSRegistry {
-  return new GirNSRegistry();
+export function createRegistry(): NSRegistry {
+  return new NSRegistry();
 }
 
 export interface GeneratedModule {
@@ -32,7 +32,7 @@ export interface GeneratedModule {
 
 export async function generateModule(
   options: GenerationOptions,
-  registry: GirNSRegistry,
+  registry: NSRegistry,
   name: string,
   version: string
 ): Promise<GeneratedModule | null> {

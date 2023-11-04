@@ -1,16 +1,16 @@
 import { TypeExpression } from "../gir.js";
-import {GirBase, GirOptions, GirMetadata} from './base.js';
-import { FieldElement, PropertyElement } from "@gi.ts/parser";
+import {IntrospectedBase, Options} from './base.js';
+import { GirFieldElement, GirPropertyElement } from "../../index.js";
 
 import { getType, parseDoc, parseMetadata } from "./util.js";
-import { GirNamespace, isIntrospectable } from "./namespace.js";
+import { IntrospectedNamespace, isIntrospectable } from "./namespace.js";
 import { FormatGenerator } from "../generators/generator.js";
 import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
-import { GirBaseClass } from "./class.js";
-import { GirEnum } from "./enum.js";
+import { IntrospectedBaseClass } from "./class.js";
+import { IntrospectedEnum } from "./enum.js";
 
-export class GirField extends GirBase {
+export class Field extends IntrospectedBase {
   type: TypeExpression;
 
   // TODO: Make these properties readonly
@@ -20,10 +20,10 @@ export class GirField extends GirBase {
   writable: boolean;
   isNative: boolean = false;
 
-  copy(options?: { parent?: GirBase; type?: TypeExpression; isStatic?: boolean }): GirField {
+  copy(options?: { parent?: IntrospectedBase; type?: TypeExpression; isStatic?: boolean }): Field {
     const { type, name, optional, computed, isStatic, writable } = this;
 
-    return new GirField({
+    return new Field({
       name,
       type: options?.type ?? type,
       optional,
@@ -41,7 +41,7 @@ export class GirField extends GirBase {
     isStatic = false,
     writable = true,
     ...args
-  }: GirOptions<{
+  }: Options<{
     name: string;
     type: TypeExpression;
     computed?: boolean;
@@ -62,7 +62,7 @@ export class GirField extends GirBase {
     return generator.generateField(this);
   }
 
-  accept(visitor: GirVisitor): GirField {
+  accept(visitor: GirVisitor): Field {
     const node = this.copy({
       type: visitor.visitType?.(this.type) ?? this.type
     });
@@ -72,14 +72,14 @@ export class GirField extends GirBase {
 
   static fromXML(
     namespace: string,
-    ns: GirNamespace,
+    ns: IntrospectedNamespace,
     _options: LoadOptions,
     _parent,
-    field: FieldElement
-  ): GirField {
+    field: GirFieldElement
+  ): Field {
     let name = field.$["name"];
     let _name = name.replace(/[-]/g, "_");
-    const f = new GirField({
+    const f = new Field({
       name: _name,
       type: getType(namespace, ns, field),
       isPrivate: field.$.private === "1",
@@ -90,20 +90,20 @@ export class GirField extends GirBase {
   }
 }
 
-export class JSField extends GirField {
+export class JSField extends Field {
   isNative = true;
 }
 
-export class GirProperty extends GirBase {
+export class GirProperty extends IntrospectedBase {
   type: TypeExpression;
 
   readonly writable: boolean = false;
   readonly readable: boolean = true;
   readonly constructOnly: boolean;
 
-  parent: GirBaseClass | GirEnum;
+  parent: IntrospectedBaseClass | IntrospectedEnum;
 
-  copy(options?: { name?: string; parent?: GirBaseClass | GirEnum; type?: TypeExpression }): GirProperty {
+  copy(options?: { name?: string; parent?: IntrospectedBaseClass | IntrospectedEnum; type?: TypeExpression }): GirProperty {
     const { name, writable, readable, type, constructOnly, parent } = this;
 
     return new GirProperty({
@@ -133,13 +133,13 @@ export class GirProperty extends GirBase {
     constructOnly,
     parent,
     ...args
-  }: GirOptions<{
+  }: Options<{
     name: string;
     type: TypeExpression;
     writable: boolean;
     readable: boolean;
     constructOnly: boolean;
-    parent: GirBaseClass | GirEnum;
+    parent: IntrospectedBaseClass | IntrospectedEnum;
   }>) {
     super(name, { ...args });
 
@@ -177,10 +177,10 @@ export class GirProperty extends GirBase {
 
   static fromXML(
     namespace: string,
-    ns: GirNamespace,
+    ns: IntrospectedNamespace,
     options: LoadOptions,
-    parent: GirBaseClass | GirEnum,
-    prop: PropertyElement
+    parent: IntrospectedBaseClass | IntrospectedEnum,
+    prop: GirPropertyElement
   ): GirProperty {
     let name = prop.$["name"];
     let _name = name.replace(/[-]/g, "_");

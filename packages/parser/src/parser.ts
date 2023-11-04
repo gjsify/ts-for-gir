@@ -6,12 +6,12 @@ export function parseGir(contents: string): GirXML {
         attributeNamePrefix: "",
         attrNodeName: "$", // default is 'false',
         textNodeName: "_",
-        ignoreAttributes : false,
-        ignoreNameSpace : false,
-        allowBooleanAttributes : true,
-        parseNodeValue : true,
-        parseAttributeValue : false,
+        ignoreAttributes: false,
+        ignoreNameSpace: false,
+        allowBooleanAttributes: true,
+        parseNodeValue: true,
+        parseAttributeValue: false,
         trimValues: true,
-        arrayMode: true
+        arrayMode: true,
     }) as GirXML;
 }

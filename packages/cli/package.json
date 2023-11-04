@@ -68,6 +68,7 @@
     "typescript": "5.2.2"
   },
   "dependencies": {
+    "@gi.ts/parser": "workspace:^",
     "@ts-for-gir/generator-base": "workspace:^",
     "@ts-for-gir/generator-html-doc": "workspace:^",
     "@ts-for-gir/generator-typescript": "workspace:^",

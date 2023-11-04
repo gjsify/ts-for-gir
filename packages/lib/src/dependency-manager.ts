@@ -98,8 +98,6 @@ export class DependencyManager {
         // Special case for Gjs
         if (namespaceOrPackageName === 'Gjs') {
             return this.getGjs()
-        } else if (namespaceOrPackageName === 'node-gtk') {
-            return this.getNodeGtk()
         }
 
         const args = this.parseArgs(namespaceOrPackageName, version)
@@ -207,8 +205,6 @@ export class DependencyManager {
         // Special case for Gjs
         if (namespace === 'Gjs') {
             return this.getGjs()
-        } else if (namespace === 'node-gtk') {
-            return this.getNodeGtk()
         }
 
         const packageNames = this.getAllPackageNames()
@@ -251,9 +247,5 @@ export class DependencyManager {
 
     getGjs(): Dependency {
         return this.getPseudoPackage('Gjs')
-    }
-
-    getNodeGtk(): Dependency {
-        return this.getPseudoPackage('node-gtk')
     }
 }

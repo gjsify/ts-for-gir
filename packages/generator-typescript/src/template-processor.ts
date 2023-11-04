@@ -72,9 +72,7 @@ export class TemplateProcessor {
             if (environment === 'gjs' && !baseDir.endsWith('/gjs')) {
                 return join(baseDir, 'gjs')
             }
-        if (environment === 'node' && !baseDir.endsWith('/node-gtk')) {
-            return join(baseDir, 'node-gtk')
-        }
+
         return baseDir
     }
 

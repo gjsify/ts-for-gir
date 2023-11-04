@@ -89,7 +89,7 @@ export class Config {
             alias: 'e',
             description: 'Javascript environment',
             array: true,
-            choices: ['gjs', 'node'],
+            choices: ['gjs'],
             default: Config.defaults.environments,
             normalize: true,
         },

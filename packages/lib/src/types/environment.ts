@@ -1,1 +1,1 @@
-export type Environment = 'gjs' | 'node'
+export type Environment = 'gjs'

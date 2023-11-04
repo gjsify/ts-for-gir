@@ -1504,10 +1504,6 @@ export class GirModule {
 
         const { returnTypes, outArrayLengthIndex, retTypeIsVoid } = this.getReturnType(girSignalFunc, girClass._tsData)
 
-        if (this.config.environment === 'node') {
-            returnTypes[0].type === 'void'
-        }
-
         const tsCallback: TsCallback = {
             name, // TODO: 'callback'?
             returnTypes,
@@ -1614,8 +1610,6 @@ export class GirModule {
                 const objParam = `$obj: ${girClass._tsData.name}`
                 // TODO: create arrowType object instead of a pure string type, see Pango-1.0.Pango.FontMapClass.load_font for an example
                 callbackType = `((${objParam}, pspec: ${namespacePrefix}ParamSpec) => void)`
-            } else if (this.config.environment === 'node') {
-                callbackType = `(...args: any[]) => void`
             }
             tsMethods.push(
                 ...this.girFactory.newTsSignalMethods(
@@ -2007,14 +2001,6 @@ export class GirModule {
                     isStatic: true,
                     name: '$gtype',
                     type: [type],
-                    girTypeName: 'property',
-                })
-                girProperties.push(staticGTypeProp)
-            } else if (this.config.environment === 'node') {
-                const staticGTypeProp = this.girFactory.newGirProperty({
-                    isStatic: false,
-                    name: '__gtype__',
-                    type: [{ type: 'number' }],
                     girTypeName: 'property',
                 })
                 girProperties.push(staticGTypeProp)

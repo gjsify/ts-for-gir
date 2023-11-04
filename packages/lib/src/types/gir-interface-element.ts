@@ -1,45 +1,25 @@
 import {
-    GirInfoElements,
-    GirPrerequisite,
-    GirImplements,
-    GirConstructorElement,
-    GirMethodElement,
-    GirVirtualMethodElement,
-    GirFunctionElement,
-    GirFieldElement,
-    GirPropertyElement,
     GirCallbackElement,
     GirConstantElement,
+    GirConstructorElement,
+    GirFieldElement,
+    GirFunctionElement,
+    GirImplements,
+    GirMethodElement,
+    GirPrerequisite,
+    GirPropertyElement,
     GirSignalElement,
+    GirVirtualMethodElement,
     PartOfModule,
     TsClass,
 } from './index.js'
+import * as parser from '@gi.ts/parser'
 
-export interface GirInterfaceElement extends PartOfModule, GirInfoElements {
-    /** Abstract interface to other classes */
-    $: {
-        //Attributes of an Interface (see definition below)
-
-        /** name of the interface */
-        name: string
-        /** Type name compatible with the GObject type system */
-        'glib:type-name': string
-        /** Function to get the GObject compatible type of the interface  */
-        'glib:get-type': string
-        /** prefix to filter out from C functions. For example, gtk_window_new will lose gtk_ */
-        'c:symbol-prefix'?: string
-        /** Corresponding C type */
-        'c:type'?: string
-        /** GObject compatible C structure defining the Interface */
-        'glib:type-struct'?: string
-    }
-
-    //Other elements an interface can contain
-
+export interface GirInterfaceElement extends PartOfModule, parser.GirInterfaceElement {
     prerequisite?: GirPrerequisite[]
     implements?: GirImplements[]
     function?: GirFunctionElement[]
-    constructors?: GirConstructorElement[] // Typed as optional
+    constructors?: GirConstructorElement[]
     method?: GirMethodElement[]
     'virtual-method'?: GirVirtualMethodElement[]
     field?: GirFieldElement[]

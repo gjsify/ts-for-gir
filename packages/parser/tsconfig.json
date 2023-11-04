@@ -3,7 +3,6 @@
     "target": "ES2017",
     "module": "ES2020",
     "moduleResolution": "node",
-    "rootDir": "src",
     "outDir": "dist",
     "resolveJsonModule": true,
     "noImplicitThis": true,
@@ -14,11 +13,12 @@
     "declaration": true,
     "strictPropertyInitialization": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
     "lib": [
       "ES2019"
     ]
   },
   "include": [
-    "src/**/*"
+    "./src/**/*.ts"
   ]
 }

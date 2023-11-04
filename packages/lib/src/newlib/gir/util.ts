@@ -1,123 +1,122 @@
 import { deprecatedVersion, IntrospectedNamespace, introducedVersion, isDeprecated } from "./namespace.js";
 import {
-  GirCallableParamElement,
-  GirDirection,
-  GirAliasElement,
-  GirDocElement,
-  GirInfoAttrs,
-  GirType,
-  GirConstantElement,
-  GirCallableReturn,
-  GirFieldElement
+    GirCallableParamElement,
+    GirDirection,
+    GirAliasElement,
+    GirDocElement,
+    GirInfoAttrs,
+    GirType,
+    GirConstantElement,
+    GirCallableReturn,
+    GirFieldElement
 } from "@gi.ts/parser";
 import {
-  TypeIdentifier,
-  ThisType,
-  ArrayType,
-  ClosureType,
-  GTypeType,
-  BinaryType,
-  ObjectType,
-  NullableType,
-  TypeExpression,
-  StringType,
-  NumberType,
-  BooleanType,
-  Uint8ArrayType,
-  AnyType,
-  UnknownType,
-  NeverType,
-  VoidType,
-  GenerifiedTypeIdentifier,
-  GenericType,
-
-  NativeType
+    TypeIdentifier,
+    ThisType,
+    ArrayType,
+    ClosureType,
+    GTypeType,
+    BinaryType,
+    ObjectType,
+    NullableType,
+    TypeExpression,
+    StringType,
+    NumberType,
+    BooleanType,
+    Uint8ArrayType,
+    AnyType,
+    UnknownType,
+    NeverType,
+    VoidType,
+    GenerifiedTypeIdentifier,
+    GenericType,
+    NativeType
 } from "../gir.js";
-import {IntrospectedBase, Options, Metadata} from './base.js';
+import { Metadata } from "./base.js";
 import { IntrospectedBaseClass } from "./class.js";
 import { TwoKeyMap } from "../util.js";
 
 const reservedWords = [
-  // For now, at least, the typescript compiler doesn't throw on numerical types like int, float, etc.
-  "abstract",
-  "arguments",
-  "await",
-  "boolean",
-  "break",
-  "byte",
-  "case",
-  "catch",
-  "char",
-  "class",
-  "const",
-  "continue",
-  "constructor", // This isn't technically reserved, but it's problematic.
-  "debugger",
-  "default",
-  "delete",
-  "do",
-  // "double",
-  "else",
-  "enum",
-  "eval",
-  "export",
-  "extends",
-  "false",
-  "final",
-  "finally",
-  // "float",
-  "for",
-  "function",
-  "goto",
-  "if",
-  "implements",
-  "import",
-  "in",
-  "instanceof",
-  // "int",
-  "interface",
-  "let",
-  // "long",
-  "native",
-  "new",
-  "null",
-  "package",
-  "private",
-  "protected",
-  "public",
-  "return",
-  "short",
-  "static",
-  "super",
-  "switch",
-  "synchronized",
-  "this",
-  "throw",
-  "throws",
-  "transient",
-  "true",
-  "try",
-  "typeof",
-  "var",
-  "void",
-  "volatile",
-  "while",
-  "with",
-  "yield"
+    // For now, at least, the typescript compiler doesn't throw on numerical types like int, float, etc.
+    "abstract",
+    "arguments",
+    "await",
+    "boolean",
+    "break",
+    "byte",
+    "case",
+    "catch",
+    "char",
+    "class",
+    "const",
+    "continue",
+    "constructor", // This isn't technically reserved, but it's problematic.
+    "debugger",
+    "default",
+    "delete",
+    "do",
+    // "double",
+    "else",
+    "enum",
+    "eval",
+    "export",
+    "extends",
+    "false",
+    "final",
+    "finally",
+    // "float",
+    "for",
+    "function",
+    "goto",
+    "if",
+    "implements",
+    "import",
+    "in",
+    "instanceof",
+    // "int",
+    "interface",
+    "let",
+    // "long",
+    "native",
+    "new",
+    "null",
+    "package",
+    "private",
+    "protected",
+    "public",
+    "return",
+    "short",
+    "static",
+    "super",
+    "switch",
+    "synchronized",
+    "this",
+    "throw",
+    "throws",
+    "transient",
+    "true",
+    "try",
+    "typeof",
+    "var",
+    "void",
+    "volatile",
+    "while",
+    "with",
+    "yield"
 ];
 
 export function getAliasType(modName: string, _ns: IntrospectedNamespace, parameter: GirAliasElement): TypeExpression {
-  let name = parameter.type?.[0].$["name"] || "unknown";
+    let name = parameter.type?.[0].$["name"] || "unknown";
 
-  let nameParts = name.split(" ");
+    const nameParts = name.split(" ");
 
-  if (nameParts.length === 1) {
-    name = nameParts[0];
-  } else {
-    name = nameParts[1];
-  }
+    if (nameParts.length === 1) {
+        name = nameParts[0];
+    } else {
+        name = nameParts[1];
+    }
 
-  return parseTypeExpression(modName, name);
+    return parseTypeExpression(modName, name);
 }
 
 /**
@@ -126,427 +125,427 @@ export function getAliasType(modName: string, _ns: IntrospectedNamespace, parame
  * Any type where the c:type ends with *
  */
 function isPointerType(types: GirType[] | undefined) {
-  const type = types?.[0];
-  if (!type) return false;
+    const type = types?.[0];
+    if (!type) return false;
 
-  const ctype = type.$["c:type"];
-  if (!ctype) return false;
+    const ctype = type.$["c:type"];
+    if (!ctype) return false;
 
-  const typeName = type.$.name;
-  if (!typeName) return false;
+    const typeName = type.$.name;
+    if (!typeName) return false;
 
-  if (isPrimitiveType(typeName)) return false;
+    if (isPrimitiveType(typeName)) return false;
 
-  return ctype.endsWith("*");
+    return ctype.endsWith("*");
 }
 
 /* Decode the type */
 export function getType(
-  modName: string,
-  _ns: IntrospectedNamespace,
-  param?: GirConstantElement | GirCallableReturn | GirFieldElement
+    modName: string,
+    _ns: IntrospectedNamespace,
+    param?: GirConstantElement | GirCallableReturn | GirFieldElement
 ): TypeExpression {
-  if (!param) return VoidType;
+    if (!param) return VoidType;
 
-  let name = "";
-  let arrayDepth: number | null = null;
-  let length: number | null = null;
-  let isPointer = false;
+    let name = "";
+    let arrayDepth: number | null = null;
+    let length: number | null = null;
+    let isPointer = false;
 
-  let parameter = param as GirCallableParamElement;
-  if (parameter.array && parameter.array[0]) {
-    arrayDepth = 1;
+    const parameter = param as GirCallableParamElement;
+    if (parameter.array && parameter.array[0]) {
+        arrayDepth = 1;
 
-    const [array] = parameter.array;
+        const [array] = parameter.array;
 
-    if (array.$ && array.$.length != null) {
-      length = Number.parseInt(array.$.length, 10);
+        if (array.$ && array.$.length != null) {
+            length = Number.parseInt(array.$.length, 10);
 
-      if (Number.isNaN(length)) {
-        throw new Error(`Error parsing array length: ${array.$.length}`);
-      }
-    }
+            if (Number.isNaN(length)) {
+                throw new Error(`Error parsing array length: ${array.$.length}`);
+            }
+        }
 
-    if (array.type && array.type[0].$ && array.type[0].$["name"]) {
-      name = array.type[0].$["name"];
-    } else if (array.array) {
-      let arr = array;
-      let depth = 1;
+        if (array.type && array.type[0].$ && array.type[0].$["name"]) {
+            name = array.type[0].$["name"];
+        } else if (array.array) {
+            let arr = array;
+            let depth = 1;
 
-      while (Array.isArray(arr.array)) {
-        arr = arr.array[0];
-        depth++;
-      }
+            while (Array.isArray(arr.array)) {
+                arr = arr.array[0];
+                depth++;
+            }
 
-      let possibleName = arr.type?.[0].$["name"];
-      if (possibleName) {
-        name = possibleName;
-      } else {
+            const possibleName = arr.type?.[0].$["name"];
+            if (possibleName) {
+                name = possibleName;
+            } else {
+                name = "unknown";
+                console.log(
+                    `Failed to find array type in ${modName}: `,
+                    JSON.stringify(parameter.$, null, 4),
+                    "\nMarking as unknown!"
+                );
+            }
+            arrayDepth = depth;
+            isPointer = isPointerType(array.type);
+        } else {
+            name = "unknown";
+        }
+    } else if (parameter.type && parameter.type[0] && parameter.type[0].$) {
+        const possibleName = parameter.type[0].$["name"];
+        if (possibleName) {
+            name = possibleName;
+        } else {
+            name = "unknown";
+            console.log(
+                `Failed to find type in ${modName}: `,
+                JSON.stringify(parameter.$, null, 4),
+                "\nMarking as unknown!"
+            );
+        }
+        isPointer = isPointerType(parameter.type);
+    } else if (parameter.varargs || (parameter.$ && parameter.$.name === "...")) {
+        arrayDepth = 1;
+        name = "any";
+    } else {
         name = "unknown";
         console.log(
-          `Failed to find array type in ${modName}: `,
-          JSON.stringify(parameter.$, null, 4),
-          "\nMarking as unknown!"
+            `Unknown varargs type in ${modName}: `,
+            JSON.stringify(parameter.$, null, 4),
+            "\nMarking as unknown!"
         );
-      }
-      arrayDepth = depth;
-      isPointer = isPointerType(array.type);
+    }
+
+    let closure = null as null | number;
+
+    if (parameter.$ && parameter.$.closure) {
+        closure = Number.parseInt(parameter.$.closure, 10);
+
+        if (Number.isNaN(closure)) {
+            throw new Error(`Error parsing closure data position: ${parameter.$.closure}`);
+        }
+    }
+
+    const nullable = parameter.$ && parameter.$["nullable"] === "1";
+    const allowNone = parameter.$ && parameter.$["allow-none"] === "1";
+
+    const x = name.split(" ");
+    if (x.length === 1) {
+        name = x[0];
     } else {
-      name = "unknown";
+        name = x[1];
     }
-  } else if (parameter.type && parameter.type[0] && parameter.type[0].$) {
-    let possibleName = parameter.type[0].$["name"];
-    if (possibleName) {
-      name = possibleName;
-    } else {
-      name = "unknown";
-      console.log(
-        `Failed to find type in ${modName}: `,
-        JSON.stringify(parameter.$, null, 4),
-        "\nMarking as unknown!"
-      );
+
+    const baseType = parseTypeString(name);
+
+    if (!baseType) {
+        throw new Error(`Un-parsable type: ${name}`);
     }
-    isPointer = isPointerType(parameter.type);
-  } else if (parameter.varargs || (parameter.$ && parameter.$.name === "...")) {
-    arrayDepth = 1;
-    name = "any";
-  } else {
-    name = "unknown";
-    console.log(
-      `Unknown varargs type in ${modName}: `,
-      JSON.stringify(parameter.$, null, 4),
-      "\nMarking as unknown!"
-    );
-  }
 
-  let closure = null as null | number;
+    let variableType: TypeExpression = parseTypeExpression(modName, name);
 
-  if (parameter.$ && parameter.$.closure) {
-    closure = Number.parseInt(parameter.$.closure, 10);
+    if (variableType instanceof TypeIdentifier) {
+        if (variableType.is("GLib", "List") || variableType.is("GLib", "SList")) {
+            const listType = parameter?.type?.[0].type?.[0]?.$.name;
 
-    if (Number.isNaN(closure)) {
-      throw new Error(`Error parsing closure data position: ${parameter.$.closure}`);
+            if (listType) {
+                name = listType;
+                variableType = parseTypeExpression(modName, name);
+
+                arrayDepth = 1;
+            }
+        } else if (variableType.is("GLib", "HashTable")) {
+            const keyType = parameter?.type?.[0]?.type?.[0]?.$.name;
+            const valueType = parameter?.type?.[0]?.type?.[1]?.$.name;
+
+            if (keyType && valueType) {
+                const key = parseTypeExpression(modName, keyType);
+                const value = parseTypeExpression(modName, valueType);
+
+                variableType = new GenerifiedTypeIdentifier("HashTable", "GLib", [key, value]);
+            }
+        }
     }
-  }
 
-  const nullable = parameter.$ && parameter.$["nullable"] === "1";
-  const allowNone = parameter.$ && parameter.$["allow-none"] === "1";
+    if (arrayDepth != null) {
+        const primitiveArrayType = resolvePrimitiveArrayType(name, arrayDepth);
 
-  let x = name.split(" ");
-  if (x.length === 1) {
-    name = x[0];
-  } else {
-    name = x[1];
-  }
+        if (primitiveArrayType) {
+            const [primitiveName, primitiveArrayDepth] = primitiveArrayType;
 
-  const baseType = parseTypeString(name);
-
-  if (!baseType) {
-    throw new Error(`Un-parsable type: ${name}`);
-  }
-
-  let variableType: TypeExpression = parseTypeExpression(modName, name);
-
-  if (variableType instanceof TypeIdentifier) {
-    if (variableType.is("GLib", "List") || variableType.is("GLib", "SList")) {
-      const listType = parameter?.type?.[0].type?.[0]?.$.name;
-
-      if (listType) {
-        name = listType;
-        variableType = parseTypeExpression(modName, name);
-
-        arrayDepth = 1;
-      }
-    } else if (variableType.is("GLib", "HashTable")) {
-      const keyType = parameter?.type?.[0]?.type?.[0]?.$.name;
-      const valueType = parameter?.type?.[0]?.type?.[1]?.$.name;
-
-      if (keyType && valueType) {
-        const key = parseTypeExpression(modName, keyType);
-        const value = parseTypeExpression(modName, valueType);
-
-        variableType = new GenerifiedTypeIdentifier("HashTable", "GLib", [key, value]);
-      }
+            variableType = ArrayType.new({
+                type: primitiveName,
+                arrayDepth: primitiveArrayDepth,
+                length
+            });
+        } else {
+            variableType = ArrayType.new({ type: variableType, arrayDepth, length });
+        }
+    } else if (closure != null) {
+        variableType = ClosureType.new({ type: variableType, user_data: closure });
     }
-  }
 
-  if (arrayDepth != null) {
-    const primitiveArrayType = resolvePrimitiveArrayType(name, arrayDepth);
-
-    if (primitiveArrayType) {
-      const [primitiveName, primitiveArrayDepth] = primitiveArrayType;
-
-      variableType = ArrayType.new({
-        type: primitiveName,
-        arrayDepth: primitiveArrayDepth,
-        length
-      });
-    } else {
-      variableType = ArrayType.new({ type: variableType, arrayDepth, length });
+    if (
+        parameter.$ &&
+        (parameter.$.direction === GirDirection.Inout || parameter.$.direction === GirDirection.Out) &&
+        (nullable || allowNone) &&
+        !(variableType instanceof NativeType)
+    ) {
+        return new NullableType(variableType);
     }
-  } else if (closure != null) {
-    variableType = ClosureType.new({ type: variableType, user_data: closure });
-  }
 
-  if (
-    parameter.$ &&
-    (parameter.$.direction === "inout" || parameter.$.direction === "out") &&
-    (nullable || allowNone) &&
-    !(variableType instanceof NativeType)
-  ) {
-    return new NullableType(variableType);
-  }
+    if ((!parameter.$?.direction || parameter.$.direction === GirDirection.In) && nullable) {
+        return new NullableType(variableType);
+    }
 
-  if ((!parameter.$?.direction || parameter.$.direction === "in") && nullable) {
-    return new NullableType(variableType);
-  }
+    variableType.isPointer = isPointer;
 
-  variableType.isPointer = isPointer;
-
-  return variableType;
+    return variableType;
 }
 
 export const SanitizedIdentifiers = new Map<string, string>();
 
 export function sanitizeIdentifierName(namespace: string | null, name: string): string {
-  // This is a unique case where the name is "empty".
-  if (name === "") {
-    return `''`;
-  }
+    // This is a unique case where the name is "empty".
+    if (name === "") {
+        return "''";
+    }
 
-  let sanitized_name = name.replace(/[^A-z0-9_]/gi, "_");
+    let sanitized_name = name.replace(/[^A-z0-9_]/gi, "_");
 
-  if (reservedWords.includes(sanitized_name)) {
-    sanitized_name = `__${sanitized_name}`;
-  }
+    if (reservedWords.includes(sanitized_name)) {
+        sanitized_name = `__${sanitized_name}`;
+    }
 
-  if (sanitized_name.match(/^[^A-z_]/) != null) {
-    sanitized_name = `__${sanitized_name}`;
-  }
+    if (sanitized_name.match(/^[^A-z_]/) != null) {
+        sanitized_name = `__${sanitized_name}`;
+    }
 
-  if (namespace && sanitized_name !== name) {
-    SanitizedIdentifiers.set(`${namespace}.${name}`, `${namespace}.${sanitized_name}`);
-  }
+    if (namespace && sanitized_name !== name) {
+        SanitizedIdentifiers.set(`${namespace}.${name}`, `${namespace}.${sanitized_name}`);
+    }
 
-  return sanitized_name;
+    return sanitized_name;
 }
 
 export function sanitizeMemberName(name: string): string {
-  // This is a unique case where the name is "empty".
-  if (name === "") {
-    return `''`;
-  }
+    // This is a unique case where the name is "empty".
+    if (name === "") {
+        return "''";
+    }
 
-  return name.replace(/[^A-z0-9_]/gi, "_");
+    return name.replace(/[^A-z0-9_]/gi, "_");
 }
 
 export function isInvalid(name: string): boolean {
-  if (reservedWords.includes(name)) {
-    return true;
-  }
+    if (reservedWords.includes(name)) {
+        return true;
+    }
 
-  const sanitized = sanitizeMemberName(name);
+    const sanitized = sanitizeMemberName(name);
 
-  if (sanitized.match(/^[^A-z_]/) != null) {
-    return true;
-  }
+    if (sanitized.match(/^[^A-z_]/) != null) {
+        return true;
+    }
 
-  return false;
+    return false;
 }
 
 export function parseDoc(element: GirDocElement): string | null {
-  return element.doc?.[0]?._ ?? null;
+    return element.doc?.[0]?._ ?? null;
 }
 
 export function parseDeprecatedDoc(element: GirDocElement): string | null {
-  return element["doc-deprecated"]?.[0]?._ ?? null;
+    return element["doc-deprecated"]?.[0]?._ ?? null;
 }
 
 export function parseMetadata(element: { $: GirInfoAttrs } & GirDocElement): Metadata | undefined {
-  const version = introducedVersion(element);
-  const deprecatedIn = deprecatedVersion(element);
-  const deprecated = isDeprecated(element);
-  const doc = parseDeprecatedDoc(element);
+    const version = introducedVersion(element);
+    const deprecatedIn = deprecatedVersion(element);
+    const deprecated = isDeprecated(element);
+    const doc = parseDeprecatedDoc(element);
 
-  if (!version && !deprecated && !deprecatedIn && !doc) {
-    return undefined;
-  }
+    if (!version && !deprecated && !deprecatedIn && !doc) {
+        return undefined;
+    }
 
-  return {
-    ...(deprecated ? { deprecated } : {}),
-    ...(doc ? { deprecatedDoc: doc } : {}),
-    ...(deprecatedIn ? { deprecatedVersion: deprecatedIn } : {}),
-    ...(version ? { introducedVersion: version } : {})
-  };
+    return {
+        ...(deprecated ? { deprecated } : {}),
+        ...(doc ? { deprecatedDoc: doc } : {}),
+        ...(deprecatedIn ? { deprecatedVersion: deprecatedIn } : {}),
+        ...(version ? { introducedVersion: version } : {})
+    };
 }
 
 export function parseTypeString(type: string): { namespace: string | null; name: string } {
-  if (type.includes(".")) {
-    const parts = type.split(".");
+    if (type.includes(".")) {
+        const parts = type.split(".");
 
-    if (parts.length > 2) {
-      throw new Error(`Invalid type string ${type} passed.`);
+        if (parts.length > 2) {
+            throw new Error(`Invalid type string ${type} passed.`);
+        }
+
+        const [namespace, name] = parts;
+
+        return { name, namespace };
+    } else {
+        return { name: type, namespace: null };
     }
-
-    const [namespace, name] = parts;
-
-    return { name, namespace };
-  } else {
-    return { name: type, namespace: null };
-  }
 }
 
 export function parseTypeIdentifier(modName: string, type: string): TypeIdentifier {
-  const baseType = parseTypeString(type);
+    const baseType = parseTypeString(type);
 
-  if (baseType.namespace) {
-    return new TypeIdentifier(baseType.name, baseType.namespace);
-  } else {
-    return new TypeIdentifier(baseType.name, modName);
-  }
+    if (baseType.namespace) {
+        return new TypeIdentifier(baseType.name, baseType.namespace);
+    } else {
+        return new TypeIdentifier(baseType.name, modName);
+    }
 }
 
 export function parseTypeExpression(modName: string, type: string): TypeExpression {
-  const baseType = parseTypeString(type);
+    const baseType = parseTypeString(type);
 
-  if (baseType.namespace) {
-    return new TypeIdentifier(baseType.name, baseType.namespace);
-  } else {
-    const primitiveType = resolvePrimitiveType(baseType.name);
-
-    if (primitiveType !== null) {
-      return primitiveType;
+    if (baseType.namespace) {
+        return new TypeIdentifier(baseType.name, baseType.namespace);
     } else {
-      return new TypeIdentifier(baseType.name, modName);
+        const primitiveType = resolvePrimitiveType(baseType.name);
+
+        if (primitiveType !== null) {
+            return primitiveType;
+        } else {
+            return new TypeIdentifier(baseType.name, modName);
+        }
     }
-  }
 }
 
 export function resolvePrimitiveArrayType(name: string, arrayDepth: number): [TypeExpression, number] | null {
-  if (arrayDepth > 0) {
-    switch (name) {
-      case "gint8":
-      case "guint8":
-        return [Uint8ArrayType, arrayDepth - 1];
+    if (arrayDepth > 0) {
+        switch (name) {
+            case "gint8":
+            case "guint8":
+                return [Uint8ArrayType, arrayDepth - 1];
+        }
     }
-  }
 
-  const resolvedName = resolvePrimitiveType(name);
+    const resolvedName = resolvePrimitiveType(name);
 
-  if (resolvedName) {
-    return [resolvedName, arrayDepth];
-  } else {
-    return null;
-  }
+    if (resolvedName) {
+        return [resolvedName, arrayDepth];
+    } else {
+        return null;
+    }
 }
 
 export function isPrimitiveType(name: string): boolean {
-  return resolvePrimitiveType(name) !== null;
+    return resolvePrimitiveType(name) !== null;
 }
 
 export function resolvePrimitiveType(name: string): TypeExpression | null {
-  switch (name) {
-    case "":
-      console.error("Resolving '' to any on " + name);
-      return AnyType;
-    case "filename":
-      return StringType;
-    // Pass this through
-    case "GType":
-      return GTypeType;
-    case "utf8":
-      return StringType;
-    case "void": // Support TS "void"
-    case "none":
-      return VoidType;
-    // TODO Some libraries are bad and don't use g-prefixed numerical types
-    case "uint32":
-    case "int32":
-    case "double":
-    // Most libraries will use these though:
-    case "gshort":
-    case "guint32":
-    case "guint16":
-    case "gint16":
-    case "gunichar":
-    case "gint8":
-    case "gint32":
-    case "gushort":
-    case "gfloat":
-    case "gchar":
-    case "guint":
-    case "glong":
-    case "gulong":
-    case "gint":
-    case "guint8":
-    case "guint64":
-    case "gint64":
-    case "gdouble":
-    case "gssize":
-    case "gsize":
-    case "long":
-      return NumberType;
-    case "gboolean":
-      return BooleanType;
-    case "gpointer": // This is typically used in callbacks to pass data, so we'll allow anything.
-      return AnyType;
-    case "object":
-      return ObjectType;
-    case "va_list":
-      return AnyType;
-    case "guintptr": // You can't use pointers in GJS! (at least that I'm aware of)
-      return NeverType;
-    case "never": // Support TS "never"
-      return NeverType;
-    case "unknown": // Support TS "unknown"
-      return UnknownType;
-    case "any": // Support TS "any"
-      return AnyType;
-    case "this": // Support TS "this"
-      return ThisType;
-    case "number": // Support TS "number"
-      return NumberType;
-    case "string": // Support TS "string"
-      return StringType;
-    case "boolean": // Support TS "boolean"
-      return BooleanType;
-    case "object": // Support TS "object"
-      return ObjectType;
-  }
+    switch (name) {
+        case "":
+            console.error("Resolving '' to any on " + name);
+            return AnyType;
+        case "filename":
+            return StringType;
+        // Pass this through
+        case "GType":
+            return GTypeType;
+        case "utf8":
+            return StringType;
+        case "void": // Support TS "void"
+        case "none":
+            return VoidType;
+        // TODO Some libraries are bad and don't use g-prefixed numerical types
+        case "uint32":
+        case "int32":
+        case "double":
+        // Most libraries will use these though:
+        case "gshort":
+        case "guint32":
+        case "guint16":
+        case "gint16":
+        case "gunichar":
+        case "gint8":
+        case "gint32":
+        case "gushort":
+        case "gfloat":
+        case "gchar":
+        case "guint":
+        case "glong":
+        case "gulong":
+        case "gint":
+        case "guint8":
+        case "guint64":
+        case "gint64":
+        case "gdouble":
+        case "gssize":
+        case "gsize":
+        case "long":
+            return NumberType;
+        case "gboolean":
+            return BooleanType;
+        case "gpointer": // This is typically used in callbacks to pass data, so we'll allow anything.
+            return AnyType;
+        case "object":
+            return ObjectType;
+        case "va_list":
+            return AnyType;
+        case "guintptr": // You can't use pointers in GJS! (at least that I'm aware of)
+            return NeverType;
+        case "never": // Support TS "never"
+            return NeverType;
+        case "unknown": // Support TS "unknown"
+            return UnknownType;
+        case "any": // Support TS "any"
+            return AnyType;
+        case "this": // Support TS "this"
+            return ThisType;
+        case "number": // Support TS "number"
+            return NumberType;
+        case "string": // Support TS "string"
+            return StringType;
+        case "boolean": // Support TS "boolean"
+            return BooleanType;
+        case "object": // Support TS "object"
+            return ObjectType;
+    }
 
-  return null;
+    return null;
 }
 
 export function resolveDirectedType(type: TypeExpression, direction: GirDirection): TypeExpression | null {
-  if (type instanceof ArrayType) {
-    if (
-      (direction === GirDirection.In || direction === GirDirection.Inout) &&
-      type.type.equals(Uint8ArrayType) &&
-      type.arrayDepth === 0
-    ) {
-      return new BinaryType(type, StringType);
+    if (type instanceof ArrayType) {
+        if (
+            (direction === GirDirection.In || direction === GirDirection.Inout) &&
+            type.type.equals(Uint8ArrayType) &&
+            type.arrayDepth === 0
+        ) {
+            return new BinaryType(type, StringType);
+        }
+    } else if (type instanceof TypeIdentifier) {
+        if ((direction === GirDirection.In || direction === GirDirection.Inout) && type.is("GLib", "Bytes")) {
+            return new BinaryType(type, Uint8ArrayType);
+        } else if (type.is("GObject", "Value")) {
+            if (direction === GirDirection.In || direction === GirDirection.Inout) {
+                return new BinaryType(type, AnyType);
+            } else {
+                // GJS converts GObject.Value out parameters to their unboxed type, which we don't know,
+                // so type as `unknown`
+                return UnknownType;
+            }
+        } else if (type.is("GLib", "HashTable")) {
+            if (direction === GirDirection.In) {
+                return new BinaryType(new NativeType("{ [key: string]: any }"), type);
+            } else {
+                return type;
+            }
+        }
     }
-  } else if (type instanceof TypeIdentifier) {
-    if ((direction === GirDirection.In || direction === GirDirection.Inout) && type.is("GLib", "Bytes")) {
-      return new BinaryType(type, Uint8ArrayType);
-    } else if (type.is("GObject", "Value")) {
-      if (direction === GirDirection.In || direction === GirDirection.Inout) {
-        return new BinaryType(type, AnyType);
-      } else {
-        // GJS converts GObject.Value out parameters to their unboxed type, which we don't know,
-        // so type as `unknown`
-        return UnknownType;
-      }
-    } else if (type.is("GLib", "HashTable")) {
-      if (direction === GirDirection.In) {
-        return new BinaryType(new NativeType("{ [key: string]: any }"), type);
-      } else {
-        return type;
-      }
-    }
-  }
 
-  return null;
+    return null;
 }
 
 /**
@@ -558,18 +557,21 @@ export function resolveDirectedType(type: TypeExpression, direction: GirDirectio
  * @param namespace
  * @param type
  */
-export function resolveTypeIdentifier(namespace: IntrospectedNamespace, type: TypeIdentifier): IntrospectedBaseClass | null {
-  const ns = type.namespace;
-  const name = type.name;
+export function resolveTypeIdentifier(
+    namespace: IntrospectedNamespace,
+    type: TypeIdentifier
+): IntrospectedBaseClass | null {
+    const ns = type.namespace;
+    const name = type.name;
 
-  const resolved_ns = namespace.assertInstalledImport(ns);
+    const resolved_ns = namespace.assertInstalledImport(ns);
 
-  const pclass = resolved_ns.getClass(name);
-  if (pclass) {
-    return pclass;
-  } else {
-    return null;
-  }
+    const pclass = resolved_ns.getClass(name);
+    if (pclass) {
+        return pclass;
+    } else {
+        return null;
+    }
 }
 
 /**
@@ -578,7 +580,7 @@ export function resolveTypeIdentifier(namespace: IntrospectedNamespace, type: Ty
  * @param b
  */
 function isTypeConflict(a: TypeExpression, b: TypeExpression) {
-  return !a.equals(b) || !b.equals(a);
+    return !a.equals(b) || !b.equals(a);
 }
 
 /**
@@ -593,65 +595,67 @@ function isTypeConflict(a: TypeExpression, b: TypeExpression) {
  * @param parentType
  */
 export function isSubtypeOf(
-  namespace: IntrospectedNamespace,
-  thisType: TypeIdentifier,
-  parentThisType: TypeIdentifier,
-  potentialSubtype: TypeExpression,
-  parentType: TypeExpression
+    namespace: IntrospectedNamespace,
+    thisType: TypeIdentifier,
+    parentThisType: TypeIdentifier,
+    potentialSubtype: TypeExpression,
+    parentType: TypeExpression
 ) {
-  if (!isTypeConflict(potentialSubtype, parentType)) {
-    return true;
-  }
-
-  const unwrappedSubtype = potentialSubtype.unwrap();
-  let unwrappedParent = parentType.unwrap();
-
-  if (
-    (potentialSubtype.equals(ThisType) && unwrappedParent.equals(thisType)) ||
-    (parentType.equals(ThisType) && unwrappedSubtype.equals(parentThisType))
-  ) {
-    return true;
-  }
-
-  if (unwrappedParent instanceof GenericType && unwrappedParent.identifier !== "T") {
-    // Technically there could be a conflicting generic, but most generic types should specify a replacement for type checking.
-    // "T" denotes a local function generic in the current implementation, those can't be ignored.
-    if (!unwrappedParent.replacedType) {
-      return true;
+    if (!isTypeConflict(potentialSubtype, parentType)) {
+        return true;
     }
 
-    // Use the generic replaced type as a stand-in.
-    unwrappedParent = unwrappedParent.replacedType;
-  }
+    const unwrappedSubtype = potentialSubtype.unwrap();
+    let unwrappedParent = parentType.unwrap();
 
-  if (!(unwrappedSubtype instanceof TypeIdentifier) || !(unwrappedParent instanceof TypeIdentifier)) {
-    return false;
-  }
+    if (
+        (potentialSubtype.equals(ThisType) && unwrappedParent.equals(thisType)) ||
+        (parentType.equals(ThisType) && unwrappedSubtype.equals(parentThisType))
+    ) {
+        return true;
+    }
 
-  const resolutions =
-    namespace.parent.subtypes.get(unwrappedSubtype.name, unwrappedSubtype.namespace) ??
-    new TwoKeyMap<string, string, boolean>();
-  const resolution = resolutions.get(unwrappedParent.name, unwrappedParent.namespace);
+    if (unwrappedParent instanceof GenericType && unwrappedParent.identifier !== "T") {
+        // Technically there could be a conflicting generic, but most generic types should specify a replacement for type checking.
+        // "T" denotes a local function generic in the current implementation, those can't be ignored.
+        if (!unwrappedParent.replacedType) {
+            return true;
+        }
 
-  if (typeof resolution === "boolean") {
-    return resolution;
-  }
+        // Use the generic replaced type as a stand-in.
+        unwrappedParent = unwrappedParent.replacedType;
+    }
 
-  const resolved = resolveTypeIdentifier(namespace, unwrappedSubtype);
+    if (!(unwrappedSubtype instanceof TypeIdentifier) || !(unwrappedParent instanceof TypeIdentifier)) {
+        return false;
+    }
 
-  if (!resolved) {
-    return false;
-  }
-  let x = resolved.resolveParents();
+    const resolutions =
+        namespace.parent.subtypes.get(unwrappedSubtype.name, unwrappedSubtype.namespace) ??
+        new TwoKeyMap<string, string, boolean>();
+    const resolution = resolutions.get(unwrappedParent.name, unwrappedParent.namespace);
 
-  // This checks that the two types have the same form, regardless of identifier (e.g. A | null and B | null)
-  const isStructurallySubtype = potentialSubtype.rewrap(AnyType).equals(parentType.rewrap(AnyType));
+    if (typeof resolution === "boolean") {
+        return resolution;
+    }
 
-  const isSubtype = isStructurallySubtype && x.node.someParent(t => t.getType().equals(unwrappedParent));
+    const resolved = resolveTypeIdentifier(namespace, unwrappedSubtype);
 
-  resolutions.set(unwrappedParent.name, unwrappedParent.namespace, isSubtype);
+    if (!resolved) {
+        return false;
+    }
+    const parentResolution = resolved.resolveParents();
 
-  namespace.parent.subtypes.set(unwrappedSubtype.name, unwrappedSubtype.namespace, resolutions);
+    // This checks that the two types have the same form, regardless of identifier (e.g. A | null and B | null)
+    const isStructurallySubtype = potentialSubtype.rewrap(AnyType).equals(parentType.rewrap(AnyType));
 
-  return isSubtype;
+    const isSubtype =
+        isStructurallySubtype &&
+        parentResolution.node.someParent((t: IntrospectedBaseClass) => t.getType().equals(unwrappedParent));
+
+    resolutions.set(unwrappedParent.name, unwrappedParent.namespace, isSubtype);
+
+    namespace.parent.subtypes.set(unwrappedSubtype.name, unwrappedSubtype.namespace, resolutions);
+
+    return isSubtype;
 }

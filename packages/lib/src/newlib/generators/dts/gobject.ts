@@ -4,27 +4,27 @@ import { IntrospectedClassFunction, IntrospectedFunctionParameter } from "../../
 import { IntrospectedNamespace } from "../../gir/namespace.js";
 
 export function override(node: IntrospectedNamespace) {
-  const ParamSpec = node.assertClass("ParamSpec");
+    const ParamSpec = node.assertClass("ParamSpec");
 
-  // We only inject __type__ for .d.ts files.
-  const type_function = new IntrospectedClassFunction({
-    name: "__type__",
-    parent: ParamSpec,
-    parameters: [
-      new IntrospectedFunctionParameter({
-        name: "arg",
-        type: NeverType,
-        direction: GirDirection.In
-      })
-    ],
-    return_type: new NativeType("A")
-    // TODO: Add support for generic native type replacement.
-    // return_type: UnknownType
-  });
+    // We only inject __type__ for .d.ts files.
+    const type_function = new IntrospectedClassFunction({
+        name: "__type__",
+        parent: ParamSpec,
+        parameters: [
+            new IntrospectedFunctionParameter({
+                name: "arg",
+                type: NeverType,
+                direction: GirDirection.In
+            })
+        ],
+        return_type: new NativeType("A")
+        // TODO: Add support for generic native type replacement.
+        // return_type: UnknownType
+    });
 
-  ParamSpec.members.push(type_function.copy());
+    ParamSpec.members.push(type_function.copy());
 
-  return `
+    return `
 // GJS OVERRIDES
 
 // __type__ forces all GTypes to not match structurally.

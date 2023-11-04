@@ -1,13 +1,13 @@
 import { IntrospectedNamespace } from "../../gir/namespace.js";
 
 export function override(node: IntrospectedNamespace) {
-  // We provide manually written versions of these types below.
-  node.assertClass("Variant").noEmit();
-  node.assertClass("VariantType").noEmit();
-  node.assertClass("VariantBuilder").noEmit();
-  node.assertClass("VariantDict").noEmit();
+    // We provide manually written versions of these types below.
+    node.assertClass("Variant").noEmit();
+    node.assertClass("VariantType").noEmit();
+    node.assertClass("VariantBuilder").noEmit();
+    node.assertClass("VariantDict").noEmit();
 
-  return `
+    return `
     // Variant parsing inspired by https://jamie.build/ slightly infamous JSON-in-TypeScript parsing.
 
     type CreateIndexType<Key extends string, Value extends any> =

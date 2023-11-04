@@ -1,20 +1,20 @@
-import { Direction } from "@gi.ts/parser";
+import { GirDirection } from "@gi.ts/parser";
 import { NativeType, NeverType } from "../../gir.js";
-import { GirClassFunction, GirFunctionParameter } from "../../gir/function.js";
-import { GirNamespace } from "../../gir/namespace.js";
+import { IntrospectedClassFunction, IntrospectedFunctionParameter } from "../../gir/function.js";
+import { IntrospectedNamespace } from "../../gir/namespace.js";
 
-export function override(node: GirNamespace) {
+export function override(node: IntrospectedNamespace) {
   const ParamSpec = node.assertClass("ParamSpec");
 
   // We only inject __type__ for .d.ts files.
-  const type_function = new GirClassFunction({
+  const type_function = new IntrospectedClassFunction({
     name: "__type__",
     parent: ParamSpec,
     parameters: [
-      new GirFunctionParameter({
+      new IntrospectedFunctionParameter({
         name: "arg",
         type: NeverType,
-        direction: Direction.In
+        direction: GirDirection.In
       })
     ],
     return_type: new NativeType("A")

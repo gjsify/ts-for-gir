@@ -1,35 +1,33 @@
 import {
- 
   VoidType,
   UnknownType,
   NativeType,
   TypeExpression,
   ThisType,
   NumberType,
-  
   NullableType,
   ArrayType
 } from "../gir.js";
-import {GirBase, GirOptions, GirMetadata} from './base.js';
-import { GirNamespace, isIntrospectable } from "./namespace.js";
-import { GirClass } from "./class.js";
-import { GirClassFunction, GirFunctionParameter, GirCallback } from "./function.js";
-import { SignalElement, Direction, CallableParamElement } from "@gi.ts/parser";
+import {IntrospectedBase, Options} from './base.js';
+import { IntrospectedNamespace, isIntrospectable } from "./namespace.js";
+import { IntrospectedClass } from "./class.js";
+import { IntrospectedClassFunction, IntrospectedFunctionParameter, IntrospectedCallback } from "./function.js";
+import {  GirSignalElement, GirDirection,  GirCallableParamElement } from "@gi.ts/parser";
 import { getType, parseDoc, parseMetadata } from "./util.js";
 import { FormatGenerator } from "../generators/generator.js";
 import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
 
-export enum GirSignalType {
+export enum IntrospectedSignalType {
   CONNECT,
   CONNECT_AFTER,
   EMIT
 }
 
-export class GirSignal extends GirBase {
-  parameters: GirFunctionParameter[];
+export class IntrospectedSignal extends IntrospectedBase {
+  parameters: IntrospectedFunctionParameter[];
   return_type: TypeExpression;
-  parent: GirClass;
+  parent: IntrospectedClass;
 
   constructor({
     name,
@@ -37,11 +35,11 @@ export class GirSignal extends GirBase {
     return_type = UnknownType,
     parent,
     ...args
-  }: GirOptions<{
+  }: Options<{
     name: string;
-    parameters?: GirFunctionParameter[];
+    parameters?: IntrospectedFunctionParameter[];
     return_type?: TypeExpression;
-    parent: GirClass;
+    parent: IntrospectedClass;
   }>) {
     super(name, { ...args });
 
@@ -50,7 +48,7 @@ export class GirSignal extends GirBase {
     this.parent = parent;
   }
 
-  accept(visitor: GirVisitor): GirSignal {
+  accept(visitor: GirVisitor): IntrospectedSignal {
     const node = this.copy({
       parameters: this.parameters.map(p => {
         return p.accept(visitor);
@@ -66,11 +64,11 @@ export class GirSignal extends GirBase {
     parameters,
     returnType
   }: {
-    parent?: GirClass;
-    parameters?: GirFunctionParameter[];
+    parent?: IntrospectedClass;
+    parameters?: IntrospectedFunctionParameter[];
     returnType?: TypeExpression;
-  } = {}): GirSignal {
-    return new GirSignal({
+  } = {}): IntrospectedSignal {
+    return new IntrospectedSignal({
       name: this.name,
       parent,
       parameters: parameters ?? this.parameters,
@@ -80,12 +78,12 @@ export class GirSignal extends GirBase {
 
   static fromXML(
     modName: string,
-    ns: GirNamespace,
+    ns: IntrospectedNamespace,
     options: LoadOptions,
-    parent: GirClass,
-    sig: SignalElement
-  ): GirSignal {
-    const signal = new GirSignal({
+    parent: IntrospectedClass,
+    sig: GirSignalElement
+  ): IntrospectedSignal {
+    const signal = new IntrospectedSignal({
       name: sig.$.name,
       parent,
       isIntrospectable: isIntrospectable(sig)
@@ -94,8 +92,8 @@ export class GirSignal extends GirBase {
     if (sig.parameters && sig.parameters[0].parameter) {
       signal.parameters.push(
         ...sig.parameters[0].parameter
-          .filter((p): p is CallableParamElement & { $: { name: string } } => !!p.$.name)
-          .map(p => GirFunctionParameter.fromXML(modName, ns, options, signal, p))
+          .filter((p): p is GirCallableParamElement & { $: { name: string } } => !!p.$.name)
+          .map(p => IntrospectedFunctionParameter.fromXML(modName, ns, options, signal, p))
       );
     }
 
@@ -144,11 +142,11 @@ export class GirSignal extends GirBase {
         },
         {
           allowOptions: true,
-          params: [] as GirFunctionParameter[]
+          params: [] as IntrospectedFunctionParameter[]
         }
       )
       .params.reverse()
-      .filter((p): p is GirFunctionParameter => p != null);
+      .filter((p): p is IntrospectedFunctionParameter => p != null);
 
     signal.return_type = getType(modName, ns, sig["return-value"]?.[0]);
 
@@ -170,17 +168,17 @@ export class GirSignal extends GirBase {
     });
 
     const parameters = [
-      new GirFunctionParameter({
+      new IntrospectedFunctionParameter({
         name: prefix_signal ? "$signal" : "signal",
         type: NativeType.of(`'${this.name}'`),
-        direction: Direction.In
+        direction: GirDirection.In
       }),
       ...emit.parameters
     ];
 
     const return_type = VoidType;
 
-    return new GirClassFunction({
+    return new IntrospectedClassFunction({
       return_type,
       parameters,
       name: "emit",
@@ -194,33 +192,33 @@ export class GirSignal extends GirBase {
     const name = after ? "connect_after" : "connect";
 
     const parent = this.parent;
-    const cb = new GirCallback({
+    const cb = new IntrospectedCallback({
       raw_name: "callback",
       name: "callback",
       output_parameters: [],
       parameters: [
-        new GirFunctionParameter({ name: "_source", type: ThisType, direction: Direction.In }),
+        new IntrospectedFunctionParameter({ name: "_source", type: ThisType, direction: GirDirection.In }),
         ...connect.parameters.map(p => p.copy())
       ],
       return_type: connect.return_type
     });
 
     const parameters = [
-      new GirFunctionParameter({
+      new IntrospectedFunctionParameter({
         name: "signal",
         type: NativeType.of(`'${this.name}'`),
-        direction: Direction.In
+        direction: GirDirection.In
       }),
-      new GirFunctionParameter({
+      new IntrospectedFunctionParameter({
         name: "callback",
         type: cb.asFunctionType(),
-        direction: Direction.In
+        direction: GirDirection.In
       })
     ];
 
     const return_type = NumberType;
 
-    return new GirClassFunction({
+    return new IntrospectedClassFunction({
       return_type,
       parameters,
       name,
@@ -230,7 +228,7 @@ export class GirSignal extends GirBase {
 
   asString<T extends FormatGenerator<any>>(
     generator: T,
-    type?: GirSignalType
+    type?: IntrospectedSignalType
   ): ReturnType<T["generateProperty"]> {
     return generator.generateSignal(this, type);
   }

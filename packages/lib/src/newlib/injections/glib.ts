@@ -1,10 +1,10 @@
-import { GirNamespace } from "../gir/namespace.js";
+import { IntrospectedNamespace } from "../gir/namespace.js";
 import {
-  GirConstructor,
-  GirFunctionParameter,
-  GirClassFunction,
-  GirFunction,
-  GirDirectAllocationConstructor
+  IntrospectedConstructor,
+  IntrospectedFunctionParameter,
+  IntrospectedClassFunction,
+  IntrospectedFunction,
+  IntrospectedDirectAllocationConstructor
 } from "../gir/function.js";
 import {
   NativeType,
@@ -18,32 +18,32 @@ import {
   BinaryType
 } from "../gir.js";
 import { Direction } from "@gi.ts/parser";
-import { GirNSRegistry } from "../gir/registry.js";
+import { NSRegistry } from "../gir/registry.js";
 import { GirRecord } from "../gir/class.js";
 
 export default {
   namespace: "GLib",
   version: "2.0",
-  modifier(namespace: GirNamespace, registry: GirNSRegistry) {
+  modifier(namespace: IntrospectedNamespace, registry: NSRegistry) {
     // export function log_structured(logDomain, logLevel, stringFields);
 
     namespace.members.set(
       "log_structured",
-      new GirFunction({
+      new IntrospectedFunction({
         name: "log_structured",
         raw_name: "log_structured",
         parameters: [
-          new GirFunctionParameter({
+          new IntrospectedFunctionParameter({
             name: "logDomain",
             type: AnyType,
             direction: Direction.In
           }),
-          new GirFunctionParameter({
+          new IntrospectedFunctionParameter({
             name: "logLevel",
             type: AnyType,
             direction: Direction.In
           }),
-          new GirFunctionParameter({
+          new IntrospectedFunctionParameter({
             name: "stringFields",
             type: AnyType,
             direction: Direction.In
@@ -57,11 +57,11 @@ export default {
 
     namespace.members.set(
       "strstrip",
-      new GirFunction({
+      new IntrospectedFunction({
         name: "strstrip",
         raw_name: "strstrip",
         parameters: [
-          new GirFunctionParameter({
+          new IntrospectedFunctionParameter({
             name: "str",
             type: StringType,
             direction: Direction.In
@@ -76,7 +76,7 @@ export default {
     {
       const Error = namespace.assertClass("Error");
 
-      const fixQuark = <T extends GirConstructor | GirClassFunction>(c: T): T => {
+      const fixQuark = <T extends IntrospectedConstructor | IntrospectedClassFunction>(c: T): T => {
         return c.copy({
           parameters: c.parameters.map(p => {
             if (p.type instanceof TypeIdentifier && p.type.is("GLib", "Quark")) {
@@ -90,7 +90,7 @@ export default {
         }) as T;
       };
 
-      if (Error.mainConstructor && !(Error.mainConstructor instanceof GirDirectAllocationConstructor))
+      if (Error.mainConstructor && !(Error.mainConstructor instanceof IntrospectedDirectAllocationConstructor))
         Error.mainConstructor = fixQuark(Error.mainConstructor);
 
       Error.constructors = Error.constructors.map(c => fixQuark(c));
@@ -120,18 +120,18 @@ export default {
       });
 
       const VariantParams = [
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "sig",
           type: new GenericType("A"),
           direction: Direction.In
         }),
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "value",
           type: AnyType,
           direction: Direction.In
         })
       ];
-      const VariantConstructor = new GirConstructor({
+      const VariantConstructor = new IntrospectedConstructor({
         name: "new",
         parameters: VariantParams.map(vp => vp.copy()),
         return_type: Variant.getType()
@@ -143,7 +143,7 @@ export default {
         // static new: (sig: any, value: any) => Variant;
         VariantConstructor.copy(),
         // static _new_internal: (sig: any, value: any) => any;,
-        new GirConstructor({
+        new IntrospectedConstructor({
           name: "_new_internal",
           parameters: VariantParams.map(vp => vp.copy()),
           return_type: AnyType
@@ -152,31 +152,31 @@ export default {
 
       Variant.members.push(
         // unpack<T= any>(): T;
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "unpack",
           return_type: UnknownType,
           parent: Variant
         }),
         // deepUnpack<T = any>(): T;
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "deepUnpack",
           return_type: UnknownType,
           parent: Variant
         }),
         // deep_unpack: any;
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "deep_unpack",
           return_type: UnknownType,
           parent: Variant
         }),
         // recursiveUnpack: () => any;
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "recursiveUnpack",
           return_type: AnyType,
           parent: Variant
         }),
         // _init(sig: any, value: any): Variant;
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "_init",
           return_type: Variant.getType(),
           parent: Variant,
@@ -192,23 +192,23 @@ export default {
 
       VariantDict.members.push(
         // lookup(key: any, variantType?: any, deep?: any): any;
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "lookup",
           return_type: AnyType,
           parent: VariantDict,
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "key",
               direction: Direction.In,
               type: AnyType
             }),
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "variantType",
               direction: Direction.In,
               type: AnyType,
               isOptional: true
             }),
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "deep",
               direction: Direction.In,
               type: BooleanType,
@@ -226,7 +226,7 @@ export default {
 
       Bytes.members.push(
         // toArray(): Uint8Array;
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "toArray",
           return_type: Uint8ArrayType,
           parent: Bytes,

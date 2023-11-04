@@ -11,31 +11,31 @@ import {
   ClosureType
 } from "../gir.js";
 
-import {GirBase, GirOptions, GirMetadata} from './base.js';
-import { AliasElement, GirXML, InfoAttrs, Type } from "@gi.ts/parser";
+import {IntrospectedBase, Options, Metadata} from './base.js';
+import { GirAliasElement,  ParsedGir, GirInfoAttrs, GirType } from "../../index.js";
 import { isPrimitiveType } from "./util.js";
 
-import { GirClass, GirInterface, GirRecord, GirBaseClass } from "./class.js";
-import { GirFunction, GirCallback } from "./function.js";
-import { GirEnum, GirError } from "./enum.js";
-import { GirConst } from "./const.js";
-import { GirAlias } from "./alias.js";
+import { IntrospectedClass, GirInterface, GirRecord, IntrospectedBaseClass } from "./class.js";
+import { IntrospectedFunction, IntrospectedCallback } from "./function.js";
+import { IntrospectedEnum, IntrospectedError } from "./enum.js";
+import { IntrospectedConstant } from "./const.js";
+import { IntrospectedAlias } from "./alias.js";
 
 import { LoadOptions } from "../types.js";
-import { GirNSRegistry } from "./registry.js";
+import { NSRegistry } from "./registry.js";
 import { GirVisitor } from "../visitor.js";
 
-export type GirNSMember = GirBaseClass | GirFunction | GirConst | GirEnum | GirAlias;
+export type GirNSMember = IntrospectedBaseClass | IntrospectedFunction | IntrospectedConstant | IntrospectedEnum | IntrospectedAlias;
 
-export const isIntrospectable = (e: { $?: InfoAttrs }) =>
+export const isIntrospectable = (e: { $?: GirInfoAttrs }) =>
   !e || !e.$ || !e.$.introspectable || e.$.introspectable === "1";
-export const isDeprecated = (e: { $: InfoAttrs }) => e && e.$ && e.$.deprecated === "1";
-export const deprecatedVersion = (e: { $: InfoAttrs }) => e?.$?.["deprecated-version"];
-export const introducedVersion = (e: { $: InfoAttrs }) => e?.$?.version;
+export const isDeprecated = (e: { $: GirInfoAttrs }) => e && e.$ && e.$.deprecated === "1";
+export const deprecatedVersion = (e: { $: GirInfoAttrs }) => e?.$?.["deprecated-version"];
+export const introducedVersion = (e: { $: GirInfoAttrs }) => e?.$?.version;
 
-export function promisifyNamespaceFunctions(namespace: GirNamespace) {
+export function promisifyNamespaceFunctions(namespace: IntrospectedNamespace) {
   return namespace.members.forEach(node => {
-    if (!(node instanceof GirFunction)) return;
+    if (!(node instanceof IntrospectedFunction)) return;
 
     if (node.parameters.length < 1) return;
 
@@ -51,7 +51,7 @@ export function promisifyNamespaceFunctions(namespace: GirNamespace) {
 
     if (internal instanceof TypeIdentifier && internal.is("Gio", "AsyncReadyCallback")) {
       let async_res = [
-        ...Array.from(namespace.members.values()).filter((m): m is GirFunction => m instanceof GirFunction)
+        ...Array.from(namespace.members.values()).filter((m): m is IntrospectedFunction => m instanceof IntrospectedFunction)
       ].find(
         m => m.name === `${node.name.replace(/_async$/, "")}_finish` || m.name === `${node.name}_finish`
       );
@@ -91,7 +91,7 @@ export function promisifyNamespaceFunctions(namespace: GirNamespace) {
   });
 }
 
-export class GirNamespace {
+export class IntrospectedNamespace {
   readonly name: string;
   readonly version: string;
   readonly c_prefixes: string[];
@@ -105,7 +105,7 @@ export class GirNamespace {
   __dts__references?: string[];
 
   package_version!: readonly [string, string] | readonly [string, string, string];
-  parent!: GirNSRegistry;
+  parent!: NSRegistry;
 
   constructor(name: string, version: string, prefixes: string[]) {
     this.name = name;
@@ -153,7 +153,7 @@ export class GirNamespace {
     }
   }
 
-  getImportsForCPrefix(c_prefix: string): GirNamespace[] {
+  getImportsForCPrefix(c_prefix: string): IntrospectedNamespace[] {
     return this.parent.namespacesForPrefix(c_prefix);
   }
 
@@ -161,7 +161,7 @@ export class GirNamespace {
     return this.default_imports.has(name) || this.imports.has(name);
   }
 
-  private _getImport(name: string): GirNamespace | null {
+  private _getImport(name: string): IntrospectedNamespace | null {
     let version = this.default_imports.get(name) ?? this.imports.get(name);
 
     if (name === this.name) {
@@ -195,7 +195,7 @@ export class GirNamespace {
     return namespace;
   }
 
-  getInstalledImport(name: string): GirNamespace | null {
+  getInstalledImport(name: string): IntrospectedNamespace | null {
     let version = this.default_imports.get(name) ?? this.imports.get(name);
 
     if (name === this.name) {
@@ -221,7 +221,7 @@ export class GirNamespace {
     return namespace;
   }
 
-  assertInstalledImport(name: string): GirNamespace {
+  assertInstalledImport(name: string): IntrospectedNamespace {
     let namespace = this._getImport(name);
 
     if (!namespace) {
@@ -240,7 +240,7 @@ export class GirNamespace {
     this._getImport(ns_name);
   }
 
-  getMembers(name: string): GirBase[] {
+  getMembers(name: string): IntrospectedBase[] {
     const members = this.members.get(name);
 
     if (Array.isArray(members)) {
@@ -272,7 +272,7 @@ export class GirNamespace {
     return null;
   }
 
-  assertClass(name: string): GirBaseClass {
+  assertClass(name: string): IntrospectedBaseClass {
     const clazz = this.getClass(name);
 
     if (!clazz) {
@@ -282,28 +282,28 @@ export class GirNamespace {
     return clazz;
   }
 
-  getClass(name: string): GirBaseClass | null {
+  getClass(name: string): IntrospectedBaseClass | null {
     const member = this.getMemberWithoutOverrides(name);
 
-    if (member instanceof GirBaseClass) {
+    if (member instanceof IntrospectedBaseClass) {
       return member;
     }
     return null;
   }
 
-  getEnum(name: string): GirEnum | null {
+  getEnum(name: string): IntrospectedEnum | null {
     const member = this.getMemberWithoutOverrides(name);
 
-    if (member instanceof GirEnum) {
+    if (member instanceof IntrospectedEnum) {
       return member;
     }
     return null;
   }
 
-  getAlias(name: string): GirAlias | null {
+  getAlias(name: string): IntrospectedAlias | null {
     const member = this.getMemberWithoutOverrides(name);
 
-    if (member instanceof GirAlias) {
+    if (member instanceof IntrospectedAlias) {
       return member;
     }
     return null;
@@ -321,7 +321,7 @@ export class GirNamespace {
     }
 
     const member = this.members.get(resolvedName.name);
-    if (member instanceof GirBase) {
+    if (member instanceof IntrospectedBase) {
       return member.name;
     }
 
@@ -330,14 +330,14 @@ export class GirNamespace {
 
   findClassCallback(name: string): [string | null, string] {
     const clazzes = Array.from(this.members.values()).filter(
-      (m): m is GirBaseClass => m instanceof GirBaseClass
+      (m): m is IntrospectedBaseClass => m instanceof IntrospectedBaseClass
     );
     const res = clazzes
-      .map<[GirBaseClass, GirCallback | undefined]>(m => [
+      .map<[IntrospectedBaseClass, IntrospectedCallback | undefined]>(m => [
         m,
         m.callbacks.find(c => c.name === name || c.resolve_names.includes(name))
       ])
-      .find((r): r is [GirBaseClass, GirCallback] => r[1] != null);
+      .find((r): r is [IntrospectedBaseClass, IntrospectedCallback] => r[1] != null);
 
     if (res) {
       return [res[0].name, res[1].name];
@@ -356,8 +356,10 @@ export class GirNamespace {
     this.__dts__references.push(reference);
   }
 
-  static fromXML(repo: GirXML, options: LoadOptions, registry: GirNSRegistry): GirNamespace {
-    const ns = repo.repository[0].namespace[0];
+  static fromXML(repo: ParsedGir, options: LoadOptions, registry: NSRegistry): IntrospectedNamespace {
+    const ns = repo.repository[0]?.namespace?.[0];
+
+    if (!ns) throw new Error(`Missing namespace in ${repo.repository[0].package[0].$.name}`)
 
     const modName = ns.$["name"];
     let version = ns.$["version"];
@@ -381,7 +383,7 @@ export class GirNamespace {
       console.debug(`Parsing ${modName}...`);
     }
 
-    const building = new GirNamespace(modName, version, c_prefix);
+    const building = new IntrospectedNamespace(modName, version, c_prefix);
     building.parent = registry;
     // Set the namespace object here to prevent re-parsing the namespace if
     // another namespace imports it.
@@ -401,7 +403,7 @@ export class GirNamespace {
         }
       });
 
-    const importConflicts = (el: GirConst | GirBaseClass | GirFunction) => {
+    const importConflicts = (el: IntrospectedConstant | IntrospectedBaseClass | IntrospectedFunction) => {
       return !building.hasImport(el.name);
     };
 
@@ -410,9 +412,9 @@ export class GirNamespace {
       ns.enumeration
         ?.map(enumeration => {
           if (enumeration.$["glib:error-domain"]) {
-            return GirError.fromXML(modName, building, options, null, enumeration);
+            return IntrospectedError.fromXML(modName, building, options, null, enumeration);
           } else {
-            return GirEnum.fromXML(modName, building, options, null, enumeration);
+            return IntrospectedEnum.fromXML(modName, building, options, null, enumeration);
           }
         })
         .forEach(c => building.members.set(c.name, c));
@@ -422,7 +424,7 @@ export class GirNamespace {
     if (ns.constant) {
       ns.constant
         ?.filter(isIntrospectable)
-        .map(constant => GirConst.fromXML(modName, building, options, null, constant))
+        .map(constant => IntrospectedConstant.fromXML(modName, building, options, null, constant))
         .filter(importConflicts)
         .forEach(c => building.members.set(c.name, c));
     }
@@ -431,7 +433,7 @@ export class GirNamespace {
     if (ns.function) {
       ns.function
         ?.filter(isIntrospectable)
-        .map(func => GirFunction.fromXML(modName, building, options, null, func))
+        .map(func => IntrospectedFunction.fromXML(modName, building, options, null, func))
         .filter(importConflicts)
         .forEach(c => building.members.set(c.name, c));
     }
@@ -439,7 +441,7 @@ export class GirNamespace {
     if (ns.callback) {
       ns.callback
         ?.filter(isIntrospectable)
-        .map(callback => GirCallback.fromXML(modName, building, options, null, callback))
+        .map(callback => IntrospectedCallback.fromXML(modName, building, options, null, callback))
         .filter(importConflicts)
         .forEach(c => building.members.set(c.name, c));
     }
@@ -447,7 +449,7 @@ export class GirNamespace {
     if (ns["glib:boxed"]) {
       ns["glib:boxed"]
         ?.filter(isIntrospectable)
-        .map(boxed => new GirAlias({ name: boxed.$["glib:name"], type: new NullableType(ObjectType) }))
+        .map(boxed => new IntrospectedAlias({ name: boxed.$["glib:name"], type: new NullableType(ObjectType) }))
         .forEach(c => building.members.set(c.name, c));
     }
 
@@ -456,14 +458,14 @@ export class GirNamespace {
     if (ns.bitfield) {
       ns.bitfield
         ?.filter(isIntrospectable)
-        .map(field => GirEnum.fromXML(modName, building, options, building, field, true))
+        .map(field => IntrospectedEnum.fromXML(modName, building, options, building, field, true))
         .forEach(c => building.members.set(c.name, c));
     }
 
     // The `enum_constants` map maps the C identifiers (GTK_BUTTON_TYPE_Y)
     // to the name of the enum (Button) to resolve references (Gtk.Button.Y)
     Array.from(building.members.values())
-      .filter((m): m is GirEnum => m instanceof GirEnum)
+      .filter((m): m is IntrospectedEnum => m instanceof IntrospectedEnum)
       .forEach(m => {
         m.members.forEach(member => {
           building.enum_constants.set(member.c_identifier, [m.name, member.name] as const);
@@ -474,7 +476,7 @@ export class GirNamespace {
     if (ns.class) {
       ns.class
         ?.filter(isIntrospectable)
-        .map(klass => GirClass.fromXML(modName, building, options, building, klass))
+        .map(klass => IntrospectedClass.fromXML(modName, building, options, building, klass))
         .filter(importConflicts)
         .forEach(c => building.members.set(c.name, c));
     }
@@ -503,7 +505,7 @@ export class GirNamespace {
     }
 
     if (ns.alias) {
-      type NamedType = Type & { $: { name: string } };
+      type NamedType = GirType & { $: { name: string } };
 
       ns.alias
         ?.filter(isIntrospectable)
@@ -517,7 +519,7 @@ export class GirNamespace {
                 !isPrimitiveType(t.$.name) &&
                 !t.$.name.includes(".")
               ) {
-                return { $: { name: "unknown", "c:type": "unknown" } } as Type;
+                return { $: { name: "unknown", "c:type": "unknown" } } as GirType;
               }
 
               return t;
@@ -525,8 +527,8 @@ export class GirNamespace {
 
           return b;
         })
-        .map(alias => GirAlias.fromXML(modName, building, options, null, alias))
-        .filter((alias): alias is GirAlias => alias != null)
+        .map(alias => IntrospectedAlias.fromXML(modName, building, options, null, alias))
+        .filter((alias): alias is IntrospectedAlias => alias != null)
         .forEach(c => building.members.set(c.name, c));
     }
 
@@ -547,8 +549,8 @@ export class GirNamespace {
         micro = building.getMembers("VERSION_MICRO")[0] ?? null;
       }
 
-      if (major instanceof GirConst && minor instanceof GirConst && major.value && minor.value) {
-        if (micro instanceof GirConst && micro.value) {
+      if (major instanceof IntrospectedConstant && minor instanceof IntrospectedConstant && major.value && minor.value) {
+        if (micro instanceof IntrospectedConstant && micro.value) {
           building.package_version = [major.value, minor.value, micro.value] as const;
         } else {
           building.package_version = [major.value, minor.value] as const;

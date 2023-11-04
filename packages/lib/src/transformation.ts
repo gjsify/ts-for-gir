@@ -284,9 +284,6 @@ export class Transformation {
             },
         },
         constructorPropertyName: {
-            node: {
-                transformation: 'underscores',
-            },
             gjs: {
                 transformation: 'lowerCamelCase',
             },

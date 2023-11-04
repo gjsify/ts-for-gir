@@ -2,12 +2,12 @@ import glib from "./glib.js";
 import gobject from "./gobject.js";
 import gio from "./gio.js";
 
-import { GirNamespace } from "../gir/namespace.js";
-import { GirNSRegistry } from "../gir/registry.js";
+import { IntrospectedNamespace } from "../gir/namespace.js";
+import { NSRegistry } from "../gir/registry.js";
 
-export type NamespaceInjection = (namespace: GirNamespace, registry: GirNSRegistry) => void;
+export type NamespaceInjection = (namespace: IntrospectedNamespace, registry: NSRegistry) => void;
 
-function injectDefinitions(registry: GirNSRegistry) {
+function injectDefinitions(registry: NSRegistry) {
   return (definition: { namespace: string; version: string; modifier: NamespaceInjection }) => {
     const ns = registry.assertNamespace(definition.namespace, definition.version);
 
@@ -15,7 +15,7 @@ function injectDefinitions(registry: GirNSRegistry) {
   };
 }
 
-export function inject(registry: GirNSRegistry) {
+export function inject(registry: NSRegistry) {
   const $ = injectDefinitions(registry);
 
   $(glib);

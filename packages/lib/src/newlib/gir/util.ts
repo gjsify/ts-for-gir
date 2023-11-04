@@ -1,14 +1,14 @@
-import { deprecatedVersion, GirNamespace, introducedVersion, isDeprecated } from "./namespace.js";
+import { deprecatedVersion, IntrospectedNamespace, introducedVersion, isDeprecated } from "./namespace.js";
 import {
-  CallableParamElement,
-  Direction,
-  AliasElement,
-  DocElement,
-  InfoAttrs,
-  Type,
-  ConstantElement,
-  CallableReturn,
-  FieldElement
+  GirCallableParamElement,
+  GirDirection,
+  GirAliasElement,
+  GirDocElement,
+  GirInfoAttrs,
+  GirType,
+  GirConstantElement,
+  GirCallableReturn,
+  GirFieldElement
 } from "@gi.ts/parser";
 import {
   TypeIdentifier,
@@ -33,8 +33,8 @@ import {
 
   NativeType
 } from "../gir.js";
-import {GirBase, GirOptions, GirMetadata} from './base.js';
-import { GirBaseClass } from "./class.js";
+import {IntrospectedBase, Options, Metadata} from './base.js';
+import { IntrospectedBaseClass } from "./class.js";
 import { TwoKeyMap } from "../util.js";
 
 const reservedWords = [
@@ -106,7 +106,7 @@ const reservedWords = [
   "yield"
 ];
 
-export function getAliasType(modName: string, _ns: GirNamespace, parameter: AliasElement): TypeExpression {
+export function getAliasType(modName: string, _ns: IntrospectedNamespace, parameter: GirAliasElement): TypeExpression {
   let name = parameter.type?.[0].$["name"] || "unknown";
 
   let nameParts = name.split(" ");
@@ -125,7 +125,7 @@ export function getAliasType(modName: string, _ns: GirNamespace, parameter: Alia
  *
  * Any type where the c:type ends with *
  */
-function isPointerType(types: Type[] | undefined) {
+function isPointerType(types: GirType[] | undefined) {
   const type = types?.[0];
   if (!type) return false;
 
@@ -143,8 +143,8 @@ function isPointerType(types: Type[] | undefined) {
 /* Decode the type */
 export function getType(
   modName: string,
-  _ns: GirNamespace,
-  param?: ConstantElement | CallableReturn | FieldElement
+  _ns: IntrospectedNamespace,
+  param?: GirConstantElement | GirCallableReturn | GirFieldElement
 ): TypeExpression {
   if (!param) return VoidType;
 
@@ -153,7 +153,7 @@ export function getType(
   let length: number | null = null;
   let isPointer = false;
 
-  let parameter = param as CallableParamElement;
+  let parameter = param as GirCallableParamElement;
   if (parameter.array && parameter.array[0]) {
     arrayDepth = 1;
 
@@ -354,15 +354,15 @@ export function isInvalid(name: string): boolean {
   return false;
 }
 
-export function parseDoc(element: DocElement): string | null {
+export function parseDoc(element: GirDocElement): string | null {
   return element.doc?.[0]?._ ?? null;
 }
 
-export function parseDeprecatedDoc(element: DocElement): string | null {
+export function parseDeprecatedDoc(element: GirDocElement): string | null {
   return element["doc-deprecated"]?.[0]?._ ?? null;
 }
 
-export function parseMetadata(element: { $: InfoAttrs } & DocElement): GirMetadata | undefined {
+export function parseMetadata(element: { $: GirInfoAttrs } & GirDocElement): Metadata | undefined {
   const version = introducedVersion(element);
   const deprecatedIn = deprecatedVersion(element);
   const deprecated = isDeprecated(element);
@@ -517,20 +517,20 @@ export function resolvePrimitiveType(name: string): TypeExpression | null {
   return null;
 }
 
-export function resolveDirectedType(type: TypeExpression, direction: Direction): TypeExpression | null {
+export function resolveDirectedType(type: TypeExpression, direction: GirDirection): TypeExpression | null {
   if (type instanceof ArrayType) {
     if (
-      (direction === Direction.In || direction === Direction.Inout) &&
+      (direction === GirDirection.In || direction === GirDirection.Inout) &&
       type.type.equals(Uint8ArrayType) &&
       type.arrayDepth === 0
     ) {
       return new BinaryType(type, StringType);
     }
   } else if (type instanceof TypeIdentifier) {
-    if ((direction === Direction.In || direction === Direction.Inout) && type.is("GLib", "Bytes")) {
+    if ((direction === GirDirection.In || direction === GirDirection.Inout) && type.is("GLib", "Bytes")) {
       return new BinaryType(type, Uint8ArrayType);
     } else if (type.is("GObject", "Value")) {
-      if (direction === Direction.In || direction === Direction.Inout) {
+      if (direction === GirDirection.In || direction === GirDirection.Inout) {
         return new BinaryType(type, AnyType);
       } else {
         // GJS converts GObject.Value out parameters to their unboxed type, which we don't know,
@@ -538,7 +538,7 @@ export function resolveDirectedType(type: TypeExpression, direction: Direction):
         return UnknownType;
       }
     } else if (type.is("GLib", "HashTable")) {
-      if (direction === Direction.In) {
+      if (direction === GirDirection.In) {
         return new BinaryType(new NativeType("{ [key: string]: any }"), type);
       } else {
         return type;
@@ -558,7 +558,7 @@ export function resolveDirectedType(type: TypeExpression, direction: Direction):
  * @param namespace
  * @param type
  */
-export function resolveTypeIdentifier(namespace: GirNamespace, type: TypeIdentifier): GirBaseClass | null {
+export function resolveTypeIdentifier(namespace: IntrospectedNamespace, type: TypeIdentifier): IntrospectedBaseClass | null {
   const ns = type.namespace;
   const name = type.name;
 
@@ -593,7 +593,7 @@ function isTypeConflict(a: TypeExpression, b: TypeExpression) {
  * @param parentType
  */
 export function isSubtypeOf(
-  namespace: GirNamespace,
+  namespace: IntrospectedNamespace,
   thisType: TypeIdentifier,
   parentThisType: TypeIdentifier,
   potentialSubtype: TypeExpression,

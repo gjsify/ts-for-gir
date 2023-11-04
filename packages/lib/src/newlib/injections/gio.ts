@@ -1,10 +1,10 @@
-import { GirNamespace } from "../gir/namespace.js";
+import { IntrospectedNamespace } from "../gir/namespace.js";
 import {
-  GirClassFunction,
-  GirConstructor,
-  GirFunction,
-  GirFunctionParameter,
-  GirStaticClassFunction
+  IntrospectedClassFunction,
+  IntrospectedConstructor,
+  IntrospectedFunction,
+  IntrospectedFunctionParameter,
+  IntrospectedStaticClassFunction
 } from "../gir/function.js";
 import {
   StringType,
@@ -20,13 +20,13 @@ import {
   Generic
 } from "../gir.js";
 import { Direction } from "@gi.ts/parser";
-import { GirField, JSField } from "../gir/property.js";
-import { GirClass, GirInterface } from "../gir/class.js";
+import { Field, JSField } from "../gir/property.js";
+import { IntrospectedClass, GirInterface } from "../gir/class.js";
 
 export default {
   namespace: "Gio",
   version: "2.0",
-  modifier(namespace: GirNamespace) {
+  modifier(namespace: IntrospectedNamespace) {
     // For IterableIterator...
     namespace.___dts___addReference(`/// <reference lib="es2015.iterable" />`);
 
@@ -34,10 +34,10 @@ export default {
       const DBusNodeInfo = namespace.assertClass("DBusNodeInfo");
 
       DBusNodeInfo.constructors.push(
-        new GirConstructor({
+        new IntrospectedConstructor({
           name: "new_for_xml",
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "info",
               type: StringType,
               direction: Direction.In
@@ -52,10 +52,10 @@ export default {
       const DBusInterfaceInfo = namespace.assertClass("DBusInterfaceInfo");
 
       DBusInterfaceInfo.constructors.push(
-        new GirConstructor({
+        new IntrospectedConstructor({
           name: "new_for_xml",
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "info",
               type: StringType,
               direction: Direction.In
@@ -70,7 +70,7 @@ export default {
       const ListStore = namespace.assertClass("ListStore");
 
       ListStore.fields.push(
-        new GirField({
+        new Field({
           name: "Symbol.iterator",
           computed: true,
           type: new FunctionType(
@@ -121,11 +121,11 @@ export default {
       DBusProxy.indexSignature = "[key: string]: any;";
 
       DBusProxy.members.push(
-        new GirStaticClassFunction({
+        new IntrospectedStaticClassFunction({
           name: "makeProxyWrapper",
           parent: DBusProxy,
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "args",
               type: new ArrayType(AnyType),
               isVarArgs: true,
@@ -134,11 +134,11 @@ export default {
           ],
           return_type: AnyType
         }),
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "connectSignal",
           parent: DBusProxy,
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "args",
               type: new ArrayType(AnyType),
               isVarArgs: true,
@@ -147,11 +147,11 @@ export default {
           ],
           return_type: AnyType
         }),
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "disconnectSignal",
           parent: DBusProxy,
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "args",
               type: new ArrayType(AnyType),
               isVarArgs: true,
@@ -176,15 +176,15 @@ export default {
 
       if (
         !(
-          bus_get instanceof GirFunction &&
-          bus_get_finish instanceof GirFunction &&
-          bus_get_sync instanceof GirFunction &&
-          bus_own_name instanceof GirFunction &&
-          bus_own_name_on_connection instanceof GirFunction &&
-          bus_unown_name instanceof GirFunction &&
-          bus_watch_name instanceof GirFunction &&
-          bus_unwatch_name instanceof GirFunction &&
-          bus_watch_name_on_connection instanceof GirFunction
+          bus_get instanceof IntrospectedFunction &&
+          bus_get_finish instanceof IntrospectedFunction &&
+          bus_get_sync instanceof IntrospectedFunction &&
+          bus_own_name instanceof IntrospectedFunction &&
+          bus_own_name_on_connection instanceof IntrospectedFunction &&
+          bus_unown_name instanceof IntrospectedFunction &&
+          bus_watch_name instanceof IntrospectedFunction &&
+          bus_unwatch_name instanceof IntrospectedFunction &&
+          bus_watch_name_on_connection instanceof IntrospectedFunction
         )
       ) {
         throw new Error(`Invalid dbus functions found in Gio!`);
@@ -254,25 +254,25 @@ export default {
       DBusConnection.members.splice(DBusConnection.members.indexOf(callFinish), 1, finishReplacement);
 
       DBusConnection.members.push(
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "watch_name",
           parameters: bus_watch_name_on_connection.parameters.slice(1),
           return_type: bus_watch_name_on_connection.return_type,
           parent: DBusConnection
         }),
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "unwatch_name",
           parameters: bus_unwatch_name.parameters.slice(),
           return_type: bus_unwatch_name.return_type,
           parent: DBusConnection
         }),
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "own_name",
           parameters: bus_own_name_on_connection.parameters.slice(1),
           return_type: bus_own_name_on_connection.return_type,
           parent: DBusConnection
         }),
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "unown_name",
           parameters: bus_unown_name.parameters.slice(),
           return_type: bus_unown_name.return_type,
@@ -314,19 +314,19 @@ export default {
       const Variant = namespace.assertInstalledImport("GLib").assertClass("Variant");
       const DBusConnection = namespace.assertClass("DBusConnection");
       const DBusInterfaceInfo = namespace.assertClass("DBusInterfaceInfo");
-      const DBusExportedObject = new GirClass("DBusExportedObject", namespace);
+      const DBusExportedObject = new IntrospectedClass("DBusExportedObject", namespace);
 
       DBusExportedObject.members.push(
-        new GirStaticClassFunction({
+        new IntrospectedStaticClassFunction({
           name: "wrapJSObject",
           parent: DBusExportedObject,
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "info",
               type: StringType,
               direction: Direction.In
             }),
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "obj",
               type: AnyType,
               direction: Direction.In
@@ -334,29 +334,29 @@ export default {
           ],
           return_type: DBusExportedObject.getType()
         }),
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "get_info",
           parent: DBusExportedObject,
           parameters: [],
           return_type: DBusInterfaceInfo.getType()
         }),
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "get_connection",
           parent: DBusExportedObject,
           parameters: [],
           return_type: DBusConnection.getType()
         }),
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "get_object_path",
           parent: DBusExportedObject,
           parameters: [],
           return_type: StringType
         }),
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "unexport_from_connection",
           parent: DBusExportedObject,
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "connection",
               type: DBusConnection.getType(),
               direction: Direction.In
@@ -365,16 +365,16 @@ export default {
           return_type: VoidType
         }),
         // export(busConnection, objectPath)
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "export",
           parent: DBusExportedObject,
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "busConnection",
               type: DBusConnection.getType(),
               direction: Direction.In
             }),
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "objectPath",
               type: StringType,
               direction: Direction.In
@@ -383,28 +383,28 @@ export default {
           return_type: VoidType
         }),
         // unexport()
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "unexport",
           parent: DBusExportedObject,
           return_type: VoidType
         }),
         // flush()
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "flush",
           parent: DBusExportedObject,
           return_type: VoidType
         }),
         // emit_signal(name, variant)
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "emit_signal",
           parent: DBusExportedObject,
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "name",
               type: StringType,
               direction: Direction.In
             }),
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "variant",
               type: Variant.getType(),
               direction: Direction.In
@@ -413,16 +413,16 @@ export default {
           return_type: VoidType
         }),
         // emit_property_changed(name, variant)
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "emit_property_changed",
           parent: DBusExportedObject,
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "name",
               type: StringType,
               direction: Direction.In
             }),
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "variant",
               type: Variant.getType(),
               direction: Direction.In

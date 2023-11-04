@@ -1,5 +1,5 @@
-import { GirNamespace } from "../gir/namespace.js";
-import { GirFunctionParameter, GirClassFunction, GirFunction, GirStaticClassFunction } from "../gir/function.js";
+import { IntrospectedNamespace } from "../gir/namespace.js";
+import { IntrospectedFunctionParameter, IntrospectedClassFunction, IntrospectedFunction, IntrospectedStaticClassFunction } from "../gir/function.js";
 import {
   NativeType,
   AnyType,
@@ -20,13 +20,13 @@ import {
   GenerifiedTypeIdentifier
 } from "../gir.js";
 import { Direction } from "@gi.ts/parser";
-import { GirField } from "../gir/property.js";
-import { GirAlias } from "../gir/alias.js";
+import { Field } from "../gir/property.js";
+import { IntrospectedAlias } from "../gir/alias.js";
 import { GirInterface } from "../gir/class.js";
-import { GirNSRegistry } from "../gir/registry.js";
+import { NSRegistry } from "../gir/registry.js";
 
 function typeParam(name: string, type: TypeExpression) {
-  return new GirFunctionParameter({
+  return new IntrospectedFunctionParameter({
     name,
     direction: Direction.In,
     type: type
@@ -40,25 +40,25 @@ function anyParam(name: string) {
 export default {
   namespace: "GObject",
   version: "2.0",
-  modifier(namespace: GirNamespace, _registry: GirNSRegistry) {
+  modifier(namespace: IntrospectedNamespace, _registry: NSRegistry) {
     {
       const SignalMatch = new GirInterface({
         name: "SignalMatch",
         namespace,
         fields: [
-          new GirField({
+          new Field({
             name: "signalId",
             type: StringType,
             isStatic: false,
             writable: true
           }),
-          new GirField({
+          new Field({
             name: "detail",
             type: StringType,
             isStatic: false,
             writable: true
           }),
-          new GirField({
+          new Field({
             name: "func",
             type: AnyFunctionType,
             isStatic: false,
@@ -72,7 +72,7 @@ export default {
 
       namespace.members.set("SignalMatch", SignalMatch);
 
-      const GType = new GirAlias({
+      const GType = new IntrospectedAlias({
         name: "GType",
         type: new NativeType("any")
       });
@@ -95,7 +95,7 @@ export default {
         defaultValueType: TypeExpression = AnyType,
         addGeneric = false
       ) {
-        const fn = new GirStaticClassFunction({
+        const fn = new IntrospectedStaticClassFunction({
           name,
           parameters: [
             typeParam("name", StringType),
@@ -107,7 +107,7 @@ export default {
               ? !addGeneric
                 ? [anyParam(`${type}Type`)]
                 : [
-                    new GirFunctionParameter({
+                    new IntrospectedFunctionParameter({
                       name: `${type}Type`,
                       direction: Direction.In,
                       type: new NativeType("GType<T> | { $gtype: GType<T> }")
@@ -128,7 +128,7 @@ export default {
       }
 
       ParamSpec.fields.push(
-        new GirField({
+        new Field({
           name: "override",
           isStatic: true,
           type: AnyType,
@@ -166,14 +166,14 @@ export default {
         default: UnknownType
       });
 
-      const object = new GirStaticClassFunction({
+      const object = new IntrospectedStaticClassFunction({
         name: "object",
         parameters: [
           anyParam("name"),
           anyParam("nick"),
           anyParam("blurb"),
           anyParam("flags"),
-          new GirFunctionParameter({
+          new IntrospectedFunctionParameter({
             name: `objectType`,
             direction: Direction.In,
             type: new NativeType("GType<T> | { $gtype: GType<T> }")
@@ -248,7 +248,7 @@ export default {
 
       namespace.members.set(
         "Closure",
-        new GirAlias({
+        new IntrospectedAlias({
           name: "Closure",
           type: NativeType.of("(...args: P[]) => R"),
           generics: [
@@ -271,11 +271,11 @@ export default {
       const get_property = Object.members.findIndex(m => m.name === "get_property");
       const set_property = Object.members.findIndex(m => m.name === "set_property");
 
-      Object.members[get_property] = new GirClassFunction({
+      Object.members[get_property] = new IntrospectedClassFunction({
         name: "get_property",
         parent: Object,
         parameters: [
-          new GirFunctionParameter({
+          new IntrospectedFunctionParameter({
             name: "property_name",
             type: StringType,
             direction: Direction.In
@@ -284,16 +284,16 @@ export default {
         return_type: AnyType
       });
 
-      Object.members[set_property] = new GirClassFunction({
+      Object.members[set_property] = new IntrospectedClassFunction({
         name: "set_property",
         parent: Object,
         parameters: [
-          new GirFunctionParameter({
+          new IntrospectedFunctionParameter({
             name: "property_name",
             type: StringType,
             direction: Direction.In
           }),
-          new GirFunctionParameter({
+          new IntrospectedFunctionParameter({
             name: "value",
             type: AnyType,
             direction: Direction.In
@@ -303,11 +303,11 @@ export default {
       });
 
       Object.members.push(
-        new GirStaticClassFunction({
+        new IntrospectedStaticClassFunction({
           name: "_classInit",
           parent: Object,
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "klass",
               type: AnyType,
               direction: Direction.In
@@ -315,11 +315,11 @@ export default {
           ],
           return_type: AnyType
         }),
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "disconnect",
           parent: Object,
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "id",
               type: NumberType,
               direction: Direction.In
@@ -328,11 +328,11 @@ export default {
           return_type: VoidType
         }),
         // TODO: Add per-class set type checking.
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "set",
           parent: Object,
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "properties",
               type: new NativeType("{ [key: string]: any }"),
               direction: Direction.In
@@ -340,11 +340,11 @@ export default {
           ],
           return_type: VoidType
         }),
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "block_signal_handler",
           parent: Object,
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "id",
               type: NumberType,
               direction: Direction.In
@@ -352,11 +352,11 @@ export default {
           ],
           return_type: AnyType
         }),
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "unblock_signal_handler",
           parent: Object,
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "id",
               type: NumberType,
               direction: Direction.In
@@ -364,11 +364,11 @@ export default {
           ],
           return_type: AnyType
         }),
-        new GirClassFunction({
+        new IntrospectedClassFunction({
           name: "stop_emission_by_name",
           parent: Object,
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "detailedName",
               type: StringType,
               direction: Direction.In
@@ -378,7 +378,7 @@ export default {
         })
       );
 
-      function replaceFunction(name: string, ...functions: GirFunction[]) {
+      function replaceFunction(name: string, ...functions: IntrospectedFunction[]) {
         namespace.members.delete(name);
 
         namespace.members.set(name, functions);
@@ -388,16 +388,16 @@ export default {
 
       replaceFunction(
         "signal_handlers_block_by_func",
-        new GirFunction({
+        new IntrospectedFunction({
           name: "signal_handlers_block_by_func",
           raw_name: "signal_handlers_block_by_func",
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "instance",
               type: Object.getType(),
               direction: Direction.In
             }),
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "func",
               type: AnyFunctionType,
               direction: Direction.In
@@ -411,16 +411,16 @@ export default {
 
       replaceFunction(
         "signal_handlers_unblock_by_func",
-        new GirFunction({
+        new IntrospectedFunction({
           name: "signal_handlers_unblock_by_func",
           raw_name: "signal_handlers_unblock_by_func",
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "instance",
               type: Object.getType(),
               direction: Direction.In
             }),
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "func",
               type: AnyFunctionType,
               direction: Direction.In
@@ -434,16 +434,16 @@ export default {
 
       replaceFunction(
         "signal_handlers_disconnect_by_func",
-        new GirFunction({
+        new IntrospectedFunction({
           name: "signal_handlers_disconnect_by_func",
           raw_name: "signal_handlers_disconnect_by_func",
           parameters: [
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "instance",
               type: Object.getType(),
               direction: Direction.In
             }),
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: "func",
               type: AnyFunctionType,
               direction: Direction.In
@@ -455,7 +455,7 @@ export default {
 
       // signal_handler_find
 
-      const args = new GirFunctionParameter({
+      const args = new IntrospectedFunctionParameter({
         name: "args",
         direction: Direction.In,
         isVarArgs: true,
@@ -474,13 +474,13 @@ export default {
       });
 
       const modifiedArgs = [
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "instance",
           direction: Direction.In,
 
           type: Object.getType()
         }),
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "match",
           direction: Direction.In,
           type: NativeType.of("SignalMatch")
@@ -488,38 +488,38 @@ export default {
       ];
 
       const originalArgs = [
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "instance",
           direction: Direction.In,
 
           type: Object.getType()
         }),
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "match",
           direction: Direction.In,
           type: new TypeIdentifier("SignalMatchType", "GObject")
         }),
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "signal_id",
           direction: Direction.In,
           type: NumberType
         }),
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "detail",
           type: new TypeIdentifier("Quark", "GLib"),
           direction: Direction.In
         }),
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "closure",
           type: new NullableType(new TypeIdentifier("Closure", "GObject")),
           direction: Direction.In
         }),
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "func",
           type: new NullableType(ObjectType),
           direction: Direction.In
         }),
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "object",
           type: new NullableType(ObjectType),
           direction: Direction.In
@@ -527,7 +527,7 @@ export default {
       ];
 
       function originalFunc(name: string) {
-        return new GirFunction({
+        return new IntrospectedFunction({
           name,
           raw_name: name,
           return_type: NumberType,
@@ -539,14 +539,14 @@ export default {
         replaceFunction(
           name,
           // [name](...args: [Object, SignalMatch] | [Object, SignalMatchType, number, GLib.Quark, Closure | null, object | null, object | null]): number;
-          new GirFunction({
+          new IntrospectedFunction({
             name,
             raw_name: name,
             return_type: NumberType,
             parameters: [args]
           }),
           // export function [name](instance: Object, match: SignalMatch): number;
-          new GirFunction({
+          new IntrospectedFunction({
             name,
             raw_name: name,
             return_type: NumberType,

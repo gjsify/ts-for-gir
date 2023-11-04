@@ -1,14 +1,14 @@
 import {  TypeExpression } from "../gir.js";
-import {GirBase, GirOptions, GirMetadata} from './base.js';
-import { ConstantElement } from "@gi.ts/parser";
+import {IntrospectedBase} from './base.js';
+import { GirConstantElement } from "../../index.js";
 
-import { GirNamespace } from "./namespace.js";
+import { IntrospectedNamespace } from "./namespace.js";
 import { getType, parseDoc, parseMetadata, sanitizeIdentifierName } from "./util.js";
 import { FormatGenerator } from "../generators/generator.js";
 import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
 
-export class GirConst extends GirBase {
+export class IntrospectedConstant extends IntrospectedBase {
   type: TypeExpression;
   value: string | null;
 
@@ -28,7 +28,7 @@ export class GirConst extends GirBase {
     this.value = value;
   }
 
-  accept(visitor: GirVisitor): GirConst {
+  accept(visitor: GirVisitor): IntrospectedConstant {
     const node = this.copy({
       type: visitor.visitType?.(this.type)
     });
@@ -41,10 +41,10 @@ export class GirConst extends GirBase {
       parent?: undefined;
       type?: TypeExpression;
     } = {}
-  ): GirConst {
+  ): IntrospectedConstant {
     const { type, name, value } = this;
 
-    return new GirConst({
+    return new IntrospectedConstant({
       name,
       type: options.type ?? type,
       value
@@ -53,12 +53,12 @@ export class GirConst extends GirBase {
 
   static fromXML(
     modName: string,
-    ns: GirNamespace,
+    ns: IntrospectedNamespace,
     options: LoadOptions,
     _parent,
-    constant: ConstantElement
-  ): GirConst {
-    const c = new GirConst({
+    constant: GirConstantElement
+  ): IntrospectedConstant {
+    const c = new IntrospectedConstant({
       name: sanitizeIdentifierName(ns.name, constant.$.name),
       type: getType(modName, ns, constant),
       value: constant.$.value ?? null

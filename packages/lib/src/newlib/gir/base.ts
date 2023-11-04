@@ -1,26 +1,26 @@
 import { FormatGenerator } from "../generators/index.js";
 import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
-import { GirNamespace } from "./nodes.js";
+import { IntrospectedNamespace } from "./namespace.js";
 
-export interface GirMetadata {
+export interface Metadata {
     deprecated?: boolean;
     deprecatedVersion?: string;
     deprecatedDoc?: string;
     introducedVersion?: string;
   }
   
-  export interface GirBaseOptions {
+  export interface BaseOptions {
     isPrivate?: boolean;
     isIntrospectable?: boolean;
   }
   
-  export type GirOptions<T> = GirBaseOptions & T;
+  export type Options<T> = BaseOptions & T;
   
-  export abstract class GirBase {
+  export abstract class IntrospectedBase {
     name: string;
     doc?: string | null;
-    metadata?: GirMetadata;
+    metadata?: Metadata;
     deprecated?: boolean;
     resolve_names: string[] = [];
     private _emit = true;
@@ -28,7 +28,7 @@ export interface GirMetadata {
     private _isPrivate: boolean;
     private _isIntrospectable: boolean;
   
-    constructor(name: string, options: GirBaseOptions = {}) {
+    constructor(name: string, options: BaseOptions = {}) {
       this.name = name;
   
       this._isPrivate = options.isPrivate ?? false;
@@ -83,17 +83,17 @@ export interface GirMetadata {
       return this;
     }
   
-    abstract copy(options?: { parent?: GirBase }): GirBase;
+    abstract copy(options?: { parent?: IntrospectedBase }): IntrospectedBase;
   
-    abstract accept(visitor: GirVisitor): GirBase;
+    abstract accept(visitor: GirVisitor): IntrospectedBase;
   
     static fromXML(
       _modName: string,
-      _ns: GirNamespace,
+      _ns: IntrospectedNamespace,
       _options: LoadOptions,
-      _parent: GirBase | null,
+      _parent: IntrospectedBase | null,
       _gir: object
-    ): GirBase | null {
+    ): IntrospectedBase | null {
       throw new Error("GirBase cannot be instantiated");
     }
   

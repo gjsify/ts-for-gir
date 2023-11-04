@@ -1,6 +1,6 @@
-import { GirNamespace } from "../../gir/namespace.js";
+import { IntrospectedNamespace } from "../../gir/namespace.js";
 
-export function override(node: GirNamespace) {
+export function override(node: IntrospectedNamespace) {
   // We provide manually written versions of these types below.
   node.assertClass("Variant").noEmit();
   node.assertClass("VariantType").noEmit();

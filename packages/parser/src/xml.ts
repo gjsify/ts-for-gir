@@ -125,7 +125,7 @@ export interface GirAliasElement extends GirInfoElements {
 
 export interface GirInterfaceElement extends GirInfoElements {
     /** Abstract interface to other classes */
-    $: {
+    $: GirInfoAttrs & {
         //Attributes of an Interface (see definition below)
 
         /** name of the interface */
@@ -439,6 +439,8 @@ export interface GirCallbackElement extends GirInfoElements {
         "c:type"?: string;
         /** Binary attribute, true if the callback can throw an error */
         throws?: GirBoolean;
+        // TODO: I believe callbacks have this as a valid property
+        "glib:type-name"?: string;
     };
 
     /* Other elements a property can contain */

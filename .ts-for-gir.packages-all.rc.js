@@ -1,6 +1,6 @@
 export default {
     outdir: './types',
-    environments: ['gjs', 'node'],
+    environments: ['gjs'],
     modules: ['*'],
     girDirectories: [
         // General gir files installed on the system

@@ -9,7 +9,7 @@ import type {
 } from '../types/index.js'
 import { Logger } from '../logger.js'
 
-import { classesAll, classesGjs, classesNode, callbacksGjs, callbacksNode, callbacksAll } from './index.js'
+import { classesAll, classesGjs, callbacksGjs, callbacksAll } from './index.js'
 import { GirFactory } from '../gir-factory.js'
 
 /**
@@ -29,7 +29,7 @@ export class Injector {
             return
         }
 
-        const classes = this.environment === 'gjs' ? [...classesAll, ...classesGjs] : [...classesAll, ...classesNode]
+        const classes = this.environment === 'gjs' ? [...classesAll, ...classesGjs] : [...classesAll]
 
         const toClass = classes.find((cls) => {
             return (
@@ -82,8 +82,7 @@ export class Injector {
 
     /** Inject additional generics to existing callback interfaces */
     toCallback(girCallback: GirCallbackElement) {
-        const callbacks =
-            this.environment === 'gjs' ? [...callbacksAll, ...callbacksGjs] : [...callbacksAll, ...callbacksNode]
+        const callbacks = this.environment === 'gjs' ? [...callbacksAll, ...callbacksGjs] : [...callbacksAll]
 
         if (!girCallback._module || !girCallback._tsData) {
             return girCallback
@@ -129,8 +128,7 @@ export class Injector {
     toParameterType(girParam: GirCallableParamElement) {
         const tsTypes = girParam._tsData?.type
 
-        const callbacks =
-            this.environment === 'gjs' ? [...callbacksAll, ...callbacksGjs] : [...callbacksAll, ...callbacksNode]
+        const callbacks = this.environment === 'gjs' ? [...callbacksAll, ...callbacksGjs] : [...callbacksAll]
 
         if (!girParam._module || !girParam._tsData) {
             return girParam

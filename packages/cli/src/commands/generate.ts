@@ -13,7 +13,7 @@ import type { ConfigFlags } from '@ts-for-gir/lib'
 
 const command = 'generate [modules..]'
 
-const description = 'Generates .d.ts files from GIR for GJS or node-gtk'
+const description = 'Generates .d.ts files from GIR for GJS'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
@@ -51,7 +51,7 @@ const handler = async (args: ConfigFlags) => {
 const examples: ReadonlyArray<[string, string?]> = [
     [
         `${Config.appName} generate`,
-        `Run '${Config.appName} generate' in your gjs or node-gtk project to generate typings for your project, pass the gir modules you need for your project`,
+        `Run '${Config.appName} generate' in your gjs project to generate typings for your project, pass the gir modules you need for your project`,
     ],
     [`${Config.appName} generate Gtk*`, 'You can also use wild cards'],
     [`${Config.appName} generate '*'`, 'If you want to parse all of your locally installed gir modules run'],

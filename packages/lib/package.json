@@ -1,7 +1,7 @@
 {
   "name": "@ts-for-gir/lib",
   "version": "3.2.3",
-  "description": "Typescript .d.ts generator from GIR for gjs and node-gtk",
+  "description": "Typescript .d.ts generator from GIR for gjs",
   "module": "lib/index.js",
   "main": "lib/index.js",
   "type": "module",
@@ -34,7 +34,6 @@
     "gjs",
     "typescript",
     "generate",
-    "node-gtk",
     "gir",
     "gobject-introspection",
     "gnome",

@@ -1296,7 +1296,7 @@ export class TypeDefinitionGenerator implements Generator {
 
     protected async exportModuleTS(moduleTemplateProcessor: TemplateProcessor, girModule: GirModule): Promise<void> {
         const template = 'module.d.ts'
-        let explicitTemplate = `${girModule.importName}.d.ts`
+        const explicitTemplate = `${girModule.importName}.d.ts`
 
         let target = `${girModule.importName}.d.ts`
 
@@ -1308,10 +1308,6 @@ export class TypeDefinitionGenerator implements Generator {
             }
         }
 
-        // Remove `node-` prefix for node environment
-        if (this.config.environment === 'node' && explicitTemplate.startsWith('node-')) {
-            explicitTemplate = explicitTemplate.substring(5)
-        }
         const out: string[] = []
 
         out.push(...this.addTSDocCommentLines([girModule.packageName]))
@@ -1789,66 +1785,6 @@ export class TypeDefinitionGenerator implements Generator {
         }
     }
 
-    protected async exportNodeGtk(
-        dependencies: Dependency[],
-        girModules: GirModule[],
-        girModulesGrouped: GirModulesGrouped[],
-    ) {
-        if (!this.config.outdir) return
-        const packageName = 'node-gtk'
-
-        const templateProcessor = new TemplateProcessor(
-            { girModules, girModulesGrouped },
-            packageName,
-            dependencies,
-            this.config,
-        )
-
-        // TS
-        await templateProcessor.create('node-gtk.d.ts', this.config.outdir, 'node-gtk.d.ts')
-
-        // JS
-        if (this.config.buildType === 'lib') {
-            await templateProcessor.create('node-gtk.js', this.config.outdir, 'node-gtk.js')
-        }
-
-        // If you build an NPM package, we also build the node-gtk module for the other module type
-        if (this.config.package) {
-            this.setOverrideConfigForOtherModuleType()
-            // TS
-            await templateProcessor.create(
-                'node-gtk.d.ts',
-                this.config.outdir,
-                this.overrideConfig.moduleType === 'cjs' ? 'node-gtk.d.cts' : 'node-gtk.d.mts',
-                undefined,
-                undefined,
-                undefined,
-                this.overrideConfig,
-            )
-            // JS
-            if (this.config.buildType === 'lib') {
-                await templateProcessor.create(
-                    'node-gtk.js',
-                    this.config.outdir,
-                    this.overrideConfig.moduleType === 'cjs' ? 'node-gtk.cjs' : 'node-gtk.mjs',
-                    undefined,
-                    undefined,
-                    undefined,
-                    this.overrideConfig,
-                )
-            }
-            this.resetOverrideConfig()
-        }
-
-        // Import ambient types
-        await templateProcessor.create('ambient.d.ts', this.config.outdir, 'node-ambient.d.ts')
-
-        // Package
-        if (this.config.package) {
-            await this.exportNPMPackage(templateProcessor, 'node-gtk')
-        }
-    }
-
     public async start(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[] = []) {
         this.dependencyManager.addAll(girModules)
 
@@ -1858,11 +1794,6 @@ export class TypeDefinitionGenerator implements Generator {
 
         for (const girModule of girModules) {
             await this.exportModule(girModule, girModules, girModulesGrouped)
-        }
-
-        if (this.config.environment === 'node') {
-            // node-gtk internal stuff
-            await this.exportNodeGtk(this.dependencyManager.core(), girModules, girModulesGrouped)
         }
 
         if (this.config.environment === 'gjs') {

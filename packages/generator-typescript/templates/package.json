@@ -4,9 +4,6 @@ let entryPointName = importName
 if (packageName === 'Gjs') {
   entryPointName = 'gjs'
 }
-if (packageName === 'node-gtk') {
-  entryPointName = 'node-gtk'
-}
 let depVersion = packageYarn ? 'workspace:^' : APP_VERSION
 _%>
 {
@@ -98,8 +95,6 @@ _%>
       <%_ if (entryPointName === 'gjs') { _%>
       "./ambient": "./ambient.d.ts",
       "./dom": "./dom.d.ts",
-      <%_ } else if (entryPointName === 'node-gtk') { _%>
-      "./ambient": "./node-ambient.d.ts",
       <%_ } else {_%>
       "./ambient": "./<%- entryPointName %>-ambient.d.ts",
       "./import": "./<%- entryPointName %>-import.d.ts",
@@ -137,10 +132,8 @@ _%>
       <%_ } _%>
     },
     "dependencies": {
-      <%_ if (packageName !== 'Gjs' && packageName !== 'node-gtk') { _%>
-        <%_ if (environment === 'node') { _%>
-      "<%- npmScope %>/node-gtk": "<%- depVersion %>"<%_ if(deps.length > 0 ) { _%>,<%_ } _%>
-        <%_ } else { _%>
+      <%_ if (packageName !== 'Gjs') { _%>
+        <%_ if (environment === 'gjs') { _%>
       "<%- npmScope %>/gjs": "<%- depVersion %>"<%_ if(deps.length > 0 ) { _%>,<%_ } _%>
         <%_ } _%>
       <%_ } _%>
@@ -153,11 +146,6 @@ _%>
       "<%- deps[i].importPath %>": "<%- depVersion %>"<%_ if(i < deps.length - 1) { _%>,<%_ } _%>
       <% } %>
     },
-    <%_ if (environment === 'node') { _%>
-    "peerDependencies": {
-      "node-gtk": "*"
-    },
-    <%_ } _%>
     "devDependencies": {
       "typescript": "*"
     },

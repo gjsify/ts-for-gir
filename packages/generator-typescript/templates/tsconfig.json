@@ -5,9 +5,6 @@ if (packageName === 'Gjs') {
   entryPointName = 'gjs'
   includes.push(`./dom.d.ts`)
 }
-if (packageName === 'node-gtk') {
-  entryPointName = 'node-gtk'
-}
 includes.push(`./${entryPointName}.d.ts`)
 _%>
 {

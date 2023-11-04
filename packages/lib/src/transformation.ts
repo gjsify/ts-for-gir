@@ -1,6 +1,6 @@
 /**
- * This is where transformations take place for gjs and node-gtk.
- * For example a function names should be transformed to lowerCamelCase for node-gtk but should keep their original name for gjs
+ * This is where transformations take place for gjs.
+ * For example function names should keep their original name for gjs
  */
 
 import {
@@ -255,95 +255,61 @@ export const RESERVED_NAMESPACE_NAMES = {}
 export class Transformation {
     /**
      * Rules for the name conventions
-     * For node-gtk naming conventions see https://github.com/romgrk/node-gtk#naming-conventions
      * For gjs see https://gjs-docs.gnome.org/ and https://wiki.gnome.org/Attic/Gjs
      */
     private transformations: Transformations = {
         functionName: {
-            node: {
-                transformation: 'lowerCamelCase',
-            },
             gjs: {
                 transformation: 'original',
             },
         },
         enumName: {
-            node: {
-                transformation: 'original',
-            },
             gjs: {
                 transformation: 'original',
             },
         },
         enumMember: {
-            node: {
-                transformation: 'upperCase',
-            },
             gjs: {
                 transformation: 'upperCase',
             },
         },
         signalName: {
-            node: {
-                transformation: 'original',
-            },
             gjs: {
                 transformation: 'original',
             },
         },
         // GJS always re-writes - to _ (I think?)
         propertyName: {
-            node: {
-                transformation: 'lowerCamelCase',
-            },
             gjs: {
                 transformation: 'underscores',
             },
         },
         parameterName: {
-            node: {
-                transformation: 'lowerCamelCase',
-            },
             gjs: {
                 transformation: 'underscores',
             },
         },
         fieldName: {
-            node: {
-                transformation: 'lowerCamelCase',
-            },
             gjs: {
                 transformation: 'underscores',
             },
         },
         constantName: {
-            node: {
-                transformation: 'original',
-            },
             gjs: {
                 transformation: 'original',
             },
         },
         importNamespaceName: {
-            node: {
-                transformation: 'upperCamelCase',
-            },
             gjs: {
                 transformation: 'upperCamelCase',
             },
         },
         signalInterfaceName: {
-            node: {
-                transformation: 'upperCamelCase',
-            },
             gjs: {
                 transformation: 'upperCamelCase',
             },
         },
         importName: {
-            node: {
-                transformation: 'lowerCase',
-            },
             gjs: {
                 transformation: 'lowerCase',
             },
@@ -615,10 +581,8 @@ export class Transformation {
     }
 
     public transformImportName(packageName: string): string {
-        let importName = this.transform('importName', packageName)
-        if (this.config.environment === 'node' && !importName.startsWith('node-')) {
-            importName = 'node-' + importName
-        }
+        const importName = this.transform('importName', packageName)
+
         return importName
     }
 }

@@ -175,7 +175,7 @@ export class GirModule {
         xml: ParsedGir,
         private readonly config: GenerateConfig,
     ) {
-        this.repo = xml.repository
+        this.repo = xml.repository[0]
 
         if (!this.repo.namespace || !this.repo.namespace.length) {
             throw new Error(`Namespace not found!`)

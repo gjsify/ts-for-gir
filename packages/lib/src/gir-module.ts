@@ -220,7 +220,8 @@ export class GirModule {
             tags: [],
         }
         if (girDoc.doc?.[0]?._) {
-            let text = girDoc.doc?.[0]?._ || ''
+            // TODO: Somehow _ is not a string
+            let text = `${girDoc.doc?.[0]?._ || ''}`
             text = this.transformation.transformGirDocText(text)
             tsDoc.text = text
         }

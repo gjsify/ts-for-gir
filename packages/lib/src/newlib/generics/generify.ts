@@ -4,13 +4,13 @@ import clutter from "./clutter.js";
 import st from "./st.js";
 import meta from "./meta.js";
 
-import { GirNamespace } from "../gir/namespace.js";
-import { GirNSRegistry } from "../gir/registry.js";
+import { IntrospectedNamespace } from "../gir/namespace.js";
+import { NSRegistry } from "../gir/registry.js";
 import { GenericVisitor } from "./visitor.js";
 
-type NamespaceModifier = (namespace: GirNamespace, inferGenerics: boolean) => void;
+type NamespaceModifier = (namespace: IntrospectedNamespace, inferGenerics: boolean) => void;
 
-function generifyDefinitions(registry: GirNSRegistry, inferGenerics: boolean, required: boolean = true) {
+function generifyDefinitions(registry: NSRegistry, inferGenerics: boolean, required: boolean = true) {
   return (definition: { namespace: string; version?: string; modifier: NamespaceModifier }) => {
     const version = definition?.version ?? registry.defaultVersionOf(definition.namespace);
 
@@ -29,7 +29,7 @@ function generifyDefinitions(registry: GirNSRegistry, inferGenerics: boolean, re
   };
 }
 
-export function generify(registry: GirNSRegistry, inferGenerics: boolean) {
+export function generify(registry: NSRegistry, inferGenerics: boolean) {
   const $ = generifyDefinitions(registry, inferGenerics);
 
   $(gio);

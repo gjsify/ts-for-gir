@@ -1,11 +1,9 @@
-import { GirNamespace } from "./gir/namespace.js";
-import { GirProperty, GirField } from "./gir/property.js";
-import { FormatGenerator } from "./generators/generator.js";
-import { GenerationOptions, LoadOptions } from "./types.js";
+import { IntrospectedNamespace } from "./gir/namespace.js";
+import { GirProperty, Field } from "./gir/property.js";
+import { GenerationOptions } from "./types.js";
 import { sanitizeIdentifierName } from "./gir/util.js";
-import { GirVisitor } from "./visitor.js";
 
-export {GirBase, GirOptions, GirMetadata} from './gir/base.js';
+export {IntrospectedBase as GirBase, Options as GirOptions, Metadata as GirMetadata} from './gir/base.js';
 
 export abstract class TypeExpression {
   isPointer = false;
@@ -18,10 +16,10 @@ export abstract class TypeExpression {
   }
 
   abstract rewrap(type: TypeExpression): TypeExpression;
-  abstract resolve(namespace: GirNamespace, options: GenerationOptions): TypeExpression;
+  abstract resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeExpression;
 
-  abstract print(namespace: GirNamespace, options: GenerationOptions): string;
-  rootPrint(namespace: GirNamespace, options: GenerationOptions): string {
+  abstract print(namespace: IntrospectedNamespace, options: GenerationOptions): string;
+  rootPrint(namespace: IntrospectedNamespace, options: GenerationOptions): string {
     return this.print(namespace, options);
   }
 }
@@ -52,7 +50,7 @@ export class TypeIdentifier extends TypeExpression {
     return type;
   }
 
-  protected _resolve(namespace: GirNamespace, options: GenerationOptions): TypeIdentifier | null {
+  protected _resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeIdentifier | null {
     const type = this;
     let name: string = sanitizeIdentifierName(null, type.name);
     let ns_name = type.namespace;
@@ -121,11 +119,11 @@ export class TypeIdentifier extends TypeExpression {
     return null;
   }
 
-  resolveIdentifier(namespace: GirNamespace, options: GenerationOptions): TypeIdentifier | null {
+  resolveIdentifier(namespace: IntrospectedNamespace, options: GenerationOptions): TypeIdentifier | null {
     return this._resolve(namespace, options);
   }
 
-  resolve(namespace: GirNamespace, options: GenerationOptions): TypeExpression {
+  resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeExpression {
     const resolved = this._resolve(namespace, options);
 
     // Generally if we can't resolve a type it is not introspectable,
@@ -137,7 +135,7 @@ export class TypeIdentifier extends TypeExpression {
     return new TypeIdentifier(name, namespace);
   }
 
-  print(namespace: GirNamespace, _options: GenerationOptions): string {
+  print(namespace: IntrospectedNamespace, _options: GenerationOptions): string {
     if (namespace.name === this.namespace) {
       return `${this.name}`;
     } else {
@@ -154,7 +152,7 @@ export class GenerifiedTypeIdentifier extends TypeIdentifier {
     this.generics = generics;
   }
 
-  print(namespace: GirNamespace, _options: GenerationOptions): string {
+  print(namespace: IntrospectedNamespace, _options: GenerationOptions): string {
     const Generics = this.generics.map(generic => generic.print(namespace, _options)).join(", ");
 
     if (namespace.name === this.namespace) {
@@ -164,7 +162,7 @@ export class GenerifiedTypeIdentifier extends TypeIdentifier {
     }
   }
 
-  _resolve(namespace: GirNamespace, options: GenerationOptions): TypeIdentifier | null {
+  _resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeIdentifier | null {
     const iden = super._resolve(namespace, options);
 
     if (iden) {
@@ -188,11 +186,11 @@ export class NativeType extends TypeExpression {
     return type;
   }
 
-  resolve(_namespace: GirNamespace, _options: GenerationOptions): TypeExpression {
+  resolve(_namespace: IntrospectedNamespace, _options: GenerationOptions): TypeExpression {
     return this;
   }
 
-  print(_namespace: GirNamespace, options: GenerationOptions) {
+  print(_namespace: IntrospectedNamespace, options: GenerationOptions) {
     return this.expression(options);
   }
 
@@ -229,17 +227,17 @@ export class OrType extends TypeExpression {
     return this;
   }
 
-  resolve(namespace: GirNamespace, options: GenerationOptions): TypeExpression {
+  resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeExpression {
     const [type, ...types] = this.types;
 
     return new OrType(type.resolve(namespace, options), ...types.map(t => t.resolve(namespace, options)));
   }
 
-  print(namespace: GirNamespace, options: GenerationOptions): string {
+  print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
     return `(${this.types.map(t => t.print(namespace, options)).join(" | ")})`;
   }
 
-  rootPrint(namespace: GirNamespace, options: GenerationOptions): string {
+  rootPrint(namespace: IntrospectedNamespace, options: GenerationOptions): string {
     return `${this.types.map(t => t.print(namespace, options)).join(" | ")}`;
   }
 
@@ -253,15 +251,15 @@ export class OrType extends TypeExpression {
 }
 
 export class TupleType extends OrType {
-  print(namespace: GirNamespace, options: GenerationOptions): string {
+  print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
     return `[${this.types.map(t => t.print(namespace, options)).join(", ")}]`;
   }
 
-  rootPrint(namespace: GirNamespace, options: GenerationOptions): string {
+  rootPrint(namespace: IntrospectedNamespace, options: GenerationOptions): string {
     return this.print(namespace, options);
   }
 
-  resolve(namespace: GirNamespace, options: GenerationOptions): TypeExpression {
+  resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeExpression {
     const [type, ...types] = this.types;
 
     return new TupleType(type.resolve(namespace, options), ...types.map(t => t.resolve(namespace, options)));
@@ -285,7 +283,7 @@ export class BinaryType extends OrType {
     return this;
   }
 
-  resolve(namespace: GirNamespace, options: GenerationOptions) {
+  resolve(namespace: IntrospectedNamespace, options: GenerationOptions) {
     return new BinaryType(this.a.resolve(namespace, options), this.b.resolve(namespace, options));
   }
 
@@ -337,7 +335,7 @@ export class FunctionType extends TypeExpression {
     return this;
   }
 
-  resolve(namespace: GirNamespace, options: GenerationOptions): TypeExpression {
+  resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeExpression {
     return new FunctionType(
       Object.fromEntries(
         Object.entries(this.parameterTypes).map(([k, p]) => {
@@ -348,7 +346,7 @@ export class FunctionType extends TypeExpression {
     );
   }
 
-  rootPrint(namespace: GirNamespace, options: GenerationOptions): string {
+  rootPrint(namespace: IntrospectedNamespace, options: GenerationOptions): string {
     const Parameters = Object.entries(this.parameterTypes)
       .map(([k, v]) => {
         return `${k}: ${v.rootPrint(namespace, options)}`;
@@ -358,7 +356,7 @@ export class FunctionType extends TypeExpression {
     return `(${Parameters}) => ${this.returnType.print(namespace, options)}`;
   }
 
-  print(namespace: GirNamespace, options: GenerationOptions): string {
+  print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
     return `(${this.rootPrint(namespace, options)})`;
   }
 }
@@ -420,7 +418,7 @@ export class GenerifiedType extends TypeExpression {
     this.generic = generic;
   }
 
-  resolve(namespace: GirNamespace, options: GenerationOptions) {
+  resolve(namespace: IntrospectedNamespace, options: GenerationOptions) {
     return new GenerifiedType(
       this.type.resolve(namespace, options),
       this.generic.resolve(namespace, options)
@@ -431,11 +429,11 @@ export class GenerifiedType extends TypeExpression {
     return this.type;
   }
 
-  rootPrint(namespace: GirNamespace, options: GenerationOptions) {
+  rootPrint(namespace: IntrospectedNamespace, options: GenerationOptions) {
     return `${this.type.print(namespace, options)}<${this.generic.print(namespace, options)}>`;
   }
 
-  print(namespace: GirNamespace, options: GenerationOptions) {
+  print(namespace: IntrospectedNamespace, options: GenerationOptions) {
     return `${this.type.print(namespace, options)}<${this.generic.print(namespace, options)}>`;
   }
 
@@ -478,11 +476,11 @@ export class GenericType extends TypeExpression {
     return type;
   }
 
-  resolve(_namespace: GirNamespace, _options: GenerationOptions): GenericType {
+  resolve(_namespace: IntrospectedNamespace, _options: GenerationOptions): GenericType {
     return this;
   }
 
-  print(_namespace: GirNamespace, _options: GenerationOptions): string {
+  print(_namespace: IntrospectedNamespace, _options: GenerationOptions): string {
     return `${this.identifier}`;
   }
 }
@@ -525,11 +523,11 @@ export class PromiseType extends TypeExpression {
     return new PromiseType(this.type.rewrap(type));
   }
 
-  resolve(namespace: GirNamespace, options: GenerationOptions): TypeExpression {
+  resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeExpression {
     return new PromiseType(this.type.resolve(namespace, options));
   }
 
-  print(namespace: GirNamespace, options: GenerationOptions): string {
+  print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
     // TODO: Optimize this check.
     if (!namespace.hasSymbol("Promise")) {
       return `Promise<${this.type.print(namespace, options)}>`;
@@ -593,7 +591,7 @@ export class TypeConflict extends TypeExpression {
     return true;
   }
 
-  resolve(namespace: GirNamespace, options: GenerationOptions): TypeExpression {
+  resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeExpression {
     throw new Error(
       `Type conflict was not resolved for ${this.type
         .resolve(namespace, options)
@@ -601,7 +599,7 @@ export class TypeConflict extends TypeExpression {
     );
   }
 
-  print(namespace: GirNamespace, options: GenerationOptions): string {
+  print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
     throw new Error(
       `Type conflict was not resolved for ${this.type
         .resolve(namespace, options)
@@ -644,7 +642,7 @@ export class ClosureType extends TypeExpression {
     return this;
   }
 
-  resolve(namespace: GirNamespace, options: GenerationOptions) {
+  resolve(namespace: IntrospectedNamespace, options: GenerationOptions) {
     const { user_data, type } = this;
 
     return ClosureType.new({
@@ -653,7 +651,7 @@ export class ClosureType extends TypeExpression {
     });
   }
 
-  print(namespace: GirNamespace, options: GenerationOptions): string {
+  print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
     return this.type.print(namespace, options);
   }
 
@@ -701,7 +699,7 @@ export class ArrayType extends TypeExpression {
     return false;
   }
 
-  resolve(namespace: GirNamespace, options: GenerationOptions): TypeExpression {
+  resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeExpression {
     const { type, arrayDepth, length } = this;
     return ArrayType.new({
       type: type.resolve(namespace, options),
@@ -710,7 +708,7 @@ export class ArrayType extends TypeExpression {
     });
   }
 
-  print(namespace: GirNamespace, options: GenerationOptions): string {
+  print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
     const depth = this.arrayDepth;
     let typeSuffix: string = "";
 
@@ -755,4 +753,4 @@ export const VoidType = new NativeType("void");
 export const UnknownType = new NativeType("unknown");
 export const AnyFunctionType = new NativeType("(...args: any[]) => any");
 
-export type GirClassField = GirProperty | GirField;
+export type GirClassField = GirProperty | Field;

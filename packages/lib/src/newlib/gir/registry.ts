@@ -12,26 +12,26 @@ import { TwoKeyMap } from "../util.js";
 import { ClassVisitor } from "../validators/class.js";
 import { InterfaceVisitor } from "../validators/interface.js";
 import { GirVisitor } from "../visitor.js";
-import { GirNamespace } from "./namespace.js";
+import { IntrospectedNamespace } from "./namespace.js";
 import { DtsModuleGenerator } from "../generators/dts-modules.js";
 import { DtsInlineGenerator } from "../generators/dts-inline.js";
 
-export interface GirNSLoader {
+export interface NSLoader {
   load(namespace: string, version: string): GirXML | null;
   loadAll(namespace: string): GirXML[];
 }
 
 type GeneratorConstructor<T> = {
-  new (namespace: GirNamespace, options: GenerationOptions, ...args: any[]): FormatGenerator<T>;
+  new (namespace: IntrospectedNamespace, options: GenerationOptions, ...args: any[]): FormatGenerator<T>;
 };
 
-export class GirNSRegistry {
-  mapping: TwoKeyMap<string, string, GirNamespace> = new TwoKeyMap();
+export class NSRegistry {
+  mapping: TwoKeyMap<string, string, IntrospectedNamespace> = new TwoKeyMap();
   private formatters: Map<string, Formatter> = new Map();
   private generators: Map<string, GeneratorConstructor<any>> = new Map();
-  c_mapping: Map<string, GirNamespace[]> = new Map();
+  c_mapping: Map<string, IntrospectedNamespace[]> = new Map();
   transformations: GirVisitor[] = [];
-  loaders: [GirNSLoader, LoadOptions][] = [];
+  loaders: [NSLoader, LoadOptions][] = [];
   subtypes = new TwoKeyMap<string, string, TwoKeyMap<string, string, boolean>>();
 
   constructor() {
@@ -57,13 +57,13 @@ export class GirNSRegistry {
 
   registerGenerator<T>(
     output: string,
-    generator: { new (namespace: GirNamespace, options: GenerationOptions): FormatGenerator<T> }
+    generator: { new (namespace: IntrospectedNamespace, options: GenerationOptions): FormatGenerator<T> }
   ) {
     this.generators.set(output, generator);
   }
 
-  getGenerator(output: "json"): { new (namespace: GirNamespace, options: GenerationOptions): JsonGenerator };
-  getGenerator(output: "dts"): { new (namespace: GirNamespace, options: GenerationOptions): DtsGenerator };
+  getGenerator(output: "json"): { new (namespace: IntrospectedNamespace, options: GenerationOptions): JsonGenerator };
+  getGenerator(output: "dts"): { new (namespace: IntrospectedNamespace, options: GenerationOptions): DtsGenerator };
   getGenerator<T>(output: string): GeneratorConstructor<T> | undefined;
   getGenerator(output: string): GeneratorConstructor<any> | undefined {
     if (output === "dts") {
@@ -110,13 +110,13 @@ export class GirNSRegistry {
     return this.generators.get(output);
   }
 
-  private _transformNamespace(namespace: GirNamespace) {
+  private _transformNamespace(namespace: IntrospectedNamespace) {
     this.transformations.forEach(t => {
       namespace.accept(t);
     });
   }
 
-  namespace(name: string, version: string): GirNamespace | null {
+  namespace(name: string, version: string): IntrospectedNamespace | null {
     const namespace = this.mapping.get(name, version);
 
     if (!namespace) {
@@ -126,7 +126,7 @@ export class GirNSRegistry {
     return namespace;
   }
 
-  namespacesForPrefix(c_prefix): GirNamespace[] {
+  namespacesForPrefix(c_prefix): IntrospectedNamespace[] {
     return this.c_mapping.get(c_prefix) ?? [];
   }
 
@@ -187,7 +187,7 @@ export class GirNSRegistry {
     throw new Error(`No single version found for unspecified dependency: ${name}.`);
   }
 
-  assertNamespace(name: string, version: string): GirNamespace {
+  assertNamespace(name: string, version: string): IntrospectedNamespace {
     let namespace = this.mapping.get(name, version) ?? null;
 
     if (!namespace) {
@@ -201,8 +201,8 @@ export class GirNSRegistry {
     return namespace;
   }
 
-  load(gir: GirXML, options: LoadOptions): GirNamespace {
-    const namespace = GirNamespace.fromXML(gir, options, this);
+  load(gir: GirXML, options: LoadOptions): IntrospectedNamespace {
+    const namespace = IntrospectedNamespace.fromXML(gir, options, this);
 
     this.mapping.set(namespace.name, namespace.version, namespace);
 
@@ -219,7 +219,7 @@ export class GirNSRegistry {
     return namespace;
   }
 
-  private _defaultVersionInternalLoad(name: string): GirNamespace | null {
+  private _defaultVersionInternalLoad(name: string): IntrospectedNamespace | null {
     const all = this.loaders
       .map(([loader, options]) => {
         try {
@@ -253,7 +253,7 @@ export class GirNSRegistry {
     return ns;
   }
 
-  private _internalLoad(name: string, version: string): GirNamespace | null {
+  private _internalLoad(name: string, version: string): IntrospectedNamespace | null {
     for (const [loader, options] of this.loaders) {
       try {
         const xml = loader.load(name, version);
@@ -276,7 +276,7 @@ export class GirNSRegistry {
     return null;
   }
 
-  registerLoader(loader: GirNSLoader, options: LoadOptions) {
+  registerLoader(loader: NSLoader, options: LoadOptions) {
     this.loaders.push([loader, options]);
   }
 }

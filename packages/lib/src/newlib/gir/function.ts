@@ -12,18 +12,18 @@ import {
   
 } from "../gir.js";
 
-import {GirBase, GirOptions, GirMetadata} from './base.js';
+import {IntrospectedBase, Options} from './base.js';
 import {
-  FunctionElement,
-  MethodElement,
-  Direction,
-  CallableParamElement,
-  CallbackElement,
-  VirtualMethodElement,
-  ConstructorElement
-} from "@gi.ts/parser";
+  GirFunctionElement,
+  GirMethodElement,
+  GirDirection,
+  GirCallableParamElement,
+  GirCallbackElement,
+  GirVirtualMethodElement,
+  GirConstructorElement
+} from "../../index.js";
 
-import { GirNamespace, isIntrospectable } from "./namespace.js";
+import { IntrospectedNamespace, isIntrospectable } from "./namespace.js";
 import {
   getType,
   isInvalid,
@@ -32,23 +32,23 @@ import {
   parseDoc,
   parseMetadata
 } from "./util.js";
-import { GirBaseClass, GirClass } from "./class.js";
-import { GirEnum } from "./enum.js";
-import { GirSignal } from "./signal.js";
+import { IntrospectedBaseClass, IntrospectedClass } from "./class.js";
+import { IntrospectedEnum } from "./enum.js";
+import { IntrospectedSignal } from "./signal.js";
 import { FormatGenerator } from "../generators/generator.js";
 import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
-import { GirField } from "./property.js";
+import { Field } from "./property.js";
 
 function hasShadow(
-  obj: FunctionElement | MethodElement
-): obj is FunctionElement & { $: { shadows: string } } {
+  obj: GirFunctionElement | GirMethodElement
+): obj is GirFunctionElement & { $: { shadows: string } } {
   return obj.$["shadows"] != null;
 }
 
-export class GirFunction extends GirBase {
-  readonly parameters: GirFunctionParameter[];
-  readonly output_parameters: GirFunctionParameter[];
+export class IntrospectedFunction extends IntrospectedBase {
+  readonly parameters: IntrospectedFunctionParameter[];
+  readonly output_parameters: IntrospectedFunctionParameter[];
   readonly return_type: TypeExpression;
   readonly raw_name: string;
 
@@ -61,12 +61,12 @@ export class GirFunction extends GirBase {
     parameters = [],
     output_parameters = [],
     ...args
-  }: GirOptions<{
+  }: Options<{
     name: string;
     raw_name: string;
     return_type?: TypeExpression;
-    parameters?: GirFunctionParameter[];
-    output_parameters?: GirFunctionParameter[];
+    parameters?: IntrospectedFunctionParameter[];
+    output_parameters?: IntrospectedFunctionParameter[];
   }>) {
     super(name, { ...args });
 
@@ -82,11 +82,11 @@ export class GirFunction extends GirBase {
     return_type
   }: {
     parent?: undefined;
-    parameters?: GirFunctionParameter[];
-    outputParameters?: GirFunctionParameter[];
+    parameters?: IntrospectedFunctionParameter[];
+    outputParameters?: IntrospectedFunctionParameter[];
     return_type?: TypeExpression;
-  } = {}): GirFunction {
-    const fn = new GirFunction({
+  } = {}): IntrospectedFunction {
+    const fn = new IntrospectedFunction({
       raw_name: this.raw_name,
       name: this.name,
       return_type: return_type ?? this.return_type,
@@ -99,7 +99,7 @@ export class GirFunction extends GirBase {
     return fn._copyBaseProperties(this);
   }
 
-  accept(visitor: GirVisitor): GirFunction {
+  accept(visitor: GirVisitor): IntrospectedFunction {
     const node = this.copy({
       parameters: this.parameters.map(p => {
         return p.accept(visitor);
@@ -115,11 +115,11 @@ export class GirFunction extends GirBase {
 
   static fromXML(
     modName: string,
-    ns: GirNamespace,
+    ns: IntrospectedNamespace,
     options: LoadOptions,
     _parent,
-    func: FunctionElement | MethodElement
-  ): GirFunction {
+    func: GirFunctionElement | GirMethodElement
+  ): IntrospectedFunction {
     let raw_name = func.$.name;
     let name = sanitizeIdentifierName(null, raw_name);
 
@@ -138,7 +138,7 @@ export class GirFunction extends GirBase {
       return_type = VoidType;
     }
 
-    let parameters: GirFunctionParameter[] = [];
+    let parameters: IntrospectedFunctionParameter[] = [];
 
     if (func.parameters) {
       const param = func.parameters[0].parameter;
@@ -148,7 +148,7 @@ export class GirFunction extends GirBase {
           return !!p.$.name;
         });
 
-        parameters.push(...inputs.map(i => GirFunctionParameter.fromXML(modName, ns, options, null, i)));
+        parameters.push(...inputs.map(i => IntrospectedFunctionParameter.fromXML(modName, ns, options, null, i)));
 
         const unwrapped = return_type.unwrap();
 
@@ -205,24 +205,24 @@ export class GirFunction extends GirBase {
             },
             {
               allowOptions: true,
-              params: [] as GirFunctionParameter[]
+              params: [] as IntrospectedFunctionParameter[]
             }
           )
           .params.reverse()
-          .filter((p): p is GirFunctionParameter => p != null);
+          .filter((p): p is IntrospectedFunctionParameter => p != null);
       }
     }
 
     let input_parameters = parameters.filter(
-      param => param.direction === Direction.In || param.direction === Direction.Inout
+      param => param.direction === GirDirection.In || param.direction === GirDirection.Inout
     );
     let output_parameters = parameters
       .filter(
-        param => param.direction && (param.direction === Direction.Out || param.direction === Direction.Inout)
+        param => param.direction && (param.direction === GirDirection.Out || param.direction === GirDirection.Inout)
       )
       .map(parameter => parameter.copy({ isOptional: false }));
 
-    const fn = new GirFunction({
+    const fn = new IntrospectedFunction({
       parameters: input_parameters,
       output_parameters,
       return_type,
@@ -243,10 +243,10 @@ export class GirFunction extends GirBase {
     return this.return_type;
   }
 
-  asCallback(): GirCallback {
+  asCallback(): IntrospectedCallback {
     const { raw_name, name, output_parameters, parameters, return_type } = this;
 
-    return new GirCallback({
+    return new IntrospectedCallback({
       raw_name,
       name,
       output_parameters,
@@ -255,10 +255,10 @@ export class GirFunction extends GirBase {
     });
   }
 
-  asClassFunction(parent: GirBaseClass | GirEnum): GirClassFunction {
+  asClassFunction(parent: IntrospectedBaseClass | IntrospectedEnum): IntrospectedClassFunction {
     const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = this;
 
-    return new GirClassFunction({
+    return new IntrospectedClassFunction({
       parent,
       name,
       output_parameters,
@@ -269,10 +269,10 @@ export class GirFunction extends GirBase {
     });
   }
 
-  asVirtualClassFunction(parent: GirBaseClass): GirVirtualClassFunction {
+  asVirtualClassFunction(parent: IntrospectedBaseClass): IntrospectedVirtualClassFunction {
     const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = this;
 
-    return new GirVirtualClassFunction({
+    return new IntrospectedVirtualClassFunction({
       parent,
       name,
       output_parameters,
@@ -283,10 +283,10 @@ export class GirFunction extends GirBase {
     });
   }
 
-  asStaticClassFunction(parent: GirBaseClass | GirEnum): GirStaticClassFunction {
+  asStaticClassFunction(parent: IntrospectedBaseClass | IntrospectedEnum): IntrospectedStaticClassFunction {
     const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = this;
 
-    return new GirStaticClassFunction({
+    return new IntrospectedStaticClassFunction({
       parent,
       name,
       output_parameters,
@@ -302,10 +302,10 @@ export class GirFunction extends GirBase {
   }
 }
 
-export class GirDirectAllocationConstructor extends GirBase {
-  fields: GirField[];
+export class IntrospectedDirectAllocationConstructor extends IntrospectedBase {
+  fields: Field[];
 
-  constructor(fields: GirField[]) {
+  constructor(fields: Field[]) {
     super("new", { isPrivate: false, isIntrospectable: true });
 
     this.fields = fields
@@ -322,16 +322,16 @@ export class GirDirectAllocationConstructor extends GirBase {
   }
 
   copy(
-    options?: { parent?: GirBase | undefined; fields: GirField[] } | undefined
-  ): GirDirectAllocationConstructor {
-    const copy = new GirDirectAllocationConstructor(options?.fields ?? this.fields);
+    options?: { parent?: IntrospectedBase | undefined; fields: Field[] } | undefined
+  ): IntrospectedDirectAllocationConstructor {
+    const copy = new IntrospectedDirectAllocationConstructor(options?.fields ?? this.fields);
 
     copy._copyBaseProperties(this);
 
     return copy;
   }
 
-  accept(visitor: GirVisitor): GirDirectAllocationConstructor {
+  accept(visitor: GirVisitor): IntrospectedDirectAllocationConstructor {
     const node = this.copy({
       fields: this.fields.map(field => {
         return field.accept(visitor);
@@ -342,8 +342,8 @@ export class GirDirectAllocationConstructor extends GirBase {
   }
 }
 
-export class GirConstructor extends GirBase {
-  readonly parameters: GirFunctionParameter[] = [];
+export class IntrospectedConstructor extends IntrospectedBase {
+  readonly parameters: IntrospectedFunctionParameter[] = [];
   readonly return_type: TypeExpression = UnknownType;
 
   constructor({
@@ -351,9 +351,9 @@ export class GirConstructor extends GirBase {
     parameters = [],
     return_type,
     ...args
-  }: GirOptions<{
+  }: Options<{
     name: string;
-    parameters?: GirFunctionParameter[];
+    parameters?: IntrospectedFunctionParameter[];
     return_type: TypeExpression;
   }>) {
     super(name, { ...args });
@@ -366,10 +366,10 @@ export class GirConstructor extends GirBase {
     return_type
   }: {
     parent?: undefined;
-    parameters?: GirFunctionParameter[];
+    parameters?: IntrospectedFunctionParameter[];
     return_type?: TypeExpression;
-  } = {}): GirConstructor {
-    return new GirConstructor({
+  } = {}): IntrospectedConstructor {
+    return new IntrospectedConstructor({
       name: this.name,
       return_type: return_type ?? this.return_type,
       parameters: parameters ?? this.parameters
@@ -378,15 +378,15 @@ export class GirConstructor extends GirBase {
 
   static fromXML(
     modName: string,
-    ns: GirNamespace,
+    ns: IntrospectedNamespace,
     options: LoadOptions,
-    parent: GirBaseClass,
-    m: ConstructorElement
-  ): GirConstructor {
-    return GirClassFunction.fromXML(modName, ns, options, parent, m as FunctionElement).asConstructor();
+    parent: IntrospectedBaseClass,
+    m: GirConstructorElement
+  ): IntrospectedConstructor {
+    return IntrospectedClassFunction.fromXML(modName, ns, options, parent, m as GirFunctionElement).asConstructor();
   }
 
-  accept(visitor: GirVisitor): GirConstructor {
+  accept(visitor: GirVisitor): IntrospectedConstructor {
     const node = this.copy({
       parameters: this.parameters.map(p => {
         return p.accept(visitor);
@@ -406,13 +406,13 @@ export class GirConstructor extends GirBase {
   }
 }
 
-export class GirFunctionParameter extends GirBase {
+export class IntrospectedFunctionParameter extends IntrospectedBase {
   readonly type: TypeExpression;
-  readonly direction: Direction;
+  readonly direction: GirDirection;
   readonly isVarArgs: boolean = false;
   readonly isOptional: boolean = false;
   readonly isNullable: boolean = false;
-  readonly parent?: GirClassFunction | GirFunction | GirSignal | GirConstructor;
+  readonly parent?: IntrospectedClassFunction | IntrospectedFunction | IntrospectedSignal | IntrospectedConstructor;
 
   constructor({
     name,
@@ -424,11 +424,11 @@ export class GirFunctionParameter extends GirBase {
     isOptional = false,
     isNullable = false,
     ...args
-  }: GirOptions<{
+  }: Options<{
     name: string;
-    parent?: GirClassFunction | GirFunction | GirSignal | GirConstructor;
+    parent?: IntrospectedClassFunction | IntrospectedFunction | IntrospectedSignal | IntrospectedConstructor;
     type: TypeExpression;
-    direction: Direction;
+    direction: GirDirection;
     doc?: string | null;
     isVarArgs?: boolean;
     isOptional?: boolean;
@@ -447,17 +447,17 @@ export class GirFunctionParameter extends GirBase {
 
   copy(
     options: {
-      parent?: GirClassFunction | GirFunction | GirSignal | GirConstructor;
+      parent?: IntrospectedClassFunction | IntrospectedFunction | IntrospectedSignal | IntrospectedConstructor;
       type?: TypeExpression;
       isOptional?: boolean;
       isNullable?: boolean;
     } = {
       parent: this.parent
     }
-  ): GirFunctionParameter {
+  ): IntrospectedFunctionParameter {
     const { type, parent, direction, isVarArgs, isOptional, isNullable, name, doc } = this;
 
-    return new GirFunctionParameter({
+    return new IntrospectedFunctionParameter({
       parent: options.parent ?? parent,
       name,
       direction,
@@ -469,7 +469,7 @@ export class GirFunctionParameter extends GirBase {
     })._copyBaseProperties(this);
   }
 
-  accept(visitor: GirVisitor): GirFunctionParameter {
+  accept(visitor: GirVisitor): IntrospectedFunctionParameter {
     const node = this.copy({
       type: visitor.visitType?.(this.type)
     });
@@ -483,11 +483,11 @@ export class GirFunctionParameter extends GirBase {
 
   static fromXML(
     modName: string,
-    ns: GirNamespace,
+    ns: IntrospectedNamespace,
     options: LoadOptions,
-    parent: GirSignal | GirClassFunction | GirFunction | GirConstructor | null,
-    parameter: CallableParamElement & { $: { name: string } }
-  ): GirFunctionParameter {
+    parent: IntrospectedSignal | IntrospectedClassFunction | IntrospectedFunction | IntrospectedConstructor | null,
+    parameter: GirCallableParamElement & { $: { name: string } }
+  ): IntrospectedFunctionParameter {
     let name = sanitizeMemberName(parameter.$.name);
 
     if (isInvalid(name)) {
@@ -499,12 +499,12 @@ export class GirFunctionParameter extends GirBase {
     let isNullable = false;
 
     let type: TypeExpression;
-    let direction: Direction;
+    let direction: GirDirection;
 
     if (
       !parameter.$.direction ||
-      parameter.$.direction === Direction.In ||
-      parameter.$.direction === Direction.Inout
+      parameter.$.direction === GirDirection.In ||
+      parameter.$.direction === GirDirection.Inout
     ) {
       if (name === "...") {
         isVarArgs = true;
@@ -512,7 +512,7 @@ export class GirFunctionParameter extends GirBase {
       }
 
       // Default to "in" direction
-      direction = parameter.$.direction || Direction.In;
+      direction = parameter.$.direction || GirDirection.In;
 
       const optional = parameter.$.optional === "1";
       const nullable = parameter.$.nullable === "1";
@@ -526,14 +526,14 @@ export class GirFunctionParameter extends GirBase {
       }
 
       type = getType(modName, ns, parameter);
-    } else if (parameter.$.direction === Direction.Out || parameter.$.direction === Direction.Inout) {
+    } else if (parameter.$.direction === GirDirection.Out || parameter.$.direction === GirDirection.Inout) {
       direction = parameter.$.direction;
       type = getType(modName, ns, parameter);
     } else {
       throw new Error(`Unknown parameter direction: ${parameter.$.direction}`);
     }
 
-    const fp = new GirFunctionParameter({
+    const fp = new IntrospectedFunctionParameter({
       isVarArgs,
       type: isVarArgs ? new ArrayType(type) : type,
       direction,
@@ -553,14 +553,14 @@ export class GirFunctionParameter extends GirBase {
   }
 }
 
-export class GirClassFunction extends GirBase {
-  readonly parameters: GirFunctionParameter[];
+export class IntrospectedClassFunction extends IntrospectedBase {
+  readonly parameters: IntrospectedFunctionParameter[];
   protected readonly return_type: TypeExpression;
-  readonly output_parameters: GirFunctionParameter[];
+  readonly output_parameters: IntrospectedFunctionParameter[];
   protected _anyify: boolean = false;
   protected _generify: boolean = false;
-  parent: GirBaseClass | GirEnum;
-  interfaceParent: GirBaseClass | GirEnum | null = null;
+  parent: IntrospectedBaseClass | IntrospectedEnum;
+  interfaceParent: IntrospectedBaseClass | IntrospectedEnum | null = null;
 
   generics: Generic[] = [];
 
@@ -572,12 +572,12 @@ export class GirClassFunction extends GirBase {
     parent,
     doc,
     ...args
-  }: GirOptions<{
+  }: Options<{
     name: string;
-    parameters?: GirFunctionParameter[];
-    output_parameters?: GirFunctionParameter[];
+    parameters?: IntrospectedFunctionParameter[];
+    output_parameters?: IntrospectedFunctionParameter[];
     return_type?: TypeExpression;
-    parent: GirBaseClass | GirEnum;
+    parent: IntrospectedBaseClass | IntrospectedEnum;
     doc?: string | null;
   }>) {
     super(name, { ...args });
@@ -589,12 +589,12 @@ export class GirClassFunction extends GirBase {
     this.doc = doc;
   }
 
-  asConstructor(): GirConstructor {
+  asConstructor(): IntrospectedConstructor {
     const { name, parameters } = this;
 
-    if (this.parent instanceof GirBaseClass) {
+    if (this.parent instanceof IntrospectedBaseClass) {
       // Always force constructors to have the correct return type.
-      return new GirConstructor({
+      return new IntrospectedConstructor({
         name,
         parameters,
         return_type: this.parent.getType(),
@@ -607,10 +607,10 @@ export class GirClassFunction extends GirBase {
     );
   }
 
-  asStaticClassFunction(parent: GirClass): any {
+  asStaticClassFunction(parent: IntrospectedClass): any {
     const { name, parameters, return_type, output_parameters } = this;
 
-    return new GirStaticClassFunction({
+    return new IntrospectedStaticClassFunction({
       name,
       parameters,
       output_parameters,
@@ -627,18 +627,18 @@ export class GirClassFunction extends GirBase {
     outputParameters,
     returnType
   }: {
-    parent?: GirBaseClass | GirEnum;
-    interfaceParent?: GirBaseClass | GirEnum;
-    parameters?: GirFunctionParameter[];
-    outputParameters?: GirFunctionParameter[];
+    parent?: IntrospectedBaseClass | IntrospectedEnum;
+    interfaceParent?: IntrospectedBaseClass | IntrospectedEnum;
+    parameters?: IntrospectedFunctionParameter[];
+    outputParameters?: IntrospectedFunctionParameter[];
     returnType?: TypeExpression;
-  } = {}): GirClassFunction {
-    let constr = GirClassFunction;
+  } = {}): IntrospectedClassFunction {
+    let constr = IntrospectedClassFunction;
 
-    if (this instanceof GirVirtualClassFunction) {
-      constr = GirVirtualClassFunction;
-    } else if (this instanceof GirStaticClassFunction) {
-      constr = GirStaticClassFunction;
+    if (this instanceof IntrospectedVirtualClassFunction) {
+      constr = IntrospectedVirtualClassFunction;
+    } else if (this instanceof IntrospectedStaticClassFunction) {
+      constr = IntrospectedStaticClassFunction;
     }
 
     const fn = new constr({
@@ -658,7 +658,7 @@ export class GirClassFunction extends GirBase {
     return fn._copyBaseProperties(this);
   }
 
-  accept(visitor: GirVisitor): GirClassFunction {
+  accept(visitor: GirVisitor): IntrospectedClassFunction {
     const node = this.copy({
       parameters: this.parameters.map(p => {
         return p.accept(visitor);
@@ -686,12 +686,12 @@ export class GirClassFunction extends GirBase {
 
   static fromXML(
     modName: string,
-    ns: GirNamespace,
+    ns: IntrospectedNamespace,
     options: LoadOptions,
-    parent: GirBaseClass | GirEnum,
-    m: FunctionElement | MethodElement
-  ): GirClassFunction {
-    const fn = GirFunction.fromXML(modName, ns, options, null, m);
+    parent: IntrospectedBaseClass | IntrospectedEnum,
+    m: GirFunctionElement | GirMethodElement
+  ): IntrospectedClassFunction {
+    const fn = IntrospectedFunction.fromXML(modName, ns, options, null, m);
 
     return fn.asClassFunction(parent);
   }
@@ -705,7 +705,7 @@ export class GirClassFunction extends GirBase {
   }
 }
 
-export class GirVirtualClassFunction extends GirClassFunction {
+export class IntrospectedVirtualClassFunction extends IntrospectedClassFunction {
   constructor({
     name,
     parameters = [],
@@ -714,12 +714,12 @@ export class GirVirtualClassFunction extends GirClassFunction {
     parent,
     doc,
     ...args
-  }: GirOptions<{
+  }: Options<{
     name: string;
-    parameters: GirFunctionParameter[];
-    output_parameters?: GirFunctionParameter[];
+    parameters: IntrospectedFunctionParameter[];
+    output_parameters?: IntrospectedFunctionParameter[];
     return_type?: TypeExpression;
-    parent: GirBaseClass;
+    parent: IntrospectedBaseClass;
     doc?: string | null;
   }>) {
     super({
@@ -737,7 +737,7 @@ export class GirVirtualClassFunction extends GirClassFunction {
     return this.return_type;
   }
 
-  accept(visitor: GirVisitor): GirVirtualClassFunction {
+  accept(visitor: GirVisitor): IntrospectedVirtualClassFunction {
     const node = this.copy({
       parameters: this.parameters.map(p => {
         return p.accept(visitor);
@@ -752,12 +752,12 @@ export class GirVirtualClassFunction extends GirClassFunction {
 
   static fromXML(
     modName: string,
-    ns: GirNamespace,
+    ns: IntrospectedNamespace,
     options: LoadOptions,
-    parent: GirBaseClass,
-    m: VirtualMethodElement
-  ): GirVirtualClassFunction {
-    const fn = GirFunction.fromXML(modName, ns, options, parent, m);
+    parent: IntrospectedBaseClass,
+    m: GirVirtualMethodElement
+  ): IntrospectedVirtualClassFunction {
+    const fn = IntrospectedFunction.fromXML(modName, ns, options, parent, m);
 
     return fn.asVirtualClassFunction(parent);
   }
@@ -767,12 +767,12 @@ export class GirVirtualClassFunction extends GirClassFunction {
   }
 }
 
-export class GirStaticClassFunction extends GirClassFunction {
+export class IntrospectedStaticClassFunction extends IntrospectedClassFunction {
   asString<T extends FormatGenerator<any>>(generator: T): ReturnType<T["generateStaticClassFunction"]> {
     return generator.generateStaticClassFunction(this);
   }
 
-  accept(visitor: GirVisitor): GirStaticClassFunction {
+  accept(visitor: GirVisitor): IntrospectedStaticClassFunction {
     const node = this.copy({
       parameters: this.parameters.map(p => {
         return p.accept(visitor);
@@ -788,18 +788,18 @@ export class GirStaticClassFunction extends GirClassFunction {
 
   static fromXML(
     modName: string,
-    ns: GirNamespace,
+    ns: IntrospectedNamespace,
     options: LoadOptions,
-    parent: GirBaseClass | GirEnum,
-    m: FunctionElement
-  ): GirStaticClassFunction {
-    const fn = GirFunction.fromXML(modName, ns, options, parent, m);
+    parent: IntrospectedBaseClass | IntrospectedEnum,
+    m: GirFunctionElement
+  ): IntrospectedStaticClassFunction {
+    const fn = IntrospectedFunction.fromXML(modName, ns, options, parent, m);
 
     return fn.asStaticClassFunction(parent);
   }
 }
 
-export class GirCallback extends GirFunction {
+export class IntrospectedCallback extends IntrospectedFunction {
   asFunctionType(): FunctionType {
     return new FunctionType(
       Object.fromEntries(this.parameters.map(p => [p.name, p.type] as const)),
@@ -813,11 +813,11 @@ export class GirCallback extends GirFunction {
     outputParameters
   }: {
     parent?: undefined;
-    parameters?: GirFunctionParameter[];
-    outputParameters?: GirFunctionParameter[];
+    parameters?: IntrospectedFunctionParameter[];
+    outputParameters?: IntrospectedFunctionParameter[];
     returnType?: TypeExpression;
-  } = {}): GirCallback {
-    const cb = new GirCallback({
+  } = {}): IntrospectedCallback {
+    const cb = new IntrospectedCallback({
       name: this.name,
       raw_name: this.raw_name,
       return_type: returnType ?? this.return_type,
@@ -830,7 +830,7 @@ export class GirCallback extends GirFunction {
     return cb;
   }
 
-  accept(visitor: GirVisitor): GirCallback {
+  accept(visitor: GirVisitor): IntrospectedCallback {
     const node = this.copy({
       parameters: this.parameters.map(p => {
         return p.accept(visitor);
@@ -846,12 +846,12 @@ export class GirCallback extends GirFunction {
 
   static fromXML(
     modName: string,
-    ns: GirNamespace,
+    ns: IntrospectedNamespace,
     options: LoadOptions,
     _parent,
-    func: CallbackElement
-  ): GirCallback {
-    const cb = GirFunction.fromXML(modName, ns, options, null, func).asCallback();
+    func: GirCallbackElement
+  ): IntrospectedCallback {
+    const cb = IntrospectedFunction.fromXML(modName, ns, options, null, func).asCallback();
 
     if (func.$["glib:type-name"]) {
       cb.resolve_names.push(func.$["glib:type-name"]);

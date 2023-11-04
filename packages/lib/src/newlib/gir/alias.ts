@@ -1,14 +1,14 @@
 import {  TypeExpression } from "../gir.js";
-import {GirBase, GirOptions, GirMetadata} from './base.js';
+import {IntrospectedBase as IntrospectedBase, Options} from './base.js';
 
-import { AliasElement } from "@gi.ts/parser";
-import { GirNamespace, isIntrospectable } from "./namespace.js";
+import { GirAliasElement } from "../../index.js";
+import { IntrospectedNamespace, isIntrospectable } from "./namespace.js";
 import { sanitizeIdentifierName, getAliasType, parseDoc, parseMetadata } from "./util.js";
 import { FormatGenerator, GenericDescriptor } from "../generators/generator.js";
 import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
 
-export class GirAlias extends GirBase {
+export class IntrospectedAlias extends IntrospectedBase {
   readonly type: TypeExpression;
   readonly generics: GenericDescriptor[];
 
@@ -17,7 +17,7 @@ export class GirAlias extends GirBase {
     type,
     generics = [],
     ...args
-  }: GirOptions<{
+  }: Options<{
     name: string;
     type: TypeExpression;
     generics?: GenericDescriptor[];
@@ -28,7 +28,7 @@ export class GirAlias extends GirBase {
     this.generics = generics;
   }
 
-  accept(visitor: GirVisitor): GirAlias {
+  accept(visitor: GirVisitor): IntrospectedAlias {
     const node = this.copy({
       type: visitor.visitType?.(this.type)
     });
@@ -36,10 +36,10 @@ export class GirAlias extends GirBase {
     return visitor.visitAlias?.(node) ?? node;
   }
 
-  copy(options?: { parent?: undefined; type?: TypeExpression }): GirAlias {
+  copy(options?: { parent?: undefined; type?: TypeExpression }): IntrospectedAlias {
     const { name, type } = this;
 
-    return new GirAlias({ name, type: options?.type ?? type })._copyBaseProperties(this);
+    return new IntrospectedAlias({ name, type: options?.type ?? type })._copyBaseProperties(this);
   }
 
   asString<T extends FormatGenerator<any>>(generator: T): ReturnType<T["generateAlias"]> {
@@ -48,17 +48,17 @@ export class GirAlias extends GirBase {
 
   static fromXML(
     modName: string,
-    ns: GirNamespace,
+    ns: IntrospectedNamespace,
     options: LoadOptions,
     _parent,
-    m: AliasElement
-  ): GirAlias | null {
+    m: GirAliasElement
+  ): IntrospectedAlias | null {
     if (!m.$.name) {
       console.error(`Alias in ${modName} lacks name.`);
       return null;
     }
 
-    const alias = new GirAlias({
+    const alias = new IntrospectedAlias({
       name: sanitizeIdentifierName(ns.name, m.$.name),
       type: getAliasType(modName, ns, m),
       isIntrospectable: isIntrospectable(m)

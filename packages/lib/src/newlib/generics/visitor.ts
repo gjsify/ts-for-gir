@@ -6,32 +6,32 @@ import {
   GenerifiedTypeIdentifier,
   ThisType
 } from "../gir.js";
-import { GirClass, GirBaseClass, GirInterface } from "../gir/class.js";
+import { IntrospectedClass, IntrospectedBaseClass, GirInterface } from "../gir/class.js";
 import {
-  GirCallback,
-  GirFunctionParameter,
-  GirFunction,
-  GirClassFunction,
-  GirStaticClassFunction,
-  GirVirtualClassFunction
+  IntrospectedCallback,
+  IntrospectedFunctionParameter,
+  IntrospectedFunction,
+  IntrospectedClassFunction,
+  IntrospectedStaticClassFunction,
+  IntrospectedVirtualClassFunction
 } from "../gir/function.js";
 import { GenericNameGenerator } from "../gir/generics.js";
-import { GirNSRegistry } from "../gir/registry.js";
+import { NSRegistry } from "../gir/registry.js";
 import { resolveTypeIdentifier } from "../gir/util.js";
 import { GirVisitor } from "../visitor.js";
 
 export class GenericVisitor extends GirVisitor {
-  registry: GirNSRegistry;
+  registry: NSRegistry;
   inferGenerics: boolean;
 
-  constructor(registry: GirNSRegistry, inferGenerics: boolean) {
+  constructor(registry: NSRegistry, inferGenerics: boolean) {
     super();
 
     this.registry = registry;
     this.inferGenerics = inferGenerics;
   }
 
-  visitCallback = (node: GirCallback) => {
+  visitCallback = (node: IntrospectedCallback) => {
     if (!this.inferGenerics) {
       return node;
     }
@@ -74,7 +74,7 @@ export class GenericVisitor extends GirVisitor {
     return node;
   };
 
-  visitClass = (node: GirClass) => {
+  visitClass = (node: IntrospectedClass) => {
     return this.visitBaseClass(node);
   };
 
@@ -82,7 +82,7 @@ export class GenericVisitor extends GirVisitor {
     return this.visitBaseClass(node);
   };
 
-  visitBaseClass = <T extends GirBaseClass>(_node: T): T => {
+  visitBaseClass = <T extends IntrospectedBaseClass>(_node: T): T => {
     const node = _node.copy() as T;
 
     const { namespace } = _node;
@@ -90,10 +90,10 @@ export class GenericVisitor extends GirVisitor {
     const resolvedParent = node.parent ? resolveTypeIdentifier(namespace, node.parent) : null;
     let derivatives = node.generics.filter(generic => generic.parent != null);
 
-    if (node instanceof GirClass) {
+    if (node instanceof IntrospectedClass) {
       const resolvedInterfaces = node.interfaces
         .map(i => resolveTypeIdentifier(namespace, i))
-        .filter((c): c is GirBaseClass => c != null);
+        .filter((c): c is IntrospectedBaseClass => c != null);
 
       node.interfaces = node.interfaces.map(iface => {
         const generic = derivatives.filter(d => d.parent?.is(iface.namespace, iface.name));
@@ -217,7 +217,7 @@ export class GenericVisitor extends GirVisitor {
     return node;
   };
 
-  visitParameter = (node: GirFunctionParameter) => {
+  visitParameter = (node: IntrospectedFunctionParameter) => {
     const { inferGenerics } = this;
 
     const member = node.parent;
@@ -229,7 +229,7 @@ export class GenericVisitor extends GirVisitor {
       const internal = unwrapped.type.unwrap();
 
       if (internal instanceof TypeIdentifier && internal.is("Gio", "AsyncReadyCallback")) {
-        if (member instanceof GirFunction && member.parameters.length >= 2) {
+        if (member instanceof IntrospectedFunction && member.parameters.length >= 2) {
           const generified = node.copy({
             type: node.type.rewrap(
               new GenerifiedTypeIdentifier(internal.name, internal.namespace, [member.parameters[0].type])
@@ -237,7 +237,7 @@ export class GenericVisitor extends GirVisitor {
           });
 
           return generified;
-        } else if (member instanceof GirStaticClassFunction) {
+        } else if (member instanceof IntrospectedStaticClassFunction) {
           const generified = node.copy({
             type: node.type.rewrap(
               new GenerifiedTypeIdentifier(internal.name, internal.namespace, [member.parent.getType()])
@@ -245,7 +245,7 @@ export class GenericVisitor extends GirVisitor {
           });
 
           return generified;
-        } else if (member instanceof GirClassFunction) {
+        } else if (member instanceof IntrospectedClassFunction) {
           const generified = node.copy({
             type: node.type.rewrap(
               new GenerifiedTypeIdentifier(internal.name, internal.namespace, [ThisType])
@@ -260,7 +260,7 @@ export class GenericVisitor extends GirVisitor {
     return node;
   };
 
-  visitFunction = (node: GirFunction) => {
+  visitFunction = (node: IntrospectedFunction) => {
     if (!this.inferGenerics) {
       return node;
     }
@@ -283,7 +283,7 @@ export class GenericVisitor extends GirVisitor {
     return node;
   };
 
-  private generifyStandaloneClassFunction = (node: GirClassFunction) => {
+  private generifyStandaloneClassFunction = (node: IntrospectedClassFunction) => {
     const unwrapped = node.return().unwrap();
 
     if (node.parent.getType().is("GObject", "Object")) {
@@ -305,7 +305,7 @@ export class GenericVisitor extends GirVisitor {
     return node;
   };
 
-  visitStaticClassFunction = (node: GirStaticClassFunction) => {
+  visitStaticClassFunction = (node: IntrospectedStaticClassFunction) => {
     if (this.inferGenerics) {
       return this.generifyStandaloneClassFunction(node);
     }
@@ -313,8 +313,8 @@ export class GenericVisitor extends GirVisitor {
     return node;
   };
 
-  visitClassFunction = (node: GirClassFunction) => {
-    if (node.parent instanceof GirBaseClass) {
+  visitClassFunction = (node: IntrospectedClassFunction) => {
+    if (node.parent instanceof IntrospectedBaseClass) {
       const clazz = node.parent;
 
       if (clazz.generics.length > 0) {
@@ -362,7 +362,7 @@ export class GenericVisitor extends GirVisitor {
     return node;
   };
 
-  visitVirtualClassFunction = (node: GirVirtualClassFunction) => {
+  visitVirtualClassFunction = (node: IntrospectedVirtualClassFunction) => {
     return this.visitClassFunction(node);
   };
 }

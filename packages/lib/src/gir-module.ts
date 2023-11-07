@@ -36,6 +36,8 @@ import type {
     GirInfoAttrs,
     GenerateConfig,
     GirNSMember,
+    IntrospectedFunctionParameter,
+    IntrospectedClassFunction,
 } from './types/index.js'
 import {
     ClosureType,
@@ -225,48 +227,33 @@ export class GirModule {
         return tags
     }
 
-    private getTsDocReturnTags(
-        girElement?:
-            | GirCallbackElement
-            | GirConstructorElement
-            | GirFunctionElement
-            | GirMethodElement
-            | GirSignalElement
-            | GirVirtualMethodElement,
-    ): TsDocTag[] {
-        const girReturnValue = girElement?.['return-value']?.[0]
-        if (!girReturnValue || !girReturnValue.doc?.[0]?._) {
+    getTsDocReturnTags(girElement?: IntrospectedFunction | IntrospectedClassFunction): TsDocTag[] {
+        const girReturnValue = girElement?.returnTypeDoc
+        if (!girReturnValue) {
             return []
         }
         const returnTag: TsDocTag = {
             tagName: 'returns',
             paramName: '',
-            text: this.transformation.transformGirDocTagText(girReturnValue.doc[0]._),
+            text: this.transformation.transformGirDocTagText(girReturnValue),
         }
 
         return [returnTag]
     }
 
-    private getTsDocInParamTags(inParams?: GirCallableParamElement[]): TsDocTag[] {
+    getTsDocInParamTags(inParams?: IntrospectedFunctionParameter[]): TsDocTag[] {
         const tags: TsDocTag[] = []
         if (!inParams?.length) {
             return tags
         }
 
         for (const inParam of inParams) {
-            if (!inParam._tsData) {
-                throw new Error(NO_TSDATA('getTsDocInParamTags'))
-            }
-            if (!inParam._tsData?.doc) {
-                inParam._tsData.doc = this.getTsDoc(inParam)
-            }
-            if (inParam._tsData?.name) {
+            if (inParam.name) {
                 tags.push({
-                    paramName: inParam._tsData.name,
+                    paramName: inParam.name,
                     tagName: 'param',
-                    text: inParam._tsData.doc.text
-                        ? this.transformation.transformGirDocTagText(inParam._tsData.doc.text)
-                        : '',
+                    text:
+                        typeof inParam.doc === 'string' ? this.transformation.transformGirDocTagText(inParam.doc) : '',
                 })
             }
         }

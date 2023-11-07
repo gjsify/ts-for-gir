@@ -65,9 +65,9 @@ export class IntrospectedEnum extends IntrospectedNamespaceMember {
     }
 
     asClass(): IntrospectedRecord {
-        const { name, namespace } = this;
+        const { name, namespace, doc } = this;
 
-        const clazz = new GirComplexRecord({ name, namespace });
+        const clazz = new GirComplexRecord({ name, namespace, doc });
 
         clazz.fields.push(
             ...Array.from(this.members.values()).map(m => {

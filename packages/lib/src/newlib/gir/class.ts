@@ -17,7 +17,7 @@ import {
     TypeConflict
 } from "../gir.js";
 import { TypeExpression } from "../gir.js";
-import { IntrospectedBase, IntrospectedClassMember, IntrospectedNamespaceMember } from "./base.js";
+import { IntrospectedBase, IntrospectedClassMember, IntrospectedNamespaceMember, Options } from "./base.js";
 
 import { GirInterfaceElement, GirClassElement, GirRecordElement, GirDirection, GirUnionElement } from "../../index.js";
 import {
@@ -314,7 +314,9 @@ export function promisifyFunctions(functions: IntrospectedClassFunction[]) {
                                 );
 
                                 if (async_res) {
-                                    const async_parameters = node.parameters.slice(0, -1).map(p => p.copy());
+                                    const async_parameters = node.parameters
+                                        .slice(0, -1)
+                                        .map(p => p.copy({ parent: null }));
                                     const sync_parameters = node.parameters.map(p => p.copy({ isOptional: false }));
                                     const output_parameters =
                                         async_res instanceof IntrospectedConstructor ? [] : async_res.output_parameters;
@@ -411,11 +413,11 @@ export abstract class IntrospectedBaseClass extends IntrospectedNamespaceMember 
     generics: Generic[] = [];
 
     constructor(
-        options: {
+        options: Options<{
             name: string;
             namespace: IntrospectedNamespace;
-            isIntrospectable?: boolean;
-        } & Partial<ClassDefinition>
+        }> &
+            Partial<ClassDefinition>
     ) {
         const {
             name,
@@ -434,12 +436,12 @@ export abstract class IntrospectedBaseClass extends IntrospectedNamespaceMember 
 
         this.superType = superType;
 
-        this.mainConstructor = mainConstructor?.copy() ?? null;
-        this.constructors = [...constructors.map(c => c.copy())];
+        this.mainConstructor = mainConstructor?.copy({ parent: this }) ?? null;
+        this.constructors = [...constructors.map(c => c.copy({ parent: this }))];
         this.members = [...members.map(m => m.copy({ parent: this }))];
         this.props = [...props.map(p => p.copy({ parent: this }))];
         this.fields = [...fields.map(f => f.copy({ parent: this }))];
-        this.callbacks = [...callbacks.map(c => c.copy())];
+        this.callbacks = [...callbacks.map(c => c.copy({ parent: this }))];
     }
 
     abstract accept(visitor: GirVisitor): IntrospectedBaseClass;
@@ -802,14 +804,14 @@ export class IntrospectedClass extends IntrospectedBaseClass {
         }
 
         clazz._staticDefinition = _staticDefinition;
-        clazz.signals = (options.signals ?? signals).map(s => s.copy());
+        clazz.signals = (options.signals ?? signals).map(s => s.copy({ parent: clazz }));
         clazz.interfaces = [...interfaces];
-        clazz.props = (options.props ?? props).map(p => p.copy());
-        clazz.fields = (options.fields ?? fields).map(f => f.copy());
-        clazz.callbacks = (options.callbacks ?? callbacks).map(c => c.copy());
+        clazz.props = (options.props ?? props).map(p => p.copy({ parent: clazz }));
+        clazz.fields = (options.fields ?? fields).map(f => f.copy({ parent: clazz }));
+        clazz.callbacks = (options.callbacks ?? callbacks).map(c => c.copy({ parent: clazz }));
         clazz.isAbstract = isAbstract;
         clazz.mainConstructor = mainConstructor;
-        clazz.constructors = (options.constructors ?? constructors).map(c => c.copy());
+        clazz.constructors = (options.constructors ?? constructors).map(c => c.copy({ parent: clazz }));
         clazz.members = (options.members ?? members).map(m => m.copy({ parent: clazz }));
         clazz.generics = [...generics];
 
@@ -1122,9 +1124,9 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
         clazz._isForeign = _isForeign;
         clazz.props = (options.props ?? props).map(p => p.copy({ parent: clazz }));
         clazz.fields = (options.fields ?? fields).map(f => f.copy({ parent: clazz }));
-        clazz.callbacks = (options.callbacks ?? callbacks).map(c => c.copy());
-        clazz.mainConstructor = mainConstructor?.copy() ?? null;
-        clazz.constructors = (options.constructors ?? constructors).map(c => c.copy());
+        clazz.callbacks = (options.callbacks ?? callbacks).map(c => c.copy({ parent: clazz }));
+        clazz.mainConstructor = mainConstructor?.copy({ parent: clazz }) ?? null;
+        clazz.constructors = (options.constructors ?? constructors).map(c => c.copy({ parent: clazz }));
         clazz.members = (options.members ?? members).map(m => m.copy({ parent: clazz }));
         clazz.generics = [...generics];
 
@@ -1418,9 +1420,9 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 
         clazz.props = (options.props ?? props).map(p => p.copy({ parent: clazz }));
         clazz.fields = (options.fields ?? fields).map(f => f.copy({ parent: clazz }));
-        clazz.callbacks = (options.callbacks ?? callbacks).map(c => c.copy());
-        clazz.mainConstructor = mainConstructor?.copy() ?? null;
-        clazz.constructors = (options.constructors ?? constructors).map(c => c.copy());
+        clazz.callbacks = (options.callbacks ?? callbacks).map(c => c.copy({ parent: clazz }));
+        clazz.mainConstructor = mainConstructor?.copy({ parent: clazz }) ?? null;
+        clazz.constructors = (options.constructors ?? constructors).map(c => c.copy({ parent: clazz }));
         clazz.members = (options.members ?? members).map(m => m.copy({ parent: clazz }));
         clazz.generics = [...generics];
 

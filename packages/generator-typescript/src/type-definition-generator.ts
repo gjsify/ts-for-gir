@@ -20,6 +20,7 @@ import {
     IntrospectedField,
     GirDirection,
     TsDoc,
+    TsDocTag,
 } from '@ts-for-gir/lib'
 import { TemplateProcessor } from './template-processor.js'
 import { PackageDataParser } from './package-data-parser.js'
@@ -56,9 +57,8 @@ import {
 import { IntrospectedError } from '@ts-for-gir/lib/lib/newlib/gir/enum.js'
 import { isInvalid } from '@ts-for-gir/lib/lib/newlib/gir/util.js'
 
-function printGirDocComment(tsDoc: TsDoc, config: GenerateConfig, indentCount = 0) {
+function printGirDocComment(tsDoc: TsDoc, config: GenerateConfig) {
     const desc: string[] = []
-    const indent = generateIndent(indentCount)
     if (config.noComments) {
         return desc.join('\n')
     }
@@ -66,26 +66,22 @@ function printGirDocComment(tsDoc: TsDoc, config: GenerateConfig, indentCount = 
     const text = tsDoc.text
 
     if (text) {
-        desc.push(`${indent}/**`)
-
         if (text) {
             const lines = text.split('\n')
             if (lines.length) {
                 for (const line of lines) {
-                    desc.push(`${indent} * ${line}`)
+                    desc.push(`${line}`)
                 }
             }
         }
 
         for (const tag of tsDoc.tags) {
             if (tag.paramName) {
-                desc.push(`${indent} * @${tag.tagName} ${tag.paramName} ${tag.text}`)
+                desc.push(`@${tag.tagName} ${tag.paramName} ${tag.text}`)
             } else {
-                desc.push(`${indent} * @${tag.tagName} ${tag.text}`)
+                desc.push(`@${tag.tagName} ${tag.text}`)
             }
         }
-
-        desc.push(`${indent} */`)
     }
     return desc.join('\n')
 }
@@ -257,7 +253,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         //     return desc
         // }
 
-        desc.push(...this.addGirDocComment(tsProp.doc, indentCount))
+        desc.push(...this.addGirDocComment(tsProp.doc, [], indentCount))
 
         const indent = generateIndent(indentCount)
         const varDesc = this.generateVariable(tsProp)
@@ -283,7 +279,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         //     return desc
         // }
 
-        desc.push(...this.addGirDocComment(tsProp.doc, indentCount))
+        desc.push(...this.addGirDocComment(tsProp.doc, [], indentCount))
 
         const indent = generateIndent(indentCount)
         const varDesc = this.generateVariable(tsProp, 0)
@@ -482,14 +478,14 @@ class ModuleGenerator extends FormatGenerator<string[]> {
      * @param overwriteDoc
      * @returns
      */
-    addGirDocComment(tsDoc: string | null | undefined, indentCount = 0) {
+    addGirDocComment(tsDoc: string | null | undefined, tags: TsDocTag[] = [], indentCount = 0) {
         const desc: string[] = []
         const indent = generateIndent(indentCount)
         if (this.config.noComments) {
             return desc
         }
 
-        const text = tsDoc
+        const text = tsDoc ? this.namespace.transformation.transformGirDocText(tsDoc) : null
 
         if (text) {
             desc.push(`${indent}/**`)
@@ -503,13 +499,13 @@ class ModuleGenerator extends FormatGenerator<string[]> {
                 }
             }
 
-            // for (const tag of tags) {
-            //     if (tag.paramName) {
-            //         desc.push(`${indent} * @${tag.tagName} ${tag.paramName} ${tag.text}`)
-            //     } else {
-            //         desc.push(`${indent} * @${tag.tagName} ${tag.text}`)
-            //     }
-            // }
+            for (const tag of tags) {
+                if (tag.paramName) {
+                    desc.push(`${indent} * @${tag.tagName} ${tag.paramName} ${tag.text}`)
+                } else {
+                    desc.push(`${indent} * @${tag.tagName} ${tag.text}`)
+                }
+            }
             desc.push(`${indent} */`)
         }
         return desc
@@ -669,7 +665,17 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         //     return def
         // }
 
-        if (tsFunction.doc) def.push(...this.addGirDocComment(tsFunction.doc, indentCount))
+        if (tsFunction.doc)
+            def.push(
+                ...this.addGirDocComment(
+                    tsFunction.doc,
+                    [
+                        ...this.namespace.getTsDocInParamTags(tsFunction.parameters),
+                        ...this.namespace.getTsDocReturnTags(tsFunction),
+                    ],
+                    indentCount,
+                ),
+            )
 
         const staticStr = isStatic && tsFunction.name !== 'constructor' ? 'static ' : ''
 
@@ -741,7 +747,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
     ) {
         const def: string[] = []
 
-        def.push(...this.addGirDocComment(tsCallback.doc, indentCount))
+        def.push(...this.addGirDocComment(tsCallback.doc, [], indentCount))
 
         const indent = generateIndent(indentCount)
         const indentBody = generateIndent(indentCount + 1)
@@ -793,7 +799,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
             return desc
         }
 
-        desc.push(...this.addGirDocComment(girEnum.doc, indentCount))
+        desc.push(...this.addGirDocComment(girEnum.doc, [], indentCount))
 
         const { name } = girEnum
         desc.push(this.generateExport('enum', name, '{', indentCount))
@@ -815,7 +821,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         //     return desc
         // }
 
-        desc.push(...this.addGirDocComment(tsMember.doc, indentCount))
+        desc.push(...this.addGirDocComment(tsMember.doc, [], indentCount))
 
         const indent = generateIndent(indentCount)
         desc.push(`${indent}${tsMember.name},`)
@@ -826,7 +832,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         const desc: string[] = []
 
         // if (!tsConst.hasUnresolvedConflict) {
-        //     desc.push(...this.addGirDocComment(tsConst.doc, indentCount))
+        desc.push(...this.addGirDocComment(tsConst.doc, [], indentCount))
         // }
 
         const indent = generateIndent(indentCount)
@@ -915,7 +921,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
         def.push(
             ...this.generateProperties(
-                girClass.props.filter((p) => !!p),
+                girClass.props,
                 `Own properties of ${girClass.namespace.packageName}.${girClass.name}`,
                 indentCount,
             ),
@@ -929,7 +935,6 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         indentCount = 1,
     ) {
         const def: string[] = []
-        //${onlyStatic ? 'static ' : ''}
         def.push(
             ...this.generateFunctions(
                 [...girClass.members].filter((member) => member instanceof IntrospectedStaticClassFunction),
@@ -938,22 +943,12 @@ class ModuleGenerator extends FormatGenerator<string[]> {
             ),
         )
 
-        // def.push(
-        //     ...this.generateFunctions(
-        //         girClass.conflictMethods,
-        //         onlyStatic,
-        //         namespace,
-        //         indentCount,
-        //         `Conflicting ${onlyStatic ? 'static ' : ''}methods`,
-        //     ),
-        // )
-
         return def
     }
 
     generateClassMethods(girClass: IntrospectedClass | IntrospectedRecord | IntrospectedInterface, indentCount = 1) {
         const def: string[] = []
-        //${onlyStatic ? 'static ' : ''}
+
         def.push(
             ...this.generateFunctions(
                 [...girClass.members].filter(
@@ -965,16 +960,6 @@ class ModuleGenerator extends FormatGenerator<string[]> {
                 `Owm methods of ${girClass.namespace.packageName}.${girClass.name}`,
             ),
         )
-
-        // def.push(
-        //     ...this.generateFunctions(
-        //         girClass.conflictMethods,
-        //         onlyStatic,
-        //         namespace,
-        //         indentCount,
-        //         `Conflicting ${onlyStatic ? 'static ' : ''}methods`,
-        //     ),
-        // )
 
         return def
     }
@@ -1202,9 +1187,9 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
         def.push(...this.generateClassModules(girClass))
 
-        def.push(...this.generateImplementationInterface(girClass))
+        // def.push(...this.generateImplementationInterface(girClass))
 
-        def.push(...this.addGirDocComment(girClass.doc, 0))
+        def.push(...this.addGirDocComment(girClass.doc, [], 0))
 
         const genericParameters = this.generateGenericParameters(girClass.generics)
         const ext = this.extends(girClass)
@@ -1533,7 +1518,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
         const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
 
-        return [append, ...out, prepend]
+        return [prepend, ...out, append]
     }
 
     async exportNPMPackage(girModuleImportName: string) {

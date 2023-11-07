@@ -71,6 +71,7 @@ class TypeScriptFormatter extends Formatter {
     format(input: string): Promise<string> {
         try {
             return prettier.format(input, {
+                singleQuote: true,
                 parser: 'typescript',
                 printWidth: 120,
                 tabWidth: 4,

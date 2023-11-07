@@ -44,6 +44,7 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
     readonly raw_name: string;
 
     generics: Generic[] = [];
+    returnTypeDoc: string | null;
 
     constructor({
         name,
@@ -67,6 +68,7 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
         this.parameters = parameters.map(p => p.copy({ parent: this }));
         this.output_parameters = output_parameters.map(p => p.copy({ parent: this }));
         this.return_type = return_type;
+        this.returnTypeDoc = null;
     }
 
     copy(
@@ -91,6 +93,7 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
             parameters: parameters ?? this.parameters
         });
 
+        fn.returnTypeDoc = this.returnTypeDoc;
         fn.generics = [...this.generics];
 
         return fn._copyBaseProperties(this);
@@ -124,18 +127,6 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
             name = sanitizeIdentifierName(null, element.$["shadows"]);
         }
 
-        let return_type: TypeExpression;
-
-        if ("return-value" in element && element["return-value"] && element["return-value"].length > 0) {
-            const value = element["return-value"][0];
-
-            return_type = getType(ns, value);
-        } else {
-            return_type = VoidType;
-        }
-
-        let parameters: IntrospectedFunctionParameter[] = [];
-
         // TODO: Don't create a useless function object here
         let fn = new IntrospectedFunction({
             name,
@@ -143,6 +134,20 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
             namespace: ns,
             isIntrospectable: isIntrospectable(element)
         });
+
+        let return_type: TypeExpression;
+
+        if ("return-value" in element && element["return-value"] && element["return-value"].length > 0) {
+            const value = element["return-value"][0];
+
+            return_type = getType(ns, value);
+
+            fn.returnTypeDoc = parseDoc(value);
+        } else {
+            return_type = VoidType;
+        }
+
+        let parameters: IntrospectedFunctionParameter[] = [];
 
         if (element.parameters) {
             const param = element.parameters[0].parameter;
@@ -262,7 +267,7 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
     asClassFunction(parent: IntrospectedBaseClass | IntrospectedEnum): IntrospectedClassFunction {
         const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = this;
 
-        return new IntrospectedClassFunction({
+        const fn = new IntrospectedClassFunction({
             parent,
             name,
             output_parameters,
@@ -271,6 +276,10 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
             doc,
             isIntrospectable
         });
+
+        fn.returnTypeDoc = this.returnTypeDoc;
+
+        return fn;
     }
 
     asVirtualClassFunction(parent: IntrospectedBaseClass): IntrospectedVirtualClassFunction {
@@ -492,11 +501,11 @@ export class IntrospectedFunctionParameter extends IntrospectedBase<
     asField() {
         const { name, parent, isOptional: optional, type } = this;
 
-        if (!(parent instanceof IntrospectedBaseClass)) {
+        if (!(parent?.parent instanceof IntrospectedBaseClass)) {
             throw new Error("Can't convert parameter of non-class function to field");
         }
 
-        return new IntrospectedField({ name, parent, optional, type });
+        return new IntrospectedField({ name, parent: parent.parent, optional, type });
     }
 
     copy(
@@ -622,6 +631,7 @@ export class IntrospectedClassFunction extends IntrospectedBase<IntrospectedBase
     protected _anyify: boolean = false;
     protected _generify: boolean = false;
     interfaceParent: IntrospectedBaseClass | IntrospectedEnum | null = null;
+    returnTypeDoc?: string | null;
 
     generics: Generic[] = [];
 
@@ -727,6 +737,7 @@ export class IntrospectedClassFunction extends IntrospectedBase<IntrospectedBase
         });
 
         fn.generics = [...this.generics];
+        fn.returnTypeDoc = this.returnTypeDoc;
 
         if (interfaceParent) {
             fn.interfaceParent = interfaceParent;

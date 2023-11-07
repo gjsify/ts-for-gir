@@ -61,10 +61,12 @@ export default {
             constraint: Actor.getType()
         });
 
-        if (StBoxLayout.parent) {
-            StBoxLayout.parent = new GenerifiedTypeIdentifier(StBoxLayout.parent.name, StBoxLayout.parent.namespace, [
-                ClutterBoxLayout.getType()
-            ]);
+        if (StBoxLayout.superType) {
+            StBoxLayout.superType = new GenerifiedTypeIdentifier(
+                StBoxLayout.superType.name,
+                StBoxLayout.superType.namespace,
+                [ClutterBoxLayout.getType()]
+            );
         }
 
         Bin.addGeneric({

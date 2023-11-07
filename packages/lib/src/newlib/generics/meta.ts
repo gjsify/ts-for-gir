@@ -15,10 +15,10 @@ export default {
         const BackgroundContent = namespace.assertClass("BackgroundContent");
         const BackgroundActor = namespace.assertClass("BackgroundActor");
 
-        const parent = BackgroundActor.parent;
+        const parent = BackgroundActor.superType;
 
         if (parent) {
-            BackgroundActor.parent = new GenerifiedTypeIdentifier(parent.name, parent.namespace, [
+            BackgroundActor.superType = new GenerifiedTypeIdentifier(parent.name, parent.namespace, [
                 LayoutManager.getType(),
                 BackgroundContent.getType()
             ]);

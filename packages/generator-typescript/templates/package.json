@@ -95,9 +95,14 @@ _%>
           <%_ } _%>
         },
       <%_ } _%>
-      <%_ if (entryPointName === 'gjs') { _%>
-      "./ambient": "./ambient.d.ts",
-      "./dom": "./dom.d.ts",
+      "./ambient": {
+        "types": "./ambient.d.ts",
+        "default": "./ambient.js"
+      },
+      "./dom": {
+        "types": "./dom.d.ts",
+        "default": "./dom.js"
+      },
       <%_ } else {_%>
       "./ambient": {
         "types": "./<%- entryPointName %>-ambient.d.ts",

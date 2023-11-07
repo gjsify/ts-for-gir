@@ -1,25 +1,47 @@
-export { IntrospectedAlias as GirAlias } from "./alias.js";
+export { IntrospectedAlias } from "./alias.js";
 export {
-    IntrospectedClass as GirClass,
-    IntrospectedInterface as GirInterface,
-    IntrospectedRecord as GirRecord,
+    IntrospectedClass,
+    IntrospectedInterface,
+    IntrospectedRecord,
     GirComplexRecord,
-    IntrospectedBaseClass as GirBaseClass
+    IntrospectedBaseClass
 } from "./class.js";
-export { IntrospectedConstant as GirConst } from "./const.js";
-export { IntrospectedEnum as GirEnum, IntrospectedError as GirError, GirEnumMember } from "./enum.js";
+export { IntrospectedConstant } from "./const.js";
+export { IntrospectedEnum, GirEnumMember } from "./enum.js";
 export {
-    IntrospectedFunction as GirFunction,
-    IntrospectedClassFunction as GirClassFunction,
-    IntrospectedCallback as GirCallback,
-    IntrospectedConstructor as GirConstructor,
-    IntrospectedStaticClassFunction as GirStaticClassFunction,
-    IntrospectedVirtualClassFunction as GirVirtualClassFunction,
-    IntrospectedFunctionParameter as GirFunctionParameter,
-    IntrospectedDirectAllocationConstructor as GirDirectAllocationConstructor
+    IntrospectedFunction,
+    IntrospectedClassFunction,
+    IntrospectedCallback,
+    IntrospectedConstructor,
+    IntrospectedStaticClassFunction,
+    IntrospectedVirtualClassFunction,
+    IntrospectedFunctionParameter,
+    IntrospectedDirectAllocationConstructor as IntrospectedDirectAllocationConstructor
 } from "./function.js";
-export { IntrospectedNamespace as GirNamespace, GirNSMember } from "./namespace.js";
-export { NSRegistry as GirNSRegistry, NSLoader as GirNSLoader } from "./registry.js";
-export { Field as GirField, GirProperty } from "./property.js";
-export { IntrospectedSignal as GirSignal, IntrospectedSignalType as GirSignalType } from "./signal.js";
+export { IntrospectedNamespace, GirNSMember } from "./namespace.js";
+export { NSRegistry, NSLoader } from "./registry.js";
+export { IntrospectedField, IntrospectedProperty } from "./property.js";
+export { IntrospectedSignal, IntrospectedSignalType } from "./signal.js";
+export {
+    GenericType,
+    TypeExpression,
+    TypeIdentifier,
+    OrType,
+    NativeType,
+    TypeConflict,
+    AnyType,
+    ThisType,
+    TupleType,
+    GTypeType,
+    NeverType,
+    BinaryType,
+    NumberType,
+    ObjectType,
+    StringType,
+    ClosureType,
+    PromiseType,
+    UnknownType,
+    ConflictType
+} from "../gir.js";
+
 export * as nodeUtils from "./util.js";

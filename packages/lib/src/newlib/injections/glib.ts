@@ -31,6 +31,7 @@ export default {
             new IntrospectedFunction({
                 name: "log_structured",
                 raw_name: "log_structured",
+                namespace: namespace,
                 parameters: [
                     new IntrospectedFunctionParameter({
                         name: "logDomain",
@@ -59,6 +60,7 @@ export default {
             new IntrospectedFunction({
                 name: "strstrip",
                 raw_name: "strstrip",
+                namespace: namespace,
                 parameters: [
                     new IntrospectedFunctionParameter({
                         name: "str",
@@ -132,6 +134,7 @@ export default {
             ];
             const VariantConstructor = new IntrospectedConstructor({
                 name: "new",
+                parent: Variant,
                 parameters: VariantParams.map(vp => vp.copy()),
                 return_type: Variant.getType()
             });
@@ -144,6 +147,7 @@ export default {
                 // static _new_internal: (sig: any, value: any) => any;,
                 new IntrospectedConstructor({
                     name: "_new_internal",
+                    parent: Variant,
                     parameters: VariantParams.map(vp => vp.copy()),
                     return_type: AnyType
                 })

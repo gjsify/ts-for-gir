@@ -386,7 +386,7 @@ export class ModuleLoader {
         this.log.log(`Parsing ${dependency.path}...`)
         const fileContents = await readFile(dependency.path, 'utf8')
         const result = parser.parseGir(fileContents)
-        const girModule = new GirModule(result, this.config)
+        const girModule = GirModule.load(result, this.config, this.dependencyManager.registry)
         // Figure out transitive module dependencies
         this.extendDependencyMapByGirModule(girModule)
         return girModule

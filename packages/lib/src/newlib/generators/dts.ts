@@ -13,14 +13,15 @@ import {
 } from "../gir/class.js";
 import { IntrospectedConstant } from "../gir/const.js";
 import { IntrospectedEnum, IntrospectedError, GirEnumMember } from "../gir/enum.js";
-import { GirProperty, Field } from "../gir/property.js";
+import { IntrospectedProperty, IntrospectedField } from "../gir/property.js";
 import { IntrospectedSignal, IntrospectedSignalType } from "../gir/signal.js";
 import {
     IntrospectedFunction,
     IntrospectedConstructor,
     IntrospectedFunctionParameter,
     IntrospectedCallback,
-    IntrospectedDirectAllocationConstructor
+    IntrospectedDirectAllocationConstructor,
+    IntrospectedClassCallback
 } from "../gir/function.js";
 import {
     IntrospectedClassFunction,
@@ -40,12 +41,12 @@ import {
     Generic,
     ConflictType,
     TypeConflict,
-    BinaryType,
-    GirBase
+    BinaryType
 } from "../gir.js";
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedAlias } from "../gir/alias.js";
-import { GenerationOptions } from "../types.js";
+import { AnyIntrospectedType } from "../gir/base.js";
+import { GenerateConfig } from "../../types/generate-config.js";
 
 export function versionImportFormat(versionFormat: string, namespace: string, version: string) {
     const versionSlug = version.toLowerCase().split(".")[0];
@@ -59,7 +60,7 @@ export function versionImportFormat(versionFormat: string, namespace: string, ve
 }
 
 export abstract class DtsGenerator extends FormatGenerator<string> {
-    constructor(namespace: IntrospectedNamespace, options: GenerationOptions) {
+    constructor(namespace: IntrospectedNamespace, options: GenerateConfig) {
         super(namespace, options);
     }
 
@@ -101,7 +102,7 @@ export abstract class DtsGenerator extends FormatGenerator<string> {
         return "";
     }
 
-    generateCallbackType(node: IntrospectedCallback): [string, string] {
+    generateCallbackType(node: IntrospectedCallback | IntrospectedClassCallback): [string, string] {
         const { namespace, options } = this;
 
         const Parameters = this.generateParameters(node.parameters);
@@ -117,8 +118,12 @@ export abstract class DtsGenerator extends FormatGenerator<string> {
         return ["", `(${Parameters}) => ${node.return().resolve(namespace, options).print(namespace, options)}`];
     }
 
-    generateCallback(node: IntrospectedCallback): string {
+    generateCallback(node: IntrospectedCallback | IntrospectedClassCallback): string {
         return `${this.docString(node)}export type ${node.name}${this.generateCallbackType(node).join(" = ")};`;
+    }
+
+    generateClassCallback(node: IntrospectedClassCallback): string {
+        return this.generateCallback(node);
     }
 
     generateReturn(return_type: TypeExpression, output_parameters: IntrospectedFunctionParameter[]) {
@@ -189,11 +194,12 @@ ${this.docString(node)}export enum ${node.name} {
         const GLib = namespace.assertInstalledImport("GLib");
         const GLibError = GLib.assertClass("Error");
 
-        clazz.parent = GLibError.getType();
+        clazz.superType = GLibError.getType();
 
         // Manually construct a GLib.Error constructor.
         clazz.mainConstructor = new IntrospectedConstructor({
             name: "new",
+            parent: clazz,
             parameters: [
                 new IntrospectedFunctionParameter({
                     name: "options",
@@ -244,8 +250,8 @@ ${this.docString(node)}export enum ${node.name} {
 
     protected extends(node: IntrospectedBaseClass) {
         const { namespace: ns, options } = this;
-        if (node.parent) {
-            const ResolvedType = node.parent.resolveIdentifier(ns, options);
+        if (node.superType) {
+            const ResolvedType = node.superType.resolveIdentifier(ns, options);
             const Type = ResolvedType?.print(ns, options);
 
             if (Type) {
@@ -253,7 +259,7 @@ ${this.docString(node)}export enum ${node.name} {
             }
 
             throw new Error(
-                `Unable to resolve type: ${node.parent.name} from ${node.parent.namespace} in ${node.namespace.name} ${node.namespace.version}`
+                `Unable to resolve type: ${node.superType.name} from ${node.superType.namespace} in ${node.namespace.name} ${node.namespace.version}`
             );
         }
 
@@ -438,11 +444,12 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${
         } else {
             MainConstructor = `\nconstructor(properties?: Partial<${name}.ConstructorProperties${GenericTypes}>, ...args: any[]);\n`;
 
-            if (!options.noInitTypes) {
-                MainConstructor += `_init(properties?: Partial<${name}.ConstructorProperties${GenericTypes}>, ...args: any[]): void;\n`;
-            } else {
-                MainConstructor += "_init(...args: any[]): void;\n";
-            }
+            // TODO: options migration
+            //if (!options.noInitTypes) {
+            //    MainConstructor += `_init(properties?: Partial<${name}.ConstructorProperties${GenericTypes}>, ...args: any[]): void;\n`;
+            //} else {
+            MainConstructor += "_init(...args: any[]): void;\n";
+            //}
         }
 
         const ConstructorProps = filterConflicts(
@@ -642,7 +649,7 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${
 }`;
     }
 
-    generateField(node: Field): string {
+    generateField(node: IntrospectedField): string {
         const { namespace, options } = this;
         const { name, computed } = node;
         const invalid = isInvalid(name);
@@ -670,7 +677,7 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${
             .rootPrint(namespace, options)};`;
     }
 
-    generateProperty(node: GirProperty, construct: boolean = false): string {
+    generateProperty(node: IntrospectedProperty, construct: boolean = false): string {
         const { namespace, options } = this;
 
         const invalid = isInvalid(node.name);
@@ -781,9 +788,9 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${
         }
     }
 
-    docString(node: GirBase) {
+    docString(node: AnyIntrospectedType) {
         // TODO: Support node.doc not being a string?
-        return typeof node.doc === "string" && this.options.withDocs
+        return typeof node.doc === "string" && !this.options.noComments
             ? `/**
 ${node.doc
     .split("\n")
@@ -832,7 +839,7 @@ ${node.doc
     }
 
     generateDirectAllocationConstructor(node: IntrospectedDirectAllocationConstructor): string {
-        const ConstructorFields = node.fields.map(field => field.asString(this)).join("\n");
+        const ConstructorFields = node.parameters.map(param => param.asField().asString(this)).join("\n");
 
         return `
     constructor(properties?: Partial<{

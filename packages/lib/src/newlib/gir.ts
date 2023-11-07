@@ -1,9 +1,10 @@
 import { IntrospectedNamespace } from "./gir/namespace.js";
-import { GirProperty, Field } from "./gir/property.js";
+import { IntrospectedProperty, IntrospectedField } from "./gir/property.js";
 import { GenerationOptions } from "./types.js";
 import { sanitizeIdentifierName } from "./gir/util.js";
 
-export { IntrospectedBase as GirBase, Options as GirOptions, Metadata as GirMetadata } from "./gir/base.js";
+export { IntrospectedBase, Options as IntrospectedOptions, Metadata as IntrospectedMetadata } from "./gir/base.js";
+export * from "./gir/nodes.js";
 
 export abstract class TypeExpression {
     isPointer = false;
@@ -750,4 +751,4 @@ export const VoidType = new NativeType("void");
 export const UnknownType = new NativeType("unknown");
 export const AnyFunctionType = new NativeType("(...args: any[]) => any");
 
-export type GirClassField = GirProperty | Field;
+export type GirClassField = IntrospectedProperty | IntrospectedField;

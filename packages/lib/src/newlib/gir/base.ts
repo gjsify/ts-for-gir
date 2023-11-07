@@ -2,6 +2,7 @@ import { FormatGenerator } from "../generators/index.js";
 import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
 import { IntrospectedNamespace } from "./namespace.js";
+import type { IntrospectedBaseClass } from "./nodes.js";
 
 export interface Metadata {
     deprecated?: boolean;
@@ -13,11 +14,15 @@ export interface Metadata {
 export interface BaseOptions {
     isPrivate?: boolean;
     isIntrospectable?: boolean;
+    doc?: string | null;
 }
 
 export type Options<T> = BaseOptions & T;
 
-export abstract class IntrospectedBase {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type AnyIntrospectedType = IntrospectedBase<any>;
+
+export abstract class IntrospectedBase<Parent extends IntrospectedNamespace | AnyIntrospectedType | null> {
     name: string;
     doc?: string | null;
     metadata?: Metadata;
@@ -27,12 +32,19 @@ export abstract class IntrospectedBase {
     private _commentWarning?: string;
     private _isPrivate: boolean;
     private _isIntrospectable: boolean;
+    private _parent: Parent;
 
-    constructor(name: string, options: BaseOptions = {}) {
+    constructor(name: string, parent: Parent, options: BaseOptions = {}) {
         this.name = name;
+        this._parent = parent;
 
         this._isPrivate = options.isPrivate ?? false;
         this._isIntrospectable = options.isIntrospectable ?? true;
+        this.doc = options.doc ?? null;
+    }
+
+    get parent(): Parent {
+        return this._parent;
     }
 
     /**
@@ -48,6 +60,8 @@ export abstract class IntrospectedBase {
     getWarning(): string | undefined {
         return this._commentWarning;
     }
+
+    abstract get namespace(): IntrospectedNamespace;
 
     get isIntrospectable() {
         return this._isIntrospectable;
@@ -83,24 +97,56 @@ export abstract class IntrospectedBase {
         return this;
     }
 
-    abstract copy(options?: { parent?: IntrospectedBase }): IntrospectedBase;
+    abstract copy(options?: { parent?: Parent }): IntrospectedBase<Parent>;
 
-    abstract accept(visitor: GirVisitor): IntrospectedBase;
+    abstract accept(visitor: GirVisitor): IntrospectedBase<Parent>;
 
     static fromXML(
+        // eslint-disable-next-line
+        element: Record<string, any>,
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        modName: string,
+        parent: IntrospectedNamespace | AnyIntrospectedType,
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        ns: IntrospectedNamespace,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        options: LoadOptions,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        parent: IntrospectedBase | null,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        gir: object
-    ): IntrospectedBase | null {
+        options: LoadOptions
+    ): AnyIntrospectedType | null {
         throw new Error("GirBase cannot be instantiated");
     }
 
-    abstract asString<T extends FormatGenerator<K>, K>(generator: T): K | null;
+    abstract asString<T extends FormatGenerator<unknown>>(
+        generator: T
+    ): (T extends FormatGenerator<infer R> ? R : never) | null;
+    abstract asString<T extends FormatGenerator<unknown>>(generator: T): unknown;
+}
+
+export abstract class IntrospectedNamespaceMember extends IntrospectedBase<IntrospectedNamespace> {
+    constructor(name: string, namespace: IntrospectedNamespace, options: BaseOptions = {}) {
+        super(name, namespace, options);
+    }
+
+    get namespace() {
+        return this.parent;
+    }
+
+    static fromXML(
+        // eslint-disable-next-line
+        element: Record<string, any>,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        parent: IntrospectedNamespace,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        options: LoadOptions
+    ): IntrospectedNamespaceMember | null {
+        throw new Error("GirBase cannot be instantiated");
+    }
+}
+
+export abstract class IntrospectedClassMember<
+    Parent extends IntrospectedBaseClass | null = IntrospectedBaseClass | null
+> extends IntrospectedBase<Parent> {
+    get namespace() {
+        if (!this.parent) {
+            throw new Error(`Failed to get namespace for ${this.name}`);
+        }
+
+        return this.parent.namespace;
+    }
 }

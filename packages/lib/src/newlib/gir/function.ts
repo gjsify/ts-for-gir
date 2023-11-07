@@ -10,7 +10,7 @@ import {
     FunctionType
 } from "../gir.js";
 
-import { IntrospectedBase, Options } from "./base.js";
+import { IntrospectedBase, IntrospectedClassMember, IntrospectedNamespaceMember, Options } from "./base.js";
 import {
     GirFunctionElement,
     GirMethodElement,
@@ -18,30 +18,33 @@ import {
     GirCallableParamElement,
     GirCallbackElement,
     GirVirtualMethodElement,
-    GirConstructorElement
+    GirConstructorElement,
+    GirModule
 } from "../../index.js";
 
 import { IntrospectedNamespace, isIntrospectable } from "./namespace.js";
 import { getType, isInvalid, sanitizeMemberName, sanitizeIdentifierName, parseDoc, parseMetadata } from "./util.js";
-import { IntrospectedBaseClass, IntrospectedClass } from "./class.js";
+import { IntrospectedClass } from "./class.js";
 import { IntrospectedEnum } from "./enum.js";
 import { IntrospectedSignal } from "./signal.js";
 import { FormatGenerator } from "../generators/generator.js";
 import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
-import { Field } from "./property.js";
+import { IntrospectedField } from "./property.js";
+import { IntrospectedBaseClass } from "./nodes.js";
 
 function hasShadow(obj: GirFunctionElement | GirMethodElement): obj is GirFunctionElement & { $: { shadows: string } } {
     return obj.$["shadows"] != null;
 }
 
-export class IntrospectedFunction extends IntrospectedBase {
+export class IntrospectedFunction extends IntrospectedNamespaceMember {
     readonly parameters: IntrospectedFunctionParameter[];
     readonly output_parameters: IntrospectedFunctionParameter[];
     readonly return_type: TypeExpression;
     readonly raw_name: string;
 
     generics: Generic[] = [];
+    returnTypeDoc: string | null;
 
     constructor({
         name,
@@ -49,6 +52,7 @@ export class IntrospectedFunction extends IntrospectedBase {
         return_type = UnknownType,
         parameters = [],
         output_parameters = [],
+        namespace,
         ...args
     }: Options<{
         name: string;
@@ -56,26 +60,32 @@ export class IntrospectedFunction extends IntrospectedBase {
         return_type?: TypeExpression;
         parameters?: IntrospectedFunctionParameter[];
         output_parameters?: IntrospectedFunctionParameter[];
+        namespace: GirModule;
     }>) {
-        super(name, { ...args });
+        super(name, namespace, { ...args });
 
         this.raw_name = raw_name;
         this.parameters = parameters.map(p => p.copy({ parent: this }));
         this.output_parameters = output_parameters.map(p => p.copy({ parent: this }));
         this.return_type = return_type;
+        this.returnTypeDoc = null;
     }
 
-    copy({
-        outputParameters,
-        parameters,
-        return_type
-    }: {
-        parent?: undefined;
-        parameters?: IntrospectedFunctionParameter[];
-        outputParameters?: IntrospectedFunctionParameter[];
-        return_type?: TypeExpression;
-    } = {}): IntrospectedFunction {
+    copy(
+        {
+            parent = this.parent,
+            outputParameters,
+            parameters,
+            return_type
+        }: {
+            parent?: GirModule;
+            parameters?: IntrospectedFunctionParameter[];
+            outputParameters?: IntrospectedFunctionParameter[];
+            return_type?: TypeExpression;
+        } = { parent: this.parent }
+    ): IntrospectedFunction {
         const fn = new IntrospectedFunction({
+            namespace: parent ?? this.namespace,
             raw_name: this.raw_name,
             name: this.name,
             return_type: return_type ?? this.return_type,
@@ -83,6 +93,7 @@ export class IntrospectedFunction extends IntrospectedBase {
             parameters: parameters ?? this.parameters
         });
 
+        fn.returnTypeDoc = this.returnTypeDoc;
         fn.generics = [...this.generics];
 
         return fn._copyBaseProperties(this);
@@ -90,6 +101,7 @@ export class IntrospectedFunction extends IntrospectedBase {
 
     accept(visitor: GirVisitor): IntrospectedFunction {
         const node = this.copy({
+            parent: this.parent,
             parameters: this.parameters.map(p => {
                 return p.accept(visitor);
             }),
@@ -103,43 +115,49 @@ export class IntrospectedFunction extends IntrospectedBase {
     }
 
     static fromXML(
-        modName: string,
+        element: GirFunctionElement | GirMethodElement,
         ns: IntrospectedNamespace,
-        options: LoadOptions,
-        _parent,
-        func: GirFunctionElement | GirMethodElement
+        options: LoadOptions
     ): IntrospectedFunction {
-        let raw_name = func.$.name;
+        let raw_name = element.$.name;
         let name = sanitizeIdentifierName(null, raw_name);
 
-        if (hasShadow(func)) {
-            raw_name = func.$["shadows"];
-            name = sanitizeIdentifierName(null, func.$["shadows"]);
+        if (hasShadow(element)) {
+            raw_name = element.$["shadows"];
+            name = sanitizeIdentifierName(null, element.$["shadows"]);
         }
+
+        // TODO: Don't create a useless function object here
+        let fn = new IntrospectedFunction({
+            name,
+            raw_name,
+            namespace: ns,
+            isIntrospectable: isIntrospectable(element)
+        });
 
         let return_type: TypeExpression;
 
-        if ("return-value" in func && func["return-value"] && func["return-value"].length > 0) {
-            const value = func["return-value"][0];
+        if ("return-value" in element && element["return-value"] && element["return-value"].length > 0) {
+            const value = element["return-value"][0];
 
-            return_type = getType(modName, ns, value);
+            return_type = getType(ns, value);
+
+            fn.returnTypeDoc = parseDoc(value);
         } else {
             return_type = VoidType;
         }
 
         let parameters: IntrospectedFunctionParameter[] = [];
 
-        if (func.parameters) {
-            const param = func.parameters[0].parameter;
+        if (element.parameters) {
+            const param = element.parameters[0].parameter;
 
             if (param) {
                 const inputs = param.filter((p): p is typeof p & { $: { name: string } } => {
                     return !!p.$.name;
                 });
 
-                parameters.push(
-                    ...inputs.map(i => IntrospectedFunctionParameter.fromXML(modName, ns, options, null, i))
-                );
+                parameters.push(...inputs.map(i => IntrospectedFunctionParameter.fromXML(i, fn, options)));
 
                 const unwrapped = return_type.unwrap();
 
@@ -214,18 +232,16 @@ export class IntrospectedFunction extends IntrospectedBase {
             )
             .map(parameter => parameter.copy({ isOptional: false }));
 
-        const fn = new IntrospectedFunction({
+        fn = fn.copy({
+            parent: ns,
             parameters: input_parameters,
-            output_parameters,
-            return_type,
-            name,
-            raw_name,
-            isIntrospectable: isIntrospectable(func)
+            outputParameters: output_parameters,
+            return_type
         });
 
         if (options.loadDocs) {
-            fn.doc = parseDoc(func);
-            fn.metadata = parseMetadata(func);
+            fn.doc = parseDoc(element);
+            fn.metadata = parseMetadata(element);
         }
 
         return fn;
@@ -236,9 +252,10 @@ export class IntrospectedFunction extends IntrospectedBase {
     }
 
     asCallback(): IntrospectedCallback {
-        const { raw_name, name, output_parameters, parameters, return_type } = this;
+        const { name, raw_name, namespace, output_parameters, parameters, return_type } = this;
 
         return new IntrospectedCallback({
+            namespace,
             raw_name,
             name,
             output_parameters,
@@ -250,7 +267,7 @@ export class IntrospectedFunction extends IntrospectedBase {
     asClassFunction(parent: IntrospectedBaseClass | IntrospectedEnum): IntrospectedClassFunction {
         const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = this;
 
-        return new IntrospectedClassFunction({
+        const fn = new IntrospectedClassFunction({
             parent,
             name,
             output_parameters,
@@ -259,6 +276,10 @@ export class IntrospectedFunction extends IntrospectedBase {
             doc,
             isIntrospectable
         });
+
+        fn.returnTypeDoc = this.returnTypeDoc;
+
+        return fn;
     }
 
     asVirtualClassFunction(parent: IntrospectedBaseClass): IntrospectedVirtualClassFunction {
@@ -294,17 +315,33 @@ export class IntrospectedFunction extends IntrospectedBase {
     }
 }
 
-export class IntrospectedDirectAllocationConstructor extends IntrospectedBase {
-    fields: Field[];
+export class IntrospectedDirectAllocationConstructor extends IntrospectedClassMember {
+    parameters: IntrospectedFunctionParameter[];
 
-    constructor(fields: Field[]) {
-        super("new", { isPrivate: false, isIntrospectable: true });
+    constructor(parameters: IntrospectedFunctionParameter[], parent: IntrospectedBaseClass | null) {
+        super("new", parent, { isPrivate: false, isIntrospectable: true });
 
-        this.fields = fields
+        this.parameters = parameters.map(parameter => parameter.copy({ parent: this }));
+    }
+
+    static fromFields(fields: IntrospectedField[], parent: IntrospectedBaseClass) {
+        const building = new IntrospectedDirectAllocationConstructor([], parent);
+
+        building.parameters = fields
             .filter(field => {
                 return !field.isStatic && !field.isPrivate && !field.type.isPointer;
             })
-            .map(field => field.copy({ parent: this }));
+            .map(
+                field =>
+                    new IntrospectedFunctionParameter({
+                        parent: building,
+                        type: field.type,
+                        name: field.name,
+                        direction: GirDirection.In
+                    })
+            );
+
+        return building;
     }
 
     asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateDirectAllocationConstructor"]> {
@@ -314,9 +351,14 @@ export class IntrospectedDirectAllocationConstructor extends IntrospectedBase {
     }
 
     copy(
-        options?: { parent?: IntrospectedBase | undefined; fields: Field[] } | undefined
+        options?:
+            | { parent?: IntrospectedBaseClass | undefined; parameters?: IntrospectedFunctionParameter[] }
+            | undefined
     ): IntrospectedDirectAllocationConstructor {
-        const copy = new IntrospectedDirectAllocationConstructor(options?.fields ?? this.fields);
+        const copy = new IntrospectedDirectAllocationConstructor(
+            options?.parameters ?? this.parameters,
+            options?.parent ?? this.parent
+        );
 
         copy._copyBaseProperties(this);
 
@@ -325,8 +367,8 @@ export class IntrospectedDirectAllocationConstructor extends IntrospectedBase {
 
     accept(visitor: GirVisitor): IntrospectedDirectAllocationConstructor {
         const node = this.copy({
-            fields: this.fields.map(field => {
-                return field.accept(visitor);
+            parameters: this.parameters.map(parameters => {
+                return parameters.accept(visitor);
             })
         });
 
@@ -334,7 +376,7 @@ export class IntrospectedDirectAllocationConstructor extends IntrospectedBase {
     }
 }
 
-export class IntrospectedConstructor extends IntrospectedBase {
+export class IntrospectedConstructor extends IntrospectedClassMember {
     readonly parameters: IntrospectedFunctionParameter[] = [];
     readonly return_type: TypeExpression = UnknownType;
 
@@ -342,40 +384,42 @@ export class IntrospectedConstructor extends IntrospectedBase {
         name,
         parameters = [],
         return_type,
+        parent,
         ...args
     }: Options<{
         name: string;
+        parent: IntrospectedBaseClass | null;
         parameters?: IntrospectedFunctionParameter[];
         return_type: TypeExpression;
     }>) {
-        super(name, { ...args });
+        super(name, parent, { ...args });
         this.return_type = return_type;
         this.parameters = parameters.map(p => p.copy({ parent: this }));
     }
 
     copy({
+        parent,
         parameters,
         return_type
     }: {
-        parent?: undefined;
+        parent?: IntrospectedBaseClass;
         parameters?: IntrospectedFunctionParameter[];
         return_type?: TypeExpression;
     } = {}): IntrospectedConstructor {
         return new IntrospectedConstructor({
             name: this.name,
+            parent: parent ?? this.parent ?? null,
             return_type: return_type ?? this.return_type,
             parameters: parameters ?? this.parameters
         })._copyBaseProperties(this);
     }
 
     static fromXML(
-        modName: string,
-        ns: IntrospectedNamespace,
-        options: LoadOptions,
+        m: GirConstructorElement,
         parent: IntrospectedBaseClass,
-        m: GirConstructorElement
+        options: LoadOptions
     ): IntrospectedConstructor {
-        return IntrospectedClassFunction.fromXML(modName, ns, options, parent, m as GirFunctionElement).asConstructor();
+        return IntrospectedClassFunction.fromXML(m as GirFunctionElement, parent, options).asConstructor();
     }
 
     accept(visitor: GirVisitor): IntrospectedConstructor {
@@ -398,13 +442,19 @@ export class IntrospectedConstructor extends IntrospectedBase {
     }
 }
 
-export class IntrospectedFunctionParameter extends IntrospectedBase {
+export class IntrospectedFunctionParameter extends IntrospectedBase<
+    | IntrospectedClassFunction
+    | IntrospectedFunction
+    | IntrospectedSignal
+    | IntrospectedConstructor
+    | IntrospectedDirectAllocationConstructor
+    | null
+> {
     readonly type: TypeExpression;
     readonly direction: GirDirection;
     readonly isVarArgs: boolean = false;
     readonly isOptional: boolean = false;
     readonly isNullable: boolean = false;
-    readonly parent?: IntrospectedClassFunction | IntrospectedFunction | IntrospectedSignal | IntrospectedConstructor;
 
     constructor({
         name,
@@ -418,7 +468,13 @@ export class IntrospectedFunctionParameter extends IntrospectedBase {
         ...args
     }: Options<{
         name: string;
-        parent?: IntrospectedClassFunction | IntrospectedFunction | IntrospectedSignal | IntrospectedConstructor;
+        parent?:
+            | IntrospectedClassFunction
+            | IntrospectedFunction
+            | IntrospectedSignal
+            | IntrospectedConstructor
+            | IntrospectedDirectAllocationConstructor
+            | null;
         type: TypeExpression;
         direction: GirDirection;
         doc?: string | null;
@@ -426,9 +482,8 @@ export class IntrospectedFunctionParameter extends IntrospectedBase {
         isOptional?: boolean;
         isNullable?: boolean;
     }>) {
-        super(name, { ...args });
+        super(name, parent ?? null, { ...args });
 
-        this.parent = parent;
         this.type = type;
         this.direction = direction;
         this.doc = doc;
@@ -437,9 +492,31 @@ export class IntrospectedFunctionParameter extends IntrospectedBase {
         this.isNullable = isNullable;
     }
 
+    get namespace() {
+        if (!this.parent) throw new Error(`Failed to get namespace for ${this.name}`);
+
+        return this.parent.namespace;
+    }
+
+    asField() {
+        const { name, parent, isOptional: optional, type } = this;
+
+        if (!(parent?.parent instanceof IntrospectedBaseClass)) {
+            throw new Error("Can't convert parameter of non-class function to field");
+        }
+
+        return new IntrospectedField({ name, parent: parent.parent, optional, type });
+    }
+
     copy(
         options: {
-            parent?: IntrospectedClassFunction | IntrospectedFunction | IntrospectedSignal | IntrospectedConstructor;
+            parent?:
+                | IntrospectedClassFunction
+                | IntrospectedFunction
+                | IntrospectedSignal
+                | IntrospectedConstructor
+                | IntrospectedDirectAllocationConstructor
+                | null;
             type?: TypeExpression;
             isOptional?: boolean;
             isNullable?: boolean;
@@ -473,13 +550,14 @@ export class IntrospectedFunctionParameter extends IntrospectedBase {
         return generator.generateParameter(this);
     }
 
-    static fromXML(
-        modName: string,
-        ns: IntrospectedNamespace,
-        options: LoadOptions,
-        parent: IntrospectedSignal | IntrospectedClassFunction | IntrospectedFunction | IntrospectedConstructor | null,
-        parameter: GirCallableParamElement & { $: { name: string } }
+    static fromXML<
+        Parent extends IntrospectedSignal | IntrospectedClassFunction | IntrospectedFunction | IntrospectedConstructor
+    >(
+        parameter: GirCallableParamElement & { $: { name: string } },
+        parent: Parent,
+        options: LoadOptions
     ): IntrospectedFunctionParameter {
+        const ns = parent.namespace;
         let name = sanitizeMemberName(parameter.$.name);
 
         if (isInvalid(name)) {
@@ -518,10 +596,10 @@ export class IntrospectedFunctionParameter extends IntrospectedBase {
                 isNullable = true;
             }
 
-            type = getType(modName, ns, parameter);
+            type = getType(ns, parameter);
         } else if (parameter.$.direction === GirDirection.Out) {
             direction = parameter.$.direction;
-            type = getType(modName, ns, parameter);
+            type = getType(ns, parameter);
         } else {
             throw new Error(`Unknown parameter direction: ${parameter.$.direction as string}`);
         }
@@ -546,14 +624,14 @@ export class IntrospectedFunctionParameter extends IntrospectedBase {
     }
 }
 
-export class IntrospectedClassFunction extends IntrospectedBase {
+export class IntrospectedClassFunction extends IntrospectedBase<IntrospectedBaseClass | IntrospectedEnum> {
     readonly parameters: IntrospectedFunctionParameter[];
     protected readonly return_type: TypeExpression;
     readonly output_parameters: IntrospectedFunctionParameter[];
     protected _anyify: boolean = false;
     protected _generify: boolean = false;
-    parent: IntrospectedBaseClass | IntrospectedEnum;
     interfaceParent: IntrospectedBaseClass | IntrospectedEnum | null = null;
+    returnTypeDoc?: string | null;
 
     generics: Generic[] = [];
 
@@ -573,22 +651,38 @@ export class IntrospectedClassFunction extends IntrospectedBase {
         parent: IntrospectedBaseClass | IntrospectedEnum;
         doc?: string | null;
     }>) {
-        super(name, { ...args });
+        super(name, parent, { ...args });
 
         this.parameters = parameters.map(p => p.copy({ parent: this }));
         this.output_parameters = output_parameters.map(p => p.copy({ parent: this }));
         this.return_type = return_type;
-        this.parent = parent;
         this.doc = doc;
     }
 
-    asConstructor(): IntrospectedConstructor {
-        const { name, parameters } = this;
+    get namespace() {
+        return this.parent.namespace;
+    }
 
-        if (this.parent instanceof IntrospectedBaseClass) {
+    asCallback(): IntrospectedClassCallback {
+        const { name, parent, output_parameters, parameters, return_type } = this;
+
+        return new IntrospectedClassCallback({
+            parent,
+            name,
+            output_parameters,
+            parameters,
+            return_type
+        });
+    }
+
+    asConstructor(): IntrospectedConstructor {
+        const { name, parent, parameters } = this;
+
+        if (parent instanceof IntrospectedBaseClass) {
             // Always force constructors to have the correct return type.
             return new IntrospectedConstructor({
                 name,
+                parent,
                 parameters,
                 return_type: this.parent.getType(),
                 isIntrospectable: this.isIntrospectable
@@ -596,7 +690,7 @@ export class IntrospectedClassFunction extends IntrospectedBase {
         }
 
         throw new Error(
-            `Attempted to convert GirClassFunction into GirConstructor from invalid parent: ${this.parent.name}`
+            `Attempted to convert GirClassFunction into GirConstructor from invalid enum parent: ${this.parent.name}`
         );
     }
 
@@ -643,6 +737,7 @@ export class IntrospectedClassFunction extends IntrospectedBase {
         });
 
         fn.generics = [...this.generics];
+        fn.returnTypeDoc = this.returnTypeDoc;
 
         if (interfaceParent) {
             fn.interfaceParent = interfaceParent;
@@ -678,13 +773,11 @@ export class IntrospectedClassFunction extends IntrospectedBase {
     }
 
     static fromXML(
-        modName: string,
-        ns: IntrospectedNamespace,
-        options: LoadOptions,
+        element: GirFunctionElement | GirMethodElement,
         parent: IntrospectedBaseClass | IntrospectedEnum,
-        m: GirFunctionElement | GirMethodElement
+        options: LoadOptions
     ): IntrospectedClassFunction {
-        const fn = IntrospectedFunction.fromXML(modName, ns, options, null, m);
+        const fn = IntrospectedFunction.fromXML(element, parent.namespace, options);
 
         return fn.asClassFunction(parent);
     }
@@ -744,13 +837,11 @@ export class IntrospectedVirtualClassFunction extends IntrospectedClassFunction 
     }
 
     static fromXML(
-        modName: string,
-        ns: IntrospectedNamespace,
-        options: LoadOptions,
+        m: GirVirtualMethodElement,
         parent: IntrospectedBaseClass,
-        m: GirVirtualMethodElement
+        options: LoadOptions
     ): IntrospectedVirtualClassFunction {
-        const fn = IntrospectedFunction.fromXML(modName, ns, options, parent, m);
+        const fn = IntrospectedFunction.fromXML(m, parent.namespace, options);
 
         return fn.asVirtualClassFunction(parent);
     }
@@ -780,13 +871,11 @@ export class IntrospectedStaticClassFunction extends IntrospectedClassFunction {
     }
 
     static fromXML(
-        modName: string,
-        ns: IntrospectedNamespace,
-        options: LoadOptions,
+        m: GirFunctionElement,
         parent: IntrospectedBaseClass | IntrospectedEnum,
-        m: GirFunctionElement
+        options: LoadOptions
     ): IntrospectedStaticClassFunction {
-        const fn = IntrospectedFunction.fromXML(modName, ns, options, parent, m);
+        const fn = IntrospectedFunction.fromXML(m, parent.namespace, options);
 
         return fn.asStaticClassFunction(parent);
     }
@@ -803,9 +892,10 @@ export class IntrospectedCallback extends IntrospectedFunction {
     copy({
         parameters,
         returnType,
-        outputParameters
+        outputParameters,
+        parent
     }: {
-        parent?: undefined;
+        parent?: GirModule;
         parameters?: IntrospectedFunctionParameter[];
         outputParameters?: IntrospectedFunctionParameter[];
         returnType?: TypeExpression;
@@ -815,7 +905,8 @@ export class IntrospectedCallback extends IntrospectedFunction {
             raw_name: this.raw_name,
             return_type: returnType ?? this.return_type,
             parameters: parameters ?? this.parameters,
-            output_parameters: outputParameters ?? this.output_parameters
+            output_parameters: outputParameters ?? this.output_parameters,
+            namespace: parent ?? this.parent
         })._copyBaseProperties(this);
 
         cb.generics = [...this.generics];
@@ -837,26 +928,21 @@ export class IntrospectedCallback extends IntrospectedFunction {
         return visitor.visitCallback?.(node) ?? node;
     }
 
-    static fromXML(
-        modName: string,
-        ns: IntrospectedNamespace,
-        options: LoadOptions,
-        _parent,
-        func: GirCallbackElement
-    ): IntrospectedCallback {
-        const cb = IntrospectedFunction.fromXML(modName, ns, options, null, func).asCallback();
+    static fromXML(element: GirCallbackElement, namespace: GirModule, options: LoadOptions): IntrospectedCallback {
+        const ns = namespace;
+        const cb = IntrospectedFunction.fromXML(element, ns, options).asCallback();
 
-        const glibTypeName = func.$["glib:type-name"];
-        if (typeof glibTypeName === "string" && func.$["glib:type-name"]) {
+        const glibTypeName = element.$["glib:type-name"];
+        if (typeof glibTypeName === "string" && element.$["glib:type-name"]) {
             cb.resolve_names.push(glibTypeName);
 
             ns.registerResolveName(glibTypeName, ns.name, cb.name);
         }
 
-        if (func.$["c:type"]) {
-            cb.resolve_names.push(func.$["c:type"]);
+        if (element.$["c:type"]) {
+            cb.resolve_names.push(element.$["c:type"]);
 
-            ns.registerResolveName(func.$["c:type"], ns.name, cb.name);
+            ns.registerResolveName(element.$["c:type"], ns.name, cb.name);
         }
 
         return cb;
@@ -864,5 +950,80 @@ export class IntrospectedCallback extends IntrospectedFunction {
 
     asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateCallback"]> {
         return generator.generateCallback(this) as ReturnType<T["generateCallback"]>;
+    }
+}
+
+export class IntrospectedClassCallback extends IntrospectedClassFunction {
+    asFunctionType(): FunctionType {
+        return new FunctionType(
+            Object.fromEntries(this.parameters.map(p => [p.name, p.type] as const)),
+            this.return_type
+        );
+    }
+
+    copy({
+        parameters,
+        returnType,
+        outputParameters,
+        parent
+    }: {
+        parent?: IntrospectedBaseClass;
+        parameters?: IntrospectedFunctionParameter[];
+        outputParameters?: IntrospectedFunctionParameter[];
+        returnType?: TypeExpression;
+    } = {}): IntrospectedClassCallback {
+        const cb = new IntrospectedClassCallback({
+            name: this.name,
+            return_type: returnType ?? this.return_type,
+            parameters: parameters ?? this.parameters,
+            output_parameters: outputParameters ?? this.output_parameters,
+            parent: parent ?? this.parent
+        })._copyBaseProperties(this);
+
+        cb.generics = [...this.generics];
+
+        return cb;
+    }
+
+    accept(visitor: GirVisitor): IntrospectedClassCallback {
+        const node = this.copy({
+            parameters: this.parameters.map(p => {
+                return p.accept(visitor);
+            }),
+            outputParameters: this.output_parameters.map(p => {
+                return p.accept(visitor);
+            }),
+            returnType: visitor.visitType?.(this.return_type)
+        });
+
+        return visitor.visitClassCallback?.(node) ?? node;
+    }
+
+    static fromXML(
+        element: GirCallbackElement,
+        parent: IntrospectedBaseClass,
+        options: LoadOptions
+    ): IntrospectedClassCallback {
+        const ns = parent.namespace;
+        const cb = IntrospectedClassFunction.fromXML(element, parent, options).asCallback();
+
+        const glibTypeName = element.$["glib:type-name"];
+        if (typeof glibTypeName === "string" && element.$["glib:type-name"]) {
+            cb.resolve_names.push(glibTypeName);
+
+            ns.registerResolveName(glibTypeName, ns.name, cb.name);
+        }
+
+        if (element.$["c:type"]) {
+            cb.resolve_names.push(element.$["c:type"]);
+
+            ns.registerResolveName(element.$["c:type"], ns.name, cb.name);
+        }
+
+        return cb;
+    }
+
+    asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateClassCallback"]> {
+        return generator.generateClassCallback(this) as ReturnType<T["generateClassCallback"]>;
     }
 }

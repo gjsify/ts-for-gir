@@ -39,4 +39,8 @@ export interface GenerateConfig {
     package: boolean
     /** Adds Yarn workspace support to the NPM packages */
     packageYarn: boolean
+    /** Disable pretty printing the output */
+    noPrettyPrint: boolean
+    /** Disable GLib.Variant class with string parsing */
+    noAdvancedVariants: boolean
 }

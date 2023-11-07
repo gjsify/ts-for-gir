@@ -4,7 +4,7 @@ import { GirVisitor } from "../visitor.js";
 export class InterfaceVisitor extends GirVisitor {
     visitInterface = (node: IntrospectedInterface): IntrospectedInterface => {
         // If an interface does not list a prerequisite type, we fill it with GObject.Object
-        if (!node.noParent && node.parent == null) {
+        if (!node.noParent && node.superType == null) {
             const gobject = node.namespace.assertInstalledImport("GObject");
             const GObject = gobject.assertClass("Object");
 
@@ -14,7 +14,7 @@ export class InterfaceVisitor extends GirVisitor {
                 );
             }
 
-            node.parent = GObject.getType();
+            node.superType = GObject.getType();
         }
 
         return node;

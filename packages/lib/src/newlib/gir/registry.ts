@@ -15,6 +15,7 @@ import { IntrospectedNamespace } from "./namespace.js";
 import { DtsModuleGenerator } from "../generators/dts-modules.js";
 import { DtsInlineGenerator } from "../generators/dts-inline.js";
 import { ParsedGir } from "../../types/parsed-gir.js";
+import { GenerateConfig } from "../../types/generate-config.js";
 
 export interface NSLoader {
     load(namespace: string, version: string): ParsedGir | null;
@@ -210,7 +211,7 @@ export class NSRegistry {
     }
 
     load(gir: ParsedGir, options: LoadOptions): IntrospectedNamespace {
-        const namespace = IntrospectedNamespace.fromXML(gir, options, this);
+        const namespace = IntrospectedNamespace.load(gir, options as LoadOptions & GenerateConfig, this);
 
         this.mapping.set(namespace.name, namespace.version, namespace);
 

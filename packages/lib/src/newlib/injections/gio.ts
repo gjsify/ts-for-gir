@@ -20,7 +20,7 @@ import {
     Generic
 } from "../gir.js";
 import { GirDirection } from "@gi.ts/parser";
-import { Field, JSField } from "../gir/property.js";
+import { IntrospectedField, JSField } from "../gir/property.js";
 import { IntrospectedClass, IntrospectedInterface } from "../gir/class.js";
 
 export default {
@@ -36,6 +36,7 @@ export default {
             DBusNodeInfo.constructors.push(
                 new IntrospectedConstructor({
                     name: "new_for_xml",
+                    parent: DBusNodeInfo,
                     parameters: [
                         new IntrospectedFunctionParameter({
                             name: "info",
@@ -54,6 +55,7 @@ export default {
             DBusInterfaceInfo.constructors.push(
                 new IntrospectedConstructor({
                     name: "new_for_xml",
+                    parent: DBusInterfaceInfo,
                     parameters: [
                         new IntrospectedFunctionParameter({
                             name: "info",
@@ -70,8 +72,9 @@ export default {
             const ListStore = namespace.assertClass("ListStore");
 
             ListStore.fields.push(
-                new Field({
+                new IntrospectedField({
                     name: "Symbol.iterator",
+                    parent: ListStore,
                     computed: true,
                     type: new FunctionType(
                         {},
@@ -87,6 +90,7 @@ export default {
             SettingsSchema.fields.push(
                 new JSField({
                     name: "_realGetKey",
+                    parent: SettingsSchema,
                     type: new NativeType("typeof SettingsSchema.prototype.get_key")
                 })
             );
@@ -98,18 +102,22 @@ export default {
             Settings.fields.push(
                 new JSField({
                     name: "_realInit",
+                    parent: Settings,
                     type: AnyFunctionType
                 }),
                 new JSField({
                     name: "_realMethods",
+                    parent: Settings,
                     type: new NativeType("typeof Settings.prototype")
                 }),
                 new JSField({
                     name: "_keys",
+                    parent: Settings,
                     type: new ArrayType(StringType)
                 }),
                 new JSField({
                     name: "_children",
+                    parent: Settings,
                     type: new ArrayType(StringType)
                 })
             );
@@ -286,12 +294,14 @@ export default {
                 new JSField({
                     isStatic: true,
                     name: "session",
+                    parent: DBus,
                     type: DBusConnection.getType(),
                     writable: false
                 }),
                 new JSField({
                     isStatic: true,
                     name: "system",
+                    parent: DBus,
                     type: DBusConnection.getType(),
                     writable: false
                 })

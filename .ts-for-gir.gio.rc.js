@@ -4,4 +4,7 @@ export default {
     girDirectories: ['./vala-girs/gir-1.0'],
     ignore: [],
     promisify: true,
+    verbose: true,
+    package: true,
+    outdir: './types',
 }

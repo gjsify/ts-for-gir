@@ -331,6 +331,8 @@ export class Config {
             npmScope: config.npmScope,
             package: config.package,
             packageYarn: config.packageYarn,
+            noPrettyPrint: false,
+            noAdvancedVariants: true,
         }
         return generateConfig
     }

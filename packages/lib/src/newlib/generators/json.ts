@@ -4,14 +4,15 @@ import { IntrospectedNamespace } from "../gir/namespace.js";
 import { IntrospectedBaseClass, IntrospectedRecord, IntrospectedInterface, IntrospectedClass } from "../gir/class.js";
 import { IntrospectedConstant } from "../gir/const.js";
 import { IntrospectedEnum, IntrospectedError, GirEnumMember } from "../gir/enum.js";
-import { GirProperty, Field } from "../gir/property.js";
+import { IntrospectedProperty, IntrospectedField } from "../gir/property.js";
 import { IntrospectedSignal, IntrospectedSignalType } from "../gir/signal.js";
 import {
     IntrospectedFunction,
     IntrospectedConstructor,
     IntrospectedFunctionParameter,
     IntrospectedCallback,
-    IntrospectedDirectAllocationConstructor
+    IntrospectedDirectAllocationConstructor,
+    IntrospectedClassCallback
 } from "../gir/function.js";
 import {
     IntrospectedClassFunction,
@@ -32,14 +33,14 @@ import {
     TupleType,
     NullableType,
     ClosureType,
-    GirBase,
     AnyFunctionType,
     TypeConflict,
-    GirMetadata
+    IntrospectedMetadata
 } from "../gir.js";
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedAlias } from "../gir/alias.js";
 import { GenerationOptions } from "../types.js";
+import { AnyIntrospectedType, IntrospectedNamespaceMember } from "../gir/base.js";
 
 export const enum NodeKind {
     class = "class",
@@ -336,7 +337,10 @@ export class JsonGenerator extends FormatGenerator<Json> {
     private generateDoc(doc: string): string {
         const { namespace } = this;
 
-        function resolveClass(ns: IntrospectedNamespace, className: string): readonly [GirBase | null, boolean] {
+        function resolveClass(
+            ns: IntrospectedNamespace,
+            className: string
+        ): readonly [IntrospectedNamespaceMember | null, boolean] {
             let classes = ns.getMembers(className);
 
             let plural = false;
@@ -592,7 +596,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
             });
     }
 
-    private generateMetadata(metadata: GirMetadata): MetadataJson {
+    private generateMetadata(metadata: IntrospectedMetadata): MetadataJson {
         return { ...metadata } as MetadataJson;
     }
 
@@ -612,11 +616,26 @@ export class JsonGenerator extends FormatGenerator<Json> {
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    generateCallbackType(node: IntrospectedCallback): [Json, Json] {
+    generateCallbackType(node: IntrospectedCallback | IntrospectedClassCallback): [Json, Json] {
         return [{}, {}];
     }
 
     generateCallback(node: IntrospectedCallback): CallbackJson {
+        const { namespace, options } = this;
+
+        const parameters = this.generateParameters(node.parameters);
+
+        return {
+            kind: NodeKind.callback,
+            name: node.name,
+            type: this.generateCallbackType(node),
+            parameters,
+            returnType: generateType(node.return().resolve(namespace, options)),
+            ...this._generateDocAndMetadata(node)
+        };
+    }
+
+    generateClassCallback(node: IntrospectedClassCallback): CallbackJson {
         const { namespace, options } = this;
 
         const parameters = this.generateParameters(node.parameters);
@@ -670,11 +689,12 @@ export class JsonGenerator extends FormatGenerator<Json> {
         const GLib = namespace.assertInstalledImport("GLib");
         const GLibError = GLib.assertClass("Error");
 
-        clazz.parent = GLibError.getType();
+        clazz.superType = GLibError.getType();
 
         // Manually construct a GLib.Error constructor.
         clazz.mainConstructor = new IntrospectedConstructor({
             name: "new",
+            parent: clazz,
             parameters: [
                 new IntrospectedFunctionParameter({
                     name: "options",
@@ -691,10 +711,10 @@ export class JsonGenerator extends FormatGenerator<Json> {
         };
     }
 
-    _generateDocAndMetadata(node: GirBase) {
+    _generateDocAndMetadata(node: AnyIntrospectedType) {
         const { options } = this;
 
-        if (options.withDocs) {
+        if (!options.noComments) {
             return {
                 private: node.isPrivate,
                 doc: this.generateDoc(node.doc ?? "") ?? null,
@@ -735,8 +755,8 @@ export class JsonGenerator extends FormatGenerator<Json> {
     private extends(node: IntrospectedBaseClass): TypeIdentifier | null {
         const { namespace: ns, options } = this;
 
-        if (node.parent) {
-            return node.parent.resolveIdentifier(ns, options);
+        if (node.superType) {
+            return node.superType.resolveIdentifier(ns, options);
         }
 
         return null;
@@ -745,7 +765,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
     generateInterface(node: IntrospectedInterface): InterfaceJson {
         const { namespace } = this;
         // If an interface does not list a prerequisite type, we fill it with GObject.Object
-        if (node.parent == null) {
+        if (node.superType == null) {
             const gobject = namespace.assertInstalledImport("GObject");
 
             // TODO Optimize GObject.Object
@@ -761,7 +781,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
                 );
             }
 
-            node.parent = GObject.getType();
+            node.superType = GObject.getType();
         }
 
         const { name } = node;
@@ -1002,7 +1022,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
         };
     }
 
-    generateField(node: Field): FieldJson {
+    generateField(node: IntrospectedField): FieldJson {
         const { namespace, options } = this;
         const { name, computed } = node;
         const invalid = isInvalid(name);
@@ -1021,7 +1041,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
         };
     }
 
-    generateProperty(node: GirProperty, construct: boolean = false): PropertyJson {
+    generateProperty(node: IntrospectedProperty, construct: boolean = false): PropertyJson {
         const { namespace, options } = this;
 
         const invalid = isInvalid(node.name);
@@ -1148,17 +1168,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
         return {
             name: node.name,
             kind: NodeKind.constructor,
-            parameters: this.generateParameters(
-                node.fields.map(
-                    field =>
-                        new IntrospectedFunctionParameter({
-                            name: field.name,
-                            direction: GirDirection.In,
-                            type: field.type,
-                            isOptional: true
-                        })
-                )
-            ),
+            parameters: this.generateParameters(node.parameters),
             ...this._generateDocAndMetadata(node)
         };
     }
@@ -1217,7 +1227,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
     }
 
     generateNamespace(node: IntrospectedNamespace): Promise<NamespaceJson> {
-        function shouldGenerate(node: GirBase) {
+        function shouldGenerate(node: AnyIntrospectedType) {
             return node.emit;
         }
 

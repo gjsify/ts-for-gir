@@ -8,10 +8,10 @@ import {
     NullableType,
     ArrayType
 } from "../gir.js";
-import { IntrospectedBase, Options } from "./base.js";
-import { IntrospectedNamespace, isIntrospectable } from "./namespace.js";
+import { IntrospectedClassMember, Options } from "./base.js";
+import { isIntrospectable } from "./namespace.js";
 import { IntrospectedClass } from "./class.js";
-import { IntrospectedClassFunction, IntrospectedFunctionParameter, IntrospectedCallback } from "./function.js";
+import { IntrospectedClassFunction, IntrospectedFunctionParameter, IntrospectedClassCallback } from "./function.js";
 import { GirSignalElement, GirDirection, GirCallableParamElement } from "@gi.ts/parser";
 import { getType, parseDoc, parseMetadata } from "./util.js";
 import { FormatGenerator } from "../generators/generator.js";
@@ -24,10 +24,9 @@ export enum IntrospectedSignalType {
     EMIT
 }
 
-export class IntrospectedSignal extends IntrospectedBase {
+export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClass> {
     parameters: IntrospectedFunctionParameter[];
     return_type: TypeExpression;
-    parent: IntrospectedClass;
 
     constructor({
         name,
@@ -41,11 +40,10 @@ export class IntrospectedSignal extends IntrospectedBase {
         return_type?: TypeExpression;
         parent: IntrospectedClass;
     }>) {
-        super(name, { ...args });
+        super(name, parent, { ...args });
 
         this.parameters = parameters.map(p => p.copy({ parent: this }));
         this.return_type = return_type;
-        this.parent = parent;
     }
 
     accept(visitor: GirVisitor): IntrospectedSignal {
@@ -76,24 +74,19 @@ export class IntrospectedSignal extends IntrospectedBase {
         })._copyBaseProperties(this);
     }
 
-    static fromXML(
-        modName: string,
-        ns: IntrospectedNamespace,
-        options: LoadOptions,
-        parent: IntrospectedClass,
-        sig: GirSignalElement
-    ): IntrospectedSignal {
+    static fromXML(element: GirSignalElement, parent: IntrospectedClass, options: LoadOptions): IntrospectedSignal {
+        const ns = parent.namespace;
         const signal = new IntrospectedSignal({
-            name: sig.$.name,
+            name: element.$.name,
             parent,
-            isIntrospectable: isIntrospectable(sig)
+            isIntrospectable: isIntrospectable(element)
         });
 
-        if (sig.parameters && sig.parameters[0].parameter) {
+        if (element.parameters && element.parameters[0].parameter) {
             signal.parameters.push(
-                ...sig.parameters[0].parameter
+                ...element.parameters[0].parameter
                     .filter((p): p is GirCallableParamElement & { $: { name: string } } => !!p.$.name)
-                    .map(p => IntrospectedFunctionParameter.fromXML(modName, ns, options, signal, p))
+                    .map(p => IntrospectedFunctionParameter.fromXML(p, signal, options))
             );
         }
 
@@ -148,11 +141,11 @@ export class IntrospectedSignal extends IntrospectedBase {
             .params.reverse()
             .filter((p): p is IntrospectedFunctionParameter => p != null);
 
-        signal.return_type = getType(modName, ns, sig["return-value"]?.[0]);
+        signal.return_type = getType(ns, element["return-value"]?.[0]);
 
         if (options.loadDocs) {
-            signal.doc = parseDoc(sig);
-            signal.metadata = parseMetadata(sig);
+            signal.doc = parseDoc(element);
+            signal.metadata = parseMetadata(element);
         }
 
         return signal;
@@ -192,12 +185,16 @@ export class IntrospectedSignal extends IntrospectedBase {
         const name = after ? "connect_after" : "connect";
 
         const parent = this.parent;
-        const cb = new IntrospectedCallback({
-            raw_name: "callback",
+        const cb = new IntrospectedClassCallback({
+            parent,
             name: "callback",
             output_parameters: [],
             parameters: [
-                new IntrospectedFunctionParameter({ name: "_source", type: ThisType, direction: GirDirection.In }),
+                new IntrospectedFunctionParameter({
+                    name: "_source",
+                    type: ThisType,
+                    direction: GirDirection.In
+                }),
                 ...connect.parameters.map(p => p.copy())
             ],
             return_type: connect.return_type
@@ -222,7 +219,7 @@ export class IntrospectedSignal extends IntrospectedBase {
             return_type,
             parameters,
             name,
-            parent
+            parent: this.parent
         });
     }
 

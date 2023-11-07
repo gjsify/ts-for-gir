@@ -25,7 +25,7 @@ import {
     GenerifiedTypeIdentifier
 } from "../gir.js";
 import { GirDirection } from "@gi.ts/parser";
-import { Field } from "../gir/property.js";
+import { IntrospectedField } from "../gir/property.js";
 import { IntrospectedAlias } from "../gir/alias.js";
 import { IntrospectedInterface } from "../gir/class.js";
 
@@ -50,19 +50,19 @@ export default {
                 name: "SignalMatch",
                 namespace,
                 fields: [
-                    new Field({
+                    new IntrospectedField({
                         name: "signalId",
                         type: StringType,
                         isStatic: false,
                         writable: true
                     }),
-                    new Field({
+                    new IntrospectedField({
                         name: "detail",
                         type: StringType,
                         isStatic: false,
                         writable: true
                     }),
-                    new Field({
+                    new IntrospectedField({
                         name: "func",
                         type: AnyFunctionType,
                         isStatic: false,
@@ -78,6 +78,7 @@ export default {
 
             const GType = new IntrospectedAlias({
                 name: "GType",
+                namespace,
                 type: new NativeType("any")
             });
             namespace.members.set("GType", GType);
@@ -132,7 +133,7 @@ export default {
             }
 
             ParamSpec.fields.push(
-                new Field({
+                new IntrospectedField({
                     name: "override",
                     isStatic: true,
                     type: AnyType,
@@ -254,6 +255,7 @@ export default {
                 "Closure",
                 new IntrospectedAlias({
                     name: "Closure",
+                    namespace,
                     type: NativeType.of("(...args: P[]) => R"),
                     generics: [
                         {
@@ -394,6 +396,7 @@ export default {
                 "signal_handlers_block_by_func",
                 new IntrospectedFunction({
                     name: "signal_handlers_block_by_func",
+                    namespace,
                     raw_name: "signal_handlers_block_by_func",
                     parameters: [
                         new IntrospectedFunctionParameter({
@@ -417,6 +420,7 @@ export default {
                 "signal_handlers_unblock_by_func",
                 new IntrospectedFunction({
                     name: "signal_handlers_unblock_by_func",
+                    namespace,
                     raw_name: "signal_handlers_unblock_by_func",
                     parameters: [
                         new IntrospectedFunctionParameter({
@@ -440,6 +444,7 @@ export default {
                 "signal_handlers_disconnect_by_func",
                 new IntrospectedFunction({
                     name: "signal_handlers_disconnect_by_func",
+                    namespace,
                     raw_name: "signal_handlers_disconnect_by_func",
                     parameters: [
                         new IntrospectedFunctionParameter({
@@ -533,6 +538,7 @@ export default {
             function originalFunc(name: string) {
                 return new IntrospectedFunction({
                     name,
+                    namespace,
                     raw_name: name,
                     return_type: NumberType,
                     parameters: originalArgs.map(a => a.copy())
@@ -545,6 +551,7 @@ export default {
                     // [name](...args: [Object, SignalMatch] | [Object, SignalMatchType, number, GLib.Quark, Closure | null, object | null, object | null]): number;
                     new IntrospectedFunction({
                         name,
+                        namespace,
                         raw_name: name,
                         return_type: NumberType,
                         parameters: [args]
@@ -552,6 +559,7 @@ export default {
                     // export function [name](instance: Object, match: SignalMatch): number;
                     new IntrospectedFunction({
                         name,
+                        namespace,
                         raw_name: name,
                         return_type: NumberType,
                         parameters: modifiedArgs.map(a => a.copy())

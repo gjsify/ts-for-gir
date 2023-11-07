@@ -38,11 +38,13 @@ export async function generateModule(
 ): Promise<GeneratedModule | null> {
     const ns = registry.namespace(name, version);
 
+    const format = "dts"; // TODO: options.format;
+
     if (ns) {
-        const Generator = await registry.getGenerator(options.format);
+        const Generator = await registry.getGenerator(format);
 
         if (!Generator) {
-            throw new Error(`Invalid output format selected: ${options.format}.`);
+            throw new Error(`Invalid output format selected: ${format}.`);
         }
 
         const generator = new Generator(ns, options);
@@ -70,8 +72,8 @@ export async function generateModule(
             imports: Object.fromEntries(ns.getImports())
         };
 
-        const formatter = registry.getFormatter(options.format);
-        const formatted = !options.noPrettyPrint ? formatter.format(generated) : generated;
+        const formatter = registry.getFormatter(format);
+        const formatted = !options.noPrettyPrint ? await formatter.format(generated) : generated;
 
         return {
             formattedOutput: formatted,

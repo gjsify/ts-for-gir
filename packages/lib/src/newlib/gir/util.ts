@@ -141,10 +141,11 @@ function isPointerType(types: GirType[] | undefined) {
 
 /* Decode the type */
 export function getType(
-    modName: string,
-    _ns: IntrospectedNamespace,
+    ns: IntrospectedNamespace,
     param?: GirConstantElement | GirCallableReturn | GirFieldElement
 ): TypeExpression {
+    const modName = ns.name;
+
     if (!param) return VoidType;
 
     let name = "";
@@ -354,7 +355,9 @@ export function isInvalid(name: string): boolean {
 }
 
 export function parseDoc(element: GirDocElement): string | null {
-    return element.doc?.[0]?._ ?? null;
+    const el = element.doc?.[0]?._;
+
+    return el ? `${el}` : null;
 }
 
 export function parseDeprecatedDoc(element: GirDocElement): string | null {

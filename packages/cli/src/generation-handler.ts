@@ -10,13 +10,14 @@ import {
 } from '@ts-for-gir/lib'
 import { GeneratorType, Generator } from '@ts-for-gir/generator-base'
 import { TypeDefinitionGenerator } from '@ts-for-gir/generator-typescript'
-import { HtmlDocGenerator } from '@ts-for-gir/generator-html-doc'
+// import { HtmlDocGenerator } from '@ts-for-gir/generator-html-doc'
 
-import type { InheritanceTable, GenerateConfig, GirModulesGrouped } from '@ts-for-gir/lib'
+import type { InheritanceTable, GenerateConfig, NSRegistry } from '@ts-for-gir/lib'
 
 export class GenerationHandler {
     log: Logger
     generator: Generator
+
     constructor(
         private readonly config: GenerateConfig,
         type: GeneratorType,
@@ -27,9 +28,9 @@ export class GenerationHandler {
             case GeneratorType.TYPES:
                 this.generator = new TypeDefinitionGenerator(config)
                 break
-            case GeneratorType.HTML_DOC:
-                this.generator = new HtmlDocGenerator(config)
-                break
+            // case GeneratorType.HTML_DOC:
+            //     this.generator = new HtmlDocGenerator(config)
+            //     break
             default:
                 throw new Error('Unknown Generator')
         }
@@ -48,7 +49,7 @@ export class GenerationHandler {
         }
     }
 
-    public async start(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]): Promise<void> {
+    public async start(girModules: GirModule[], registry: NSRegistry): Promise<void> {
         this.log.info(START_MODULE(this.config.environment, this.config.buildType))
 
         if (girModules.length == 0) {
@@ -74,7 +75,13 @@ export class GenerationHandler {
             girModule.start(girModules)
         }
 
-        await this.generator.start(girModules, girModulesGrouped, inheritanceTable)
+        await this.generator.start(registry)
+
+        for (const girModule of girModules) {
+            await this.generator.generate(registry, girModule)
+        }
+
+        await this.generator.finish(registry)
 
         this.log.success(GENERATING_TYPES_DONE)
     }

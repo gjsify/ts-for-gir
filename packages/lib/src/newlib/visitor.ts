@@ -11,15 +11,17 @@ import {
     IntrospectedClassFunction,
     IntrospectedStaticClassFunction,
     IntrospectedVirtualClassFunction,
-    IntrospectedDirectAllocationConstructor
+    IntrospectedDirectAllocationConstructor,
+    IntrospectedClassCallback
 } from "./gir/function.js";
 import { IntrospectedNamespace } from "./gir/namespace.js";
-import { GirProperty, Field } from "./gir/property.js";
+import { IntrospectedProperty, IntrospectedField } from "./gir/property.js";
 import { IntrospectedSignal, IntrospectedSignalType } from "./gir/signal.js";
 
 export abstract class GirVisitor {
     visitType?: (node: TypeExpression) => TypeExpression;
     visitCallback?: (node: IntrospectedCallback) => IntrospectedCallback;
+    visitClassCallback?: (node: IntrospectedClassCallback) => IntrospectedClassCallback;
     visitAlias?: (node: IntrospectedAlias) => IntrospectedAlias;
     visitConstructor?: (node: IntrospectedConstructor) => IntrospectedConstructor;
     visitDirectAllocationConstructor?: (
@@ -34,8 +36,8 @@ export abstract class GirVisitor {
     visitConst?: (node: IntrospectedConstant) => IntrospectedConstant;
     visitClass?: (node: IntrospectedClass) => IntrospectedClass;
     visitParameter?: (node: IntrospectedFunctionParameter) => IntrospectedFunctionParameter;
-    visitProperty?: (node: GirProperty) => GirProperty;
-    visitField?: (node: Field) => Field;
+    visitProperty?: (node: IntrospectedProperty) => IntrospectedProperty;
+    visitField?: (node: IntrospectedField) => IntrospectedField;
     visitSignal?: (node: IntrospectedSignal, type?: IntrospectedSignalType) => IntrospectedSignal;
     visitFunction?: (node: IntrospectedFunction) => IntrospectedFunction;
     visitClassFunction?: (node: IntrospectedClassFunction) => IntrospectedClassFunction;

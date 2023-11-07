@@ -32,7 +32,7 @@ const handler = async (args: ConfigFlags) => {
         if (config.environments[i]) {
             const generateConfig = Config.getGenerateConfig(config, config.environments[i])
             const moduleLoader = new ModuleLoader(generateConfig)
-            const { keep, grouped } = await moduleLoader.getModulesResolved(
+            const { keep } = await moduleLoader.getModulesResolved(
                 config.modules,
                 config.ignore || [],
                 config.ignoreVersionConflicts,
@@ -41,10 +41,11 @@ const handler = async (args: ConfigFlags) => {
                 return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))
             }
             const tsForGir = new GenerationHandler(generateConfig, GeneratorType.HTML_DOC)
+            const registry = moduleLoader.dependencyManager.registry
 
             await tsForGir.start(
                 Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module),
-                Object.values(grouped),
+                registry,
             )
         }
     }

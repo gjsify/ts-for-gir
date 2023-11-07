@@ -1,5 +1,5 @@
 import { TypeExpression } from "../gir.js";
-import { IntrospectedBase } from "./base.js";
+import { IntrospectedNamespaceMember, Options } from "./base.js";
 import { GirConstantElement } from "../../index.js";
 
 import { IntrospectedNamespace } from "./namespace.js";
@@ -8,21 +8,24 @@ import { FormatGenerator } from "../generators/generator.js";
 import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
 
-export class IntrospectedConstant extends IntrospectedBase {
+export class IntrospectedConstant extends IntrospectedNamespaceMember {
     type: TypeExpression;
     value: string | null;
 
     constructor({
         name,
         type,
-        value
-    }: {
+        namespace,
+        value,
+        ...options
+    }: Options<{
         name: string;
         type: TypeExpression;
+        namespace: IntrospectedNamespace;
         value: string | null;
         isIntrospectable?: boolean;
-    }) {
-        super(name);
+    }>) {
+        super(name, namespace, options);
 
         this.type = type;
         this.value = value;
@@ -38,7 +41,7 @@ export class IntrospectedConstant extends IntrospectedBase {
 
     copy(
         options: {
-            parent?: undefined;
+            parent?: IntrospectedNamespace;
             type?: TypeExpression;
         } = {}
     ): IntrospectedConstant {
@@ -46,27 +49,23 @@ export class IntrospectedConstant extends IntrospectedBase {
 
         return new IntrospectedConstant({
             name,
+            namespace: options.parent ?? this.namespace,
             type: options.type ?? type,
             value
         })._copyBaseProperties(this);
     }
 
-    static fromXML(
-        modName: string,
-        ns: IntrospectedNamespace,
-        options: LoadOptions,
-        _parent,
-        constant: GirConstantElement
-    ): IntrospectedConstant {
+    static fromXML(element: GirConstantElement, ns: IntrospectedNamespace, options: LoadOptions): IntrospectedConstant {
         const c = new IntrospectedConstant({
-            name: sanitizeIdentifierName(ns.name, constant.$.name),
-            type: getType(modName, ns, constant),
-            value: constant.$.value ?? null
+            name: sanitizeIdentifierName(ns.name, element.$.name),
+            namespace: ns,
+            type: getType(ns, element),
+            value: element.$.value ?? null
         });
 
         if (options.loadDocs) {
-            c.doc = parseDoc(constant);
-            c.metadata = parseMetadata(constant);
+            c.doc = parseDoc(element);
+            c.metadata = parseMetadata(element);
         }
 
         return c;

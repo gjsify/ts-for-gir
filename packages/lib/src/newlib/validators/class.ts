@@ -60,10 +60,10 @@ const filterConflictingNamedClassMembers = <T extends IntrospectedBaseClass>(nod
  * @returns
  */
 const fixParamSpecSubtypes = <T extends IntrospectedBaseClass>(node: T): T => {
-    if (node.parent?.namespace === "GObject" && node.parent.name.startsWith("ParamSpec")) {
+    if (node.superType?.namespace === "GObject" && node.superType.name.startsWith("ParamSpec")) {
         // We don't assert this import because we don't want to force libraries
         // to unnecessarily import GObject.
-        node.parent = new TypeIdentifier("ParamSpec", "GObject");
+        node.superType = new TypeIdentifier("ParamSpec", "GObject");
 
         node.noEmit();
     }
@@ -82,11 +82,11 @@ const fixParamSpecSubtypes = <T extends IntrospectedBaseClass>(node: T): T => {
 const fixMissingParent = <T extends IntrospectedBaseClass>(node: T): T => {
     const { namespace } = node;
 
-    if (node.parent == null) {
+    if (node.superType == null) {
         const isGObject = node.someParent(p => p.getType().is("GObject", "Object"));
 
         if (isGObject) {
-            node.parent = namespace.assertInstalledImport("GObject").assertClass("Object").getType();
+            node.superType = namespace.assertInstalledImport("GObject").assertClass("Object").getType();
         }
     }
 
@@ -170,7 +170,7 @@ const resolveMainConstructor = (node: IntrospectedRecord): IntrospectedRecord =>
     }
 
     if (zeroArgsConstructor || node.isSimpleWithoutPointers()) {
-        node.mainConstructor = new IntrospectedDirectAllocationConstructor(node.fields);
+        node.mainConstructor = IntrospectedDirectAllocationConstructor.fromFields(node.fields, node);
 
         return node;
     }
@@ -181,7 +181,7 @@ const resolveMainConstructor = (node: IntrospectedRecord): IntrospectedRecord =>
     }
 
     if (node.isSimple()) {
-        node.mainConstructor = new IntrospectedDirectAllocationConstructor(node.fields);
+        node.mainConstructor = IntrospectedDirectAllocationConstructor.fromFields(node.fields, node);
 
         return node;
     }

@@ -1,12 +1,12 @@
 import { IntrospectedNamespace, promisifyNamespaceFunctions } from "../gir/namespace.js";
 
-import { GirBase } from "../gir.js";
 import { GenerationOptions } from "../types.js";
 
 import { override as overrideGLib } from "./dts/glib.js";
 import { override as overrideGObject } from "./dts/gobject.js";
 import { override as overrideGio } from "./dts/gio.js";
 import { DtsGenerator, versionImportFormat } from "./dts.js";
+import { IntrospectedNamespaceMember } from "../gir/base.js";
 
 export class DtsModuleGenerator extends DtsGenerator {
     constructor(namespace: IntrospectedNamespace, options: GenerationOptions) {
@@ -51,21 +51,28 @@ export class DtsModuleGenerator extends DtsGenerator {
             const content = Array.from(node.members.values())
                 .map(m => {
                     return `${(Array.isArray(m) ? m : [m])
-                        .map(m => (m.emit ? (m as GirBase).asString(this) : ""))
+                        .map(m => {
+                            const content = (m as IntrospectedNamespaceMember).asString(this);
+
+                            return m.emit ? content : "";
+                        })
                         .join("\n")}`;
                 })
                 .join("\n");
 
-            const pathSuffix = options.outputFormat === "folder" ? "/index.d.ts" : ".d.ts";
-            const referenceType = options.importPrefix.startsWith(".") ? "path" : "types";
+            const versionedImports = true; // TODO options.versionedImports
+            const pathSuffix = options.buildType === "lib" ? "/index.d.ts" : ".d.ts";
+            const referenceType =
+                /*options.importPrefix.startsWith(".")*/ options.buildType === "lib" ? "path" : "types";
             const references = [
                 ...(node.__dts__references ?? []),
                 ...Array.from(node.getImports()).map(
                     ([i, version]) =>
-                        `/// <reference ${referenceType}="${options.importPrefix}${
-                            options.versionedImports
+                        `/// <reference ${referenceType}="${options.npmScope}${
+                            versionedImports
                                 ? versionImportFormat(
-                                      options.versionFormat ?? "{namespace-lower}{version-slug}",
+                                      // TODO: options.versionFormat ??
+                                      "{namespace-lower}{version-slug}",
                                       i,
                                       version
                                   )
@@ -76,10 +83,7 @@ export class DtsModuleGenerator extends DtsGenerator {
 
             // Resolve imports after we stringify everything else, sometimes we have to ad-hoc add an import.
             const imports = Array.from(node.getImports())
-                .map(
-                    ([i, version]) =>
-                        `import ${i} from 'gi://${i}${options.versionedImports ? `?version=${version}` : ""}';`
-                )
+                .map(([i, version]) => `import ${i} from 'gi://${i}${versionedImports ? `?version=${version}` : ""}';`)
                 .join("\n");
 
             const metadata = `

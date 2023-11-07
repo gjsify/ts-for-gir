@@ -924,12 +924,43 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         return def
     }
 
+    generateClassStaticMethods(
+        girClass: IntrospectedClass | IntrospectedRecord | IntrospectedInterface,
+        indentCount = 1,
+    ) {
+        const def: string[] = []
+        //${onlyStatic ? 'static ' : ''}
+        def.push(
+            ...this.generateFunctions(
+                [...girClass.members].filter((member) => member instanceof IntrospectedStaticClassFunction),
+                indentCount,
+                `Owm methods of ${girClass.namespace.packageName}.${girClass.name}`,
+            ),
+        )
+
+        // def.push(
+        //     ...this.generateFunctions(
+        //         girClass.conflictMethods,
+        //         onlyStatic,
+        //         namespace,
+        //         indentCount,
+        //         `Conflicting ${onlyStatic ? 'static ' : ''}methods`,
+        //     ),
+        // )
+
+        return def
+    }
+
     generateClassMethods(girClass: IntrospectedClass | IntrospectedRecord | IntrospectedInterface, indentCount = 1) {
         const def: string[] = []
         //${onlyStatic ? 'static ' : ''}
         def.push(
             ...this.generateFunctions(
-                girClass.members,
+                [...girClass.members].filter(
+                    (member) =>
+                        !(member instanceof IntrospectedStaticClassFunction) &&
+                        !(member instanceof IntrospectedVirtualClassFunction),
+                ),
                 indentCount,
                 `Owm methods of ${girClass.namespace.packageName}.${girClass.name}`,
             ),
@@ -1001,7 +1032,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
         def.push(
             ...this.generateFunctions(
-                [...girClass.members.values()],
+                [...girClass.members.values()].filter((fn) => fn instanceof IntrospectedVirtualClassFunction),
                 indentCount,
                 `Own virtual methods of ${girClass.namespace.packageName}.${girClass.name}`,
             ),
@@ -1119,6 +1150,9 @@ class ModuleGenerator extends FormatGenerator<string[]> {
                 def.push(...this.generateClassFields(girClass))
 
                 // Methods
+                // TODO def.push(...this.generateClassStaticMethods(girClass))
+
+                // Methods
                 def.push(...this.generateClassMethods(girClass))
 
                 // Virtual methods
@@ -1194,6 +1228,9 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
                 // Constructors
                 def.push(...this.generateClassConstructors(girClass))
+
+                // Methods
+                def.push(...this.generateClassStaticMethods(girClass))
 
                 // Static Methods
                 def.push(...this.generateClassMethods(girClass))

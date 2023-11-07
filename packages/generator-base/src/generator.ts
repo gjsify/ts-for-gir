@@ -1,9 +1,7 @@
-import type { InheritanceTable, GirModulesGrouped, GirModule } from '@ts-for-gir/lib'
+import type { GirModule, NSRegistry } from '@ts-for-gir/lib'
 
 export interface Generator {
-    start(
-        girModules: GirModule[],
-        girModulesGrouped: GirModulesGrouped[],
-        inheritanceTable: InheritanceTable,
-    ): Promise<void>
+    start(registry: NSRegistry): Promise<void>
+    generate(registry: NSRegistry, module: GirModule): Promise<void>
+    finish(registry: NSRegistry): Promise<void>
 }

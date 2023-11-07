@@ -80,7 +80,7 @@ export class GenericVisitor extends GirVisitor {
 
         const { namespace } = _node;
 
-        const resolvedParent = node.parent ? resolveTypeIdentifier(namespace, node.parent) : null;
+        const resolvedParent = node.superType ? resolveTypeIdentifier(namespace, node.superType) : null;
         const derivatives = node.generics.filter(generic => generic.parent != null);
 
         if (node instanceof IntrospectedClass) {
@@ -142,15 +142,15 @@ export class GenericVisitor extends GirVisitor {
             });
         }
 
-        if (node.parent) {
-            const parentType = node.parent;
+        if (node.superType) {
+            const parentType = node.superType;
 
             const generic = derivatives.filter(d => d.parent?.is(parentType.namespace, parentType.name));
 
-            if (node.parent instanceof GenerifiedTypeIdentifier) {
+            if (node.superType instanceof GenerifiedTypeIdentifier) {
                 // Do nothing
             } else if (generic.length > 0) {
-                node.parent = new GenerifiedTypeIdentifier(
+                node.superType = new GenerifiedTypeIdentifier(
                     parentType.name,
                     parentType.namespace,
                     generic.map(g => g.type)
@@ -167,7 +167,7 @@ export class GenericVisitor extends GirVisitor {
                         );
 
                         if (constrainedGeneric) {
-                            node.parent = new GenerifiedTypeIdentifier(resolved.name, resolved.namespace.name, [
+                            node.superType = new GenerifiedTypeIdentifier(resolved.name, resolved.namespace.name, [
                                 constrainedGeneric.type
                             ]);
                         } else {
@@ -183,7 +183,7 @@ export class GenericVisitor extends GirVisitor {
 
                                 const firstGeneric = node.generics[node.generics.length - 1];
 
-                                node.parent = new GenerifiedTypeIdentifier(resolved.name, resolved.namespace.name, [
+                                node.superType = new GenerifiedTypeIdentifier(resolved.name, resolved.namespace.name, [
                                     firstGeneric.type
                                 ]);
                             } else if (
@@ -191,7 +191,7 @@ export class GenericVisitor extends GirVisitor {
                                     c => generic.defaultType && c.identifier.equals(generic.defaultType)
                                 )
                             ) {
-                                node.parent = new GenerifiedTypeIdentifier(resolved.name, resolved.namespace.name, [
+                                node.superType = new GenerifiedTypeIdentifier(resolved.name, resolved.namespace.name, [
                                     node.getType()
                                 ]);
                             }
@@ -201,7 +201,7 @@ export class GenericVisitor extends GirVisitor {
                             c => generic.defaultType && c.identifier.equals(generic.defaultType)
                         )
                     ) {
-                        node.parent = new GenerifiedTypeIdentifier(resolved.name, resolved.namespace.name, [
+                        node.superType = new GenerifiedTypeIdentifier(resolved.name, resolved.namespace.name, [
                             node.getType()
                         ]);
                     }

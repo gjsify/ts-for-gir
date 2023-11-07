@@ -1,5 +1,5 @@
 import { TypeExpression } from "../gir.js";
-import { IntrospectedBase as IntrospectedBase, Options } from "./base.js";
+import { IntrospectedNamespaceMember, Options } from "./base.js";
 
 import { GirAliasElement } from "../../index.js";
 import { IntrospectedNamespace, isIntrospectable } from "./namespace.js";
@@ -8,21 +8,23 @@ import { FormatGenerator, GenericDescriptor } from "../generators/generator.js";
 import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
 
-export class IntrospectedAlias extends IntrospectedBase {
+export class IntrospectedAlias extends IntrospectedNamespaceMember {
     readonly type: TypeExpression;
     readonly generics: GenericDescriptor[];
 
     constructor({
+        namespace,
         name,
         type,
         generics = [],
         ...args
     }: Options<{
+        namespace: IntrospectedNamespace;
         name: string;
         type: TypeExpression;
         generics?: GenericDescriptor[];
     }>) {
-        super(name, { ...args });
+        super(name, namespace, { ...args });
 
         this.type = type;
         this.generics = generics;
@@ -37,9 +39,9 @@ export class IntrospectedAlias extends IntrospectedBase {
     }
 
     copy(options?: { parent?: undefined; type?: TypeExpression }): IntrospectedAlias {
-        const { name, type } = this;
+        const { name, namespace, type } = this;
 
-        return new IntrospectedAlias({ name, type: options?.type ?? type })._copyBaseProperties(this);
+        return new IntrospectedAlias({ name, namespace, type: options?.type ?? type })._copyBaseProperties(this);
     }
 
     asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateAlias"]> {
@@ -47,26 +49,25 @@ export class IntrospectedAlias extends IntrospectedBase {
     }
 
     static fromXML(
-        modName: string,
+        element: GirAliasElement,
         ns: IntrospectedNamespace,
-        options: LoadOptions,
-        _parent,
-        m: GirAliasElement
+        options: LoadOptions
     ): IntrospectedAlias | null {
-        if (!m.$.name) {
-            console.error(`Alias in ${modName} lacks name.`);
+        if (!element.$.name) {
+            console.error(`Alias in ${ns.name} lacks name.`);
             return null;
         }
 
         const alias = new IntrospectedAlias({
-            name: sanitizeIdentifierName(ns.name, m.$.name),
-            type: getAliasType(modName, ns, m),
-            isIntrospectable: isIntrospectable(m)
+            namespace: ns,
+            name: sanitizeIdentifierName(ns.name, element.$.name),
+            type: getAliasType(ns.name, ns, element),
+            isIntrospectable: isIntrospectable(element)
         });
 
         if (options.loadDocs) {
-            alias.doc = parseDoc(m);
-            alias.metadata = parseMetadata(m);
+            alias.doc = parseDoc(element);
+            alias.metadata = parseMetadata(element);
         }
 
         return alias;

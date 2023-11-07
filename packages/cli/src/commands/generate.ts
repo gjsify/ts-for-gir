@@ -8,8 +8,10 @@ import { GeneratorType } from '@ts-for-gir/generator-base'
 import { GenerationHandler } from '../generation-handler.js'
 import { Config } from '../config.js'
 import { ModuleLoader } from '../module-loader.js'
+import prettier from 'prettier'
 
 import type { ConfigFlags } from '@ts-for-gir/lib'
+import { Formatter } from '@ts-for-gir/lib/lib/newlib/lib.js'
 
 const command = 'generate [modules..]'
 
@@ -31,7 +33,7 @@ const handler = async (args: ConfigFlags) => {
     for (const env of config.environments) {
         const generateConfig = Config.getGenerateConfig(config, env)
         const moduleLoader = new ModuleLoader(generateConfig)
-        const { keep, grouped } = await moduleLoader.getModulesResolved(
+        const { keep } = await moduleLoader.getModulesResolved(
             config.modules,
             config.ignore || [],
             config.ignoreVersionConflicts,
@@ -42,9 +44,10 @@ const handler = async (args: ConfigFlags) => {
         const tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES)
 
         const girModules = Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module)
-        const girModulesGrouped = Object.values(grouped)
+        // const girModulesGrouped = Object.values(grouped)
 
-        await tsForGir.start(girModules, girModulesGrouped)
+        moduleLoader.dependencyManager.registry.registerFormatter('dts', new TypeScriptFormatter())
+        await tsForGir.start(girModules, moduleLoader.dependencyManager.registry)
     }
 }
 
@@ -63,6 +66,25 @@ const examples: ReadonlyArray<[string, string?]> = [
         'Generate .d.ts. files but not for Gtk-4.0 and xrandr-1.3',
     ],
 ]
+
+class TypeScriptFormatter extends Formatter {
+    format(input: string): Promise<string> {
+        try {
+            return prettier.format(input, {
+                singleQuote: true,
+                parser: 'typescript',
+                printWidth: 120,
+                tabWidth: 4,
+            })
+        } catch (error) {
+            return Promise.resolve(input)
+            // TODO: Don't return invalid TypeScript, useful for debugging for now.
+            // console.error('Failed to format output...')
+            // console.error(input)
+            // throw error
+        }
+    }
+}
 
 export const generate = {
     command,

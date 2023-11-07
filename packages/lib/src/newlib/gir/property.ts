@@ -1,16 +1,16 @@
 import { TypeExpression } from "../gir.js";
-import { IntrospectedBase, Options } from "./base.js";
+import { IntrospectedBase, IntrospectedClassMember, Options } from "./base.js";
 import { GirFieldElement, GirPropertyElement } from "../../index.js";
 
 import { getType, parseDoc, parseMetadata } from "./util.js";
-import { IntrospectedNamespace, isIntrospectable } from "./namespace.js";
+import { isIntrospectable } from "./namespace.js";
 import { FormatGenerator } from "../generators/generator.js";
 import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
 import { IntrospectedBaseClass } from "./class.js";
 import { IntrospectedEnum } from "./enum.js";
 
-export class Field extends IntrospectedBase {
+export class IntrospectedField extends IntrospectedClassMember {
     type: TypeExpression;
 
     // TODO: Make these properties readonly
@@ -20,11 +20,12 @@ export class Field extends IntrospectedBase {
     writable: boolean;
     isNative: boolean = false;
 
-    copy(options?: { parent?: IntrospectedBase; type?: TypeExpression; isStatic?: boolean }): Field {
-        const { type, name, optional, computed, isStatic, writable } = this;
+    copy(options?: { parent?: IntrospectedBaseClass; type?: TypeExpression; isStatic?: boolean }): IntrospectedField {
+        const { type, name, parent, optional, computed, isStatic, writable } = this;
 
-        return new Field({
+        return new IntrospectedField({
             name,
+            parent,
             type: options?.type ?? type,
             optional,
             computed,
@@ -35,6 +36,7 @@ export class Field extends IntrospectedBase {
 
     constructor({
         name,
+        parent,
         type,
         computed = false,
         optional = false,
@@ -43,13 +45,14 @@ export class Field extends IntrospectedBase {
         ...args
     }: Options<{
         name: string;
+        parent?: IntrospectedBaseClass | null;
         type: TypeExpression;
         computed?: boolean;
         optional?: boolean;
         isStatic?: boolean;
         writable?: boolean;
     }>) {
-        super(name, { ...args });
+        super(name, parent ?? null, { ...args });
 
         this.type = type;
         this.computed = computed;
@@ -62,7 +65,7 @@ export class Field extends IntrospectedBase {
         return generator.generateField(this) as ReturnType<T["generateField"]>;
     }
 
-    accept(visitor: GirVisitor): Field {
+    accept(visitor: GirVisitor): IntrospectedField {
         const node = this.copy({
             type: visitor.visitType?.(this.type) ?? this.type
         });
@@ -70,18 +73,14 @@ export class Field extends IntrospectedBase {
         return visitor.visitField?.(node) ?? node;
     }
 
-    static fromXML(
-        namespace: string,
-        ns: IntrospectedNamespace,
-        _options: LoadOptions,
-        _parent,
-        field: GirFieldElement
-    ): Field {
+    static fromXML(field: GirFieldElement, parent: IntrospectedBaseClass): IntrospectedField {
+        const namespace = parent.namespace;
         const name = field.$["name"];
         const _name = name.replace(/[-]/g, "_");
-        const f = new Field({
+        const f = new IntrospectedField({
             name: _name,
-            type: getType(namespace, ns, field),
+            parent,
+            type: getType(namespace, field),
             isPrivate: field.$.private === "1",
             isIntrospectable: isIntrospectable(field)
         });
@@ -90,27 +89,29 @@ export class Field extends IntrospectedBase {
     }
 }
 
-export class JSField extends Field {
+export class JSField extends IntrospectedField {
     isNative = true;
 }
 
-export class GirProperty extends IntrospectedBase {
+export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | IntrospectedBaseClass> {
     type: TypeExpression;
 
     readonly writable: boolean = false;
     readonly readable: boolean = true;
     readonly constructOnly: boolean;
 
-    parent: IntrospectedBaseClass | IntrospectedEnum;
+    get namespace() {
+        return this.parent.namespace;
+    }
 
     copy(options?: {
         name?: string;
         parent?: IntrospectedBaseClass | IntrospectedEnum;
         type?: TypeExpression;
-    }): GirProperty {
+    }): IntrospectedProperty {
         const { name, writable, readable, type, constructOnly, parent } = this;
 
-        return new GirProperty({
+        return new IntrospectedProperty({
             name: options?.name ?? name,
             writable,
             readable,
@@ -120,7 +121,7 @@ export class GirProperty extends IntrospectedBase {
         })._copyBaseProperties(this);
     }
 
-    accept(visitor: GirVisitor): GirProperty {
+    accept(visitor: GirVisitor): IntrospectedProperty {
         const node = this.copy({
             parent: this.parent,
             type: visitor.visitType?.(this.type) ?? this.type
@@ -145,13 +146,12 @@ export class GirProperty extends IntrospectedBase {
         constructOnly: boolean;
         parent: IntrospectedBaseClass | IntrospectedEnum;
     }>) {
-        super(name, { ...args });
+        super(name, parent, { ...args });
 
         this.type = type;
         this.writable = writable;
         this.readable = readable;
         this.constructOnly = constructOnly;
-        this.parent = parent;
     }
 
     asString<T extends FormatGenerator<unknown>>(generator: T, construct?: boolean): ReturnType<T["generateProperty"]> {
@@ -177,27 +177,26 @@ export class GirProperty extends IntrospectedBase {
     }
 
     static fromXML(
-        namespace: string,
-        ns: IntrospectedNamespace,
-        options: LoadOptions,
+        element: GirPropertyElement,
         parent: IntrospectedBaseClass | IntrospectedEnum,
-        prop: GirPropertyElement
-    ): GirProperty {
-        const name = prop.$["name"];
+        options: LoadOptions
+    ): IntrospectedProperty {
+        const ns = parent.namespace;
+        const name = element.$["name"];
         const _name = name.replace(/[-]/g, "_");
-        const property = new GirProperty({
+        const property = new IntrospectedProperty({
             name: _name,
-            writable: prop.$?.writable === "1",
-            readable: prop.$?.readable !== "0",
-            constructOnly: prop.$?.["construct-only"] === "1",
-            type: getType(namespace, ns, prop),
+            writable: element.$?.writable === "1",
+            readable: element.$?.readable !== "0",
+            constructOnly: element.$?.["construct-only"] === "1",
+            type: getType(ns, element),
             parent,
-            isIntrospectable: isIntrospectable(prop)
+            isIntrospectable: isIntrospectable(element)
         });
 
         if (options.loadDocs) {
-            property.doc = parseDoc(prop);
-            property.metadata = parseMetadata(prop);
+            property.doc = parseDoc(element);
+            property.metadata = parseMetadata(element);
         }
 
         return property;

@@ -3,7 +3,7 @@
 Install GObject Introspection Repository files:
 
 ```bash
-# Ubuntu 22.04
+# Ubuntu
 sudo apt-get update && sudo apt-get install \
     libappindicator3-dev \
     libgda-5.0-dev \
@@ -15,14 +15,9 @@ sudo apt-get update && sudo apt-get install \
     libsoup2.4-dev \
     libsoup-3.0-dev \
     libwebkit2gtk-4.0-dev \
-    libadwaita-1-dev \
-    # The following are for GNOME Shell types
-    gnome-shell-common \
-    libmutter-10-dev \
-    libgcr-3-dev \
-    libgnome-desktop-3-dev # GnomeDesktop-3.0.gir
+    libadwaita-1-dev
 
-# Fedora 37
+# Fedora
 sudo dnf update && sudo dnf install \
     libappindicator-gtk3-devel \
     libgda-devel \
@@ -34,11 +29,25 @@ sudo dnf update && sudo dnf install \
     libnotify-devel \
     libsoup-devel \
     webkit2gtk3-devel \
-    libadwaita-devel \
-    # The following are for GNOME Shell types
-    gnome-shell \
-    gcr-devel \
-    gnome-desktop3-devel # GnomeDesktop-3.0.gir
+    libadwaita-devel
+```
+
+## GNOME Shell types
+
+```bash
+
+# Ubuntu
+sudo apt-get install gnome-shell-common libmutter-10-dev libgcr-3-dev libgnome-desktop-3-dev
+
+# Fedora
+sudo dnf install gnome-shell gcr-devel gnome-desktop3-devel
+```
+
+## Other GNOME types
+
+```bash
+# Fedora
+sudo dnf install gnome-bluetooth-libs-devel
 ```
 
 Checkout this repository, install the dependencies and build:

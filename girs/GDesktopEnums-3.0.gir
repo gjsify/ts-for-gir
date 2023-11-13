@@ -1,0 +1,566 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <namespace name="GDesktopEnums"
+             version="3.0"
+             shared-library=""
+             c:identifier-prefixes="GDesktop"
+             c:symbol-prefixes="g_desktop">
+    <enumeration name="BackgroundShading" c:type="GDesktopBackgroundShading">
+      <source-position filename="headers/gdesktop-enums.h" line="63"/>
+      <member name="solid"
+              value="0"
+              c:identifier="G_DESKTOP_BACKGROUND_SHADING_SOLID">
+      </member>
+      <member name="vertical"
+              value="1"
+              c:identifier="G_DESKTOP_BACKGROUND_SHADING_VERTICAL">
+      </member>
+      <member name="horizontal"
+              value="2"
+              c:identifier="G_DESKTOP_BACKGROUND_SHADING_HORIZONTAL">
+      </member>
+    </enumeration>
+    <enumeration name="BackgroundStyle" c:type="GDesktopBackgroundStyle">
+      <source-position filename="headers/gdesktop-enums.h" line="56"/>
+      <member name="none"
+              value="0"
+              c:identifier="G_DESKTOP_BACKGROUND_STYLE_NONE">
+      </member>
+      <member name="wallpaper"
+              value="1"
+              c:identifier="G_DESKTOP_BACKGROUND_STYLE_WALLPAPER">
+      </member>
+      <member name="centered"
+              value="2"
+              c:identifier="G_DESKTOP_BACKGROUND_STYLE_CENTERED">
+      </member>
+      <member name="scaled"
+              value="3"
+              c:identifier="G_DESKTOP_BACKGROUND_STYLE_SCALED">
+      </member>
+      <member name="stretched"
+              value="4"
+              c:identifier="G_DESKTOP_BACKGROUND_STYLE_STRETCHED">
+      </member>
+      <member name="zoom"
+              value="5"
+              c:identifier="G_DESKTOP_BACKGROUND_STYLE_ZOOM">
+      </member>
+      <member name="spanned"
+              value="6"
+              c:identifier="G_DESKTOP_BACKGROUND_STYLE_SPANNED">
+      </member>
+    </enumeration>
+    <enumeration name="ClockFormat" c:type="GDesktopClockFormat">
+      <source-position filename="headers/gdesktop-enums.h" line="83"/>
+      <member name="24h" value="0" c:identifier="G_DESKTOP_CLOCK_FORMAT_24H">
+      </member>
+      <member name="12h" value="1" c:identifier="G_DESKTOP_CLOCK_FORMAT_12H">
+      </member>
+    </enumeration>
+    <enumeration name="ColorScheme" c:type="GDesktopColorScheme">
+      <source-position filename="headers/gdesktop-enums.h" line="259"/>
+      <member name="default"
+              value="0"
+              c:identifier="G_DESKTOP_COLOR_SCHEME_DEFAULT">
+      </member>
+      <member name="prefer_dark"
+              value="1"
+              c:identifier="G_DESKTOP_COLOR_SCHEME_PREFER_DARK">
+      </member>
+      <member name="prefer_light"
+              value="2"
+              c:identifier="G_DESKTOP_COLOR_SCHEME_PREFER_LIGHT">
+      </member>
+    </enumeration>
+    <enumeration name="DeviceSendEvents" c:type="GDesktopDeviceSendEvents">
+      <source-position filename="headers/gdesktop-enums.h" line="192"/>
+      <member name="enabled"
+              value="0"
+              c:identifier="G_DESKTOP_DEVICE_SEND_EVENTS_ENABLED">
+      </member>
+      <member name="disabled"
+              value="1"
+              c:identifier="G_DESKTOP_DEVICE_SEND_EVENTS_DISABLED">
+      </member>
+      <member name="disabled_on_external_mouse"
+              value="2"
+              c:identifier="G_DESKTOP_DEVICE_SEND_EVENTS_DISABLED_ON_EXTERNAL_MOUSE">
+      </member>
+    </enumeration>
+    <enumeration name="FocusMode" c:type="GDesktopFocusMode">
+      <source-position filename="headers/gdesktop-enums.h" line="142"/>
+      <member name="click" value="0" c:identifier="G_DESKTOP_FOCUS_MODE_CLICK">
+      </member>
+      <member name="sloppy"
+              value="1"
+              c:identifier="G_DESKTOP_FOCUS_MODE_SLOPPY">
+      </member>
+      <member name="mouse" value="2" c:identifier="G_DESKTOP_FOCUS_MODE_MOUSE">
+      </member>
+    </enumeration>
+    <enumeration name="FocusNewWindows" c:type="GDesktopFocusNewWindows">
+      <source-position filename="headers/gdesktop-enums.h" line="148"/>
+      <member name="smart"
+              value="0"
+              c:identifier="G_DESKTOP_FOCUS_NEW_WINDOWS_SMART">
+      </member>
+      <member name="strict"
+              value="1"
+              c:identifier="G_DESKTOP_FOCUS_NEW_WINDOWS_STRICT">
+      </member>
+    </enumeration>
+    <enumeration name="FontAntialiasingMode"
+                 c:type="GDesktopFontAntialiasingMode">
+      <source-position filename="headers/gdesktop-enums.h" line="235"/>
+      <member name="none"
+              value="0"
+              c:identifier="G_DESKTOP_FONT_ANTIALIASING_MODE_NONE">
+      </member>
+      <member name="grayscale"
+              value="1"
+              c:identifier="G_DESKTOP_FONT_ANTIALIASING_MODE_GRAYSCALE">
+      </member>
+      <member name="rgba"
+              value="2"
+              c:identifier="G_DESKTOP_FONT_ANTIALIASING_MODE_RGBA">
+      </member>
+    </enumeration>
+    <enumeration name="FontHinting" c:type="GDesktopFontHinting">
+      <source-position filename="headers/gdesktop-enums.h" line="243"/>
+      <member name="none" value="0" c:identifier="G_DESKTOP_FONT_HINTING_NONE">
+      </member>
+      <member name="slight"
+              value="1"
+              c:identifier="G_DESKTOP_FONT_HINTING_SLIGHT">
+      </member>
+      <member name="medium"
+              value="2"
+              c:identifier="G_DESKTOP_FONT_HINTING_MEDIUM">
+      </member>
+      <member name="full" value="3" c:identifier="G_DESKTOP_FONT_HINTING_FULL">
+      </member>
+    </enumeration>
+    <enumeration name="FontRgbaOrder" c:type="GDesktopFontRgbaOrder">
+      <source-position filename="headers/gdesktop-enums.h" line="252"/>
+      <member name="rgba"
+              value="0"
+              c:identifier="G_DESKTOP_FONT_RGBA_ORDER_RGBA">
+      </member>
+      <member name="rgb"
+              value="1"
+              c:identifier="G_DESKTOP_FONT_RGBA_ORDER_RGB">
+      </member>
+      <member name="bgr"
+              value="2"
+              c:identifier="G_DESKTOP_FONT_RGBA_ORDER_BGR">
+      </member>
+      <member name="vrgb"
+              value="3"
+              c:identifier="G_DESKTOP_FONT_RGBA_ORDER_VRGB">
+      </member>
+      <member name="vbgr"
+              value="4"
+              c:identifier="G_DESKTOP_FONT_RGBA_ORDER_VBGR">
+      </member>
+    </enumeration>
+    <enumeration name="LocationAccuracyLevel"
+                 c:type="GDesktopLocationAccuracyLevel">
+      <source-position filename="headers/gdesktop-enums.h" line="163"/>
+      <member name="country"
+              value="0"
+              c:identifier="G_DESKTOP_LOCATION_ACCURACY_LEVEL_COUNTRY">
+      </member>
+      <member name="city"
+              value="1"
+              c:identifier="G_DESKTOP_LOCATION_ACCURACY_LEVEL_CITY">
+      </member>
+      <member name="neighborhood"
+              value="2"
+              c:identifier="G_DESKTOP_LOCATION_ACCURACY_LEVEL_NEIGHBORHOOD">
+      </member>
+      <member name="street"
+              value="3"
+              c:identifier="G_DESKTOP_LOCATION_ACCURACY_LEVEL_STREET">
+      </member>
+      <member name="exact"
+              value="4"
+              c:identifier="G_DESKTOP_LOCATION_ACCURACY_LEVEL_EXACT">
+      </member>
+    </enumeration>
+    <enumeration name="MagnifierCaretTrackingMode"
+                 c:type="GDesktopMagnifierCaretTrackingMode">
+      <source-position filename="headers/gdesktop-enums.h" line="114"/>
+      <member name="none"
+              value="0"
+              c:identifier="G_DESKTOP_MAGNIFIER_CARET_TRACKING_MODE_NONE">
+      </member>
+      <member name="centered"
+              value="1"
+              c:identifier="G_DESKTOP_MAGNIFIER_CARET_TRACKING_MODE_CENTERED">
+      </member>
+      <member name="proportional"
+              value="2"
+              c:identifier="G_DESKTOP_MAGNIFIER_CARET_TRACKING_MODE_PROPORTIONAL">
+      </member>
+      <member name="push"
+              value="3"
+              c:identifier="G_DESKTOP_MAGNIFIER_CARET_TRACKING_MODE_PUSH">
+      </member>
+    </enumeration>
+    <enumeration name="MagnifierFocusTrackingMode"
+                 c:type="GDesktopMagnifierFocusTrackingMode">
+      <source-position filename="headers/gdesktop-enums.h" line="106"/>
+      <member name="none"
+              value="0"
+              c:identifier="G_DESKTOP_MAGNIFIER_FOCUS_TRACKING_MODE_NONE">
+      </member>
+      <member name="centered"
+              value="1"
+              c:identifier="G_DESKTOP_MAGNIFIER_FOCUS_TRACKING_MODE_CENTERED">
+      </member>
+      <member name="proportional"
+              value="2"
+              c:identifier="G_DESKTOP_MAGNIFIER_FOCUS_TRACKING_MODE_PROPORTIONAL">
+      </member>
+      <member name="push"
+              value="3"
+              c:identifier="G_DESKTOP_MAGNIFIER_FOCUS_TRACKING_MODE_PUSH">
+      </member>
+    </enumeration>
+    <enumeration name="MagnifierMouseTrackingMode"
+                 c:type="GDesktopMagnifierMouseTrackingMode">
+      <source-position filename="headers/gdesktop-enums.h" line="98"/>
+      <member name="none"
+              value="0"
+              c:identifier="G_DESKTOP_MAGNIFIER_MOUSE_TRACKING_MODE_NONE">
+      </member>
+      <member name="centered"
+              value="1"
+              c:identifier="G_DESKTOP_MAGNIFIER_MOUSE_TRACKING_MODE_CENTERED">
+      </member>
+      <member name="proportional"
+              value="2"
+              c:identifier="G_DESKTOP_MAGNIFIER_MOUSE_TRACKING_MODE_PROPORTIONAL">
+      </member>
+      <member name="push"
+              value="3"
+              c:identifier="G_DESKTOP_MAGNIFIER_MOUSE_TRACKING_MODE_PUSH">
+      </member>
+    </enumeration>
+    <enumeration name="MagnifierScreenPosition"
+                 c:type="GDesktopMagnifierScreenPosition">
+      <source-position filename="headers/gdesktop-enums.h" line="123"/>
+      <member name="none"
+              value="0"
+              c:identifier="G_DESKTOP_MAGNIFIER_SCREEN_POSITION_NONE">
+      </member>
+      <member name="full_screen"
+              value="1"
+              c:identifier="G_DESKTOP_MAGNIFIER_SCREEN_POSITION_FULL_SCREEN">
+      </member>
+      <member name="top_half"
+              value="2"
+              c:identifier="G_DESKTOP_MAGNIFIER_SCREEN_POSITION_TOP_HALF">
+      </member>
+      <member name="bottom_half"
+              value="3"
+              c:identifier="G_DESKTOP_MAGNIFIER_SCREEN_POSITION_BOTTOM_HALF">
+      </member>
+      <member name="left_half"
+              value="4"
+              c:identifier="G_DESKTOP_MAGNIFIER_SCREEN_POSITION_LEFT_HALF">
+      </member>
+      <member name="right_half"
+              value="5"
+              c:identifier="G_DESKTOP_MAGNIFIER_SCREEN_POSITION_RIGHT_HALF">
+      </member>
+    </enumeration>
+    <enumeration name="MouseDwellDirection"
+                 c:type="GDesktopMouseDwellDirection">
+      <source-position filename="headers/gdesktop-enums.h" line="77"/>
+      <member name="left"
+              value="0"
+              c:identifier="G_DESKTOP_MOUSE_DWELL_DIRECTION_LEFT">
+      </member>
+      <member name="right"
+              value="1"
+              c:identifier="G_DESKTOP_MOUSE_DWELL_DIRECTION_RIGHT">
+      </member>
+      <member name="up"
+              value="2"
+              c:identifier="G_DESKTOP_MOUSE_DWELL_DIRECTION_UP">
+      </member>
+      <member name="down"
+              value="3"
+              c:identifier="G_DESKTOP_MOUSE_DWELL_DIRECTION_DOWN">
+      </member>
+    </enumeration>
+    <enumeration name="MouseDwellMode" c:type="GDesktopMouseDwellMode">
+      <source-position filename="headers/gdesktop-enums.h" line="69"/>
+      <member name="window"
+              value="0"
+              c:identifier="G_DESKTOP_MOUSE_DWELL_MODE_WINDOW">
+      </member>
+      <member name="gesture"
+              value="1"
+              c:identifier="G_DESKTOP_MOUSE_DWELL_MODE_GESTURE">
+      </member>
+    </enumeration>
+    <enumeration name="PadButtonAction" c:type="GDesktopPadButtonAction">
+      <source-position filename="headers/gdesktop-enums.h" line="206"/>
+      <member name="none"
+              value="0"
+              c:identifier="G_DESKTOP_PAD_BUTTON_ACTION_NONE">
+      </member>
+      <member name="help"
+              value="1"
+              c:identifier="G_DESKTOP_PAD_BUTTON_ACTION_HELP">
+      </member>
+      <member name="switch_monitor"
+              value="2"
+              c:identifier="G_DESKTOP_PAD_BUTTON_ACTION_SWITCH_MONITOR">
+      </member>
+      <member name="keybinding"
+              value="3"
+              c:identifier="G_DESKTOP_PAD_BUTTON_ACTION_KEYBINDING">
+      </member>
+    </enumeration>
+    <enumeration name="PointerAccelProfile"
+                 c:type="GDesktopPointerAccelProfile">
+      <source-position filename="headers/gdesktop-enums.h" line="222"/>
+      <member name="default"
+              value="0"
+              c:identifier="G_DESKTOP_POINTER_ACCEL_PROFILE_DEFAULT">
+      </member>
+      <member name="flat"
+              value="1"
+              c:identifier="G_DESKTOP_POINTER_ACCEL_PROFILE_FLAT">
+      </member>
+      <member name="adaptive"
+              value="2"
+              c:identifier="G_DESKTOP_POINTER_ACCEL_PROFILE_ADAPTIVE">
+      </member>
+    </enumeration>
+    <enumeration name="PointingStickScrollMethod"
+                 c:type="GDesktopPointingStickScrollMethod">
+      <source-position filename="headers/gdesktop-enums.h" line="266"/>
+      <member name="default"
+              value="0"
+              c:identifier="G_DESKTOP_POINTING_STICK_SCROLL_METHOD_DEFAULT">
+      </member>
+      <member name="none"
+              value="1"
+              c:identifier="G_DESKTOP_POINTING_STICK_SCROLL_METHOD_NONE">
+      </member>
+      <member name="on_button_down"
+              value="2"
+              c:identifier="G_DESKTOP_POINTING_STICK_SCROLL_METHOD_ON_BUTTON_DOWN">
+      </member>
+    </enumeration>
+    <enumeration name="ProxyMode" c:type="GDesktopProxyMode">
+      <source-position filename="headers/gdesktop-enums.h" line="31"/>
+      <member name="none" value="0" c:identifier="G_DESKTOP_PROXY_MODE_NONE">
+      </member>
+      <member name="manual"
+              value="1"
+              c:identifier="G_DESKTOP_PROXY_MODE_MANUAL">
+      </member>
+      <member name="auto" value="2" c:identifier="G_DESKTOP_PROXY_MODE_AUTO">
+      </member>
+    </enumeration>
+    <enumeration name="ScreensaverMode" c:type="GDesktopScreensaverMode">
+      <source-position filename="headers/gdesktop-enums.h" line="90"/>
+      <member name="blank_only"
+              value="0"
+              c:identifier="G_DESKTOP_SCREENSAVER_MODE_BLANK_ONLY">
+      </member>
+      <member name="random"
+              value="1"
+              c:identifier="G_DESKTOP_SCREENSAVER_MODE_RANDOM">
+      </member>
+      <member name="single"
+              value="2"
+              c:identifier="G_DESKTOP_SCREENSAVER_MODE_SINGLE">
+      </member>
+    </enumeration>
+    <enumeration name="StylusButtonAction" c:type="GDesktopStylusButtonAction">
+      <source-position filename="headers/gdesktop-enums.h" line="215"/>
+      <member name="default"
+              value="0"
+              c:identifier="G_DESKTOP_STYLUS_BUTTON_ACTION_DEFAULT">
+      </member>
+      <member name="middle"
+              value="1"
+              c:identifier="G_DESKTOP_STYLUS_BUTTON_ACTION_MIDDLE">
+      </member>
+      <member name="right"
+              value="2"
+              c:identifier="G_DESKTOP_STYLUS_BUTTON_ACTION_RIGHT">
+      </member>
+      <member name="back"
+              value="3"
+              c:identifier="G_DESKTOP_STYLUS_BUTTON_ACTION_BACK">
+      </member>
+      <member name="forward"
+              value="4"
+              c:identifier="G_DESKTOP_STYLUS_BUTTON_ACTION_FORWARD">
+      </member>
+    </enumeration>
+    <enumeration name="TabletMapping" c:type="GDesktopTabletMapping">
+      <source-position filename="headers/gdesktop-enums.h" line="198"/>
+      <member name="absolute"
+              value="0"
+              c:identifier="G_DESKTOP_TABLET_MAPPING_ABSOLUTE">
+      </member>
+      <member name="relative"
+              value="1"
+              c:identifier="G_DESKTOP_TABLET_MAPPING_RELATIVE">
+      </member>
+    </enumeration>
+    <enumeration name="TitlebarAction" c:type="GDesktopTitlebarAction">
+      <source-position filename="headers/gdesktop-enums.h" line="135"/>
+      <member name="toggle_shade"
+              value="0"
+              c:identifier="G_DESKTOP_TITLEBAR_ACTION_TOGGLE_SHADE">
+      </member>
+      <member name="toggle_maximize"
+              value="1"
+              c:identifier="G_DESKTOP_TITLEBAR_ACTION_TOGGLE_MAXIMIZE">
+      </member>
+      <member name="toggle_maximize_horizontally"
+              value="2"
+              c:identifier="G_DESKTOP_TITLEBAR_ACTION_TOGGLE_MAXIMIZE_HORIZONTALLY">
+      </member>
+      <member name="toggle_maximize_vertically"
+              value="3"
+              c:identifier="G_DESKTOP_TITLEBAR_ACTION_TOGGLE_MAXIMIZE_VERTICALLY">
+      </member>
+      <member name="minimize"
+              value="4"
+              c:identifier="G_DESKTOP_TITLEBAR_ACTION_MINIMIZE">
+      </member>
+      <member name="none"
+              value="5"
+              c:identifier="G_DESKTOP_TITLEBAR_ACTION_NONE">
+      </member>
+      <member name="lower"
+              value="6"
+              c:identifier="G_DESKTOP_TITLEBAR_ACTION_LOWER">
+      </member>
+      <member name="menu"
+              value="7"
+              c:identifier="G_DESKTOP_TITLEBAR_ACTION_MENU">
+      </member>
+    </enumeration>
+    <enumeration name="ToolbarIconSize" c:type="GDesktopToolbarIconSize">
+      <source-position filename="headers/gdesktop-enums.h" line="45"/>
+      <member name="small"
+              value="0"
+              c:identifier="G_DESKTOP_TOOLBAR_ICON_SIZE_SMALL">
+      </member>
+      <member name="large"
+              value="1"
+              c:identifier="G_DESKTOP_TOOLBAR_ICON_SIZE_LARGE">
+      </member>
+    </enumeration>
+    <enumeration name="ToolbarStyle" c:type="GDesktopToolbarStyle">
+      <source-position filename="headers/gdesktop-enums.h" line="39"/>
+      <member name="both"
+              value="0"
+              c:identifier="G_DESKTOP_TOOLBAR_STYLE_BOTH">
+      </member>
+      <member name="both_horiz"
+              value="1"
+              c:identifier="G_DESKTOP_TOOLBAR_STYLE_BOTH_HORIZ">
+      </member>
+      <member name="icons"
+              value="2"
+              c:identifier="G_DESKTOP_TOOLBAR_STYLE_ICONS">
+      </member>
+      <member name="text"
+              value="3"
+              c:identifier="G_DESKTOP_TOOLBAR_STYLE_TEXT">
+      </member>
+    </enumeration>
+    <enumeration name="TouchpadClickMethod"
+                 c:type="GDesktopTouchpadClickMethod">
+      <source-position filename="headers/gdesktop-enums.h" line="178"/>
+      <member name="default"
+              value="0"
+              c:identifier="G_DESKTOP_TOUCHPAD_CLICK_METHOD_DEFAULT">
+      </member>
+      <member name="none"
+              value="1"
+              c:identifier="G_DESKTOP_TOUCHPAD_CLICK_METHOD_NONE">
+      </member>
+      <member name="areas"
+              value="2"
+              c:identifier="G_DESKTOP_TOUCHPAD_CLICK_METHOD_AREAS">
+      </member>
+      <member name="fingers"
+              value="3"
+              c:identifier="G_DESKTOP_TOUCHPAD_CLICK_METHOD_FINGERS">
+      </member>
+    </enumeration>
+    <enumeration name="TouchpadHandedness" c:type="GDesktopTouchpadHandedness">
+      <source-position filename="headers/gdesktop-enums.h" line="170"/>
+      <member name="right"
+              value="0"
+              c:identifier="G_DESKTOP_TOUCHPAD_HANDEDNESS_RIGHT">
+      </member>
+      <member name="left"
+              value="1"
+              c:identifier="G_DESKTOP_TOUCHPAD_HANDEDNESS_LEFT">
+      </member>
+      <member name="mouse"
+              value="2"
+              c:identifier="G_DESKTOP_TOUCHPAD_HANDEDNESS_MOUSE">
+      </member>
+    </enumeration>
+    <enumeration name="TouchpadTapButtonMap"
+                 c:type="GDesktopTouchpadTapButtonMap">
+      <source-position filename="headers/gdesktop-enums.h" line="185"/>
+      <member name="default"
+              value="0"
+              c:identifier="G_DESKTOP_TOUCHPAD_BUTTON_TAP_MAP_DEFAULT">
+      </member>
+      <member name="lrm"
+              value="1"
+              c:identifier="G_DESKTOP_TOUCHPAD_BUTTON_TAP_MAP_LRM">
+      </member>
+      <member name="lmr"
+              value="2"
+              c:identifier="G_DESKTOP_TOUCHPAD_BUTTON_TAP_MAP_LMR">
+      </member>
+    </enumeration>
+    <enumeration name="UsbProtection" c:type="GDesktopUsbProtection">
+      <source-position filename="headers/gdesktop-enums.h" line="228"/>
+      <member name="lockscreen"
+              value="0"
+              c:identifier="G_DESKTOP_USB_PROTECTION_LOCKSCREEN">
+      </member>
+      <member name="always"
+              value="1"
+              c:identifier="G_DESKTOP_USB_PROTECTION_ALWAYS">
+      </member>
+    </enumeration>
+    <enumeration name="VisualBellType" c:type="GDesktopVisualBellType">
+      <source-position filename="headers/gdesktop-enums.h" line="154"/>
+      <member name="fullscreen_flash"
+              value="0"
+              c:identifier="G_DESKTOP_VISUAL_BELL_FULLSCREEN_FLASH">
+      </member>
+      <member name="frame_flash"
+              value="1"
+              c:identifier="G_DESKTOP_VISUAL_BELL_FRAME_FLASH">
+      </member>
+    </enumeration>
+  </namespace>
+</repository>

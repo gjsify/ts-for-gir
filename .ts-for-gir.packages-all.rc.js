@@ -20,14 +20,20 @@ export default {
         // GNOME Shell gir file dependencies on Fedora Workstation 38 (package: mutter)
         '/usr/lib64/mutter-12',
 
-        //  GNOME Shell gir file dependencies on Ubuntu 22.04 (package: libmutter-10-dev)
+        // GNOME Shell gir file dependencies on Fedora Workstation 39 (package: mutter)
+        '/usr/lib64/mutter-13',
+
+        // GNOME Shell gir file dependencies on Ubuntu 22.04 (package: libmutter-10-dev)
         '/usr/lib/x86_64-linux-gnu/mutter-10',
 
-        //  GNOME Shell gir file dependencies on Ubuntu 22.10 (package: libmutter-11-dev)
+        // GNOME Shell gir file dependencies on Ubuntu 22.10 (package: libmutter-11-dev)
         '/usr/lib/x86_64-linux-gnu/mutter-11',
 
-        //  GNOME Shell gir file dependencies on Ubuntu 23.04 (package: libmutter-12-dev)
+        // GNOME Shell gir file dependencies on Ubuntu 23.04 (package: libmutter-12-dev)
         '/usr/lib/x86_64-linux-gnu/mutter-12',
+
+        // GNOME Shell gir file dependencies on Ubuntu 23.10 (package: libmutter-13-dev)
+        '/usr/lib/x86_64-linux-gnu/mutter-13',
 
         // General gir files in this repository
         './vala-girs/gir-1.0',

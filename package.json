@@ -140,8 +140,8 @@
   ],
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "@typescript-eslint/eslint-plugin": "^6.10.0",
-    "@typescript-eslint/parser": "^6.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "@typescript-eslint/parser": "^6.11.0",
     "concurrently": "^8.2.2",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",
@@ -155,5 +155,5 @@
     "packages/*",
     "types/*"
   ],
-  "packageManager": "yarn@4.0.1"
+  "packageManager": "yarn@4.0.2"
 }

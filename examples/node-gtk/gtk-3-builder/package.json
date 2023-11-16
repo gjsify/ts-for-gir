@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-node-gtk-3-builder-example",
-  "version": "3.2.4",
+  "version": "3.2.5",
   "description": "",
   "main": "main.ts",
   "private": true,

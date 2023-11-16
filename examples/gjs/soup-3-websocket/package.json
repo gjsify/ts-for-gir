@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-soup-3-websocket-example",
-  "version": "3.2.4",
+  "version": "3.2.5",
   "description": "Simple GJS Soup 3 example app to demonstrate how you can use WebSockets",
   "main": "index.js",
   "type": "module",

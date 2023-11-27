@@ -21304,6 +21304,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"ts-for-gir-run-async-example@workspace:examples/gjs/run-async":
+  version: 0.0.0-use.local
+  resolution: "ts-for-gir-run-async-example@workspace:examples/gjs/run-async"
+  dependencies:
+    esbuild: "npm:^0.19.5"
+    typescript: "npm:^5.2.2"
+  languageName: unknown
+  linkType: soft
+
 "ts-for-gir-soup-3-http-example@workspace:examples/gjs/soup-3-http":
   version: 0.0.0-use.local
   resolution: "ts-for-gir-soup-3-http-example@workspace:examples/gjs/soup-3-http"

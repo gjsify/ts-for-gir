@@ -10,5 +10,5 @@ await build({
     // target: "firefox91", // Since GJS 1.71.1
     format: 'esm',
     // platform: 'node',
-    external: ['node-gtk', 'gi://*'],
+    external: ['node-gtk', 'gi://*', 'resource://*', 'gettext', 'system', 'cairo'],
 })

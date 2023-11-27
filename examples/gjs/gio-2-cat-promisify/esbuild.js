@@ -11,5 +11,5 @@ await build({
     // target: firefox102 // Since GJS 1.73.2
     format: 'esm',
     // platform: 'node',
-    external: ['node-gtk', 'gi://*'],
+    external: ['node-gtk', 'gi://*', 'resource://*', 'gettext', 'system', 'cairo'],
 })

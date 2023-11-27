@@ -22,9 +22,20 @@ const onQuit = () => {
 }
 
 const onActivate = (app: Adw.Application) => {
+    // Should support both camelCase and default property names, see https://github.com/gjsify/ts-for-gir/issues/138
     const label = new Gtk.Label({
-        label: "Hello World"
+        label: "Hello World",
+        marginBottom: 11,
+        margin_top: 11,
     })
+
+    label.marginTop = 12
+    label.margin_bottom = 12
+
+    log(`label.marginTop: ${label.marginTop}`)
+    log(`label.margin_top: ${label.margin_top}`)
+    log(`label.marginBottom: ${label.marginBottom}`)
+    log(`label.margin_bottom: ${label.margin_bottom}`)
 
     const window = new Gtk.ApplicationWindow(app)
     window.set_title('Hello')

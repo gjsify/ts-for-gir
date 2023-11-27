@@ -21,7 +21,16 @@ import {
     WARN_DUPLICATE_PARAMETER,
     WARN_DUPLICATE_ENUM_IDENTIFIER,
 } from './messages.js'
-import { isEqual, find, clone, girBool, removeNamespace, addNamespace, girElementIsIntrospectable } from './utils.js'
+import {
+    isEqual,
+    find,
+    clone,
+    girBool,
+    removeNamespace,
+    addNamespace,
+    girElementIsIntrospectable,
+    lowerCamelCase,
+} from './utils.js'
 import { SymTable } from './symtable.js'
 import { LibraryVersion } from './library-version.js'
 
@@ -1786,9 +1795,17 @@ export class GirModule {
                 continue
             }
 
-            if (girConstrProp._fullSymName)
+            if (girConstrProp._fullSymName) {
                 this.symTable.set(this.allDependencies, girConstrProp._fullSymName, girConstrProp)
+            }
             constructProps.push(girConstrProp)
+
+            // Add a new property with the name in upper camel case, see https://github.com/gjsify/ts-for-gir/issues/138
+            const lowerCamelCaseProperty = this.clonePropertyForLowerCamelCase(girConstrProp)
+            if (lowerCamelCaseProperty && lowerCamelCaseProperty._fullSymName) {
+                girProperties.push(lowerCamelCaseProperty)
+                this.symTable.set(this.allDependencies, lowerCamelCaseProperty._fullSymName, lowerCamelCaseProperty)
+            }
         }
 
         return constructProps
@@ -1969,6 +1986,41 @@ export class GirModule {
         return girProperties
     }
 
+    /**
+     * Create a clone object of a property with the name in upper camel case
+     * See github.com/gjsify/ts-for-gir/issues/138
+     * @param girProperty
+     * @returns
+     */
+    private clonePropertyForLowerCamelCase(girProperty: GirPropertyElement) {
+        const propertyName = girProperty._tsData?.name
+
+        if (!propertyName) {
+            return undefined
+        }
+
+        const lowerCamelCasePropertyName = lowerCamelCase(propertyName)
+
+        // Nothing has changed
+        if (lowerCamelCasePropertyName === propertyName) {
+            return undefined
+        }
+
+        const upperCamelCaseGirProperty = clone(girProperty)
+        upperCamelCaseGirProperty._tsData = clone(upperCamelCaseGirProperty._tsData)
+        if (!upperCamelCaseGirProperty._tsData) {
+            return undefined
+        }
+        upperCamelCaseGirProperty._tsData.name = lowerCamelCasePropertyName
+
+        upperCamelCaseGirProperty._fullSymName = upperCamelCaseGirProperty._fullSymName?.replace(
+            propertyName,
+            lowerCamelCasePropertyName,
+        )
+
+        return upperCamelCaseGirProperty
+    }
+
     private getClassPropertiesTsData(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         localNames: LocalNames,
@@ -1982,11 +2034,35 @@ export class GirModule {
                 girProperty._tsData = this.getPropertyTsData(girProperty, 'property', 'property', girClass._tsData)
                 if (!girProperty._tsData) continue
 
-                const localName = this.checkOrSetLocalName(girProperty, localNames, 'property')
-                if (localName?.added && localName.property) {
-                    if (girProperty._fullSymName)
-                        this.symTable.set(this.allDependencies, girProperty._fullSymName, girProperty)
-                    girProperties.push(localName.property)
+                {
+                    const localName = this.checkOrSetLocalName(girProperty, localNames, 'property')
+                    if (localName?.added && localName.property) {
+                        if (girProperty._fullSymName) {
+                            this.symTable.set(this.allDependencies, girProperty._fullSymName, girProperty)
+                        }
+
+                        girProperties.push(localName.property)
+                    }
+                }
+
+                // Add a new property with the name in upper camel case, see https://github.com/gjsify/ts-for-gir/issues/138
+                {
+                    const lowerCamelCaseProperty = this.clonePropertyForLowerCamelCase(girProperty)
+                    if (lowerCamelCaseProperty) {
+                        const localName = this.checkOrSetLocalName(lowerCamelCaseProperty, localNames, 'property')
+
+                        if (localName?.added && localName.property) {
+                            if (lowerCamelCaseProperty._fullSymName) {
+                                this.symTable.set(
+                                    this.allDependencies,
+                                    lowerCamelCaseProperty._fullSymName,
+                                    lowerCamelCaseProperty,
+                                )
+                            }
+
+                            girProperties.push(localName.property)
+                        }
+                    }
                 }
             }
         }

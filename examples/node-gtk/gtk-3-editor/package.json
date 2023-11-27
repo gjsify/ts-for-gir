@@ -26,10 +26,10 @@
   },
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "@types/node": "^20.9.0",
+    "@types/node": "^20.10.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "ts-loader": "^9.5.1",
-    "typescript": "^5.2.2",
+    "typescript": "^5.3.2",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
     "webpack-node-externals": "^3.0.0"

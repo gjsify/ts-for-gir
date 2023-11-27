@@ -6,6 +6,8 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "bundler",
+    "noEmit": true,
+    "emitDeclarationOnly": true,
     "allowImportingTsExtensions": true,
     "strict": true,
     "noImplicitAny": true,

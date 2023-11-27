@@ -19,8 +19,8 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
-    "esbuild": "^0.19.5",
-    "typescript": "^5.2.2"
+    "esbuild": "^0.19.8",
+    "typescript": "^5.3.2"
   },
   "dependencies": {
     "node-gtk": "^0.12.0"

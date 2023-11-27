@@ -15,6 +15,21 @@ const runAsyncMethod: InjectionFunction = {
             type: 'Promise<number>',
         },
     ],
+    doc: {
+        text: "Similar to `Gio.Application.run` but return a Promise which resolves when the main loop ends, instead of blocking while the main loop runs.\nThis helps avoid the situation where Promises never resolved if you didn't run the application inside a callback.",
+        tags: [
+            {
+                tagName: 'param',
+                paramName: 'argv',
+                text: 'Commandline arguments.',
+            },
+            {
+                tagName: 'returns',
+                paramName: '',
+                text: 'The exit status of the application.',
+            },
+        ],
+    },
 }
 
 /**

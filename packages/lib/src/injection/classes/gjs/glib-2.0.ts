@@ -10,6 +10,10 @@ const runAsyncMethod: InjectionFunction = {
             type: 'Promise<void>',
         },
     ],
+    doc: {
+        text: "Similar to `GLib.MainLoop.run` but return a Promise which resolves when the main loop ends, instead of blocking while the main loop runs.\nThis helps avoid the situation where Promises never resolved if you didn't run the main loop inside a callback.",
+        tags: [],
+    },
 }
 
 export const classesGLib20Gjs: InjectionClass[] = [

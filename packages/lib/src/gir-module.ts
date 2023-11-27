@@ -1993,6 +1993,11 @@ export class GirModule {
      * @returns
      */
     private clonePropertyForLowerCamelCase(girProperty: GirPropertyElement) {
+        // Only for GJS
+        if (this.config.environment === 'node') {
+            return undefined
+        }
+
         const propertyName = girProperty._tsData?.name
 
         if (!propertyName) {

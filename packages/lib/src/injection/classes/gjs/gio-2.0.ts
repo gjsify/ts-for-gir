@@ -1,9 +1,31 @@
-import type { InjectionClass } from '../../../types/index.js'
+import type { InjectionClass, InjectionFunction } from '../../../types/index.js'
+
+// See https://github.com/gjsify/ts-for-gir/issues/130
+const runAsyncMethod: InjectionFunction = {
+    name: 'runAsync',
+    girTypeName: 'method',
+    inParams: [
+        {
+            name: 'argv',
+            type: [{ type: 'string', isArray: true, optional: true }],
+        },
+    ],
+    returnTypes: [
+        {
+            type: 'Promise<number>',
+        },
+    ],
+}
 
 /**
  * @see https://gitlab.gnome.org/GNOME/gjs/-/blob/master/modules/core/overrides/Gio.js
  */
 export const classesGio20Gjs: InjectionClass[] = [
+    {
+        versions: ['2.0'],
+        qualifiedName: 'Gio.Application',
+        methods: [runAsyncMethod],
+    },
     {
         versions: ['2.0'],
         qualifiedName: 'Gio.DBusProxy',

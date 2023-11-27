@@ -1,6 +1,23 @@
-import type { InjectionClass } from '../../../types/index.js'
+import type { InjectionClass, InjectionFunction } from '../../../types/index.js'
+
+// See https://github.com/gjsify/ts-for-gir/issues/130
+const runAsyncMethod: InjectionFunction = {
+    name: 'runAsync',
+    girTypeName: 'method',
+    inParams: [],
+    returnTypes: [
+        {
+            type: 'Promise<void>',
+        },
+    ],
+}
 
 export const classesGLib20Gjs: InjectionClass[] = [
+    {
+        versions: ['2.0'],
+        qualifiedName: 'GLib.MainLoop',
+        methods: [runAsyncMethod],
+    },
     // https://gjs.guide/guides/glib/gvariant.html#unpacking-variants
     {
         versions: ['2.0'],

@@ -3,6 +3,12 @@
 - Create a Reporter to create a text or json file with warnings like unknown types, renaming, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 - Update types for GJS v1.75.2, see https://gitlab.gnome.org/GNOME/gjs/-/commit/666755b3b09d765e43d415e76105b828517b5509
 
+
+# 3.2.6
+- Upgrade dependencies
+- Generate camel cased property accessors, see #138
+- Add `runAsync` override for `GLib.MainLoop`, see #130
+
 # 3.2.5
 - Upgrade dependencies
 - Allow ambient modules without version for NPM packages, see #139

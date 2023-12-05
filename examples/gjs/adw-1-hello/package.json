@@ -25,7 +25,7 @@
     "@rollup/plugin-babel": "^6.0.4",
     "@ts-for-gir/cli": "workspace:^",
     "rollup": "^4.6.1",
-    "typescript": "5.3.2",
+    "typescript": "5.2.2",
     "vite": "^5.0.5"
   }
 }

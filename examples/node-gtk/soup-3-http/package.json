@@ -24,7 +24,7 @@
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
     "esbuild": "^0.19.8",
-    "typescript": "5.2.2"
+    "typescript": "5.3.2"
   },
   "dependencies": {
     "node-gtk": "^0.12.0"

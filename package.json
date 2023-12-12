@@ -10,7 +10,7 @@
   "scripts": {
     "start": "yarn ts-for-gir",
     "start:dev": "yarn workspace @ts-for-gir/cli run start:dev",
-    "lint": "yarn workspaces foreach -v --include '@ts-for-gir/*' run lint",
+    "lint": "yarn workspaces foreach -v --all --include '@ts-for-gir/*' run lint",
     "update:submodules": "git submodule foreach git pull",
     "update:packages": "yarn upgrade-interactive",
     "update": "yarn update:submodules && yarn update:packages",

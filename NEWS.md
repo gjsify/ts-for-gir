@@ -5,6 +5,8 @@
 
 # Dev
 - Upgrade dependencies
+- C tyoe `const` is readonly in typescript
+- Constants are not nullable, fixes #141
 
 # 3.2.6
 - Upgrade dependencies

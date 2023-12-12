@@ -64,6 +64,8 @@ import type {
     GirInterfaceElement,
     GirConstructorElement,
     GirDocElement,
+    TypeGirFunction,
+    GirTypeName,
     TypeGirVariable,
     TypeGirClass,
     TypeGirEnumerationMember,
@@ -633,6 +635,7 @@ export class GirModule {
             | GirPropertyElement
             | GirConstantElement,
         tsClass: TsClass | null,
+        girTypeName: GirTypeName,
         defaults: Partial<TsType> = {},
     ) {
         let type: GirType | undefined = girVar.type?.[0]
@@ -640,8 +643,8 @@ export class GirModule {
         let typeName = defaults.type || ''
         let isFunction = defaults.isFunction || false
         let isCallback = defaults.isCallback || false
-        const nullable = this.typeIsNullable(girVar) || defaults.nullable || false
-        const optional = this.typeIsOptional(girVar) || defaults.optional || false
+        const nullable = this.typeIsNullable(girVar, girTypeName) || defaults.nullable || false
+        const optional = this.typeIsOptional(girVar, girTypeName) || defaults.optional || false
 
         const girCallbacks: GirCallbackElement[] = []
         const array = this.getArrayData(girVar)
@@ -750,6 +753,7 @@ export class GirModule {
         tsClass: TsClass | null,
         generics: TsGenericParameter[] = [],
     ) {
+        const girTypeName = 'callable-return'
         let outArrayLengthIndex = -1
 
         if (girFunc['return-value'] && girFunc['return-value'].length > 1) {
@@ -763,7 +767,7 @@ export class GirModule {
         const returnTypes: TsType[] = []
 
         if (girVar) {
-            returnTypes.push(this.getTsType(girVar, tsClass, { generics }))
+            returnTypes.push(this.getTsType(girVar, tsClass, girTypeName, { generics }))
 
             outArrayLengthIndex = girVar.array && girVar.array[0].$?.length ? Number(girVar.array[0].$.length) : -1
         } else {
@@ -826,6 +830,7 @@ export class GirModule {
             | GirFieldElement
             | GirConstantElement
             | GirPropertyElement,
+        girTypeName: GirTypeName,
     ): boolean {
         const a = (girVar as GirCallableParamElement).$
 
@@ -839,10 +844,12 @@ export class GirModule {
             return girBool(a.nullable)
         }
 
+        if (girTypeName === 'constant') {
+            return false // constants are never nullable
+        }
+
         // UTF-8 string pointers can be null, e.g. `gchar*`, see https://github.com/gjsify/ts-for-gir/issues/108
         if (type?.$?.name === 'utf8' && !cType?.startsWith('const ') && cType?.endsWith('*')) {
-            if (girVar._fullSymName?.endsWith('DEBUG_CONTROLLER_EXTENSION_POINT_NAME'))
-                console.debug('typeIsNullable (UTF-8 string)', type?.$?.name, cType, girVar.type)
             return true
         }
 
@@ -866,6 +873,7 @@ export class GirModule {
             | GirFieldElement
             | GirConstantElement
             | GirPropertyElement,
+        girTypeName: GirTypeName,
     ): boolean {
         const a = (girVar as GirCallableParamElement).$
         if (!a) return false
@@ -873,9 +881,13 @@ export class GirModule {
         // Ignore depreciated `allow-none` if one of the new implementation `optional` or `nullable` is set
         if (a.optional || a.nullable) {
             return girBool(a.optional)
-        } else {
-            return girBool(a.optional) || girBool(a['allow-none']) || girBool(a['null-ok'])
         }
+
+        if (girTypeName === 'constant') {
+            return false // constants are never optional
+        }
+
+        return girBool(a.optional) || girBool(a['allow-none']) || girBool(a['null-ok'])
     }
 
     /**
@@ -898,9 +910,10 @@ export class GirModule {
         skip: GirCallableParamElement[],
         parent: TsFunction | TsSignal,
     ) {
+        const girTypeName = 'callable-param'
         // I think it's safest to force inout params to have the
         // same type for in and out
-        const tsType = this.getTsType(girParam, parent.parent)
+        const tsType = this.getTsType(girParam, parent.parent, girTypeName)
         // const optDirection = girParam.$.direction
 
         if (girParam._tsData) {
@@ -928,7 +941,7 @@ export class GirModule {
                 .filter(() => skip.indexOf(girParam) === -1)
                 .filter((p) => p.$.direction !== GirDirection.Out)
 
-            if (following.some((p) => !this.typeIsOptional(p))) {
+            if (following.some((p) => !this.typeIsOptional(p, girTypeName))) {
                 tsType.optional = false
             }
         }
@@ -937,7 +950,7 @@ export class GirModule {
             name: paramName,
             type: [tsType],
             isRest: false,
-            girTypeName: 'callable-param',
+            girTypeName,
             doc: this.getTsDoc(girParam),
             parent,
         }
@@ -1088,7 +1101,7 @@ export class GirModule {
         }
         // Use the out type because it can be a union which isn't appropriate
         // for a property
-        const tsType = this.getTsType(girVar, tsClass, { optional, nullable, generics })
+        const tsType = this.getTsType(girVar, tsClass, girTypeName, { optional, nullable, generics })
 
         const tsData: TsProperty | TsVar = {
             name,
@@ -1153,8 +1166,8 @@ export class GirModule {
             return girProp._tsData as TsProperty
         }
 
-        if (optional === undefined) optional = this.typeIsOptional(girProp)
-        if (nullable === undefined) nullable = this.typeIsNullable(girProp)
+        if (optional === undefined) optional = this.typeIsOptional(girProp, girTypeName)
+        if (nullable === undefined) nullable = this.typeIsNullable(girProp, girTypeName)
         const readonly = !construct && this.typeIsReadonly(girProp)
 
         let tsData: TsProperty | undefined
@@ -1215,7 +1228,7 @@ export class GirModule {
             | GirConstructorElement
             | GirCallbackElement
             | GirVirtualMethodElement,
-        girTypeName: 'virtual' | 'method' | 'constructor' | 'function' | 'callback' | 'static-function',
+        girTypeName: GirTypeName,
         tsClass: TsClass | null,
         overwrite: {
             isStatic: boolean
@@ -1271,8 +1284,8 @@ export class GirModule {
             instanceParameters: [],
             generics: overwrite.generics,
             hasUnresolvedConflict,
-            girTypeName,
-            tsTypeName: this.girFactory.girTypeNameToTsTypeName(girTypeName, overwrite.isStatic),
+            girTypeName: girTypeName as TypeGirFunction,
+            tsTypeName: this.girFactory.girTypeNameToTsTypeName(girTypeName as TypeGirFunction, overwrite.isStatic),
             doc: this.getTsDoc(girFunc as GirDocElement),
             overloads: [],
             parent: tsClass,
@@ -1727,18 +1740,20 @@ export class GirModule {
     private getAliasTsData(girAlias: GirAliasElement, tsClass: TsClass | null) {
         if (!girElementIsIntrospectable(girAlias)) return undefined
 
+        const girTypeName = 'alias'
+
         if (girAlias._tsData) {
             // this.log.warn('[getEnumerationMemberTsData] _tsData already set!')
             return girAlias._tsData
         }
 
-        const { type: typeName } = this.getTsType(girAlias, tsClass)
+        const { type: typeName } = this.getTsType(girAlias, tsClass, girTypeName)
         const name = girAlias.$.name
         const tsData: TsAlias = {
             name,
             type: typeName,
-            girTypeName: 'alias',
-            tsTypeName: this.girFactory.girTypeNameToTsTypeName('alias', false),
+            girTypeName,
+            tsTypeName: this.girFactory.girTypeNameToTsTypeName(girTypeName, false),
         }
         return tsData
     }

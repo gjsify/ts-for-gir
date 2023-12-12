@@ -834,20 +834,24 @@ export class GirModule {
         const type: GirType | undefined = girVar.type?.[0]
         const cType = type?.$?.['c:type']
 
+        // Ignore depreciated `allow-none` if one of the new implementation `optional` or `nullable` is set
+        if (a.optional || a.nullable) {
+            return girBool(a.nullable)
+        }
+
         // UTF-8 string pointers can be null, e.g. `gchar*`, see https://github.com/gjsify/ts-for-gir/issues/108
-        if (type?.$?.name === 'utf8' && cType?.endsWith('*')) {
+        if (type?.$?.name === 'utf8' && !cType?.startsWith('const ') && cType?.endsWith('*')) {
+            if (girVar._fullSymName?.endsWith('DEBUG_CONTROLLER_EXTENSION_POINT_NAME'))
+                console.debug('typeIsNullable (UTF-8 string)', type?.$?.name, cType, girVar.type)
             return true
         }
 
         // If the default value is NULL, handle this as nullable
-        if (a['default-value'] === 'NULL') return true
-
-        // Ignore depreciated `allow-none` if one of the new implementation `optional` or `nullable` is set
-        if (a.optional || a.nullable) {
-            return girBool(a.nullable)
-        } else {
-            return girBool(a.nullable) || girBool(a['allow-none']) || girBool(a['null-ok'])
+        if (a['default-value'] === 'NULL') {
+            return true
         }
+
+        return girBool(a.nullable) || girBool(a['allow-none']) || girBool(a['null-ok'])
     }
 
     /**
@@ -872,6 +876,19 @@ export class GirModule {
         } else {
             return girBool(a.optional) || girBool(a['allow-none']) || girBool(a['null-ok'])
         }
+    }
+
+    /**
+     * Checks if the property is readonly.
+     * @param girCallback
+     */
+    private typeIsReadonly(girProp: GirPropertyElement | GirFieldElement): boolean {
+        const cType = girProp.type?.[0].$?.['c:type']
+        return (
+            !girBool(girProp.$.writable) ||
+            girBool((girProp as GirPropertyElement).$['construct-only']) ||
+            (cType ? cType.startsWith('const ') : false) // c type is const and therefore readonly, isn't?
+        )
     }
 
     private setParameterTsData(
@@ -1138,9 +1155,7 @@ export class GirModule {
 
         if (optional === undefined) optional = this.typeIsOptional(girProp)
         if (nullable === undefined) nullable = this.typeIsNullable(girProp)
-
-        const readonly =
-            !girBool(girProp.$.writable) || (!construct && girBool((girProp as GirPropertyElement).$['construct-only']))
+        const readonly = !construct && this.typeIsReadonly(girProp)
 
         let tsData: TsProperty | undefined
 

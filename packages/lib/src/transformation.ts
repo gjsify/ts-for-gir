@@ -54,8 +54,8 @@ export const PRIMITIVE_TYPE_MAP = {
     'gchar*': 'string', // TODO CHECKME
     'gchar**': 'string', // TODO CHECKME
     'gchar***': 'string', // TODO CHECKME
-    'const gchar*': 'string', // TODO CHECKME
-    'const char*': 'string', // TODO CHECKME
+    'const gchar*': 'string', // TODO is read-only
+    'const char*': 'string', // TODO is read-only
 
     // Booleans
     gboolean: 'boolean',

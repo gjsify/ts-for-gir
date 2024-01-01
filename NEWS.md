@@ -5,7 +5,8 @@
 
 # Dev
 - Upgrade dependencies
-- C tyoe `const` is readonly in typescript
+- Add type for import.meta.url, see 142
+- C type `const` is readonly in typescript
 - Constants are not nullable, fixes #141
 
 # 3.2.6

@@ -26,6 +26,6 @@
     "@ts-for-gir/cli": "workspace:^",
     "rollup": "^4.9.2",
     "typescript": "5.2.2",
-    "vite": "^5.0.10"
+    "vite": "^5.0.12"
   }
 }

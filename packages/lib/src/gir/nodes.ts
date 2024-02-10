@@ -7,9 +7,10 @@ export {
     IntrospectedBaseClass
 } from "./class.js";
 export { IntrospectedConstant } from "./const.js";
-export { IntrospectedEnum, GirEnumMember } from "./enum.js";
+export { IntrospectedEnum, GirEnumMember as IntrospectedEnumMember, IntrospectedError } from "./enum.js";
 export {
     IntrospectedFunction,
+    IntrospectedClassCallback,
     IntrospectedClassFunction,
     IntrospectedCallback,
     IntrospectedConstructor,

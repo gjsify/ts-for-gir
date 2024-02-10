@@ -11,7 +11,7 @@ import { ModuleLoader } from '../module-loader.js'
 import prettier from 'prettier'
 
 import type { ConfigFlags } from '@ts-for-gir/lib'
-import { Formatter } from '@ts-for-gir/lib/lib/newlib/lib.js'
+import { Formatter } from '@ts-for-gir/lib'
 
 const command = 'generate [modules..]'
 

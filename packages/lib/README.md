@@ -19,4 +19,3 @@
 # Library
 
 Node.js library to generate Typescript Type Definition files for Gjs and node-gtk.
-

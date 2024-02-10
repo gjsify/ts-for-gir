@@ -1,6 +1,6 @@
 import { BinaryType, VoidType, PromiseType, BooleanType, TupleType, TypeIdentifier, ClosureType } from "../gir.js";
 
-import { GirInfoAttrs, GirModule } from "../../index.js";
+import { GirInfoAttrs, GirModule } from "../index.js";
 
 import { IntrospectedBaseClass } from "./class.js";
 import { IntrospectedFunction } from "./function.js";
@@ -79,4 +79,4 @@ export function promisifyNamespaceFunctions(namespace: GirModule) {
     });
 }
 
-export { GirModule as IntrospectedNamespace } from "../../gir-module.js";
+export { GirModule as IntrospectedNamespace } from "../gir-module.js";

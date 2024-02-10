@@ -4,7 +4,7 @@ import { Transformation } from './transformation.js'
 
 import type { Dependency, GenerateConfig, GirInclude } from './types/index.js'
 import type { GirModule } from './gir-module.js'
-import { GirNSRegistry } from './newlib/lib.js'
+import { GirNSRegistry } from './registry.js'
 
 export class DependencyManager {
     protected log: Logger

@@ -1,6 +1,6 @@
 import { TypeExpression } from "../gir.js";
 import { IntrospectedNamespaceMember, Options } from "./base.js";
-import { GirConstantElement } from "../../index.js";
+import { GirConstantElement } from "../index.js";
 
 import { IntrospectedNamespace } from "./namespace.js";
 import { getType, parseDoc, parseMetadata, sanitizeIdentifierName } from "./util.js";

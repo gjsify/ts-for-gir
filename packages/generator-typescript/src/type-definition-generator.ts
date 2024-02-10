@@ -35,8 +35,6 @@ import {
     IntrospectedSignal,
     IntrospectedProperty,
     IntrospectedConstant,
-} from '@ts-for-gir/lib'
-import {
     IntrospectedClassCallback,
     IntrospectedClassFunction,
     IntrospectedConstructor,
@@ -44,19 +42,17 @@ import {
     IntrospectedFunctionParameter,
     IntrospectedStaticClassFunction,
     IntrospectedVirtualClassFunction,
-} from '@ts-for-gir/lib/lib/newlib/gir/function.js'
-import { IntrospectedNamespaceMember } from '@ts-for-gir/lib/lib/newlib/gir/base.js'
-import {
-    FormatGenerator,
-    Generic,
-    GirEnumMember,
+    IntrospectedNamespaceMember,
     IntrospectedAlias,
     IntrospectedEnum,
     IntrospectedSignalType,
+    IntrospectedEnumMember,
+    IntrospectedError,
+    FormatGenerator,
+    Generic,
     NativeType,
-} from '@ts-for-gir/lib/lib/newlib/lib.js'
-import { IntrospectedError } from '@ts-for-gir/lib/lib/newlib/gir/enum.js'
-import { isInvalid } from '@ts-for-gir/lib/lib/newlib/gir/util.js'
+    isInvalid,
+} from '@ts-for-gir/lib'
 
 function printGirDocComment(tsDoc: TsDoc, config: GenerateConfig) {
     const desc: string[] = []
@@ -808,7 +804,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         return desc
     }
 
-    generateEnumMember(tsMember: GirEnumMember, indentCount = 1) {
+    generateEnumMember(tsMember: IntrospectedEnumMember, indentCount = 1) {
         const desc: string[] = []
 
         desc.push(...this.addGirDocComment(tsMember.doc, [], indentCount))

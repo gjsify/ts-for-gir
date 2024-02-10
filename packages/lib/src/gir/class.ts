@@ -19,7 +19,7 @@ import {
 import { TypeExpression } from "../gir.js";
 import { IntrospectedBase, IntrospectedClassMember, IntrospectedNamespaceMember, Options } from "./base.js";
 
-import { GirInterfaceElement, GirClassElement, GirRecordElement, GirDirection, GirUnionElement } from "../../index.js";
+import { GirInterfaceElement, GirClassElement, GirRecordElement, GirDirection, GirUnionElement } from "../index.js";
 import {
     IntrospectedClassFunction,
     IntrospectedVirtualClassFunction,

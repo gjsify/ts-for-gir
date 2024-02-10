@@ -20,7 +20,7 @@ import {
     GirVirtualMethodElement,
     GirConstructorElement,
     GirModule
-} from "../../index.js";
+} from "../index.js";
 
 import { IntrospectedNamespace, isIntrospectable } from "./namespace.js";
 import { getType, isInvalid, sanitizeMemberName, sanitizeIdentifierName, parseDoc, parseMetadata } from "./util.js";

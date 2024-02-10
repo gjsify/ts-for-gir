@@ -6,7 +6,6 @@ import { Injector } from './injection/injector.js'
 import { GirFactory } from './gir-factory.js'
 import { ConflictResolver } from './conflict-resolver.js'
 import { DependencyManager } from './dependency-manager.js'
-import { NO_TSDATA } from './messages.js'
 import { find, girBool } from './utils.js'
 import { SymTable } from './symtable.js'
 import { LibraryVersion } from './library-version.js'
@@ -31,13 +30,9 @@ import type {
     GirDocElement,
     TsDoc,
     TsDocTag,
-    InheritanceTable,
     ParsedGir,
     GirInfoAttrs,
     GenerateConfig,
-    GirNSMember,
-    IntrospectedFunctionParameter,
-    IntrospectedClassFunction,
 } from './types/index.js'
 import {
     ClosureType,
@@ -49,22 +44,24 @@ import {
     BinaryType,
     NullableType,
     ObjectType,
-} from './newlib/gir.js'
-import { IntrospectedAlias } from './newlib/gir/alias.js'
-import { IntrospectedBase, IntrospectedNamespaceMember } from './newlib/gir/base.js'
+    GirNSMember,
+} from './gir.js'
+import { IntrospectedAlias } from './gir/alias.js'
+import { IntrospectedBase, IntrospectedNamespaceMember } from './gir/base.js'
+import { IntrospectedBaseClass, IntrospectedClass, IntrospectedRecord, IntrospectedInterface } from './gir/class.js'
+import { IntrospectedConstant } from './gir/const.js'
+import { IntrospectedEnum, IntrospectedError } from './gir/enum.js'
 import {
-    IntrospectedBaseClass,
-    IntrospectedClass,
-    IntrospectedRecord,
-    IntrospectedInterface,
-} from './newlib/gir/class.js'
-import { IntrospectedConstant } from './newlib/gir/const.js'
-import { IntrospectedEnum, IntrospectedError } from './newlib/gir/enum.js'
-import { IntrospectedFunction, IntrospectedCallback, IntrospectedClassCallback } from './newlib/gir/function.js'
-import { NSRegistry } from './newlib/gir/registry.js'
-import { isPrimitiveType } from './newlib/gir/util.js'
-import { LoadOptions } from './newlib/types.js'
-import { GirVisitor } from './newlib/visitor.js'
+    IntrospectedFunction,
+    IntrospectedCallback,
+    IntrospectedClassCallback,
+    IntrospectedClassFunction,
+    IntrospectedFunctionParameter,
+} from './gir/function.js'
+import { NSRegistry } from './gir/registry.js'
+import { isPrimitiveType } from './gir/util.js'
+import { LoadOptions } from './types.js'
+import { GirVisitor } from './visitor.js'
 
 export class GirModule {
     /**

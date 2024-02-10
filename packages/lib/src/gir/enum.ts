@@ -1,7 +1,7 @@
 import { NumberType, TypeIdentifier } from "../gir.js";
 
 import { IntrospectedBase, IntrospectedNamespaceMember } from "./base.js";
-import { GirMemberElement, GirEnumElement, GirBitfieldElement } from "../../index.js";
+import { GirMemberElement, GirEnumElement, GirBitfieldElement } from "../index.js";
 
 import { GirComplexRecord, IntrospectedRecord } from "./class.js";
 import { IntrospectedField } from "./property.js";

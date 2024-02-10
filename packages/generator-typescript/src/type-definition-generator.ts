@@ -21,6 +21,7 @@ import {
     GirDirection,
     TsDoc,
     TsDocTag,
+    upperCamelCase,
 } from '@ts-for-gir/lib'
 import { TemplateProcessor } from './template-processor.js'
 import { PackageDataParser } from './package-data-parser.js'
@@ -365,6 +366,8 @@ class ModuleGenerator extends FormatGenerator<string[]> {
             throw new Error('[generateVariable] "name" not set!')
         }
 
+        const ComputedName = 'computed' in tsVar && tsVar.computed ? `[${name}]` : Name
+
         const affix = optional ? '?' : ''
         const typeStr = this.generateTypes(tsVar.type)
 
@@ -372,7 +375,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         // TODO: const commentOut = allowCommentOut && tsVar.hasUnresolvedConflict ? '// Has conflict: ' : ''
         const commentOut = ''
 
-        return `${indent}${commentOut}${Name}${affix}: ${typeStr}`
+        return `${indent}${commentOut}${ComputedName}${affix}: ${typeStr}`
     }
 
     generateType(tsType: TypeExpression) {
@@ -1038,7 +1041,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
             ...this.generateCallbackInterfaces(
                 tsSignals.map((signal) => {
                     return new IntrospectedClassCallback({
-                        name: signal.name,
+                        name: upperCamelCase(signal.name),
                         parameters: signal.parameters,
                         return_type: signal.return_type,
                         parent: signal.parent,

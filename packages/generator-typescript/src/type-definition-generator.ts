@@ -243,10 +243,6 @@ class ModuleGenerator extends FormatGenerator<string[]> {
     }
 
     generateProperty(tsProp: IntrospectedProperty, construct?: boolean, indentCount = 0) {
-        // if (!tsProp) {
-        //     throw new Error('[generateProperty] Not all required properties set!')
-        // }
-
         const desc: string[] = []
         const isStatic = false //tsProp.isStatic
 
@@ -269,10 +265,6 @@ class ModuleGenerator extends FormatGenerator<string[]> {
     }
 
     generateField(tsProp: IntrospectedField, indentCount = 0) {
-        if (!tsProp) {
-            throw new Error('[generateProperty] Not all required properties set!')
-        }
-
         const desc: string[] = []
         const isStatic = false //tsProp.isStatic
 
@@ -819,15 +811,17 @@ class ModuleGenerator extends FormatGenerator<string[]> {
     generateEnumMember(tsMember: GirEnumMember, indentCount = 1) {
         const desc: string[] = []
 
-        // if (!tsMember) {
-        //     this.log.warn(NO_TSDATA('generateEnumerationMember'))
-        //     return desc
-        // }
-
         desc.push(...this.addGirDocComment(tsMember.doc, [], indentCount))
 
+        const invalid = isInvalid(tsMember.name)
+
         const indent = generateIndent(indentCount)
-        desc.push(`${indent}${tsMember.name},`)
+        if (invalid) {
+            desc.push(`${indent}"${tsMember.name}",`)
+        } else {
+            desc.push(`${indent}${tsMember.name},`)
+        }
+
         return desc
     }
 
@@ -1835,7 +1829,6 @@ export class TypeDefinitionGenerator implements Generator {
 
     public async generate(registry: NSRegistry, module: GirModule) {
         this.module = new ModuleGenerator(module, this.config)
-        console.log('generating...' + module.name)
         await this.module.exportModuleTS()
     }
 

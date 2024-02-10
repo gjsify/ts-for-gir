@@ -12,7 +12,7 @@ import { GeneratorType, Generator } from '@ts-for-gir/generator-base'
 import { TypeDefinitionGenerator } from '@ts-for-gir/generator-typescript'
 // import { HtmlDocGenerator } from '@ts-for-gir/generator-html-doc'
 
-import type { InheritanceTable, GenerateConfig, NSRegistry } from '@ts-for-gir/lib'
+import type { GenerateConfig, NSRegistry } from '@ts-for-gir/lib'
 
 export class GenerationHandler {
     log: Logger
@@ -36,19 +36,6 @@ export class GenerationHandler {
         }
     }
 
-    private finalizeInheritance(inheritanceTable: InheritanceTable): void {
-        for (const clsName of Object.keys(inheritanceTable)) {
-            let p: string | string[] = inheritanceTable[clsName][0]
-            while (p) {
-                p = inheritanceTable[p]
-                if (p) {
-                    p = p[0]
-                    inheritanceTable[clsName].push(p)
-                }
-            }
-        }
-    }
-
     public async start(girModules: GirModule[], registry: NSRegistry): Promise<void> {
         this.log.info(START_MODULE(this.config.environment, this.config.buildType))
 
@@ -56,23 +43,12 @@ export class GenerationHandler {
             this.log.error(ERROR_NO_MODULE_SPECIFIED)
         }
 
-        GirModule.allGirModules = girModules
-
         this.log.info(FILE_PARSING_DONE)
-
-        const inheritanceTable: InheritanceTable = {}
-        for (const girModule of girModules) girModule.init(inheritanceTable)
-
-        this.finalizeInheritance(inheritanceTable)
 
         this.log.info(TSDATA_PARSING_DONE)
 
-        for (const girModule of girModules) {
-            if (this.config.outdir) {
-                await mkdir(this.config.outdir, { recursive: true })
-            }
-            this.log.log(` - ${girModule.packageName} ...`)
-            girModule.start(girModules)
+        if (this.config.outdir) {
+            await mkdir(this.config.outdir, { recursive: true })
         }
 
         // TODO: Put this somewhere that makes sense
@@ -85,6 +61,9 @@ export class GenerationHandler {
         await this.generator.start(registry)
 
         for (const girModule of girModules) {
+            this.log.log(` - ${girModule.packageName} ...`)
+            girModule.start(girModules)
+
             await this.generator.generate(registry, girModule)
         }
 

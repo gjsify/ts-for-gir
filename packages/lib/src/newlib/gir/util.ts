@@ -355,7 +355,9 @@ export function isInvalid(name: string): boolean {
 }
 
 export function parseDoc(element: GirDocElement): string | null {
-    return element.doc?.[0]?._ ?? null;
+    const el = element.doc?.[0]?._;
+
+    return el ? `${el}` : null;
 }
 
 export function parseDeprecatedDoc(element: GirDocElement): string | null {

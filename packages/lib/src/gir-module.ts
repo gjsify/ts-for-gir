@@ -68,10 +68,6 @@ import { GirVisitor } from './newlib/visitor.js'
 
 export class GirModule {
     /**
-     * Array of all gir modules
-     */
-    static allGirModules: GirModule[] = []
-    /**
      * E.g. 'Gtk'
      */
     namespace!: string
@@ -112,8 +108,6 @@ export class GirModule {
         return [...new Set([...this.dependencies, ...this.transitiveDependencies])]
     }
 
-    repo!: GirRepository
-    ns: GirModule
     /**
      * Used to find namespaces that are used in other modules
      */
@@ -160,12 +154,13 @@ export class GirModule {
         this.c_prefixes = [...prefixes]
         this.package_version = ['0', '0']
         this.config = config
-        this.repo = repo
 
         this.dependencyManager = DependencyManager.getInstance(this.config)
-        this.dependencies = this.dependencyManager.fromGirIncludes(this.repo.include || [])
+        this.dependencies = this.dependencyManager.fromGirIncludes(repo.include || [])
+    }
 
-        this.ns = this
+    get ns() {
+        return this
     }
 
     private checkTransitiveDependencies(transitiveDependencies: Dependency[]) {
@@ -1198,12 +1193,13 @@ export class GirModule {
         if (!ns) throw new Error(`Missing namespace in ${repo.repository[0].package[0].$.name}`)
 
         const modName = ns.$['name']
-        let version = ns.$['version']
+        const version = ns.$['version']
 
+        // TODO: Hardcoding HarfBuzz here leads to issues when loading...
         // Hardcode harfbuzz version for now...
-        if (modName === 'HarfBuzz' && version === '0.0') {
-            version = '2.0'
-        }
+        // if (modName === 'HarfBuzz' && version === '0.0') {
+        //     version = '2.0'
+        // }
 
         const options: LoadOptions = {
             loadDocs: !config.noComments,
@@ -1399,15 +1395,6 @@ export class GirModule {
     }
 
     /**
-     * Before processing the typescript data, each module should be initialized first.
-     * This is done in the `GenerationHandler`.
-     */
-    public init(inheritanceTable: InheritanceTable) {
-        // this.loadTypes()
-        // this.loadInheritance(inheritanceTable)
-    }
-
-    /**
      * Start processing the typescript data
      */
     public start(girModules: GirModule[]) {
@@ -1418,8 +1405,6 @@ export class GirModule {
                 this.libraryVersion = glibModule.libraryVersion
             }
         }
-
-        // this.setModuleTsData()
     }
 }
 

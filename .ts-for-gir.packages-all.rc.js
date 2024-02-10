@@ -20,6 +20,9 @@ export default {
         // GNOME Shell gir file dependencies on Fedora Workstation 38 (package: mutter)
         '/usr/lib64/mutter-12',
 
+        // GNOME Shell gir file dependencies on Fedora Workstation 39 (package: mutter)
+        '/usr/lib64/mutter-13',
+
         //  GNOME Shell gir file dependencies on Ubuntu 22.04 (package: libmutter-10-dev)
         '/usr/lib/x86_64-linux-gnu/mutter-10',
 

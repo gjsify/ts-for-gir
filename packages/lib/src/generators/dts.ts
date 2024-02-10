@@ -46,7 +46,7 @@ import {
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedAlias } from "../gir/alias.js";
 import { AnyIntrospectedType } from "../gir/base.js";
-import { GenerateConfig } from "../../types/generate-config.js";
+import { GenerateConfig } from "../types/generate-config.js";
 
 export function versionImportFormat(versionFormat: string, namespace: string, version: string) {
     const versionSlug = version.toLowerCase().split(".")[0];

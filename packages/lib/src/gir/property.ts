@@ -1,6 +1,6 @@
 import { TypeExpression } from "../gir.js";
 import { IntrospectedBase, IntrospectedClassMember, Options } from "./base.js";
-import { GirFieldElement, GirPropertyElement } from "../../index.js";
+import { GirFieldElement, GirPropertyElement } from "../index.js";
 
 import { getType, parseDoc, parseMetadata } from "./util.js";
 import { isIntrospectable } from "./namespace.js";

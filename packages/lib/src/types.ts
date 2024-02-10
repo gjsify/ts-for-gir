@@ -1,25 +1,25 @@
-import { GenerateConfig } from "../types";
+import { GenerateConfig } from './types/generate-config.js'
 
-export type PropertyCase = "both" | "camel" | "underscore";
-export type Format = "dts" | "json";
+export type PropertyCase = 'both' | 'camel' | 'underscore'
+export type Format = 'dts' | 'json'
 
 export interface Options {
-    environment: "gjs";
-    verbose: boolean;
+    environment: 'gjs'
+    verbose: boolean
 }
 
 export interface LoadOptions extends Options {
-    loadDocs: boolean;
-    propertyCase: PropertyCase;
+    loadDocs: boolean
+    propertyCase: PropertyCase
 }
 
 export interface TransformOptions extends Options {
-    inferGenerics: boolean;
+    inferGenerics: boolean
 }
 
-export type OutputFormat = "file" | "folder";
+export type OutputFormat = 'file' | 'folder'
 
-export type GenerationOptions = GenerateConfig;
+export type GenerationOptions = GenerateConfig
 //     [key: string]: boolean | string | number | undefined;
 //     outputFormat?: string;
 //     outputPath?: string;
@@ -43,8 +43,8 @@ export type GenerationOptions = GenerateConfig;
 // }
 
 export interface Metadata {
-    name: string;
-    package_version: string;
-    api_version: string;
-    imports: { [lib: string]: string };
+    name: string
+    package_version: string
+    api_version: string
+    imports: { [lib: string]: string }
 }

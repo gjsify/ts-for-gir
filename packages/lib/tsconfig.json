@@ -1,27 +1,22 @@
 {
-  "compilerOptions": {
-    "lib": ["ESNext"],                 
-    "target": "ESNext",
-    "module": "ESNext",
-    "outDir": "lib",
-    "strict": true,
-    "noImplicitAny": false,
-    "strictNullChecks": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "rootDir": "src",
-    "resolveJsonModule": true,
-    "declaration": true,
-    "skipLibCheck": true,
-  },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": [
-    "lib",
-    "node_modules",
-    "**/*.spec.ts",
-    "templates"
-  ]
+    "compilerOptions": {
+        "lib": ["ESNext"],
+        "target": "ESNext",
+        "module": "ESNext",
+        "outDir": "lib",
+        "strict": true,
+        "noImplicitAny": false,
+        "strictNullChecks": true,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "rootDir": "src",
+        "resolveJsonModule": true,
+        "declaration": true,
+        "skipLibCheck": true
+    },
+    "include": ["src/**/*.ts", "src/**/*.tsx"],
+    "exclude": ["lib", "node_modules", "**/*.spec.ts", "templates"]
 }

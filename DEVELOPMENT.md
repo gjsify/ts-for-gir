@@ -50,12 +50,23 @@ sudo dnf install gnome-shell gcr-devel gnome-desktop3-devel
 sudo dnf install gnome-bluetooth-libs-devel
 ```
 
-Checkout this repository, install the dependencies and build:
+Checkout this repository:
 
 ```bash
-git clone https://github.com/gjsify/ts-for-gir
+git clone --recurse-submodules git@github.com:gjsify/ts-for-gir.git
+cd ts-for-gir
+```
+
+Alternatively, you can fetch the submodules after cloning the repository:
+
+```bash
 cd ts-for-gir
 git submodule update --init
+```
+
+Install the dependencies and build:
+
+```bash
 yarn install
 yarn run build
 ```
@@ -63,7 +74,7 @@ yarn run build
 Generate example type definitions:
 
 ```bash
-yarn run test:girs:gtk4
+yarn run test:girs:gjs:gtk4
 ```
 
 ## Gir XML Format

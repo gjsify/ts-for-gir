@@ -3,17 +3,18 @@
 - Create a Reporter to create a text or json file with warnings like unknown types, renaming, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 - Update types for GJS v1.75.2, see https://gitlab.gnome.org/GNOME/gjs/-/commit/666755b3b09d765e43d415e76105b828517b5509
 
-# 3.2.9
+# 3.2.8
 - Upgrade dependencies
 - Update examples and removed deprecated function calles like `byteArray.toString()`
 - Add `dom.js` and `ambient.js` to allow importing `dom.d.ts` and `ambient.d.ts` in the codebase with a bundler
+- node-gtk: Add new `gtk-4-application` example
 - node-gtk: Uses snake_case for property names at constructor, fixes #131
 
 ## Breaking Changes
 
 - Removed support for additional `underscore` properties (next to `lowerCamelCase`) in the generated types, if this causes problems please let us know, then we will undo it again
 
-# 3.2.8
+# 3.2.7
 - Upgrade dependencies
 - Add type for import.meta.url, see 142
 - C type `const` is readonly in typescript

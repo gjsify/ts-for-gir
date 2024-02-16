@@ -1,4 +1,4 @@
-// Based on https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/gtk-application.js
+// Based on https://github.com/romgrk/node-gtk/blob/master/examples/gtk-4.js
 
 import gi from 'node-gtk';
 import GLib from './@types/node-glib-2.0.js';

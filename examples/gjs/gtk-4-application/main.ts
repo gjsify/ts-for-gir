@@ -1,23 +1,20 @@
-#!/usr/bin/env gjs -m
-// SPDX-License-Identifier: MIT OR LGPL-2.0-or-later
-// SPDX-FileCopyrightText: 2017 Andy Holmes <andrew.g.r.holmes@gmail.com>
 // Based on https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/gtk-application.js
 
-// Include this in case both GTK3 and GTK4 installed, otherwise an exception
-// will be thrown
-imports.gi.versions.Gtk = '3.0';
+// SPDX-License-Identifier: MIT OR LGPL-2.0-or-later
+// SPDX-FileCopyrightText: 2017 Andy Holmes <andrew.g.r.holmes@gmail.com>
 
 // See the note about Application.run() at the bottom of the script
-const System = imports.system;
-
-const Gio = imports.gi.Gio;
-const GLib = imports.gi.GLib;
-const GObject = imports.gi.GObject;
-const Gtk = imports.gi.Gtk;
+import System from 'system';
+import Gio from 'gi://Gio?version=2.0';
+import GLib from 'gi://GLib?version=2.0';
+import GObject from 'gi://GObject?version=2.0';
+// Include the version in case both GTK3 and GTK4 installed
+// otherwise an exception will be thrown
+import Gtk from 'gi://Gtk?version=4.0';
 
 // An example GtkApplication with a few bells and whistles, see also:
 //     https://wiki.gnome.org/HowDoI/GtkApplication
-var ExampleApplication = GObject.registerClass({
+let ExampleApplication = GObject.registerClass({
     Properties: {
         'exampleprop': GObject.ParamSpec.string(
             'exampleprop',                      // property name
@@ -29,33 +26,31 @@ var ExampleApplication = GObject.registerClass({
     },
     Signals: {'examplesig': {param_types: [GObject.TYPE_INT]}},
 }, class ExampleApplication extends Gtk.Application {
-
-    exampleprop = '';
-
     constructor() {
         super({
-            application_id: 'org.gnome.gjs.ExampleApplication',
+            applicationId: 'org.gnome.gjs.ExampleApplication',
             flags: Gio.ApplicationFlags.FLAGS_NONE,
         });
     }
 
+    exampleprop: string = 'a default value';
+
     // Example signal emission
-    emitExamplesig(number: number) {
+    emitExamplesig(number: number): void {
         this.emit('examplesig', number);
     }
 
     vfunc_startup() {
-        print('called vfunc_startup');
         super.vfunc_startup();
 
         // An example GAction, see: https://wiki.gnome.org/HowDoI/GAction
         let exampleAction = new Gio.SimpleAction({
             name: 'exampleAction',
-            parameter_type: new GLib.VariantType('s'),
+            parameterType: new GLib.VariantType('s'),
         });
 
         exampleAction.connect('activate', (action, param) => {
-            const paramStr = param?.deepUnpack<string>().toString();
+            const paramStr = param?.deepUnpack()?.toString() ?? '';
 
             if (paramStr === 'exampleParameter')
                 log('Yes!');
@@ -65,27 +60,26 @@ var ExampleApplication = GObject.registerClass({
     }
 
     vfunc_activate() {
-        print('called vfunc_activate');
         super.vfunc_activate();
 
         this.hold();
 
         // Example ApplicationWindow
-        let win = new Gtk.ApplicationWindow({
+        let window = new Gtk.ApplicationWindow({
             application: this,
             title: 'Example Application Window',
-            default_width: 300,
-            default_height: 200,
+            defaultWidth: 300,
+            defaultHeight: 200,
         });
 
         let label = new Gtk.Label({label: this.exampleprop});
-        win.add(label);
+        window.set_child(label);
 
-        win.connect('delete-event', () => {
+        window.connect('close-request', () => {
             this.quit();
         });
 
-        win.show_all();
+        window.present();
 
         // Example GNotification, see: https://developer.gnome.org/GNotification/
         let notif = new Gio.Notification();

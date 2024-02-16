@@ -10,7 +10,7 @@
 import GLib from "gi://GLib?version=2.0";
 import Gio from "gi://Gio?version=2.0";
 
-const ByteArray = imports.byteArray;
+const textDecoder = new TextDecoder()
 const loop = GLib.MainLoop.new(null, false);
 
 function cat(filename: string) {
@@ -24,7 +24,7 @@ function cat(filename: string) {
             loop.quit();
             return;
         }
-        print(ByteArray.toString(contents));
+        print(textDecoder.decode(contents));
         loop.quit();
     });
 

@@ -17,12 +17,12 @@ Gtk.init(null);
 let win = new Gtk.Window({
     type: Gtk.WindowType.TOPLEVEL,
     title: 'A default title',
-    default_width: 300,
-    default_height: 250,
+    defaultWidth: 300,
+    defaultHeight: 250,
     // A decent example of how constants are mapped:
     //     'Gtk' and 'WindowPosition' from the enum name GtkWindowPosition,
     //     'CENTER' from the enum's constant GTK_WIN_POS_CENTER
-    window_position: Gtk.WindowPosition.CENTER,
+    windowPosition: Gtk.WindowPosition.CENTER,
 });
 
 // Object properties can also be set or changed after construction, unless they

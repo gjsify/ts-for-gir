@@ -1,13 +1,13 @@
 {
-  "name": "ts-for-gir-gtk-3-application-example",
+  "name": "ts-for-gir-gtk-4-application-example",
   "version": "3.2.7",
-  "description": "Simple GJS Gtk 3 example app to demonstrate how you can use and extend Gtk.Application",
+  "description": "Simple GJS Gtk 4 example app to demonstrate how you can use and extend Gtk.Application",
   "main": "index.js",
   "type": "module",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:types": "yarn ts-for-gir generate Gtk-3.0 --generateAlias",
+    "build:types": "yarn ts-for-gir generate Gtk-4.0 --generateAlias",
     "build:app": "yarn node esbuild.js",
     "build": "yarn build:types && yarn build:app",
     "start:app": "gjs -m dist/main.js",

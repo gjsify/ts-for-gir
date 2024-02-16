@@ -29,7 +29,7 @@ import {
     removeNamespace,
     addNamespace,
     girElementIsIntrospectable,
-    lowerCamelCase,
+    underscores,
 } from './utils.js'
 import { SymTable } from './symtable.js'
 import { LibraryVersion } from './library-version.js'
@@ -1088,17 +1088,22 @@ export class GirModule {
 
         let name = girVar.$.name
 
-        switch (girTypeName) {
-            case 'property':
-                name = this.transformation.transformPropertyName(girVar.$.name, allowQuotes)
-                break
-            case 'constant':
-                name = this.transformation.transformConstantName(girVar.$.name, allowQuotes)
-                break
-            case 'field':
-                name = this.transformation.transformFieldName(girVar.$.name, allowQuotes)
-                break
+        if (tsTypeName === 'constructor-property') {
+            name = this.transformation.transformConstructorPropertyName(girVar.$.name, allowQuotes)
+        } else {
+            switch (girTypeName) {
+                case 'property':
+                    name = this.transformation.transformPropertyName(girVar.$.name, allowQuotes)
+                    break
+                case 'constant':
+                    name = this.transformation.transformConstantName(girVar.$.name, allowQuotes)
+                    break
+                case 'field':
+                    name = this.transformation.transformFieldName(girVar.$.name, allowQuotes)
+                    break
+            }
         }
+
         // Use the out type because it can be a union which isn't appropriate
         // for a property
         const tsType = this.getTsType(girVar, tsClass, girTypeName, { optional, nullable, generics })
@@ -1786,6 +1791,8 @@ export class GirModule {
         return tsData
     }
 
+    // FIXME: https://github.com/gjsify/ts-for-gir/issues/145
+    // FIXME: https://github.com/gjsify/ts-for-gir/issues/131
     private getClassConstructPropsTsData(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         constructPropNames: LocalNames,
@@ -1830,12 +1837,12 @@ export class GirModule {
             }
             constructProps.push(girConstrProp)
 
-            // Add a new property with the name in upper camel case, see https://github.com/gjsify/ts-for-gir/issues/138
-            const lowerCamelCaseProperty = this.clonePropertyForLowerCamelCase(girConstrProp)
-            if (lowerCamelCaseProperty && lowerCamelCaseProperty._fullSymName) {
-                girProperties.push(lowerCamelCaseProperty)
-                this.symTable.set(this.allDependencies, lowerCamelCaseProperty._fullSymName, lowerCamelCaseProperty)
-            }
+            // Clone property with the name in underscores, see https://github.com/gjsify/ts-for-gir/issues/138
+            // const underscoresProperty = this.clonePropertyForUnderscores(girConstrProp)
+            // if (underscoresProperty && underscoresProperty._fullSymName) {
+            //     girProperties.push(underscoresProperty)
+            //     this.symTable.set(this.allDependencies, underscoresProperty._fullSymName, underscoresProperty)
+            // }
         }
 
         return constructProps
@@ -2022,7 +2029,7 @@ export class GirModule {
      * @param girProperty
      * @returns
      */
-    private clonePropertyForLowerCamelCase(girProperty: GirPropertyElement) {
+    private clonePropertyForUnderscores(girProperty: GirPropertyElement) {
         // Only for GJS
         if (this.config.environment === 'node') {
             return undefined
@@ -2034,10 +2041,10 @@ export class GirModule {
             return undefined
         }
 
-        const lowerCamelCasePropertyName = lowerCamelCase(propertyName)
+        const underscoresPropertyName = underscores(propertyName)
 
         // Nothing has changed
-        if (lowerCamelCasePropertyName === propertyName) {
+        if (underscoresPropertyName === propertyName) {
             return undefined
         }
 
@@ -2046,11 +2053,11 @@ export class GirModule {
         if (!upperCamelCaseGirProperty._tsData) {
             return undefined
         }
-        upperCamelCaseGirProperty._tsData.name = lowerCamelCasePropertyName
+        upperCamelCaseGirProperty._tsData.name = underscoresPropertyName
 
         upperCamelCaseGirProperty._fullSymName = upperCamelCaseGirProperty._fullSymName?.replace(
             propertyName,
-            lowerCamelCasePropertyName,
+            underscoresPropertyName,
         )
 
         return upperCamelCaseGirProperty
@@ -2080,25 +2087,25 @@ export class GirModule {
                     }
                 }
 
-                // Add a new property with the name in upper camel case, see https://github.com/gjsify/ts-for-gir/issues/138
-                {
-                    const lowerCamelCaseProperty = this.clonePropertyForLowerCamelCase(girProperty)
-                    if (lowerCamelCaseProperty) {
-                        const localName = this.checkOrSetLocalName(lowerCamelCaseProperty, localNames, 'property')
+                // Add a new property with the name in lower camel case, see https://github.com/gjsify/ts-for-gir/issues/138
+                // {
+                //     const underscoresProperty = this.clonePropertyForUnderscores(girProperty)
+                //     if (underscoresProperty) {
+                //         const localName = this.checkOrSetLocalName(underscoresProperty, localNames, 'property')
 
-                        if (localName?.added && localName.property) {
-                            if (lowerCamelCaseProperty._fullSymName) {
-                                this.symTable.set(
-                                    this.allDependencies,
-                                    lowerCamelCaseProperty._fullSymName,
-                                    lowerCamelCaseProperty,
-                                )
-                            }
+                //         if (localName?.added && localName.property) {
+                //             if (underscoresProperty._fullSymName) {
+                //                 this.symTable.set(
+                //                     this.allDependencies,
+                //                     underscoresProperty._fullSymName,
+                //                     underscoresProperty,
+                //                 )
+                //             }
 
-                            girProperties.push(localName.property)
-                        }
-                    }
-                }
+                //             girProperties.push(localName.property)
+                //         }
+                //     }
+                // }
             }
         }
         return girProperties

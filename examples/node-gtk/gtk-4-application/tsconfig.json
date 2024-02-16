@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "lib": ["ESNext"],
+    "types": ["node"],
+    "target": "ESNext",
+    "module": "Node16",
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "moduleResolution":"Node16",
+  },
+  "include": [
+    "./@types/node-ambient.d.ts"
+  ],
+  "files": [
+    "main.ts"
+  ]
+}

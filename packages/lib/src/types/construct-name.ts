@@ -4,6 +4,7 @@ export type ConstructName =
     | 'signalName'
     | 'fieldName'
     | 'constantName'
+    | 'constructorPropertyName'
     | 'propertyName'
     | 'parameterName'
     | 'enumName'

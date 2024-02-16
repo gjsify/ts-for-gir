@@ -3,7 +3,13 @@
 - Create a Reporter to create a text or json file with warnings like unknown types, renaming, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 - Update types for GJS v1.75.2, see https://gitlab.gnome.org/GNOME/gjs/-/commit/666755b3b09d765e43d415e76105b828517b5509
 
-# 3.2.7
+# 3.2.9
+- Upgrade dependencies
+- Update examples and removed deprecated function calles like `byteArray.toString()`
+- Removed support for `underscore` properties in the generated types, if this causes problems please let us know, then we will undo it again
+- node-gtk: Uses snake_case for property names at constructor, fixes #131
+
+# 3.2.8
 - Upgrade dependencies
 - Add type for import.meta.url, see 142
 - C type `const` is readonly in typescript

@@ -8,11 +8,13 @@
  * the label should show a translation of 'Print help'
  */
 
-import imports from './@types/gjs.js';
+import './@types/gjs.js';
+import './@types/dom.js';
 import GLib from './@types/glib-2.0.js';
 import Gio from './@types/gio-2.0.js';
 
 const loop = GLib.MainLoop.new(null, false);
+const textDecoder = new TextDecoder()
 
 function cat(filename: string) {
     const file = Gio.file_new_for_path(filename);
@@ -25,7 +27,7 @@ function cat(filename: string) {
             loop.quit();
             return;
         }
-        print(imports.byteArray.toString(contents));
+        print(textDecoder.decode(contents));
         loop.quit();
     });
 

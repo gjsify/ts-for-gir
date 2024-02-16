@@ -21045,16 +21045,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"ts-for-gir-gtk-3-application-example@workspace:examples/gjs/gtk-3-application":
-  version: 0.0.0-use.local
-  resolution: "ts-for-gir-gtk-3-application-example@workspace:examples/gjs/gtk-3-application"
-  dependencies:
-    "@ts-for-gir/cli": "workspace:^"
-    esbuild: "npm:^0.20.0"
-    typescript: "npm:5.2.2"
-  languageName: unknown
-  linkType: soft
-
 "ts-for-gir-gtk-3-browser-example@workspace:examples/gjs/gtk-3-browser":
   version: 0.0.0-use.local
   resolution: "ts-for-gir-gtk-3-browser-example@workspace:examples/gjs/gtk-3-browser"
@@ -21151,6 +21141,16 @@ __metadata:
 "ts-for-gir-gtk-3-webkit-example@workspace:examples/gjs/gtk-3-webkit":
   version: 0.0.0-use.local
   resolution: "ts-for-gir-gtk-3-webkit-example@workspace:examples/gjs/gtk-3-webkit"
+  dependencies:
+    "@ts-for-gir/cli": "workspace:^"
+    esbuild: "npm:^0.20.0"
+    typescript: "npm:5.2.2"
+  languageName: unknown
+  linkType: soft
+
+"ts-for-gir-gtk-4-application-example@workspace:examples/gjs/gtk-4-application":
+  version: 0.0.0-use.local
+  resolution: "ts-for-gir-gtk-4-application-example@workspace:examples/gjs/gtk-4-application"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
     esbuild: "npm:^0.20.0"
@@ -21286,6 +21286,16 @@ __metadata:
   dependencies:
     esbuild: "npm:^0.20.0"
     node-gtk: "npm:^0.12.0"
+    typescript: "npm:5.2.2"
+  languageName: unknown
+  linkType: soft
+
+"ts-for-gir-node-gtk-gtk-4-application-example@workspace:examples/node-gtk/gtk-4-application":
+  version: 0.0.0-use.local
+  resolution: "ts-for-gir-node-gtk-gtk-4-application-example@workspace:examples/node-gtk/gtk-4-application"
+  dependencies:
+    "@ts-for-gir/cli": "workspace:^"
+    esbuild: "npm:^0.20.0"
     typescript: "npm:5.2.2"
   languageName: unknown
   linkType: soft

@@ -12,7 +12,7 @@ import Adw from './@types/adw-1.js';
 const loop = GLib.MainLoop.new(null, false)
 
 const app = new Adw.Application({
-    application_id: 'com.github.jumplink.gjs.adw-1-hello',
+    applicationId: 'com.github.jumplink.gjs.adw-1-hello',
     flags: Gio.ApplicationFlags.FLAGS_NONE
 });
 
@@ -26,16 +26,14 @@ const onActivate = (app: Adw.Application) => {
     const label = new Gtk.Label({
         label: "Hello World",
         marginBottom: 11,
-        margin_top: 11,
+        marginTop: 11,
     })
 
     label.marginTop = 12
-    label.margin_bottom = 12
+    label.marginBottom = 12
 
     log(`label.marginTop: ${label.marginTop}`)
-    log(`label.margin_top: ${label.margin_top}`)
     log(`label.marginBottom: ${label.marginBottom}`)
-    log(`label.margin_bottom: ${label.margin_bottom}`)
 
     const window = new Gtk.ApplicationWindow(app)
     window.set_title('Hello')

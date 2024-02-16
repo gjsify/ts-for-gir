@@ -3,6 +3,10 @@ export default {
     environments: ['gjs', 'node'],
     modules: ['*'],
     girDirectories: [
+        // General gir files in this repository
+        './vala-girs/gir-1.0',
+        './girs',
+
         // General gir files installed on the system
         "/usr/local/share/gir-1.0",
         "/usr/share/gir-1.0",
@@ -23,6 +27,9 @@ export default {
         // GNOME Shell gir file dependencies on Fedora Workstation 39 (package: mutter)
         '/usr/lib64/mutter-13',
 
+        // Wait for release...
+        '/usr/lib64/mutter-14',
+
         // GNOME Shell gir file dependencies on Ubuntu 22.04 (package: libmutter-10-dev)
         '/usr/lib/x86_64-linux-gnu/mutter-10',
 
@@ -35,9 +42,8 @@ export default {
         // GNOME Shell gir file dependencies on Ubuntu 23.10 (package: libmutter-13-dev)
         '/usr/lib/x86_64-linux-gnu/mutter-13',
 
-        // General gir files in this repository
-        './vala-girs/gir-1.0',
-        './girs',
+        // Wait for release...
+        '/usr/lib/x86_64-linux-gnu/mutter-14',
     ],
     ignore: [
         'Colorhug-1.0', // Duplicate of ColorHug-1.0

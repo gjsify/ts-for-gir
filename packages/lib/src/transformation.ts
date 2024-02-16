@@ -291,13 +291,20 @@ export class Transformation {
                 transformation: 'original',
             },
         },
-        // GJS always re-writes - to _ (I think?)
         propertyName: {
             node: {
                 transformation: 'lowerCamelCase',
             },
             gjs: {
+                transformation: 'lowerCamelCase',
+            },
+        },
+        constructorPropertyName: {
+            node: {
                 transformation: 'underscores',
+            },
+            gjs: {
+                transformation: 'lowerCamelCase',
             },
         },
         parameterName: {
@@ -455,6 +462,19 @@ export class Transformation {
      */
     public transformPropertyName(name: string, allowQuotes: boolean): string {
         name = this.transform('propertyName', name)
+        const originalName = `${name}`
+
+        name = this.transformReservedVariableNames(name, allowQuotes)
+        name = this.transformNumericName(name, allowQuotes)
+
+        if (originalName !== name) {
+            this.log.warn(WARN_RENAMED_PROPERTY(originalName, name))
+        }
+        return name
+    }
+
+    public transformConstructorPropertyName(name: string, allowQuotes: boolean): string {
+        name = this.transform('constructorPropertyName', name)
         const originalName = `${name}`
 
         name = this.transformReservedVariableNames(name, allowQuotes)

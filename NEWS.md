@@ -5,7 +5,7 @@
 
 # 3.2.8
 - Upgrade dependencies
-- Update examples and removed deprecated function calles like `byteArray.toString()`
+- Update examples and removed deprecated function calls like `byteArray.toString()`
 - Add `dom.js` and `ambient.js` to allow importing `dom.d.ts` and `ambient.d.ts` in the codebase with a bundler
 - node-gtk: Add new `gtk-4-application` example
 - node-gtk: Uses snake_case for property names at constructor, fixes #131

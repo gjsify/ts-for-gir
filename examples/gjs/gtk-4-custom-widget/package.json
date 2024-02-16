@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-gjs-gtk-4-custom-widget-example",
-  "version": "3.2.7",
+  "version": "3.2.8",
   "description": "This example shows the usage of custom widgets and virtual functions in GJS",
   "main": "dist/index.js",
   "type": "module",

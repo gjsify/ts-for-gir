@@ -6,8 +6,12 @@
 # 3.2.9
 - Upgrade dependencies
 - Update examples and removed deprecated function calles like `byteArray.toString()`
-- Removed support for `underscore` properties in the generated types, if this causes problems please let us know, then we will undo it again
+- Add `dom.js` and `ambient.js` to allow importing `dom.d.ts` and `ambient.d.ts` in the codebase with a bundler
 - node-gtk: Uses snake_case for property names at constructor, fixes #131
+
+## Breaking Changes
+
+- Removed support for additional `underscore` properties (next to `lowerCamelCase`) in the generated types, if this causes problems please let us know, then we will undo it again
 
 # 3.2.8
 - Upgrade dependencies

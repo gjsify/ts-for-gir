@@ -1768,9 +1768,11 @@ export class TypeDefinitionGenerator implements Generator {
 
         // Import ambient types
         await templateProcessor.create('ambient.d.ts', this.config.outdir, 'ambient.d.ts')
+        await templateProcessor.create('ambient.js', this.config.outdir, 'ambient.js')
 
         // DOM types
         await templateProcessor.create('dom.d.ts', this.config.outdir, 'dom.d.ts')
+        await templateProcessor.create('dom.js', this.config.outdir, 'dom.js')
 
         // Import ambient path alias
         if (this.config.generateAlias) {

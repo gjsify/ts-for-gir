@@ -31,7 +31,7 @@ declare module 'system' {
   import System from '@girs/gjs/system';
   export default System;
   <%_ } else { _%>
-  const System: typeof import('./gettext.js').default;
+  const System: typeof import('./system.js').default;
   export default System;
 
   export const programInvocationName: typeof import('./system.js').programInvocationName;

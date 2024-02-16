@@ -66,7 +66,7 @@ webview.connect('notify::uri', () => {
     entry.text = webview.uri
 })
 webview.connect('notify::is-loading', () => {
-    spinner.active = webview.is_loading
+    spinner.active = webview.isLoading
 })
 
 scrolledWindow.add(webview)

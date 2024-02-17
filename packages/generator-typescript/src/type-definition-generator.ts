@@ -1263,6 +1263,37 @@ export class TypeDefinitionGenerator implements Generator {
         }
     }
 
+    protected async exportModuleAmbientJS(
+        moduleTemplateProcessor: TemplateProcessor,
+        girModule: GirModule,
+    ): Promise<void> {
+        const template = 'module-ambient.js'
+        let target = `${girModule.importName}-ambient.js`
+
+        if (this.overrideConfig.moduleType) {
+            if (this.overrideConfig.moduleType === 'cjs') {
+                target = `${girModule.importName}-ambient.cjs`
+            } else {
+                target = `${girModule.importName}-ambient.mjs`
+            }
+        }
+
+        if (this.config.outdir) {
+            await moduleTemplateProcessor.create(
+                template,
+                this.config.outdir,
+                target,
+                undefined,
+                undefined,
+                undefined,
+                this.config,
+            )
+        } else {
+            const { append, prepend } = await moduleTemplateProcessor.load(template, {}, this.config)
+            this.log.log(append + prepend)
+        }
+    }
+
     protected async exportModuleImportTS(
         moduleTemplateProcessor: TemplateProcessor,
         girModule: GirModule,
@@ -1275,6 +1306,37 @@ export class TypeDefinitionGenerator implements Generator {
                 target = `${girModule.importName}-import.d.cts`
             } else {
                 target = `${girModule.importName}-import.d.mts`
+            }
+        }
+
+        if (this.config.outdir) {
+            await moduleTemplateProcessor.create(
+                template,
+                this.config.outdir,
+                target,
+                undefined,
+                undefined,
+                undefined,
+                this.config,
+            )
+        } else {
+            const { append, prepend } = await moduleTemplateProcessor.load(template, {}, this.config)
+            this.log.log(append + prepend)
+        }
+    }
+
+    protected async exportModuleImportJS(
+        moduleTemplateProcessor: TemplateProcessor,
+        girModule: GirModule,
+    ): Promise<void> {
+        const template = 'module-import.js'
+        let target = `${girModule.importName}-import.js`
+
+        if (this.overrideConfig.moduleType) {
+            if (this.overrideConfig.moduleType === 'cjs') {
+                target = `${girModule.importName}-import.cjs`
+            } else {
+                target = `${girModule.importName}-import.mjs`
             }
         }
 
@@ -1612,14 +1674,20 @@ export class TypeDefinitionGenerator implements Generator {
         )
 
         await this.exportModuleTS(moduleTemplateProcessor, girModule)
+        if (this.config.buildType === 'lib') {
+            await this.exportModuleJS(moduleTemplateProcessor, girModule)
+        }
 
         if (this.config.environment === 'gjs') {
             await this.exportModuleAmbientTS(moduleTemplateProcessor, girModule)
+
+            if (this.config.buildType === 'lib') {
+                await this.exportModuleAmbientJS(moduleTemplateProcessor, girModule)
+            }
         }
         await this.exportModuleImportTS(moduleTemplateProcessor, girModule)
-
         if (this.config.buildType === 'lib') {
-            await this.exportModuleJS(moduleTemplateProcessor, girModule)
+            await this.exportModuleImportJS(moduleTemplateProcessor, girModule)
         }
 
         if (this.config.package) {
@@ -1768,11 +1836,15 @@ export class TypeDefinitionGenerator implements Generator {
 
         // Import ambient types
         await templateProcessor.create('ambient.d.ts', this.config.outdir, 'ambient.d.ts')
-        await templateProcessor.create('ambient.js', this.config.outdir, 'ambient.js')
+        if (this.config.buildType === 'lib') {
+            await templateProcessor.create('ambient.js', this.config.outdir, 'ambient.js')
+        }
 
         // DOM types
         await templateProcessor.create('dom.d.ts', this.config.outdir, 'dom.d.ts')
-        await templateProcessor.create('dom.js', this.config.outdir, 'dom.js')
+        if (this.config.buildType === 'lib') {
+            await templateProcessor.create('dom.js', this.config.outdir, 'dom.js')
+        }
 
         // Import ambient path alias
         if (this.config.generateAlias) {
@@ -1844,6 +1916,9 @@ export class TypeDefinitionGenerator implements Generator {
 
         // Import ambient types
         await templateProcessor.create('ambient.d.ts', this.config.outdir, 'node-ambient.d.ts')
+        if (this.config.buildType === 'lib') {
+            await templateProcessor.create('ambient.js', this.config.outdir, 'node-ambient.js')
+        }
 
         // Package
         if (this.config.package) {

@@ -58,7 +58,7 @@ wnd.connect('delete-event', () => {
     return true
 })
 entry.connect('activate', (self) => {
-    let uri = self.text
+    let uri = self.text || ''
     if (uri && !(uri.startsWith('http://') || uri.startsWith('https://') || uri.startsWith('ftp://'))) uri = 'http://' + uri
     webview.load_uri(uri)
 })
@@ -66,7 +66,7 @@ webview.connect('notify::uri', () => {
     entry.text = webview.uri
 })
 webview.connect('notify::is-loading', () => {
-    spinner.active = webview.is_loading
+    spinner.active = webview.isLoading
 })
 
 scrolledWindow.add(webview)

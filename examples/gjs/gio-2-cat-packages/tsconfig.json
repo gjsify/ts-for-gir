@@ -7,7 +7,7 @@
     "module": "ESNext",
     "moduleResolution": "node"
   },
-  "include": ["@girs/gjs", "@girs/gjs/ambient"],
+  "include": ["@girs/gjs", "@girs/gjs/dom", "@girs/gjs/ambient"],
   "files": [
     "main.ts",
   ]

@@ -179,6 +179,9 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="exporter" transfer-ownership="none">
             <type name="WindowExporter" c:type="ShewWindowExporter*"/>
           </instance-parameter>
+          <parameter name="handle" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
         </parameters>
       </method>
       <property name="window"

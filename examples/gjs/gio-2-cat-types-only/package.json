@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-gio-2-cat-types-only-example",
-  "version": "3.2.3",
+  "version": "3.2.8",
   "description": "Simple GJS Gtk 3 example app that shows how you can translate strings with gettext",
   "main": "index.js",
   "type": "module",
@@ -22,7 +22,7 @@
   "license": "MIT",
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "esbuild": "^0.19.5",
-    "typescript": "^5.2.2"
+    "esbuild": "^0.20.0",
+    "typescript": "5.2.2"
   }
 }

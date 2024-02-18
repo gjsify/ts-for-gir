@@ -47,7 +47,7 @@ const CustomWidget = GObject.registerClass({
 
 const loop = GLib.MainLoop.new(null, false)
 const app = new Gtk.Application({
-  application_id: 'com.github.jumplink.gjs.demo',
+  applicationId: 'com.github.jumplink.gjs.demo',
   flags: 0
 })
 app.connect('activate', onActivate)

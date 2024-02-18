@@ -5,7 +5,8 @@
     "types": [],
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
     "allowImportingTsExtensions": true,
     "strict": true,
     "noImplicitAny": true,
@@ -13,7 +14,7 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
   },
-  "include": ["@types/gjs.d.ts"],
+  "include": ["@types/gjs.d.ts", "@types/dom.d.ts"],
   "files": [
     "http-client.ts",
     "http-server.ts"

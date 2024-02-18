@@ -11,7 +11,7 @@ import GLib from 'gi://GLib?version=2.0';
 import Soup from 'gi://Soup?version=3.0';
 
 const loop = GLib.MainLoop.new(null, false);
-const byteArray = imports.byteArray;
+const textDecoder = new TextDecoder();
 
 const session = new Soup.Session();
 const message = new Soup.Message({
@@ -32,8 +32,9 @@ const readBytesAsyncCallback: Gio.AsyncReadyCallback = (inputStream, res) => {
         loop.quit();
         return;
     }
+   
 
-    log(`body:\n${byteArray.toString(byteArray.fromGBytes(data))}`);
+    log(`body:\n${textDecoder.decode(data.toArray())}`);
 
     loop.quit();
 }
@@ -52,12 +53,12 @@ const send_async_callback: Gio.AsyncReadyCallback = (self, res) => {
         return;
     }
 
-    log(`status: ${message.status_code} - ${message.reason_phrase}`);
-    message.response_headers.foreach((name, value) => {
+    log(`status: ${message.statusCode} - ${message.reasonPhrase}`);
+    message.responseHeaders.foreach((name, value) => {
         log(`${name}: ${value}`);
     });
 
-    inputStream.read_bytes_async(message.response_headers.get_content_length(), 0, null, readBytesAsyncCallback);
+    inputStream.read_bytes_async(message.responseHeaders.get_content_length(), 0, null, readBytesAsyncCallback);
 }
 
 session.send_async(message, 0, null, send_async_callback);

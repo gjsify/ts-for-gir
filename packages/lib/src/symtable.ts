@@ -40,8 +40,9 @@ export class SymTable {
 
         const split = implementation.split('.')
         const namespace = split[0]
-        const packageName = dependencies.find((dependency) => dependency.packageName.startsWith(namespace + '-'))
-            ?.packageName
+        const packageName = dependencies.find((dependency) =>
+            dependency.packageName.startsWith(namespace + '-'),
+        )?.packageName
         if (!packageName) {
             this.log.warn(WARN_NOT_FOUND_PACKAGE_NAME(namespace, implementation))
             return null

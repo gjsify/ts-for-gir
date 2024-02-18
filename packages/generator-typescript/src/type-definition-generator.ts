@@ -88,16 +88,8 @@ class ModuleGenerator extends FormatGenerator<string[]> {
     dependencyManager: DependencyManager
     packageData?: PackageDataParser
 
-    /** Override config, used to override the config temporarily to generate both ESM and CJS for NPM packages */
-    overrideConfig: Partial<GenerateConfig> = {}
-
-    _config: GenerateConfig
+    config: GenerateConfig
     moduleTemplateProcessor: TemplateProcessor
-
-    /** Get the current config, including the override config */
-    get config(): GenerateConfig {
-        return { ...this._config, ...this.overrideConfig }
-    }
 
     /**
      * @param _config The config to use without the override config
@@ -105,7 +97,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
     constructor(namespace: GirModule, config: GenerateConfig) {
         super(namespace, config)
 
-        this._config = config
+        this.config = config
 
         this.log = new Logger(this.config.environment, this.config.verbose, TypeDefinitionGenerator.name)
         this.dependencyManager = DependencyManager.getInstance(this.config)
@@ -367,11 +359,11 @@ class ModuleGenerator extends FormatGenerator<string[]> {
     }
 
     generateType(tsType: TypeExpression) {
-        return tsType.print(this.namespace, this._config)
+        return tsType.print(this.namespace, this.config)
     }
 
     generateTypes(tsTypes: TypeExpression) {
-        return tsTypes.print(this.namespace, this._config)
+        return tsTypes.print(this.namespace, this.config)
     }
 
     // TODO:
@@ -842,7 +834,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
         const exp = !this.config.noNamespace ? '' : 'export '
 
-        desc.push(`${indent}${exp}type ${girAlias.name} = ${girAlias.type.print(this.namespace, this._config)}`)
+        desc.push(`${indent}${exp}type ${girAlias.name} = ${girAlias.type.print(this.namespace, this.config)}`)
         return desc
     }
 
@@ -1229,15 +1221,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
     async exportModuleJS(girModule: GirModule): Promise<void> {
         const template = 'module.js'
-        let target = `${girModule.importName}.js`
-
-        if (this.overrideConfig.moduleType) {
-            if (this.overrideConfig.moduleType === 'cjs') {
-                target = `${girModule.importName}.cjs`
-            } else {
-                target = `${girModule.importName}.mjs`
-            }
-        }
+        const target = `${girModule.importName}.js`
 
         if (this.config.outdir) {
             await this.moduleTemplateProcessor.create(
@@ -1257,15 +1241,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
     async exportModuleAmbientTS(girModule: GirModule): Promise<void> {
         const template = 'module-ambient.d.ts'
-        let target = `${girModule.importName}-ambient.d.ts`
-
-        if (this.overrideConfig.moduleType) {
-            if (this.overrideConfig.moduleType === 'cjs') {
-                target = `${girModule.importName}-ambient.d.cts`
-            } else {
-                target = `${girModule.importName}-ambient.d.mts`
-            }
-        }
+        const target = `${girModule.importName}-ambient.d.ts`
 
         if (this.config.outdir) {
             await this.moduleTemplateProcessor.create(
@@ -1283,17 +1259,49 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         }
     }
 
-    async exportModuleImportTS(girModule: GirModule): Promise<void> {
-        const template = 'module-import.d.ts'
-        let target = `${girModule.importName}-import.d.ts`
+    protected async exportModuleAmbientJS(girModule: GirModule): Promise<void> {
+        const template = 'module-ambient.js'
+        const target = `${girModule.importName}-ambient.js`
 
-        if (this.overrideConfig.moduleType) {
-            if (this.overrideConfig.moduleType === 'cjs') {
-                target = `${girModule.importName}-import.d.cts`
-            } else {
-                target = `${girModule.importName}-import.d.mts`
-            }
+        if (this.config.outdir) {
+            await this.moduleTemplateProcessor.create(
+                template,
+                this.config.outdir,
+                target,
+                undefined,
+                undefined,
+                undefined,
+                this.config,
+            )
+        } else {
+            const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
+            this.log.log(append + prepend)
         }
+    }
+
+    protected async exportModuleImportTS(girModule: GirModule): Promise<void> {
+        const template = 'module-import.d.ts'
+        const target = `${girModule.importName}-import.d.ts`
+
+        if (this.config.outdir) {
+            await this.moduleTemplateProcessor.create(
+                template,
+                this.config.outdir,
+                target,
+                undefined,
+                undefined,
+                undefined,
+                this.config,
+            )
+        } else {
+            const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
+            this.log.log(append + prepend)
+        }
+    }
+
+    protected async exportModuleImportJS(girModule: GirModule): Promise<void> {
+        const template = 'module-import.js'
+        const target = `${girModule.importName}-import.js`
 
         if (this.config.outdir) {
             await this.moduleTemplateProcessor.create(
@@ -1323,15 +1331,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         // const template = 'module.d.ts'
         // const explicitTemplate = `${girModule.importName}.d.ts`
 
-        let target = `${girModule.importName}.d.ts`
-
-        if (this.overrideConfig.moduleType) {
-            if (this.overrideConfig.moduleType === 'cjs') {
-                target = `${girModule.importName}.d.cts`
-            } else {
-                target = `${girModule.importName}.d.mts`
-            }
-        }
+        const target = `${girModule.importName}.d.ts`
 
         const formatter = this.dependencyManager.registry.getFormatter('dts')
 
@@ -1601,47 +1601,44 @@ class ModuleGenerator extends FormatGenerator<string[]> {
     }
 
     async exportModule(registry: NSRegistry, girModule: GirModule) {
+        // let pkgData: PackageData | undefined
+        // if (this.packageData) {
+        //     pkgData = this.packageData.get(girModule.packageName)
+        // }
+        // const moduleTemplateProcessor = new TemplateProcessor(
+        //     {
+        //         name: girModule.namespace,
+        //         namespace: girModule.namespace,
+        //         version: girModule.version,
+        //         importName: girModule.importName,
+        //         girModule,
+        //         girModules,
+        //         girModulesGrouped,
+        //         pkgData,
+        //     },
+        //     girModule.packageName,
+        //     girModule.transitiveDependencies,
+        //     this.config,
+        // )
+
         await this.exportModuleTS()
-
-        if (this.config.environment === 'gjs') {
-            await this.exportModuleAmbientTS(girModule)
-        }
-        await this.exportModuleImportTS(girModule)
-
         if (this.config.buildType === 'lib') {
             await this.exportModuleJS(girModule)
         }
 
-        if (this.config.package) {
-            this.setOverrideConfigForOtherModuleType()
-            await this.exportModuleTS()
-            if (this.config.buildType === 'lib') {
-                await this.exportModuleJS(girModule)
-            }
-            this.resetOverrideConfig()
+        await this.exportModuleAmbientTS(girModule)
+        if (this.config.buildType === 'lib') {
+            await this.exportModuleAmbientJS(girModule)
+        }
+
+        await this.exportModuleImportTS(girModule)
+        if (this.config.buildType === 'lib') {
+            await this.exportModuleImportJS(girModule)
         }
 
         if (this.config.package) {
             await this.exportNPMPackage(girModule.importName)
         }
-    }
-
-    /**
-     * We build both module types if we build an NPM package,
-     * so we need to switch the module type and use the default noNamespace value for the module type
-     */
-    setOverrideConfigForOtherModuleType() {
-        if (this.config.moduleType === 'esm') {
-            this.overrideConfig.moduleType = 'cjs'
-            this.overrideConfig.noNamespace = true
-        } else {
-            this.overrideConfig.moduleType = 'esm'
-            this.overrideConfig.noNamespace = false
-        }
-    }
-
-    resetOverrideConfig() {
-        this.overrideConfig = {}
     }
 }
 
@@ -1650,19 +1647,12 @@ export class TypeDefinitionGenerator implements Generator {
     dependencyManager: DependencyManager
     packageData?: PackageDataParser
 
-    /** Override config, used to override the config temporarily to generate both ESM and CJS for NPM packages */
-    overrideConfig: Partial<GenerateConfig> = {}
     module!: ModuleGenerator
-
-    /** Get the current config, including the override config */
-    get config(): GenerateConfig {
-        return { ...this._config, ...this.overrideConfig }
-    }
 
     /**
      * @param _config The config to use without the override config
      */
-    constructor(readonly _config: GenerateConfig) {
+    constructor(readonly config: GenerateConfig) {
         this.log = new Logger(this.config.environment, this.config.verbose, TypeDefinitionGenerator.name)
         this.dependencyManager = DependencyManager.getInstance(this.config)
         if (this.config.package) {
@@ -1717,94 +1707,17 @@ export class TypeDefinitionGenerator implements Generator {
             await templateProcessor.create('cairo.js', this.config.outdir, 'cairo.js')
         }
 
-        // If you build an NPM package, we also build the Gjs module for the other module type
-        if (this.config.package) {
-            this.module.setOverrideConfigForOtherModuleType()
-            // TS
-            await templateProcessor.create(
-                'gjs.d.ts',
-                this.config.outdir,
-                this.overrideConfig.moduleType === 'cjs' ? 'gjs.d.cts' : 'gjs.d.mts',
-                undefined,
-                undefined,
-                undefined,
-                this.config,
-            )
-            await templateProcessor.create(
-                'gettext.d.ts',
-                this.config.outdir,
-                this.overrideConfig.moduleType === 'cjs' ? 'gettext.d.cts' : 'gettext.d.mts',
-                undefined,
-                undefined,
-                undefined,
-                this.config,
-            )
-            await templateProcessor.create(
-                'system.d.ts',
-                this.config.outdir,
-                this.overrideConfig.moduleType === 'cjs' ? 'system.d.cts' : 'system.d.mts',
-                undefined,
-                undefined,
-                undefined,
-                this.config,
-            )
-            await templateProcessor.create(
-                'cairo.d.ts',
-                this.config.outdir,
-                this.overrideConfig.moduleType === 'cjs' ? 'cairo.d.cts' : 'cairo.d.mts',
-                undefined,
-                undefined,
-                undefined,
-                this.config,
-            )
-
-            // JS
-            if (this.config.buildType === 'lib') {
-                await templateProcessor.create(
-                    'gjs.js',
-                    this.config.outdir,
-                    this.overrideConfig.moduleType === 'cjs' ? 'gjs.cjs' : 'gjs.mjs',
-                    undefined,
-                    undefined,
-                    undefined,
-                    this.config,
-                )
-                await templateProcessor.create(
-                    'gettext.js',
-                    this.config.outdir,
-                    this.overrideConfig.moduleType === 'cjs' ? 'gettext.cjs' : 'gettext.mjs',
-                    undefined,
-                    undefined,
-                    undefined,
-                    this.config,
-                )
-                await templateProcessor.create(
-                    'system.js',
-                    this.config.outdir,
-                    this.overrideConfig.moduleType === 'cjs' ? 'system.cjs' : 'system.mjs',
-                    undefined,
-                    undefined,
-                    undefined,
-                    this.config,
-                )
-                await templateProcessor.create(
-                    'cairo.js',
-                    this.config.outdir,
-                    this.overrideConfig.moduleType === 'cjs' ? 'cairo.cjs' : 'cairo.mjs',
-                    undefined,
-                    undefined,
-                    undefined,
-                    this.config,
-                )
-            }
-            this.module.resetOverrideConfig()
-        }
-
         // Import ambient types
         await templateProcessor.create('ambient.d.ts', this.config.outdir, 'ambient.d.ts')
+        if (this.config.buildType === 'lib') {
+            await templateProcessor.create('ambient.js', this.config.outdir, 'ambient.js')
+        }
 
         // DOM types
         await templateProcessor.create('dom.d.ts', this.config.outdir, 'dom.d.ts')
+        if (this.config.buildType === 'lib') {
+            await templateProcessor.create('dom.js', this.config.outdir, 'dom.js')
+        }
 
         // Import ambient path alias
         if (this.config.generateAlias) {

@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Soup" version="2.4"/>
+  <package name="libsoup-gnome-2.4"/>
+  <c:include name="libsoup/soup-gnome.h"/>
+  <namespace name="SoupGNOME"
+             version="2.4"
+             shared-library="libsoup-gnome-2.4.so.1"
+             c:identifier-prefixes="Soup"
+             c:symbol-prefixes="soup">
+    <function-macro name="COOKIE_JAR_SQLITE"
+                    c:identifier="SOUP_COOKIE_JAR_SQLITE"
+                    introspectable="0">
+      <source-position filename="libsoup/soup-cookie-jar-sqlite.h" line="14"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="COOKIE_JAR_SQLITE_CLASS"
+                    c:identifier="SOUP_COOKIE_JAR_SQLITE_CLASS"
+                    introspectable="0">
+      <source-position filename="libsoup/soup-cookie-jar-sqlite.h" line="15"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="COOKIE_JAR_SQLITE_FILENAME"
+              value="filename"
+              c:type="SOUP_COOKIE_JAR_SQLITE_FILENAME">
+      <source-position filename="libsoup/soup-cookie-jar-sqlite.h" line="30"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function-macro name="COOKIE_JAR_SQLITE_GET_CLASS"
+                    c:identifier="SOUP_COOKIE_JAR_SQLITE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libsoup/soup-cookie-jar-sqlite.h" line="18"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="CookieJarSqlite"
+           c:symbol-prefix="cookie_jar_sqlite"
+           c:type="SoupCookieJarSqlite"
+           parent="Soup.CookieJarDB"
+           glib:type-name="SoupCookieJarSqlite"
+           glib:get-type="soup_cookie_jar_sqlite_get_type"
+           glib:type-struct="CookieJarSqliteClass">
+      <source-position filename="libsoup/soup-cookie-jar-sqlite.h" line="28"/>
+      <implements name="Soup.SessionFeature"/>
+      <constructor name="new" c:identifier="soup_cookie_jar_sqlite_new">
+        <source-position filename="libsoup/soup-cookie-jar-sqlite.h"
+                         line="38"/>
+        <return-value transfer-ownership="full">
+          <type name="Soup.CookieJar" c:type="SoupCookieJar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="filename" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="read_only" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="parent">
+        <type name="Soup.CookieJarDB" c:type="SoupCookieJarDB"/>
+      </field>
+    </class>
+    <record name="CookieJarSqliteClass"
+            c:type="SoupCookieJarSqliteClass"
+            glib:is-gtype-struct-for="CookieJarSqlite">
+      <source-position filename="libsoup/soup-cookie-jar-sqlite.h" line="28"/>
+      <field name="parent_class">
+        <type name="Soup.CookieJarDBClass" c:type="SoupCookieJarDBClass"/>
+      </field>
+    </record>
+    <function-macro name="IS_COOKIE_JAR_SQLITE"
+                    c:identifier="SOUP_IS_COOKIE_JAR_SQLITE"
+                    introspectable="0">
+      <source-position filename="libsoup/soup-cookie-jar-sqlite.h" line="16"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_COOKIE_JAR_SQLITE_CLASS"
+                    c:identifier="SOUP_IS_COOKIE_JAR_SQLITE_CLASS"
+                    introspectable="0">
+      <source-position filename="libsoup/soup-cookie-jar-sqlite.h" line="17"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="PasswordManagerGNOME"
+           c:symbol-prefix="password_manager_gnome"
+           parent="GObject.Object"
+           glib:type-name="SoupPasswordManagerGNOME"
+           glib:get-type="soup_password_manager_gnome_get_type">
+      <implements name="Soup.SessionFeature"/>
+    </class>
+    <class name="ProxyResolverGNOME"
+           c:symbol-prefix="proxy_resolver_gnome"
+           parent="Soup.ProxyResolverDefault"
+           glib:type-name="SoupProxyResolverGNOME"
+           glib:get-type="soup_proxy_resolver_gnome_get_type">
+      <implements name="Soup.ProxyURIResolver"/>
+      <implements name="Soup.SessionFeature"/>
+    </class>
+    <function name="gnome_features_2_26_get_type"
+              c:identifier="soup_gnome_features_2_26_get_type">
+      <source-position filename="libsoup/soup-gnome-features.h" line="20"/>
+      <return-value transfer-ownership="none">
+        <type name="GType" c:type="GType"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

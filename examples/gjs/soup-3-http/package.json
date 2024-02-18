@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-soup-3-http-example",
-  "version": "3.2.3",
+  "version": "3.2.8",
   "description": "GJS example showing how to build a http server/client using Soap 3",
   "main": "index.js",
   "type": "module",
@@ -16,7 +16,7 @@
     "debug:client": "GTK_DEBUG=interactive yarn start:client",
     "start": "yarn build && yarn start:server",
     "validate": "yarn validate:types && yarn validate:app",
-    "validate:types": "tsc --project tsconfig.types.json",
+    "validate:types": "tsc --project tsconfig.json",
     "validate:app": "tsc --noEmit",
     "clear": "rm -rf dist @types"
   },
@@ -24,7 +24,7 @@
   "license": "MIT",
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "esbuild": "^0.19.5",
-    "typescript": "^5.2.2"
+    "esbuild": "^0.20.0",
+    "typescript": "5.2.2"
   }
 }

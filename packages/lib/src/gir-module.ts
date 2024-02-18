@@ -432,110 +432,135 @@ export class GirModule {
     //     }
     // }
 
-    /**
-     * this method needs to be refactored, an array can also be an array of an array for example
-     * @param girVar
-     * @returns
-     */
+    // /**
+    //  * this method needs to be refactored, an array can also be an array of an array for example
+    //  * @param girVar
+    //  * @returns
+    //  */
 
-    private arrayLengthIndexLookup(girVar: GirCallableParamElement): number {
-        if (!girVar.array) return -1
+    // private arrayLengthIndexLookup(girVar: GirCallableParamElement): number {
+    //     if (!girVar.array) return -1
 
-        const arr: GirArrayType = girVar.array[0]
-        if (!arr.$) return -1
+    //     const arr: GirArrayType = girVar.array[0]
+    //     if (!arr.$) return -1
 
-        if (arr.$.length) {
-            return parseInt(arr.$.length)
-        }
+    //     if (arr.$.length) {
+    //         return parseInt(arr.$.length)
+    //     }
 
-        return -1
-    }
+    //     return -1
+    // }
 
-    private closureDataIndexLookup(girVar: GirCallableParamElement): number {
-        if (!girVar.$.closure) return -1
+    // private closureDataIndexLookup(girVar: GirCallableParamElement): number {
+    //     if (!girVar.$.closure) return -1
 
-        return parseInt(girVar.$.closure)
-    }
+    //     return parseInt(girVar.$.closure)
+    // }
 
-    private destroyDataIndexLookup(girVar: GirCallableParamElement): number {
-        if (!girVar.$.destroy) return -1
+    // private destroyDataIndexLookup(girVar: GirCallableParamElement): number {
+    //     if (!girVar.$.destroy) return -1
 
-        return parseInt(girVar.$.destroy)
-    }
+    //     return parseInt(girVar.$.destroy)
+    // }
 
-    private processParams(
-        params: GirCallableParamElement[],
-        skip: GirCallableParamElement[],
-        getIndex: (param: GirCallableParamElement) => number,
-    ): void {
-        for (const param of params) {
-            const index = getIndex(param)
-            if (index < 0) continue
-            if (index >= params.length) continue
-            skip.push(params[index])
-        }
-    }
+    // private processParams(
+    //     params: GirCallableParamElement[],
+    //     skip: GirCallableParamElement[],
+    //     getIndex: (param: GirCallableParamElement) => number,
+    // ): void {
+    //     for (const param of params) {
+    //         const index = getIndex(param)
+    //         if (index < 0) continue
+    //         if (index >= params.length) continue
+    //         skip.push(params[index])
+    //     }
+    // }
 
-    /**
-     * Checks if the parameter is nullable (which results in ` | null`).
-     *
-     * @param girVar girVar to test
-     */
-    private typeIsNullable(
-        girVar:
-            | GirCallableParamElement
-            | GirCallableReturn
-            | GirAliasElement
-            | GirFieldElement
-            | GirConstantElement
-            | GirPropertyElement,
-    ): boolean {
-        const a = (girVar as GirCallableParamElement).$
+    // /**
+    //  * Checks if the parameter is nullable (which results in ` | null`).
+    //  *
+    //  * @param girVar girVar to test
+    //  */
+    // private typeIsNullable(
+    //     girVar:
+    //         | GirCallableParamElement
+    //         | GirCallableReturn
+    //         | GirAliasElement
+    //         | GirFieldElement
+    //         | GirConstantElement
+    //         | GirPropertyElement,
+    //     girTypeName: GirTypeName,
+    // ): boolean {
+    //     const a = (girVar as GirCallableParamElement).$
 
-        if (!a) return false
+    //     if (!a) return false
 
-        const type: GirType | undefined = girVar.type?.[0]
-        const cType = type?.$?.['c:type']
+    //     const type: GirType | undefined = girVar.type?.[0]
+    //     const cType = type?.$?.['c:type']
 
-        // UTF-8 string pointers can be null, e.g. `gchar*`, see https://github.com/gjsify/ts-for-gir/issues/108
-        if (type?.$?.name === 'utf8' && cType?.endsWith('*')) {
-            return true
-        }
+    //     // Ignore depreciated `allow-none` if one of the new implementation `optional` or `nullable` is set
+    //     if (a.optional || a.nullable) {
+    //         return girBool(a.nullable)
+    //     }
 
-        // If the default value is NULL, handle this as nullable
-        if (a['default-value'] === 'NULL') return true
+    //     if (girTypeName === 'constant') {
+    //         return false // constants are never nullable
+    //     }
 
-        // Ignore depreciated `allow-none` if one of the new implementation `optional` or `nullable` is set
-        if (a.optional || a.nullable) {
-            return girBool(a.nullable)
-        } else {
-            return girBool(a.nullable) || girBool(a['allow-none']) || girBool(a['null-ok'])
-        }
-    }
+    //     // UTF-8 string pointers can be null, e.g. `gchar*`, see https://github.com/gjsify/ts-for-gir/issues/108
+    //     if (type?.$?.name === 'utf8' && !cType?.startsWith('const ') && cType?.endsWith('*')) {
+    //         return true
+    //     }
 
-    /**
-     * Checks if the parameter is optional (which results in `foo?: bar`).
-     * @param girVar girVar to test
-     */
-    private typeIsOptional(
-        girVar:
-            | GirCallableParamElement
-            | GirCallableReturn
-            | GirAliasElement
-            | GirFieldElement
-            | GirConstantElement
-            | GirPropertyElement,
-    ): boolean {
-        const a = (girVar as GirCallableParamElement).$
-        if (!a) return false
+    //     // If the default value is NULL, handle this as nullable
+    //     if (a['default-value'] === 'NULL') {
+    //         return true
+    //     }
 
-        // Ignore depreciated `allow-none` if one of the new implementation `optional` or `nullable` is set
-        if (a.optional || a.nullable) {
-            return girBool(a.optional)
-        } else {
-            return girBool(a.optional) || girBool(a['allow-none']) || girBool(a['null-ok'])
-        }
-    }
+    //     return girBool(a.nullable) || girBool(a['allow-none']) || girBool(a['null-ok'])
+    // }
+
+    // /**
+    //  * Checks if the parameter is optional (which results in `foo?: bar`).
+    //  * @param girVar girVar to test
+    //  */
+    // private typeIsOptional(
+    //     girVar:
+    //         | GirCallableParamElement
+    //         | GirCallableReturn
+    //         | GirAliasElement
+    //         | GirFieldElement
+    //         | GirConstantElement
+    //         | GirPropertyElement,
+    //     girTypeName: GirTypeName,
+    // ): boolean {
+    //     const a = (girVar as GirCallableParamElement).$
+    //     if (!a) return false
+
+    //     // Ignore depreciated `allow-none` if one of the new implementation `optional` or `nullable` is set
+    //     if (a.optional || a.nullable) {
+    //         return girBool(a.optional)
+    //     }
+
+    //     if (girTypeName === 'constant') {
+    //         return false // constants are never optional
+    //     }
+
+    //     return girBool(a.optional) || girBool(a['allow-none']) || girBool(a['null-ok'])
+    // }
+
+    // /**
+    //  * Checks if the property is readonly.
+    //  * @param girCallback
+    //  */
+    // private typeIsReadonly(girProp: GirPropertyElement | GirFieldElement): boolean {
+    //     const cType = girProp.type?.[0].$?.['c:type']
+    //     return (
+    //         !girBool(girProp.$.writable) ||
+    //         girBool((girProp as GirPropertyElement).$['construct-only']) ||
+    //         (cType ? cType.startsWith('const ') : false) // c type is const and therefore readonly, isn't?
+    //     )
+    // }
 
     // private setParameterTsData(
     //     girParam: GirCallableParamElement,
@@ -1161,10 +1186,9 @@ export class GirModule {
             (m): m is IntrospectedBaseClass => m instanceof IntrospectedBaseClass,
         )
         const res = clazzes
-            .map<[IntrospectedBaseClass, IntrospectedClassCallback | undefined]>((m) => [
-                m,
-                m.callbacks.find((c) => c.name === name || c.resolve_names.includes(name)),
-            ])
+            .map<
+                [IntrospectedBaseClass, IntrospectedClassCallback | undefined]
+            >((m) => [m, m.callbacks.find((c) => c.name === name || c.resolve_names.includes(name))])
             .find((r): r is [IntrospectedBaseClass, IntrospectedClassCallback] => r[1] != null)
 
         if (res) {

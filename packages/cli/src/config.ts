@@ -282,7 +282,7 @@ export class Config {
      * @param configName If the user uses a custom config file name
      */
     private static async loadConfigFile(configName?: string): Promise<UserConfigLoadResult | null> {
-        const configSearchOptions: ConfigSearchOptions = {
+        const configSearchOptions: Partial<ConfigSearchOptions> = {
             loaders: {
                 // ESM loader
                 '.js': async (filepath) => {

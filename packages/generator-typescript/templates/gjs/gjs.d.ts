@@ -71,7 +71,7 @@ declare namespace byteArray {
     /** @deprecated Use {@link GLib.Bytes.toArray} instead */
     export function fromGBytes(input: GLib.Bytes): Uint8Array
 
-    /** @deprecated Use {@link TextEncoder.encode} instead */
+    /** @deprecated Use {@link TextDecoder.decode} instead */
     export function toString(x: Uint8Array, encoding?: TextDecoderEncoding): string
 
     /** @deprecated Use {@link GLib.Bytes new GLib.Bytes() } instead */

@@ -54,8 +54,8 @@ export const PRIMITIVE_TYPE_MAP = {
     'gchar*': 'string', // TODO CHECKME
     'gchar**': 'string', // TODO CHECKME
     'gchar***': 'string', // TODO CHECKME
-    'const gchar*': 'string', // TODO CHECKME
-    'const char*': 'string', // TODO CHECKME
+    'const gchar*': 'string', // TODO is read-only
+    'const char*': 'string', // TODO is read-only
 
     // Booleans
     gboolean: 'boolean',
@@ -278,10 +278,14 @@ export class Transformation {
                 transformation: 'original',
             },
         },
-        // GJS always re-writes - to _ (I think?)
         propertyName: {
             gjs: {
-                transformation: 'underscores',
+                transformation: 'lowerCamelCase',
+            },
+        },
+        constructorPropertyName: {
+            gjs: {
+                transformation: 'lowerCamelCase',
             },
         },
         parameterName: {
@@ -421,6 +425,19 @@ export class Transformation {
      */
     public transformPropertyName(name: string, allowQuotes: boolean): string {
         name = this.transform('propertyName', name)
+        const originalName = `${name}`
+
+        name = this.transformReservedVariableNames(name, allowQuotes)
+        name = this.transformNumericName(name, allowQuotes)
+
+        if (originalName !== name) {
+            this.log.warn(WARN_RENAMED_PROPERTY(originalName, name))
+        }
+        return name
+    }
+
+    public transformConstructorPropertyName(name: string, allowQuotes: boolean): string {
+        name = this.transform('constructorPropertyName', name)
         const originalName = `${name}`
 
         name = this.transformReservedVariableNames(name, allowQuotes)

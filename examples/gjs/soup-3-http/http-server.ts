@@ -15,7 +15,7 @@ interface GjsHashTable {
 }
 
 const loop = GLib.MainLoop.new(null, false);
-const byteArray = imports.byteArray;
+const textEncoder = new TextEncoder();
 
 const handler: Soup.ServerCallback = (server, msg, path, query) => {
     if(!msg) {
@@ -24,7 +24,7 @@ const handler: Soup.ServerCallback = (server, msg, path, query) => {
 
     msg.set_status(200, null);
 
-    const body = byteArray.fromString(`
+    const body = textEncoder.encode(`
         <html>
         <body>
             Greetings, visitor from ${msg.get_remote_host()}</br>
@@ -53,7 +53,7 @@ const helloHandler: Soup.ServerCallback = (server, msg, path, query) => {
 
     print("query", JSON.stringify(query))
 
-    const body = byteArray.fromString(`
+    const body = textEncoder.encode(`
         <html>
         <body>
             Hello, ${(query as GjsHashTable).myname}! ☺<br>

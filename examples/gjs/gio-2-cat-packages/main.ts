@@ -9,11 +9,12 @@
  */
 
 import '@girs/gjs';
+import '@girs/gjs/dom';
 import '@girs/gio-2.0';
 
 import Gio from "gi://Gio?version=2.0";
 
-const ByteArray = imports.byteArray;
+const textDecoder = new TextDecoder()
 
 Gio._promisify(Gio.File.prototype, 'load_contents_async', 'load_contents_finish');
 
@@ -21,7 +22,8 @@ async function cat(filename: string) {
     const file = Gio.file_new_for_path(filename);
 
     const [contents] = await file.load_contents_async(null);
-    print(ByteArray.toString(contents));
+    
+    print(textDecoder.decode(contents));
 }
 
 if (ARGV.length !== 1)

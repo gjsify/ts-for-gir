@@ -26,8 +26,11 @@ _%>
       <%_ if (packageName === 'Gjs' && generateAlias) { _%>
         "./tsconfig.alias.json": "./tsconfig.alias.json",
       <%_ } _%>
-      <%_ if (packageName === 'Gjs') { _%>
-        "./ambient": "./ambient.d.ts",
+        <%_ if (packageName === 'Gjs') { _%>
+        "./ambient": {
+          "types": "./ambient.d.ts",
+          "default": "./ambient.js"
+        },
         "./gettext": {
           <%_ if (moduleType === 'esm') { _%>
           "import": {
@@ -93,11 +96,28 @@ _%>
         },
       <%_ } _%>
       <%_ if (entryPointName === 'gjs') { _%>
-      "./ambient": "./ambient.d.ts",
-      "./dom": "./dom.d.ts",
+      "./ambient": {
+        "types": "./ambient.d.ts",
+        "default": "./ambient.js"
+      },
+      "./dom": {
+        "types": "./dom.d.ts",
+        "default": "./dom.js"
+      },
+      <%_ } else if (entryPointName === 'node-gtk') { _%>
+      "./ambient": {
+        "types": "./node-ambient.d.ts",
+        "default": "./node-ambient.js"
+      },
       <%_ } else {_%>
-      "./ambient": "./<%- entryPointName %>-ambient.d.ts",
-      "./import": "./<%- entryPointName %>-import.d.ts",
+      "./ambient": {
+        "types": "./<%- entryPointName %>-ambient.d.ts",
+        "default": "./<%- entryPointName %>-ambient.js"
+      },
+      "./import": {
+        "types": "./<%- entryPointName %>-import.d.ts",
+        "default": "./<%- entryPointName %>-import.js"
+      },
       <%_ } _%>
       ".": {
         <%_ if (moduleType === 'esm') { _%>
@@ -154,7 +174,7 @@ _%>
     "license": "MIT",
     "repository": {
       "type": "git",
-      "url": "git+https://github.com/gjsify/types.git"
+      "url": "git+https://github.com/gjsify/ts-for-gir.git"
     },
     "bugs": {
       "url": "https://github.com/gjsify/ts-for-gir/issues"

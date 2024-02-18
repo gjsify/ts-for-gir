@@ -3,6 +3,39 @@
 - Create a Reporter to create a text or json file with warnings like unknown types, renaming, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 - Update types for GJS v1.75.2, see https://gitlab.gnome.org/GNOME/gjs/-/commit/666755b3b09d765e43d415e76105b828517b5509
 
+# 3.2.8
+- Upgrade dependencies
+- Update examples and removed deprecated function calls like `byteArray.toString()`
+- Add `dom.js`, `ambient.js` and `node-ambient.js` to allow importing there type definitions in the codebase with a bundler
+- Update TSDoc documentation for `system`
+- node-gtk: Add new `gtk-4-application` example
+- node-gtk: Uses snake_case for property names at constructor, fixes #131
+
+## Breaking Changes
+
+- Removed support for additional `underscore` properties (next to `lowerCamelCase`) in the generated types, if this causes problems please let us know, then we will undo it again
+
+# 3.2.7
+- Upgrade dependencies
+- Add type for import.meta.url, see 142
+- C type `const` is readonly in typescript
+- Constants are not nullable, fixes #141
+
+# 3.2.6
+- Upgrade dependencies
+- Generate camel cased property accessors, see #138
+- Add `runAsync` override for `GLib.MainLoop`, see #130
+
+# 3.2.5
+- Upgrade dependencies
+- Allow ambient modules without version for NPM packages, see #139
+- Add information about ESM and CommonJS modules to README.md for NPM packages
+
+# 3.2.4
+- Upgrade dependencies
+- Add instruction to install `GnomeBluetooth-3.0.gir` on Fedora
+- Add more *.gir files to `./girs` directory
+
 # 3.2.3
 - Upgrade dependencies
 - Upgrade gir files

@@ -1,0 +1,509 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Graphene" version="1.0"/>
+  <include name="cairo" version="1.0"/>
+  <package name="mutter-mtk-13"/>
+  <c:include name="mtk/mtk.h"/>
+  <namespace name="Mtk"
+             version="13"
+             shared-library="libmutter-mtk-13.so.0"
+             c:identifier-prefixes="Mtk"
+             c:symbol-prefixes="mtk">
+    <function-macro name="RECTANGLE_INIT"
+                    c:identifier="MTK_RECTANGLE_INIT"
+                    introspectable="0">
+      <source-position filename="mtk/mtk/mtk-rectangle.h" line="67"/>
+      <parameters>
+        <parameter name="_x">
+        </parameter>
+        <parameter name="_y">
+        </parameter>
+        <parameter name="_width">
+        </parameter>
+        <parameter name="_height">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <record name="Rectangle"
+            c:type="MtkRectangle"
+            glib:type-name="MtkRectangle"
+            glib:get-type="mtk_rectangle_get_type"
+            c:symbol-prefix="rectangle">
+      <source-position filename="mtk/mtk/mtk-rectangle.h" line="61"/>
+      <field name="x" writable="1">
+        <doc xml:space="preserve"
+             filename="mtk/mtk/mtk-rectangle.h"
+             line="42">X coordinate of the top-left corner</doc>
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="y" writable="1">
+        <doc xml:space="preserve"
+             filename="mtk/mtk/mtk-rectangle.h"
+             line="43">Y coordinate of the top-left corner</doc>
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="width" writable="1">
+        <doc xml:space="preserve"
+             filename="mtk/mtk/mtk-rectangle.h"
+             line="44">Width of the rectangle</doc>
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="height" writable="1">
+        <doc xml:space="preserve"
+             filename="mtk/mtk/mtk-rectangle.h"
+             line="45">Height of the rectangle</doc>
+        <type name="gint" c:type="int"/>
+      </field>
+      <constructor name="new" c:identifier="mtk_rectangle_new">
+        <doc xml:space="preserve"
+             filename="mtk/mtk/mtk-rectangle.c"
+             line="42">Creates a new rectangle</doc>
+        <source-position filename="mtk/mtk/mtk-rectangle.h" line="86"/>
+        <return-value transfer-ownership="full">
+          <type name="Rectangle" c:type="MtkRectangle*"/>
+        </return-value>
+        <parameters>
+          <parameter name="x" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="44">X coordinate of the top left corner</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="45">Y coordinate of the top left corner</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="width" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="46">Width of the rectangle</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="47">Height of the rectangle</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="area" c:identifier="mtk_rectangle_area">
+        <source-position filename="mtk/mtk/mtk-rectangle.h" line="93"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="mtk/mtk/mtk-rectangle.c"
+               line="72">The area of the rectangle</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="rect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="70">A rectangle</doc>
+            <type name="Rectangle" c:type="const MtkRectangle*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="contains_rect" c:identifier="mtk_rectangle_contains_rect">
+        <source-position filename="mtk/mtk/mtk-rectangle.h" line="127"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="mtk/mtk/mtk-rectangle.c"
+               line="269">Whether the outer rectangle contains the inner one</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="outer_rect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="266">The outer rectangle</doc>
+            <type name="Rectangle" c:type="const MtkRectangle*"/>
+          </instance-parameter>
+          <parameter name="inner_rect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="267">The inner rectangle</doc>
+            <type name="Rectangle" c:type="const MtkRectangle*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="copy" c:identifier="mtk_rectangle_copy">
+        <source-position filename="mtk/mtk/mtk-rectangle.h" line="79"/>
+        <return-value transfer-ownership="full">
+          <type name="Rectangle" c:type="MtkRectangle*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="rect" transfer-ownership="none">
+            <type name="Rectangle" c:type="const MtkRectangle*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="could_fit_rect"
+              c:identifier="mtk_rectangle_could_fit_rect">
+        <source-position filename="mtk/mtk/mtk-rectangle.h" line="123"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="mtk/mtk/mtk-rectangle.c"
+               line="254">Whether the inner rectangle could fit inside the outer one</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="outer_rect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="251">The outer rectangle</doc>
+            <type name="Rectangle" c:type="const MtkRectangle*"/>
+          </instance-parameter>
+          <parameter name="inner_rect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="252">The inner rectangle</doc>
+            <type name="Rectangle" c:type="const MtkRectangle*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="equal" c:identifier="mtk_rectangle_equal">
+        <doc xml:space="preserve"
+             filename="mtk/mtk/mtk-rectangle.c"
+             line="81">Compares the two rectangles</doc>
+        <source-position filename="mtk/mtk/mtk-rectangle.h" line="96"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="mtk/mtk/mtk-rectangle.c"
+               line="88">Whether the two rectangles are equal</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="src1" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="83">The first rectangle</doc>
+            <type name="Rectangle" c:type="const MtkRectangle*"/>
+          </instance-parameter>
+          <parameter name="src2" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="84">The second rectangle</doc>
+            <type name="Rectangle" c:type="const MtkRectangle*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="mtk_rectangle_free">
+        <source-position filename="mtk/mtk/mtk-rectangle.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="rect" transfer-ownership="none">
+            <type name="Rectangle" c:type="MtkRectangle*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="horiz_overlap" c:identifier="mtk_rectangle_horiz_overlap">
+        <doc xml:space="preserve"
+             filename="mtk/mtk/mtk-rectangle.c"
+             line="232">Similar to [method@Rectangle.overlap] but ignores the vertical location.</doc>
+        <source-position filename="mtk/mtk/mtk-rectangle.h" line="119"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="mtk/mtk/mtk-rectangle.c"
+               line="239">Whether the two rectangles overlap horizontally</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="rect1" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="234">The first rectangle</doc>
+            <type name="Rectangle" c:type="const MtkRectangle*"/>
+          </instance-parameter>
+          <parameter name="rect2" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="235">The second rectangle</doc>
+            <type name="Rectangle" c:type="const MtkRectangle*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="intersect" c:identifier="mtk_rectangle_intersect">
+        <doc xml:space="preserve"
+             filename="mtk/mtk/mtk-rectangle.c"
+             line="143">Find the intersection between the two rectangles</doc>
+        <source-position filename="mtk/mtk/mtk-rectangle.h" line="106"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="mtk/mtk/mtk-rectangle.c"
+               line="152">TRUE is some intersection exists and is not degenerate, FALSE
+  otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="src1" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="145">a #MtkRectangle</doc>
+            <type name="Rectangle" c:type="const MtkRectangle*"/>
+          </instance-parameter>
+          <parameter name="src2" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="146">another #MtkRectangle</doc>
+            <type name="Rectangle" c:type="const MtkRectangle*"/>
+          </parameter>
+          <parameter name="dest"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="147">an empty #MtkRectangle, to be filled
+  with the coordinates of the intersection.</doc>
+            <type name="Rectangle" c:type="MtkRectangle*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="overlap" c:identifier="mtk_rectangle_overlap">
+        <doc xml:space="preserve"
+             filename="mtk/mtk/mtk-rectangle.c"
+             line="192">Similar to [method@Rectangle.intersect] but doesn't provide
+the location of the intersection.</doc>
+        <source-position filename="mtk/mtk/mtk-rectangle.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="mtk/mtk/mtk-rectangle.c"
+               line="200">Whether the two rectangles overlap</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="rect1" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="194">The first rectangle</doc>
+            <type name="Rectangle" c:type="const MtkRectangle*"/>
+          </instance-parameter>
+          <parameter name="rect2" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="195">The second rectangle</doc>
+            <type name="Rectangle" c:type="const MtkRectangle*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="to_graphene_rect"
+              c:identifier="mtk_rectangle_to_graphene_rect">
+        <source-position filename="mtk/mtk/mtk-rectangle.h" line="131"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="mtk/mtk/mtk-rectangle.c"
+               line="286">Return a graphene_rect_t created from `rect`</doc>
+          <type name="Graphene.Rect" c:type="graphene_rect_t"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="rect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="284">A rectangle</doc>
+            <type name="Rectangle" c:type="MtkRectangle*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="union" c:identifier="mtk_rectangle_union">
+        <doc xml:space="preserve"
+             filename="mtk/mtk/mtk-rectangle.c"
+             line="100">Computes the union of the two rectangles</doc>
+        <source-position filename="mtk/mtk/mtk-rectangle.h" line="101"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="rect1" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="102">a #MtkRectangle</doc>
+            <type name="Rectangle" c:type="const MtkRectangle*"/>
+          </instance-parameter>
+          <parameter name="rect2" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="103">another #MtkRectangle</doc>
+            <type name="Rectangle" c:type="const MtkRectangle*"/>
+          </parameter>
+          <parameter name="dest"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="104">an empty #MtkRectangle, to be filled
+  with the coordinates of the bounding box.</doc>
+            <type name="Rectangle" c:type="MtkRectangle*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="vert_overlap" c:identifier="mtk_rectangle_vert_overlap">
+        <doc xml:space="preserve"
+             filename="mtk/mtk/mtk-rectangle.c"
+             line="215">Similar to [method@Rectangle.overlap] but ignores the horizontal location.</doc>
+        <source-position filename="mtk/mtk/mtk-rectangle.h" line="115"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="mtk/mtk/mtk-rectangle.c"
+               line="222">Whether the two rectangles overlap vertically</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="rect1" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="217">The first rectangle</doc>
+            <type name="Rectangle" c:type="const MtkRectangle*"/>
+          </instance-parameter>
+          <parameter name="rect2" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="218">The second rectangle</doc>
+            <type name="Rectangle" c:type="const MtkRectangle*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <function name="from_graphene_rect"
+                c:identifier="mtk_rectangle_from_graphene_rect">
+        <source-position filename="mtk/mtk/mtk-rectangle.h" line="134"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="rect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="305">A rectangle</doc>
+            <type name="Graphene.Rect" c:type="const graphene_rect_t*"/>
+          </parameter>
+          <parameter name="rounding_strategy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="306">The rounding strategy</doc>
+            <type name="RoundingStrategy" c:type="MtkRoundingStrategy"/>
+          </parameter>
+          <parameter name="dest"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mtk/mtk/mtk-rectangle.c"
+                 line="307">an empty #MtkRectangle, to be filled
+  with the coordinates of `rect`.</doc>
+            <type name="Rectangle" c:type="MtkRectangle*"/>
+          </parameter>
+        </parameters>
+      </function>
+    </record>
+    <enumeration name="RoundingStrategy" c:type="MtkRoundingStrategy">
+      <source-position filename="mtk/mtk/mtk-rectangle.h" line="37"/>
+      <member name="shrink"
+              value="0"
+              c:identifier="MTK_ROUNDING_STRATEGY_SHRINK">
+      </member>
+      <member name="grow" value="1" c:identifier="MTK_ROUNDING_STRATEGY_GROW">
+      </member>
+      <member name="round"
+              value="2"
+              c:identifier="MTK_ROUNDING_STRATEGY_ROUND">
+      </member>
+    </enumeration>
+    <function name="rectangle_from_graphene_rect"
+              c:identifier="mtk_rectangle_from_graphene_rect"
+              moved-to="Rectangle.from_graphene_rect">
+      <source-position filename="mtk/mtk/mtk-rectangle.h" line="134"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="rect" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="mtk/mtk/mtk-rectangle.c"
+               line="305">A rectangle</doc>
+          <type name="Graphene.Rect" c:type="const graphene_rect_t*"/>
+        </parameter>
+        <parameter name="rounding_strategy" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="mtk/mtk/mtk-rectangle.c"
+               line="306">The rounding strategy</doc>
+          <type name="RoundingStrategy" c:type="MtkRoundingStrategy"/>
+        </parameter>
+        <parameter name="dest"
+                   direction="out"
+                   caller-allocates="1"
+                   transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="mtk/mtk/mtk-rectangle.c"
+               line="307">an empty #MtkRectangle, to be filled
+  with the coordinates of `rect`.</doc>
+          <type name="Rectangle" c:type="MtkRectangle*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="x11_error_trap_pop"
+              c:identifier="mtk_x11_error_trap_pop"
+              introspectable="0">
+      <source-position filename="mtk/mtk/mtk-x11-errors.h" line="38"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="xdisplay" transfer-ownership="none">
+          <type c:type="Display*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="x11_error_trap_pop_with_return"
+              c:identifier="mtk_x11_error_trap_pop_with_return"
+              introspectable="0">
+      <source-position filename="mtk/mtk/mtk-x11-errors.h" line="41"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="xdisplay" transfer-ownership="none">
+          <type c:type="Display*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="x11_error_trap_push"
+              c:identifier="mtk_x11_error_trap_push"
+              introspectable="0">
+      <source-position filename="mtk/mtk/mtk-x11-errors.h" line="35"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="xdisplay" transfer-ownership="none">
+          <type c:type="Display*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="x11_errors_deinit" c:identifier="mtk_x11_errors_deinit">
+      <source-position filename="mtk/mtk/mtk-x11-errors.h" line="32"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="x11_errors_init"
+              c:identifier="mtk_x11_errors_init"
+              introspectable="0">
+      <source-position filename="mtk/mtk/mtk-x11-errors.h" line="29"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

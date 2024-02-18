@@ -1,9 +1,46 @@
-import type { InjectionClass } from '../../../types/index.js'
+import type { InjectionClass, InjectionFunction } from '../../../types/index.js'
+
+// See https://github.com/gjsify/ts-for-gir/issues/130
+const runAsyncMethod: InjectionFunction = {
+    name: 'runAsync',
+    girTypeName: 'method',
+    inParams: [
+        {
+            name: 'argv',
+            type: [{ type: 'string', isArray: true, optional: true }],
+        },
+    ],
+    returnTypes: [
+        {
+            type: 'Promise<number>',
+        },
+    ],
+    doc: {
+        text: "Similar to `Gio.Application.run` but return a Promise which resolves when the main loop ends, instead of blocking while the main loop runs.\nThis helps avoid the situation where Promises never resolved if you didn't run the application inside a callback.",
+        tags: [
+            {
+                tagName: 'param',
+                paramName: 'argv',
+                text: 'Commandline arguments.',
+            },
+            {
+                tagName: 'returns',
+                paramName: '',
+                text: 'The exit status of the application.',
+            },
+        ],
+    },
+}
 
 /**
  * @see https://gitlab.gnome.org/GNOME/gjs/-/blob/master/modules/core/overrides/Gio.js
  */
 export const classesGio20Gjs: InjectionClass[] = [
+    {
+        versions: ['2.0'],
+        qualifiedName: 'Gio.Application',
+        methods: [runAsyncMethod],
+    },
     {
         versions: ['2.0'],
         qualifiedName: 'Gio.DBusProxy',

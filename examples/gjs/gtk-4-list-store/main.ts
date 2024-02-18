@@ -38,8 +38,8 @@ class App {
     buildUI() {
         this.window = new Gtk.ApplicationWindow({
             application: this.application,
-            default_height: 300,
-            default_width: 720,
+            defaultHeight: 300,
+            defaultWidth: 720,
         });
         this.window.set_titlebar(this.getHeader());
         this.window.set_child(this.getBody());
@@ -62,7 +62,7 @@ class App {
         store.set(store.append(), [0, 1, 2, 3], [2, '2C', 'Name 2', false]);
         store.set(store.append(), [0, 1, 2, 3], [3, '3D', 'Name 3', false]);
 
-        tree = new Gtk.TreeView({ headers_visible: false, vexpand: true, hexpand: true });
+        tree = new Gtk.TreeView({ headersVisible: false, vexpand: true, hexpand: true });
         tree.set_model(store);
         scroll.set_child(tree);
 

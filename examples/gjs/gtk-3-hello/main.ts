@@ -8,10 +8,10 @@ if (!settings) {
     throw new Error('Can\t load default settings!')
 }
 
-settings.gtk_application_prefer_dark_theme = true
-settings.gtk_theme_name = 'Adwaita'
+settings.gtkApplicationPreferDarkTheme = true
+settings.gtkThemeName = 'Adwaita'
 
-print(settings.gtk_enable_accels)
+print(settings.gtkEnableAccels)
 
 const win = new Gtk.Window()
 win.set_title('gjs-gtk')

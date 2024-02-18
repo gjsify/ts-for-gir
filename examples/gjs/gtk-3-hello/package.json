@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-gtk-3-hello-example",
-  "version": "3.2.3",
+  "version": "3.2.8",
   "description": "",
   "main": "main.ts",
   "private": true,
@@ -24,9 +24,9 @@
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
-    "ts-loader": "^9.5.0",
-    "typescript": "^5.2.2",
-    "webpack": "^5.89.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "5.2.2",
+    "webpack": "^5.90.2",
     "webpack-cli": "^5.1.4"
   }
 }

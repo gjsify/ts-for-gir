@@ -1,0 +1,890 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <package name="gnome-bluetooth-3.0"/>
+  <namespace name="GnomeBluetooth"
+             version="3.0"
+             shared-library="libgnome-bluetooth-3.0.so.13"
+             c:identifier-prefixes="Bluetooth"
+             c:symbol-prefixes="bluetooth">
+    <enumeration name="AdapterState"
+                 glib:type-name="BluetoothAdapterState"
+                 glib:get-type="bluetooth_adapter_state_get_type"
+                 c:type="BluetoothAdapterState">
+      <doc xml:space="preserve"
+           filename="lib/bluetooth-enums.h"
+           line="116">A more precise power state for a Bluetooth adapter.</doc>
+      <member name="absent"
+              value="0"
+              c:identifier="BLUETOOTH_ADAPTER_STATE_ABSENT"
+              glib:nick="absent"
+              glib:name="BLUETOOTH_ADAPTER_STATE_ABSENT">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="118">Bluetooth adapter is missing.</doc>
+      </member>
+      <member name="on"
+              value="1"
+              c:identifier="BLUETOOTH_ADAPTER_STATE_ON"
+              glib:nick="on"
+              glib:name="BLUETOOTH_ADAPTER_STATE_ON">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="119">Bluetooth adapter is on.</doc>
+      </member>
+      <member name="turning_on"
+              value="2"
+              c:identifier="BLUETOOTH_ADAPTER_STATE_TURNING_ON"
+              glib:nick="turning-on"
+              glib:name="BLUETOOTH_ADAPTER_STATE_TURNING_ON">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="120">Bluetooth adapter is being turned on.</doc>
+      </member>
+      <member name="turning_off"
+              value="3"
+              c:identifier="BLUETOOTH_ADAPTER_STATE_TURNING_OFF"
+              glib:nick="turning-off"
+              glib:name="BLUETOOTH_ADAPTER_STATE_TURNING_OFF">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="121">Bluetooth adapter is being turned off.</doc>
+      </member>
+      <member name="off"
+              value="4"
+              c:identifier="BLUETOOTH_ADAPTER_STATE_OFF"
+              glib:nick="off"
+              glib:name="BLUETOOTH_ADAPTER_STATE_OFF">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="122">Bluetooth adapter is off.</doc>
+      </member>
+    </enumeration>
+    <enumeration name="BatteryType"
+                 glib:type-name="BluetoothBatteryType"
+                 glib:get-type="bluetooth_battery_type_get_type"
+                 c:type="BluetoothBatteryType">
+      <doc xml:space="preserve"
+           filename="lib/bluetooth-enums.h"
+           line="102">The type of battery reporting supported by the device.</doc>
+      <member name="none"
+              value="0"
+              c:identifier="BLUETOOTH_BATTERY_TYPE_NONE"
+              glib:nick="none"
+              glib:name="BLUETOOTH_BATTERY_TYPE_NONE">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="104">no battery reporting</doc>
+      </member>
+      <member name="percentage"
+              value="1"
+              c:identifier="BLUETOOTH_BATTERY_TYPE_PERCENTAGE"
+              glib:nick="percentage"
+              glib:name="BLUETOOTH_BATTERY_TYPE_PERCENTAGE">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="105">battery reported in percentage</doc>
+      </member>
+      <member name="coarse"
+              value="2"
+              c:identifier="BLUETOOTH_BATTERY_TYPE_COARSE"
+              glib:nick="coarse"
+              glib:name="BLUETOOTH_BATTERY_TYPE_COARSE">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="106">battery reported coarsely</doc>
+      </member>
+    </enumeration>
+    <class name="Client"
+           c:symbol-prefix="client"
+           c:type="BluetoothClient"
+           parent="GObject.Object"
+           glib:type-name="BluetoothClient"
+           glib:get-type="bluetooth_client_get_type"
+           glib:type-struct="ClientClass">
+      <source-position filename="lib/bluetooth-client.h" line="31"/>
+      <constructor name="new" c:identifier="bluetooth_client_new">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-client.c"
+             line="1478">Returns a reference to the #BluetoothClient singleton. Use g_object_unref() when done with the object.</doc>
+        <source-position filename="lib/bluetooth-client.h" line="33"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/bluetooth-client.c"
+               line="1483">a #BluetoothClient object.</doc>
+          <type name="Client" c:type="BluetoothClient*"/>
+        </return-value>
+      </constructor>
+      <method name="connect_service"
+              c:identifier="bluetooth_client_connect_service">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-client.c"
+             line="1773">This will start the process of connecting to one of the known-connectable
+services on the device. This means that it could connect to all the audio
+services on a headset, but just to the input service on a keyboard.
+
+Broadly speaking, this will only have an effect on devices with audio and HID
+services, and do nothing if the device doesn't have the "connectable"
+property set.
+
+When the connection operation is finished, @callback will be called. You can
+then call bluetooth_client_connect_service_finish() to get the result of the
+operation.</doc>
+        <source-position filename="lib/bluetooth-client.h" line="37"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/bluetooth-client.c"
+                 line="1775">a #BluetoothClient</doc>
+            <type name="Client" c:type="BluetoothClient*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/bluetooth-client.c"
+                 line="1776">the object path on which to operate</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="connect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/bluetooth-client.c"
+                 line="1777">Whether try to connect or disconnect from services on a device</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/bluetooth-client.c"
+                 line="1778">optional #GCancellable object, %NULL to ignore</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="lib/bluetooth-client.c"
+                 line="1779">a #GAsyncReadyCallback to call when the connection is complete</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/bluetooth-client.c"
+                 line="1780">the data to pass to callback function</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="connect_service_finish"
+              c:identifier="bluetooth_client_connect_service_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-client.c"
+             line="1841">Finishes the connection operation. See bluetooth_client_connect_service().</doc>
+        <source-position filename="lib/bluetooth-client.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/bluetooth-client.c"
+               line="1849">%TRUE if the connection operation succeeded, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/bluetooth-client.c"
+                 line="1843">a #BluetoothClient</doc>
+            <type name="Client" c:type="BluetoothClient*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/bluetooth-client.c"
+                 line="1844">a #GAsyncResult</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_devices" c:identifier="bluetooth_client_get_devices">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-client.c"
+             line="1499">Returns an unfiltered #GListStore representing the devices attached to the default
+Bluetooth adapter.</doc>
+        <source-position filename="lib/bluetooth-client.h" line="35"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/bluetooth-client.c"
+               line="1506">a #GListStore</doc>
+          <type name="Gio.ListStore" c:type="GListStore*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/bluetooth-client.c"
+                 line="1501">a #BluetoothClient object</doc>
+            <type name="Client" c:type="BluetoothClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_connected_input_devices"
+              c:identifier="bluetooth_client_has_connected_input_devices">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-client.c"
+             line="1865">Returns whether there are connected devices with the input capability.
+This can be used by an OS user interface to warn the user before disabling
+Bluetooth so that the user isn't stranded without any input devices.</doc>
+        <source-position filename="lib/bluetooth-client.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/bluetooth-client.c"
+               line="1873">%TRUE if there are connected input devices.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/bluetooth-client.c"
+                 line="1867">a #BluetoothClient</doc>
+            <type name="Client" c:type="BluetoothClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="default-adapter"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-client.c"
+             line="1419">The D-Bus path of the default Bluetooth adapter or %NULL.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="default-adapter-address"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-client.c"
+             line="1467">The address of the default Bluetooth adapter or %NULL.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="default-adapter-name"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-client.c"
+             line="1458">The name of the default Bluetooth adapter or %NULL.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="default-adapter-powered"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-client.c"
+             line="1428">%TRUE if the default Bluetooth adapter is powered.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="default-adapter-setup-mode"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-client.c"
+             line="1449">%TRUE if the default Bluetooth adapter is in setup mode (discoverable, and discovering).</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="default-adapter-state"
+                transfer-ownership="none"
+                default-value="BLUETOOTH_ADAPTER_STATE_ABSENT">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-client.c"
+             line="1437">The #BluetoothAdapterState of the default Bluetooth adapter. More precise than
+#BluetoothClient:default-adapter-powered.</doc>
+        <type name="AdapterState"/>
+      </property>
+      <property name="num-adapters"
+                transfer-ownership="none"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-client.c"
+             line="1409">The number of detected Bluetooth adapters.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <glib:signal name="device-added" when="last">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-client.c"
+             line="1371">The #BluetoothClient::device-added signal is launched when a
+device gets added to the model.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="device" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/bluetooth-client.c"
+                 line="1374">a #BluetoothDevice object</doc>
+            <type name="GObject.Object"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="device-removed" when="last">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-client.c"
+             line="1388">The #BluetoothClient::device-removed signal is launched when a
+device gets removed from the model.
+
+Note that #BluetoothClient::device-removed will not be called
+for each individual device as the model is cleared when the
+#BluetoothClient:default-adapter property changes.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="device" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/bluetooth-client.c"
+                 line="1391">the D-Bus object path for the now-removed device</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ClientClass"
+            c:type="BluetoothClientClass"
+            glib:is-gtype-struct-for="Client">
+      <source-position filename="lib/bluetooth-client.h" line="31"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="Device"
+           c:symbol-prefix="device"
+           c:type="BluetoothDevice"
+           parent="GObject.Object"
+           glib:type-name="BluetoothDevice"
+           glib:get-type="bluetooth_device_get_type"
+           glib:type-struct="DeviceClass">
+      <source-position filename="lib/bluetooth-device.h" line="13"/>
+      <method name="dump" c:identifier="bluetooth_device_dump">
+        <source-position filename="lib/bluetooth-device.h" line="16"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="device" transfer-ownership="none">
+            <type name="Device" c:type="BluetoothDevice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_object_path"
+              c:identifier="bluetooth_device_get_object_path">
+        <source-position filename="lib/bluetooth-device.h" line="15"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="device" transfer-ownership="none">
+            <type name="Device" c:type="BluetoothDevice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="to_string" c:identifier="bluetooth_device_to_string">
+        <source-position filename="lib/bluetooth-device.h" line="17"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="device" transfer-ownership="none">
+            <type name="Device" c:type="BluetoothDevice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="address"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="alias"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="battery-level"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="battery-percentage"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+      <property name="battery-type"
+                writable="1"
+                transfer-ownership="none"
+                default-value="BLUETOOTH_BATTERY_TYPE_NONE">
+        <type name="BatteryType"/>
+      </property>
+      <property name="connectable"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="connected"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="icon"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="legacy-pairing"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="name"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="paired"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="proxy" writable="1" transfer-ownership="none">
+        <type name="Gio.DBusProxy"/>
+      </property>
+      <property name="trusted"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="type"
+                writable="1"
+                transfer-ownership="none"
+                default-value="BLUETOOTH_TYPE_ANY">
+        <type name="Type"/>
+      </property>
+      <property name="uuids" writable="1" transfer-ownership="none">
+        <array>
+          <type name="utf8"/>
+        </array>
+      </property>
+    </class>
+    <record name="DeviceClass"
+            c:type="BluetoothDeviceClass"
+            glib:is-gtype-struct-for="Device">
+      <source-position filename="lib/bluetooth-device.h" line="13"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <constant name="TYPE_AUDIO" value="1048800" c:type="BLUETOOTH_TYPE_AUDIO">
+      <doc xml:space="preserve"
+           filename="lib/bluetooth-enums.h"
+           line="95">Use this value to select any Bluetooth audio device where a #BluetoothType enum is required.</doc>
+      <source-position filename="lib/bluetooth-enums.h" line="100"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="TYPE_INPUT" value="13056" c:type="BLUETOOTH_TYPE_INPUT">
+      <doc xml:space="preserve"
+           filename="lib/bluetooth-enums.h"
+           line="89">Use this value to select any Bluetooth input device where a #BluetoothType enum is required.</doc>
+      <source-position filename="lib/bluetooth-enums.h" line="94"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <bitfield name="Type"
+              glib:type-name="BluetoothType"
+              glib:get-type="bluetooth_type_get_type"
+              c:type="BluetoothType">
+      <doc xml:space="preserve"
+           filename="lib/bluetooth-enums.h"
+           line="37">The type of a Bluetooth device. See also %BLUETOOTH_TYPE_INPUT and %BLUETOOTH_TYPE_AUDIO</doc>
+      <member name="any"
+              value="1"
+              c:identifier="BLUETOOTH_TYPE_ANY"
+              glib:nick="any"
+              glib:name="BLUETOOTH_TYPE_ANY">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="39">any device, or a device of an unknown type</doc>
+      </member>
+      <member name="phone"
+              value="2"
+              c:identifier="BLUETOOTH_TYPE_PHONE"
+              glib:nick="phone"
+              glib:name="BLUETOOTH_TYPE_PHONE">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="40">a telephone (usually a cell/mobile phone)</doc>
+      </member>
+      <member name="modem"
+              value="4"
+              c:identifier="BLUETOOTH_TYPE_MODEM"
+              glib:nick="modem"
+              glib:name="BLUETOOTH_TYPE_MODEM">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="41">a modem</doc>
+      </member>
+      <member name="computer"
+              value="8"
+              c:identifier="BLUETOOTH_TYPE_COMPUTER"
+              glib:nick="computer"
+              glib:name="BLUETOOTH_TYPE_COMPUTER">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="42">a computer, can be a laptop, a wearable computer, etc.</doc>
+      </member>
+      <member name="network"
+              value="16"
+              c:identifier="BLUETOOTH_TYPE_NETWORK"
+              glib:nick="network"
+              glib:name="BLUETOOTH_TYPE_NETWORK">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="43">a network device, such as a router</doc>
+      </member>
+      <member name="headset"
+              value="32"
+              c:identifier="BLUETOOTH_TYPE_HEADSET"
+              glib:nick="headset"
+              glib:name="BLUETOOTH_TYPE_HEADSET">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="44">a headset (usually a hands-free device)</doc>
+      </member>
+      <member name="headphones"
+              value="64"
+              c:identifier="BLUETOOTH_TYPE_HEADPHONES"
+              glib:nick="headphones"
+              glib:name="BLUETOOTH_TYPE_HEADPHONES">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="45">headphones (covers two ears)</doc>
+      </member>
+      <member name="other_audio"
+              value="128"
+              c:identifier="BLUETOOTH_TYPE_OTHER_AUDIO"
+              glib:nick="other-audio"
+              glib:name="BLUETOOTH_TYPE_OTHER_AUDIO">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="46">another type of audio device</doc>
+      </member>
+      <member name="keyboard"
+              value="256"
+              c:identifier="BLUETOOTH_TYPE_KEYBOARD"
+              glib:nick="keyboard"
+              glib:name="BLUETOOTH_TYPE_KEYBOARD">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="47">a keyboard</doc>
+      </member>
+      <member name="mouse"
+              value="512"
+              c:identifier="BLUETOOTH_TYPE_MOUSE"
+              glib:nick="mouse"
+              glib:name="BLUETOOTH_TYPE_MOUSE">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="48">a mouse</doc>
+      </member>
+      <member name="camera"
+              value="1024"
+              c:identifier="BLUETOOTH_TYPE_CAMERA"
+              glib:nick="camera"
+              glib:name="BLUETOOTH_TYPE_CAMERA">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="49">a camera (still or moving)</doc>
+      </member>
+      <member name="printer"
+              value="2048"
+              c:identifier="BLUETOOTH_TYPE_PRINTER"
+              glib:nick="printer"
+              glib:name="BLUETOOTH_TYPE_PRINTER">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="50">a printer</doc>
+      </member>
+      <member name="joypad"
+              value="4096"
+              c:identifier="BLUETOOTH_TYPE_JOYPAD"
+              glib:nick="joypad"
+              glib:name="BLUETOOTH_TYPE_JOYPAD">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="51">a joypad, joystick, or other game controller</doc>
+      </member>
+      <member name="tablet"
+              value="8192"
+              c:identifier="BLUETOOTH_TYPE_TABLET"
+              glib:nick="tablet"
+              glib:name="BLUETOOTH_TYPE_TABLET">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="52">a drawing tablet</doc>
+      </member>
+      <member name="video"
+              value="16384"
+              c:identifier="BLUETOOTH_TYPE_VIDEO"
+              glib:nick="video"
+              glib:name="BLUETOOTH_TYPE_VIDEO">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="53">a video device, such as a webcam</doc>
+      </member>
+      <member name="remote_control"
+              value="32768"
+              c:identifier="BLUETOOTH_TYPE_REMOTE_CONTROL"
+              glib:nick="remote-control"
+              glib:name="BLUETOOTH_TYPE_REMOTE_CONTROL">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="54">a remote control</doc>
+      </member>
+      <member name="scanner"
+              value="65536"
+              c:identifier="BLUETOOTH_TYPE_SCANNER"
+              glib:nick="scanner"
+              glib:name="BLUETOOTH_TYPE_SCANNER">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="55">a scanner</doc>
+      </member>
+      <member name="display"
+              value="131072"
+              c:identifier="BLUETOOTH_TYPE_DISPLAY"
+              glib:nick="display"
+              glib:name="BLUETOOTH_TYPE_DISPLAY">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="56">a display</doc>
+      </member>
+      <member name="wearable"
+              value="262144"
+              c:identifier="BLUETOOTH_TYPE_WEARABLE"
+              glib:nick="wearable"
+              glib:name="BLUETOOTH_TYPE_WEARABLE">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="57">a wearable computer</doc>
+      </member>
+      <member name="toy"
+              value="524288"
+              c:identifier="BLUETOOTH_TYPE_TOY"
+              glib:nick="toy"
+              glib:name="BLUETOOTH_TYPE_TOY">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="58">a toy or game</doc>
+      </member>
+      <member name="speakers"
+              value="1048576"
+              c:identifier="BLUETOOTH_TYPE_SPEAKERS"
+              glib:nick="speakers"
+              glib:name="BLUETOOTH_TYPE_SPEAKERS">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-enums.h"
+             line="59">audio speaker or speakers</doc>
+      </member>
+      <function name="to_string" c:identifier="bluetooth_type_to_string">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-utils.c"
+             line="42">Returns a human-readable string representation of @type usable for display to users. Do not free the return value.
+The returned string is already translated with gettext().</doc>
+        <source-position filename="lib/bluetooth-utils.h" line="34"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/bluetooth-utils.c"
+               line="49">a string.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/bluetooth-utils.c"
+                 line="44">a #BluetoothType</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </function>
+    </bitfield>
+    <function name="appearance_to_type"
+              c:identifier="bluetooth_appearance_to_type">
+      <doc xml:space="preserve"
+           filename="lib/bluetooth-utils.c"
+           line="217">Returns the type of device corresponding to the given @appearance value,
+as usually found in the GAP service.</doc>
+      <source-position filename="lib/bluetooth-utils.h" line="33"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-utils.c"
+             line="224">a #BluetoothType.</doc>
+        <type name="Type" c:type="BluetoothType"/>
+      </return-value>
+      <parameters>
+        <parameter name="appearance" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/bluetooth-utils.c"
+               line="219">a Bluetooth device appearance</doc>
+          <type name="guint16" c:type="guint16"/>
+        </parameter>
+      </parameters>
+    </function>
+    <docsection name="bluetooth-client">
+      <doc xml:space="preserve"
+           filename="lib/bluetooth-client.c"
+           line="27">The #BluetoothClient object is used to query the state of Bluetooth
+devices and adapters.</doc>
+    </docsection>
+    <docsection name="bluetooth-enums">
+      <doc xml:space="preserve"
+           filename="lib/bluetooth-enums.h"
+           line="28">Enumerations related to Bluetooth.</doc>
+    </docsection>
+    <docsection name="bluetooth-utils">
+      <doc xml:space="preserve"
+           filename="lib/bluetooth-utils.c"
+           line="25">Those helper functions are used throughout the Bluetooth
+management utilities.</doc>
+    </docsection>
+    <function name="class_to_type" c:identifier="bluetooth_class_to_type">
+      <doc xml:space="preserve"
+           filename="lib/bluetooth-utils.c"
+           line="132">Returns the type of device corresponding to the given @class value.</doc>
+      <source-position filename="lib/bluetooth-utils.h" line="32"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-utils.c"
+             line="138">a #BluetoothType.</doc>
+        <type name="Type" c:type="BluetoothType"/>
+      </return-value>
+      <parameters>
+        <parameter name="class" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/bluetooth-utils.c"
+               line="134">a Bluetooth device class</doc>
+          <type name="guint32" c:type="guint32"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="send_to_address"
+              c:identifier="bluetooth_send_to_address"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="lib/bluetooth-utils.c"
+           line="449">Start a GUI application for transferring files over Bluetooth.</doc>
+      <source-position filename="lib/bluetooth-utils.h" line="38"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-utils.c"
+             line="457">%TRUE on success, %FALSE on error.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="address" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/bluetooth-utils.c"
+               line="451">Remote device to use</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="alias" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/bluetooth-utils.c"
+               line="452">Remote device's name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="type_to_string"
+              c:identifier="bluetooth_type_to_string"
+              moved-to="Type.to_string">
+      <doc xml:space="preserve"
+           filename="lib/bluetooth-utils.c"
+           line="42">Returns a human-readable string representation of @type usable for display to users. Do not free the return value.
+The returned string is already translated with gettext().</doc>
+      <source-position filename="lib/bluetooth-utils.h" line="34"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-utils.c"
+             line="49">a string.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="type" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/bluetooth-utils.c"
+               line="44">a #BluetoothType</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="uuid_to_string" c:identifier="bluetooth_uuid_to_string">
+      <doc xml:space="preserve"
+           filename="lib/bluetooth-utils.c"
+           line="411">Returns a string representing a human-readable (but not usable for display to users) version of the @uuid. Do not free the return value.</doc>
+      <source-position filename="lib/bluetooth-utils.h" line="36"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-utils.c"
+             line="417">a string.</doc>
+        <type name="utf8" c:type="const char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uuid" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/bluetooth-utils.c"
+               line="413">a string representing a Bluetooth UUID</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="verify_address" c:identifier="bluetooth_verify_address">
+      <doc xml:space="preserve"
+           filename="lib/bluetooth-utils.c"
+           line="101">Returns whether the string is a valid Bluetooth address. This does not contact the device in any way.</doc>
+      <source-position filename="lib/bluetooth-utils.h" line="35"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="lib/bluetooth-utils.c"
+             line="107">%TRUE if the address is valid, %FALSE if not.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="bdaddr" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/bluetooth-utils.c"
+               line="103">a string representing a Bluetooth address</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

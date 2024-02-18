@@ -8,7 +8,7 @@
  * the label should show a translation of 'Print help'
  */
 
-const ByteArray = imports.byteArray;
+const textDecoder = new TextDecoder();
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 
@@ -25,7 +25,7 @@ function cat(filename: string) {
             loop.quit();
             return;
         }
-        print(ByteArray.toString(contents));
+        print(textDecoder.decode(contents));
         loop.quit();
     });
 

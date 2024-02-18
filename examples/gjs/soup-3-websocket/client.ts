@@ -11,9 +11,9 @@ import imports from './@types/gjs.js';
 import GLib from 'gi://GLib?version=2.0';
 import Soup from 'gi://Soup?version=3.0';
 import Gio from 'gi://Gio?version=2.0';
-const { byteArray } = imports;
 
 const loop = GLib.MainLoop.new(null, false);
+const textDecoder = new TextDecoder();
 
 const session = new Soup.Session();
 const message = new Soup.Message({
@@ -48,7 +48,7 @@ function websocket_connect_async_callback(_session: Soup.Session, res: Gio.Async
         if (type !== Soup.WebsocketDataType.TEXT)
             return;
 
-        const str = byteArray.toString(byteArray.fromGBytes(data));
+        const str = textDecoder.decode(data.toArray());
         log(`message: ${str}`);
         connection.close(Soup.WebsocketCloseCode.NORMAL, null);
     });

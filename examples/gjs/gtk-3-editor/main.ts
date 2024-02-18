@@ -5,13 +5,13 @@ const { gettext } = imports;
 
 Gtk.init(null)
 
-const wnd = new Gtk.Window({ title: 'Editor Test', default_width: 600, default_height: 400 })
+const wnd = new Gtk.Window({ title: 'Editor Test', defaultWidth: 600, defaultHeight: 400 })
 const box = Gtk.Box.new(Gtk.Orientation.VERTICAL, 0)
 const notebook = new Gtk.Notebook({})
 const srcView = new GtkSource.View()
 
-srcView.auto_indent = true
-srcView.show_line_numbers = true
+srcView.autoIndent = true
+srcView.showLineNumbers = true
 srcView.monospace = true
 
 const buf = srcView.buffer as GtkSource.Buffer;

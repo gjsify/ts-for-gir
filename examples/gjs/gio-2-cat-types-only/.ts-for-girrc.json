@@ -1,7 +1,4 @@
 {
-    "environments": ["gjs"],
     "modules": ["Gio-2.0"],
-    "buildType": "types",
-    "moduleType": "esm",
     "outdir": "./@types"
 }

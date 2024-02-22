@@ -17,7 +17,7 @@ export class SymTable {
         private readonly modPackageName: string,
         private readonly modNamespace: string,
     ) {
-        this.log = new Logger(this.config.environment, this.config.verbose, 'SymTable')
+        this.log = new Logger(this.config.verbose, 'SymTable')
     }
 
     /**

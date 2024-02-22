@@ -21,7 +21,6 @@ import type {
     InjectionType,
     InjectionParameter,
     InjectionProperty,
-    Environment,
     TypeGirProperty,
     TypeGirElement,
     TypeGirFunction,
@@ -341,7 +340,6 @@ export class GirFactory {
         callbackType: string | undefined,
         emitInParams: InjectionParameter[],
         parentClass: TsClass,
-        environment: Environment,
         withDisconnect = false,
     ) {
         const tsMethods: TsMethod[] = []
@@ -396,18 +394,16 @@ export class GirFactory {
         )
         tsMethods.push(connectTsFn)
 
-        if (environment === 'gjs') {
-            const connectAfterTsFn = this.newTsFunction(
-                {
-                    name: 'connect_after',
-                    inParams: [sigNameInParam, callbackInParam],
-                    returnTypes: [numberReturnType],
-                    girTypeName,
-                },
-                parentClass,
-            )
-            tsMethods.push(connectAfterTsFn)
-        }
+        const connectAfterTsFn = this.newTsFunction(
+            {
+                name: 'connect_after',
+                inParams: [sigNameInParam, callbackInParam],
+                returnTypes: [numberReturnType],
+                girTypeName,
+            },
+            parentClass,
+        )
+        tsMethods.push(connectAfterTsFn)
 
         const emitTsFn = this.newTsFunction(
             {

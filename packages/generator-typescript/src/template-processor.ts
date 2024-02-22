@@ -21,7 +21,7 @@ import {
     Transformation,
 } from '@ts-for-gir/lib'
 
-import type { GenerateConfig, Dependency, TemplateData, Environment } from '@ts-for-gir/lib'
+import type { GenerateConfig, Dependency, TemplateData } from '@ts-for-gir/lib'
 
 const TEMPLATE_DIR = join(__dirname, '../templates')
 
@@ -48,8 +48,8 @@ export class TemplateProcessor {
             APP_USAGE,
             APP_SOURCE,
             APP_VERSION,
-            PACKAGE_DESC: PACKAGE_DESC(packageName, this.config.environment, this.data?.girModule?.libraryVersion),
-            PACKAGE_KEYWORDS: PACKAGE_KEYWORDS(packageName, this.config.environment),
+            PACKAGE_DESC: PACKAGE_DESC(packageName, this.data?.girModule?.libraryVersion),
+            PACKAGE_KEYWORDS: PACKAGE_KEYWORDS(packageName),
             importName: this.transformation.transformImportName(packageName),
             dep,
             deps,
@@ -57,8 +57,8 @@ export class TemplateProcessor {
             join,
             dirname,
         }
-        this.environmentTemplateDir = this.getEnvironmentDir(config.environment, TEMPLATE_DIR)
-        this.log = new Logger(config.environment, config.verbose, this.packageName)
+        this.environmentTemplateDir = this.getEnvironmentDir(TEMPLATE_DIR)
+        this.log = new Logger(config.verbose, this.packageName)
     }
 
     /**
@@ -67,11 +67,10 @@ export class TemplateProcessor {
      * @param baseDir The base directory
      * @returns The path to the directory
      */
-    protected getEnvironmentDir = (environment: Environment, baseDir: string): string => {
-        if (!baseDir.endsWith(environment))
-            if (environment === 'gjs' && !baseDir.endsWith('/gjs')) {
-                return join(baseDir, 'gjs')
-            }
+    protected getEnvironmentDir = (baseDir: string): string => {
+        if (!baseDir.endsWith('/gjs')) {
+            return join(baseDir, 'gjs')
+        }
 
         return baseDir
     }
@@ -193,9 +192,7 @@ export class TemplateProcessor {
     }
 
     public getOutputPath(baseOutputPath: string, outputFilename: string, prependEnv = true): string {
-        const filePath = this.config.package
-            ? join(this.data?.importName || this.packageName, outputFilename)
-            : outputFilename
+        const filePath = join(this.data?.importName || this.packageName, outputFilename)
         const outputPath = prependEnv ? getDestPath(baseOutputPath, filePath) : join(baseOutputPath, filePath)
         return outputPath
     }

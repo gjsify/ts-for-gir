@@ -6,7 +6,5 @@
  * If you found a bug fix it in `<%= APP_NAME %>` or create a bug report on <%= APP_SOURCE %>
  */
 
-<%_ if(package){ _%>
 import './<%= importName %>-ambient.d.ts';
-<%_ } _%>
 import './<%= importName %>-import.d.ts';

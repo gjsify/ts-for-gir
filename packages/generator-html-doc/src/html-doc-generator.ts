@@ -10,7 +10,7 @@ import type { GenerateConfig, GirModule, NSRegistry } from '@ts-for-gir/lib'
 export class HtmlDocGenerator implements Generator {
     protected log: Logger
     constructor(protected readonly config: GenerateConfig) {
-        this.log = new Logger(config.environment, config.verbose, HtmlDocGenerator.name)
+        this.log = new Logger(config.verbose, HtmlDocGenerator.name)
     }
 
     async start(_registry: NSRegistry): Promise<void> {

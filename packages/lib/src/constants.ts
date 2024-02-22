@@ -2,8 +2,6 @@ import { LibraryVersion } from './library-version.js'
 import { __dirname, readJsonFile } from './utils.js'
 import { join } from 'path'
 
-import type { Environment } from './types/index.js'
-
 /**
  * In gjs all classes have a static name property but the classes listed below already have a static name property
  */
@@ -30,22 +28,16 @@ export const APP_USAGE = 'TypeScript type definition generator for GObject intro
 export const APP_SOURCE = 'https://github.com/gjsify/ts-for-gir'
 export const APP_VERSION = PACKAGE.version
 
-export const PACKAGE_DESC = (packageName: string, environment: Environment, libraryVersion?: LibraryVersion) => {
-    const envStr = environment === 'gjs' ? 'GJS' : 'unknown environment'
+export const PACKAGE_DESC = (packageName: string, libraryVersion?: LibraryVersion) => {
     if (libraryVersion) {
-        return `${envStr} TypeScript type definitions for ${packageName}, generated from library version ${libraryVersion.toString()}`
+        return `GJS TypeScript type definitions for ${packageName}, generated from library version ${libraryVersion.toString()}`
     }
-    return `${envStr} TypeScript type definitions for ${packageName}`
+    return `GJS TypeScript type definitions for ${packageName}`
 }
-export const PACKAGE_KEYWORDS = (packageName: string, environment: Environment) => {
-    const envKeywords = environment === 'gjs' ? '"GJS"' : ''
-    return `"Gir", "TypeScript", "types", "GObject-Introspection", ${envKeywords}, "${packageName}"`
+export const PACKAGE_KEYWORDS = (packageName: string) => {
+    return `"Gir", "TypeScript", "types", "GObject-Introspection", "GJS", "${packageName}"`
 }
 
 export const GENERIC_NAMES: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K']
 
-export const SIGNAL_METHOD_NAMES_GENERAL: string[] = ['connect', 'emit', 'disconnect']
-export const SIGNAL_METHOD_NAMES_GJS: string[] = ['connect_after', 'emit']
-export const SIGNAL_METHOD_NAMES = (env: Environment) => {
-    return [...SIGNAL_METHOD_NAMES_GENERAL, ...(env === 'gjs' ? SIGNAL_METHOD_NAMES_GJS : [])]
-}
+export const SIGNAL_METHOD_NAMES: string[] = ['connect', 'emit', 'disconnect', 'connect_after', 'emit']

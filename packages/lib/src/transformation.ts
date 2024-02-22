@@ -5,7 +5,6 @@
 
 import {
     Transformations,
-    Environment,
     ConstructName,
     GenerateConfig,
     GirCallableParamElement,
@@ -126,21 +125,16 @@ export const PRIMITIVE_TYPE_MAP = {
 
 // Gjs is permissive for byte-array in parameters but strict for out/return
 // See <https://discourse.gnome.org/t/gjs-bytearray-vs-glib-bytes/4900>
-export const FULL_TYPE_MAP = (environment: Environment, value: string, out = true): string | undefined => {
+export const FULL_TYPE_MAP = (value: string, out = true): string | undefined => {
     let ba: string
     let gb: string | undefined
-    if (environment === 'gjs') {
-        ba = 'Uint8Array'
-        if (out === false) {
-            ba += ' | imports.byteArray.ByteArray'
-            gb = 'GLib.Bytes | Uint8Array | imports.byteArray.ByteArray'
-        } else {
-            gb = undefined // No transformation
-        }
+
+    ba = 'Uint8Array'
+    if (out === false) {
+        ba += ' | imports.byteArray.ByteArray'
+        gb = 'GLib.Bytes | Uint8Array | imports.byteArray.ByteArray'
     } else {
-        // TODO
-        ba = 'any'
-        gb = 'any'
+        gb = undefined // No transformation
     }
 
     const fullTypeMap = {
@@ -258,66 +252,18 @@ export class Transformation {
      * For gjs see https://gjs-docs.gnome.org/ and https://wiki.gnome.org/Attic/Gjs
      */
     private transformations: Transformations = {
-        functionName: {
-            gjs: {
-                transformation: 'original',
-            },
-        },
-        enumName: {
-            gjs: {
-                transformation: 'original',
-            },
-        },
-        enumMember: {
-            gjs: {
-                transformation: 'upperCase',
-            },
-        },
-        signalName: {
-            gjs: {
-                transformation: 'original',
-            },
-        },
-        propertyName: {
-            gjs: {
-                transformation: 'lowerCamelCase',
-            },
-        },
-        constructorPropertyName: {
-            gjs: {
-                transformation: 'lowerCamelCase',
-            },
-        },
-        parameterName: {
-            gjs: {
-                transformation: 'underscores',
-            },
-        },
-        fieldName: {
-            gjs: {
-                transformation: 'underscores',
-            },
-        },
-        constantName: {
-            gjs: {
-                transformation: 'original',
-            },
-        },
-        importNamespaceName: {
-            gjs: {
-                transformation: 'upperCamelCase',
-            },
-        },
-        signalInterfaceName: {
-            gjs: {
-                transformation: 'upperCamelCase',
-            },
-        },
-        importName: {
-            gjs: {
-                transformation: 'lowerCase',
-            },
-        },
+        functionName: 'original',
+        enumName: 'original',
+        enumMember: 'upperCase',
+        signalName: 'original',
+        propertyName: 'lowerCamelCase',
+        constructorPropertyName: 'lowerCamelCase',
+        parameterName: 'underscores',
+        fieldName: 'underscores',
+        constantName: 'original',
+        importNamespaceName: 'upperCamelCase',
+        signalInterfaceName: 'upperCamelCase',
+        importName: 'lowerCase',
     }
 
     private log: Logger
@@ -326,7 +272,7 @@ export class Transformation {
         private readonly config: GenerateConfig,
         logName = 'Transformation',
     ) {
-        this.log = new Logger(config.environment, config.verbose, logName)
+        this.log = new Logger(config.verbose, logName)
     }
 
     public transformSignalInterfaceName(name: string): string {
@@ -389,8 +335,7 @@ export class Transformation {
     public transformFunctionName(name: string, isVirtual: boolean): string {
         name = this.transform('functionName', name)
 
-        // node-gtk has no `vfunc_` prefix for virtual methods
-        if (isVirtual && this.config.environment === 'gjs') {
+        if (isVirtual) {
             name = 'vfunc_' + name
         }
 
@@ -501,7 +446,7 @@ export class Transformation {
     }
 
     public transform(construct: ConstructName, transformMe: string): string {
-        const transformations = this.transformations[construct][this.config.environment].transformation
+        const transformations = this.transformations[construct]
 
         switch (transformations) {
             case 'lowerCamelCase':

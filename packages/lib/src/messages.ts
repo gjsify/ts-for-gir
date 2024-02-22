@@ -1,5 +1,3 @@
-import type { Environment, BuildType } from './types/index.js'
-
 export const NO_TSDATA = (namespace?: string) => {
     let message = 'You need to set the tsData first!'
     if (namespace) message = `[${namespace}] ${message}`
@@ -20,8 +18,6 @@ export const ERROR_NO_MODULE_SPECIFIED = 'Need to specify modules!'
 export const WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE = (packageName: string) =>
     `No gir file found for '${packageName}', this module will be ignored`
 export const WARN_CONSTANT_ALREADY_EXPORTED = (name: string) => `The constant '${name}' has already been exported`
-export const WARN_USE_ESM_FOR_ALIAS = "moduleType must be 'esm' if generateAlias is true!"
-export const WARN_USE_GJS_FOR_ALIAS = "environments must include 'gjs' if generateAlias is true!"
 
 export const WARN_IGNORE_MULTIPLE_CALLBACKS = 'Multiple callbacks are ignored!'
 export const WARN_IGNORE_MULTIPLE_FUNC_DESC = 'Ignore multiline function description!'
@@ -60,8 +56,7 @@ export const WARN_RENAMED_PARAMETER = (originalName: string, newName: string) =>
 
 export const DANGER_HTML_DOC_GENERATOR_NOT_IMPLEMENTED =
     'The HtmlDocGenerator is currently not implemented. Do nothing...'
-export const START_MODULE = (environment: Environment, buildType?: BuildType) =>
-    `Start to generate .d.ts files for '${environment}' as '${buildType || 'unknown'}'.`
+export const START_MODULE = `Start to generate .d.ts files...`
 export const FILE_PARSING_DONE = 'Files parsed, loading types...'
 export const TSDATA_PARSING_DONE = 'Typescript data loaded, generating .d.ts...'
 export const GENERATING_TYPES_DONE = 'Done.'

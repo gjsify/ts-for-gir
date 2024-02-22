@@ -30,25 +30,23 @@ const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
 const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
 
-    for (const env of config.environments) {
-        const generateConfig = Config.getGenerateConfig(config, env)
-        const moduleLoader = new ModuleLoader(generateConfig)
-        const { keep } = await moduleLoader.getModulesResolved(
-            config.modules,
-            config.ignore || [],
-            config.ignoreVersionConflicts,
-        )
-        if (keep.length === 0) {
-            return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))
-        }
-        const tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES)
-
-        const girModules = Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module)
-        // const girModulesGrouped = Object.values(grouped)
-
-        moduleLoader.dependencyManager.registry.registerFormatter('dts', new TypeScriptFormatter())
-        await tsForGir.start(girModules, moduleLoader.dependencyManager.registry)
+    const generateConfig = Config.getGenerateConfig(config)
+    const moduleLoader = new ModuleLoader(generateConfig)
+    const { keep } = await moduleLoader.getModulesResolved(
+        config.modules,
+        config.ignore || [],
+        config.ignoreVersionConflicts,
+    )
+    if (keep.length === 0) {
+        return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))
     }
+    const tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES)
+
+    const girModules = Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module)
+    // const girModulesGrouped = Object.values(grouped)
+
+    moduleLoader.dependencyManager.registry.registerFormatter('dts', new TypeScriptFormatter())
+    await tsForGir.start(girModules, moduleLoader.dependencyManager.registry)
 }
 
 const examples: ReadonlyArray<[string, string?]> = [

@@ -5,7 +5,6 @@ import { isEqual } from './utils.js'
 import { SIGNAL_METHOD_NAMES, MAX_CLASS_PARENT_DEPTH } from './constants.js'
 
 import {
-    type Environment,
     type GirClassElement,
     type GirRecordElement,
     type GirUnionElement,
@@ -41,11 +40,8 @@ export class ConflictResolver {
 
     private girFactory = new GirFactory()
 
-    constructor(
-        private readonly environment: Environment,
-        verbose: boolean,
-    ) {
-        this.log = new Logger(environment, verbose, 'ConflictResolver')
+    constructor(verbose: boolean) {
+        this.log = new Logger(verbose, 'ConflictResolver')
     }
 
     private girElArrToChildArr<T = TsFunction | TsProperty | TsVar>(
@@ -385,7 +381,7 @@ export class ConflictResolver {
             // Only one property can be defined, no overloads
             !this.getTsElementByName(conflictProperties, prop.name) &&
             // Do not set properties with signal method names
-            !SIGNAL_METHOD_NAMES(this.environment).includes(prop.name)
+            !SIGNAL_METHOD_NAMES.includes(prop.name)
 
         return canAdd
     }

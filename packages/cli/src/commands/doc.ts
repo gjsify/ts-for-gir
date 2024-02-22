@@ -28,27 +28,23 @@ const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
 const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
 
-    for (let i = 0; i < config.environments.length; i++) {
-        if (config.environments[i]) {
-            const generateConfig = Config.getGenerateConfig(config, config.environments[i])
-            const moduleLoader = new ModuleLoader(generateConfig)
-            const { keep } = await moduleLoader.getModulesResolved(
-                config.modules,
-                config.ignore || [],
-                config.ignoreVersionConflicts,
-            )
-            if (keep.length === 0) {
-                return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))
-            }
-            const tsForGir = new GenerationHandler(generateConfig, GeneratorType.HTML_DOC)
-            const registry = moduleLoader.dependencyManager.registry
-
-            await tsForGir.start(
-                Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module),
-                registry,
-            )
-        }
+    const generateConfig = Config.getGenerateConfig(config)
+    const moduleLoader = new ModuleLoader(generateConfig)
+    const { keep } = await moduleLoader.getModulesResolved(
+        config.modules,
+        config.ignore || [],
+        config.ignoreVersionConflicts,
+    )
+    if (keep.length === 0) {
+        return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))
     }
+    const tsForGir = new GenerationHandler(generateConfig, GeneratorType.HTML_DOC)
+    const registry = moduleLoader.dependencyManager.registry
+
+    await tsForGir.start(
+        Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module),
+        registry,
+    )
 }
 
 const examples: ReadonlyArray<[string, string?]> = []

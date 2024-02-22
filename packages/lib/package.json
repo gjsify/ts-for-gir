@@ -8,6 +8,12 @@
     "engines": {
         "node": ">=18"
     },
+    "exports": {
+        ".": {
+            "types": "./lib/index.d.ts",
+            "import": "./lib/index.js"
+        }
+    },
     "scripts": {
         "build": "yarn lint && yarn build:ts",
         "build:ts": "tsc",
@@ -48,7 +54,6 @@
         "@types/eslint": "8.44.6",
         "@types/lodash": "^4.14.200",
         "@types/node": "^20.8.10",
-        "@types/xml2js": "^0.4.13",
         "@typescript-eslint/eslint-plugin": "^6.9.1",
         "@typescript-eslint/parser": "^6.9.1",
         "eslint": "^8.52.0",
@@ -62,7 +67,6 @@
         "@gi.ts/parser": "workspace:^",
         "colorette": "^2.0.20",
         "ejs": "^3.1.9",
-        "lodash": "^4.17.21",
-        "xml2js": "0.6.2"
+        "lodash": "^4.17.21"
     }
 }

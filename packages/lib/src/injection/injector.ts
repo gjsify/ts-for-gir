@@ -5,7 +5,6 @@ import type {
     GirInterfaceElement,
     GirCallbackElement,
     GirCallableParamElement,
-    Environment,
 } from '../types/index.js'
 import { Logger } from '../logger.js'
 
@@ -19,8 +18,8 @@ export class Injector {
     girFactory = new GirFactory()
     log: Logger
 
-    constructor(private readonly environment: Environment) {
-        this.log = new Logger(environment, true, 'ConflictResolver')
+    constructor() {
+        this.log = new Logger(true, 'ConflictResolver')
     }
 
     /** Inject additional generics, methods, properties, etc to a existing class */
@@ -29,7 +28,7 @@ export class Injector {
             return
         }
 
-        const classes = this.environment === 'gjs' ? [...classesAll, ...classesGjs] : [...classesAll]
+        const classes = [...classesAll, ...classesGjs]
 
         const toClass = classes.find((cls) => {
             return (
@@ -84,7 +83,7 @@ export class Injector {
 
     /** Inject additional generics to existing callback interfaces */
     toCallback(girCallback: GirCallbackElement) {
-        const callbacks = this.environment === 'gjs' ? [...callbacksAll, ...callbacksGjs] : [...callbacksAll]
+        const callbacks = [...callbacksAll, ...callbacksGjs]
 
         if (!girCallback._module || !girCallback._tsData) {
             return girCallback
@@ -130,7 +129,7 @@ export class Injector {
     toParameterType(girParam: GirCallableParamElement) {
         const tsTypes = girParam._tsData?.type
 
-        const callbacks = this.environment === 'gjs' ? [...callbacksAll, ...callbacksGjs] : [...callbacksAll]
+        const callbacks = [...callbacksAll, ...callbacksGjs]
 
         if (!girParam._module || !girParam._tsData) {
             return girParam

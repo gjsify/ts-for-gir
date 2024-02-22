@@ -1,19 +1,11 @@
-import { BuildType, Environment, ModuleType } from './index.js'
-
 /**
  * Type for currently used config e.g. in GirModule
  */
 export interface GenerateConfig {
-    /** javascript environment */
-    environment: Environment
     /** root / working directory of your project */
     root: string
     /** directory to output to */
     outdir: string | null
-    /** Definitions generation type */
-    buildType?: BuildType
-    /** Module type, can be CommonJS or ESM */
-    moduleType?: ModuleType
     /** GIR directories */
     girDirectories: string[]
     /** Switch on/off the verbose mode */
@@ -35,8 +27,6 @@ export interface GenerateConfig {
      * @see https://docs.npmjs.com/cli/v7/using-npm/scope
      */
     npmScope: string
-    /** Generates an NPM compatible packages for each GIR module */
-    package: boolean
     /** Adds Yarn workspace support to the NPM packages */
     packageYarn: boolean
     /** Disable pretty printing the output */

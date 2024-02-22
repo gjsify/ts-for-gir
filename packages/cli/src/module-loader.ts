@@ -36,7 +36,7 @@ export class ModuleLoader {
     /** Transitive module dependencies */
     modDependencyMap: DependencyMap = {}
     constructor(protected readonly config: GenerateConfig) {
-        this.log = new Logger('', config.verbose, 'ModuleLoader')
+        this.log = new Logger(config.verbose, 'ModuleLoader')
         this.dependencyManager = DependencyManager.getInstance(config)
     }
 

@@ -22,7 +22,7 @@ export class GenerationHandler {
         private readonly config: GenerateConfig,
         type: GeneratorType,
     ) {
-        this.log = new Logger(config.environment, config.verbose, 'GenerationHandler')
+        this.log = new Logger(config.verbose, 'GenerationHandler')
 
         switch (type) {
             case GeneratorType.TYPES:
@@ -37,7 +37,7 @@ export class GenerationHandler {
     }
 
     public async start(girModules: GirModule[], registry: NSRegistry): Promise<void> {
-        this.log.info(START_MODULE(this.config.environment, this.config.buildType))
+        this.log.info(START_MODULE)
 
         if (girModules.length == 0) {
             this.log.error(ERROR_NO_MODULE_SPECIFIED)
@@ -53,7 +53,6 @@ export class GenerationHandler {
 
         // TODO: Put this somewhere that makes sense
         registry.transform({
-            environment: 'gjs',
             inferGenerics: true,
             verbose: this.config.verbose,
         })

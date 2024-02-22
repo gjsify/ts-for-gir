@@ -16307,6 +16307,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ts-for-gir/lib@workspace:packages/lib"
   dependencies:
+    "@gi.ts/parser": "workspace:^"
     "@types/ejs": "npm:^3.1.4"
     "@types/eslint": "npm:8.44.6"
     "@types/lodash": "npm:^4.14.200"

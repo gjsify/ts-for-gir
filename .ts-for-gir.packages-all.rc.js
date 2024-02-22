@@ -1,6 +1,5 @@
 export default {
     outdir: './types',
-    environments: ['gjs'],
     modules: ['*'],
     girDirectories: [
         // General gir files in this repository
@@ -49,9 +48,7 @@ export default {
         'Colorhug-1.0', // Duplicate of ColorHug-1.0
         'GUPnP-DLNA-1.0', // Same namespace as GUPnP-1.0.gir, is this a bug or should we merge the type definitions?
     ],
-    moduleType: 'esm',
     ignoreVersionConflicts: true,
     promisify: true,
-    package: true,
     packageYarn: true,
 }

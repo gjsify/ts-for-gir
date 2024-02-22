@@ -14,13 +14,8 @@ _%>
     "version": "<%- APP_VERSION %>",
     <%_ } _%>
     "description": "<%- PACKAGE_DESC %>",
-    <%_ if (moduleType === 'esm') { _%>
     "type": "module",
     "module": "<%- entryPointName %>.js",
-    <%_ } else { _%>
-    "type": "commonjs",
-    "module": "<%- entryPointName %>.mjs",
-    <%_ } _%>
     "main": "<%- entryPointName %>.js",
     "exports": {
       <%_ if (packageName === 'Gjs' && generateAlias) { _%>
@@ -32,67 +27,16 @@ _%>
           "default": "./ambient.js"
         },
         "./gettext": {
-          <%_ if (moduleType === 'esm') { _%>
-          "import": {
-            "types": "./gettext.d.ts",
-            "default": "./gettext.js"
-          },
-          "require": {
-            "types": "./gettext.d.cts",
-            "default": "./gettext.cjs"
-          }
-          <%_ } else { _%>
-          "import": {
-            "types": "./gettext.d.mts",
-            "default": "./gettext.mjs"
-          },
-          "require": {
-            "types": "./gettext.d.ts",
-            "default": "./gettext.js"
-          }
-          <%_ } _%>
+          "types": "./gettext.d.ts",
+          "default": "./gettext.js"
         },
         "./system": {
-          <%_ if (moduleType === 'esm') { _%>
-          "import": {
-            "types": "./system.d.ts",
-            "default": "./system.js"
-          },
-          "require": {
-            "types": "./system.d.cts",
-            "default": "./system.cjs"
-          }
-          <%_ } else { _%>
-          "import": {
-            "types": "./system.d.mts",
-            "default": "./system.mjs"
-          },
-          "require": {
-            "types": "./system.d.ts",
-            "default": "./system.js"
-          }
-          <%_ } _%>
+          "types": "./system.d.ts",
+          "default": "./system.js"
         },
         "./cairo": {
-          <%_ if (moduleType === 'esm') { _%>
-          "import": {
-            "types": "./cairo.d.ts",
-            "default": "./cairo.js"
-          },
-          "require": {
-            "types": "./cairo.d.cts",
-            "default": "./cairo.cjs"
-          }
-          <%_ } else { _%>
-          "import": {
-            "types": "./cairo.d.mts",
-            "default": "./cairo.mjs"
-          },
-          "require": {
-            "types": "./cairo.d.ts",
-            "default": "./cairo.js"
-          }
-          <%_ } _%>
+          "types": "./cairo.d.ts",
+          "default": "./cairo.js"
         },
       <%_ } _%>
       <%_ if (entryPointName === 'gjs') { _%>
@@ -103,11 +47,6 @@ _%>
       "./dom": {
         "types": "./dom.d.ts",
         "default": "./dom.js"
-      },
-      <%_ } else if (entryPointName === 'node-gtk') { _%>
-      "./ambient": {
-        "types": "./node-ambient.d.ts",
-        "default": "./node-ambient.js"
       },
       <%_ } else {_%>
       "./ambient": {
@@ -120,42 +59,16 @@ _%>
       },
       <%_ } _%>
       ".": {
-        <%_ if (moduleType === 'esm') { _%>
-        "import": {
-          "types": "./<%- entryPointName %>.d.ts",
-          "default": "./<%- entryPointName %>.js"
-        },
-        "require": {
-          "types": "./<%- entryPointName %>.d.cts",
-          "default": "./<%- entryPointName %>.cjs"
-        }
-        <%_ } else { _%>
-        "import": {
-          "types": "./<%- entryPointName %>.d.mts",
-          "default": "./<%- entryPointName %>.mjs"
-        },
-        "require": {
-          "types": "./<%- entryPointName %>.d.ts",
-          "default": "./<%- entryPointName %>.js"
-        }
-        <%_ } _%>
+        "types": "./<%- entryPointName %>.d.ts",
+        "default": "./<%- entryPointName %>.js"
       }
     },
     "scripts": {
-      "test": "yarn test:esm && yarn test:cjs",
-      <%_ if (moduleType === 'esm') { _%>
-      "test:esm": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit <%- entryPointName %>.d.ts",
-      "test:cjs": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit <%- entryPointName %>.d.cts"
-      <%_ } else { _%>
-      "test:esm": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit <%- entryPointName %>.d.mts",
-      "test:cjs": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit <%- entryPointName %>.d.ts"
-      <%_ } _%>
+      "test": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit <%- entryPointName %>.d.ts"
     },
     "dependencies": {
       <%_ if (packageName !== 'Gjs') { _%>
-        <%_ if (environment === 'gjs') { _%>
       "<%- npmScope %>/gjs": "<%- depVersion %>"<%_ if(deps.length > 0 ) { _%>,<%_ } _%>
-        <%_ } _%>
       <%_ } _%>
       <%_ for (let i = 0; i < deps.length;  i++ ) { _%>
       <%_ if (!packageYarn) { _%>

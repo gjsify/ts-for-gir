@@ -8,6 +8,12 @@
   "engines": {
     "node": ">=18"
   },
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
   "scripts": {
     "build": "yarn lint && yarn build:ts",
     "build:ts": "tsc",
@@ -35,7 +41,9 @@
     "generator"
   ],
   "devDependencies": {
+    "@types/ejs": "^3.1.4",
     "@types/node": "^20.11.18",
+    "@types/xml2js": "^0",
     "@typescript-eslint/eslint-plugin": "^7.0.1",
     "@typescript-eslint/parser": "^7.0.1",
     "eslint": "^8.56.0",
@@ -47,6 +55,8 @@
   },
   "dependencies": {
     "@ts-for-gir/generator-base": "workspace:^",
-    "@ts-for-gir/lib": "workspace:^"
+    "@ts-for-gir/lib": "workspace:^",
+    "ejs": "^3.1.9",
+    "xml2js": "^0.6.2"
   }
 }

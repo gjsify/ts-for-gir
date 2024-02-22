@@ -11,11 +11,7 @@ _%>
   "compilerOptions": {
     // General settings for code interpretation
     "target": "ESNext",
-    <%_ if (moduleType === 'esm') { _%>
     "module": "ESNext",
-    <%_ } else { _%>
-    "module": "CommonJS",
-    <%_ } _%>
     "lib": ["ESNext"],
     "types": [],
     "experimentalDecorators": true,

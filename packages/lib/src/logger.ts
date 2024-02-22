@@ -4,11 +4,9 @@
  */
 
 import { blue, yellow, yellowBright, green, red, white } from 'colorette'
-import { Environment } from './types/index.js'
 
 export class Logger {
     constructor(
-        private readonly environment: Environment | '',
         private readonly verbose: boolean,
         private readonly moduleName: string,
     ) {}
@@ -24,11 +22,11 @@ export class Logger {
      * @param logLevel
      */
     private prependInfos(args: unknown[], logLevel?: 'WARN:' | 'ERROR:' | 'INFO:' | 'DEBUG:'): unknown[] {
-        if (logLevel || this.moduleName.length > 0 || this.environment.length > 0) {
+        if (logLevel || this.moduleName.length > 0) {
             args = Logger.prepend(args, ' ')
         }
         if (logLevel) {
-            if (this.moduleName.length > 0 || this.environment.length > 0) {
+            if (this.moduleName.length > 0) {
                 args = Logger.prepend(args, ' ' + logLevel)
             } else {
                 args = Logger.prepend(args, logLevel)
@@ -36,9 +34,6 @@ export class Logger {
         }
         if (this.moduleName.length > 0) {
             args = Logger.prepend(args, `[${this.moduleName}]`)
-        }
-        if (this.environment.length > 0) {
-            args = Logger.prepend(args, `[${this.environment}]`)
         }
 
         return args

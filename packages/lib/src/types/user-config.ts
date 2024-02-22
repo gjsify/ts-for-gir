@@ -1,19 +1,11 @@
-import { BuildType, Environment, ModuleType } from './index.js'
-
 /**
  * Types for config file
  */
 export interface UserConfig {
-    /** javascript environment */
-    environments: Environment[]
     /** root / working directory of your project */
     root: string
     /** directory to output to */
     outdir: string | null
-    /** Definitions generation type */
-    buildType?: BuildType
-    /** Module type, can be CommonJS or ESM */
-    moduleType?: ModuleType
     /** GIR directories */
     girDirectories: string[]
     /** Switch on/off the verbose mode */
@@ -40,8 +32,6 @@ export interface UserConfig {
     promisify: boolean
     /** Scope of the generated NPM packages */
     npmScope: string
-    /** Generates an NPM compatible packages for each GIR module */
-    package: boolean
     /** Adds Yarn workspace support to the NPM packages */
     packageYarn: boolean
 }

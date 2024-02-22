@@ -99,11 +99,9 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
         this.config = config
 
-        this.log = new Logger(this.config.environment, this.config.verbose, TypeDefinitionGenerator.name)
+        this.log = new Logger(this.config.verbose, TypeDefinitionGenerator.name)
         this.dependencyManager = DependencyManager.getInstance(this.config)
-        if (this.config.package) {
-            this.packageData = new PackageDataParser(this.config)
-        }
+        this.packageData = new PackageDataParser(this.config)
         const girModule = namespace
         let pkgData: PackageData | undefined
         if (this.packageData) {
@@ -1388,23 +1386,14 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
         // let target = `${girModule.importName}.d.ts`
 
-        // if (this.overrideConfig.moduleType) {
-        //     if (this.overrideConfig.moduleType === 'cjs') {
-        //         target = `${girModule.importName}.d.cts`
-        //     } else {
         //         target = `${girModule.importName}.d.mts`
-        //     }
-        // }
 
         const out: string[] = []
 
         out.push(...this.addTSDocCommentLines([girModule.packageName]))
 
         out.push('')
-
-        // if (this.config.environment === 'gjs') {
         //     out.push(...this.generateModuleDependenciesImport('Gjs')
-        // }
 
         // Module dependencies as type references or imports
         // TODO: Move to template
@@ -1447,60 +1436,58 @@ class ModuleGenerator extends FormatGenerator<string[]> {
                 out.push(append + prepend)
             }
 
-            if (this.config.environment === 'gjs') {
-                // Properties added to every GIRepositoryNamespace
-                // https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L186-190
-                out.push(
-                    ...this.generateConst(
-                        new IntrospectedConstant({
-                            // TODO:
-                            doc: printGirDocComment(
-                                {
-                                    text: 'Name of the imported GIR library',
-                                    tags: [
-                                        {
-                                            text: 'https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L188',
-                                            tagName: 'see',
-                                            paramName: '',
-                                        },
-                                    ],
-                                },
-                                this.config,
-                            ),
-                            namespace: this.namespace,
-                            value: null,
-                            name: '__name__',
-                            type: new NativeType('string'),
-                            // isInjected: false,
-                            // tsTypeName: 'constant',
-                            // girTypeName: 'constant',
-                        }),
-                        0,
-                    ),
-                    ...this.generateConst(
-                        new IntrospectedConstant({
-                            doc: printGirDocComment(
-                                {
-                                    text: 'Version of the imported GIR library',
-                                    tags: [
-                                        {
-                                            text: 'https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L189',
-                                            tagName: 'see',
-                                            paramName: '',
-                                        },
-                                    ],
-                                },
-                                this.config,
-                            ),
-                            namespace: this.namespace,
-                            name: '__version__',
-                            type: new NativeType('string'),
-                            value: null,
-                        }),
-                        0,
-                    ),
-                )
-            }
+            // Properties added to every GIRepositoryNamespace
+            // https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L186-190
+            out.push(
+                ...this.generateConst(
+                    new IntrospectedConstant({
+                        // TODO:
+                        doc: printGirDocComment(
+                            {
+                                text: 'Name of the imported GIR library',
+                                tags: [
+                                    {
+                                        text: 'https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L188',
+                                        tagName: 'see',
+                                        paramName: '',
+                                    },
+                                ],
+                            },
+                            this.config,
+                        ),
+                        namespace: this.namespace,
+                        value: null,
+                        name: '__name__',
+                        type: new NativeType('string'),
+                        // isInjected: false,
+                        // tsTypeName: 'constant',
+                        // girTypeName: 'constant',
+                    }),
+                    0,
+                ),
+                ...this.generateConst(
+                    new IntrospectedConstant({
+                        doc: printGirDocComment(
+                            {
+                                text: 'Version of the imported GIR library',
+                                tags: [
+                                    {
+                                        text: 'https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L189',
+                                        tagName: 'see',
+                                        paramName: '',
+                                    },
+                                ],
+                            },
+                            this.config,
+                        ),
+                        namespace: this.namespace,
+                        name: '__version__',
+                        type: new NativeType('string'),
+                        value: null,
+                    }),
+                    0,
+                ),
+            )
         }
         // END Namespace
         if (!this.config.noNamespace) {
@@ -1622,23 +1609,15 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         // )
 
         await this.exportModuleTS()
-        if (this.config.buildType === 'lib') {
-            await this.exportModuleJS(girModule)
-        }
+        await this.exportModuleJS(girModule)
 
         await this.exportModuleAmbientTS(girModule)
-        if (this.config.buildType === 'lib') {
-            await this.exportModuleAmbientJS(girModule)
-        }
+        await this.exportModuleAmbientJS(girModule)
 
         await this.exportModuleImportTS(girModule)
-        if (this.config.buildType === 'lib') {
-            await this.exportModuleImportJS(girModule)
-        }
+        await this.exportModuleImportJS(girModule)
 
-        if (this.config.package) {
-            await this.exportNPMPackage(girModule.importName)
-        }
+        await this.exportNPMPackage(girModule.importName)
     }
 }
 
@@ -1653,11 +1632,9 @@ export class TypeDefinitionGenerator implements Generator {
      * @param _config The config to use without the override config
      */
     constructor(readonly config: GenerateConfig) {
-        this.log = new Logger(this.config.environment, this.config.verbose, TypeDefinitionGenerator.name)
+        this.log = new Logger(this.config.verbose, TypeDefinitionGenerator.name)
         this.dependencyManager = DependencyManager.getInstance(this.config)
-        if (this.config.package) {
-            this.packageData = new PackageDataParser(this.config)
-        }
+        this.packageData = new PackageDataParser(this.config)
     }
 
     /**
@@ -1693,47 +1670,34 @@ export class TypeDefinitionGenerator implements Generator {
 
         const templateProcessor = new TemplateProcessor(registry, packageName, dependencies, this.config)
 
-        // TS
         await templateProcessor.create('gjs.d.ts', this.config.outdir, 'gjs.d.ts')
-        await templateProcessor.create('gettext.d.ts', this.config.outdir, 'gettext.d.ts')
-        await templateProcessor.create('system.d.ts', this.config.outdir, 'system.d.ts')
-        await templateProcessor.create('cairo.d.ts', this.config.outdir, 'cairo.d.ts')
+        await templateProcessor.create('gjs.js', this.config.outdir, 'gjs.js')
 
-        // JS
-        if (this.config.buildType === 'lib') {
-            await templateProcessor.create('gjs.js', this.config.outdir, 'gjs.js')
-            await templateProcessor.create('gettext.js', this.config.outdir, 'gettext.js')
-            await templateProcessor.create('system.js', this.config.outdir, 'system.js')
-            await templateProcessor.create('cairo.js', this.config.outdir, 'cairo.js')
-        }
+        await templateProcessor.create('gettext.d.ts', this.config.outdir, 'gettext.d.ts')
+        await templateProcessor.create('gettext.js', this.config.outdir, 'gettext.js')
+
+        await templateProcessor.create('system.d.ts', this.config.outdir, 'system.d.ts')
+        await templateProcessor.create('system.js', this.config.outdir, 'system.js')
+
+        await templateProcessor.create('cairo.d.ts', this.config.outdir, 'cairo.d.ts')
+        await templateProcessor.create('cairo.js', this.config.outdir, 'cairo.js')
 
         // Import ambient types
         await templateProcessor.create('ambient.d.ts', this.config.outdir, 'ambient.d.ts')
-        if (this.config.buildType === 'lib') {
-            await templateProcessor.create('ambient.js', this.config.outdir, 'ambient.js')
-        }
+        await templateProcessor.create('ambient.js', this.config.outdir, 'ambient.js')
 
         // DOM types
         await templateProcessor.create('dom.d.ts', this.config.outdir, 'dom.d.ts')
-        if (this.config.buildType === 'lib') {
-            await templateProcessor.create('dom.js', this.config.outdir, 'dom.js')
-        }
+        await templateProcessor.create('dom.js', this.config.outdir, 'dom.js')
 
         // Import ambient path alias
         if (this.config.generateAlias) {
-            if (this.config.package) {
-                // Write tsconfig.alias.json to the root of the package
-                await templateProcessor.create('tsconfig.alias.json', this.config.outdir, 'tsconfig.alias.json', true)
-            } else {
-                // Write tsconfig.alias.json to the root of the project
-                await templateProcessor.create('tsconfig.alias.json', './', 'tsconfig.alias.json', false)
-            }
+            // Write tsconfig.alias.json to the root of the package
+            await templateProcessor.create('tsconfig.alias.json', this.config.outdir, 'tsconfig.alias.json', true)
         }
 
         // Package
-        if (this.config.package) {
-            await this.module.exportNPMPackage('Gjs')
-        }
+        await this.module.exportNPMPackage('Gjs')
     }
 
     public async generate(registry: NSRegistry, module: GirModule) {
@@ -1744,15 +1708,13 @@ export class TypeDefinitionGenerator implements Generator {
     public async start() {
         // this.dependencyManager.addAll(girModules)
 
-        if (this.config.package && this.packageData) {
+        if (this.packageData) {
             await this.packageData.start()
         }
     }
 
     public async finish(registry: NSRegistry) {
-        if (this.config.environment === 'gjs') {
-            // GJS internal stuff
-            await this.exportGjs(this.dependencyManager.core(), registry)
-        }
+        // GJS internal stuff
+        await this.exportGjs(this.dependencyManager.core(), registry)
     }
 }

@@ -99,14 +99,8 @@ Options:
                         [string] [default: "/home/jumplink/Projekte/ts-for-gir"]
   -o, --outdir                  Directory to output to
                                                   [string] [default: "./@types"]
-  -e, --environments            Javascript environment
-                             [array] [choices: "gjs", "node"] [default: ["gjs"]]
   -i, --ignore                  Modules that should be ignored
                                                            [array] [default: []]
-  -b, --buildType               Definitions generation type
-                             [string] [choices: "lib", "types"] [default: "lib"]
-  -t, --moduleType              Specify what module code is generated.
-                   [string] [choices: "esm", "commonjs", "cjs"] [default: "esm"]
   -v, --verbose                 Switch on/off the verbose mode
                                                        [string] [default: false]
       --ignoreVersionConflicts  Do not ask for package versions if multiple vers
@@ -129,8 +123,6 @@ Options:
                                 calls                   [string] [default: true]
       --npmScope                Scope of the generated NPM packages
                                                      [string] [default: "@girs"]
-      --package                 Generates an NPM compatible packages for each GI
-                                R module               [string] [default: false]
 
 Examples:
   ts-for-gir generate                       Run 'ts-for-gir generate' in your gj

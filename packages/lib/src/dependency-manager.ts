@@ -13,22 +13,22 @@ export class DependencyManager {
 
     cache: { [packageName: string]: Dependency } = {}
 
-    static instances: { [env: string]: DependencyManager } = {}
+    static instance?: DependencyManager
 
     protected constructor(protected readonly config: GenerateConfig) {
         this.transformation = new Transformation(config)
-        this.log = new Logger(config.environment, config.verbose, 'DependencyManager')
+        this.log = new Logger(config.verbose, 'DependencyManager')
     }
 
     /**
      * Get the DependencyManager singleton instance
      */
     static getInstance(config: GenerateConfig): DependencyManager {
-        if (this.instances[config.environment]) {
-            return this.instances[config.environment]
+        if (this.instance) {
+            return this.instance
         }
-        this.instances[config.environment] = new DependencyManager(config)
-        return this.instances[config.environment]
+        this.instance = new DependencyManager(config)
+        return this.instance
     }
 
     protected parseArgs(namespaceOrPackageName: string, version?: string) {
@@ -73,7 +73,7 @@ export class DependencyManager {
 
     createImportPath(packageName: string): string {
         const importName = this.transformation.transformImportName(packageName)
-        const importPath = this.config.package ? `${this.config.npmScope}/${importName}` : `./${importName}.js`
+        const importPath = `${this.config.npmScope}/${importName}`
         return importPath
     }
 

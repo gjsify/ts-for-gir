@@ -61,9 +61,8 @@ export class DtsModuleGenerator extends DtsGenerator {
                 .join("\n");
 
             const versionedImports = true; // TODO options.versionedImports
-            const pathSuffix = options.buildType === "lib" ? "/index.d.ts" : ".d.ts";
-            const referenceType =
-                /*options.importPrefix.startsWith(".")*/ options.buildType === "lib" ? "path" : "types";
+            const pathSuffix = "/index.d.ts";
+            const referenceType = "path";
             const references = [
                 ...(node.__dts__references ?? []),
                 ...Array.from(node.getImports()).map(

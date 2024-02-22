@@ -1405,9 +1405,9 @@ export class GirModule {
         building.libraryVersion = new LibraryVersion(ns.constant, building.version)
         building.transformation = new Transformation(config)
 
-        building.log = new Logger(config.environment, config.verbose, building.packageName || 'GirModule')
-        building.conflictResolver = new ConflictResolver(config.environment, config.verbose)
-        building.inject = new Injector(building.config.environment)
+        building.log = new Logger(config.verbose, building.packageName || 'GirModule')
+        building.conflictResolver = new ConflictResolver(config.verbose)
+        building.inject = new Injector()
         building.importNamespace = building.transformation.transformModuleNamespaceName(building.packageName)
         building.importName = building.transformation.transformImportName(building.packageName)
         building.symTable = new SymTable(building.config, building.packageName, building.namespace)

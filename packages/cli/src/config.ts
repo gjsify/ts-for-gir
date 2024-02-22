@@ -6,18 +6,9 @@ import { Options } from 'yargs'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
 import { join, extname, dirname, resolve } from 'path'
 import { writeFile } from 'fs/promises'
-import {
-    merge,
-    isEqual,
-    Logger,
-    APP_NAME,
-    APP_USAGE,
-    ERROR_CONFIG_EXTENSION_UNSUPPORTED,
-    WARN_USE_ESM_FOR_ALIAS,
-    WARN_USE_GJS_FOR_ALIAS,
-} from '@ts-for-gir/lib'
+import { merge, isEqual, Logger, APP_NAME, APP_USAGE, ERROR_CONFIG_EXTENSION_UNSUPPORTED } from '@ts-for-gir/lib'
 
-import type { Environment, UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from '@ts-for-gir/lib'
+import type { UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from '@ts-for-gir/lib'
 
 export class Config {
     static appName = APP_NAME
@@ -28,7 +19,6 @@ export class Config {
      * Default cli flag and argument values
      */
     static defaults = {
-        environments: ['gjs'],
         print: false,
         configName: '.ts-for-girrc.js',
         root: process.cwd(),
@@ -39,15 +29,12 @@ export class Config {
         verbose: false,
         ignoreVersionConflicts: false,
         noNamespace: false,
-        buildType: 'lib',
-        moduleType: 'esm',
         noComments: false,
         noDebugComments: false,
         fixConflicts: true,
         generateAlias: false,
         promisify: true,
         npmScope: '@girs',
-        package: false,
         packageYarn: false,
     }
 
@@ -84,38 +71,12 @@ export class Config {
             default: Config.defaults.outdir,
             normalize: true,
         },
-        environments: {
-            type: 'string',
-            alias: 'e',
-            description: 'Javascript environment',
-            array: true,
-            choices: ['gjs'],
-            default: Config.defaults.environments,
-            normalize: true,
-        },
         ignore: {
             type: 'string',
             alias: 'i',
             description: 'Modules that should be ignored',
             array: true,
             default: Config.defaults.ignore,
-            normalize: true,
-        },
-        buildType: {
-            type: 'string',
-            alias: 'b',
-            description: 'Definitions generation type',
-            array: false,
-            choices: ['lib', 'types'],
-            default: Config.defaults.buildType,
-            normalize: true,
-        },
-        moduleType: {
-            type: 'string',
-            alias: 't',
-            description: 'Specify what module code is generated.',
-            choices: ['esm', 'commonjs', 'cjs'],
-            default: Config.defaults.moduleType,
             normalize: true,
         },
         verbose: {
@@ -189,12 +150,6 @@ export class Config {
             default: Config.defaults.npmScope,
             normalize: true,
         },
-        package: {
-            type: 'boolean',
-            description: 'Generates an NPM compatible packages for each GIR module',
-            default: Config.defaults.package,
-            normalize: true,
-        },
         packageYarn: {
             type: 'boolean',
             description: 'Adds Yarn workspace support to the NPM packages',
@@ -211,10 +166,7 @@ export class Config {
         girDirectories: this.options.girDirectories,
         root: this.options.root,
         outdir: this.options.outdir,
-        environments: this.options.environments,
         ignore: this.options.ignore,
-        buildType: this.options.buildType,
-        moduleType: this.options.moduleType,
         verbose: this.options.verbose,
         ignoreVersionConflicts: this.options.ignoreVersionConflicts,
         print: this.options.print,
@@ -226,7 +178,6 @@ export class Config {
         generateAlias: this.options.generateAlias,
         promisify: this.options.promisify,
         npmScope: this.options.npmScope,
-        package: this.options.package,
         packageYarn: this.options.packageYarn,
     }
 
@@ -242,7 +193,6 @@ export class Config {
         modules: this.options.modules,
         girDirectories: Config.options.girDirectories,
         outdir: Config.options.outdir,
-        environments: Config.options.environments,
         ignore: Config.options.ignore,
         verbose: Config.options.verbose,
         ignoreVersionConflicts: Config.options.ignoreVersionConflicts,
@@ -313,15 +263,12 @@ export class Config {
         return configFile
     }
 
-    public static getGenerateConfig(config: UserConfig, environment: Environment = 'gjs'): GenerateConfig {
+    public static getGenerateConfig(config: UserConfig): GenerateConfig {
         const generateConfig: GenerateConfig = {
-            environment: environment,
             girDirectories: config.girDirectories,
             root: config.root,
             outdir: config.outdir,
             verbose: config.verbose,
-            buildType: config.buildType,
-            moduleType: config.moduleType,
             noNamespace: config.noNamespace,
             noComments: config.noComments,
             noDebugComments: config.noDebugComments,
@@ -329,7 +276,6 @@ export class Config {
             generateAlias: config.generateAlias,
             promisify: config.promisify,
             npmScope: config.npmScope,
-            package: config.package,
             packageYarn: config.packageYarn,
             noPrettyPrint: false,
             noAdvancedVariants: true,
@@ -338,17 +284,6 @@ export class Config {
     }
 
     public static validate(config: UserConfig): UserConfig {
-        if (config.generateAlias) {
-            if (!config.environments.includes('gjs')) {
-                Logger.warn(WARN_USE_GJS_FOR_ALIAS)
-                config.environments.push('gjs')
-            }
-            if (config.moduleType !== 'esm') {
-                Logger.warn(WARN_USE_ESM_FOR_ALIAS)
-                config.moduleType = 'esm'
-            }
-        }
-
         return config
     }
 
@@ -362,9 +297,6 @@ export class Config {
         const configFileData = configFile?.config || {}
 
         const config: UserConfig = {
-            environments: options.environments,
-            buildType: options.buildType,
-            moduleType: options.moduleType,
             verbose: options.verbose,
             ignoreVersionConflicts: options.ignoreVersionConflicts,
             print: options.print,
@@ -380,23 +312,10 @@ export class Config {
             generateAlias: options.generateAlias,
             promisify: options.promisify,
             npmScope: options.npmScope,
-            package: options.package,
             packageYarn: options.packageYarn,
         }
 
         if (configFileData) {
-            // environments
-            if (isEqual(config.environments, Config.defaults.environments) && configFileData.environments) {
-                config.environments = configFileData.environments
-            }
-            // buildType
-            if (config.buildType === Config.options.buildType.default && configFileData.buildType) {
-                config.buildType = configFileData.buildType
-            }
-            // moduleType
-            if (config.moduleType === Config.options.moduleType.default && configFileData.moduleType) {
-                config.moduleType = configFileData.moduleType
-            }
             // verbose
             if (config.verbose === Config.options.verbose.default && typeof configFileData.verbose === 'boolean') {
                 config.verbose = configFileData.verbose
@@ -487,10 +406,6 @@ export class Config {
             if (config.npmScope === Config.options.npmScope.default && configFileData.npmScope) {
                 config.npmScope = configFileData.npmScope
             }
-            // package
-            if (config.package === Config.options.package.default && typeof configFileData.package === 'boolean') {
-                config.package = configFileData.package
-            }
             // packageYarn
             if (
                 config.packageYarn === Config.options.packageYarn.default &&
@@ -498,10 +413,6 @@ export class Config {
             ) {
                 config.packageYarn = configFileData.packageYarn
             }
-        }
-
-        if ((config.moduleType as string) === 'commonjs') {
-            config.moduleType = 'cjs'
         }
 
         // If outdir is not absolute, make it absolute to the root path

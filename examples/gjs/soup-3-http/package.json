@@ -24,7 +24,7 @@
   "license": "MIT",
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "esbuild": "^0.20.0",
-    "typescript": "5.2.2"
+    "esbuild": "^0.20.1",
+    "typescript": "^5.2.2"
   }
 }

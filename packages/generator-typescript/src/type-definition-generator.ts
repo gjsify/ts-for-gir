@@ -1702,7 +1702,7 @@ export class TypeDefinitionGenerator implements Generator {
 
     public async generate(registry: NSRegistry, module: GirModule) {
         this.module = new ModuleGenerator(module, this.config)
-        await this.module.exportModuleTS()
+        await this.module.exportModule(registry, module)
     }
 
     public async start() {

@@ -77,7 +77,7 @@
             "sourceMaps": true,
         },
         {
-            "name": "build:types:all",
+            "name": "build:types:local",
             "type": "node",
             "request": "launch",
             "cwd": "${workspaceRoot}/packages/cli",

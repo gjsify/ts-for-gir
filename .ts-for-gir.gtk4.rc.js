@@ -1,6 +1,6 @@
+import allLocalConfig from './.ts-for-gir.all.rc.js';
+
 export default {
+    ...allLocalConfig,
     modules: ['Gtk-4.0', 'Adw-1.0'],
-    girDirectories: ['./vala-girs/gir-1.0'],
-    ignore: [],
-    ignoreVersionConflicts: true,
 }

@@ -74,7 +74,7 @@ yarn run build
 Generate example type definitions:
 
 ```bash
-yarn run test:girs:gjs:gtk4
+yarn run test:girs:local:gtk4
 ```
 
 ## Gir XML Format
@@ -105,7 +105,7 @@ npm install -g yarn
 To validate all your generated type definition files in this project run 
 
 ```bash
-yarn run validate:types:all
+yarn run validate:types:local
 ```
 
 To validate only your type definition files for GJS
@@ -141,9 +141,7 @@ git submodule update --init
 Now you can run the test with
 
 ```bash
-yarn run test:girs:gjs
-yarn run test:girs:node
-# or yarn run test:girs:all
+yarn run test:girs:local
 ```
 
 # FAQ

@@ -39,8 +39,7 @@ jobs:
     - run: yarn run build
     - run: yarn run build:examples
     - run: yarn run validate:examples
-    - run: yarn run start:cli-examples:gjs
-    - run: yarn run start:cli-examples:node
+    - run: yarn run start:cli-examples
 
   gjs-types-all:
 

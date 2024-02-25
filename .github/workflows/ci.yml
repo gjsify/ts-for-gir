@@ -66,5 +66,5 @@ jobs:
       run: sudo apt-get --yes install build-essential gobject-introspection libgirepository1.0-dev libcairo2 libcairo2-dev
     - run: yarn install
     - run: yarn run build
-    - run: NODE_OPTIONS=--max_old_space_size=9216 yarn run build:types:gjs
-    - run: NODE_OPTIONS=--max_old_space_size=9216 yarn run validate:types:gjs
+    - run: NODE_OPTIONS=--max_old_space_size=9216 yarn run build:types:all
+    - run: NODE_OPTIONS=--max_old_space_size=9216 yarn run validate:types:all

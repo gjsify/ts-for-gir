@@ -8,6 +8,6 @@
     "noImplicitThis": true,
     "alwaysStrict": true
   },
-  "include": ["@types/*.ts"],
-  "exclude": ["@types/node-*.ts"]
+  "include": ["@types/**/*.ts"],
+  "exclude": []
 }

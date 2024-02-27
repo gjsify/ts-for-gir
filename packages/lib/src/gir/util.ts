@@ -249,7 +249,9 @@ export function getType(
 
     if (variableType instanceof TypeIdentifier) {
         if (variableType.is("GLib", "List") || variableType.is("GLib", "SList")) {
-            const listType = parameter?.type?.[0].type?.[0]?.$.name;
+            // TODO: $?.name was not necessary in gi.ts, but TelepathyLogger
+            // fails to generate now.
+            const listType = parameter?.type?.[0].type?.[0]?.$?.name;
 
             if (listType) {
                 name = listType;
@@ -412,14 +414,14 @@ export function parseTypeExpression(modName: string, type: string): TypeExpressi
     const baseType = parseTypeString(type);
 
     if (baseType.namespace) {
-        return new TypeIdentifier(baseType.name, baseType.namespace);
+        return new TypeIdentifier(baseType.name, baseType.namespace).sanitize();
     } else {
         const primitiveType = resolvePrimitiveType(baseType.name);
 
         if (primitiveType !== null) {
             return primitiveType;
         } else {
-            return new TypeIdentifier(baseType.name, modName);
+            return new TypeIdentifier(baseType.name, modName).sanitize();
         }
     }
 }

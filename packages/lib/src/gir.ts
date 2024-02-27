@@ -3,6 +3,8 @@ import { IntrospectedProperty, IntrospectedField } from './gir/property.js'
 import { GenerationOptions } from './types.js'
 import { sanitizeIdentifierName } from './gir/util.js'
 
+export { sanitizeMemberName, isInvalid } from './gir/util.js'
+
 export {
     IntrospectedBase,
     Options as IntrospectedOptions,
@@ -55,6 +57,14 @@ export class TypeIdentifier extends TypeExpression {
 
     rewrap(type: TypeExpression): TypeExpression {
         return type
+    }
+
+    /**
+     * TODO: gi.ts didn't deal with sanitizing types but probably should have to avoid
+     * invalid names such as "3gppProfile"
+     */
+    sanitize() {
+        return new TypeIdentifier(sanitizeIdentifierName(this.namespace, this.name), this.namespace)
     }
 
     protected _resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeIdentifier | null {

@@ -2,10 +2,10 @@
 // See https://gitlab.gnome.org/ewlsh/gi.ts/-/blob/master/packages/lib/src/generators/dts/gobject.ts
 // Copyright Evan Welsh
 
-export type GType<T = unknown> = {
-    __type__(arg: never): T
-    name: string
-};
+// export type GType<T = unknown> = {
+//     __type__(arg: never): T
+//     name: string
+// };
 
 // Extra interfaces used to help define GObject classes in js; these
 // aren't part of gi.

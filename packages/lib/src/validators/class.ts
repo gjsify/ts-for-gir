@@ -1,4 +1,4 @@
-import { NativeType, TypeIdentifier } from "../gir.js";
+import { AnyType, NativeType, TypeIdentifier } from "../gir.js";
 import { IntrospectedBaseClass, IntrospectedClass, IntrospectedInterface, IntrospectedRecord } from "../gir/class.js";
 import { IntrospectedError } from "../gir/enum.js";
 import {
@@ -139,6 +139,35 @@ const removeComplexFields = <T extends IntrospectedBaseClass>(node: T): T => {
     return node;
 };
 
+/**
+ * TODO: Consider making this transformation optional.
+ *
+ * If we are referencing an unknown library, any-ify the type.
+ *
+ * @param node
+ */
+const removeReferencesToMissingLibraries = <T extends IntrospectedBaseClass>(node: T): T => {
+    const { namespace } = node;
+
+    node.fields = node.fields.map(f => {
+        const type = f.type.deepUnwrap();
+
+        if (type instanceof TypeIdentifier) {
+            // Find the type for the identifier
+            const nsNode = namespace.getInstalledImport(type.namespace);
+
+            // Don't allow private or disguised fields
+            if (!nsNode) {
+                return f.copy({ type: AnyType });
+            }
+        }
+
+        return f;
+    });
+
+    return node;
+};
+
 const removePrivateFields = <T extends IntrospectedBaseClass>(node: T): T => {
     node.fields = node.fields.filter(f => {
         return !f.isPrivate && !f.name.startsWith("_");
@@ -232,6 +261,7 @@ export class ClassVisitor extends GirVisitor {
     visitClass = (node: IntrospectedClass) =>
         chainVisitors(
             node,
+            removeReferencesToMissingLibraries,
             fixMissingParent,
             fixParamSpecSubtypes,
             removeComplexFields,

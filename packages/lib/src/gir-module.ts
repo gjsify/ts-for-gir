@@ -1377,7 +1377,6 @@ export class GirModule {
                 ?.filter(isIntrospectable)
                 // Avoid attempting to alias non-introspectable symbols.
                 .map((b) => {
-                    console.debug('b', b)
                     b.type = b.type
                         ?.filter((t): t is NamedType => !!(t && t.$.name))
                         .map((t) => {

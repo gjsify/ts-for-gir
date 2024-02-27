@@ -684,6 +684,11 @@ class ModuleGenerator extends FormatGenerator<string[]> {
             }
         }
 
+        // TODO: Check if this is necessary anywhere else...
+        if (isInvalid(name) && !isGlobal) {
+            name = `["${name}"]`
+        }
+
         const inParamsDef: string[] = this.generateInParameters(inParams)
 
         def.push(
@@ -692,7 +697,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
             )})${retSep} ${returnType}`,
         )
 
-        // Add overloaded methods
+        // TODO: Add overloaded methods
         // if (overloads && tsFunction.overloads.length > 0) {
         //     def.push(...this.addInfoComment(`Overloads of ${name}`, indentCount))
         //     for (const func of tsFunction.overloads) {

@@ -249,7 +249,9 @@ export function getType(
 
     if (variableType instanceof TypeIdentifier) {
         if (variableType.is("GLib", "List") || variableType.is("GLib", "SList")) {
-            const listType = parameter?.type?.[0].type?.[0]?.$.name;
+            // TODO: $?.name was not necessary in gi.ts, but TelepathyLogger
+            // fails to generate now.
+            const listType = parameter?.type?.[0].type?.[0]?.$?.name;
 
             if (listType) {
                 name = listType;

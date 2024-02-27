@@ -1,0 +1,38 @@
+{
+    "folders": [
+        {
+            "path": ".",
+        },
+        {
+            "path": "packages/parser",
+        },
+        {
+            "path": "packages/lib",
+        },
+        {
+            "path": "packages/cli",
+        },
+        {
+            "path": "packages/generator-base",
+        },
+        {
+            "path": "packages/generator-typescript",
+        },
+        {
+            "path": "packages/generator-html-doc",
+        },
+    ],
+    "settings": {
+        "typescript.enablePromptUseWorkspaceTsdk": true,
+        "typescript.tsdk": ".yarn/sdks/typescript/lib",
+        "files.exclude": {
+            "**/.git": true,
+            "**/.svn": true,
+            "**/.hg": true,
+            "**/CVS": true,
+            "**/.DS_Store": true,
+            "**/Thumbs.db": true,
+            "packages/**": true,
+        },
+    },
+}

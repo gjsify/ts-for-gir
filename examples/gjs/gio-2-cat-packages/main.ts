@@ -9,6 +9,7 @@
  */
 
 import '@girs/gjs';
+import '@girs/gjs/ambient';
 import '@girs/gjs/dom';
 import '@girs/gio-2.0';
 

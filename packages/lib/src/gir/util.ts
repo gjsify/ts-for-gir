@@ -412,14 +412,14 @@ export function parseTypeExpression(modName: string, type: string): TypeExpressi
     const baseType = parseTypeString(type);
 
     if (baseType.namespace) {
-        return new TypeIdentifier(baseType.name, baseType.namespace);
+        return new TypeIdentifier(baseType.name, baseType.namespace).sanitize();
     } else {
         const primitiveType = resolvePrimitiveType(baseType.name);
 
         if (primitiveType !== null) {
             return primitiveType;
         } else {
-            return new TypeIdentifier(baseType.name, modName);
+            return new TypeIdentifier(baseType.name, modName).sanitize();
         }
     }
 }

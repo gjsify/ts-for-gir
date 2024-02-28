@@ -1666,12 +1666,6 @@ export class TypeDefinitionGenerator implements Generator {
         await templateProcessor.create('dom.d.ts', this.config.outdir, 'dom.d.ts')
         await templateProcessor.create('dom.js', this.config.outdir, 'dom.js')
 
-        // Import ambient path alias
-        if (this.config.generateAlias) {
-            // Write tsconfig.alias.json to the root of the package
-            await templateProcessor.create('tsconfig.alias.json', this.config.outdir, 'tsconfig.alias.json')
-        }
-
         // Package
         await this.module.exportNPMPackage('gjs', templateProcessor)
     }

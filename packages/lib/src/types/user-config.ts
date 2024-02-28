@@ -26,8 +26,6 @@ export interface UserConfig {
     noDebugComments: boolean
     /** Fix Inheritance and implementation type conflicts */
     fixConflicts: boolean
-    /** Generate a tsconfig alias */
-    generateAlias: boolean
     /** Generate promisified functions for async/finish calls */
     promisify: boolean
     /** Scope of the generated NPM packages */

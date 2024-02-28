@@ -40,7 +40,7 @@
     "validate": "yarn workspaces foreach -v --all --parallel run validate",
     "validate:types": "yarn workspaces foreach -v --all --parallel run validate:types",
     "validate:examples": "yarn workspaces foreach -v --all --parallel run validate:app",
-    "validate:types:local": "tsc --project tsconfig.json",
+    "validate:types:packages": "tsc --project tsconfig.json",
     "clear": "yarn clear:build && yarn clear:types",
     "clear:build": "yarn workspaces foreach -v --include '@ts-for-gir/*' run clear:build",
     "clear:types": "rimraf ./@types",

@@ -12038,16 +12038,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"ts-for-gir-gio-2-cat-alias-example@workspace:examples/gjs/gio-2-cat-alias":
-  version: 0.0.0-use.local
-  resolution: "ts-for-gir-gio-2-cat-alias-example@workspace:examples/gjs/gio-2-cat-alias"
-  dependencies:
-    "@ts-for-gir/cli": "workspace:^"
-    esbuild: "npm:^0.20.1"
-    typescript: "npm:^5.2.2"
-  languageName: unknown
-  linkType: soft
-
 "ts-for-gir-gio-2-cat-example@workspace:examples/gjs/gio-2-cat":
   version: 0.0.0-use.local
   resolution: "ts-for-gir-gio-2-cat-example@workspace:examples/gjs/gio-2-cat"

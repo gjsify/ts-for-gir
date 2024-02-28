@@ -18,8 +18,6 @@ export interface GenerateConfig {
     noDebugComments: boolean
     /** Fix Inheritance and implementation type conflicts */
     fixConflicts: boolean
-    /** Generate a tsconfig alias */
-    generateAlias: boolean
     /** Generate promisified functions for async/finish calls */
     promisify: boolean
     /**

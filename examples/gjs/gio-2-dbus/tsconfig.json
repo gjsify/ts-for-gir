@@ -1,5 +1,4 @@
 {
-  "extends": "./tsconfig.alias.json",
   "compilerOptions": {   
     "lib": ["ESNext"],
     "types": [],

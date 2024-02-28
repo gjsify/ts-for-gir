@@ -18,9 +18,6 @@ _%>
     "module": "<%- entryPointName %>.js",
     "main": "<%- entryPointName %>.js",
     "exports": {
-      <%_ if (packageName === 'Gjs' && generateAlias) { _%>
-        "./tsconfig.alias.json": "./tsconfig.alias.json",
-      <%_ } _%>
         <%_ if (packageName === 'Gjs') { _%>
         "./ambient": {
           "types": "./ambient.d.ts",

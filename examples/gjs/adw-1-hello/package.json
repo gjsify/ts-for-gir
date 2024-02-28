@@ -1,31 +1,36 @@
 {
   "name": "ts-for-gir-adw-1-hello-example",
-  "version": "3.2.8",
+  "version": "4.0.0",
   "description": "Simple GJS Typescript hello-world example using Libadwaita",
   "main": "index.js",
   "type": "module",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:types": "yarn ts-for-gir generate Adw-1",
     "build:app": "vite build",
-    "build": "yarn build:types && yarn build:app",
+    "build": "yarn build:app",
     "start:app": "gjs -m dist/main.js",
     "debug:app": "GTK_DEBUG=interactive gjs -m dist/main.js",
     "start": "yarn build && yarn start:app",
     "validate": "yarn validate:types && yarn validate:app",
     "validate:types": "tsc --project tsconfig.types.json",
     "validate:app": "tsc --noEmit",
-    "clear": "rm -rf dist @types"
+    "clear": "rm -rf dist"
   },
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.23.9",
     "@rollup/plugin-babel": "^6.0.4",
-    "@ts-for-gir/cli": "workspace:^",
     "rollup": "^4.12.0",
     "typescript": "^5.2.2",
     "vite": "^5.1.4"
+  },
+  "dependencies": {
+    "@girs/adw-1": "workspace:^",
+    "@girs/gio-2.0": "workspace:^",
+    "@girs/gjs": "workspace:^",
+    "@girs/glib-2.0": "workspace:^",
+    "@girs/gtk-4.0": "workspace:^"
   }
 }

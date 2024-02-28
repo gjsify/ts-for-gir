@@ -675,7 +675,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/adw-1@workspace:types/adw-1":
+"@girs/adw-1@workspace:^, @girs/adw-1@workspace:types/adw-1":
   version: 0.0.0-use.local
   resolution: "@girs/adw-1@workspace:types/adw-1"
   dependencies:
@@ -20131,8 +20131,12 @@ __metadata:
   resolution: "ts-for-gir-adw-1-hello-example@workspace:examples/gjs/adw-1-hello"
   dependencies:
     "@babel/core": "npm:^7.23.9"
+    "@girs/adw-1": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gtk-4.0": "workspace:^"
     "@rollup/plugin-babel": "npm:^6.0.4"
-    "@ts-for-gir/cli": "workspace:^"
     rollup: "npm:^4.12.0"
     typescript: "npm:^5.2.2"
     vite: "npm:^5.1.4"

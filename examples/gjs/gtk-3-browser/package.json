@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-gtk-3-browser-example",
-  "version": "3.2.8",
+  "version": "4.0.0",
   "description": "",
   "module": "dist/main.js",
   "type": "module",

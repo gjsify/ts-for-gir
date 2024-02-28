@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-glib-2-variant-example",
-  "version": "3.2.8",
+  "version": "4.0.0",
   "description": "ts-for-gir GVariant example based on https://gjs.guide/guides/glib/gvariant.html",
   "main": "index.js",
   "type": "module",

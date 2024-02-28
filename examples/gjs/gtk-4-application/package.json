@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-gtk-4-application-example",
-  "version": "3.2.8",
+  "version": "4.0.0",
   "description": "Simple GJS Gtk 4 example app to demonstrate how you can use and extend Gtk.Application",
   "main": "index.js",
   "type": "module",

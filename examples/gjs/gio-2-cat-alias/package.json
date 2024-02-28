@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-gio-2-cat-alias-example",
-  "version": "3.2.8",
+  "version": "4.0.0",
   "description": "Simple GJS Gtk 3 example app that shows how you can translate strings with gettext",
   "main": "index.js",
   "type": "module",

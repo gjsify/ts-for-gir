@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-gtk-3-builder-example",
-  "version": "3.2.8",
+  "version": "4.0.0",
   "description": "",
   "main": "main.ts",
   "private": true,

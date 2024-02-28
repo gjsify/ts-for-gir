@@ -4,7 +4,13 @@
     "lib": ["ESNext"],
     "types": [],
     "target": "ESNext",
-    "module": "ESNext"
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
   },
   "include": ["@types/gjs.d.ts", "@types/dom.d.ts"],
   "files": [

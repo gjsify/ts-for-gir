@@ -4,6 +4,7 @@
     "types": [],
     "target": "ESNext",
     "module": "ESNext",
+    "moduleResolution": "bundler",
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,

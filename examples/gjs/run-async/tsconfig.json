@@ -1,11 +1,15 @@
 {
   "compilerOptions": {  
-    "baseUrl": ".", 
     "lib": ["ESNext"],
     "types": [],
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "node"
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
   },
   "include": ["@girs/gjs", "@girs/gjs/ambient"],
   "files": [

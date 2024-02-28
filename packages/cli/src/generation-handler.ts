@@ -53,13 +53,14 @@ export class GenerationHandler {
 
         // TODO: Put this somewhere that makes sense
         registry.transform({
-            environment: 'gjs',
             inferGenerics: true,
             verbose: this.config.verbose,
         })
 
+        console.debug('start...')
         await this.generator.start(registry)
 
+        console.debug('generate...')
         for (const girModule of girModules) {
             this.log.log(` - ${girModule.packageName} ...`)
             girModule.start(girModules)
@@ -67,6 +68,7 @@ export class GenerationHandler {
             await this.generator.generate(registry, girModule)
         }
 
+        console.debug('finish...')
         await this.generator.finish(registry)
 
         this.log.success(GENERATING_TYPES_DONE)

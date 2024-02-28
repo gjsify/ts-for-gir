@@ -1227,15 +1227,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         const target = `${girModule.importName}.js`
 
         if (this.config.outdir) {
-            await this.moduleTemplateProcessor.create(
-                template,
-                this.config.outdir,
-                target,
-                undefined,
-                undefined,
-                undefined,
-                this.config,
-            )
+            await this.moduleTemplateProcessor.create(template, this.config.outdir, target, undefined, {}, this.config)
         } else {
             const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
             this.log.log(append + prepend)
@@ -1247,15 +1239,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         const target = `${girModule.importName}-ambient.d.ts`
 
         if (this.config.outdir) {
-            await this.moduleTemplateProcessor.create(
-                template,
-                this.config.outdir,
-                target,
-                undefined,
-                undefined,
-                undefined,
-                this.config,
-            )
+            await this.moduleTemplateProcessor.create(template, this.config.outdir, target, undefined, {}, this.config)
         } else {
             const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
             this.log.log(append + prepend)
@@ -1267,15 +1251,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         const target = `${girModule.importName}-ambient.js`
 
         if (this.config.outdir) {
-            await this.moduleTemplateProcessor.create(
-                template,
-                this.config.outdir,
-                target,
-                undefined,
-                undefined,
-                undefined,
-                this.config,
-            )
+            await this.moduleTemplateProcessor.create(template, this.config.outdir, target, undefined, {}, this.config)
         } else {
             const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
             this.log.log(append + prepend)
@@ -1287,15 +1263,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         const target = `${girModule.importName}-import.d.ts`
 
         if (this.config.outdir) {
-            await this.moduleTemplateProcessor.create(
-                template,
-                this.config.outdir,
-                target,
-                undefined,
-                undefined,
-                undefined,
-                this.config,
-            )
+            await this.moduleTemplateProcessor.create(template, this.config.outdir, target, undefined, {}, this.config)
         } else {
             const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
             this.log.log(append + prepend)
@@ -1307,15 +1275,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         const target = `${girModule.importName}-import.js`
 
         if (this.config.outdir) {
-            await this.moduleTemplateProcessor.create(
-                template,
-                this.config.outdir,
-                target,
-                undefined,
-                undefined,
-                undefined,
-                this.config,
-            )
+            await this.moduleTemplateProcessor.create(template, this.config.outdir, target, undefined, {}, this.config)
         } else {
             const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
             this.log.log(append + prepend)
@@ -1506,21 +1466,29 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         return [prepend, ...out, append]
     }
 
-    async exportNPMPackage(girModuleImportName: string) {
-        await this.exportNPMPackageJson()
-        await this.exportNPMReadme(girModuleImportName)
-        await this.exportTSConfig()
-        await this.exportTypeDoc()
+    /**
+     * Export everything we need for a npm package: package.json, README.md, tsconfig.json, typedoc.json
+     * @param girModuleImportName The name of the module to export
+     * @param templateProcessor Define a custom template processor to use
+     */
+    async exportNPMPackage(girModuleImportName: string, templateProcessor = this.moduleTemplateProcessor) {
+        await this.exportNPMPackageJson(templateProcessor)
+        await this.exportNPMReadme(girModuleImportName, templateProcessor)
+        await this.exportTSConfig(templateProcessor)
+        await this.exportTypeDoc(templateProcessor)
     }
 
-    async exportNPMPackageJson() {
+    /**
+     * Export the package.json
+     * @param templateProcessor Define a custom template processor to use
+     */
+    async exportNPMPackageJson(templateProcessor = this.moduleTemplateProcessor) {
         const template = 'package.json'
         if (this.config.outdir) {
-            await this.moduleTemplateProcessor.create(
+            await templateProcessor.create(
                 template,
                 this.config.outdir,
                 template, // output filename
-                undefined,
                 undefined,
                 {},
                 this.config,
@@ -1531,63 +1499,66 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         }
     }
 
-    async exportNPMReadme(girModuleImportName: string) {
+    /**
+     * Export the README.md
+     * @param girModuleImportName The name of the module to export
+     * @param templateProcessor Define a custom template processor to use
+     */
+    async exportNPMReadme(girModuleImportName: string, templateProcessor = this.moduleTemplateProcessor) {
         // E.g. `README-GJS.md` or `README-GTK-4.0.md`
         let template = girModuleImportName ? `README-${girModuleImportName.toUpperCase()}.md` : 'README.md'
         const outputFilename = 'README.md'
 
-        if (!this.moduleTemplateProcessor.exists(template)) {
+        if (!templateProcessor.exists(template)) {
             template = 'README.md'
         }
 
         if (this.config.outdir) {
-            await this.moduleTemplateProcessor.create(
-                template,
-                this.config.outdir,
-                outputFilename,
-                undefined,
-                undefined,
-                {},
-                this.config,
-            )
+            await templateProcessor.create(template, this.config.outdir, outputFilename, undefined, {}, this.config)
         } else {
-            const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
+            const { append, prepend } = await templateProcessor.load(template, {}, this.config)
             this.log.log(append + prepend)
         }
     }
 
-    async exportTSConfig() {
+    /**
+     * Export the tsconfig.json
+     * @param templateProcessor Define a custom template processor to use
+     */
+    async exportTSConfig(templateProcessor = this.moduleTemplateProcessor) {
         const template = 'tsconfig.json'
         if (this.config.outdir) {
-            await this.moduleTemplateProcessor.create(
+            await templateProcessor.create(
                 template,
                 this.config.outdir,
                 template, // output filename
-                undefined,
                 undefined,
                 {},
                 this.config,
             )
         } else {
-            const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
+            const { append, prepend } = await templateProcessor.load(template, {}, this.config)
             this.log.log(append + prepend)
         }
     }
 
-    async exportTypeDoc() {
+    /**
+     * Export the TypeDoc configuration
+     * @param templateProcessor Define a custom template processor to use
+     */
+    async exportTypeDoc(templateProcessor = this.moduleTemplateProcessor) {
         const template = 'typedoc.json'
         if (this.config.outdir) {
-            await this.moduleTemplateProcessor.create(
+            await templateProcessor.create(
                 template,
                 this.config.outdir,
                 template, // output filename
-                undefined,
                 undefined,
                 {},
                 this.config,
             )
         } else {
-            const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
+            const { append, prepend } = await templateProcessor.load(template, {}, this.config)
             this.log.log(append + prepend)
         }
     }
@@ -1698,11 +1669,11 @@ export class TypeDefinitionGenerator implements Generator {
         // Import ambient path alias
         if (this.config.generateAlias) {
             // Write tsconfig.alias.json to the root of the package
-            await templateProcessor.create('tsconfig.alias.json', this.config.outdir, 'tsconfig.alias.json', true)
+            await templateProcessor.create('tsconfig.alias.json', this.config.outdir, 'tsconfig.alias.json')
         }
 
         // Package
-        await this.module.exportNPMPackage('Gjs')
+        await this.module.exportNPMPackage('gjs', templateProcessor)
     }
 
     public async generate(registry: NSRegistry, module: GirModule) {

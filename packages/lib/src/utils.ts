@@ -383,17 +383,6 @@ export const generateIndent = (indents = 1, spaceForIndent = 4): string => {
 }
 
 /**
- * Get the destination path for the environment
- * @param baseOutputPath The base output path
- * @param parts The path parts
- * @returns The destination path
- */
-export const getDestPath = (baseOutputPath: string, ...parts: string[]) => {
-    const destPath = join(baseOutputPath, ...parts)
-    return destPath
-}
-
-/**
  * Convert a GirBoolean to a boolean
  * @param boolStr The GirBoolean string
  * @param defaultVal The default value

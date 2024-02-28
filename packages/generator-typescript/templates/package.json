@@ -24,43 +24,37 @@ _%>
         <%_ if (packageName === 'Gjs') { _%>
         "./ambient": {
           "types": "./ambient.d.ts",
-          "default": "./ambient.js"
+          "import": "./ambient.js"
+        },
+        "./dom": {
+          "types": "./dom.d.ts",
+          "import": "./dom.js"
         },
         "./gettext": {
           "types": "./gettext.d.ts",
-          "default": "./gettext.js"
+          "import": "./gettext.js"
         },
         "./system": {
           "types": "./system.d.ts",
-          "default": "./system.js"
+          "import": "./system.js"
         },
         "./cairo": {
           "types": "./cairo.d.ts",
-          "default": "./cairo.js"
+          "import": "./cairo.js"
         },
-      <%_ } _%>
-      <%_ if (entryPointName === 'gjs') { _%>
-      "./ambient": {
-        "types": "./ambient.d.ts",
-        "default": "./ambient.js"
-      },
-      "./dom": {
-        "types": "./dom.d.ts",
-        "default": "./dom.js"
-      },
       <%_ } else {_%>
       "./ambient": {
         "types": "./<%- entryPointName %>-ambient.d.ts",
-        "default": "./<%- entryPointName %>-ambient.js"
+        "import": "./<%- entryPointName %>-ambient.js"
       },
       "./import": {
         "types": "./<%- entryPointName %>-import.d.ts",
-        "default": "./<%- entryPointName %>-import.js"
+        "import": "./<%- entryPointName %>-import.js"
       },
       <%_ } _%>
       ".": {
         "types": "./<%- entryPointName %>.d.ts",
-        "default": "./<%- entryPointName %>.js"
+        "import": "./<%- entryPointName %>.js"
       }
     },
     "scripts": {

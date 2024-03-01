@@ -7,7 +7,7 @@
 
 // Based on https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/websocket-client.js
 
-import imports from './@types/gjs.js';
+import imports from '@girs/gjs';
 import GLib from 'gi://GLib?version=2.0';
 import Soup from 'gi://Soup?version=3.0';
 import Gio from 'gi://Gio?version=2.0';

@@ -1,14 +1,12 @@
 {
-  "name": "ts-for-gir-gtk-3-editor-example",
+  "name": "@ts-for-gir-example/gtk-3-editor-example",
   "version": "4.0.0",
   "description": "",
   "main": "main.ts",
   "private": true,
   "scripts": {
-    "build": "yarn build:types && yarn build:app",
+    "build": "yarn build:app",
     "build:app": "yarn clear:app && webpack --env production",
-    "build:types": "yarn ts-for-gir generate Gtk-3.0 GtkSource-3.0 --noNamespace",
-    "clear:types": "rm -rf ./@types",
     "clear:app": "rm -rf ./dist",
     "clear": "yarn clear:app && yarn clear:types",
     "start": "yarn build && yarn start:app",
@@ -22,11 +20,15 @@
   "author": "",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@ts-for-gir/cli": "workspace:^",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "ts-loader": "^9.5.1",
     "typescript": "^5.2.2",
     "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@girs/gjs": "workspace:^",
+    "@girs/gtk-3.0": "workspace:^",
+    "@girs/gtksource-3.0": "workspace:^"
   }
 }

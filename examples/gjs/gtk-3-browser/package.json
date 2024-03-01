@@ -1,5 +1,5 @@
 {
-  "name": "ts-for-gir-gtk-3-browser-example",
+  "name": "@ts-for-gir-example/gtk-3-browser-example",
   "version": "4.0.0",
   "description": "",
   "module": "dist/main.js",
@@ -9,9 +9,8 @@
     "start": "yarn build && yarn start:app",
     "start:app": "gjs -m dist/main.js",
     "watch": "yarn build:app --watch",
-    "build": "yarn build:types && yarn build:app",
+    "build": "yarn build:app",
     "build:app": "yarn clear:ts && webpack --config webpack.config.cjs --env production",
-    "build:types": "yarn ts-for-gir generate Gtk-3.0 Pango-1.0 WebKit2-4.0",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
     "clear": "yarn clear:ts && yarn clear:types",
@@ -23,11 +22,16 @@
   "author": "",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@ts-for-gir/cli": "workspace:^",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "ts-loader": "^9.5.1",
     "typescript": "^5.2.2",
     "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@girs/gjs": "workspace:^",
+    "@girs/gtk-3.0": "workspace:^",
+    "@girs/pango-1.0": "workspace:^",
+    "@girs/webkit2-4.0": "workspace:^"
   }
 }

@@ -11,7 +11,7 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
   },
-  "include": ["@types/gjs.d.ts", "@types/dom.d.ts", "@types/ambient.d.ts"],
+  "include": ["@girs/gjs", "@girs/gjs/dom", "@girs/gjs/ambient"],
   "files": [
     "main.ts"
   ]

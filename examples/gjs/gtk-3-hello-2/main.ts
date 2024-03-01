@@ -3,7 +3,8 @@
 // SPDX-FileCopyrightText: 2008 litl, LLC
 // Based on https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/gtk.js
 
-import imports from './@types/gjs.js';
+import imports from '@girs/gjs';
+import '@girs/gtk-3.0'
 
 // Include this in case both GTK3 and GTK4 installed, otherwise an exception
 // will be thrown

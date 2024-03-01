@@ -1,6 +1,0 @@
-{
-    "modules": ["Gio-2.0"],
-    "noNamespace": false,
-    "outdir": "./@types",
-    "promisify": true
-}

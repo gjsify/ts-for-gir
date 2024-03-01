@@ -21,37 +21,45 @@ _%>
         <%_ if (packageName === 'Gjs') { _%>
         "./ambient": {
           "types": "./ambient.d.ts",
-          "import": "./ambient.js"
+          "import": "./ambient.js",
+          "default": "./ambient.js"
         },
         "./dom": {
           "types": "./dom.d.ts",
-          "import": "./dom.js"
+          "import": "./dom.js",
+          "default": "./dom.js"
         },
         "./gettext": {
           "types": "./gettext.d.ts",
-          "import": "./gettext.js"
+          "import": "./gettext.js",
+          "default": "./gettext.js"
         },
         "./system": {
           "types": "./system.d.ts",
-          "import": "./system.js"
+          "import": "./system.js",
+          "default": "./system.js"
         },
         "./cairo": {
           "types": "./cairo.d.ts",
-          "import": "./cairo.js"
+          "import": "./cairo.js",
+          "default": "./cairo.js"
         },
       <%_ } else {_%>
       "./ambient": {
         "types": "./<%- entryPointName %>-ambient.d.ts",
-        "import": "./<%- entryPointName %>-ambient.js"
+        "import": "./<%- entryPointName %>-ambient.js",
+        "default": "./<%- entryPointName %>-ambient.js"
       },
       "./import": {
         "types": "./<%- entryPointName %>-import.d.ts",
-        "import": "./<%- entryPointName %>-import.js"
+        "import": "./<%- entryPointName %>-import.js",
+        "default": "./<%- entryPointName %>-import.js"
       },
       <%_ } _%>
       ".": {
         "types": "./<%- entryPointName %>.d.ts",
-        "import": "./<%- entryPointName %>.js"
+        "import": "./<%- entryPointName %>.js",
+        "default": "./<%- entryPointName %>.js"
       }
     },
     "scripts": {

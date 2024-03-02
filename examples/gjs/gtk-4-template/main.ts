@@ -3,6 +3,11 @@
 // SPDX-FileCopyrightText: 2021 Andy Holmes <andyholmes@gnome.org>
 // Based on https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/gtk4-template.js
 
+import '@girs/gjs';
+import '@girs/gjs/dom';
+import '@girs/gio-2.0';
+import '@girs/gtk-4.0';
+
 import GObject from 'gi://GObject?version=2.0';
 import Gio from 'gi://Gio?version=2.0';
 import GLib from 'gi://GLib?version=2.0';

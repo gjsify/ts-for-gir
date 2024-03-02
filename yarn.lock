@@ -8135,6 +8135,7 @@ __metadata:
   resolution: "@ts-for-gir-example/gio-2-cat-example@workspace:examples/gjs/gio-2-cat"
   dependencies:
     "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     esbuild: "npm:^0.20.1"
     typescript: "npm:^5.2.2"
@@ -8164,6 +8165,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/gjs-gtk-4-custom-widget-example@workspace:examples/gjs/gtk-4-custom-widget"
   dependencies:
+    "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
     "@girs/gtk-4.0": "workspace:^"
     "@ts-for-gir/cli": "workspace:^"
@@ -8176,6 +8178,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/glib-2-spawn-command-example@workspace:examples/gjs/glib-2-spawn-command"
   dependencies:
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
     fork-ts-checker-webpack-plugin: "npm:^9.0.2"
     ts-loader: "npm:^9.5.1"
     typescript: "npm:^5.2.2"
@@ -8213,6 +8217,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/gtk-3-builder-example@workspace:examples/gjs/gtk-3-builder"
   dependencies:
+    "@girs/gjs": "workspace:^"
     "@girs/gtk-3.0": "workspace:^"
     fork-ts-checker-webpack-plugin: "npm:^9.0.2"
     raw-loader: "npm:^4.0.2"
@@ -8227,6 +8232,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/gtk-3-calc-example@workspace:examples/gjs/gtk-3-calc"
   dependencies:
+    "@girs/gjs": "workspace:^"
     "@girs/gtk-3.0": "workspace:^"
     esbuild: "npm:^0.20.1"
     typescript: "npm:^5.2.2"
@@ -8310,7 +8316,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/gtk-4-application-example@workspace:examples/gjs/gtk-4-application"
   dependencies:
+    "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
     "@girs/gtk-4.0": "workspace:^"
     esbuild: "npm:^0.20.1"
     typescript: "npm:^5.2.2"
@@ -8321,6 +8329,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/gtk-4-list-store-example@workspace:examples/gjs/gtk-4-list-store"
   dependencies:
+    "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
     "@girs/gtk-4.0": "workspace:^"
     esbuild: "npm:^0.20.1"
@@ -8332,6 +8341,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/gtk-4-template-example@workspace:examples/gjs/gtk-4-template"
   dependencies:
+    "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
     "@girs/gtk-4.0": "workspace:^"
     "@ts-for-gir/cli": "workspace:^"
@@ -8345,6 +8355,10 @@ __metadata:
   resolution: "@ts-for-gir-example/run-async-example@workspace:examples/gjs/run-async"
   dependencies:
     "@girs/adw-1": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gtk-4.0": "workspace:^"
     esbuild: "npm:^0.20.1"
     typescript: "npm:^5.2.2"
   languageName: unknown
@@ -8354,6 +8368,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/soup-3-http-example@workspace:examples/gjs/soup-3-http"
   dependencies:
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
     "@girs/soup-3.0": "workspace:^"
     esbuild: "npm:^0.20.1"
     typescript: "npm:^5.2.2"
@@ -8366,6 +8383,7 @@ __metadata:
   dependencies:
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
     "@girs/soup-3.0": "workspace:^"
     esbuild: "npm:^0.20.1"
     typescript: "npm:^5.2.2"

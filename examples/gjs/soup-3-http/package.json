@@ -26,6 +26,9 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "@girs/gio-2.0": "workspace:^",
+    "@girs/gjs": "workspace:^",
+    "@girs/glib-2.0": "workspace:^",
     "@girs/soup-3.0": "workspace:^"
   }
 }

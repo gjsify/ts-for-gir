@@ -1,6 +1,7 @@
 import '@girs/gjs'
+import '@girs/gjs/dom'
 import gladeFile from './builderExample.glade'
-import * as Gtk from '@girs/gtk-3.0'
+import Gtk from '@girs/gtk-3.0'
 
 Gtk.init(null)
 

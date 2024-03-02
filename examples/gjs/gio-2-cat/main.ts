@@ -9,7 +9,7 @@
  */
 
 import '@girs/gjs';
-import '@girs/dom';
+import '@girs/gjs/dom';
 import GLib from '@girs/glib-2.0';
 import Gio from '@girs/gio-2.0';
 

@@ -11,7 +11,7 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
   },
-  "include": ["@girs/gjs"],
+  "include": [],
   "files": [
     "main.ts",
   ]

@@ -11,7 +11,7 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
   },
-  "include": ["@girs/gjs", "@girs/gjs/dom"],
+  "include": [],
   "files": [
     "client.ts",
   ]

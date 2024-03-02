@@ -7,8 +7,8 @@ on:
   push:
     branches:
       - "*"
-jobs:    
-  generated-types:
+jobs:
+  examples:
 
     runs-on: ubuntu-22.04
 
@@ -31,14 +31,39 @@ jobs:
     - name: Update package repository
       run: sudo apt-get update; # sudo apt-get upgrade
     - name: Install dependencies
-      run: sudo apt-get --yes install gjs libappindicator3-dev libgda-5.0-dev libgirepository1.0-dev libgtk-3-dev libgtk-4-dev libgtksourceview-3.0-dev libnotify-dev libsoup2.4-dev libsoup-3.0-dev libwebkit2gtk-4.0-dev libadwaita-1-dev gnome-shell-common libmutter-10-dev libgcr-3-dev libgnome-desktop-3-dev build-essential gobject-introspection libgirepository1.0-dev libcairo2 libcairo2-dev
+      run: sudo apt-get --yes install gjs libappindicator3-dev libgda-5.0-dev libgirepository1.0-dev libgtk-3-dev libgtk-4-dev libgtksourceview-3.0-dev libnotify-dev libsoup2.4-dev libsoup-3.0-dev libwebkit2gtk-4.0-dev libadwaita-1-dev gnome-shell-common libmutter-10-dev libgcr-3-dev libgnome-desktop-3-dev build-essential gobject-introspection libgirepository1.0-dev libcairo2-dev
     - run: yarn --version
     - run: node --version
     - run: gjs --version
     - run: yarn install
     - run: yarn run build
-    - run: yarn run build:types:packages
-    - run: yarn run validate:types:packages
     - run: yarn run build:examples
     - run: yarn run validate:examples
     - run: yarn run start:cli-examples
+
+  gjs-types-all:
+
+    runs-on: ubuntu-22.04
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+        architecture:
+          - x64
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Update package repository
+      run: sudo apt-get update; # sudo apt-get upgrade
+    - name: Install dependencies
+      run: sudo apt-get --yes install gjs libappindicator3-dev libgda-5.0-dev libgirepository1.0-dev libgtk-3-dev libgtk-4-dev libgtksourceview-3.0-dev libnotify-dev libsoup2.4-dev libsoup-3.0-dev libwebkit2gtk-4.0-dev libadwaita-1-dev gnome-shell-common libmutter-10-dev libgcr-3-dev libgnome-desktop-3-dev build-essential gobject-introspection libgirepository1.0-dev libcairo2-dev
+    - run: yarn install
+    - run: yarn run build
+    - run: yarn run build:types:packages
+    - run: yarn run validate:types:packages

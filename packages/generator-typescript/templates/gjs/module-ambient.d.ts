@@ -16,7 +16,9 @@ declare module 'gi://<%= name %>?version=<%= version %>' {
 }
 
 <%# // Generate ambient module declarations Without version number if there are no conflicts or the target is an NPM package _%>
+<%_ if (dep.isLatestVersion(pkg.namespace, pkg.version)) { _%>
 declare module 'gi://<%= name %>' {
     <%- moduleImportStr %>;
     export default <%- girModule.importNamespace -%>;
 }
+<%_ } _%>

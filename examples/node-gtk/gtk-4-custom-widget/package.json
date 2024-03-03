@@ -1,6 +1,6 @@
 {
-  "name": "ts-for-gir-node-gtk-gtk-4-custom-widget-example",
-  "version": "3.2.8",
+  "name": "@ts-for-gir-example/node-gtk-gtk-4-custom-widget-example",
+  "version": "3.2.9",
   "description": "This example shows the usage of custom widgets and virtual functions in node-gtk",
   "main": "dist/index.js",
   "private": true,
@@ -22,10 +22,10 @@
   "license": "MIT",
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "esbuild": "^0.20.0",
+    "esbuild": "^0.20.1",
     "typescript": "5.2.2"
   },
   "dependencies": {
-    "node-gtk": "^0.12.0"
+    "node-gtk": "^0.12.1"
   }
 }

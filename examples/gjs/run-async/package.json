@@ -1,6 +1,6 @@
 {
-  "name": "ts-for-gir-run-async-example",
-  "version": "3.2.8",
+  "name": "@ts-for-gir-example/run-async-example",
+  "version": "3.2.9",
   "description": "Simple GJS Gtk 3 example app that shows how you can translate strings with gettext",
   "main": "index.js",
   "type": "module",
@@ -19,7 +19,7 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
-    "esbuild": "^0.20.0",
+    "esbuild": "^0.20.1",
     "typescript": "5.2.2"
   }
 }

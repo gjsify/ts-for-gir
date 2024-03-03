@@ -1,6 +1,6 @@
 {
-  "name": "ts-for-gir-node-gtk-gtk-4-application-example",
-  "version": "3.2.8",
+  "name": "@ts-for-gir-example/node-gtk-gtk-4-application-example",
+  "version": "3.2.9",
   "description": "Simple node-gtk Gtk 4 example app to demonstrate how you can use and extend Gtk.Application",
   "main": "dist/main.js",
   "private": true,
@@ -21,7 +21,7 @@
   "license": "MIT",
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "esbuild": "^0.20.0",
+    "esbuild": "^0.20.1",
     "typescript": "5.2.2"
   }
 }

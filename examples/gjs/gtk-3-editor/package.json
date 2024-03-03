@@ -1,6 +1,6 @@
 {
-  "name": "ts-for-gir-gtk-3-editor-example",
-  "version": "3.2.8",
+  "name": "@ts-for-gir-example/gtk-3-editor-example",
+  "version": "3.2.9",
   "description": "",
   "main": "main.ts",
   "private": true,
@@ -26,7 +26,7 @@
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "ts-loader": "^9.5.1",
     "typescript": "5.2.2",
-    "webpack": "^5.90.2",
+    "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4"
   }
 }

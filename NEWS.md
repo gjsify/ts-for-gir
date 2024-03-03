@@ -4,6 +4,7 @@
 - Update types for GJS v1.75.2, see https://gitlab.gnome.org/GNOME/gjs/-/commit/666755b3b09d765e43d415e76105b828517b5509
 
 # 3.2.9
+- Upgrade dependencies
 - Generate global ambient module for latest version, e.g. 'gi://Gtk' or 'gi://GObject'
 - Fix old gir version generation, see https://github.com/gjsify/types
 

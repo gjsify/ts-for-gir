@@ -1,5 +1,5 @@
 export default {
-    outdir: './types',
+    outdir: './types-next',
     environments: ['gjs'],
     modules: ['*'],
     girDirectories: [

@@ -109,7 +109,7 @@
                 "sourceMaps": true,
             },
             {
-                "name": "build:types:gjs",
+                "name": "build:types:all",
                 "type": "node",
                 "request": "launch",
                 "cwd": "${workspaceRoot}/packages/cli",

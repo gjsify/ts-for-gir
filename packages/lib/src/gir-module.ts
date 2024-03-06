@@ -27,8 +27,6 @@ import type {
     ParsedGir,
     GirInfoAttrs,
     GenerateConfig,
-    IntrospectedFunctionParameter,
-    IntrospectedClassFunction,
     PromisifyFunc,
 } from './types/index.js'
 import {
@@ -52,6 +50,8 @@ import {
     IntrospectedFunction,
     IntrospectedCallback,
     IntrospectedClassCallback,
+    IntrospectedFunctionParameter,
+    IntrospectedClassFunction,
 } from './gir/function.js'
 import { NSRegistry } from './gir/registry.js'
 import { isPrimitiveType } from './gir/util.js'
@@ -319,7 +319,7 @@ export class GirModule {
             }
         }
     }
-   
+
     overloadPromisifiedFunctions(girFunctions: GirFunctionElement[]): void {
         if (!this.config.promisify) return
 
@@ -632,10 +632,9 @@ export class GirModule {
             (m): m is IntrospectedBaseClass => m instanceof IntrospectedBaseClass,
         )
         const res = clazzes
-            .map<[IntrospectedBaseClass, IntrospectedClassCallback | undefined]>((m) => [
-                m,
-                m.callbacks.find((c) => c.name === name || c.resolve_names.includes(name)),
-            ])
+            .map<
+                [IntrospectedBaseClass, IntrospectedClassCallback | undefined]
+            >((m) => [m, m.callbacks.find((c) => c.name === name || c.resolve_names.includes(name))])
             .find((r): r is [IntrospectedBaseClass, IntrospectedClassCallback] => r[1] != null)
 
         if (res) {

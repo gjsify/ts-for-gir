@@ -1,6 +1,6 @@
 {
     "extensions": {
-        "recommendations": ["arcanis.vscode-zipfs", "dbaeumer.vscode-eslint"],
+        "recommendations": ["arcanis.vscode-zipfs", "dbaeumer.vscode-eslint", "esbenp.prettier-vscode"],
     },
     "launch": {
         "version": "0.2.0",
@@ -628,6 +628,8 @@
             "window.zoomLevel": "undefined",
         },
         "typescript.tsdk": ".yarn/sdks/typescript/lib",
+        "eslint.nodePath": ".yarn/sdks",
+        "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
         "files.exclude": {
             "**/.git": true,
             "**/.svn": true,

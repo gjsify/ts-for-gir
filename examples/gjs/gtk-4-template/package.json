@@ -22,7 +22,7 @@
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
     "esbuild": "^0.20.1",
-    "typescript": "^5.2.2"
+    "typescript": "^5.4.2"
   },
   "dependencies": {
     "@girs/gio-2.0": "workspace:^",

@@ -24,7 +24,7 @@
   "devDependencies": {
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "ts-loader": "^9.5.1",
-    "typescript": "^5.2.2",
+    "typescript": "^5.4.2",
     "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4"
   },

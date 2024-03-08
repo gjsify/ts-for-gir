@@ -21,4 +21,3 @@ declare module 'gi://<%= name %>' {
     <%- moduleImportStr %>;
     export default <%- girModule.importNamespace -%>;
 }
-<%_ } _%>

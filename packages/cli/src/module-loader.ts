@@ -386,7 +386,7 @@ export class ModuleLoader {
         this.log.log(`Parsing ${dependency.path}...`)
         const fileContents = await readFile(dependency.path, 'utf8')
         const result = parser.parseGir(fileContents)
-        const girModule = GirModule.load(result, this.config, this.dependencyManager.registry)
+        const girModule = GirModule.load(result, this.config, this.dependencyManager)
         // Figure out transitive module dependencies
         this.extendDependencyMapByGirModule(girModule)
         return girModule
@@ -548,9 +548,25 @@ export class ModuleLoader {
         ignore: string[] = [],
         doNotAskForVersionOnConflict = true,
     ): Promise<{ keep: GirModuleResolvedBy[]; grouped: GirModulesGroupedMap; ignore: string[]; failed: Set<string> }> {
-        const foundPackageNames = await this.findPackageNames(packageNames, ignore)
+        const foundPackageNames = await this.findPackageNames([...packageNames], ignore)
+        // Always require these because GJS does...
+        const GLib = this.dependencyManager.get('GLib', '2.0')
+        const Gio = this.dependencyManager.get('Gio', '2.0')
+        const GObject = this.dependencyManager.get('GObject', '2.0')
+
         const dependencies = this.packageNamesToDependencies(foundPackageNames)
-        const { loaded, failed } = await this.loadGirModules(dependencies, ignore)
+
+        const { loaded, failed } = await this.loadGirModules(
+            [
+                GLib,
+                Gio,
+                GObject,
+                ...dependencies.filter(
+                    (dep) => dep.namespace !== 'GLib' && dep.namespace !== 'Gio' && dep.namespace !== 'GObject',
+                ),
+            ],
+            ignore,
+        )
         let keep: GirModuleResolvedBy[] = []
         if (doNotAskForVersionOnConflict) {
             keep = loaded

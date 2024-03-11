@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Transformation, IGNORE_GIR_TYPE_TS_DOC_TYPES } from './transformation.js'
 import { Logger } from './logger.js'
-import { Injector } from './injection/injector.js'
 import { GirFactory } from './gir-factory.js'
 import { ConflictResolver } from './conflict-resolver.js'
 import { DependencyManager } from './dependency-manager.js'
@@ -114,8 +113,6 @@ export class GirModule {
     conflictResolver!: ConflictResolver
 
     log!: Logger
-
-    inject!: Injector
 
     extends?: string
 
@@ -852,7 +849,6 @@ export class GirModule {
 
         building.log = new Logger(config.verbose, building.packageName || 'GirModule')
         building.conflictResolver = new ConflictResolver(config.verbose)
-        building.inject = new Injector()
         building.importNamespace = building.transformation.transformModuleNamespaceName(building.packageName)
         building.importName = building.transformation.transformImportName(building.packageName)
         building.symTable = new SymTable(building.config, building.packageName, building.namespace)

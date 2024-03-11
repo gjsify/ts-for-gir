@@ -226,6 +226,7 @@ export function filterFunctionConflict<
                 let never:
                     | IntrospectedConstructor
                     | IntrospectedFunction
+                    | IntrospectedClassFunction
                     | IntrospectedStaticClassFunction
                     | IntrospectedVirtualClassFunction;
 

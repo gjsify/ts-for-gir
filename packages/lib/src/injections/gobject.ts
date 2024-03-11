@@ -22,7 +22,8 @@ import {
     GenericType,
     TypeExpression,
     BooleanType,
-    GenerifiedTypeIdentifier
+    GenerifiedTypeIdentifier,
+    OrType
 } from "../gir.js";
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedField } from "../gir/property.js";
@@ -39,6 +40,10 @@ function typeParam(name: string, type: TypeExpression) {
 
 function anyParam(name: string) {
     return typeParam(name, AnyType);
+}
+
+function stringParam(name: string) {
+    return typeParam(name, StringType);
 }
 
 export default {
@@ -76,17 +81,20 @@ export default {
 
             namespace.members.set("SignalMatch", SignalMatch);
 
-            const GType = new IntrospectedAlias({
-                name: "GType",
-                namespace,
-                type: new NativeType("any")
-            });
-            namespace.members.set("GType", GType);
+            // TODO: gi.ts stopped typing GType because
+            // it isn't necessary in modern GJS...
+
+            // const GType = new IntrospectedAlias({
+            //     name: "GType",
+            //     namespace,
+            //     type: new NativeType("any")
+            // });
+            // namespace.members.set("GType", GType);
 
             // We don't want to emit TypeScript-specific GType
             // hacks, but we still need the alias so the type
             // can resolve.
-            GType.noEmit();
+            // GType.noEmit();
 
             const ParamSpec = namespace.assertClass("ParamSpec");
             const ParamFlags = namespace.getEnum("ParamFlags");
@@ -132,15 +140,6 @@ export default {
                 return fn;
             }
 
-            ParamSpec.fields.push(
-                new IntrospectedField({
-                    name: "override",
-                    isStatic: true,
-                    type: AnyType,
-                    writable: true
-                })
-            );
-
             // Get rid of the ParamSpec subtypes.
             namespace.assertClass("ParamSpecBoolean").noEmit();
             namespace.assertClass("ParamSpecBoxed").noEmit();
@@ -174,10 +173,10 @@ export default {
             const object = new IntrospectedStaticClassFunction({
                 name: "object",
                 parameters: [
-                    anyParam("name"),
-                    anyParam("nick"),
-                    anyParam("blurb"),
-                    anyParam("flags"),
+                    stringParam("name"),
+                    stringParam("nick"),
+                    stringParam("blurb"),
+                    stringParam("flags"),
                     new IntrospectedFunctionParameter({
                         name: "objectType",
                         direction: GirDirection.In,
@@ -189,6 +188,38 @@ export default {
             });
 
             object.generics.push(new Generic(new GenericType("T")));
+
+            // static jsobject(name: string, nick: string, blurb: string, flags: ParamFlags): ParamSpecBoxed
+            const jsobject = new IntrospectedStaticClassFunction({
+                name: "jsobject",
+                parameters: [stringParam("name"), stringParam("nick"), stringParam("blurb"), anyParam("flags")],
+                parent: ParamSpec,
+                return_type: new NativeType("ParamSpec<T>")
+            });
+
+            jsobject.generics.push(new Generic(new GenericType("T")));
+
+            const override = new IntrospectedClassFunction({
+                parent: ParamSpec,
+                name: "override",
+                return_type: VoidType,
+                parameters: [
+                    new IntrospectedFunctionParameter({
+                        direction: GirDirection.In,
+                        name: "name",
+                        type: StringType
+                    }),
+                    new IntrospectedFunctionParameter({
+                        direction: GirDirection.In,
+                        name: "oclass",
+                        type: new OrType(
+                            namespace.assertClass("Object").getType(),
+                            new NativeType("Function"),
+                            new TypeIdentifier("GType", "GObject")
+                        )
+                    })
+                ]
+            });
 
             function ParamSpecWithGenerics(type: TypeExpression) {
                 return new GenerifiedTypeIdentifier("ParamSpec", "GObject", [type]);
@@ -244,7 +275,9 @@ export default {
                 //   "object": "static object(name: any, nick: any, blurb: any, flags: any, objectType: any): ParamSpec;",
                 object,
                 //   "param": "static param(name: any, nick: any, blurb: any, flags: any, paramType: any): ParamSpec;",
-                generateParamSpec("param", ParamSpec.getType(), false, "param", false)
+                generateParamSpec("param", ParamSpec.getType(), false, "param", false),
+                jsobject,
+                override
             );
         }
 

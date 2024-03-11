@@ -237,5 +237,20 @@ export default {
                 })
             );
         }
+
+        {
+            // See https://github.com/gjsify/ts-for-gir/issues/130
+            const MainLoop = namespace.assertClass("MainLoop");
+
+            MainLoop.members.push(
+                new IntrospectedClassFunction({
+                    parent: MainLoop,
+                    name: "runAsync",
+                    parameters: [],
+                    return_type: new NativeType("Promise<void>"),
+                    doc: "Similar to `GLib.MainLoop.run` but return a Promise which resolves when the main loop ends, instead of blocking while the main loop runs.\nThis helps avoid the situation where Promises never resolved if you didn't run the main loop inside a callback."
+                })
+            );
+        }
     }
 };

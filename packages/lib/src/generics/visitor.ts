@@ -1,4 +1,12 @@
-import { ClosureType, GenericType, Generic, TypeIdentifier, GenerifiedTypeIdentifier, ThisType } from "../gir.js";
+import {
+    ClosureType,
+    GenericType,
+    Generic,
+    TypeIdentifier,
+    GenerifiedTypeIdentifier,
+    ThisType,
+    IntrospectedEnum
+} from "../gir.js";
 import { IntrospectedClass, IntrospectedBaseClass, IntrospectedInterface } from "../gir/class.js";
 import {
     IntrospectedCallback,
@@ -278,7 +286,7 @@ export class GenericVisitor extends GirVisitor {
         return node;
     };
 
-    private generifyStandaloneClassFunction = (node: IntrospectedClassFunction) => {
+    private generifyStandaloneClassFunction = <T extends IntrospectedClassFunction>(node: T): T => {
         const unwrapped = node.return().unwrap();
 
         if (node.parent.getType().is("GObject", "Object")) {
@@ -294,7 +302,8 @@ export class GenericVisitor extends GirVisitor {
 
             copied.generics.push(new Generic(genericReturnType, unwrapped, unwrapped));
 
-            return copied;
+            // TODO: .copy() isn't generic.
+            return copied as T;
         }
 
         return node;
@@ -308,7 +317,7 @@ export class GenericVisitor extends GirVisitor {
         return node;
     };
 
-    visitClassFunction = (node: IntrospectedClassFunction) => {
+    visitClassFunction = <T extends IntrospectedBaseClass | IntrospectedEnum>(node: IntrospectedClassFunction<T>) => {
         if (node.parent instanceof IntrospectedBaseClass) {
             const clazz = node.parent;
 

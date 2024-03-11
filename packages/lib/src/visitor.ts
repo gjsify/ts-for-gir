@@ -1,6 +1,6 @@
 import { TypeExpression } from './gir.js'
 import { IntrospectedAlias } from './gir/alias.js'
-import { IntrospectedRecord, IntrospectedInterface, IntrospectedClass } from './gir/class.js'
+import { IntrospectedRecord, IntrospectedInterface, IntrospectedClass, IntrospectedBaseClass } from './gir/class.js'
 import { IntrospectedConstant } from './gir/const.js'
 import { GirEnumMember, IntrospectedError, IntrospectedEnum } from './gir/enum.js'
 import {
@@ -40,7 +40,9 @@ export abstract class GirVisitor {
     visitField?: (node: IntrospectedField) => IntrospectedField
     visitSignal?: (node: IntrospectedSignal, type?: IntrospectedSignalType) => IntrospectedSignal
     visitFunction?: (node: IntrospectedFunction) => IntrospectedFunction
-    visitClassFunction?: (node: IntrospectedClassFunction) => IntrospectedClassFunction
+    visitClassFunction?: <T extends IntrospectedBaseClass | IntrospectedEnum>(
+        node: IntrospectedClassFunction<T>,
+    ) => IntrospectedClassFunction<T>
     visitStaticClassFunction?: (node: IntrospectedStaticClassFunction) => IntrospectedStaticClassFunction
     visitVirtualClassFunction?: (node: IntrospectedVirtualClassFunction) => IntrospectedVirtualClassFunction
     visitNamespace?: (node: IntrospectedNamespace) => IntrospectedNamespace

@@ -1,4 +1,3 @@
-export * from './injection/index.js'
 export * from './types/index.js'
 export * from './conflict-resolver.js'
 export * from './constants.js'

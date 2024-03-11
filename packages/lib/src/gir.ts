@@ -12,6 +12,7 @@ export {
     IntrospectedNamespaceMember,
     IntrospectedClassMember,
 } from './gir/base.js'
+export { filterConflicts, filterFunctionConflict, FilterBehavior } from './gir/class.js'
 export * from './gir/nodes.js'
 
 export abstract class TypeExpression {

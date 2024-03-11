@@ -37,16 +37,17 @@ const handler = async (args: ConfigFlags) => {
         config.ignore || [],
         config.ignoreVersionConflicts,
     )
+
     if (keep.length === 0) {
         return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))
     }
+
     const tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES)
 
     const girModules = Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module)
-    // const girModulesGrouped = Object.values(grouped)
 
-    moduleLoader.dependencyManager.registry.registerFormatter('dts', new TypeScriptFormatter())
-    await tsForGir.start(girModules, moduleLoader.dependencyManager.registry)
+    moduleLoader.dependencyManager.registerFormatter('dts', new TypeScriptFormatter())
+    await tsForGir.start(girModules, moduleLoader.dependencyManager)
 }
 
 const examples: ReadonlyArray<[string, string?]> = [

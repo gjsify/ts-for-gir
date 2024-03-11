@@ -39,6 +39,7 @@ _%>
           "default": "./cairo.js"
         },
       <%_ } _%>
+      <%_ if (entryPointName === 'gjs') { _%>
       "./ambient": {
         "types": "./ambient.d.ts",
         "default": "./ambient.js"

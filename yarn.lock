@@ -5536,15 +5536,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"ts-for-gir-gio-2-cat-promisify-packages@workspace:examples/gjs/gio-2-cat-packages":
-  version: 0.0.0-use.local
-  resolution: "ts-for-gir-gio-2-cat-promisify-packages@workspace:examples/gjs/gio-2-cat-packages"
-  dependencies:
-    esbuild: "npm:^0.20.1"
-    typescript: "npm:^5.2.2"
-  languageName: unknown
-  linkType: soft
-
 "ts-for-gir-gio-2-cat-types-only-example@workspace:examples/gjs/gio-2-cat-types-only":
   version: 0.0.0-use.local
   resolution: "ts-for-gir-gio-2-cat-types-only-example@workspace:examples/gjs/gio-2-cat-types-only"
@@ -5755,6 +5746,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ts-for-gir-run-async-example@workspace:examples/gjs/run-async"
   dependencies:
+    "@ts-for-gir/cli": "workspace:^"
     esbuild: "npm:^0.20.1"
     typescript: "npm:^5.2.2"
   languageName: unknown

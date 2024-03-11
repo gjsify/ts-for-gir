@@ -1,13 +1,19 @@
 {
+  "extends": "./tsconfig.alias.json",
   "compilerOptions": {  
     "baseUrl": ".", 
     "lib": ["ESNext"],
     "types": [],
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "paths": { 
+      // Simulate the node_modules packaging...
+      "@girs/*": ["./@types/*"]
+    }
   },
-  "include": ["@girs/gjs", "@girs/gjs/ambient"],
+  "include": ["./@types"],
   "files": [
     "main.ts",
   ]

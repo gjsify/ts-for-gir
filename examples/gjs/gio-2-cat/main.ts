@@ -8,10 +8,10 @@
  * the label should show a translation of 'Print help'
  */
 
-import './@types/gjs.js';
-import './@types/dom.js';
-import GLib from './@types/glib-2.0.js';
-import Gio from './@types/gio-2.0.js';
+import './@types/gjs/gjs';
+import './@types/gjs/dom';
+import GLib from './@types/glib-2.0/glib-2.0';
+import Gio from './@types/gio-2.0/gio-2.0';
 
 const loop = GLib.MainLoop.new(null, false);
 const textDecoder = new TextDecoder()

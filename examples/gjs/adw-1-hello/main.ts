@@ -3,11 +3,11 @@
  * @see https://gitlab.gnome.org/GNOME/libadwaita/-/blob/main/examples/hello-world/hello.c
  */
 
-import imports from './@types/gjs.js'
-import Gio from './@types/gio-2.0.js';
-import GLib from './@types/glib-2.0.js';
-import Gtk from './@types/gtk-4.0.js';
-import Adw from './@types/adw-1.js';
+import './@types/gjs/gjs';
+import Gio from './@types/gio-2.0/gio-2.0';
+import GLib from './@types/glib-2.0/glib-2.0';
+import Gtk from './@types/gtk-4.0/gtk-4.0';
+import Adw from './@types/adw-1/adw-1';
 
 const loop = GLib.MainLoop.new(null, false)
 

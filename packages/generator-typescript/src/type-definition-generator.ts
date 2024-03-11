@@ -115,7 +115,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
                 importName: girModule.importName,
                 girModule,
                 pkgData,
-                registry: this.dependencyManager.registry,
+                registry: this.dependencyManager,
             },
             girModule.packageName,
             girModule.transitiveDependencies,
@@ -1336,7 +1336,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
         const target = `${girModule.importName}.d.ts`
 
-        const formatter = this.dependencyManager.registry.getFormatter('dts')
+        const formatter = this.dependencyManager.getFormatter('dts')
 
         let contents!: string
         try {

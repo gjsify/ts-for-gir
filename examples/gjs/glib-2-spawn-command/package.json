@@ -10,7 +10,7 @@
     "watch": "yarn build:app --watch",
     "build": "yarn build:types && yarn build:app",
     "build:app": "yarn clear:ts && webpack --env production",
-    "build:types": "yarn ts-for-gir generate GLib-2.0 --noNamespace -t cjs",
+    "build:types": "yarn ts-for-gir generate GLib-2.0 --noNamespace",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
     "clear": "yarn clear:ts && yarn clear:types",

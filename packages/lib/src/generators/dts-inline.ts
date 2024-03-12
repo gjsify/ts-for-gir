@@ -56,18 +56,7 @@ export class DtsInlineGenerator extends DtsGenerator {
                 })
                 .join("\n");
 
-            const versionedImports = true; // TODO: options.versionedImports
-            // Resolve imports after we stringify everything else, sometimes we have to ad-hoc add an import.
-            const imports = Array.from(node.getImports())
-                .map(
-                    ([i, version]) =>
-                        `import * as ${i} from "${options.npmScope}${i.toLowerCase()}${
-                            versionedImports ? version.toLowerCase().split(".")[0] : ""
-                        }";`
-                )
-                .join(`${"\n"}`);
-
-            const output = [header, imports, base, content, suffix].join("\n\n");
+            const output = [header, base, content, suffix].join("\n\n");
 
             if (options.verbose) {
                 console.debug(`Printing ${namespace.name}...`);

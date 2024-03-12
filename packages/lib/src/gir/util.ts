@@ -202,7 +202,7 @@ export function getType(
             name = "unknown";
             console.log(
                 `Failed to find type in ${modName}: `,
-                JSON.stringify(parameter.$, null, 4),
+                JSON.stringify(parameter.type[0].$, null, 4),
                 "\nMarking as unknown!"
             );
         }

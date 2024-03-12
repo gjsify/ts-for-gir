@@ -21,24 +21,6 @@ _%>
       <%_ if (packageName === 'Gjs' && generateAlias) { _%>
         "./tsconfig.alias.json": "./tsconfig.alias.json",
       <%_ } _%>
-        <%_ if (packageName === 'Gjs') { _%>
-        "./ambient": {
-          "types": "./ambient.d.ts",
-          "default": "./ambient.js"
-        },
-        "./gettext": {
-          "types": "./gettext.d.ts",
-          "default": "./gettext.js"
-        },
-        "./system": {
-          "types": "./system.d.ts",
-          "default": "./system.js"
-        },
-        "./cairo": {
-          "types": "./cairo.d.ts",
-          "default": "./cairo.js"
-        },
-      <%_ } _%>
       <%_ if (entryPointName === 'gjs') { _%>
       "./ambient": {
         "types": "./ambient.d.ts",
@@ -47,6 +29,18 @@ _%>
       "./dom": {
         "types": "./dom.d.ts",
         "default": "./dom.js"
+      },
+      "./gettext": {
+        "types": "./gettext.d.ts",
+        "default": "./gettext.js"
+      },
+      "./system": {
+        "types": "./system.d.ts",
+        "default": "./system.js"
+      },
+      "./cairo": {
+        "types": "./cairo.d.ts",
+        "default": "./cairo.js"
       },
       <%_ } else {_%>
       "./ambient": {

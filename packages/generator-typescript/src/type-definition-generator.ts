@@ -369,9 +369,10 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         desc.push(...this.addGirDocComment(tsProp.doc, [], indentCount))
 
         const indent = generateIndent(indentCount)
-        const varDesc = this.generateVariable(tsProp, 0)
+        const name = this.generateMemberName(tsProp)
         const staticStr = isStatic ? 'static ' : ''
         const readonly = !tsProp.writable ? 'readonly ' : ''
+        const affix = tsProp.optional ? '?' : ''
 
         // temporary solution, will be solved differently later
         let commentOut = ''
@@ -385,7 +386,9 @@ class ModuleGenerator extends FormatGenerator<string[]> {
             type = new BinaryType(type.unwrap(), AnyType)
         }
 
-        desc.push(`${indent}${commentOut}${staticStr}${readonly}${varDesc}`)
+        const typeStr = this.generateTypes(type)
+
+        desc.push(`${indent}${commentOut}${staticStr}${readonly}${name}${affix}: ${typeStr}`)
         return desc
     }
 
@@ -461,23 +464,6 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         const ComputedName = 'computed' in tsVar && tsVar.computed ? `[${name}]` : Name
 
         return `${ComputedName}`
-    }
-
-    generateVariable(tsVar: IntrospectedProperty | IntrospectedConstant | IntrospectedField, indentCount = 0) {
-        const indent = generateIndent(indentCount)
-        // Constants are not optional
-        const optional = false
-
-        const ComputedName = this.generateMemberName(tsVar)
-
-        const affix = optional ? '?' : ''
-        const typeStr = this.generateTypes(tsVar.type)
-
-        // temporary solution, will be solved differently later
-        // TODO: const commentOut = allowCommentOut && tsVar.hasUnresolvedConflict ? '// Has conflict: ' : ''
-        const commentOut = ''
-
-        return `${indent}${commentOut}${ComputedName}${affix}: ${typeStr}`
     }
 
     generateType(tsType: TypeExpression) {
@@ -967,14 +953,15 @@ class ModuleGenerator extends FormatGenerator<string[]> {
     generateConst(tsConst: IntrospectedConstant, indentCount = 0) {
         const desc: string[] = []
 
-        // if (!tsConst.hasUnresolvedConflict) {
         desc.push(...this.addGirDocComment(tsConst.doc, [], indentCount))
-        // }
 
         const indent = generateIndent(indentCount)
         const exp = !this.config.noNamespace ? '' : 'export '
-        const varDesc = this.generateVariable(tsConst, 0)
-        desc.push(`${indent}${exp}const ${varDesc}`)
+
+        const ComputedName = this.generateMemberName(tsConst)
+        const typeStr = this.generateTypes(tsConst.type)
+
+        desc.push(`${indent}${exp}const ${ComputedName}: ${typeStr}`)
         return desc
     }
 
@@ -1011,7 +998,11 @@ class ModuleGenerator extends FormatGenerator<string[]> {
     ) {
         const def: string[] = []
 
-        if (!girClass.someParent((p: IntrospectedBaseClass) => p.namespace.name === 'GObject' && p.name === 'Object')) {
+        const isGObjectObject = girClass.name === 'Object' && girClass.namespace.name === 'GObject'
+        if (
+            !isGObjectObject &&
+            !girClass.someParent((p: IntrospectedBaseClass) => p.namespace.name === 'GObject' && p.name === 'Object')
+        ) {
             return def
         }
 
@@ -1020,32 +1011,47 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         let ext = ''
         const resolution = girClass.resolveParents()
         const superType = resolution.extends()
+        const superTypes = superType ? [superType] : []
 
         // Remove namespace and class module name
         const constructPropInterfaceName = `ConstructorProps`
 
         // Only add the "extends" if the parent type will be generated (it has props)...
-        if (superType && superType.node.props.length > 0) {
-            ext = `extends ${superType.node.getType().print(this.namespace, this.config)}.${constructPropInterfaceName}`
+        if (superType) {
+            ext = `extends ${superTypes.map((superType) => `${superType.node.getType().print(this.namespace, this.config)}.${constructPropInterfaceName}`).join(', ')}`
         }
 
         def.push(...this.addInfoComment('Constructor properties interface', indentCount))
 
-        // START BODY
-        if (!girClass.mainConstructor) {
-            const ConstructorProps = filterConflicts(
-                girClass.namespace,
-                girClass,
-                // TODO: Include properties from interface parents too.
-                girClass.props,
-            )
-                .flatMap((v) => v.asString(this, true))
-                .join('\n    ')
+        // TODO: Clean this up better, we may want to introduce interfaces
+        // also having construct property interfaces...
 
-            def.push(`${indent}${exp}interface ${constructPropInterfaceName} ${ext} {`)
-            def.push(ConstructorProps)
-            def.push(`${indent}}`, '')
-        }
+        // Include properties from parent interfaces...
+        const props =
+            'implements' in resolution
+                ? [...resolution.implements().flatMap((iface) => iface.node.props), ...girClass.props]
+                : [...girClass.props]
+        const deduplicatedProps = [
+            ...props
+                .reduce((prev, next) => {
+                    prev.set(next.name, next)
+
+                    return prev
+                }, new Map<string, IntrospectedProperty>())
+                .values(),
+        ]
+
+        // START BODY
+
+        // TODO: Is filtering here correct if we're already "filtering" above?
+        const ConstructorProps = filterConflicts(girClass.namespace, girClass, deduplicatedProps, FilterBehavior.DELETE)
+            .flatMap((v) => v.asString(this, true))
+            .join('\n    ')
+
+        def.push(`${indent}${exp}interface ${constructPropInterfaceName} ${ext} {`)
+        def.push(ConstructorProps)
+        def.push(`${indent}}`, '')
+
         // END BODY
 
         return def
@@ -1059,7 +1065,11 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
         def.push(
             ...this.generateFields(
-                girClass.fields.filter((field) => field.isStatic),
+                filterConflicts(
+                    girClass.namespace,
+                    girClass,
+                    girClass.fields.filter((field) => field.isStatic),
+                ),
                 `Static fields of ${girClass.namespace.namespace}.${girClass.name}`,
                 indentCount,
             ),
@@ -1076,7 +1086,11 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
         def.push(
             ...this.generateFields(
-                girClass.fields.filter((field) => !field.isStatic),
+                filterConflicts(
+                    girClass.namespace,
+                    girClass,
+                    girClass.fields.filter((field) => !field.isStatic),
+                ),
                 `Own fields of ${girClass.namespace.namespace}.${girClass.name}`,
                 indentCount,
             ),
@@ -1101,7 +1115,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
         def.push(
             ...this.generateProperties(
-                girClass.props,
+                filterConflicts(girClass.namespace, girClass, girClass.props),
                 `Own properties of ${girClass.namespace.namespace}.${girClass.name}`,
                 indentCount,
             ),
@@ -1216,11 +1230,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
     generateClassSignalInterfaces(girClass: IntrospectedClass, indentCount = 0) {
         const def: string[] = []
-        if (!girClass) {
-            throw new Error(NO_TSDATA('generateClassSignalInterface'))
-        }
-
-        const tsSignals = girClass.signals.map((signal) => signal).filter((signal) => !!signal)
+        const tsSignals = girClass.signals
 
         def.push(
             ...this.generateCallbackInterfaces(
@@ -1362,7 +1372,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
         const exp = !this.config.noNamespace ? '' : 'export '
 
-        if ('signals' in girClass) {
+        if (girClass instanceof IntrospectedClass) {
             // Signal interfaces
             bodyDef.push(...this.generateClassSignalInterfaces(girClass, indentCount + 1))
         }
@@ -1444,6 +1454,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
     protected extends(node: IntrospectedBaseClass) {
         const { namespace: ns, options } = this
+
         if (node.superType) {
             const ResolvedType = node.superType.resolveIdentifier(ns, options)
             const Type = ResolvedType?.print(ns, options)
@@ -1455,6 +1466,33 @@ class ModuleGenerator extends FormatGenerator<string[]> {
             throw new Error(
                 `Unable to resolve type: ${node.superType.name} from ${node.superType.namespace} in ${node.namespace.name} ${node.namespace.version}`,
             )
+        }
+
+        return ''
+    }
+
+    protected implements(node: IntrospectedClass) {
+        const { namespace, options } = this
+
+        const interfaces = node.interfaces.map((i) => {
+            const identifier = i.resolveIdentifier(namespace, options)
+
+            if (!identifier) {
+                throw new Error(
+                    `Unable to resolve type: ${i.name} from ${i.namespace} in ${node.namespace.name} ${node.namespace.version}`,
+                )
+            }
+
+            return identifier
+        })
+
+        if (interfaces.length > 0) {
+            return ` implements ${interfaces
+                .map((i) => {
+                    const Type = i.print(namespace, options)
+                    return `${Type}`
+                })
+                .join(', ')}`
         }
 
         return ''
@@ -1477,7 +1515,8 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
         const genericParameters = this.generateGenericParameters(girClass.generics)
         const ext = this.extends(girClass)
-        const classHead = `${girClass.name}${genericParameters}${ext}`
+        const impl = girClass instanceof IntrospectedClass ? this.implements(girClass) : ''
+        const classHead = `${girClass.name}${genericParameters}${ext}${impl}`
 
         // START CLASS
         {
@@ -1508,6 +1547,29 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
                 // Static Methods
                 def.push(...this.generateClassMethods(girClass))
+
+                if (girClass instanceof IntrospectedClass) {
+                    const implementedProperties = girClass.implementedProperties()
+                    const implementedMethods = girClass.implementedMethods(implementedProperties)
+
+                    const generatedImplementedProperties = filterConflicts(
+                        girClass.namespace,
+                        girClass,
+                        implementedProperties,
+                    ).flatMap((m) => m.asString(this))
+
+                    def.push(...generatedImplementedProperties)
+
+                    const filteredImplMethods = filterFunctionConflict(
+                        girClass.namespace,
+                        girClass,
+                        implementedMethods,
+                        [],
+                    )
+                    const generatedImplementedMethods = filteredImplMethods.flatMap((m) => m.asString(this))
+
+                    def.push(...generatedImplementedMethods)
+                }
             }
             // END BODY
 

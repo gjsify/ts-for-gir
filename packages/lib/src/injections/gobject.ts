@@ -81,20 +81,18 @@ export default {
 
             namespace.members.set("SignalMatch", SignalMatch);
 
-            // TODO: gi.ts stopped typing GType because
-            // it isn't necessary in modern GJS...
+            const GType = new IntrospectedAlias({
+                name: "GType",
+                namespace,
+                type: new NativeType("any")
+            });
 
-            // const GType = new IntrospectedAlias({
-            //     name: "GType",
-            //     namespace,
-            //     type: new NativeType("any")
-            // });
-            // namespace.members.set("GType", GType);
+            namespace.members.set("GType", GType);
 
             // We don't want to emit TypeScript-specific GType
             // hacks, but we still need the alias so the type
             // can resolve.
-            // GType.noEmit();
+            GType.noEmit();
 
             const ParamSpec = namespace.assertClass("ParamSpec");
             const ParamFlags = namespace.getEnum("ParamFlags");

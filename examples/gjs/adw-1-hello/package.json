@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:types": "yarn ts-for-gir generate Adw-1",
+    "build:types": "yarn ts-for-gir generate Adw-1 --outdir @types/@girs",
     "build:app": "vite build",
     "build": "yarn build:types && yarn build:app",
     "start:app": "gjs -m dist/main.js",

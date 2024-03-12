@@ -1,6 +1,5 @@
-import './@types/gjs.js'
 import gladeFile from './builderExample.glade'
-import * as Gtk from './@types/gtk-3.0'
+import Gtk from './@types/gtk-3.0/gtk-3.0'
 
 Gtk.init(null)
 

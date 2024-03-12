@@ -8,10 +8,6 @@
  * the label should show a translation of 'Print help'
  */
 
-import './@types/gjs/gjs';
-import './@types/gjs/dom';
-import './@types/gio-2.0';
-
 // import Adw from "gi://Adw";
 // import GLib from "gi://GLib";
 import Gio from "gi://Gio";

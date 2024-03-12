@@ -1,6 +1,6 @@
 {
     "modules": ["Gio-2.0"],
     "noNamespace": false,
-    "outdir": "./@types",
+    "outdir": "./@types/@girs",
     "generateAlias": true
 }

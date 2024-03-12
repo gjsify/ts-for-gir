@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "lib": ["ESNext"],
-    "types": [],
+    "typeRoots": ["./@types"],
+    "types": ["@girs/gjs"],
     "target": "ESNext",
     "module": "ESNext",
     "strict": true,
@@ -9,8 +10,9 @@
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
+    "allowSyntheticDefaultImports": true,
   },
-  "include": ["global.d.ts", "@types/gjs.d.ts", "@types/ambient.d.ts"],
+  "include": ["global.d.ts"],
   "files": [
     "main.ts"
   ]

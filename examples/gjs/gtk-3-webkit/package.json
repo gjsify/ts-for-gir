@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:types": "yarn ts-for-gir generate WebKit2-4.0 --generateAlias",
+    "build:types": "yarn ts-for-gir generate WebKit2-4.0 --generateAlias --outdir=@types/@girs",
     "build:app": "yarn node esbuild.js",
     "build": "yarn build:types && yarn build:app",
     "start:app": "gjs -m dist/main.js",

@@ -125,9 +125,6 @@ export class GirModule {
     readonly name: string
     readonly c_prefixes: string[]
 
-    private imports: Map<string, string> = new Map()
-    default_imports: Map<string, string> = new Map()
-
     private _members?: Map<string, GirNSMember | GirNSMember[]>
     private _enum_constants?: Map<string, readonly [string, string]>
     private _resolve_names: Map<string, TypeIdentifier> = new Map()
@@ -454,50 +451,37 @@ export class GirModule {
         return this.parent.namespacesForPrefix(c_prefix)
     }
 
+    // TODO: Move this into the generator
     hasImport(name: string): boolean {
-        return this.default_imports.has(name) || this.imports.has(name)
+        return this.dependencies.some((dep) => dep.importName === name)
     }
 
     private _getImport(name: string): GirModule | null {
-        let version = this.default_imports.get(name) ?? this.imports.get(name)
-
         if (name === this.name) {
             return this
         }
 
-        // TODO: Clean this up, but essentially try to resolve import versions
-        // using transitive imports (e.g. use GtkSource to find the version of Gtk)
-        if (!version) {
-            const entries = [...this.default_imports.entries()].flatMap(([_name]) => {
-                const namespace = this._getImport(_name)
-
-                return [...(namespace?.default_imports.entries() ?? [])]
-            })
-
-            version = Object.fromEntries(entries)[name]
-        }
+        const dep =
+            this.dependencies.find((dep) => dep.namespace === name) ??
+            this.transitiveDependencies.find((dep) => dep.namespace === name)
+        let version = dep?.version
 
         if (!version) {
             version = this.parent.assertDefaultVersionOf(name)
         }
 
-        const namespace = this.parent.namespace(name, version)
-
-        if (namespace) {
-            if (!this.imports.has(namespace.name)) {
-                this.imports.set(namespace.name, namespace.version)
-            }
-        }
-
-        return namespace
+        return this.parent.namespace(name, version)
     }
 
     getInstalledImport(name: string): GirModule | null {
-        let version = this.default_imports.get(name) ?? this.imports.get(name)
-
         if (name === this.name) {
             return this
         }
+
+        const dep =
+            this.dependencies.find((dep) => dep.namespace === name) ??
+            this.transitiveDependencies.find((dep) => dep.namespace === name)
+        let version = dep?.version
 
         if (!version) {
             version = this.parent.defaultVersionOf(name) ?? undefined
@@ -508,12 +492,6 @@ export class GirModule {
         }
 
         const namespace = this.parent.namespace(name, version)
-
-        if (namespace) {
-            if (!this.imports.has(namespace.name)) {
-                this.imports.set(namespace.name, namespace.version)
-            }
-        }
 
         return namespace
     }
@@ -526,14 +504,6 @@ export class GirModule {
         }
 
         return namespace
-    }
-
-    getImports(): [string, string][] {
-        return [...this.imports.entries()].sort(([[a], [b]]) => a.localeCompare(b))
-    }
-
-    addImport(ns_name: string) {
-        this._getImport(ns_name)
     }
 
     getMembers(name: string): IntrospectedNamespaceMember[] {
@@ -691,20 +661,6 @@ export class GirModule {
         // Set the namespace object here to prevent re-parsing the namespace if
         // another namespace imports it.
         registry.mapping.set(modName, version, building)
-
-        const includes = repo.repository[0].include || []
-
-        includes
-            .map((i) => [i.$.name, i.$.version] as const)
-            .forEach(([name, version]) => {
-                if (version) {
-                    if (options.verbose) {
-                        console.debug(`Adding dependency ${name} ${version}...`)
-                    }
-
-                    building.default_imports.set(name, version)
-                }
-            })
 
         const importConflicts = (el: IntrospectedConstant | IntrospectedBaseClass | IntrospectedFunction) => {
             return !building.hasImport(el.name)

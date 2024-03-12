@@ -5,7 +5,7 @@ import { GenerationOptions } from "../types.js";
 import { override as overrideGLib } from "./dts/glib.js";
 import { override as overrideGObject } from "./dts/gobject.js";
 import { override as overrideGio } from "./dts/gio.js";
-import { DtsGenerator, versionImportFormat } from "./dts.js";
+import { DtsGenerator } from "./dts.js";
 import { IntrospectedNamespaceMember } from "../gir/base.js";
 
 export class DtsModuleGenerator extends DtsGenerator {
@@ -60,30 +60,8 @@ export class DtsModuleGenerator extends DtsGenerator {
                 })
                 .join("\n");
 
-            const versionedImports = true; // TODO options.versionedImports
-            const pathSuffix = "/index.d.ts";
-            const referenceType = "path";
-            const references = [
-                ...(node.__dts__references ?? []),
-                ...Array.from(node.getImports()).map(
-                    ([i, version]) =>
-                        `/// <reference ${referenceType}="${options.npmScope}${
-                            versionedImports
-                                ? versionImportFormat(
-                                      // TODO: options.versionFormat ??
-                                      "{namespace-lower}{version-slug}",
-                                      i,
-                                      version
-                                  )
-                                : ""
-                        }${referenceType === "path" ? pathSuffix : ""}" />`
-                )
-            ].join("\n");
-
             // Resolve imports after we stringify everything else, sometimes we have to ad-hoc add an import.
-            const imports = Array.from(node.getImports())
-                .map(([i, version]) => `import ${i} from 'gi://${i}${versionedImports ? `?version=${version}` : ""}';`)
-                .join("\n");
+            const imports = [];
 
             const metadata = `
         /**
@@ -115,7 +93,6 @@ export const __version__: string;
       }`;
 
             const output = [
-                references,
                 header,
                 versionedModuleHeader,
                 imports,

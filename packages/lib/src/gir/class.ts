@@ -940,12 +940,6 @@ export class IntrospectedClass extends IntrospectedBaseClass {
                     const name = implementee.$.name;
                     const type = parseTypeIdentifier(ns.name, name);
 
-                    // Sometimes namespaces will implicitly import
-                    // other namespaces like Atk via interface implements.
-                    if (type && type.namespace && type.namespace !== ns.name && !ns.hasImport(type.namespace)) {
-                        ns.addImport(type.namespace);
-                    }
-
                     if (type) {
                         clazz.interfaces.push(type);
                     }

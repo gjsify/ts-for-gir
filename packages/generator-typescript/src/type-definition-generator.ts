@@ -23,6 +23,17 @@ import {
     TsDocTag,
     upperCamelCase,
     filterFunctionConflict,
+    resolveDirectedType,
+    TypeConflict,
+    ConflictType,
+    BinaryType,
+    AnyType,
+    StringType,
+    AnyFunctionType,
+    NumberType,
+    ArrayType,
+    FilterBehavior,
+    VoidType,
 } from '@ts-for-gir/lib'
 import { TemplateProcessor } from './template-processor.js'
 import { PackageDataParser } from './package-data-parser.js'
@@ -277,33 +288,83 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
     generateProperty(tsProp: IntrospectedProperty, construct?: boolean, indentCount = 0) {
         const desc: string[] = []
-        const isStatic = false //tsProp.isStatic
-
-        // if ((isStatic && !onlyStatic) || (!isStatic && onlyStatic)) {
-        //     return desc
-        // }
+        const isStatic = false // TODO: tsProp.isStatic
 
         desc.push(...this.addGirDocComment(tsProp.doc, [], indentCount))
 
         const indent = generateIndent(indentCount)
-        const varDesc = this.generateVariable(tsProp)
+        const name = this.generateMemberName(tsProp)
         const staticStr = isStatic ? 'static ' : ''
-        const readonly = !tsProp.writable ? 'readonly ' : ''
 
-        // temporary solution, will be solved differently later
-        const commentOut = ''
+        const { readable, writable, constructOnly } = tsProp
 
-        desc.push(`${indent}${commentOut}${staticStr}${readonly}${varDesc}`)
+        const hasGetter = readable
+        const hasSetter = writable && !constructOnly
+        const readonly = !hasSetter && hasGetter ? 'readonly ' : ''
+
+        let type = tsProp.type
+        let getterAnnotation = ''
+        let setterAnnotation = ''
+        let getterSetterAnnotation = ''
+
+        if (type instanceof TypeConflict) {
+            switch (type.conflictType) {
+                case ConflictType.FUNCTION_NAME_CONFLICT:
+                case ConflictType.FIELD_NAME_CONFLICT:
+                    getterSetterAnnotation =
+                        setterAnnotation = `// This accessor conflicts with a property, field, or function name in a parent class or interface.
+                  // @ts-expect-error\n`
+                case ConflictType.ACCESSOR_PROPERTY_CONFLICT:
+                    getterSetterAnnotation =
+                        getterAnnotation = `// This accessor conflicts with a property, field, or function name in a parent class or interface.
+                  // @ts-expect-error\n`
+                    type = type.unwrap()
+                    break
+                case ConflictType.PROPERTY_ACCESSOR_CONFLICT:
+                    type = new BinaryType(type.unwrap(), AnyType)
+                    break
+                case ConflictType.PROPERTY_NAME_CONFLICT:
+                    getterSetterAnnotation =
+                        setterAnnotation =
+                        getterAnnotation =
+                            "// This accessor conflicts with another accessor's type in a parent class or interface.\n"
+                    type = new BinaryType(type.unwrap(), AnyType)
+                    break
+            }
+
+            if (construct && !(type instanceof BinaryType)) {
+                // For constructor properties we just convert to any.
+                type = new BinaryType(type, AnyType)
+            }
+        }
+
+        const Type = type.resolve(this.namespace, this.options).rootPrint(this.namespace, this.options) || 'any'
+
+        if (construct) {
+            return [`${name}: ${Type};`]
+        }
+
+        if (tsProp.parent instanceof IntrospectedInterface) {
+            return [`${staticStr}${readonly}${name}: ${Type};`]
+        }
+
+        if (hasGetter && hasSetter) {
+            desc.push(
+                `${getterAnnotation}${indent}get ${name}(): ${Type};`,
+                `${setterAnnotation}${indent}set ${name}(val: ${Type});`,
+            )
+        } else if (hasGetter) {
+            desc.push(`${getterSetterAnnotation}${indent}get ${name}(): ${Type};`)
+        } else {
+            desc.push(`${getterSetterAnnotation}${indent}set ${name}(val: ${Type});`)
+        }
+
         return desc
     }
 
     generateField(tsProp: IntrospectedField, indentCount = 0) {
         const desc: string[] = []
-        const isStatic = false //tsProp.isStatic
-
-        // if ((isStatic && !onlyStatic) || (!isStatic && onlyStatic)) {
-        //     return desc
-        // }
+        const isStatic = tsProp.isStatic
 
         desc.push(...this.addGirDocComment(tsProp.doc, [], indentCount))
 
@@ -313,7 +374,16 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         const readonly = !tsProp.writable ? 'readonly ' : ''
 
         // temporary solution, will be solved differently later
-        const commentOut = ''
+        let commentOut = ''
+        let type = tsProp.type
+
+        if (type instanceof TypeConflict) {
+            if (type.conflictType === ConflictType.PROPERTY_ACCESSOR_CONFLICT) {
+                commentOut = `// This accessor conflicts with a property, field, or function name in a parent class or interface.\n// @ts-expect-error\n`
+            }
+
+            type = new BinaryType(type.unwrap(), AnyType)
+        }
 
         desc.push(`${indent}${commentOut}${staticStr}${readonly}${varDesc}`)
         return desc
@@ -376,11 +446,8 @@ class ModuleGenerator extends FormatGenerator<string[]> {
     //     return typeStr
     // }
 
-    generateVariable(tsVar: IntrospectedProperty | IntrospectedConstant | IntrospectedField, indentCount = 0) {
-        const indent = generateIndent(indentCount)
+    generateMemberName(tsVar: IntrospectedProperty | IntrospectedConstant | IntrospectedField) {
         const name = tsVar.name
-        // Constants are not optional
-        const optional = false
         const invalid = isInvalid(name)
         const Name =
             invalid && (tsVar instanceof IntrospectedProperty || tsVar instanceof IntrospectedField)
@@ -392,6 +459,16 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         }
 
         const ComputedName = 'computed' in tsVar && tsVar.computed ? `[${name}]` : Name
+
+        return `${ComputedName}`
+    }
+
+    generateVariable(tsVar: IntrospectedProperty | IntrospectedConstant | IntrospectedField, indentCount = 0) {
+        const indent = generateIndent(indentCount)
+        // Constants are not optional
+        const optional = false
+
+        const ComputedName = this.generateMemberName(tsVar)
 
         const affix = optional ? '?' : ''
         const typeStr = this.generateTypes(tsVar.type)
@@ -643,6 +720,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         return ''
     }
 
+    // TODO:
     // generateOutParameterReturn(girParam: GirCallableParamElement, namespace: string) {
     //     const desc: string[] = []
 
@@ -666,6 +744,29 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         }
 
         const typeStr = this.generateType(tsFunction.return())
+
+        const outputParameters = tsFunction.output_parameters
+
+        if (outputParameters.length > 0) {
+            const excludeActualReturnValueFromArray = typeStr === 'void' || typeStr === ''
+            const returns = [
+                ...(excludeActualReturnValueFromArray ? [] : [`${typeStr}`]),
+                ...outputParameters
+                    .map((op) => {
+                        return (
+                            resolveDirectedType(op.type, GirDirection.Out)?.resolve(this.namespace, this.options) ??
+                            op.type.resolve(this.namespace, this.options)
+                        )
+                    })
+                    .map((p) => p.rootPrint(this.namespace, this.options)),
+            ]
+
+            if (returns.length > 1) {
+                return `[${returns.join(', ')}]`
+            } else {
+                return `${returns[0]}`
+            }
+        }
 
         return typeStr
     }
@@ -950,15 +1051,46 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         return def
     }
 
-    generateClassFields(girClass: IntrospectedClass | IntrospectedRecord | IntrospectedInterface, indentCount = 1) {
+    generateClassStaticFields(
+        girClass: IntrospectedClass | IntrospectedRecord | IntrospectedInterface,
+        indentCount = 1,
+    ) {
         const def: string[] = []
 
         def.push(
             ...this.generateFields(
-                girClass.fields,
+                girClass.fields.filter((field) => field.isStatic),
+                `Static fields of ${girClass.namespace.namespace}.${girClass.name}`,
+                indentCount,
+            ),
+        )
+
+        return def
+    }
+
+    generateClassMemberFields(
+        girClass: IntrospectedClass | IntrospectedRecord | IntrospectedInterface,
+        indentCount = 1,
+    ) {
+        const def: string[] = []
+
+        def.push(
+            ...this.generateFields(
+                girClass.fields.filter((field) => !field.isStatic),
                 `Own fields of ${girClass.namespace.namespace}.${girClass.name}`,
                 indentCount,
             ),
+        )
+
+        return def
+    }
+
+    generateClassFields(girClass: IntrospectedClass | IntrospectedRecord, indentCount = 1) {
+        const def: string[] = []
+
+        def.push(
+            ...this.generateClassStaticFields(girClass, indentCount),
+            ...this.generateClassMemberFields(girClass, indentCount),
         )
 
         return def
@@ -1109,20 +1241,118 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         return def
     }
 
-    // generateClassSignals(girClass: IntrospectedClass | IntrospectedRecord | IntrospectedInterface) {
-    //     const def: string[] = []
-    //     if (!girClass || !girClass.name || !girClass._module) {
-    //         throw new Error(NO_TSDATA('generateClassSignals'))
-    //     }
+    generateSignals(girClass: IntrospectedClass) {
+        const namespace = girClass.namespace
+        // TODO Move these to a cleaner place.
 
-    //     const signalDescs = this.generateSignals(girClass, girClass, 0)
+        const Connect = new IntrospectedClassFunction({
+            name: 'connect',
+            parent: girClass,
+            parameters: [
+                new IntrospectedFunctionParameter({
+                    name: 'id',
+                    type: StringType,
+                    direction: GirDirection.In,
+                }),
+                new IntrospectedFunctionParameter({
+                    name: 'callback',
+                    type: AnyFunctionType,
+                    direction: GirDirection.In,
+                }),
+            ],
+            return_type: NumberType,
+        })
 
-    //     def.push(
-    //         ...this.mergeDescs(signalDescs, `Own signals of ${girClass.namespace.namespace}.${girClass.name}`, 1),
-    //     )
+        const ConnectAfter = new IntrospectedClassFunction({
+            name: 'connect_after',
+            parent: girClass,
+            parameters: [
+                new IntrospectedFunctionParameter({
+                    name: 'id',
+                    type: StringType,
+                    direction: GirDirection.In,
+                }),
+                new IntrospectedFunctionParameter({
+                    name: 'callback',
+                    type: AnyFunctionType,
+                    direction: GirDirection.In,
+                }),
+            ],
+            return_type: NumberType,
+        })
 
-    //     return def
-    // }
+        const Emit = new IntrospectedClassFunction({
+            name: 'emit',
+            parent: girClass,
+            parameters: [
+                new IntrospectedFunctionParameter({
+                    name: 'id',
+                    type: StringType,
+                    direction: GirDirection.In,
+                }),
+                new IntrospectedFunctionParameter({
+                    name: 'args',
+                    isVarArgs: true,
+                    type: new ArrayType(AnyType),
+                    direction: GirDirection.In,
+                }),
+            ],
+            return_type: VoidType,
+        })
+
+        let defaultSignals = [] as IntrospectedClassFunction[]
+        let hasConnect, hasConnectAfter, hasEmit
+
+        if (girClass.signals.length > 0) {
+            hasConnect = girClass.members.some((m) => m.name === 'connect')
+            hasConnectAfter = girClass.members.some((m) => m.name === 'connect_after')
+            hasEmit = girClass.members.some((m) => m.name === 'emit')
+
+            if (!hasConnect) {
+                defaultSignals.push(Connect)
+            }
+            if (!hasConnectAfter) {
+                defaultSignals.push(ConnectAfter)
+            }
+            if (!hasEmit) {
+                defaultSignals.push(Emit)
+            }
+
+            defaultSignals = filterConflicts(namespace, girClass, defaultSignals, FilterBehavior.DELETE)
+
+            hasConnect = !defaultSignals.some((s) => s.name === 'connect')
+            hasConnectAfter = !defaultSignals.some((s) => s.name === 'connect_after')
+            hasEmit = !defaultSignals.some((s) => s.name === 'emit')
+        }
+
+        const SignalsList = [
+            // TODO Relocate these.
+            ...defaultSignals.flatMap((s) => s.asString(this)),
+            ...girClass.signals
+                .map((s) => {
+                    const methods = [] as string[]
+
+                    if (!hasConnect) methods.push(...s.asString(this, IntrospectedSignalType.CONNECT))
+                    if (!hasConnectAfter) methods.push(...s.asString(this, IntrospectedSignalType.CONNECT_AFTER))
+                    if (!hasEmit) methods.push(...s.asString(this, IntrospectedSignalType.EMIT))
+
+                    return methods
+                })
+                .flat(),
+        ]
+
+        return SignalsList
+    }
+
+    generateClassSignals(girClass: IntrospectedClass) {
+        const def: string[] = []
+
+        const signalDescs = this.generateSignals(girClass)
+
+        def.push(...this.mergeDescs(signalDescs, `Own signals of ${girClass.namespace.namespace}.${girClass.name}`, 1))
+
+        return def
+    }
 
     generateClassModules(girClass: IntrospectedClass | IntrospectedRecord | IntrospectedInterface, indentCount = 0) {
         const def: string[] = []
@@ -1188,7 +1418,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
                 def.push(...this.generateClassProperties(girClass))
 
                 // Fields
-                def.push(...this.generateClassFields(girClass))
+                def.push(...this.generateClassMemberFields(girClass))
 
                 // Methods
                 // TODO def.push(...this.generateClassStaticMethods(girClass))
@@ -1198,9 +1428,6 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
                 // Virtual methods
                 def.push(...this.generateClassVirtualMethods(girClass))
-
-                // Signals
-                // TODO: def.push(...this.generateClassSignals(girClass))
 
                 // TODO: Generate `GirSignalElement`s instead of generate the signal definition strings directly
                 // TODO: def.push(...this.generateClassPropertySignals(girClass))
@@ -1238,7 +1465,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
      * @param girClass
      * @param namespace
      */
-    generateClass(girClass: IntrospectedClass | IntrospectedRecord | IntrospectedInterface) {
+    generateClass(girClass: IntrospectedClass | IntrospectedRecord) {
         const def: string[] = []
 
         def.push(...this.generateClassModules(girClass))
@@ -1270,6 +1497,11 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
                 // Constructors
                 def.push(...this.generateClassConstructors(girClass))
+
+                if (girClass instanceof IntrospectedClass) {
+                    // Signals
+                    def.push(...this.generateClassSignals(girClass))
+                }
 
                 // Methods
                 def.push(...this.generateClassStaticMethods(girClass))
@@ -1443,19 +1675,14 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
     async generateNamespace(girModule: GirModule): Promise<string[] | null> {
         const moduleTemplateProcessor = this.moduleTemplateProcessor
-        const template = 'module.d.ts'
+        const template = this.config.noNamespace ? 'module-noNamespace.d.ts' : 'module.d.ts'
         const explicitTemplate = `${girModule.importName}.d.ts`
-
-        // let target = `${girModule.importName}.d.ts`
-
-        //         target = `${girModule.importName}.d.mts`
 
         const out: string[] = []
 
         out.push(...this.addTSDocCommentLines([girModule.packageName]))
 
         out.push('')
-        //     out.push(...this.generateModuleDependenciesImport('Gjs')
 
         // Module dependencies as type references or imports
         // TODO: Move to template
@@ -1482,12 +1709,14 @@ class ModuleGenerator extends FormatGenerator<string[]> {
             out.push('')
 
             if (girModule.members)
-                for (const m of girModule.members.values())
+                for (const m of girModule.members.values()) {
                     out.push(
-                        ...(Array.isArray(m) ? m : [m]).flatMap(
-                            (m) => (m as IntrospectedNamespaceMember).asString(this as FormatGenerator<string[]>) ?? [],
-                        ),
+                        ...(Array.isArray(m) ? m : [m])
+                            .flatMap((m) => (m as IntrospectedNamespaceMember) ?? [])
+                            .filter((m) => m.emit)
+                            .flatMap((m) => m.asString(this as FormatGenerator<string[]>) ?? ''),
                     )
+                }
 
             // Extra interfaces if a template with the module name  (e.g. '../templates/gobject-2-0.d.ts') is found
             // E.g. used for GObject-2.0 to help define GObject classes in js;
@@ -1563,9 +1792,175 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         return [prepend, ...out, append]
     }
 
-    async exportNPMPackage(girModuleImportName: string) {
+    async exportModule(_registry: NSRegistry, girModule: GirModule) {
+        await this.exportModuleTS()
+        await this.exportModuleJS(girModule)
+
+        await this.exportModuleAmbientTS(girModule)
+        await this.exportModuleAmbientJS(girModule)
+
+        await this.exportModuleImportTS(girModule)
+        await this.exportModuleImportJS(girModule)
+
+        const pkg = new NpmPackage(this.config, this.dependencyManager, girModule)
+
+        await pkg.exportNPMPackage()
+    }
+}
+
+export class TypeDefinitionGenerator implements Generator {
+    log: Logger
+    dependencyManager: DependencyManager
+    packageData?: PackageDataParser
+
+    module!: ModuleGenerator
+
+    /**
+     * @param _config The config to use without the override config
+     */
+    constructor(readonly config: GenerateConfig) {
+        this.log = new Logger(this.config.verbose, TypeDefinitionGenerator.name)
+        this.dependencyManager = DependencyManager.getInstance(this.config)
+        this.packageData = new PackageDataParser(this.config)
+    }
+
+    /**
+     *
+     * @param namespace E.g. 'Gtk'
+     * @param packageName E.g. 'Gtk-3.0'
+     * @param asExternType Currently only used for node type imports
+     */
+    generateModuleDependenciesImport(packageName: string): string[] {
+        const def: string[] = []
+        const dep = this.dependencyManager.get(packageName)
+
+        // if (this.config.package) {
+        //     if (this.config.buildType === 'types') {
+        //         // See https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
+        //         def.push(`/// <reference types="${this.config.npmScope}/${dep.importName}" />`)
+        //     }
+        // } else {
+        //     if (this.config.buildType === 'types') {
+        //         // See https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
+        //         def.push(`/// <reference path="${dep.importName}.d.ts" />`)
+        //     }
+        // }
+
+        def.push(dep.importDef)
+
+        return def
+    }
+
+    async exportGjs() {
+        const { config, dependencyManager } = this
+
+        if (!config.outdir) return
+
+        const gjs = dependencyManager.getGjs()
+
+        const templateProcessor = new TemplateProcessor(
+            {
+                registry: dependencyManager,
+            },
+            gjs.packageName,
+            dependencyManager.core(),
+            config,
+        )
+
+        await templateProcessor.create('gjs.d.ts', config.outdir, 'gjs.d.ts')
+        await templateProcessor.create('gjs.js', config.outdir, 'gjs.js')
+
+        await templateProcessor.create('gettext.d.ts', config.outdir, 'gettext.d.ts')
+        await templateProcessor.create('gettext.js', config.outdir, 'gettext.js')
+
+        await templateProcessor.create('system.d.ts', config.outdir, 'system.d.ts')
+        await templateProcessor.create('system.js', config.outdir, 'system.js')
+
+        await templateProcessor.create('cairo.d.ts', config.outdir, 'cairo.d.ts')
+        await templateProcessor.create('cairo.js', config.outdir, 'cairo.js')
+
+        // Import ambient types
+        await templateProcessor.create('ambient.d.ts', config.outdir, 'ambient.d.ts')
+        await templateProcessor.create('ambient.js', config.outdir, 'ambient.js')
+
+        // DOM types
+        await templateProcessor.create('dom.d.ts', config.outdir, 'dom.d.ts')
+        await templateProcessor.create('dom.js', config.outdir, 'dom.js')
+
+        // Import ambient path alias
+        if (config.generateAlias) {
+            const templateProcessor = new TemplateProcessor(
+                {
+                    registry: dependencyManager,
+                },
+                // TODO: We have to mock an empty package name to avoid
+                // outputting this in the wrong directoy...
+                '',
+                dependencyManager.core(),
+                config,
+            )
+
+            // Write tsconfig.alias.json to the root of the package
+            await templateProcessor.create('tsconfig.alias.json', config.root, 'tsconfig.alias.json', true)
+        }
+
+        const pkg = new NpmPackage(config, dependencyManager, gjs)
+
+        // Package
+        await pkg.exportNPMPackage()
+    }
+
+    public async generate(registry: NSRegistry, module: GirModule) {
+        const moduleGenerator = new ModuleGenerator(module, this.config)
+        await moduleGenerator.exportModule(registry, module)
+    }
+
+    public async start() {
+        if (this.packageData) {
+            await this.packageData.start()
+        }
+    }
+
+    public async finish() {
+        // GJS internal stuff
+        await this.exportGjs()
+    }
+}
+
+class NpmPackage<Wrapped extends Dependency | GirModule> {
+    config: GenerateConfig
+    moduleTemplateProcessor: TemplateProcessor
+    dependencyManager: DependencyManager
+    log: Logger
+    packageName: string
+
+    constructor(config: GenerateConfig, dependencyManager: DependencyManager, dependencyOrModule: Wrapped) {
+        this.config = config
+
+        this.packageName = dependencyOrModule.packageName
+
+        this.log = new Logger(this.config.verbose, TypeDefinitionGenerator.name)
+
+        this.dependencyManager = dependencyManager
+
+        this.moduleTemplateProcessor = new TemplateProcessor(
+            {
+                name: dependencyOrModule.namespace,
+                namespace: dependencyOrModule.namespace,
+                version: dependencyOrModule.version,
+                importName: dependencyOrModule.importName,
+                registry: this.dependencyManager,
+                girModule: dependencyOrModule instanceof GirModule ? dependencyOrModule : undefined,
+            },
+            dependencyOrModule.packageName,
+            [],
+            this.config,
+        )
+    }
+
+    async exportNPMPackage() {
         await this.exportNPMPackageJson()
-        await this.exportNPMReadme(girModuleImportName)
+        await this.exportNPMReadme()
         await this.exportTSConfig()
         await this.exportTypeDoc()
     }
@@ -1588,9 +1983,10 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         }
     }
 
-    async exportNPMReadme(girModuleImportName: string) {
+    async exportNPMReadme() {
+        const girModuleImportName = this.packageName.toUpperCase()
         // E.g. `README-GJS.md` or `README-GTK-4.0.md`
-        let template = girModuleImportName ? `README-${girModuleImportName.toUpperCase()}.md` : 'README.md'
+        let template = girModuleImportName ? `README-${girModuleImportName}.md` : 'README.md'
         const outputFilename = 'README.md'
 
         if (!this.moduleTemplateProcessor.exists(template)) {
@@ -1647,132 +2043,5 @@ class ModuleGenerator extends FormatGenerator<string[]> {
             const { append, prepend } = await this.moduleTemplateProcessor.load(template, {}, this.config)
             this.log.log(append + prepend)
         }
-    }
-
-    async exportModule(_registry: NSRegistry, girModule: GirModule) {
-        await this.exportModuleTS()
-        await this.exportModuleJS(girModule)
-
-        await this.exportModuleAmbientTS(girModule)
-        await this.exportModuleAmbientJS(girModule)
-
-        await this.exportModuleImportTS(girModule)
-        await this.exportModuleImportJS(girModule)
-
-        await this.exportNPMPackage(girModule.importName)
-    }
-}
-
-export class TypeDefinitionGenerator implements Generator {
-    log: Logger
-    dependencyManager: DependencyManager
-    packageData?: PackageDataParser
-
-    module!: ModuleGenerator
-
-    /**
-     * @param _config The config to use without the override config
-     */
-    constructor(readonly config: GenerateConfig) {
-        this.log = new Logger(this.config.verbose, TypeDefinitionGenerator.name)
-        this.dependencyManager = DependencyManager.getInstance(this.config)
-        this.packageData = new PackageDataParser(this.config)
-    }
-
-    /**
-     *
-     * @param namespace E.g. 'Gtk'
-     * @param packageName E.g. 'Gtk-3.0'
-     * @param asExternType Currently only used for node type imports
-     */
-    generateModuleDependenciesImport(packageName: string): string[] {
-        const def: string[] = []
-        const dep = this.dependencyManager.get(packageName)
-
-        // if (this.config.package) {
-        //     if (this.config.buildType === 'types') {
-        //         // See https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
-        //         def.push(`/// <reference types="${this.config.npmScope}/${dep.importName}" />`)
-        //     }
-        // } else {
-        //     if (this.config.buildType === 'types') {
-        //         // See https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
-        //         def.push(`/// <reference path="${dep.importName}.d.ts" />`)
-        //     }
-        // }
-
-        def.push(dep.importDef)
-
-        return def
-    }
-
-    async exportGjs(dependencies: Dependency[], registry: NSRegistry) {
-        if (!this.config.outdir) return
-        const packageName = 'Gjs'
-
-        const templateProcessor = new TemplateProcessor(
-            {
-                registry,
-            },
-            packageName,
-            dependencies,
-            this.config,
-        )
-
-        await templateProcessor.create('gjs.d.ts', this.config.outdir, 'gjs.d.ts')
-        await templateProcessor.create('gjs.js', this.config.outdir, 'gjs.js')
-
-        await templateProcessor.create('gettext.d.ts', this.config.outdir, 'gettext.d.ts')
-        await templateProcessor.create('gettext.js', this.config.outdir, 'gettext.js')
-
-        await templateProcessor.create('system.d.ts', this.config.outdir, 'system.d.ts')
-        await templateProcessor.create('system.js', this.config.outdir, 'system.js')
-
-        await templateProcessor.create('cairo.d.ts', this.config.outdir, 'cairo.d.ts')
-        await templateProcessor.create('cairo.js', this.config.outdir, 'cairo.js')
-
-        // Import ambient types
-        await templateProcessor.create('ambient.d.ts', this.config.outdir, 'ambient.d.ts')
-        await templateProcessor.create('ambient.js', this.config.outdir, 'ambient.js')
-
-        // DOM types
-        await templateProcessor.create('dom.d.ts', this.config.outdir, 'dom.d.ts')
-        await templateProcessor.create('dom.js', this.config.outdir, 'dom.js')
-
-        // Import ambient path alias
-        if (this.config.generateAlias) {
-            const templateProcessor = new TemplateProcessor(
-                {
-                    registry,
-                },
-                // TODO: We have to mock an empty package name to avoid
-                // outputting this in the wrong directoy...
-                '',
-                dependencies,
-                this.config,
-            )
-
-            // Write tsconfig.alias.json to the root of the package
-            await templateProcessor.create('tsconfig.alias.json', this.config.root, 'tsconfig.alias.json', true)
-        }
-
-        // Package
-        await this.module.exportNPMPackage('Gjs')
-    }
-
-    public async generate(registry: NSRegistry, module: GirModule) {
-        this.module = new ModuleGenerator(module, this.config)
-        await this.module.exportModule(registry, module)
-    }
-
-    public async start() {
-        if (this.packageData) {
-            await this.packageData.start()
-        }
-    }
-
-    public async finish(registry: NSRegistry) {
-        // GJS internal stuff
-        await this.exportGjs(this.dependencyManager.core(), registry)
     }
 }

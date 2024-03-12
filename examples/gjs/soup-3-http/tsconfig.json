@@ -2,7 +2,8 @@
   "extends": "./tsconfig.alias.json",
   "compilerOptions": {   
     "lib": ["ESNext"],
-    "types": [],
+    "types": ["@girs/gjs", "@girs/gjs/dom", "@girs/soup-3.0"],
+    "typeRoots": ["./@types"],
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Bundler",
@@ -14,7 +15,6 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
   },
-  "include": ["@types/gjs.d.ts", "@types/dom.d.ts"],
   "files": [
     "http-client.ts",
     "http-server.ts"

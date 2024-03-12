@@ -3,17 +3,15 @@
   "compilerOptions": {  
     "baseUrl": ".", 
     "lib": ["ESNext"],
-    "types": [],
+    "types": ["@girs/gjs", "@girs/gio-2.0"],
+    "typeRoots": [
+      "./@types"
+    ],
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "paths": { 
-      // Simulate the node_modules packaging...
-      "@girs/*": ["./@types/*"]
-    }
   },
-  "include": ["./@types"],
   "files": [
     "main.ts",
   ]

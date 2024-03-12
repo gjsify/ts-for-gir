@@ -10,7 +10,7 @@
     "watch": "yarn build:app --watch",
     "build": "yarn build:types && yarn build:app",
     "build:app": "yarn clear:ts && webpack --env production",
-    "build:types": "yarn ts-for-gir generate Gtk-3.0 --noNamespace",
+    "build:types": "yarn ts-for-gir generate Gtk-3.0 --noNamespace --outdir=@types",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
     "clear": "yarn clear:ts && yarn clear:types",

@@ -1573,6 +1573,9 @@ class ModuleGenerator extends FormatGenerator<string[]> {
                 def.push(this.generateExport('class', classHead, '{'))
             }
 
+            // $gtype compatibility
+            def.push(`static $gtype: ${this.namespace.name !== 'GObject' ? 'GObject.' : ''}GType<${girClass.name}>;`)
+
             if (girClass.__ts__indexSignature) {
                 def.push(`\n${girClass.__ts__indexSignature}\n`)
             }

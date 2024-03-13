@@ -233,9 +233,20 @@ export interface GirRecordElement extends GirInfoElements {
         name: string;
         /** Corresponding C type of the record */
         "c:type"?: string;
-        /** Binary attribute to tell if the record is disguised, i.e. whether the c:type is a typedef that doesn't look like a pointer, but is one internally */
-        /** Its second meaning is "private" and is set when any typedef struct is parsed which doesn't also include a full struct with fields (https://gitlab.gnome.org/GNOME/gobject-introspection/issues/101) */
+        /** 
+         * @deprecated
+         * 
+         * Binary attribute to tell if the record is disguised, i.e. whether the c:type
+         * is a typedef that doesn't look like a pointer, but is one internally. Its second meaning
+         * is "private" and is set when any typedef struct is parsed which doesn't also include a
+         * full struct with fields (https://gitlab.gnome.org/GNOME/gobject-introspection/issues/101)
+         * Replaced by "opaque" and "pointer".
+         */
         disguised?: GirBoolean;
+        /** Binary attribute for a typedef struct that does not have a corresponding public structure definition */
+        opaque?: GirBoolean;
+        /** Binary attribute for a typedef struct pointer, e.g. typedef struct Foo* FooPtr */
+        pointer?: GirBoolean;
         /** GObject compatible C type of the record */
         "glib:type-name"?: string;
         /** Function to get the GObject compatible type of the record */

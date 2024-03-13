@@ -1,7 +1,7 @@
 import { IntrospectedNamespace } from './gir/namespace.js'
 import { IntrospectedProperty, IntrospectedField } from './gir/property.js'
 import { GenerationOptions } from './types.js'
-import { sanitizeIdentifierName } from './gir/util.js'
+import { sanitizeIdentifierName, sanitizeNamespace } from './gir/util.js'
 
 export { sanitizeMemberName, isInvalid } from './gir/util.js'
 
@@ -66,7 +66,7 @@ export class TypeIdentifier extends TypeExpression {
      * invalid names such as "3gppProfile"
      */
     sanitize() {
-        return new TypeIdentifier(sanitizeIdentifierName(this.namespace, this.name), this.namespace)
+        return new TypeIdentifier(sanitizeIdentifierName(this.namespace, this.name), sanitizeNamespace(this.namespace))
     }
 
     protected _resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeIdentifier | null {

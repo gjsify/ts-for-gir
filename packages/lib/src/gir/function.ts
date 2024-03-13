@@ -278,6 +278,7 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
         });
 
         fn.returnTypeDoc = this.returnTypeDoc;
+        fn.generics = [...this.generics];
 
         return fn;
     }
@@ -380,6 +381,8 @@ export class IntrospectedConstructor extends IntrospectedClassMember {
     readonly parameters: IntrospectedFunctionParameter[] = [];
     readonly return_type: TypeExpression = UnknownType;
 
+    generics: Generic[] = [];
+
     constructor({
         name,
         parameters = [],
@@ -406,12 +409,16 @@ export class IntrospectedConstructor extends IntrospectedClassMember {
         parameters?: IntrospectedFunctionParameter[];
         return_type?: TypeExpression;
     } = {}): IntrospectedConstructor {
-        return new IntrospectedConstructor({
+        const constr = new IntrospectedConstructor({
             name: this.name,
             parent: parent ?? this.parent ?? null,
             return_type: return_type ?? this.return_type,
             parameters: parameters ?? this.parameters
         })._copyBaseProperties(this);
+
+        constr.generics = [...this.generics];
+
+        return constr;
     }
 
     static fromXML(
@@ -941,6 +948,7 @@ export class IntrospectedStaticClassFunction extends IntrospectedClassFunction {
         });
 
         fn.returnTypeDoc = this.returnTypeDoc;
+        fn.generics = [...this.generics];
 
         return fn;
     }

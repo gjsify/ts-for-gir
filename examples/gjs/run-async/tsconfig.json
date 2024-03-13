@@ -3,9 +3,6 @@
   "compilerOptions": {  
     "lib": ["ESNext"],
     "types": ["@girs/gjs", "@girs/gio-2.0"],
-    "typeRoots": [
-      "./@types"
-    ],
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {   
     "lib": ["ESNext"],
-    "types": ["@girs/gjs", "@girs/gtk-3.0"],
+    "types": ["@girs/gjs", "@girs/gtk-3.0", "@girs/webkit2-4.0"],
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "bundler",

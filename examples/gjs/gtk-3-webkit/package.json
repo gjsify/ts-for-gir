@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@girs/gjs": "workspace:^",
+    "@girs/gtk-3.0": "workspace:^",
     "@girs/webkit2-4.0": "workspace:^"
   }
 }

@@ -329,7 +329,7 @@ ${this.docString(node)}export enum ${node.name} {
               : ""
       }
 export type ${name}${Generics} = ${name}Prototype${GenericTypes};
-export interface ${name}Prototype${Generics}${Extends} {${node.indexSignature ? `\n${node.indexSignature}\n` : ""}
+export interface ${name}Prototype${Generics}${Extends} {${node.__ts__indexSignature ? `\n${node.__ts__indexSignature}\n` : ""}
     ${node.props.length > 0 ? "// Properties" : ""}
     ${filterConflicts(node.namespace, node, node.props)
         .map(p => p.asString(this))
@@ -395,7 +395,7 @@ export interface ${name}Prototype${Generics}${Extends} {${node.indexSignature ? 
         }
   
 ${this.docString(node)}export class ${name}${Generics}${Extends} {${
-            node.indexSignature ? `\n${node.indexSignature}\n` : ""
+            node.__ts__indexSignature ? `\n${node.__ts__indexSignature}\n` : ""
         }
     static $gtype: ${namespace.name !== "GObject" ? "GObject." : ""}GType<${name}>;
 
@@ -620,7 +620,7 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${
                 : ""
         }
       export ${node.isAbstract ? "abstract " : ""}class ${name}${Generics}${Extends}${Implements} {${
-          node.indexSignature ? `\n${node.indexSignature}\n` : ""
+          node.__ts__indexSignature ? `\n${node.__ts__indexSignature}\n` : ""
       }
       static $gtype: ${namespace.name !== "GObject" ? "GObject." : ""}GType<${name}>;
 
@@ -692,14 +692,12 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${
             switch (type.conflictType) {
                 case ConflictType.FUNCTION_NAME_CONFLICT:
                 case ConflictType.FIELD_NAME_CONFLICT:
-                    getterSetterAnnotation =
-                        setterAnnotation = `// This accessor conflicts with a property, field, or function name in a parent class or interface.
-                  // @ts-expect-error\n`;
+                    getterSetterAnnotation = setterAnnotation =
+                        "// This accessor conflicts with a property, field, or function name in a parent class or interface.\n";
                 case ConflictType.ACCESSOR_PROPERTY_CONFLICT:
-                    getterSetterAnnotation =
-                        getterAnnotation = `// This accessor conflicts with a property, field, or function name in a parent class or interface.
-                  // @ts-expect-error\n`;
-                    type = type.unwrap();
+                    getterSetterAnnotation = getterAnnotation =
+                        "// This accessor conflicts with a property, field, or function name in a parent class or interface.\n";
+                    type = new BinaryType(type.unwrap(), AnyType);
                     break;
                 case ConflictType.PROPERTY_ACCESSOR_CONFLICT:
                     type = new BinaryType(type.unwrap(), AnyType);

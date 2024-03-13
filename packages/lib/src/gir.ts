@@ -1,7 +1,7 @@
 import { IntrospectedNamespace } from './gir/namespace.js'
 import { IntrospectedProperty, IntrospectedField } from './gir/property.js'
 import { GenerationOptions } from './types.js'
-import { sanitizeIdentifierName, sanitizeNamespace } from './gir/util.js'
+import { isInvalid, sanitizeIdentifierName, sanitizeNamespace } from './gir/util.js'
 
 export { sanitizeMemberName, isInvalid } from './gir/util.js'
 
@@ -71,9 +71,9 @@ export class TypeIdentifier extends TypeExpression {
 
     protected _resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeIdentifier | null {
         const name: string = sanitizeIdentifierName(null, this.name)
-        const ns_name = this.namespace
+        const unresolvedNamespaceName = this.namespace
 
-        const ns = namespace.assertInstalledImport(ns_name)
+        const ns = namespace.assertInstalledImport(unresolvedNamespaceName)
 
         if (ns.hasSymbol(name)) {
             const c = ns.getClass(name)
@@ -82,7 +82,7 @@ export class TypeIdentifier extends TypeExpression {
             // GirRecord.prototype.getType resolves this relationship.
             if (c) return c.getType()
 
-            return new TypeIdentifier(name, ns_name)
+            return new TypeIdentifier(name, ns.name)
         }
 
         // Handle "class callback" types (they're in a definition-merged module)
@@ -96,20 +96,24 @@ export class TypeIdentifier extends TypeExpression {
         let c_resolved_name: string | null = null
 
         if (!c_resolved_name) {
-            c_resolved_name = ns.resolveSymbolFromTypeName(`${ns_name}${name}`)
+            c_resolved_name = ns.resolveSymbolFromTypeName(`${unresolvedNamespaceName}${name}`)
+        }
+
+        if (!c_resolved_name) {
+            c_resolved_name = ns.resolveSymbolFromTypeName(`${ns.name}${name}`)
         }
 
         if (!cb && !resolved_name && !c_resolved_name) {
             // Don't warn if a missing import is at fault, this will be dealt with later.
-            if (namespace.name === ns_name) {
-                console.error(`Attempting to fall back on c:type inference for ${ns_name}.${name}.`)
+            if (namespace.name === ns.name) {
+                console.error(`Attempting to fall back on c:type inference for ${ns.name}.${name}.`)
             }
 
-            ;[cb, corrected_name] = ns.findClassCallback(`${ns_name}${name}`)
+            ;[cb, corrected_name] = ns.findClassCallback(`${ns.name}${name}`)
 
             if (cb) {
                 console.error(
-                    `Falling back on c:type inference for ${ns_name}.${name} and found ${ns_name}.${corrected_name}.`,
+                    `Falling back on c:type inference for ${ns.name}.${name} and found ${ns.name}.${corrected_name}.`,
                 )
             }
         }
@@ -119,21 +123,21 @@ export class TypeIdentifier extends TypeExpression {
                 console.debug(`Callback found: ${cb}.${corrected_name}`)
             }
 
-            return new TypeIdentifier(corrected_name, cb)
+            return new ModuleTypeIdentifier(corrected_name, cb, ns.name)
         } else if (resolved_name) {
-            return new TypeIdentifier(resolved_name, ns_name)
+            return new TypeIdentifier(resolved_name, ns.name)
         } else if (c_resolved_name) {
             console.error(
-                `Fell back on c:type inference for ${ns_name}.${name} and found ${ns_name}.${corrected_name}.`,
+                `Fell back on c:type inference for ${ns.name}.${name} and found ${ns.name}.${corrected_name}.`,
             )
 
-            return new TypeIdentifier(c_resolved_name, ns_name)
-        } else if (namespace.name === ns_name) {
-            console.error(`Unable to resolve type ${this.name} in same namespace ${ns_name}!`)
+            return new TypeIdentifier(c_resolved_name, ns.name)
+        } else if (namespace.name === ns.name) {
+            console.error(`Unable to resolve type ${this.name} in same namespace ${ns.name}!`)
             return null
         }
 
-        console.error(`Type ${this.namespace}.${this.name} could not be resolved in ${namespace.name}`)
+        console.error(`Type ${this.name} could not be resolved in ${namespace.name}`)
         return null
     }
 
@@ -159,6 +163,79 @@ export class TypeIdentifier extends TypeExpression {
             return `${this.name}`
         } else {
             return `${this.namespace}.${this.name}`
+        }
+    }
+}
+
+export class ModuleTypeIdentifier extends TypeIdentifier {
+    readonly moduleName: string
+
+    constructor(name: string, moduleName: string, namespace: string) {
+        super(name, namespace)
+
+        this.moduleName = moduleName
+    }
+
+    equals(type: TypeExpression): boolean {
+        return super.equals(type) && type instanceof ModuleTypeIdentifier && this.moduleName === type.moduleName
+    }
+
+    is(namespace: string, moduleName: string, name?: string) {
+        return (
+            this.namespace === namespace && this.moduleName === moduleName && this.name === name && name !== undefined
+        )
+    }
+
+    unwrap() {
+        return this
+    }
+
+    rewrap(type: TypeExpression): TypeExpression {
+        return type
+    }
+
+    sanitize() {
+        return new ModuleTypeIdentifier(
+            sanitizeIdentifierName(this.namespace, this.name),
+            sanitizeIdentifierName(this.namespace, this.moduleName),
+            sanitizeNamespace(this.namespace),
+        )
+    }
+
+    // eslint-disable-next-line  @typescript-eslint/no-unused-vars
+    protected _resolve(namespace: IntrospectedNamespace, options: GenerationOptions): ModuleTypeIdentifier | null {
+        return this
+    }
+
+    // eslint-disable-next-line  @typescript-eslint/no-unused-vars
+    print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
+        if (namespace.name === this.namespace) {
+            return `${this.moduleName}.${this.name}`
+        } else {
+            return `${this.namespace}.${this.moduleName}.${this.name}`
+        }
+    }
+}
+
+/**
+ * This class overrides the default printing for types
+ */
+export class ClassStructTypeIdentifier extends TypeIdentifier {
+    constructor(name: string, namespace: string) {
+        super(name, namespace)
+    }
+
+    equals(type: TypeExpression): boolean {
+        return type instanceof ClassStructTypeIdentifier && super.equals(type)
+    }
+
+    // eslint-disable-next-line  @typescript-eslint/no-unused-vars
+    print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
+        if (namespace.name === this.namespace) {
+            // TODO: Mapping to invalid names should happen at the generator level...
+            return `typeof ${isInvalid(this.name) ? `__${this.name}` : this.name}`
+        } else {
+            return `typeof ${this.namespace}.${isInvalid(this.name) ? `__${this.name}` : this.name}`
         }
     }
 }

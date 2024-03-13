@@ -129,7 +129,7 @@ export default {
             const DBusProxy = namespace.assertClass("DBusProxy");
 
             // This is not ideal, but DBusProxy's define functions and properties on the prototype.
-            DBusProxy.indexSignature = "[key: string]: any;";
+            DBusProxy.__ts__indexSignature = "[key: string]: any;";
 
             const makeProxyWrapper = new IntrospectedStaticClassFunction({
                 name: "makeProxyWrapper",

@@ -78,6 +78,8 @@ export class GirModule {
 
     importName!: string
 
+    prefixes: string[] = []
+
     /**
      * The version of the library as an object.
      * E.g. `{ major: 4, minor: 0, patch: 0 }` or as string `4.0.0`'
@@ -464,6 +466,39 @@ export class GirModule {
         const dep =
             this.dependencies.find((dep) => dep.namespace === name) ??
             this.transitiveDependencies.find((dep) => dep.namespace === name)
+
+        // Handle finding imports via their other prefixes
+        if (!dep) {
+            this.log.info(`Failed to find namespace ${name} in dependencies, resolving via c:prefixes`)
+
+            // TODO: It might make more sense to move this conversion _before_
+            // the _getImport call.
+            const resolvedNamespaces = this.dependencyManager.namespacesForPrefix(name)
+            if (resolvedNamespaces.length > 0) {
+                this.log.info(
+                    `Found namespaces for prefix ${name}: ${resolvedNamespaces.map((r) => `${r.name} (${r.version})`).join(', ')}`,
+                )
+            }
+
+            for (const resolvedNamespace of resolvedNamespaces) {
+                if (resolvedNamespace.name === this.name && resolvedNamespace.version === this.version) {
+                    return this
+                }
+
+                const dep =
+                    this.dependencies.find(
+                        (dep) => dep.namespace === resolvedNamespace.name && dep.version === resolvedNamespace.version,
+                    ) ??
+                    this.transitiveDependencies.find(
+                        (dep) => dep.namespace === resolvedNamespace.name && dep.version === resolvedNamespace.version,
+                    )
+
+                if (dep) {
+                    return this.parent.namespace(resolvedNamespace.name, dep.version)
+                }
+            }
+        }
+
         let version = dep?.version
 
         if (!version) {
@@ -650,7 +685,7 @@ export class GirModule {
             throw new Error('Invalid GIR file: no version name specified.')
         }
 
-        const c_prefix = ns.$?.['c:symbol-prefixes']?.split(',') ?? []
+        const c_prefix = ns.$?.['c:identifier-prefixes']?.split(',') ?? []
 
         if (options.verbose) {
             console.debug(`Parsing ${modName}...`)
@@ -660,7 +695,16 @@ export class GirModule {
         building.parent = registry
         // Set the namespace object here to prevent re-parsing the namespace if
         // another namespace imports it.
-        registry.mapping.set(modName, version, building)
+        registry.register(building)
+
+        const prefixes = repo.repository[0]?.$?.['c:identifier-prefixes']?.split(',')
+        const unknownPrefixes = prefixes?.filter((pre) => pre !== modName)
+
+        if (unknownPrefixes && unknownPrefixes.length > 0) {
+            console.log(`Found additional prefixes for ${modName}: ${unknownPrefixes.join(', ')}`)
+
+            building.prefixes.push(...unknownPrefixes)
+        }
 
         const importConflicts = (el: IntrospectedConstant | IntrospectedBaseClass | IntrospectedFunction) => {
             return !building.hasImport(el.name)

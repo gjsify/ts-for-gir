@@ -18,6 +18,7 @@ declare module 'gi://<%= name %>?version=<%= version %>' {
 <%# // Generate ambient module declarations Without version number if this is the latest version _%>
 <%_ if (dep.isLatestVersion(pkg.namespace, pkg.version)) { _%>
 declare module 'gi://<%= name %>' {
-    export default 'gi://<%= name %>?version=<%= version %>';
+    import <%- girModule.importNamespace -%> from 'gi://<%= name %>?version=<%= version %>';
+    export default <%- girModule.importNamespace -%>;
 }
 <%_ } _%>

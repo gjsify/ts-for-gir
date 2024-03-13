@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "lib": ["ESNext"],
-    "types": [],
+    "types": ["@girs/gjs"],
     "target": "ESNext",
     "module": "ESNext",
     "strict": true,

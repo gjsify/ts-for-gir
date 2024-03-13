@@ -1,7 +1,14 @@
 {
-  "compilerOptions": {   
-    "lib": ["ESNext"],
-    "types": [],
+  "compilerOptions": {
+    "lib": [
+      "ESNext"
+    ],
+    "types": [
+      "@girs/gjs",
+      "@girs/pango-1.0",
+      "@girs/gtk-3.0",
+      "@girs/webkit2-4.0"
+    ],
     "target": "ESNext",
     "module": "ESNext",
     "strict": true,
@@ -10,7 +17,6 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
   },
-  "include": ["@types/ambient.d.ts", "@types/pango-1.0-ambient.d.ts", "@types/gtk-3.0-ambient.d.ts", "@types/webkit2-4.0-ambient.d.ts"],
   "files": [
     "main.ts"
   ]

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {   
     "lib": ["ESNext"],
-    "types": [],
+    "types": ["@girs/gjs", "@girs/gjs/dom"],
     "target": "ESNext",
     "module": "ESNext",
     "strict": true,
@@ -10,7 +10,6 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
   },
-  "include": ["@types/gjs.d.ts", "@types/dom.d.ts"],
   "files": [
     "main.ts",
   ]

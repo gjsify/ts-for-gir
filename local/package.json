@@ -1,0 +1,9 @@
+{
+    "private": true,
+    "devDependencies": {
+        "typescript": "^5.2.2"
+    },
+    "scripts": {
+        "validate:types": "tsc --project tsconfig.json"
+    }
+}

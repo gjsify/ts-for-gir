@@ -12,3 +12,5 @@ examples/
 @types/
 *.js
 */*.js
+# ignore local test as it is a separate typescript project
+local/

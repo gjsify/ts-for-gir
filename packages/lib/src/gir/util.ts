@@ -333,6 +333,16 @@ export function sanitizeIdentifierName(namespace: string | null, name: string): 
     return sanitized_name;
 }
 
+// TODO: Until we support resolving via c:type, fix GIRs with
+// broken namespacing...
+export function sanitizeNamespace(namespace: string): string {
+    if (namespace === "Tracker_Vala") {
+        return "Tracker";
+    }
+
+    return namespace;
+}
+
 export function sanitizeMemberName(name: string): string {
     // This is a unique case where the name is "empty".
     if (name === "") {

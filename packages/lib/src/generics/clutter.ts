@@ -1,8 +1,9 @@
 import { GenericType } from "../gir.js";
 import { IntrospectedNamespace } from "../gir/namespace.js";
 
-export default {
+export const clutterTemplate = (version: string) => ({
     namespace: "Clutter",
+    version,
     modifier: (namespace: IntrospectedNamespace, inferGenerics: boolean) => {
         if (!inferGenerics) {
             return;
@@ -50,4 +51,9 @@ export default {
                 prop.type = new GenericType("A", Content.getType());
             });
     }
-};
+});
+
+export const clutter10 = clutterTemplate("10");
+export const clutter11 = clutterTemplate("11");
+export const clutter12 = clutterTemplate("12");
+export const clutter13 = clutterTemplate("13");

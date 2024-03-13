@@ -1,8 +1,9 @@
 import { GenerifiedTypeIdentifier } from "../gir.js";
 import { IntrospectedNamespace } from "../gir/namespace.js";
 
-export default {
+const metaTemplate = (version: string) => ({
     namespace: "Meta",
+    version,
     modifier: (namespace: IntrospectedNamespace, inferGenerics: boolean) => {
         if (!inferGenerics) {
             return;
@@ -24,4 +25,9 @@ export default {
             ]);
         }
     }
-};
+});
+
+export const meta10 = metaTemplate("10");
+export const meta11 = metaTemplate("11");
+export const meta12 = metaTemplate("12");
+export const meta13 = metaTemplate("13");

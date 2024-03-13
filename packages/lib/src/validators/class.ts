@@ -31,6 +31,28 @@ const filterProtectedFields = <T extends IntrospectedBaseClass>(node: T): T => {
     return node;
 };
 
+/**
+ * Filters fields, properties, and members to ensure they are not named
+ * after reserved object keys (prototype, constructor)
+ */
+const filterReservedProperties = <T extends IntrospectedBaseClass>(node: T): T => {
+    const set = new Set(["prototype", "constructor"]);
+
+    node.fields = node.fields.filter(f => {
+        return !set.has(f.name);
+    });
+
+    node.props = node.props.filter(p => {
+        return !set.has(p.name);
+    });
+
+    node.members = node.members.filter(m => {
+        return !set.has(m.name);
+    });
+
+    return node;
+};
+
 const filterConflictingNamedClassMembers = <T extends IntrospectedBaseClass>(node: T): T => {
     // Props shadow members
     node.members = node.members.filter(m => {
@@ -269,10 +291,12 @@ export class ClassVisitor extends GirVisitor {
             mergeStaticDefinitions,
             filterConflictingNamedClassMembers,
             filterIntrospectableClassMembers,
-            filterProtectedFields
+            filterProtectedFields,
+            filterReservedProperties
         );
 
-    visitInterface = (node: IntrospectedInterface) => chainVisitors(node, filterIntrospectableClassMembers);
+    visitInterface = (node: IntrospectedInterface) =>
+        chainVisitors(node, filterIntrospectableClassMembers, filterReservedProperties);
 
     visitRecord = (node: IntrospectedRecord) =>
         chainVisitors(
@@ -284,6 +308,7 @@ export class ClassVisitor extends GirVisitor {
             removePrivateFields,
             filterConflictingNamedClassMembers,
             filterIntrospectableClassMembers,
-            filterProtectedFields
+            filterProtectedFields,
+            filterReservedProperties
         );
 }

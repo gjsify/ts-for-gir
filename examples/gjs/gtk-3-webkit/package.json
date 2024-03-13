@@ -24,5 +24,10 @@
     "@ts-for-gir/cli": "workspace:^",
     "esbuild": "^0.20.1",
     "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "@girs/gjs": "workspace:^",
+    "@girs/gtk-3.0": "workspace:^",
+    "@girs/webkit2-4.0": "workspace:^"
   }
 }

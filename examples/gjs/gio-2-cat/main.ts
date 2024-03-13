@@ -1,3 +1,6 @@
+/// <reference types="@girs/gjs" />
+/// <reference types="@girs/gjs/dom" />
+
 // SPDX-License-Identifier: MIT OR LGPL-2.0-or-later
 // SPDX-FileCopyrightText: 2009 Red Hat, Inc.
 // Based on https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/gio-cat.js
@@ -8,8 +11,6 @@
  * the label should show a translation of 'Print help'
  */
 
-import './@types/gjs.js';
-import './@types/dom.js';
 import GLib from './@types/glib-2.0.js';
 import Gio from './@types/gio-2.0.js';
 
@@ -21,7 +22,7 @@ function cat(filename: string) {
     file.load_contents_async(null, (obj, res) => {
         let contents: Uint8Array;
         try {
-            contents = obj.load_contents_finish(res)[1];
+            contents = obj!.load_contents_finish(res)![1];
         } catch (e) {
             logError(e);
             loop.quit();

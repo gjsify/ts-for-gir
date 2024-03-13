@@ -7,8 +7,7 @@ import imports from './@types/gjs.js';
 
 // Include this in case both GTK3 and GTK4 installed, otherwise an exception
 // will be thrown
-imports.gi.versions.Gtk = '3.0';
-const Gtk = imports.gi.Gtk;
+import Gtk from '@girs/gtk-3.0';
 
 // Initialize Gtk before you start calling anything from the import
 Gtk.init(null);

@@ -2,7 +2,7 @@
   "extends": "./tsconfig.alias.json",
   "compilerOptions": {   
     "lib": ["ESNext"],             
-    "types": ["@girs/gjs"],
+    "types": ["@girs/gjs", "@girs/gio-2.0"],
     "target": "ESNext",
     "module": "ESNext",
     "strict": true,

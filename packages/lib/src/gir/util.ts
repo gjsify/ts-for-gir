@@ -474,9 +474,19 @@ export function resolvePrimitiveType(name: string): TypeExpression | null {
         case "none":
             return VoidType;
         // TODO Some libraries are bad and don't use g-prefixed numerical types
+        case "uint":
+        case "int":
+        case "uint8":
+        case "int8":
+        case "uint16":
+        case "int16":
         case "uint32":
         case "int32":
+        case "int64":
+        case "uint64":
         case "double":
+        case "long":
+        case "float":
         // Most libraries will use these though:
         case "gshort":
         case "guint32":
@@ -498,7 +508,6 @@ export function resolvePrimitiveType(name: string): TypeExpression | null {
         case "gdouble":
         case "gssize":
         case "gsize":
-        case "long":
             return NumberType;
         case "gboolean":
             return BooleanType;

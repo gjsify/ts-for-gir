@@ -1,7 +1,7 @@
 // Workaround
 /** @ignore */
 export module GraniteServicesSettingsSerializable {
-    export interface ConstructorProperties extends ServicesSettingsSerializable.ConstructorProperties {}
+    export interface ConstructorProps extends ServicesSettingsSerializable.ConstructorProps {}
 }
 /** @ignore */
 export interface GraniteServicesSettingsSerializable extends ServicesSettingsSerializable {}

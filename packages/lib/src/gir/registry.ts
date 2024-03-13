@@ -6,7 +6,7 @@ import { JsonGenerator } from "../generators/json.js";
 import { FormatGenerator } from "../generators/generator.js";
 import { generify } from "../generics/generify.js";
 import { inject } from "../injections/inject.js";
-import { GenerationOptions, LoadOptions, TransformOptions } from "../types.js";
+import { GenerationOptions, TransformOptions } from "../types.js";
 import { TwoKeyMap } from "../util.js";
 import { ClassVisitor } from "../validators/class.js";
 import { InterfaceVisitor } from "../validators/interface.js";
@@ -15,7 +15,7 @@ import { IntrospectedNamespace } from "./namespace.js";
 import { DtsModuleGenerator } from "../generators/dts-modules.js";
 import { DtsInlineGenerator } from "../generators/dts-inline.js";
 import { ParsedGir } from "../types/parsed-gir.js";
-import { GenerateConfig } from "../types/generate-config.js";
+import { GirModule } from "../index.js";
 
 export interface NSLoader {
     load(namespace: string, version: string): ParsedGir | null;
@@ -31,9 +31,8 @@ export class NSRegistry {
     mapping: TwoKeyMap<string, string, IntrospectedNamespace> = new TwoKeyMap();
     private formatters: Map<string, Formatter> = new Map();
     private generators: Map<string, GeneratorConstructor<unknown>> = new Map();
-    c_mapping: Map<string, IntrospectedNamespace[]> = new Map();
+    c_mapping: Map<string, { version: string; name: string }[]> = new Map();
     transformations: GirVisitor[] = [];
-    loaders: [NSLoader, LoadOptions][] = [];
     subtypes = new TwoKeyMap<string, string, TwoKeyMap<string, string, boolean>>();
 
     constructor() {
@@ -128,15 +127,13 @@ export class NSRegistry {
     namespace(name: string, version: string): IntrospectedNamespace | null {
         const namespace = this.mapping.get(name, version);
 
-        if (!namespace) {
-            return this._internalLoad(name, version);
-        }
-
-        return namespace;
+        return namespace ?? null;
     }
 
     namespacesForPrefix(c_prefix: string): IntrospectedNamespace[] {
-        return this.c_mapping.get(c_prefix) ?? [];
+        return (this.c_mapping.get(c_prefix) ?? []).map(c_mapping =>
+            this.assertNamespace(c_mapping.name, c_mapping.version)
+        );
     }
 
     transform(options: TransformOptions) {
@@ -175,12 +172,6 @@ export class NSRegistry {
             return meta[0];
         }
 
-        const ns = this._defaultVersionInternalLoad(name);
-
-        if (ns) {
-            return ns.version;
-        }
-
         return null;
     }
 
@@ -197,11 +188,7 @@ export class NSRegistry {
     }
 
     assertNamespace(name: string, version: string): IntrospectedNamespace {
-        let namespace = this.mapping.get(name, version) ?? null;
-
-        if (!namespace) {
-            namespace = this._internalLoad(name, version);
-        }
+        const namespace = this.mapping.get(name, version) ?? null;
 
         if (!namespace) {
             throw new Error(`Namespace '${name}' not found.`);
@@ -210,15 +197,13 @@ export class NSRegistry {
         return namespace;
     }
 
-    load(gir: ParsedGir, options: LoadOptions): IntrospectedNamespace {
-        const namespace = IntrospectedNamespace.load(gir, options as LoadOptions & GenerateConfig, this);
-
+    register(namespace: GirModule): IntrospectedNamespace {
         this.mapping.set(namespace.name, namespace.version, namespace);
 
         namespace.c_prefixes.forEach(c_prefix => {
             const c_map = this.c_mapping.get(c_prefix) || [];
 
-            c_map.push(namespace);
+            c_map.push({ name: namespace.name, version: namespace.version });
 
             this.c_mapping.set(c_prefix, c_map);
         });
@@ -226,66 +211,5 @@ export class NSRegistry {
         this._transformNamespace(namespace);
 
         return namespace;
-    }
-
-    private _defaultVersionInternalLoad(name: string): IntrospectedNamespace | null {
-        const all = this.loaders
-            .map(([loader, options]) => {
-                try {
-                    return [loader.loadAll(name), options] as const;
-                } catch (error) {
-                    // TODO: Should we throw here?
-                    console.error(error);
-                    return null;
-                }
-            })
-            .filter((a): a is [ParsedGir[], LoadOptions] => a != null);
-
-        if (all.length === 0 || all.length > 1) {
-            return null;
-        }
-
-        const [[xmls, options]] = all;
-
-        if (xmls.length === 0 || xmls.length > 1) {
-            return null;
-        }
-
-        const [xml] = xmls;
-
-        const ns = this.load(xml, options);
-
-        if (ns) {
-            this._transformNamespace(ns);
-        }
-
-        return ns;
-    }
-
-    private _internalLoad(name: string, version: string): IntrospectedNamespace | null {
-        for (const [loader, options] of this.loaders) {
-            try {
-                const xml = loader.load(name, version);
-
-                if (xml) {
-                    const ns = this.load(xml, options);
-
-                    if (ns) {
-                        this._transformNamespace(ns);
-                    }
-
-                    return ns;
-                }
-            } catch (error) {
-                // TODO: Should we throw here?
-                console.error(error);
-            }
-        }
-
-        return null;
-    }
-
-    registerLoader(loader: NSLoader, options: LoadOptions) {
-        this.loaders.push([loader, options]);
     }
 }

@@ -1281,7 +1281,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
             .map(m => m.asString(this));
 
         // Resolve imports after we stringify everything else, sometimes we have to ad-hoc add an import.
-        const imports = node.getImports();
+        const imports = [];
 
         return Promise.resolve({
             kind: NodeKind.namespace,

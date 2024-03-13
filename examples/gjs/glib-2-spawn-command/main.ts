@@ -1,8 +1,5 @@
 // Example based on https://gist.github.com/buzztaiki/1487781/74ea93d3a30f20c7f094327db9cb263a6286f6d6
-import '@girs/gjs';
-import '@girs/gjs/dom'
-
-import GLib from '@girs/glib-2.0';
+import GLib from 'gi://GLib';
 const textDecoder = new TextDecoder();
 
 let [_res, out, _err, _status] = GLib.spawn_command_line_sync('ls -la');

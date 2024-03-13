@@ -19,7 +19,14 @@ import {
 import { TypeExpression } from "../gir.js";
 import { IntrospectedBase, IntrospectedClassMember, IntrospectedNamespaceMember, Options } from "./base.js";
 
-import { GirInterfaceElement, GirClassElement, GirRecordElement, GirDirection, GirUnionElement } from "../index.js";
+import {
+    GirInterfaceElement,
+    GirClassElement,
+    GirRecordElement,
+    GirDirection,
+    GirUnionElement,
+    ClassStructTypeIdentifier
+} from "../index.js";
 import {
     IntrospectedClassFunction,
     IntrospectedVirtualClassFunction,
@@ -85,7 +92,14 @@ export function filterConflicts<T extends IntrospectedClassMember | Introspected
             ? c.findParentMap(resolved_parent => {
                   return findMap([...resolved_parent.props], p => {
                       if (p.name && p.name == next.name) {
-                          if (next instanceof IntrospectedField) {
+                          // TODO: This is very TypeScript-specific but until we include which parent
+                          // a conflict originates from in the return, we have to handle this here
+                          // and not in the generator...
+                          //
+                          // Classes can override parent interface accessors with properties _but_
+                          // classes cannot override parent class accessors with properties without
+                          // an error occuring.
+                          if (p.parent instanceof IntrospectedClass && next instanceof IntrospectedField) {
                               return ConflictType.PROPERTY_ACCESSOR_CONFLICT;
                           }
 
@@ -212,9 +226,13 @@ export function filterFunctionConflict<
                     });
                 });
 
-            const field_conflicts = base.someParent(resolved_parent =>
-                [...resolved_parent.props, ...resolved_parent.fields].some(p => p.name && p.name == next.name)
-            );
+            // Check if the method name conflicts with any props or fields either on
+            // the class or in the parent...
+            const field_conflicts =
+                [...base.props, ...base.fields].some(p => p.name && p.name === next.name) ||
+                base.someParent(resolved_parent =>
+                    [...resolved_parent.props, ...resolved_parent.fields].some(p => p.name && p.name === next.name)
+                );
 
             const isGObject = base.someParent(p => p.namespace.name === "GObject" && p.name === "Object");
 
@@ -226,6 +244,7 @@ export function filterFunctionConflict<
                 let never:
                     | IntrospectedConstructor
                     | IntrospectedFunction
+                    | IntrospectedClassFunction
                     | IntrospectedStaticClassFunction
                     | IntrospectedVirtualClassFunction;
 
@@ -266,7 +285,7 @@ export function filterFunctionConflict<
 
                 prev.push(next, never as T);
             } else if (field_conflicts) {
-                console.error(`Omitting ${next.name} due to field conflict.`);
+                console.error(`Omitting ${next.name} due to field or property conflict.`);
             } else {
                 prev.push(next);
             }
@@ -399,7 +418,12 @@ export interface RecordResolution extends ResolutionNode, Iterable<RecordResolut
 }
 
 export abstract class IntrospectedBaseClass extends IntrospectedNamespaceMember {
-    indexSignature?: string;
+    /**
+     * Used to add a TypeScript index signature to a class
+     *
+     * NOTE: This should probably be migrated into the TypeScript generator itself.
+     */
+    __ts__indexSignature?: string;
     superType: TypeIdentifier | null;
 
     mainConstructor: null | IntrospectedConstructor | IntrospectedDirectAllocationConstructor;
@@ -634,12 +658,26 @@ export class IntrospectedClass extends IntrospectedBaseClass {
             });
         }
 
+        // If an interface inherits from a class (such as Gtk.Widget)
+        // we need to pull in every method from that class...
+        for (const implemented of resolution.implements()) {
+            const extended = implemented.extends();
+
+            if (extended?.node instanceof IntrospectedClass) {
+                for (const prop of extended.node.props) {
+                    if (!validateProp(prop)) continue;
+
+                    properties.set(prop.name, prop);
+                }
+            }
+        }
+
         return [...properties.values()];
     }
 
     implementedMethods(potentialConflicts: ClassMember[] = []) {
         const resolution = this.resolveParents();
-        const implemented_on_parent = [...(resolution.extends() ?? [])].map(r => r.implements()).flat();
+        const implementedOnParent = [...(resolution.extends() ?? [])].map(r => r.implements()).flat();
         const methods = new Map<string, IntrospectedClassFunction>();
 
         const validateMethod = (method: IntrospectedClassFunction) =>
@@ -652,8 +690,7 @@ export class IntrospectedClass extends IntrospectedBaseClass {
             if (implemented.node instanceof IntrospectedClass) continue;
 
             if (
-                implemented_on_parent.find(p => p.identifier.equals(implemented.identifier))?.node?.generics?.length ===
-                0
+                implementedOnParent.find(p => p.identifier.equals(implemented.identifier))?.node?.generics?.length === 0
             )
                 continue;
             for (const member of implemented.node.members) {
@@ -666,7 +703,7 @@ export class IntrospectedClass extends IntrospectedBaseClass {
             [...implemented].forEach(e => {
                 if (e.node instanceof IntrospectedClass) return;
 
-                if (implemented_on_parent.find(p => p.identifier.equals(e.identifier))?.node.generics.length === 0)
+                if (implementedOnParent.find(p => p.identifier.equals(e.identifier))?.node.generics.length === 0)
                     return;
                 for (const member of e.node.members) {
                     if (!validateMethod(member)) continue;
@@ -674,6 +711,20 @@ export class IntrospectedClass extends IntrospectedBaseClass {
                     methods.set(member.name, member);
                 }
             });
+        }
+
+        // If an interface inherits from a class (such as Gtk.Widget)
+        // we need to pull in every method from that class...
+        for (const implemented of resolution.implements()) {
+            const extended = implemented.extends();
+
+            if (extended?.node instanceof IntrospectedClass) {
+                for (const member of extended.node.members) {
+                    if (!validateMethod(member)) continue;
+
+                    methods.set(member.name, member);
+                }
+            }
         }
 
         return [...methods.values()].map(f => {
@@ -939,12 +990,6 @@ export class IntrospectedClass extends IntrospectedBaseClass {
                     const name = implementee.$.name;
                     const type = parseTypeIdentifier(ns.name, name);
 
-                    // Sometimes namespaces will implicitly import
-                    // other namespaces like Atk via interface implements.
-                    if (type && type.namespace && type.namespace !== ns.name && !ns.hasImport(type.namespace)) {
-                        ns.addImport(type.namespace);
-                    }
-
                     if (type) {
                         clazz.interfaces.push(type);
                     }
@@ -997,12 +1042,16 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 
 export class IntrospectedRecord extends IntrospectedBaseClass {
     private _isForeign: boolean = false;
-    private _structFor: TypeIdentifier | null = null;
+    private _structFor: ClassStructTypeIdentifier | null = null;
     private _isSimple: boolean | null = null;
     private _isSimpleWithoutPointers: string | null = null;
 
     isForeign(): boolean {
         return this._isForeign;
+    }
+
+    get structFor() {
+        return this._structFor;
     }
 
     getType(): TypeIdentifier {
@@ -1159,15 +1208,14 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
         clazz.setPrivate(
             element.$.name.startsWith("_") ||
                 ("disguised" in element.$ && element.$.disguised === "1") ||
-                // Don't generate records for structs
-                (typeof element.$["glib:is-gtype-struct-for"] === "string" && !!element.$["glib:is-gtype-struct-for"])
+                ("opaque" in element.$ && element.$.opaque === "1")
         );
 
         if (typeof element.$["glib:is-gtype-struct-for"] === "string" && !!element.$["glib:is-gtype-struct-for"]) {
-            clazz.noEmit();
+            const structFor = parseTypeIdentifier(namespace.name, element.$["glib:is-gtype-struct-for"]);
 
-            // This let's us replace these references when generating.
-            clazz._structFor = parseTypeIdentifier(namespace.name, element.$["glib:is-gtype-struct-for"]);
+            // This let's replace these references when generating.
+            clazz._structFor = new ClassStructTypeIdentifier(structFor.name, structFor.namespace);
         } else {
             if (element.$["glib:type-name"]) {
                 clazz.resolve_names.push(element.$["glib:type-name"]);
@@ -1561,7 +1609,6 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
             if (element.property) {
                 clazz.props.push(
                     ...element.property
-
                         .map(prop => IntrospectedProperty.fromXML(prop, clazz, options))
                         .map(prop => {
                             switch (options.propertyCase) {

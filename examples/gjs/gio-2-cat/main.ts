@@ -1,3 +1,6 @@
+/// <reference path="./@types/gjs/gjs.d.ts" />
+/// <reference path="./@types/gjs/dom.d.ts" />
+
 // SPDX-License-Identifier: MIT OR LGPL-2.0-or-later
 // SPDX-FileCopyrightText: 2009 Red Hat, Inc.
 // Based on https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/gio-cat.js

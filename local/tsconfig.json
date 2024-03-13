@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+      "lib": ["ESNext"],
+      "types": [],
+      "moduleResolution": "Bundler",
+      "module": "ESNext",
+      "strict": true,
+      "noEmit": true,
+      "noImplicitAny": true,
+      "strictNullChecks": true,
+      "noImplicitThis": true,
+      "alwaysStrict": true,
+      "skipLibCheck": false,
+    },
+    "files": ["all.ts"],
+    "exclude": []
+  }
+  

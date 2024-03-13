@@ -278,6 +278,7 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
         });
 
         fn.returnTypeDoc = this.returnTypeDoc;
+        fn.generics = [...this.generics];
 
         return fn;
     }
@@ -380,6 +381,8 @@ export class IntrospectedConstructor extends IntrospectedClassMember {
     readonly parameters: IntrospectedFunctionParameter[] = [];
     readonly return_type: TypeExpression = UnknownType;
 
+    generics: Generic[] = [];
+
     constructor({
         name,
         parameters = [],
@@ -406,12 +409,16 @@ export class IntrospectedConstructor extends IntrospectedClassMember {
         parameters?: IntrospectedFunctionParameter[];
         return_type?: TypeExpression;
     } = {}): IntrospectedConstructor {
-        return new IntrospectedConstructor({
+        const constr = new IntrospectedConstructor({
             name: this.name,
             parent: parent ?? this.parent ?? null,
             return_type: return_type ?? this.return_type,
             parameters: parameters ?? this.parameters
         })._copyBaseProperties(this);
+
+        constr.generics = [...this.generics];
+
+        return constr;
     }
 
     static fromXML(
@@ -624,7 +631,9 @@ export class IntrospectedFunctionParameter extends IntrospectedBase<
     }
 }
 
-export class IntrospectedClassFunction extends IntrospectedBase<IntrospectedBaseClass | IntrospectedEnum> {
+export class IntrospectedClassFunction<
+    Parent extends IntrospectedBaseClass | IntrospectedEnum = IntrospectedBaseClass | IntrospectedEnum
+> extends IntrospectedBase<Parent> {
     readonly parameters: IntrospectedFunctionParameter[];
     protected readonly return_type: TypeExpression;
     readonly output_parameters: IntrospectedFunctionParameter[];
@@ -648,7 +657,7 @@ export class IntrospectedClassFunction extends IntrospectedBase<IntrospectedBase
         parameters?: IntrospectedFunctionParameter[];
         output_parameters?: IntrospectedFunctionParameter[];
         return_type?: TypeExpression;
-        parent: IntrospectedBaseClass | IntrospectedEnum;
+        parent: Parent;
         doc?: string | null;
     }>) {
         super(name, parent, { ...args });
@@ -714,21 +723,13 @@ export class IntrospectedClassFunction extends IntrospectedBase<IntrospectedBase
         outputParameters,
         returnType
     }: {
-        parent?: IntrospectedBaseClass | IntrospectedEnum;
+        parent?: Parent;
         interfaceParent?: IntrospectedBaseClass | IntrospectedEnum;
         parameters?: IntrospectedFunctionParameter[];
         outputParameters?: IntrospectedFunctionParameter[];
         returnType?: TypeExpression;
-    } = {}): IntrospectedClassFunction {
-        let constr = IntrospectedClassFunction;
-
-        if (this instanceof IntrospectedVirtualClassFunction) {
-            constr = IntrospectedVirtualClassFunction;
-        } else if (this instanceof IntrospectedStaticClassFunction) {
-            constr = IntrospectedStaticClassFunction;
-        }
-
-        const fn = new constr({
+    } = {}): IntrospectedClassFunction<Parent> {
+        const fn = new IntrospectedClassFunction<Parent>({
             name: this.name,
             parent,
             output_parameters: outputParameters ?? this.output_parameters,
@@ -746,7 +747,7 @@ export class IntrospectedClassFunction extends IntrospectedBase<IntrospectedBase
         return fn._copyBaseProperties(this);
     }
 
-    accept(visitor: GirVisitor): IntrospectedClassFunction {
+    accept(visitor: GirVisitor): IntrospectedClassFunction<Parent> {
         const node = this.copy({
             parameters: this.parameters.map(p => {
                 return p.accept(visitor);
@@ -791,7 +792,7 @@ export class IntrospectedClassFunction extends IntrospectedBase<IntrospectedBase
     }
 }
 
-export class IntrospectedVirtualClassFunction extends IntrospectedClassFunction {
+export class IntrospectedVirtualClassFunction extends IntrospectedClassFunction<IntrospectedBaseClass> {
     constructor({
         name,
         parameters = [],
@@ -817,6 +818,37 @@ export class IntrospectedVirtualClassFunction extends IntrospectedClassFunction 
             doc,
             ...args
         });
+    }
+
+    copy({
+        parent = this.parent,
+        interfaceParent,
+        parameters,
+        outputParameters,
+        returnType
+    }: {
+        parent?: IntrospectedBaseClass;
+        interfaceParent?: IntrospectedBaseClass | IntrospectedEnum | undefined;
+        parameters?: IntrospectedFunctionParameter[] | undefined;
+        outputParameters?: IntrospectedFunctionParameter[] | undefined;
+        returnType?: TypeExpression | undefined;
+    }): IntrospectedVirtualClassFunction {
+        const fn = new IntrospectedVirtualClassFunction({
+            name: this.name,
+            parent,
+            output_parameters: outputParameters ?? this.output_parameters,
+            parameters: parameters ?? this.parameters,
+            return_type: returnType ?? this.return_type
+        });
+
+        fn.generics = [...this.generics];
+        fn.returnTypeDoc = this.returnTypeDoc;
+
+        if (interfaceParent) {
+            fn.interfaceParent = interfaceParent;
+        }
+
+        return fn._copyBaseProperties(this);
     }
 
     return(): TypeExpression {
@@ -856,8 +888,40 @@ export class IntrospectedStaticClassFunction extends IntrospectedClassFunction {
         return generator.generateStaticClassFunction(this) as ReturnType<T["generateStaticClassFunction"]>;
     }
 
+    copy({
+        parent = this.parent,
+        interfaceParent,
+        parameters,
+        outputParameters,
+        returnType
+    }: {
+        parent?: IntrospectedBaseClass | IntrospectedEnum;
+        interfaceParent?: IntrospectedBaseClass | IntrospectedEnum | undefined;
+        parameters?: IntrospectedFunctionParameter[] | undefined;
+        outputParameters?: IntrospectedFunctionParameter[] | undefined;
+        returnType?: TypeExpression | undefined;
+    } = {}): IntrospectedStaticClassFunction {
+        const fn = new IntrospectedStaticClassFunction({
+            name: this.name,
+            parent,
+            output_parameters: outputParameters ?? this.output_parameters,
+            parameters: parameters ?? this.parameters,
+            return_type: returnType ?? this.return_type
+        });
+
+        fn.generics = [...this.generics];
+        fn.returnTypeDoc = this.returnTypeDoc;
+
+        if (interfaceParent) {
+            fn.interfaceParent = interfaceParent;
+        }
+
+        return fn._copyBaseProperties(this);
+    }
+
     accept(visitor: GirVisitor): IntrospectedStaticClassFunction {
         const node = this.copy({
+            parent: this.parent,
             parameters: this.parameters.map(p => {
                 return p.accept(visitor);
             }),
@@ -868,6 +932,25 @@ export class IntrospectedStaticClassFunction extends IntrospectedClassFunction {
         });
 
         return visitor.visitStaticClassFunction?.(node) ?? node;
+    }
+
+    asClassFunction(parent: IntrospectedBaseClass): IntrospectedClassFunction {
+        const { name, output_parameters, parameters, return_type, doc, isIntrospectable } = this;
+
+        const fn = new IntrospectedClassFunction({
+            parent,
+            name,
+            output_parameters,
+            parameters,
+            return_type,
+            doc,
+            isIntrospectable
+        });
+
+        fn.returnTypeDoc = this.returnTypeDoc;
+        fn.generics = [...this.generics];
+
+        return fn;
     }
 
     static fromXML(

@@ -4,11 +4,6 @@
  * @source https://github.com/optimisme/gjs-examples/blob/master/egList.js
  */
 
-import '@girs/gjs/dom';
-import '@girs/gio-2.0';
-import '@girs/gtk-4.0';
-
-import imports from '@girs/gjs'
 import GObject from 'gi://GObject?version=2.0';
 import GLib from 'gi://GLib?version=2.0';
 import Gtk from 'gi://Gtk?version=4.0';

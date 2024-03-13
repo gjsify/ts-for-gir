@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "lib": ["ESNext"],
-    "types": [],
+    "typeRoots": ["./@types"],
+    "types": ["@girs/gjs"],
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "bundler",
@@ -10,8 +11,9 @@
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
+    "allowSyntheticDefaultImports": true,
   },
-  "include": ["global.d.ts", "@girs/gjs", "@girs/gjs/ambient"],
+  "include": ["global.d.ts"],
   "files": [
     "main.ts"
   ]

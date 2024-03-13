@@ -4,6 +4,7 @@
   "description": "",
   "main": "main.ts",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "yarn build:app",
     "build:app": "yarn clear:app && webpack --env production",

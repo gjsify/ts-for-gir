@@ -3,9 +3,6 @@
 // SPDX-FileCopyrightText: 2008 litl, LLC
 // Based on https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/webkit.js
 
-import '@girs/gjs';
-import '@girs/webkit2-4.0';
-
 import Gtk from 'gi://Gtk?version=3.0';
 import WebKit from 'gi://WebKit2?version=4.0';
 

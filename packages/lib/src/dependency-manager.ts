@@ -6,7 +6,7 @@ import type { Dependency, GenerateConfig, GirInclude } from './types/index.js'
 import type { GirModule } from './gir-module.js'
 import { GirNSRegistry } from './registry.js'
 
-export class DependencyManager {
+export class DependencyManager extends GirNSRegistry {
     protected log: Logger
     protected transformation: Transformation
     registry = new GirNSRegistry()
@@ -16,6 +16,8 @@ export class DependencyManager {
     static instance?: DependencyManager
 
     protected constructor(protected readonly config: GenerateConfig) {
+        super()
+
         this.transformation = new Transformation(config)
         this.log = new Logger(config.verbose, 'DependencyManager')
     }

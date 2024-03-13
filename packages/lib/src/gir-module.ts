@@ -2,30 +2,23 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Transformation, IGNORE_GIR_TYPE_TS_DOC_TYPES } from './transformation.js'
 import { Logger } from './logger.js'
-import { Injector } from './injection/injector.js'
 import { GirFactory } from './gir-factory.js'
 import { ConflictResolver } from './conflict-resolver.js'
 import { DependencyManager } from './dependency-manager.js'
-import { find, girBool } from './utils.js'
+import { find } from './utils.js'
 import { SymTable } from './symtable.js'
 import { LibraryVersion } from './library-version.js'
 
 import type {
     Dependency,
     GirRepository,
-    GirAliasElement,
     GirFunctionElement,
-    GirArrayType,
     GirType,
-    GirCallableParamElement,
     GirVirtualMethodElement,
     GirSignalElement,
-    GirCallableReturn,
     GirCallbackElement,
     GirConstantElement,
-    GirFieldElement,
     GirMethodElement,
-    GirPropertyElement,
     GirConstructorElement,
     GirDocElement,
     TsDoc,
@@ -33,6 +26,7 @@ import type {
     ParsedGir,
     GirInfoAttrs,
     GenerateConfig,
+    PromisifyFunc,
 } from './types/index.js'
 import {
     ClosureType,
@@ -55,8 +49,8 @@ import {
     IntrospectedFunction,
     IntrospectedCallback,
     IntrospectedClassCallback,
-    IntrospectedClassFunction,
     IntrospectedFunctionParameter,
+    IntrospectedClassFunction,
 } from './gir/function.js'
 import { NSRegistry } from './gir/registry.js'
 import { isPrimitiveType } from './gir/util.js'
@@ -83,6 +77,8 @@ export class GirModule {
     importNamespace!: string
 
     importName!: string
+
+    prefixes: string[] = []
 
     /**
      * The version of the library as an object.
@@ -120,8 +116,6 @@ export class GirModule {
 
     log!: Logger
 
-    inject!: Injector
-
     extends?: string
 
     /**
@@ -132,9 +126,6 @@ export class GirModule {
 
     readonly name: string
     readonly c_prefixes: string[]
-
-    private imports: Map<string, string> = new Map()
-    default_imports: Map<string, string> = new Map()
 
     private _members?: Map<string, GirNSMember | GirNSMember[]>
     private _enum_constants?: Map<string, readonly [string, string]>
@@ -325,645 +316,96 @@ export class GirModule {
         }
     }
 
-    // /**
-    //  * Annotates the custom `_module`, `_fullSymName` and `_girType` properties.
-    //  * Also registers the element on the `symTable`.
-    //  * @param girElements
-    //  * @param girType
-    //  */
-    // private annotateAndRegisterGirElement(girElements: GirAnyElement[]): void {
-    //     for (const girElement of girElements) {
-    //         if (girElement?.$ && girElement.$.name) {
-    //             // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-argument
-    //             if (!girElementIsIntrospectable(girElement as any)) continue
-
-    //             girElement._module = this
-    //             girElement._fullSymName = `${this.namespace}.${girElement.$.name}`
-    //             if (this.symTable.get(this.allDependencies, girElement._fullSymName)) {
-    //                 this.log.warn(WARN_DUPLICATE_SYMBOL(girElement._fullSymName))
-    //             }
-
-    //             this.symTable.set(this.allDependencies, girElement._fullSymName, girElement)
-    //         }
-    //     }
-    // }
-
-    // /**
-    //  * TODO: find better name for this method
-    //  * @param girVar
-    //  * @param fullTypeName
-    //  * @returns e.g.
-    //  * ```ts
-    //  * {
-    //  *      namespace: "Gtk",
-    //  *      resValue: "Gtk.Widget"
-    //  * }
-    //  *
-    //  */
-    // private fullTypeLookup(
-    //     girVar:
-    //         | GirCallableParamElement
-    //         | GirCallableReturn
-    //         | GirFieldElement
-    //         | GirAliasElement
-    //         | GirPropertyElement
-    //         | GirConstantElement,
-    //     fullTypeName: string | null,
-    // ) {
-    //     let resValue = ''
-    //     let namespace = ''
-
-    //     if (!fullTypeName) {
-    //         return {
-    //             value: resValue,
-    //             fullTypeName,
-    //             namespace,
-    //         }
-    //     }
-
-    //     // Fully qualify our type name
-    //     if (!fullTypeName.includes('.')) {
-    //         let tryFullTypeName = ''
-
-    //         if (!resValue && girVar._module && girVar._module !== this) {
-    //             tryFullTypeName = `${girVar._module.namespace}.${fullTypeName}`
-    //             resValue = this.fullTypeLookupWithNamespace(tryFullTypeName).value
-    //             if (resValue) {
-    //                 fullTypeName = tryFullTypeName
-    //                 namespace = girVar._module.namespace
-    //             }
-    //         }
-
-    //         if (!resValue) {
-    //             tryFullTypeName = `${this.namespace}.${fullTypeName}`
-    //             resValue = this.fullTypeLookupWithNamespace(tryFullTypeName).value
-    //             if (resValue) {
-    //                 fullTypeName = tryFullTypeName
-    //                 namespace = this.namespace
-    //             }
-    //         }
-
-    //         const girClass = (
-    //             girVar as
-    //                 | GirCallableParamElement
-    //                 | GirCallableReturn
-    //                 | GirFieldElement
-    //                 | GirAliasElement
-    //                 | GirPropertyElement
-    //         )._class as GirClassElement | undefined
-
-    //         if (!resValue && girClass?._module?.namespace && girClass._module !== this) {
-    //             tryFullTypeName = `${girClass._module.namespace}.${fullTypeName}`
-    //             resValue = this.fullTypeLookupWithNamespace(tryFullTypeName).value
-    //             if (resValue) {
-    //                 fullTypeName = tryFullTypeName
-    //                 namespace = girClass?._module?.namespace
-    //             }
-    //         }
-    //     }
-
-    //     if (!resValue && fullTypeName) {
-    //         resValue = this.fullTypeLookupWithNamespace(fullTypeName).value
-    //     }
-
-    //     return {
-    //         value: resValue,
-    //         namespace,
-    //     }
-    // }
-
-    // /**
-    //  * this method needs to be refactored, an array can also be an array of an array for example
-    //  * @param girVar
-    //  * @returns
-    //  */
-
-    // private arrayLengthIndexLookup(girVar: GirCallableParamElement): number {
-    //     if (!girVar.array) return -1
-
-    //     const arr: GirArrayType = girVar.array[0]
-    //     if (!arr.$) return -1
-
-    //     if (arr.$.length) {
-    //         return parseInt(arr.$.length)
-    //     }
-
-    //     return -1
-    // }
-
-    // private closureDataIndexLookup(girVar: GirCallableParamElement): number {
-    //     if (!girVar.$.closure) return -1
-
-    //     return parseInt(girVar.$.closure)
-    // }
-
-    // private destroyDataIndexLookup(girVar: GirCallableParamElement): number {
-    //     if (!girVar.$.destroy) return -1
-
-    //     return parseInt(girVar.$.destroy)
-    // }
-
-    // private processParams(
-    //     params: GirCallableParamElement[],
-    //     skip: GirCallableParamElement[],
-    //     getIndex: (param: GirCallableParamElement) => number,
-    // ): void {
-    //     for (const param of params) {
-    //         const index = getIndex(param)
-    //         if (index < 0) continue
-    //         if (index >= params.length) continue
-    //         skip.push(params[index])
-    //     }
-    // }
-
-    // /**
-    //  * Checks if the parameter is nullable (which results in ` | null`).
-    //  *
-    //  * @param girVar girVar to test
-    //  */
-    // private typeIsNullable(
-    //     girVar:
-    //         | GirCallableParamElement
-    //         | GirCallableReturn
-    //         | GirAliasElement
-    //         | GirFieldElement
-    //         | GirConstantElement
-    //         | GirPropertyElement,
-    //     girTypeName: GirTypeName,
-    // ): boolean {
-    //     const a = (girVar as GirCallableParamElement).$
-
-    //     if (!a) return false
-
-    //     const type: GirType | undefined = girVar.type?.[0]
-    //     const cType = type?.$?.['c:type']
-
-    //     // Ignore depreciated `allow-none` if one of the new implementation `optional` or `nullable` is set
-    //     if (a.optional || a.nullable) {
-    //         return girBool(a.nullable)
-    //     }
-
-    //     if (girTypeName === 'constant') {
-    //         return false // constants are never nullable
-    //     }
-
-    //     // UTF-8 string pointers can be null, e.g. `gchar*`, see https://github.com/gjsify/ts-for-gir/issues/108
-    //     if (type?.$?.name === 'utf8' && !cType?.startsWith('const ') && cType?.endsWith('*')) {
-    //         return true
-    //     }
-
-    //     // If the default value is NULL, handle this as nullable
-    //     if (a['default-value'] === 'NULL') {
-    //         return true
-    //     }
-
-    //     return girBool(a.nullable) || girBool(a['allow-none']) || girBool(a['null-ok'])
-    // }
-
-    // /**
-    //  * Checks if the parameter is optional (which results in `foo?: bar`).
-    //  * @param girVar girVar to test
-    //  */
-    // private typeIsOptional(
-    //     girVar:
-    //         | GirCallableParamElement
-    //         | GirCallableReturn
-    //         | GirAliasElement
-    //         | GirFieldElement
-    //         | GirConstantElement
-    //         | GirPropertyElement,
-    //     girTypeName: GirTypeName,
-    // ): boolean {
-    //     const a = (girVar as GirCallableParamElement).$
-    //     if (!a) return false
-
-    //     // Ignore depreciated `allow-none` if one of the new implementation `optional` or `nullable` is set
-    //     if (a.optional || a.nullable) {
-    //         return girBool(a.optional)
-    //     }
-
-    //     if (girTypeName === 'constant') {
-    //         return false // constants are never optional
-    //     }
-
-    //     return girBool(a.optional) || girBool(a['allow-none']) || girBool(a['null-ok'])
-    // }
-
-    // /**
-    //  * Checks if the property is readonly.
-    //  * @param girCallback
-    //  */
-    // private typeIsReadonly(girProp: GirPropertyElement | GirFieldElement): boolean {
-    //     const cType = girProp.type?.[0].$?.['c:type']
-    //     return (
-    //         !girBool(girProp.$.writable) ||
-    //         girBool((girProp as GirPropertyElement).$['construct-only']) ||
-    //         (cType ? cType.startsWith('const ') : false) // c type is const and therefore readonly, isn't?
-    //     )
-    // }
-
-    // private setParameterTsData(
-    //     girParam: GirCallableParamElement,
-    //     girParams: GirCallableParamElement[],
-    //     paramNames: string[],
-    //     skip: GirCallableParamElement[],
-    //     parent: TsFunction | TsSignal,
-    // ) {
-    //     // I think it's safest to force inout params to have the
-    //     // same type for in and out
-    //     const tsType = this.getTsType(girParam, parent.parent)
-    //     // const optDirection = girParam.$.direction
-
-    //     if (girParam._tsData) {
-    //         // this.log.warn('[setParameterTsData] _tsData already set!')
-    //         return girParam._tsData
-    //     }
-
-    //     if (tsType.isCallback) {
-    //         throw new Error('Callback type is not implemented here')
-    //     }
-
-    //     let paramName = this.transformation.transformParameterName(girParam, false)
-
-    //     if (paramNames.includes(paramName)) {
-    //         this.log.warn(WARN_DUPLICATE_PARAMETER(paramName, girParam._fullSymName))
-    //         paramName += '_'
-    //     }
-    //     paramNames.push(paramName)
-
-    //     // In Typescript no optional parameters are allowed if the following ones are not optional
-    //     if (tsType.optional) {
-    //         const index = girParams.indexOf(girParam)
-    //         const following = girParams
-    //             .slice(index)
-    //             .filter(() => skip.indexOf(girParam) === -1)
-    //             .filter((p) => p.$.direction !== GirDirection.Out)
-
-    //         if (following.some((p) => !this.typeIsOptional(p))) {
-    //             tsType.optional = false
-    //         }
-    //     }
-
-    //     const tsParam: TsParameter = {
-    //         name: paramName,
-    //         type: [tsType],
-    //         isRest: false,
-    //         girTypeName: 'callable-param',
-    //         doc: this.getTsDoc(girParam),
-    //         parent,
-    //     }
-
-    //     girParam._tsData = tsParam
-
-    //     // // TODO: remove this, wee need a special solution for Gio.AsyncReadyCallback instead
-    //     girParam = this.inject.toParameterType(girParam)
-
-    //     return girParam._tsData
-    // }
-
-    // private setParametersTsData(
-    //     outArrayLengthIndex: number,
-    //     girParams: GirCallableParams[] = [],
-    //     parent: TsFunction | TsCallback,
-    // ) {
-    //     const outParams: GirCallableParamElement[] = []
-    //     const inParams: GirCallableParamElement[] = []
-    //     const paramNames: string[] = []
-    //     const instanceParameters: GirInstanceParameter[] = []
-
-    //     if (girParams && girParams.length > 0) {
-    //         for (const girParam of girParams) {
-    //             const params = girParam?.parameter || []
-
-    //             // Instance parameter needs to be exposed for class methods (see comment above getClassMethods())
-    //             const instanceParameter = girParams[0]['instance-parameter']?.[0]
-    //             if (instanceParameter) {
-    //             }
-    //             if (params.length) {
-    //                 const skip = outArrayLengthIndex === -1 ? [] : [params[outArrayLengthIndex]]
-
-    //                 this.processParams(params, skip, (girVar) => this.arrayLengthIndexLookup(girVar))
-    //                 this.processParams(params, skip, (girVar) => this.closureDataIndexLookup(girVar))
-    //                 this.processParams(params, skip, (girVar) => this.destroyDataIndexLookup(girVar))
-
-    //                 for (const param of params) {
-    //                     if (skip.includes(param)) {
-    //                         continue
-    //                     }
-
-    //                     param._tsData = this.setParameterTsData(param, params, paramNames, skip, parent)
-
-    //                     const optDirection = param.$.direction
-    //                     if (
-    //                         optDirection === GirDirection.Out ||
-    //                         optDirection === GirDirection.Inout ||
-    //                         optDirection === GirDirection.InOut
-    //                     ) {
-    //                         outParams.push(param)
-    //                         if (optDirection === GirDirection.Out) continue
-    //                     }
-    //                     inParams.push(param)
-    //                 }
-    //             }
-    //         }
-    //     }
-
-    //     return { outParams, paramNames, inParams, instanceParameters }
-    // }
-
-    // overloadPromisifiedFunctions(girFunctions: GirFunctionElement[]): void {
-    //     if (!this.config.promisify) return
-
-    //     const promisifyAsyncReturn = ['Gio.AsyncReadyCallback', 'AsyncReadyCallback']
-    //     const promisifyFuncMap = {} as { [name: string]: PromisifyFunc }
-
-    //     // Find the functions that can be promisified
-    //     for (const girFunction of girFunctions) {
-    //         const tsFunction = girFunction._tsData
-    //         if (!tsFunction) continue
-
-    //         // Check if function name satisfies async,finish scheme
-    //         const isAsync = tsFunction.name.endsWith('_async') || tsFunction.name.endsWith('_begin')
-    //         const isFinish = tsFunction.name.endsWith('_finish')
-    //         if (!isAsync && !isFinish) continue
-
-    //         // Handle async functions
-    //         if (isAsync) {
-    //             if (tsFunction.inParams.length === 0) continue
-    //             const lastParam = tsFunction.inParams[tsFunction.inParams.length - 1]
-    //             if (lastParam.type && lastParam.type.length > 0) {
-    //                 const type = lastParam.type[0].$.name
-    //                 if (type && promisifyAsyncReturn.includes(type)) {
-    //                     if (!(tsFunction.name in promisifyFuncMap)) promisifyFuncMap[tsFunction.name] = {}
-    //                     promisifyFuncMap[tsFunction.name].asyncFn = tsFunction
-    //                 }
-    //             }
-    //         }
-
-    //         // Handle finish functions
-    //         if (isFinish) {
-    //             if (tsFunction.returnTypes.length === 0) continue
-    //             let name = `${tsFunction.name.replace(/(_finish)$/, '')}_async`
-    //             if (!(name in promisifyFuncMap)) name = `${tsFunction.name.replace(/(_finish)$/, '')}_begin`
-    //             if (!(name in promisifyFuncMap)) promisifyFuncMap[name] = {}
-    //             promisifyFuncMap[name].finishFn = tsFunction
-    //         }
-    //     }
-
-    //     // Generate TsFunctions for promisify-able functions and add to the array
-    //     for (const [, func] of Object.entries(promisifyFuncMap)) {
-    //         if (!func.asyncFn || !func.finishFn) continue
-
-    //         const inParams = this.girFactory.newGirCallableParamElements(
-    //             func.asyncFn.inParams.slice(0, -1),
-    //             func.asyncFn,
-    //         )
-
-    //         const outParams = this.girFactory.newGirCallableParamElements(func.finishFn.outParams, func.asyncFn)
-
-    //         const returnTypes = this.girFactory.newTsTypes(outParams.length > 0 ? [] : func.finishFn.returnTypes)
-
-    //         let docReturnText = func.finishFn.doc.tags.find((tag) => tag.tagName === 'returns')?.text || ''
-    //         if (docReturnText) {
-    //             docReturnText = `A Promise of: ${docReturnText}`
-    //         } else {
-    //             docReturnText = `A Promise of the result of {@link ${func.asyncFn.name}}`
-    //         }
-
-    //         const docText = `Promisified version of {@link ${func.asyncFn.name}}\n\n${func.asyncFn.doc.text}`
-
-    //         const docTags = func.asyncFn.doc.tags.filter(
-    //             (tag) => tag.paramName !== 'callback' && tag.paramName !== 'returns',
-    //         )
-
-    //         docTags.push({
-    //             tagName: 'returns',
-    //             text: docReturnText,
-    //             paramName: '',
-    //         })
-
-    //         const doc = this.girFactory.newTsDoc({
-    //             text: docText,
-    //             tags: docTags,
-    //         })
-
-    //         const promisifyFn = this.girFactory.newTsFunction(
-    //             {
-    //                 ...func.asyncFn,
-    //                 inParams,
-    //                 outParams,
-    //                 returnTypes,
-    //                 isPromise: true,
-    //                 doc,
-    //             },
-    //             func.asyncFn.parent,
-    //         )
-
-    //         func.asyncFn.overloads.push(promisifyFn)
-    //     }
-    // }
-
-    // private getConstantTsData(girConst: GirConstantElement, tsClass: TsClass | null) {
-    //     if (!girElementIsIntrospectable(girConst)) return undefined
-
-    //     if (girConst._tsData) {
-    //         // this.log.warn('[getConstantTsData] _tsData already set!')
-    //         return girConst._tsData
-    //     }
-
-    //     let tsData: TsVar | undefined = this.getVariableTsData(
-    //         girConst,
-    //         'constant',
-    //         'constant',
-    //         tsClass,
-    //         false,
-    //         false,
-    //         false,
-    //     )
-    //     if (tsData?.name) {
-    //         if (!this.constNames[tsData.name]) {
-    //             this.constNames[tsData.name] = girConst
-    //         } else {
-    //             this.log.warn(WARN_CONSTANT_ALREADY_EXPORTED(tsData.name))
-    //             tsData = undefined
-    //         }
-    //     }
-    //     return tsData
-    // }
-
-    // private getClassConstructPropsTsData(
-    //     girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-    //     constructPropNames: LocalNames,
-    // ) {
-    //     const constructProps: GirPropertyElement[] = []
-    //     const girProperties = (girClass as GirClassElement | GirInterfaceElement).property
-    //     if (!girProperties?.length) {
-    //         return constructProps
-    //     }
-    //     for (const girProp of girProperties) {
-    //         if (!girElementIsIntrospectable(girProp) || !girProp.$.name) continue
-    //         // Do not modify the original girProp, create a new one by clone `girProp` to `girConstrProp`
-    //         const girConstrProp = clone(girProp)
-
-    //         if (!girClass._tsData) continue
-
-    //         if (!girConstrProp._tsData) {
-    //             girConstrProp._tsData = this.getPropertyTsData(
-    //                 girConstrProp,
-    //                 'property',
-    //                 'constructor-property',
-    //                 girClass._tsData,
-    //                 true,
-    //                 true,
-    //                 true,
-    //                 0,
-    //             )
-    //         }
-
-    //         if (!girConstrProp._tsData) {
-    //             continue
-    //         }
-
-    //         const localName = this.checkOrSetLocalName(girConstrProp, constructPropNames, 'property')
-
-    //         if (!localName?.added) {
-    //             continue
-    //         }
-
-    //         if (girConstrProp._fullSymName)
-    //             this.symTable.set(this.allDependencies, girConstrProp._fullSymName, girConstrProp)
-    //         constructProps.push(girConstrProp)
-    //     }
-
-    //     return constructProps
-    // }
-
-    // /**
-    //  * Some class/static methods are defined in a separate record which is not
-    //  * exported, but the methods are available as members of the JS constructor.
-    //  * In gjs one can use an instance of the object, a JS constructor or a GType
-    //  * as the method's instance-parameter.
-    //  * @see https://discourse.gnome.org/t/using-class-methods-like-gtk-widget-class-get-css-name-from-gjs/4001
-    //  * @param girClass
-    //  */
-    // private getClassRecordMethods(
-    //     girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-    // ): GirMethodElement[] {
-    //     const girMethods: GirMethodElement[] = []
-
-    //     if (!girClass.$.name) return girMethods
-    //     const fName = girClass.$.name + 'Class'
-    //     let rec = this.ns.record?.find((r) => r.$.name == fName)
-    //     if (!rec || !this.isGtypeStructFor(girClass, rec)) {
-    //         rec = this.ns.record?.find((r) => this.isGtypeStructFor(girClass, r))
-    //         fName == rec?.$.name
-    //     }
-    //     if (!rec) return girMethods
-
-    //     // Record methods
-    //     const methods = rec.method || []
-
-    //     for (const girMethod of methods) {
-    //         if (!girElementIsIntrospectable(girMethod) || !girClass._tsData) continue
-
-    //         if (!girMethod._tsData)
-    //             girMethod._tsData = this.getFunctionTsData(girMethod, 'static-function', girClass._tsData, {
-    //                 isStatic: true,
-    //                 isArrowType: false,
-    //                 isGlobal: false,
-    //                 isVirtual: false,
-    //                 returnType: null,
-    //                 generics: [],
-    //             })
-
-    //         if (!girMethod._tsData) continue
-
-    //         if (girMethod._tsData) {
-    //             if (girMethod._fullSymName) this.symTable.set(this.allDependencies, girMethod._fullSymName, girMethod)
-    //             girMethods.push(girMethod)
-    //         }
-    //     }
-
-    //     this.overloadPromisifiedFunctions(methods)
-
-    //     return girMethods
-    // }
-
-    // private getGObjectProperties(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
-    //     const girProperties: GirPropertyElement[] = []
-    //     if (girClass._fullSymName && !STATIC_NAME_ALREADY_EXISTS.includes(girClass._fullSymName)) {
-    //         // Records, classes and interfaces all have a static name
-    //         const type = this.girFactory.newTsType({ type: 'string' })
-    //         const staticNameProp = this.girFactory.newGirProperty({
-    //             isStatic: true,
-    //             name: 'name',
-    //             type: [type],
-    //             girTypeName: 'property',
-    //         })
-    //         girProperties.push(staticNameProp)
-    //     }
-
-    //     if (girClass._tsData?.isDerivedFromGObject && girClass._module) {
-    //         if (this.config.environment === 'gjs') {
-    //             const type = this.girFactory.newTsType({
-    //                 // TODO: Type not as string
-    //                 type: 'GObject.GType',
-    //                 generics: this.girFactory.newGenerics([
-    //                     {
-    //                         value: girClass._tsData.name,
-    //                     },
-    //                 ]),
-    //             })
-    //             const staticGTypeProp = this.girFactory.newGirProperty({
-    //                 isStatic: true,
-    //                 name: '$gtype',
-    //                 type: [type],
-    //                 girTypeName: 'property',
-    //             })
-    //             girProperties.push(staticGTypeProp)
-    //         }
-    //     }
-
-    //     return girProperties
-    // }
-
-    getClassParentObject(parentName: string, namespace: string, type: 'parent' | 'prerequisite' | 'implements') {
-        let qualifiedParentName: string
-        let parentModName: string
-
-        // WORKAROUND: Fix wrong parent names
-        if (
-            (this.packageName === 'GstAudio-0.10' || this.packageName === 'ClutterGst-1.0') &&
-            (parentName === 'GstBase.BaseTransform' ||
-                parentName === 'GstBase.BaseSink' ||
-                parentName === 'GstBase.PushSrc')
-        ) {
-            const rename = parentName.replace('GstBase.', 'Gst.')
-            this.log.warn(`[getClassParentObject] Rename parent class "${parentName}" -> "${rename}"`)
-            parentName = rename
+    overloadPromisifiedFunctions(girFunctions: GirFunctionElement[]): void {
+        if (!this.config.promisify) return
+
+        const promisifyAsyncReturn = ['Gio.AsyncReadyCallback', 'AsyncReadyCallback']
+        const promisifyFuncMap = {} as { [name: string]: PromisifyFunc }
+
+        // Find the functions that can be promisified
+        for (const girFunction of girFunctions) {
+            const tsFunction = girFunction._tsData
+            if (!tsFunction) continue
+
+            // Check if function name satisfies async,finish scheme
+            const isAsync = tsFunction.name.endsWith('_async') || tsFunction.name.endsWith('_begin')
+            const isFinish = tsFunction.name.endsWith('_finish')
+            if (!isAsync && !isFinish) continue
+
+            // Handle async functions
+            if (isAsync) {
+                if (tsFunction.inParams.length === 0) continue
+                const lastParam = tsFunction.inParams[tsFunction.inParams.length - 1]
+                if (lastParam.type && lastParam.type.length > 0) {
+                    const type = lastParam.type[0].$.name
+                    if (type && promisifyAsyncReturn.includes(type)) {
+                        if (!(tsFunction.name in promisifyFuncMap)) promisifyFuncMap[tsFunction.name] = {}
+                        promisifyFuncMap[tsFunction.name].asyncFn = tsFunction
+                    }
+                }
+            }
+
+            // Handle finish functions
+            if (isFinish) {
+                if (tsFunction.returnTypes.length === 0) continue
+                let name = `${tsFunction.name.replace(/(_finish)$/, '')}_async`
+                if (!(name in promisifyFuncMap)) name = `${tsFunction.name.replace(/(_finish)$/, '')}_begin`
+                if (!(name in promisifyFuncMap)) promisifyFuncMap[name] = {}
+                promisifyFuncMap[name].finishFn = tsFunction
+            }
         }
 
-        if (parentName === 'GraniteServicesSettingsSerializable') {
-            parentName = 'ServicesSettingsSerializable'
-            this.log.warn(
-                `[getClassParentObject] Rename parent class "GraniteServicesSettingsSerializable" -> "ServicesSettingsSerializable"`,
+        // Generate TsFunctions for promisify-able functions and add to the array
+        for (const [, func] of Object.entries(promisifyFuncMap)) {
+            if (!func.asyncFn || !func.finishFn) continue
+
+            const inParams = this.girFactory.newGirCallableParamElements(
+                func.asyncFn.inParams.slice(0, -1),
+                func.asyncFn,
             )
+
+            const outParams = this.girFactory.newGirCallableParamElements(func.finishFn.outParams, func.asyncFn)
+
+            const returnTypes = this.girFactory.newTsTypes(outParams.length > 0 ? [] : func.finishFn.returnTypes)
+
+            let docReturnText = func.finishFn.doc.tags.find((tag) => tag.tagName === 'returns')?.text || ''
+            if (docReturnText) {
+                docReturnText = `A Promise of: ${docReturnText}`
+            } else {
+                docReturnText = `A Promise of the result of {@link ${func.asyncFn.name}}`
+            }
+
+            const docText = `Promisified version of {@link ${func.asyncFn.name}}\n\n${func.asyncFn.doc.text}`
+
+            const docTags = func.asyncFn.doc.tags.filter(
+                (tag) => tag.paramName !== 'callback' && tag.paramName !== 'returns',
+            )
+
+            docTags.push({
+                tagName: 'returns',
+                text: docReturnText,
+                paramName: '',
+            })
+
+            const doc = this.girFactory.newTsDoc({
+                text: docText,
+                tags: docTags,
+            })
+
+            const promisifyFn = this.girFactory.newTsFunction(
+                {
+                    ...func.asyncFn,
+                    inParams,
+                    outParams,
+                    returnTypes,
+                    isPromise: true,
+                    doc,
+                },
+                func.asyncFn.parent,
+            )
+
+            func.asyncFn.overloads.push(promisifyFn)
         }
-
-        if (parentName.indexOf('.') < 0) {
-            qualifiedParentName = namespace + '.' + parentName
-            parentModName = namespace
-        } else {
-            qualifiedParentName = parentName
-            const split = parentName.split('.')
-            parentName = split[split.length - 1]
-            parentModName = split.slice(0, split.length - 1).join('.')
-        }
-        const localParentName = parentModName == namespace ? parentName : qualifiedParentName
-
-        const dependencyExists = !!this.symTable.get(this.allDependencies, qualifiedParentName)
-
-        // todo
     }
 
     registerResolveName(resolveName: string, namespace: string, name: string) {
@@ -1011,50 +453,70 @@ export class GirModule {
         return this.parent.namespacesForPrefix(c_prefix)
     }
 
+    // TODO: Move this into the generator
     hasImport(name: string): boolean {
-        return this.default_imports.has(name) || this.imports.has(name)
+        return this.dependencies.some((dep) => dep.importName === name)
     }
 
     private _getImport(name: string): GirModule | null {
-        let version = this.default_imports.get(name) ?? this.imports.get(name)
-
         if (name === this.name) {
             return this
         }
 
-        // TODO: Clean this up, but essentially try to resolve import versions
-        // using transitive imports (e.g. use GtkSource to find the version of Gtk)
-        if (!version) {
-            const entries = [...this.default_imports.entries()].flatMap(([_name]) => {
-                const namespace = this._getImport(_name)
+        const dep =
+            this.dependencies.find((dep) => dep.namespace === name) ??
+            this.transitiveDependencies.find((dep) => dep.namespace === name)
 
-                return [...(namespace?.default_imports.entries() ?? [])]
-            })
+        // Handle finding imports via their other prefixes
+        if (!dep) {
+            this.log.info(`Failed to find namespace ${name} in dependencies, resolving via c:prefixes`)
 
-            version = Object.fromEntries(entries)[name]
+            // TODO: It might make more sense to move this conversion _before_
+            // the _getImport call.
+            const resolvedNamespaces = this.dependencyManager.namespacesForPrefix(name)
+            if (resolvedNamespaces.length > 0) {
+                this.log.info(
+                    `Found namespaces for prefix ${name}: ${resolvedNamespaces.map((r) => `${r.name} (${r.version})`).join(', ')}`,
+                )
+            }
+
+            for (const resolvedNamespace of resolvedNamespaces) {
+                if (resolvedNamespace.name === this.name && resolvedNamespace.version === this.version) {
+                    return this
+                }
+
+                const dep =
+                    this.dependencies.find(
+                        (dep) => dep.namespace === resolvedNamespace.name && dep.version === resolvedNamespace.version,
+                    ) ??
+                    this.transitiveDependencies.find(
+                        (dep) => dep.namespace === resolvedNamespace.name && dep.version === resolvedNamespace.version,
+                    )
+
+                if (dep) {
+                    return this.parent.namespace(resolvedNamespace.name, dep.version)
+                }
+            }
         }
+
+        let version = dep?.version
 
         if (!version) {
             version = this.parent.assertDefaultVersionOf(name)
         }
 
-        const namespace = this.parent.namespace(name, version)
-
-        if (namespace) {
-            if (!this.imports.has(namespace.name)) {
-                this.imports.set(namespace.name, namespace.version)
-            }
-        }
-
-        return namespace
+        return this.parent.namespace(name, version)
     }
 
     getInstalledImport(name: string): GirModule | null {
-        let version = this.default_imports.get(name) ?? this.imports.get(name)
-
         if (name === this.name) {
             return this
         }
+
+        const dep =
+            this.dependencies.find((dep) => dep.namespace === name) ??
+            this.transitiveDependencies.find((dep) => dep.namespace === name)
+        let version = dep?.version
 
         if (!version) {
             version = this.parent.defaultVersionOf(name) ?? undefined
@@ -1065,12 +527,6 @@ export class GirModule {
         }
 
         const namespace = this.parent.namespace(name, version)
-
-        if (namespace) {
-            if (!this.imports.has(namespace.name)) {
-                this.imports.set(namespace.name, namespace.version)
-            }
-        }
 
         return namespace
     }
@@ -1083,14 +539,6 @@ export class GirModule {
         }
 
         return namespace
-    }
-
-    getImports(): [string, string][] {
-        return [...this.imports.entries()].sort(([[a], [b]]) => a.localeCompare(b))
-    }
-
-    addImport(ns_name: string) {
-        this._getImport(ns_name)
     }
 
     getMembers(name: string): IntrospectedNamespaceMember[] {
@@ -1236,7 +684,7 @@ export class GirModule {
             throw new Error('Invalid GIR file: no version name specified.')
         }
 
-        const c_prefix = ns.$?.['c:symbol-prefixes']?.split(',') ?? []
+        const c_prefix = ns.$?.['c:identifier-prefixes']?.split(',') ?? []
 
         if (options.verbose) {
             console.debug(`Parsing ${modName}...`)
@@ -1246,21 +694,16 @@ export class GirModule {
         building.parent = registry
         // Set the namespace object here to prevent re-parsing the namespace if
         // another namespace imports it.
-        registry.mapping.set(modName, version, building)
+        registry.register(building)
 
-        const includes = repo.repository[0].include || []
+        const prefixes = repo.repository[0]?.$?.['c:identifier-prefixes']?.split(',')
+        const unknownPrefixes = prefixes?.filter((pre) => pre !== modName)
 
-        includes
-            .map((i) => [i.$.name, i.$.version] as const)
-            .forEach(([name, version]) => {
-                if (version) {
-                    if (options.verbose) {
-                        console.debug(`Adding dependency ${name} ${version}...`)
-                    }
+        if (unknownPrefixes && unknownPrefixes.length > 0) {
+            console.log(`Found additional prefixes for ${modName}: ${unknownPrefixes.join(', ')}`)
 
-                    building.default_imports.set(name, version)
-                }
-            })
+            building.prefixes.push(...unknownPrefixes)
+        }
 
         const importConflicts = (el: IntrospectedConstant | IntrospectedBaseClass | IntrospectedFunction) => {
             return !building.hasImport(el.name)
@@ -1406,7 +849,6 @@ export class GirModule {
 
         building.log = new Logger(config.verbose, building.packageName || 'GirModule')
         building.conflictResolver = new ConflictResolver(config.verbose)
-        building.inject = new Injector()
         building.importNamespace = building.transformation.transformModuleNamespaceName(building.packageName)
         building.importName = building.transformation.transformImportName(building.packageName)
         building.symTable = new SymTable(building.config, building.packageName, building.namespace)

@@ -202,7 +202,7 @@ export function getType(
             name = "unknown";
             console.log(
                 `Failed to find type in ${modName}: `,
-                JSON.stringify(parameter.$, null, 4),
+                JSON.stringify(parameter.type[0].$, null, 4),
                 "\nMarking as unknown!"
             );
         }
@@ -331,6 +331,16 @@ export function sanitizeIdentifierName(namespace: string | null, name: string): 
     }
 
     return sanitized_name;
+}
+
+// TODO: Until we support resolving via c:type, fix GIRs with
+// broken namespacing...
+export function sanitizeNamespace(namespace: string): string {
+    if (namespace === "Tracker_Vala") {
+        return "Tracker";
+    }
+
+    return namespace;
 }
 
 export function sanitizeMemberName(name: string): string {
@@ -464,9 +474,19 @@ export function resolvePrimitiveType(name: string): TypeExpression | null {
         case "none":
             return VoidType;
         // TODO Some libraries are bad and don't use g-prefixed numerical types
+        case "uint":
+        case "int":
+        case "uint8":
+        case "int8":
+        case "uint16":
+        case "int16":
         case "uint32":
         case "int32":
+        case "int64":
+        case "uint64":
         case "double":
+        case "long":
+        case "float":
         // Most libraries will use these though:
         case "gshort":
         case "guint32":
@@ -488,7 +508,6 @@ export function resolvePrimitiveType(name: string): TypeExpression | null {
         case "gdouble":
         case "gssize":
         case "gsize":
-        case "long":
             return NumberType;
         case "gboolean":
             return BooleanType;

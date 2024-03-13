@@ -8,12 +8,6 @@
  * the label should show a translation of 'Print help'
  */
 
-import '@girs/gjs';
-import '@girs/gjs/dom';
-import '@girs/gio-2.0';
-import '@girs/gtk-4.0';
-import '@girs/adw-1';
-
 // import Adw from "gi://Adw";
 // import GLib from "gi://GLib";
 import Gio from "gi://Gio";
@@ -29,7 +23,7 @@ import Gio from "gi://Gio";
 const gioApp = new Gio.Application();
 gioApp.runAsync(ARGV).then((exitStatus: number) => {
   log(`Exited with status: ${exitStatus}`);
-}).catch((error) => {
+}).catch((error: unknown) => {
   logError(error);
 });
 

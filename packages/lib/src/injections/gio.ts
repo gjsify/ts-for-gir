@@ -17,7 +17,10 @@ import {
     AnyType,
     VoidType,
     GenerifiedTypeIdentifier,
-    Generic
+    Generic,
+    Uint8ArrayType,
+    BooleanType,
+    TypeIdentifier
 } from "../gir.js";
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedField, JSField } from "../gir/property.js";
@@ -126,22 +129,28 @@ export default {
             const DBusProxy = namespace.assertClass("DBusProxy");
 
             // This is not ideal, but DBusProxy's define functions and properties on the prototype.
-            DBusProxy.indexSignature = "[key: string]: any;";
+            DBusProxy.__ts__indexSignature = "[key: string]: any;";
+
+            const makeProxyWrapper = new IntrospectedStaticClassFunction({
+                name: "makeProxyWrapper",
+                parent: DBusProxy,
+                parameters: [
+                    new IntrospectedFunctionParameter({
+                        name: "args",
+                        type: new ArrayType(AnyType),
+                        isVarArgs: true,
+                        direction: GirDirection.In
+                    })
+                ],
+                return_type: new NativeType(
+                    "(bus: DBusConnection, name: string, object: string, asyncCallback?: (initable: (T & DBusProxy) | null, error: unknown | null) => void, cancellable?: Cancellable | null, flags?: DBusProxyFlags) => T & DBusProxy"
+                )
+            });
+
+            makeProxyWrapper.generics.push(new Generic(new GenericType("T")));
 
             DBusProxy.members.push(
-                new IntrospectedStaticClassFunction({
-                    name: "makeProxyWrapper",
-                    parent: DBusProxy,
-                    parameters: [
-                        new IntrospectedFunctionParameter({
-                            name: "args",
-                            type: new ArrayType(AnyType),
-                            isVarArgs: true,
-                            direction: GirDirection.In
-                        })
-                    ],
-                    return_type: AnyType
-                }),
+                makeProxyWrapper,
                 new IntrospectedClassFunction({
                     name: "connectSignal",
                     parent: DBusProxy,
@@ -445,6 +454,81 @@ export default {
             );
 
             namespace.members.set("DBusExportedObject", DBusExportedObject);
+        }
+
+        {
+            // See https://github.com/gjsify/ts-for-gir/issues/130
+            const Application = namespace.assertClass("Application");
+
+            Application.members.push(
+                new IntrospectedClassFunction({
+                    parent: Application,
+                    name: "runAsync",
+                    parameters: [
+                        new IntrospectedFunctionParameter({
+                            direction: GirDirection.In,
+                            name: "argv",
+                            isOptional: true,
+                            type: new ArrayType(StringType),
+                            doc: "Commandline arguments"
+                        })
+                    ],
+                    return_type: new NativeType("Promise<number>"),
+                    doc: "Similar to `Gio.Application.run` but return a Promise which resolves when the main loop ends, instead of blocking while the main loop runs.\nThis helps avoid the situation where Promises never resolved if you didn't run the application inside a callback."
+                })
+            );
+        }
+
+        {
+            const File = namespace.assertClass("File");
+
+            const Flags = namespace.getEnum("FileCreateFlags");
+
+            if (!Flags) throw new Error("Missing FileCreateFlags");
+
+            File.members.push(
+                new IntrospectedClassFunction({
+                    parent: File,
+                    name: "replace_contents_async",
+                    return_type: VoidType,
+                    // contents: Uint8Array, etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable: Cancellable | null, callback: AsyncReadyCallback | null
+                    parameters: [
+                        new IntrospectedFunctionParameter({
+                            direction: GirDirection.In,
+                            name: "contents",
+                            type: Uint8ArrayType
+                        }),
+                        new IntrospectedFunctionParameter({
+                            direction: GirDirection.In,
+                            name: "etag",
+                            isNullable: true,
+                            type: StringType
+                        }),
+                        new IntrospectedFunctionParameter({
+                            direction: GirDirection.In,
+                            name: "make_backup",
+                            type: BooleanType
+                        }),
+                        new IntrospectedFunctionParameter({
+                            direction: GirDirection.In,
+                            name: "flags",
+                            type: Flags.getType()
+                        }),
+                        new IntrospectedFunctionParameter({
+                            direction: GirDirection.In,
+                            name: "cancellable",
+                            isNullable: true,
+                            type: namespace.assertClass("Cancellable").getType()
+                        }),
+                        new IntrospectedFunctionParameter({
+                            direction: GirDirection.In,
+                            name: "callback",
+                            isNullable: true,
+                            type: new TypeIdentifier("AsyncReadyCallback", "Gio")
+                        })
+                    ]
+                })
+            );
         }
     }
 };

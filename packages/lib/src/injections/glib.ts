@@ -15,7 +15,8 @@ import {
     UnknownType,
     GenericType,
     TypeIdentifier,
-    BinaryType
+    BinaryType,
+    Generic
 } from "../gir.js";
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedRecord } from "../gir/class.js";
@@ -101,7 +102,7 @@ export default {
         {
             const HashTable = namespace.assertClass("HashTable") as IntrospectedRecord;
 
-            HashTable.indexSignature = "[key: string]: B;";
+            HashTable.__ts__indexSignature = "[key: string]: B;";
         }
 
         // GLib.Variant
@@ -132,26 +133,30 @@ export default {
                     direction: GirDirection.In
                 })
             ];
+
+            // static "new"<A>(sig: A, value: any) => Variant<A>;
             const VariantConstructor = new IntrospectedConstructor({
                 name: "new",
                 parent: Variant,
                 parameters: VariantParams.map(vp => vp.copy()),
-                return_type: Variant.getType()
+                return_type: new NativeType("Variant<A>")
             });
+
+            VariantConstructor.generics = [new Generic(new GenericType("A"), undefined, undefined, StringType)];
 
             Variant.mainConstructor = VariantConstructor.copy();
 
-            Variant.constructors.unshift(
-                // static new: (sig: any, value: any) => Variant;
-                VariantConstructor.copy(),
-                // static _new_internal: (sig: any, value: any) => any;,
-                new IntrospectedConstructor({
-                    name: "_new_internal",
-                    parent: Variant,
-                    parameters: VariantParams.map(vp => vp.copy()),
-                    return_type: AnyType
-                })
-            );
+            // static _new_internal: (sig: any, value: any) => any;
+            const internalConstructor = new IntrospectedConstructor({
+                name: "_new_internal",
+                parent: Variant,
+                parameters: VariantParams.map(vp => vp.copy()),
+                return_type: AnyType
+            });
+
+            internalConstructor.generics = [new Generic(new GenericType("A"), undefined, undefined, StringType)];
+
+            Variant.constructors.unshift(VariantConstructor.copy(), internalConstructor);
 
             Variant.members.push(
                 // unpack<T= any>(): T;
@@ -166,7 +171,7 @@ export default {
                     return_type: UnknownType,
                     parent: Variant
                 }),
-                // deep_unpack: any;
+                // deep_unpack<T = any>(): T;
                 new IntrospectedClassFunction({
                     name: "deep_unpack",
                     return_type: UnknownType,
@@ -234,6 +239,21 @@ export default {
                     return_type: Uint8ArrayType,
                     parent: Bytes,
                     parameters: []
+                })
+            );
+        }
+
+        {
+            // See https://github.com/gjsify/ts-for-gir/issues/130
+            const MainLoop = namespace.assertClass("MainLoop");
+
+            MainLoop.members.push(
+                new IntrospectedClassFunction({
+                    parent: MainLoop,
+                    name: "runAsync",
+                    parameters: [],
+                    return_type: new NativeType("Promise<void>"),
+                    doc: "Similar to `GLib.MainLoop.run` but return a Promise which resolves when the main loop ends, instead of blocking while the main loop runs.\nThis helps avoid the situation where Promises never resolved if you didn't run the main loop inside a callback."
                 })
             );
         }

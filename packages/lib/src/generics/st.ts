@@ -1,9 +1,9 @@
 import { GenericType, GenerifiedTypeIdentifier } from "../gir.js";
 import { IntrospectedNamespace } from "../gir/namespace.js";
 
-export default {
+const stTemplate = (version: string) => ({
     namespace: "St",
-    version: "1.0",
+    version,
     modifier: (namespace: IntrospectedNamespace, inferGenerics: boolean) => {
         if (!inferGenerics) {
             return;
@@ -109,4 +109,8 @@ export default {
                 prop.type = new GenericType("A", Actor.getType());
             });
     }
-};
+});
+
+export const st1 = stTemplate("1.0");
+export const st12 = stTemplate("12");
+export const st13 = stTemplate("13");

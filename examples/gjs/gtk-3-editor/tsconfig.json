@@ -1,7 +1,6 @@
 {
   "compilerOptions": {   
     "lib": ["ESNext"],
-    "types": [],
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "bundler",
@@ -10,6 +9,7 @@
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
+    "allowSyntheticDefaultImports": true,
   },
   "files": [
     "main.ts"

@@ -1,5 +1,8 @@
 {
     "private": true,
+    "workspaces": [
+        "@girs/*"
+    ],
     "devDependencies": {
         "typescript": "^5.2.2"
     },

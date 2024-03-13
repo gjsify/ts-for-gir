@@ -1922,7 +1922,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         await this.exportModuleImportTS(girModule)
         await this.exportModuleImportJS(girModule)
 
-        const pkg = new NpmPackage(this.config, this.dependencyManager, girModule, girModule.dependencies)
+        const pkg = new NpmPackage(this.config, this.dependencyManager, girModule, girModule.transitiveDependencies)
 
         await pkg.exportNPMPackage()
     }

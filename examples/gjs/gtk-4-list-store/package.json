@@ -26,6 +26,7 @@
   "dependencies": {
     "@girs/gio-2.0": "workspace:^",
     "@girs/gjs": "workspace:^",
+    "@girs/gobject-2.0": "workspace:^",
     "@girs/gtk-4.0": "workspace:^"
   }
 }

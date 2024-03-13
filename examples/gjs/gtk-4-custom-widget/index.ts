@@ -1,10 +1,5 @@
 // This example is based on https://github.com/romgrk/node-gtk/blob/master/examples/gtk-4-custom-widget.js
 
-import '@girs/gjs';
-import '@girs/gjs/dom';
-import '@girs/gio-2.0';
-import '@girs/gtk-4.0';
-
 import GObject from 'gi://GObject?version=2.0';
 import GLib from 'gi://GLib?version=2.0';
 import Gtk from 'gi://Gtk?version=4.0';

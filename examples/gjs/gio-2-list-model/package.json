@@ -21,5 +21,8 @@
   "devDependencies": {
     "esbuild": "^0.20.1",
     "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "@girs/gjs": "workspace:^"
   }
 }

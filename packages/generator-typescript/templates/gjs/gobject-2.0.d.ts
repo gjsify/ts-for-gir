@@ -192,26 +192,8 @@ export function signal_handlers_unblock_by_func(instance: Object, func: (...args
 export function signal_handlers_disconnect_by_func(instance: Object, func: (...args: any[]) => any): number;
 export function signal_handlers_disconnect_by_data(): void;
 
-export type Property<K extends ParamSpec> = K extends ParamSpecBoolean
-    ? boolean
-    : K extends ParamSpecDouble | ParamSpecInt | ParamSpecUInt | ParamSpecFloat | ParamSpecLong
-    ? number
-    : K extends ParamSpecInt64 | ParamSpecUInt64 | ParamSpecULong
-    ? number
-    : K extends ParamSpecFlags
-    ? number
-    : K extends ParamSpecString | ParamSpecUnichar
-    ? string
-    : K extends ParamSpecValueArray
-    ? any[]
-    : K extends ParamSpecObject // TODO?: <infer T>
-    ? ParamSpecObject // T
-    : K extends ParamSpecEnum // TODO?: <infer T><infer E>
-    ? ParamSpecEnum // E
-    : K extends ParamSpecBoxed // TODO?: <infer T><infer B>
-    ? ParamSpecBoxed //B
-    : K extends ParamSpecVariant
-    ? GLib.Variant
+export type Property<K extends ParamSpec> = K extends ParamSpec<infer T>
+    ? T
     : any;
 
 // TODO: What about the generated class Closure 

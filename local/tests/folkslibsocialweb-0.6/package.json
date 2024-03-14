@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-folkslibsocialweb-0.6",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/folkslibsocialweb-0.6": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

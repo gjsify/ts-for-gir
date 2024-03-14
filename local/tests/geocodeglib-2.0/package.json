@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-geocodeglib-2.0",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/geocodeglib-2.0": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

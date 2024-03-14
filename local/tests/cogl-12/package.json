@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-cogl-12",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/cogl-12": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

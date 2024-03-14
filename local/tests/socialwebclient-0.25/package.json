@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-socialwebclient-0.25",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/socialwebclient-0.25": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

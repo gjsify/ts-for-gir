@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-gucharmap-2.90",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/gucharmap-2.90": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

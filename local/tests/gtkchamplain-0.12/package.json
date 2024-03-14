@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-gtkchamplain-0.12",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/gtkchamplain-0.12": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

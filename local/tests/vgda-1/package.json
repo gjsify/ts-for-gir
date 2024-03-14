@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-vgda-1",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/vgda-1": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

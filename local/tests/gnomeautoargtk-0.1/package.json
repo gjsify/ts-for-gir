@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-gnomeautoargtk-0.1",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/gnomeautoargtk-0.1": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

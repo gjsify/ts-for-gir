@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-gdm-1.0",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/gdm-1.0": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

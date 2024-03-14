@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-appindicator3-0.1",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/appindicator3-0.1": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

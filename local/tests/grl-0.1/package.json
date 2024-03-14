@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-grl-0.1",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/grl-0.1": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

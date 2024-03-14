@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-gjs",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/gjs": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

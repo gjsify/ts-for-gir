@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-gcr-3",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/gcr-3": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

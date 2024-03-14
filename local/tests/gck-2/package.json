@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-gck-2",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/gck-2": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-cheese-3.0",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/cheese-3.0": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

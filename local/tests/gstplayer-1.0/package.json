@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-gstplayer-1.0",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/gstplayer-1.0": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

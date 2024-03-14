@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-gstvideo-0.10",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/gstvideo-0.10": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

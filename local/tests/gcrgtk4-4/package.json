@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-gcrgtk4-4",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/gcrgtk4-4": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

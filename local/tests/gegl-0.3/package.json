@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-gegl-0.3",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/gegl-0.3": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

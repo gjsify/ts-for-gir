@@ -45,7 +45,7 @@
     "clear:build": "yarn workspaces foreach -v --include '@ts-for-gir/*' run clear:build",
     "clear:types": "yarn run clear:types:local",
     "clear:types:local": "rimraf ./@types",
-    "clear:examples": "yarn workspaces foreach -v --all --include @@ts-for-gir-example/* --parallel run clear",
+    "clear:examples": "yarn workspaces foreach -v --all --include @@ts-for-gir-example/*,*-example --parallel run clear",
     "clear:all": "yarn clear && yarn clear:examples",
     "watch": "concurrently 'yarn:watch:*'",
     "watch:cli": "yarn workspace @ts-for-gir/cli run watch",

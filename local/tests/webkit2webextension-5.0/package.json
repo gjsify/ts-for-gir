@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-webkit2webextension-5.0",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/webkit2webextension-5.0": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

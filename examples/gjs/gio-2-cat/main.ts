@@ -1,3 +1,6 @@
+/// <reference path="./@types/gjs/gjs.d.ts" />
+/// <reference path="./@types/gjs/dom.d.ts" />
+
 // SPDX-License-Identifier: MIT OR LGPL-2.0-or-later
 // SPDX-FileCopyrightText: 2009 Red Hat, Inc.
 // Based on https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/gio-cat.js
@@ -8,10 +11,8 @@
  * the label should show a translation of 'Print help'
  */
 
-import './@types/gjs.js';
-import './@types/dom.js';
-import GLib from './@types/glib-2.0.js';
-import Gio from './@types/gio-2.0.js';
+import GLib from './@types/glib-2.0/glib-2.0';
+import Gio from './@types/gio-2.0/gio-2.0';
 
 const loop = GLib.MainLoop.new(null, false);
 const textDecoder = new TextDecoder()

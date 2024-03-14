@@ -8,12 +8,14 @@ import { GeneratorType } from '@ts-for-gir/generator-base'
 import { GenerationHandler } from '../generation-handler.js'
 import { Config } from '../config.js'
 import { ModuleLoader } from '../module-loader.js'
+import prettier from 'prettier'
 
 import type { ConfigFlags } from '@ts-for-gir/lib'
+import { Formatter } from '@ts-for-gir/lib'
 
 const command = 'generate [modules..]'
 
-const description = 'Generates .d.ts files from GIR for GJS or node-gtk'
+const description = 'Generates .d.ts files from GIR for GJS'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
@@ -28,30 +30,30 @@ const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
 const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
 
-    for (const env of config.environments) {
-        const generateConfig = Config.getGenerateConfig(config, env)
-        const moduleLoader = new ModuleLoader(generateConfig)
-        const { keep, grouped } = await moduleLoader.getModulesResolved(
-            config.modules,
-            config.ignore || [],
-            config.ignoreVersionConflicts,
-        )
-        if (keep.length === 0) {
-            return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))
-        }
-        const tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES)
+    const generateConfig = Config.getGenerateConfig(config)
+    const moduleLoader = new ModuleLoader(generateConfig)
+    const { keep } = await moduleLoader.getModulesResolved(
+        config.modules,
+        config.ignore || [],
+        config.ignoreVersionConflicts,
+    )
 
-        const girModules = Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module)
-        const girModulesGrouped = Object.values(grouped)
-
-        await tsForGir.start(girModules, girModulesGrouped)
+    if (keep.length === 0) {
+        return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))
     }
+
+    const tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES)
+
+    const girModules = Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module)
+
+    moduleLoader.dependencyManager.registerFormatter('dts', new TypeScriptFormatter())
+    await tsForGir.start(girModules, moduleLoader.dependencyManager)
 }
 
 const examples: ReadonlyArray<[string, string?]> = [
     [
         `${Config.appName} generate`,
-        `Run '${Config.appName} generate' in your gjs or node-gtk project to generate typings for your project, pass the gir modules you need for your project`,
+        `Run '${Config.appName} generate' in your gjs project to generate typings for your project, pass the gir modules you need for your project`,
     ],
     [`${Config.appName} generate Gtk*`, 'You can also use wild cards'],
     [`${Config.appName} generate '*'`, 'If you want to parse all of your locally installed gir modules run'],
@@ -63,6 +65,25 @@ const examples: ReadonlyArray<[string, string?]> = [
         'Generate .d.ts. files but not for Gtk-4.0 and xrandr-1.3',
     ],
 ]
+
+class TypeScriptFormatter extends Formatter {
+    format(input: string): Promise<string> {
+        try {
+            return prettier.format(input, {
+                singleQuote: true,
+                parser: 'typescript',
+                printWidth: 120,
+                tabWidth: 4,
+            })
+        } catch (error) {
+            return Promise.resolve(input)
+            // TODO: Don't return invalid TypeScript, useful for debugging for now.
+            // console.error('Failed to format output...')
+            // console.error(input)
+            // throw error
+        }
+    }
+}
 
 export const generate = {
     command,

@@ -1,0 +1,44 @@
+{
+    "name": "@girs/gio-2.0",
+    "version": "2.78.0-4.0.0",
+    "description": "GJS TypeScript type definitions for Gio-2.0, generated from library version 2.78.0",
+    "type": "module",
+    "module": "gio-2.0.js",
+    "main": "gio-2.0.js",
+    "exports": {
+      "./ambient": {
+        "types": "./gio-2.0-ambient.d.ts",
+        "default": "./gio-2.0-ambient.js"
+      },
+      "./import": {
+        "types": "./gio-2.0-import.d.ts",
+        "default": "./gio-2.0-import.js"
+      },
+      ".": {
+        "types": "./gio-2.0.d.ts",
+        "default": "./gio-2.0.js"
+      }
+    },
+    "scripts": {
+      "test": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit gio-2.0.d.ts"
+    },
+    "dependencies": {
+      "@girs/gjs": "4.0.0"
+    },
+    "devDependencies": {
+      "typescript": "*"
+    },
+    "keywords": ["Gir", "TypeScript", "types", "GObject-Introspection", "GJS", "Gio-2.0"],
+    "author": "ts-for-gir",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/gjsify/ts-for-gir.git"
+    },
+    "bugs": {
+      "url": "https://github.com/gjsify/ts-for-gir/issues"
+    },
+    "homepage": "https://github.com/gjsify/types/tree/main/gio-2.0#readme"
+}
+
+

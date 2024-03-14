@@ -1,5 +1,5 @@
 // Workaround
 /** @ignore */
 export module BaseSink {
-    export type ConstructorProperties = Gst.BaseSink.ConstructorProperties;
+    export type ConstructorProps = Gst.BaseSink.ConstructorProps;
 }

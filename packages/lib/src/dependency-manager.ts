@@ -4,29 +4,32 @@ import { Transformation } from './transformation.js'
 
 import type { Dependency, GenerateConfig, GirInclude } from './types/index.js'
 import type { GirModule } from './gir-module.js'
+import { GirNSRegistry } from './registry.js'
 
-export class DependencyManager {
+export class DependencyManager extends GirNSRegistry {
     protected log: Logger
     protected transformation: Transformation
 
     cache: { [packageName: string]: Dependency } = {}
 
-    static instances: { [env: string]: DependencyManager } = {}
+    static instance?: DependencyManager
 
     protected constructor(protected readonly config: GenerateConfig) {
+        super()
+
         this.transformation = new Transformation(config)
-        this.log = new Logger(config.environment, config.verbose, 'DependencyManager')
+        this.log = new Logger(config.verbose, 'DependencyManager')
     }
 
     /**
      * Get the DependencyManager singleton instance
      */
     static getInstance(config: GenerateConfig): DependencyManager {
-        if (this.instances[config.environment]) {
-            return this.instances[config.environment]
+        if (this.instance) {
+            return this.instance
         }
-        this.instances[config.environment] = new DependencyManager(config)
-        return this.instances[config.environment]
+        this.instance = new DependencyManager(config)
+        return this.instance
     }
 
     protected parseArgs(namespaceOrPackageName: string, version?: string) {
@@ -71,7 +74,10 @@ export class DependencyManager {
 
     createImportPath(packageName: string): string {
         const importName = this.transformation.transformImportName(packageName)
-        const importPath = this.config.package ? `${this.config.npmScope}/${importName}` : `./${importName}.js`
+        // TODO: noNamespace is currently a proxy for "no npm packaging"
+        const importPath = this.config.noNamespace
+            ? `../${importName}/${importName}`
+            : `${this.config.npmScope}/${importName}`
         return importPath
     }
 
@@ -98,8 +104,6 @@ export class DependencyManager {
         // Special case for Gjs
         if (namespaceOrPackageName === 'Gjs') {
             return this.getGjs()
-        } else if (namespaceOrPackageName === 'node-gtk') {
-            return this.getNodeGtk()
         }
 
         const args = this.parseArgs(namespaceOrPackageName, version)
@@ -207,8 +211,6 @@ export class DependencyManager {
         // Special case for Gjs
         if (namespace === 'Gjs') {
             return this.getGjs()
-        } else if (namespace === 'node-gtk') {
-            return this.getNodeGtk()
         }
 
         const packageNames = this.getAllPackageNames()
@@ -251,9 +253,5 @@ export class DependencyManager {
 
     getGjs(): Dependency {
         return this.getPseudoPackage('Gjs')
-    }
-
-    getNodeGtk(): Dependency {
-        return this.getPseudoPackage('node-gtk')
     }
 }

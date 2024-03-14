@@ -1,37 +1,19 @@
-import {
-    GirInfoAttrs,
-    GirInterfaceElement,
-    GirRecordElement,
-    GirUnionElement,
-    GirEnumElement,
-    GirAliasElement,
-    GirFunctionElement,
-    GirClassElement,
-    GirBitfieldElement,
-    GirCallbackElement,
-    GirConstantElement,
-    GirAnnotation,
-    GirBoxedElement,
-} from './index.js'
+import * as parser from '@gi.ts/parser'
 
-/** Namespace which maps metadata entries to C functionality. This a similar concept to namespace in C++, but for GObject-based C libraries */
-export interface GirNamespace {
-    $: GirInfoAttrs & {
-        /** name of the namespace. For example, 'Gtk' (technically optional) */
-        name: string
-        /** version number of the namespace (technically optional) */
-        version: string
-        /** prefixes to filter out from C identifiers for data structures and types. For example, GtkWindow will be Window. If c:symbol-prefixes is not used, then this element is used for both */
-        'c:identifier-prefixes'?: string
-        /** prefixes to filter out from C functions. For example, gtk_window_new will lose gtk_ */
-        'c:symbol-prefixes'?: string
-        /** @deprecated the same as c:identifier-prefixes. Only used for backward compatibility  */
-        'c:prefix'?: string
-        /** Path to the shared library implementing the namespace. It can be a comma-separated list, with relative path only */
-        'shared-library'?: string
-    }
+import { GirBoxedElement } from '@gi.ts/parser'
+import { GirAliasElement } from './gir-alias-element'
+import { GirBitfieldElement } from './gir-bitfield-element'
+import { GirCallbackElement } from './gir-callback-element'
+import { GirClassElement } from './gir-class-element'
+import { GirFunctionElement } from './gir-function-element'
+import { GirRecordElement } from './gir-record-element'
+import { GirUnionElement } from './gir-union-element'
+import { GirConstantElement } from './gir-constant-element'
+import { GirAnnotation } from './gir-annotation'
+import { GirInterfaceElement } from './gir-interface-element'
+import { GirEnumElement } from './gir-enum-element'
 
-    /* Other elements a namespace can contain */
+export interface GirNamespace extends parser.GirNamespace {
     alias?: GirAliasElement[]
     class?: GirClassElement[]
     interface?: GirInterfaceElement[]

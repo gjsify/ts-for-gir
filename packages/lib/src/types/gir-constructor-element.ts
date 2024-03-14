@@ -1,16 +1,7 @@
-import {
-    GirInfoAttrs,
-    GirCallableAttrs,
-    GirCallableParams,
-    GirCallableReturn,
-    PartOfClass,
-    TsFunction,
-} from './index.js'
+import { GirCallableParams, GirCallableReturn, PartOfClass, TsFunction } from './index.js'
+import * as parser from '@gi.ts/parser'
 
-export interface GirConstructorElement extends PartOfClass {
-    /** A constructor of a class */
-    $: GirInfoAttrs & GirCallableAttrs
-
+export interface GirConstructorElement extends parser.GirConstructorElement, PartOfClass {
     parameters?: [GirCallableParams]
     'return-value'?: GirCallableReturn[]
 

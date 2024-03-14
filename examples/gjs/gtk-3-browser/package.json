@@ -11,7 +11,7 @@
     "watch": "yarn build:app --watch",
     "build": "yarn build:types && yarn build:app",
     "build:app": "yarn clear:ts && webpack --config webpack.config.cjs --env production",
-    "build:types": "yarn ts-for-gir generate Gtk-3.0 Pango-1.0 WebKit2-4.0 --generateAlias",
+    "build:types": "yarn ts-for-gir generate Gtk-3.0 Pango-1.0 WebKit2-4.0 --generateAlias --outdir=@types/@girs",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
     "clear": "yarn clear:ts && yarn clear:types",
@@ -26,8 +26,8 @@
     "@ts-for-gir/cli": "workspace:^",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "ts-loader": "^9.5.1",
-    "typescript": "5.2.2",
-    "webpack": "^5.90.2",
+    "typescript": "^5.2.2",
+    "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4"
   }
 }

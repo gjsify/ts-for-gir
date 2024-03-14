@@ -5,20 +5,13 @@ if (packageName === 'Gjs') {
   entryPointName = 'gjs'
   includes.push(`./dom.d.ts`)
 }
-if (packageName === 'node-gtk') {
-  entryPointName = 'node-gtk'
-}
 includes.push(`./${entryPointName}.d.ts`)
 _%>
 {
   "compilerOptions": {
     // General settings for code interpretation
     "target": "ESNext",
-    <%_ if (moduleType === 'esm') { _%>
     "module": "ESNext",
-    <%_ } else { _%>
-    "module": "CommonJS",
-    <%_ } _%>
     "lib": ["ESNext"],
     "types": [],
     "experimentalDecorators": true,

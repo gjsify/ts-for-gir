@@ -1,20 +1,7 @@
-import {
-    GirCallableAttrs,
-    GirInfoAttrs,
-    PartOfClass,
-    GirDocElement,
-    TsMethod,
-    GirCallableReturn,
-    GirCallableParams,
-} from './index.js'
+import { GirCallableParams, GirCallableReturn, PartOfClass, TsMethod } from './index.js'
+import * as parser from '@gi.ts/parser'
 
-export interface GirVirtualMethodElement extends PartOfClass, GirDocElement {
-    $: GirInfoAttrs &
-        GirCallableAttrs & {
-            /** name of the callable called when invoking this virtual method */
-            invoker?: string
-        }
-
+export interface GirVirtualMethodElement extends PartOfClass, parser.GirVirtualMethodElement {
     parameters?: [GirCallableParams]
     'return-value'?: GirCallableReturn[]
 

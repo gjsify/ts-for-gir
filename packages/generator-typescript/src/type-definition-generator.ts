@@ -1502,7 +1502,6 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
     protected extends(node: IntrospectedBaseClass) {
         const { namespace: ns, options } = this
-
         if (node.superType) {
             const ResolvedType = node.superType.resolveIdentifier(ns, options)
             const Type = ResolvedType?.print(ns, options)
@@ -1659,7 +1658,6 @@ class ModuleGenerator extends FormatGenerator<string[]> {
                 target,
                 undefined,
                 undefined,
-                undefined,
                 this.config,
             )
         } else {
@@ -1677,7 +1675,6 @@ class ModuleGenerator extends FormatGenerator<string[]> {
                 template,
                 this.config.outdir,
                 target,
-                undefined,
                 undefined,
                 undefined,
                 this.config,
@@ -1699,7 +1696,6 @@ class ModuleGenerator extends FormatGenerator<string[]> {
                 target,
                 undefined,
                 undefined,
-                undefined,
                 this.config,
             )
         } else {
@@ -1719,7 +1715,6 @@ class ModuleGenerator extends FormatGenerator<string[]> {
                 target,
                 undefined,
                 undefined,
-                undefined,
                 this.config,
             )
         } else {
@@ -1737,7 +1732,6 @@ class ModuleGenerator extends FormatGenerator<string[]> {
                 template,
                 this.config.outdir,
                 target,
-                undefined,
                 undefined,
                 undefined,
                 this.config,
@@ -1931,7 +1925,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         await this.exportModuleImportTS(girModule)
         await this.exportModuleImportJS(girModule)
 
-        const pkg = new NpmPackage(this.config, this.dependencyManager, girModule, girModule.dependencies)
+        const pkg = new NpmPackage(this.config, this.dependencyManager, girModule, girModule.transitiveDependencies)
 
         await pkg.exportNPMPackage()
     }
@@ -2016,23 +2010,6 @@ export class TypeDefinitionGenerator implements Generator {
         await templateProcessor.create('dom.d.ts', config.outdir, 'dom.d.ts')
         await templateProcessor.create('dom.js', config.outdir, 'dom.js')
 
-        // Import ambient path alias
-        if (config.generateAlias) {
-            const templateProcessor = new TemplateProcessor(
-                {
-                    registry: dependencyManager,
-                },
-                // TODO: We have to mock an empty package name to avoid
-                // outputting this in the wrong directoy...
-                '',
-                dependencyManager.core(),
-                config,
-            )
-
-            // Write tsconfig.alias.json to the root of the package
-            await templateProcessor.create('tsconfig.alias.json', config.root, 'tsconfig.alias.json', true)
-        }
-
         const pkg = new NpmPackage(config, dependencyManager, gjs, dependencyManager.core())
 
         // Package
@@ -2107,7 +2084,6 @@ class NpmPackage<Wrapped extends Dependency | GirModule> {
                 this.config.outdir,
                 template, // output filename
                 undefined,
-                undefined,
                 {},
                 this.config,
             )
@@ -2133,7 +2109,6 @@ class NpmPackage<Wrapped extends Dependency | GirModule> {
                 this.config.outdir,
                 outputFilename,
                 undefined,
-                undefined,
                 {},
                 this.config,
             )
@@ -2151,7 +2126,6 @@ class NpmPackage<Wrapped extends Dependency | GirModule> {
                 this.config.outdir,
                 template, // output filename
                 undefined,
-                undefined,
                 {},
                 this.config,
             )
@@ -2168,7 +2142,6 @@ class NpmPackage<Wrapped extends Dependency | GirModule> {
                 template,
                 this.config.outdir,
                 template, // output filename
-                undefined,
                 undefined,
                 {},
                 this.config,

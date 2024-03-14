@@ -53,7 +53,6 @@ export class GenerationHandler {
 
         // TODO: Put this somewhere that makes sense
         registry.transform({
-            environment: 'gjs',
             inferGenerics: true,
             verbose: this.config.verbose,
         })

@@ -1,5 +1,5 @@
-/// <reference path="./@types/gjs/gjs.d.ts" />
-/// <reference path="./@types/gjs/dom.d.ts" />
+/// <reference types="@girs/gjs" />
+/// <reference types="@girs/gjs/dom" />
 
 // SPDX-License-Identifier: MIT OR LGPL-2.0-or-later
 // SPDX-FileCopyrightText: 2009 Red Hat, Inc.
@@ -11,8 +11,10 @@
  * the label should show a translation of 'Print help'
  */
 
-import GLib from './@types/glib-2.0/glib-2.0';
-import Gio from './@types/gio-2.0/gio-2.0';
+import '@girs/gjs';
+import '@girs/gjs/dom';
+import GLib from '@girs/glib-2.0';
+import Gio from '@girs/gio-2.0';
 
 const loop = GLib.MainLoop.new(null, false);
 const textDecoder = new TextDecoder()
@@ -22,7 +24,7 @@ function cat(filename: string) {
     file.load_contents_async(null, (obj, res) => {
         let contents: Uint8Array;
         try {
-            contents = obj.load_contents_finish(res)[1];
+            contents = obj!.load_contents_finish(res)![1];
         } catch (e) {
             logError(e);
             loop.quit();

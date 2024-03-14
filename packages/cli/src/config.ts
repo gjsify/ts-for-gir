@@ -32,7 +32,6 @@ export class Config {
         noComments: false,
         noDebugComments: false,
         fixConflicts: true,
-        generateAlias: false,
         promisify: true,
         npmScope: '@girs',
         packageYarn: false,
@@ -131,13 +130,6 @@ export class Config {
             default: Config.defaults.fixConflicts,
             normalize: true,
         },
-        generateAlias: {
-            type: 'boolean',
-            alias: 'a',
-            description: 'Generate an alias tsconfig file to support GJS ESM module imports',
-            default: Config.defaults.generateAlias,
-            normalize: true,
-        },
         promisify: {
             type: 'boolean',
             description: 'Generate promisified functions for async/finish calls',
@@ -175,7 +167,6 @@ export class Config {
         noComments: this.options.noComments,
         noDebugComments: this.options.noDebugComments,
         fixConflicts: this.options.fixConflicts,
-        generateAlias: this.options.generateAlias,
         promisify: this.options.promisify,
         npmScope: this.options.npmScope,
         packageYarn: this.options.packageYarn,
@@ -273,7 +264,6 @@ export class Config {
             noComments: config.noComments,
             noDebugComments: config.noDebugComments,
             fixConflicts: config.fixConflicts,
-            generateAlias: config.generateAlias,
             promisify: config.promisify,
             npmScope: config.npmScope,
             packageYarn: config.packageYarn,
@@ -309,7 +299,6 @@ export class Config {
             noComments: options.noComments,
             noDebugComments: options.noDebugComments,
             fixConflicts: options.fixConflicts,
-            generateAlias: options.generateAlias,
             promisify: options.promisify,
             npmScope: options.npmScope,
             packageYarn: options.packageYarn,
@@ -387,13 +376,6 @@ export class Config {
                 typeof configFileData.fixConflicts === 'boolean'
             ) {
                 config.fixConflicts = configFileData.fixConflicts
-            }
-            // generateAlias
-            if (
-                config.generateAlias === Config.options.generateAlias.default &&
-                typeof configFileData.generateAlias === 'boolean'
-            ) {
-                config.generateAlias = configFileData.generateAlias
             }
             // promisify
             if (

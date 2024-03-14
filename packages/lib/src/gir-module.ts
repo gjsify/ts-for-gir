@@ -673,7 +673,6 @@ export class GirModule {
         const options: LoadOptions = {
             loadDocs: !config.noComments,
             propertyCase: 'both',
-            environment: 'gjs',
             verbose: config.verbose,
         }
 

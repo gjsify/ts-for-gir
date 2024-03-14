@@ -1,4 +1,0 @@
-{
-    "modules": ["Gio-2.0"],
-    "outdir": "./@types"
-}

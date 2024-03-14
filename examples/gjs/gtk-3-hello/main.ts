@@ -1,6 +1,5 @@
-/// <reference path="./@types/gjs/gjs.d.ts" />
-
-import Gtk from './@types/gtk-3.0/gtk-3.0'
+import '@girs/gjs'
+import Gtk from '@girs/gtk-3.0'
 
 Gtk.init(null)
 

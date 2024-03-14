@@ -5,6 +5,10 @@
 // This is a simple example of a HTTP server in GJS using libsoup 3
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/http-server.js
 
+import '@girs/gjs';
+import '@girs/gjs/dom';
+import '@girs/soup-3.0';
+
 import GLib from 'gi://GLib?version=2.0';
 import Soup from 'gi://Soup?version=3.0';
 
@@ -66,7 +70,7 @@ const helloHandler: Soup.ServerCallback = (server, msg, path, query) => {
 }
 
 function main() {
-    let server = new Soup.Server({});
+    let server = new Soup.Server();
     server.add_handler('/', handler);
     server.add_handler('/hello', helloHandler);
     server.listen_local(1080, Soup.ServerListenOptions.IPV4_ONLY);

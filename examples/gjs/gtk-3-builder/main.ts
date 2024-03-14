@@ -1,7 +1,7 @@
-/// <reference path="./@types/gjs/gjs.d.ts" />
-
+import '@girs/gjs'
+import '@girs/gjs/dom'
 import gladeFile from './builderExample.glade'
-import Gtk from './@types/gtk-3.0/gtk-3.0'
+import Gtk from '@girs/gtk-3.0'
 
 Gtk.init(null)
 

@@ -4,7 +4,6 @@ export type PropertyCase = 'both' | 'camel' | 'underscore'
 export type Format = 'dts' | 'json'
 
 export interface Options {
-    environment: 'gjs'
     verbose: boolean
 }
 

@@ -86,7 +86,6 @@ export default {
                 namespace,
                 type: new NativeType("any")
             });
-
             namespace.members.set("GType", GType);
 
             // We don't want to emit TypeScript-specific GType

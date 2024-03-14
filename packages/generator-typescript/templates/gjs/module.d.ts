@@ -7,4 +7,7 @@
  */
 
 import './<%= importName %>-ambient.d.ts';
+<%# Only define the import type definition if the module has no version conflict %>
+<%_ if(!dep.isLatestVersion(girModule.namespace, girModule.version)){ _%>
 import './<%= importName %>-import.d.ts';
+<%_ } _%>

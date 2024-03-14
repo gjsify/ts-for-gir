@@ -2,17 +2,17 @@
 import GLib from 'gi://GLib';
 const textDecoder = new TextDecoder();
 
-let [res, out, err, status] = GLib.spawn_command_line_sync('ls -la');
+let [_res, out, _err, _status] = GLib.spawn_command_line_sync('ls -la');
 if (out) print(textDecoder.decode(out));
 
-[res, out] = GLib.spawn_command_line_sync('ls -la');
+[_res, out] = GLib.spawn_command_line_sync('ls -la');
 if (out) print(textDecoder.decode(out));
 
-[res, out] = GLib.spawn_sync(null, ['/bin/ls', '-la'], null, 0, null);
+[_res, out] = GLib.spawn_sync(null, ['/bin/ls', '-la'], null, 0, null);
 if (out) print(textDecoder.decode(out));
 
-[res, out] = GLib.spawn_sync(GLib.getenv('HOME'), ['/bin/ls', '-la'], null, 0, null);
+[_res, out] = GLib.spawn_sync(GLib.getenv('HOME'), ['/bin/ls', '-la'], null, 0, null);
 if (out) print(textDecoder.decode(out));
 
-[res, out] = GLib.spawn_sync(null, ['ls', '-la'], null, GLib.SpawnFlags.SEARCH_PATH, null);
+[_res, out] = GLib.spawn_sync(null, ['ls', '-la'], null, GLib.SpawnFlags.SEARCH_PATH, null);
 if (out) print(textDecoder.decode(out));

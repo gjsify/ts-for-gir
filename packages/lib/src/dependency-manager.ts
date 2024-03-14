@@ -9,6 +9,7 @@ import { GirNSRegistry } from './registry.js'
 export class DependencyManager extends GirNSRegistry {
     protected log: Logger
     protected transformation: Transformation
+    registry = new GirNSRegistry()
 
     cache: { [packageName: string]: Dependency } = {}
 
@@ -55,6 +56,10 @@ export class DependencyManager extends GirNSRegistry {
         return Object.values(this.cache)
     }
 
+    getAllPackageNames(): string[] {
+        return Object.keys(this.cache)
+    }
+
     /**
      * Get the core dependencies
      * @returns
@@ -74,10 +79,7 @@ export class DependencyManager extends GirNSRegistry {
 
     createImportPath(packageName: string): string {
         const importName = this.transformation.transformImportName(packageName)
-        // TODO: noNamespace is currently a proxy for "no npm packaging"
-        const importPath = this.config.noNamespace
-            ? `../${importName}/${importName}`
-            : `${this.config.npmScope}/${importName}`
+        const importPath = `${this.config.npmScope}/${importName}`
         return importPath
     }
 
@@ -135,6 +137,19 @@ export class DependencyManager extends GirNSRegistry {
     }
 
     /**
+     * Get all dependencies with the given namespace
+     * @param namespace The namespace of the dependency
+     * @returns All dependencies with the given namespace
+     */
+    list(namespace: string): Dependency[] {
+        const packageNames = this.all()
+        const candidates = packageNames.filter((dep) => {
+            return dep.namespace === namespace
+        })
+        return candidates
+    }
+
+    /**
      * Get girModule for dependency
      * @param girModules
      * @param packageName
@@ -169,10 +184,6 @@ export class DependencyManager extends GirNSRegistry {
         return dependencies
     }
 
-    getAllPackageNames(): string[] {
-        return Object.keys(this.cache)
-    }
-
     /**
      * Check if multiple dependencies with the given namespace exist in the cache
      * @param namespace The namespace of the dependency
@@ -188,17 +199,28 @@ export class DependencyManager extends GirNSRegistry {
     }
 
     /**
+     * get the latest version of the dependency with the given namespace
+     * @param namespace The namespace of the dependency
+     * @returns The latest version of the dependency
+     */
+    getLatestVersion(namespace: string): Dependency | undefined {
+        const candidates = this.list(namespace)
+        const latestVersion = candidates
+            .sort((a, b) => {
+                return a.version.localeCompare(b.version)
+            })
+            .pop()
+        return latestVersion
+    }
+
+    /**
      * Check if the given version is the latest version of the dependency
      * @param namespace The namespace of the dependency
      * @param version The version of the dependency
      * @returns
      */
     isLatestVersion(namespace: string, version: string): boolean {
-        const hasConflict = this.hasConflict(namespace)
-        if (!hasConflict) {
-            return true
-        }
-        const latestVersion = this.find(namespace)
+        const latestVersion = this.getLatestVersion(namespace)
         return latestVersion?.version === version
     }
 

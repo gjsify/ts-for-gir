@@ -117,8 +117,6 @@ Options:
                                                        [string] [default: false]
       --fixConflicts            Fix Inheritance and implementation type conflict
                                 s                       [string] [default: true]
-  -a, --generateAlias           Generate an alias tsconfig file to support GJS E
-                                SM module imports      [string] [default: false]
       --promisify               Generate promisified functions for async/finish
                                 calls                   [string] [default: true]
       --npmScope                Scope of the generated NPM packages
@@ -277,7 +275,7 @@ Note that ignoring a module will prevent ts-for-gir from generating types for th
 `ts-for-gir` supports two build types for generating the types: `"lib"` and `"types"`.
 
 * If `"lib"` is specified, `.js` files are generated as well as `.d.ts`, this is useful for some bundlers that expect a `.js` file. Some bundlers are also able to generate the import of this file only once, even if it occurs multiple times in your code.
-* If `"types"` is specified, only `.d.ts` files are generated. In this mode it is recommended to add the generated `"@types/gjs.d.ts"` and `"@types/ambient.d.ts"` under `"include"` in the `tsconfig` to make the generated types known in your project. If you have problems to use imports in `ESM` format, you can also enable the `generateAlias` option and extend your `tsconfig` from the generated `"tsconfig.alias.json"`.
+* If `"types"` is specified, only `.d.ts` files are generated. In this mode it is recommended to add the generated `"@types/gjs.d.ts"` and `"@types/ambient.d.ts"` under `"include"` in the `tsconfig` to make the generated types known in your project.
 
 ### moduleType
 The `moduleType` CLI option determines the format in which the generated JavaScript files should be exported. The option takes either `"esm"` or `"cjs"` as its value, with `"esm"` being the default.
@@ -389,50 +387,6 @@ The `fixConflicts` CLI option is used to resolve type conflicts between the GObj
 
 > If you have found an issue with the `fixConflicts` CLI option, we encourage you to report it. Reporting issues helps improve the quality of `ts-for-gir` and makes it a better tool for everyone.
 
-### generateAlias
-The `generateAlias` CLI option, when active, generates an alias `tsconfig.alias.json` file to support ESM module imports in GJS. This is particularly useful if you want to import GIR modules in your GJS code using the `'gi://...'` syntax. The generated `tsconfig.alias.json` file will contain the necessary path aliases to enable TypeScript to properly resolve the imported modules, allowing for improved code editor functionality, such as type checking and code completion.
-
-The generateAlias option is particularly useful for GJS applications, as it allows you to import GIR modules using the standard ESM syntax, rather than having to use the global imports object.
-
-You can extend the generated `tsconfig.alias.json` file in your main tsconfig.json file by setting the extends field to `./tsconfig.alias.json`.
-
-```json
-// tsconfig.alias.json
-{
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": { 
-      "gi://Gio?version=2.0": ["./@types/gio-2.0.d.ts"],
-      "gi://Gio": ["./@types/gio-2.0.d.ts"],
-      "gi://GObject?version=2.0": ["./@types/gobject-2.0.d.ts"],
-      "gi://GObject": ["./@types/gobject-2.0.d.ts"],
-      "gi://GLib?version=2.0": ["./@types/glib-2.0.d.ts"],
-      "gi://GLib": ["./@types/glib-2.0.d.ts"]
-    }
-  },
-  "include": ["./@types/*.ts"]
-}
-```
-
-```json
-// tsconfig.json
-{
-  "extends": "./tsconfig.alias.json",
-  "compilerOptions": {   
-    "lib": ["ESNext"],
-    "types": [],
-    "target": "ESNext",
-    "module": "ESNext"
-  },
-  "include": ["@types/gjs.d.ts"],
-  "files": [
-    "main.ts",
-  ]
-}
-```
-
-> The example in [examples/gjs/gio-2-cat-alias](https://github.com/gjsify/ts-for-gir/tree/main/examples/gjs/gio-2-cat-alias) demonstrates the usage of the generateAlias option. This example shows how to use the generated tsconfig.alias.json file in a GJS project and provides a clear understanding of how this option can be used in practice.
-
 # package
 
 The `--package` option of ts-for-gir is used to package the generated TypeScript type definitions into an NPM package. The generated package can be easily installed and used in other TypeScript projects via `npm install`.
@@ -485,9 +439,6 @@ If you want to have support for ambient modules, then you have to enable the [`-
 Alternatively, you can also use the pre-generated NPM packages for this, so you don't even need to use ts-for-gir for it. For example, look at the NPM packages [gtk-4.0](https://www.npmjs.com/package/@girs/gtk-4.0), [gio-2.0](https://www.npmjs.com/package/@girs/gio-2.0) and [adw-1](https://www.npmjs.com/package/@girs/adw-1). All pre-generated NPM packages can be found on [gjsify/types](https://github.com/gjsify/types).
 
 > The advantage of self-generated types is that you generate the types exactly for your locally installed library version. However, we try to keep the pre-generated NPM packages as up to date as possible.
-
-### Alias
-If for some reason you don't want to or can't generate NPM packages, you can instead use the [`--generateAlias`](#generatealias) CLI option. This way you can also use imports in the `gi://` syntax with the generated types.
 
 To use ambient modules, the `ambient.d.ts` file must be imported either in the code like `import '@girs/gjs/ambient'` or by adding an entry to the `includes` property in the `tsconfig` file. The `ambient.d.ts` file is automatically generated.
 

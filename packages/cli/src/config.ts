@@ -35,6 +35,7 @@ export class Config {
         generateAlias: false,
         promisify: true,
         npmScope: '@girs',
+        moduleResolution: 'package',
         packageYarn: false,
     }
 
@@ -156,6 +157,13 @@ export class Config {
             default: Config.defaults.packageYarn,
             normalize: true,
         },
+        moduleResolution: {
+            type: 'string',
+            description: 'How imports within each module resolve other modules',
+            default: Config.defaults.moduleResolution,
+            choices: ['package', 'file'],
+            normalize: true,
+        },
     }
 
     /**
@@ -179,6 +187,7 @@ export class Config {
         promisify: this.options.promisify,
         npmScope: this.options.npmScope,
         packageYarn: this.options.packageYarn,
+        moduleResolution: this.options.moduleResolution,
     }
 
     static listOptions = {
@@ -279,6 +288,7 @@ export class Config {
             packageYarn: config.packageYarn,
             noPrettyPrint: false,
             noAdvancedVariants: true,
+            moduleResolution: config.moduleResolution,
         }
         return generateConfig
     }
@@ -313,6 +323,7 @@ export class Config {
             promisify: options.promisify,
             npmScope: options.npmScope,
             packageYarn: options.packageYarn,
+            moduleResolution: options.moduleResolution,
         }
 
         if (configFileData) {
@@ -412,6 +423,12 @@ export class Config {
                 typeof configFileData.packageYarn === 'boolean'
             ) {
                 config.packageYarn = configFileData.packageYarn
+            }
+            if (
+                config.moduleResolution === Config.options.moduleResolution.default &&
+                typeof configFileData.moduleResolution === 'string'
+            ) {
+                config.moduleResolution = configFileData.moduleResolution
             }
         }
 

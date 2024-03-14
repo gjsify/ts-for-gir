@@ -1,3 +1,5 @@
+export type ModuleResolution = 'package' | 'file'
+
 /**
  * Type for currently used config e.g. in GirModule
  */
@@ -29,6 +31,8 @@ export interface GenerateConfig {
     npmScope: string
     /** Adds Yarn workspace support to the NPM packages */
     packageYarn: boolean
+    /** How imports within modules should resolve other modules */
+    moduleResolution: ModuleResolution
     /** Disable pretty printing the output */
     noPrettyPrint: boolean
     /** Disable GLib.Variant class with string parsing */

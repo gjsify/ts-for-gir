@@ -1,3 +1,5 @@
+import { ModuleResolution } from './generate-config.js'
+
 /**
  * Types for config file
  */
@@ -34,4 +36,6 @@ export interface UserConfig {
     npmScope: string
     /** Adds Yarn workspace support to the NPM packages */
     packageYarn: boolean
+    /** How imports within modules should resolve other modules */
+    moduleResolution: ModuleResolution
 }

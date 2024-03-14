@@ -8,7 +8,7 @@
   "scripts": {
     "build": "yarn build:types && yarn build:app",
     "build:app": "yarn clear:app && webpack --env production",
-    "build:types": "yarn ts-for-gir generate Gtk-3.0 GtkSource-3.0 --noNamespace --outdir=@types",
+    "build:types": "yarn ts-for-gir generate Gtk-3.0 GtkSource-3.0 --moduleResolution=file --outdir=@types",
     "clear:types": "rm -rf ./@types",
     "clear:app": "rm -rf ./dist",
     "clear": "yarn clear:app && yarn clear:types",

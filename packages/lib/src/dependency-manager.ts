@@ -74,11 +74,12 @@ export class DependencyManager extends GirNSRegistry {
 
     createImportPath(packageName: string): string {
         const importName = this.transformation.transformImportName(packageName)
-        // TODO: noNamespace is currently a proxy for "no npm packaging"
-        const importPath = this.config.noNamespace
-            ? `../${importName}/${importName}`
-            : `${this.config.npmScope}/${importName}`
-        return importPath
+
+        if (this.config.moduleResolution === 'package') {
+            return `${this.config.npmScope}/${importName}`
+        } else {
+            return `../${importName}/${importName}`
+        }
     }
 
     createImportDef(namespace: string, importPath: string): string {

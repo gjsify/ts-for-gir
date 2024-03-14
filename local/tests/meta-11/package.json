@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-meta-11",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/meta-11": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

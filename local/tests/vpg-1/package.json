@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-vpg-1",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/vpg-1": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

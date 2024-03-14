@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-ecal-2.0",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/ecal-2.0": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-retro-1",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/retro-1": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

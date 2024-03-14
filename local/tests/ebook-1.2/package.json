@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-ebook-1.2",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/ebook-1.2": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

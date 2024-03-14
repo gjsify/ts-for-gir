@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-poppler-0.18",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/poppler-0.18": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

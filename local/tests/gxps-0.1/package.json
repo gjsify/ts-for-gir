@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-gxps-0.1",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/gxps-0.1": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

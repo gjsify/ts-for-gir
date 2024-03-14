@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-rygelrenderergst-2.8",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/rygelrenderergst-2.8": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

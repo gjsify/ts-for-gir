@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-coglpango-10",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/coglpango-10": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

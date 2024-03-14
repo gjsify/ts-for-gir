@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-gxml-0.20",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/gxml-0.20": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

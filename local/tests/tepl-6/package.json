@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-tepl-6",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/tepl-6": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

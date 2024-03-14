@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-anthy-9000",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/anthy-9000": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-folksdummy-0.7",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/folksdummy-0.7": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

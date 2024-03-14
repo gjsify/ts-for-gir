@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-vte-4-2.91",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/vte-4-2.91": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

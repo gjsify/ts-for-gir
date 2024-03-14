@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-gd-1.0",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/gd-1.0": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

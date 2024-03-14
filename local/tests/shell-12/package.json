@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-shell-12",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/shell-12": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-folkstelepathy-0.7",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/folkstelepathy-0.7": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-unityextras-7.0",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/unityextras-7.0": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

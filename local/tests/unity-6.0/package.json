@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-unity-6.0",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/unity-6.0": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

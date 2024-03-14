@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-mash-0.2",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/mash-0.2": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

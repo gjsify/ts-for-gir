@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-dbusmenugtk3-0.4",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/dbusmenugtk3-0.4": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

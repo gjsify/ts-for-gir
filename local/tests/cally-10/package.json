@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-cally-10",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/cally-10": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

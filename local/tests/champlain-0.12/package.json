@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-champlain-0.12",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/champlain-0.12": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

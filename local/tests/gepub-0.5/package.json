@@ -1,0 +1,10 @@
+{
+    "name": "gir-test-gepub-0.5",
+    "version": "1.0.0",
+    "dependencies": {
+        "@girs/gepub-0.5": "workspace:*"
+    },
+    "scripts": {
+        "validate": "tsc -p tsconfig.json"
+    }
+}

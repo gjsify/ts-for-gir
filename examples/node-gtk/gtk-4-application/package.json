@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir-example/node-gtk-gtk-4-application-example",
-  "version": "3.2.9",
+  "version": "3.3.0",
   "description": "Simple node-gtk Gtk 4 example app to demonstrate how you can use and extend Gtk.Application",
   "main": "dist/main.js",
   "private": true,

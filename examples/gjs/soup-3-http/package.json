@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir-example/soup-3-http-example",
-  "version": "3.2.9",
+  "version": "3.3.0",
   "description": "GJS example showing how to build a http server/client using Soap 3",
   "main": "index.js",
   "type": "module",

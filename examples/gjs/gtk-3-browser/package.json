@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir-example/gtk-3-browser-example",
-  "version": "3.2.9",
+  "version": "3.3.0",
   "description": "",
   "module": "dist/main.js",
   "type": "module",

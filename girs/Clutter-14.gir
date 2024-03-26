@@ -811,6 +811,14 @@ a grandparent's origin has moved.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="apply_transform">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="112">virtual function, used when applying the transformations
+  to an actor before painting it or when transforming coordinates or
+  the allocation; if the transformation calculated by this function may
+  have changed, the cached transformation must be invalidated by calling
+  clutter_actor_invalidate_transform(); it must chain up to the parent's
+  implementation</doc>
         <source-position filename="clutter/clutter/clutter-actor.h"
                          line="187"/>
         <return-value transfer-ownership="none">
@@ -826,6 +834,9 @@ a grandparent's origin has moved.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="button_press_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="124">class handler for [signal@Clutter.Actor::button-press-event]</doc>
         <source-position filename="clutter/clutter/clutter-actor.h"
                          line="193"/>
         <return-value transfer-ownership="none">
@@ -841,6 +852,10 @@ a grandparent's origin has moved.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="button_release_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="125">class handler for
+  [signal@Clutter.Actor::button-release-event]</doc>
         <source-position filename="clutter/clutter/clutter-actor.h"
                          line="195"/>
         <return-value transfer-ownership="none">
@@ -871,6 +886,9 @@ a grandparent's origin has moved.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="captured_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="134">signal class closure for [signal@Clutter.Actor::captured-event]</doc>
         <source-position filename="clutter/clutter/clutter-actor.h"
                          line="209"/>
         <return-value transfer-ownership="none">
@@ -938,6 +956,9 @@ When you destroy a container, its children will be destroyed as well.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="enter_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="132">signal class closure for [signal@Clutter.Actor::enter-event]</doc>
         <source-position filename="clutter/clutter/clutter-actor.h"
                          line="205"/>
         <return-value transfer-ownership="none">
@@ -953,6 +974,9 @@ When you destroy a container, its children will be destroyed as well.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="123">class handler for [signal@Clutter.Actor::event]</doc>
         <source-position filename="clutter/clutter/clutter-actor.h"
                          line="191"/>
         <return-value transfer-ownership="none">
@@ -999,6 +1023,10 @@ their uses.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_paint_volume">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="140">virtual function, for sub-classes to define their
+  #ClutterPaintVolume</doc>
         <source-position filename="clutter/clutter/clutter-actor.h"
                          line="219"/>
         <return-value transfer-ownership="none">
@@ -1196,6 +1224,13 @@ as a side-effect.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="hide_all">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="80">virtual function for containers and composite actors, to
+  determine which children should be shown when calling
+  clutter_actor_hide_all() on the actor. Defaults to calling
+  clutter_actor_hide(). This virtual function is deprecated and it
+  should not be overridden.</doc>
         <source-position filename="clutter/clutter/clutter-actor.h"
                          line="160"/>
         <return-value transfer-ownership="none">
@@ -1208,6 +1243,9 @@ as a side-effect.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="key_focus_in">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="135">signal class closure for [signal@Clutter.Actor::key-focus-in]</doc>
         <source-position filename="clutter/clutter/clutter-actor.h"
                          line="211"/>
         <return-value transfer-ownership="none">
@@ -1220,6 +1258,9 @@ as a side-effect.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="key_focus_out">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="136">signal class closure for [signal@Clutter.Actor::key-focus-out]</doc>
         <source-position filename="clutter/clutter/clutter-actor.h"
                          line="212"/>
         <return-value transfer-ownership="none">
@@ -1232,6 +1273,9 @@ as a side-effect.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="key_press_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="128">signal class closure for [signal@Clutter.Actor::key-press-event]</doc>
         <source-position filename="clutter/clutter/clutter-actor.h"
                          line="199"/>
         <return-value transfer-ownership="none">
@@ -1247,6 +1291,10 @@ as a side-effect.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="key_release_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="129">signal class closure for
+  [signal@Clutter.Actor::key-release-event]</doc>
         <source-position filename="clutter/clutter/clutter-actor.h"
                          line="201"/>
         <return-value transfer-ownership="none">
@@ -1262,6 +1310,9 @@ as a side-effect.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="leave_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="133">signal class closure for [signal@Clutter.Actor::leave-event]</doc>
         <source-position filename="clutter/clutter/clutter-actor.h"
                          line="207"/>
         <return-value transfer-ownership="none">
@@ -1304,6 +1355,9 @@ implementation.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="motion_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="131">signal class closure for [signal@Clutter.Actor::motion-event]</doc>
         <source-position filename="clutter/clutter/clutter-actor.h"
                          line="203"/>
         <return-value transfer-ownership="none">
@@ -1352,6 +1406,10 @@ unless it is performing a pick paint.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="paint_node">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="146">virtual function for creating paint nodes and attaching
+  them to the render tree</doc>
         <source-position filename="clutter/clutter/clutter-actor.h"
                          line="224"/>
         <return-value transfer-ownership="none">
@@ -1367,6 +1425,9 @@ unless it is performing a pick paint.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="parent_set">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="118">signal class handler for the [signal@Clutter.Actor::parent-set]</doc>
         <source-position filename="clutter/clutter/clutter-actor.h"
                          line="167"/>
         <return-value transfer-ownership="none">
@@ -1474,6 +1535,9 @@ suddenly map (and thus realize) the children of the stage.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="scroll_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="127">signal class closure for [signal@Clutter.Actor::scroll-event]</doc>
         <source-position filename="clutter/clutter/clutter-actor.h"
                          line="197"/>
         <return-value transfer-ownership="none">
@@ -1514,6 +1578,9 @@ effect.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="touch_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="148">signal class closure for [signal@Clutter.Actor::touch-event]</doc>
         <source-position filename="clutter/clutter/clutter-actor.h"
                          line="227"/>
         <return-value transfer-ownership="none">
@@ -10831,6 +10898,10 @@ if it has a size of -1 at an origin of 0, 0.</doc>
               c:type="GInitiallyUnownedClass"/>
       </field>
       <field name="show">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="76">signal class handler for [signal@Clutter.Actor::show]; it must chain
+  up to the parent's implementation</doc>
         <callback name="show">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="158"/>
@@ -10848,6 +10919,10 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="hide">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="78">signal class handler for [signal@Clutter.Actor::hide]; it must chain
+  up to the parent's implementation</doc>
         <callback name="hide">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="159"/>
@@ -10865,6 +10940,13 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="hide_all">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="80">virtual function for containers and composite actors, to
+  determine which children should be shown when calling
+  clutter_actor_hide_all() on the actor. Defaults to calling
+  clutter_actor_hide(). This virtual function is deprecated and it
+  should not be overridden.</doc>
         <callback name="hide_all">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="160"/>
@@ -10879,6 +10961,12 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="realize">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="85">virtual function, used to allocate resources for the actor;
+  it should chain up to the parent's implementation. This virtual
+  function is deprecated and should not be overridden in newly
+  written code.</doc>
         <callback name="realize">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="161"/>
@@ -10896,6 +10984,12 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="unrealize">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="89">virtual function, used to deallocate resources allocated
+  in ::realize; it should chain up to the parent's implementation. This
+  function is deprecated and should not be overridden in newly
+  written code.</doc>
         <callback name="unrealize">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="162"/>
@@ -10913,6 +11007,11 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="map">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="93">virtual function for containers and composite actors, to
+  map their children; it must chain up to the parent's implementation.
+  Overriding this function is optional.</doc>
         <callback name="map">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="163"/>
@@ -10930,6 +11029,11 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="unmap">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="96">virtual function for containers and composite actors, to
+  unmap their children; it must chain up to the parent's implementation.
+  Overriding this function is optional.</doc>
         <callback name="unmap">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="164"/>
@@ -10947,6 +11051,9 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="paint">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="99">virtual function, used to paint the actor</doc>
         <callback name="paint">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="165"/>
@@ -10967,6 +11074,9 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="parent_set">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="118">signal class handler for the [signal@Clutter.Actor::parent-set]</doc>
         <callback name="parent_set">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="167"/>
@@ -10984,6 +11094,10 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="destroy">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="119">signal class handler for [signal@Clutter.Actor::destroy]. It must
+  chain up to the parent's implementation</doc>
         <callback name="destroy">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="170"/>
@@ -11001,6 +11115,10 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="pick">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="121">virtual function, used to draw an outline of the actor with
+  the given color</doc>
         <callback name="pick">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="171"/>
@@ -11021,6 +11139,11 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="get_preferred_width">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="100">virtual function, used when querying the minimum
+  and natural widths of an actor for a given height; it is used by
+  clutter_actor_get_preferred_width()</doc>
         <callback name="get_preferred_width">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="175"/>
@@ -11069,6 +11192,11 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="get_preferred_height">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="103">virtual function, used when querying the minimum
+  and natural heights of an actor for a given width; it is used by
+  clutter_actor_get_preferred_height()</doc>
         <callback name="get_preferred_height">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="179"/>
@@ -11117,6 +11245,14 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="allocate">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="106">virtual function, used when setting the coordinates of an
+  actor; it is used by clutter_actor_allocate(); when overriding this
+  function without chaining up, clutter_actor_set_allocation() must be
+  called and children must be allocated by the implementation, when
+  chaining up though, those things will be done by the parent's
+  implementation.</doc>
         <callback name="allocate">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="183"/>
@@ -11140,6 +11276,14 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="apply_transform">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="112">virtual function, used when applying the transformations
+  to an actor before painting it or when transforming coordinates or
+  the allocation; if the transformation calculated by this function may
+  have changed, the cached transformation must be invalidated by calling
+  clutter_actor_invalidate_transform(); it must chain up to the parent's
+  implementation</doc>
         <callback name="apply_transform">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="187"/>
@@ -11157,6 +11301,9 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="123">class handler for [signal@Clutter.Actor::event]</doc>
         <callback name="event">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="191"/>
@@ -11174,6 +11321,9 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="button_press_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="124">class handler for [signal@Clutter.Actor::button-press-event]</doc>
         <callback name="button_press_event">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="193"/>
@@ -11191,6 +11341,10 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="button_release_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="125">class handler for
+  [signal@Clutter.Actor::button-release-event]</doc>
         <callback name="button_release_event">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="195"/>
@@ -11208,6 +11362,9 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="scroll_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="127">signal class closure for [signal@Clutter.Actor::scroll-event]</doc>
         <callback name="scroll_event">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="197"/>
@@ -11225,6 +11382,9 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="key_press_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="128">signal class closure for [signal@Clutter.Actor::key-press-event]</doc>
         <callback name="key_press_event">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="199"/>
@@ -11242,6 +11402,10 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="key_release_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="129">signal class closure for
+  [signal@Clutter.Actor::key-release-event]</doc>
         <callback name="key_release_event">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="201"/>
@@ -11259,6 +11423,9 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="motion_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="131">signal class closure for [signal@Clutter.Actor::motion-event]</doc>
         <callback name="motion_event">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="203"/>
@@ -11276,6 +11443,9 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="enter_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="132">signal class closure for [signal@Clutter.Actor::enter-event]</doc>
         <callback name="enter_event">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="205"/>
@@ -11293,6 +11463,9 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="leave_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="133">signal class closure for [signal@Clutter.Actor::leave-event]</doc>
         <callback name="leave_event">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="207"/>
@@ -11310,6 +11483,9 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="captured_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="134">signal class closure for [signal@Clutter.Actor::captured-event]</doc>
         <callback name="captured_event">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="209"/>
@@ -11327,6 +11503,9 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="key_focus_in">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="135">signal class closure for [signal@Clutter.Actor::key-focus-in]</doc>
         <callback name="key_focus_in">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="211"/>
@@ -11341,6 +11520,9 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="key_focus_out">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="136">signal class closure for [signal@Clutter.Actor::key-focus-out]</doc>
         <callback name="key_focus_out">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="212"/>
@@ -11355,6 +11537,9 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="queue_relayout">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="137">class handler for [signal@Clutter.Actor::queue-relayout]</doc>
         <callback name="queue_relayout">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="214"/>
@@ -11372,6 +11557,10 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="get_accessible">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="138">virtual function, returns the accessible object that
+  describes the actor to an assistive technology.</doc>
         <callback name="get_accessible">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="217"/>
@@ -11392,6 +11581,10 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="get_paint_volume">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="140">virtual function, for sub-classes to define their
+  #ClutterPaintVolume</doc>
         <callback name="get_paint_volume">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="219"/>
@@ -11409,6 +11602,12 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="has_overlaps">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="142">virtual function for
+  sub-classes to advertise whether they need an offscreen redirect
+  to get the correct opacity. See
+  clutter_actor_set_offscreen_redirect() for details.</doc>
         <callback name="has_overlaps">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="222"/>
@@ -11430,6 +11629,10 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="paint_node">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="146">virtual function for creating paint nodes and attaching
+  them to the render tree</doc>
         <callback name="paint_node">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="224"/>
@@ -11447,6 +11650,9 @@ if it has a size of -1 at an origin of 0, 0.</doc>
         </callback>
       </field>
       <field name="touch_event">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor.h"
+             line="148">signal class closure for [signal@Clutter.Actor::touch-event]</doc>
         <callback name="touch_event">
           <source-position filename="clutter/clutter/clutter-actor.h"
                            line="227"/>
@@ -12157,6 +12363,10 @@ only private data</doc>
               c:type="GInitiallyUnownedClass"/>
       </field>
       <field name="set_actor">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-actor-meta.h"
+             line="45">virtual function, invoked when attaching and detaching
+  a #ClutterActorMeta instance to a #ClutterActor</doc>
         <callback name="set_actor">
           <source-position filename="clutter/clutter/clutter-actor-meta.h"
                            line="66"/>
@@ -13006,6 +13216,10 @@ involving `ClutterAnimatable`s.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="find_property">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-animatable.h"
+             line="44">virtual function for retrieving the #GParamSpec of
+  an animatable property</doc>
         <callback name="find_property">
           <source-position filename="clutter/clutter/clutter-animatable.h"
                            line="60"/>
@@ -13033,6 +13247,10 @@ involving `ClutterAnimatable`s.</doc>
         </callback>
       </field>
       <field name="get_initial_state">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-animatable.h"
+             line="46">virtual function for retrieving the initial
+  state of an animatable property</doc>
         <callback name="get_initial_state">
           <source-position filename="clutter/clutter/clutter-animatable.h"
                            line="62"/>
@@ -13062,6 +13280,10 @@ involving `ClutterAnimatable`s.</doc>
         </callback>
       </field>
       <field name="set_final_state">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-animatable.h"
+             line="48">virtual function for setting the state of an
+  animatable property</doc>
         <callback name="set_final_state">
           <source-position filename="clutter/clutter/clutter-animatable.h"
                            line="65"/>
@@ -13091,6 +13313,10 @@ involving `ClutterAnimatable`s.</doc>
         </callback>
       </field>
       <field name="interpolate_value">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-animatable.h"
+             line="50">virtual function for interpolating the progress
+  of a property</doc>
         <callback name="interpolate_value">
           <source-position filename="clutter/clutter/clutter-animatable.h"
                            line="68"/>
@@ -13141,6 +13367,9 @@ involving `ClutterAnimatable`s.</doc>
         </callback>
       </field>
       <field name="get_actor">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-animatable.h"
+             line="52">virtual function for getting associated actor</doc>
         <callback name="get_actor">
           <source-position filename="clutter/clutter/clutter-animatable.h"
                            line="73"/>
@@ -15864,6 +16093,9 @@ handle the different states:
         </return-value>
       </constructor>
       <virtual-method name="clicked">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-click-action.h"
+             line="49">class handler for the #ClutterClickAction::clicked signal</doc>
         <source-position filename="clutter/clutter/clutter-click-action.h"
                          line="61"/>
         <return-value transfer-ownership="none">
@@ -15879,6 +16111,9 @@ handle the different states:
         </parameters>
       </virtual-method>
       <virtual-method name="long_press">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-click-action.h"
+             line="50">class handler for the #ClutterClickAction::long-press signal</doc>
         <source-position filename="clutter/clutter/clutter-click-action.h"
                          line="64"/>
         <return-value transfer-ownership="none">
@@ -16112,6 +16347,9 @@ contains only private data</doc>
         <type name="ActionClass" c:type="ClutterActionClass"/>
       </field>
       <field name="clicked">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-click-action.h"
+             line="49">class handler for the #ClutterClickAction::clicked signal</doc>
         <callback name="clicked">
           <source-position filename="clutter/clutter/clutter-click-action.h"
                            line="61"/>
@@ -16129,6 +16367,9 @@ contains only private data</doc>
         </callback>
       </field>
       <field name="long_press">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-click-action.h"
+             line="50">class handler for the #ClutterClickAction::long-press signal</doc>
         <callback name="long_press">
           <source-position filename="clutter/clutter/clutter-click-action.h"
                            line="64"/>
@@ -17176,6 +17417,10 @@ can be recovered at any point using clutter_actor_meta_get_actor().</doc>
       <source-position filename="clutter/clutter/clutter-constraint.h"
                        line="71"/>
       <virtual-method name="update_allocation">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-constraint.h"
+             line="46">virtual function used to update the allocation
+  of the #ClutterActor using the #ClutterConstraint</doc>
         <source-position filename="clutter/clutter/clutter-constraint.h"
                          line="61"/>
         <return-value transfer-ownership="none">
@@ -17320,6 +17565,10 @@ only private data</doc>
         <type name="ActorMetaClass" c:type="ClutterActorMetaClass"/>
       </field>
       <field name="update_allocation">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-constraint.h"
+             line="46">virtual function used to update the allocation
+  of the #ClutterActor using the #ClutterConstraint</doc>
         <callback name="update_allocation">
           <source-position filename="clutter/clutter/clutter-constraint.h"
                            line="61"/>
@@ -17340,6 +17589,11 @@ only private data</doc>
         </callback>
       </field>
       <field name="update_preferred_size">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-constraint.h"
+             line="48">virtual function used to update the preferred
+  size of the #ClutterActor using the #ClutterConstraint; optional,
+  since 1.22</doc>
         <callback name="update_preferred_size">
           <source-position filename="clutter/clutter/clutter-constraint.h"
                            line="65"/>
@@ -17410,6 +17664,10 @@ Multiple actors can use the same #ClutterContent instance, in order
 to share the resources associated with painting the same content..</doc>
       <source-position filename="clutter/clutter/clutter-content.h" line="78"/>
       <virtual-method name="attached">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-content.h"
+             line="46">virtual function; called each time a #ClutterContent is attached
+  to a #ClutterActor.</doc>
         <source-position filename="clutter/clutter/clutter-content.h"
                          line="70"/>
         <return-value transfer-ownership="none">
@@ -17425,6 +17683,10 @@ to share the resources associated with painting the same content..</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="detached">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-content.h"
+             line="48">virtual function; called each time a #ClutterContent is detached
+  from a #ClutterActor.</doc>
         <source-position filename="clutter/clutter/clutter-content.h"
                          line="72"/>
         <return-value transfer-ownership="none">
@@ -17532,6 +17794,10 @@ too, use [method@Clutter.Content.invalidate].</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="paint_content">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-content.h"
+             line="44">virtual function; called each time the content needs to
+  paint itself</doc>
         <source-position filename="clutter/clutter/clutter-content.h"
                          line="65"/>
         <return-value transfer-ownership="none">
@@ -17801,6 +18067,10 @@ private data.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_preferred_size">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-content.h"
+             line="42">virtual function; should be overridden by subclasses
+  of #ClutterContent that have a natural size</doc>
         <callback name="get_preferred_size">
           <source-position filename="clutter/clutter/clutter-content.h"
                            line="62"/>
@@ -17844,6 +18114,10 @@ private data.</doc>
         </callback>
       </field>
       <field name="paint_content">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-content.h"
+             line="44">virtual function; called each time the content needs to
+  paint itself</doc>
         <callback name="paint_content">
           <source-position filename="clutter/clutter/clutter-content.h"
                            line="65"/>
@@ -17867,6 +18141,10 @@ private data.</doc>
         </callback>
       </field>
       <field name="attached">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-content.h"
+             line="46">virtual function; called each time a #ClutterContent is attached
+  to a #ClutterActor.</doc>
         <callback name="attached">
           <source-position filename="clutter/clutter/clutter-content.h"
                            line="70"/>
@@ -17884,6 +18162,10 @@ private data.</doc>
         </callback>
       </field>
       <field name="detached">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-content.h"
+             line="48">virtual function; called each time a #ClutterContent is detached
+  from a #ClutterActor.</doc>
         <callback name="detached">
           <source-position filename="clutter/clutter/clutter-content.h"
                            line="72"/>
@@ -17901,6 +18183,10 @@ private data.</doc>
         </callback>
       </field>
       <field name="invalidate">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-content.h"
+             line="50">virtual function; called each time a #ClutterContent state
+  is changed.</doc>
         <callback name="invalidate">
           <source-position filename="clutter/clutter/clutter-content.h"
                            line="75"/>
@@ -18288,6 +18574,10 @@ deformation algorithm.</doc>
       <source-position filename="clutter/clutter/clutter-deform-effect.h"
                        line="63"/>
       <virtual-method name="deform_vertex">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-deform-effect.h"
+             line="47">virtual function; sub-classes should override this
+  function to compute the deformation of each vertex</doc>
         <source-position filename="clutter/clutter/clutter-deform-effect.h"
                          line="59"/>
         <return-value transfer-ownership="none">
@@ -18512,6 +18802,10 @@ only private data</doc>
               c:type="ClutterOffscreenEffectClass"/>
       </field>
       <field name="deform_vertex">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-deform-effect.h"
+             line="47">virtual function; sub-classes should override this
+  function to compute the deformation of each vertex</doc>
         <callback name="deform_vertex">
           <source-position filename="clutter/clutter/clutter-deform-effect.h"
                            line="59"/>
@@ -18895,6 +19189,9 @@ will paint paint the second material after.
 ```</doc>
       <source-position filename="clutter/clutter/clutter-effect.h" line="82"/>
       <virtual-method name="modify_paint_volume">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-effect.h"
+             line="50">virtual function</doc>
         <source-position filename="clutter/clutter/clutter-effect.h"
                          line="69"/>
         <return-value transfer-ownership="none">
@@ -18910,6 +19207,9 @@ will paint paint the second material after.
         </parameters>
       </virtual-method>
       <virtual-method name="paint">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-effect.h"
+             line="51">virtual function</doc>
         <source-position filename="clutter/clutter/clutter-effect.h"
                          line="72"/>
         <return-value transfer-ownership="none">
@@ -18952,6 +19252,9 @@ will paint paint the second material after.
         </parameters>
       </virtual-method>
       <virtual-method name="pick">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-effect.h"
+             line="52">virtual function</doc>
         <source-position filename="clutter/clutter/clutter-effect.h"
                          line="80"/>
         <return-value transfer-ownership="none">
@@ -18967,6 +19270,9 @@ will paint paint the second material after.
         </parameters>
       </virtual-method>
       <virtual-method name="post_paint">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-effect.h"
+             line="49">virtual function</doc>
         <source-position filename="clutter/clutter/clutter-effect.h"
                          line="65"/>
         <return-value transfer-ownership="none">
@@ -18985,6 +19291,9 @@ will paint paint the second material after.
         </parameters>
       </virtual-method>
       <virtual-method name="pre_paint">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-effect.h"
+             line="48">virtual function</doc>
         <source-position filename="clutter/clutter/clutter-effect.h"
                          line="62"/>
         <return-value transfer-ownership="none">
@@ -19069,6 +19378,9 @@ flag set.</doc>
         <type name="ActorMetaClass" c:type="ClutterActorMetaClass"/>
       </field>
       <field name="pre_paint">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-effect.h"
+             line="48">virtual function</doc>
         <callback name="pre_paint">
           <source-position filename="clutter/clutter/clutter-effect.h"
                            line="62"/>
@@ -19089,6 +19401,9 @@ flag set.</doc>
         </callback>
       </field>
       <field name="post_paint">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-effect.h"
+             line="49">virtual function</doc>
         <callback name="post_paint">
           <source-position filename="clutter/clutter/clutter-effect.h"
                            line="65"/>
@@ -19109,6 +19424,9 @@ flag set.</doc>
         </callback>
       </field>
       <field name="modify_paint_volume">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-effect.h"
+             line="50">virtual function</doc>
         <callback name="modify_paint_volume">
           <source-position filename="clutter/clutter/clutter-effect.h"
                            line="69"/>
@@ -19126,6 +19444,9 @@ flag set.</doc>
         </callback>
       </field>
       <field name="paint">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-effect.h"
+             line="51">virtual function</doc>
         <callback name="paint">
           <source-position filename="clutter/clutter/clutter-effect.h"
                            line="72"/>
@@ -19172,6 +19493,9 @@ flag set.</doc>
         </callback>
       </field>
       <field name="pick">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-effect.h"
+             line="52">virtual function</doc>
         <callback name="pick">
           <source-position filename="clutter/clutter/clutter-effect.h"
                            line="80"/>
@@ -22692,6 +23016,9 @@ instead.</doc>
         </return-value>
       </constructor>
       <virtual-method name="gesture_begin">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-gesture-action.h"
+             line="46">class handler for the #ClutterGestureAction::gesture-begin signal</doc>
         <source-position filename="clutter/clutter/clutter-gesture-action.h"
                          line="62"/>
         <return-value transfer-ownership="none">
@@ -22707,6 +23034,9 @@ instead.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="gesture_cancel">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-gesture-action.h"
+             line="49">class handler for the #ClutterGestureAction::gesture-cancel signal</doc>
         <source-position filename="clutter/clutter/clutter-gesture-action.h"
                          line="68"/>
         <return-value transfer-ownership="none">
@@ -22722,6 +23052,9 @@ instead.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="gesture_end">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-gesture-action.h"
+             line="48">class handler for the #ClutterGestureAction::gesture-end signal</doc>
         <source-position filename="clutter/clutter/clutter-gesture-action.h"
                          line="66"/>
         <return-value transfer-ownership="none">
@@ -22737,6 +23070,10 @@ instead.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="gesture_prepare">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-gesture-action.h"
+             line="50">virtual function called before emitting the
+  #ClutterGestureAction::gesture-cancel signal</doc>
         <source-position filename="clutter/clutter/clutter-gesture-action.h"
                          line="70"/>
         <return-value transfer-ownership="none">
@@ -22752,6 +23089,9 @@ instead.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="gesture_progress">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-gesture-action.h"
+             line="47">class handler for the #ClutterGestureAction::gesture-progress signal</doc>
         <source-position filename="clutter/clutter/clutter-gesture-action.h"
                          line="64"/>
         <return-value transfer-ownership="none">
@@ -23479,6 +23819,9 @@ private data.</doc>
         <type name="ActionClass" c:type="ClutterActionClass"/>
       </field>
       <field name="gesture_begin">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-gesture-action.h"
+             line="46">class handler for the #ClutterGestureAction::gesture-begin signal</doc>
         <callback name="gesture_begin">
           <source-position filename="clutter/clutter/clutter-gesture-action.h"
                            line="62"/>
@@ -23496,6 +23839,9 @@ private data.</doc>
         </callback>
       </field>
       <field name="gesture_progress">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-gesture-action.h"
+             line="47">class handler for the #ClutterGestureAction::gesture-progress signal</doc>
         <callback name="gesture_progress">
           <source-position filename="clutter/clutter/clutter-gesture-action.h"
                            line="64"/>
@@ -23513,6 +23859,9 @@ private data.</doc>
         </callback>
       </field>
       <field name="gesture_end">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-gesture-action.h"
+             line="48">class handler for the #ClutterGestureAction::gesture-end signal</doc>
         <callback name="gesture_end">
           <source-position filename="clutter/clutter/clutter-gesture-action.h"
                            line="66"/>
@@ -23530,6 +23879,9 @@ private data.</doc>
         </callback>
       </field>
       <field name="gesture_cancel">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-gesture-action.h"
+             line="49">class handler for the #ClutterGestureAction::gesture-cancel signal</doc>
         <callback name="gesture_cancel">
           <source-position filename="clutter/clutter/clutter-gesture-action.h"
                            line="68"/>
@@ -23547,6 +23899,10 @@ private data.</doc>
         </callback>
       </field>
       <field name="gesture_prepare">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-gesture-action.h"
+             line="50">virtual function called before emitting the
+  #ClutterGestureAction::gesture-cancel signal</doc>
         <callback name="gesture_prepare">
           <source-position filename="clutter/clutter/clutter-gesture-action.h"
                            line="70"/>
@@ -28306,6 +28662,10 @@ a #GParamSpec.</doc>
               c:type="GInitiallyUnownedClass"/>
       </field>
       <field name="validate">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-interval.h"
+             line="46">virtual function for validating an interval
+  using a #GParamSpec</doc>
         <callback name="validate">
           <source-position filename="clutter/clutter/clutter-interval.h"
                            line="59"/>
@@ -28332,6 +28692,10 @@ a #GParamSpec.</doc>
         </callback>
       </field>
       <field name="compute_value">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-interval.h"
+             line="48">virtual function for computing the value
+  inside an interval using an adimensional factor between 0 and 1</doc>
         <callback name="compute_value">
           <source-position filename="clutter/clutter/clutter-interval.h"
                            line="61"/>
@@ -43402,6 +43766,12 @@ See also [method@Clutter.Actor.allocate]</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="create_child_meta" introspectable="0">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-layout-manager.h"
+             line="61">virtual function; override to create a
+  [type@Clutter.LayoutMeta] instance associated to a container
+  [type@Clutter.Actor] and a child [type@Clutter.Actor], used to maintain
+  layout manager specific properties</doc>
         <source-position filename="clutter/clutter/clutter-layout-manager.h"
                          line="95"/>
         <return-value>
@@ -43420,6 +43790,10 @@ See also [method@Clutter.Actor.allocate]</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_child_meta_type">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-layout-manager.h"
+             line="59">virtual function; override to return the #GType
+  of the #ClutterLayoutMeta sub-class used by the #ClutterLayoutManager</doc>
         <source-position filename="clutter/clutter/clutter-layout-manager.h"
                          line="94"/>
         <return-value transfer-ownership="none">
@@ -44145,6 +44519,11 @@ data and should be accessed using the provided API</doc>
               c:type="GInitiallyUnownedClass"/>
       </field>
       <field name="get_preferred_width">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-layout-manager.h"
+             line="46">virtual function; override to provide a preferred
+  width for the layout manager. See also the get_preferred_width()
+  virtual function in #ClutterActor</doc>
         <callback name="get_preferred_width">
           <source-position filename="clutter/clutter/clutter-layout-manager.h"
                            line="77"/>
@@ -44198,6 +44577,11 @@ data and should be accessed using the provided API</doc>
         </callback>
       </field>
       <field name="get_preferred_height">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-layout-manager.h"
+             line="49">virtual function; override to provide a preferred
+  height for the layout manager. See also the get_preferred_height()
+  virtual function in #ClutterActor</doc>
         <callback name="get_preferred_height">
           <source-position filename="clutter/clutter/clutter-layout-manager.h"
                            line="82"/>
@@ -44251,6 +44635,11 @@ data and should be accessed using the provided API</doc>
         </callback>
       </field>
       <field name="allocate">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-layout-manager.h"
+             line="52">virtual function; override to allocate the children of the
+  layout manager. See also the allocate() virtual function in
+  #ClutterActor</doc>
         <callback name="allocate">
           <source-position filename="clutter/clutter/clutter-layout-manager.h"
                            line="87"/>
@@ -44281,6 +44670,12 @@ data and should be accessed using the provided API</doc>
         </callback>
       </field>
       <field name="set_container">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-layout-manager.h"
+             line="55">virtual function; override to set a back pointer
+  on the [type@Clutter.Actor] using the layout manager. The implementation
+  should not take a reference on the container, but just take a weak
+  reference, to avoid potential leaks due to reference cycles</doc>
         <callback name="set_container">
           <source-position filename="clutter/clutter/clutter-layout-manager.h"
                            line="91"/>
@@ -44307,6 +44702,10 @@ data and should be accessed using the provided API</doc>
         </callback>
       </field>
       <field name="get_child_meta_type">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-layout-manager.h"
+             line="59">virtual function; override to return the #GType
+  of the #ClutterLayoutMeta sub-class used by the #ClutterLayoutManager</doc>
         <callback name="get_child_meta_type">
           <source-position filename="clutter/clutter/clutter-layout-manager.h"
                            line="94"/>
@@ -44321,6 +44720,12 @@ data and should be accessed using the provided API</doc>
         </callback>
       </field>
       <field name="create_child_meta" introspectable="0">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-layout-manager.h"
+             line="61">virtual function; override to create a
+  [type@Clutter.LayoutMeta] instance associated to a container
+  [type@Clutter.Actor] and a child [type@Clutter.Actor], used to maintain
+  layout manager specific properties</doc>
         <callback name="create_child_meta" introspectable="0">
           <source-position filename="clutter/clutter/clutter-layout-manager.h"
                            line="95"/>
@@ -44341,6 +44746,10 @@ data and should be accessed using the provided API</doc>
         </callback>
       </field>
       <field name="layout_changed">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-layout-manager.h"
+             line="65">class handler for the #ClutterLayoutManager::layout-changed
+  signal</doc>
         <callback name="layout_changed">
           <source-position filename="clutter/clutter/clutter-layout-manager.h"
                            line="99"/>
@@ -45249,6 +45658,9 @@ effect subclass wants to paint using its own material.</doc>
         <type name="EffectClass" c:type="ClutterEffectClass"/>
       </field>
       <field name="create_texture">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-offscreen-effect.h"
+             line="47">virtual function</doc>
         <callback name="create_texture">
           <source-position filename="clutter/clutter/clutter-offscreen-effect.h"
                            line="58"/>
@@ -45300,6 +45712,9 @@ effect subclass wants to paint using its own material.</doc>
         </callback>
       </field>
       <field name="paint_target">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-offscreen-effect.h"
+             line="48">virtual function</doc>
         <callback name="paint_target">
           <source-position filename="clutter/clutter/clutter-offscreen-effect.h"
                            line="63"/>
@@ -46804,6 +47219,9 @@ when dragging.</doc>
         </return-value>
       </constructor>
       <virtual-method name="pan_stopped">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-pan-action.h"
+             line="55">class handler for the #ClutterPanAction::pan-stopped signal</doc>
         <source-position filename="clutter/clutter/clutter-pan-action.h"
                          line="66"/>
         <return-value transfer-ownership="none">
@@ -47389,6 +47807,9 @@ only private data.</doc>
         <type name="GestureActionClass" c:type="ClutterGestureActionClass"/>
       </field>
       <field name="pan_stopped">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-pan-action.h"
+             line="55">class handler for the #ClutterPanAction::pan-stopped signal</doc>
         <callback name="pan_stopped">
           <source-position filename="clutter/clutter/clutter-pan-action.h"
                            line="66"/>
@@ -50374,6 +50795,13 @@ is called.</doc>
         </parameters>
       </constructor>
       <virtual-method name="get_static_shader_source">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-shader-effect.h"
+             line="46">Returns the GLSL source code to use for
+ instances of this shader effect. Note that this function is only
+ called once per subclass of #ClutterShaderEffect regardless of how
+ many instances are used. It is expected that subclasses will return
+ a copy of a static string from this function.</doc>
         <source-position filename="clutter/clutter/clutter-shader-effect.h"
                          line="61"/>
         <return-value transfer-ownership="full">
@@ -50632,6 +51060,13 @@ only private data</doc>
               c:type="ClutterOffscreenEffectClass"/>
       </field>
       <field name="get_static_shader_source">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-shader-effect.h"
+             line="46">Returns the GLSL source code to use for
+ instances of this shader effect. Note that this function is only
+ called once per subclass of #ClutterShaderEffect regardless of how
+ many instances are used. It is expected that subclasses will return
+ a copy of a static string from this function.</doc>
         <callback name="get_static_shader_source">
           <source-position filename="clutter/clutter/clutter-shader-effect.h"
                            line="61"/>
@@ -51048,6 +51483,9 @@ parent class corresponding function.</doc>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Animatable"/>
       <virtual-method name="activate">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-stage.h"
+             line="48">handler for the #ClutterStage::activate signal</doc>
         <source-position filename="clutter/clutter/clutter-stage.h" line="61"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -51076,6 +51514,9 @@ parent class corresponding function.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="deactivate">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-stage.h"
+             line="49">handler for the #ClutterStage::deactivate signal</doc>
         <source-position filename="clutter/clutter/clutter-stage.h" line="62"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -52223,6 +52664,9 @@ before the stage is painted, even if it will not be painted.</doc>
         <type name="ActorClass" c:type="ClutterActorClass"/>
       </field>
       <field name="activate">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-stage.h"
+             line="48">handler for the #ClutterStage::activate signal</doc>
         <callback name="activate">
           <source-position filename="clutter/clutter/clutter-stage.h"
                            line="61"/>
@@ -52237,6 +52681,9 @@ before the stage is painted, even if it will not be painted.</doc>
         </callback>
       </field>
       <field name="deactivate">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-stage.h"
+             line="49">handler for the #ClutterStage::deactivate signal</doc>
         <callback name="deactivate">
           <source-position filename="clutter/clutter/clutter-stage.h"
                            line="62"/>
@@ -53107,6 +53554,9 @@ the logic for recognizing swipe gestures.</doc>
         </return-value>
       </constructor>
       <virtual-method name="swipe">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-swipe-action.h"
+             line="50">class handler for the #ClutterSwipeAction::swipe signal</doc>
         <source-position filename="clutter/clutter/clutter-swipe-action.h"
                          line="61"/>
         <return-value transfer-ownership="none">
@@ -53168,6 +53618,9 @@ only private data.</doc>
         <type name="GestureActionClass" c:type="ClutterGestureActionClass"/>
       </field>
       <field name="swipe">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-swipe-action.h"
+             line="50">class handler for the #ClutterSwipeAction::swipe signal</doc>
         <callback name="swipe">
           <source-position filename="clutter/clutter/clutter-swipe-action.h"
                            line="61"/>
@@ -53302,6 +53755,9 @@ following code:
         </return-value>
       </constructor>
       <virtual-method name="tap">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-tap-action.h"
+             line="55">class handler for the #ClutterTapAction::tap signal</doc>
         <source-position filename="clutter/clutter/clutter-tap-action.h"
                          line="66"/>
         <return-value transfer-ownership="none">
@@ -53349,6 +53805,9 @@ only private data.</doc>
         <type name="GestureActionClass" c:type="ClutterGestureActionClass"/>
       </field>
       <field name="tap">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-tap-action.h"
+             line="55">class handler for the #ClutterTapAction::tap signal</doc>
         <callback name="tap">
           <source-position filename="clutter/clutter/clutter-tap-action.h"
                            line="66"/>
@@ -53495,6 +53954,9 @@ This function is equivalent to calling [ctor@Text.new],
         </parameters>
       </constructor>
       <virtual-method name="activate">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-text.h"
+             line="42">class handler for the #ClutterText::activate signal</doc>
         <source-position filename="clutter/clutter/clutter-text.h" line="55"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -53506,6 +53968,9 @@ This function is equivalent to calling [ctor@Text.new],
         </parameters>
       </virtual-method>
       <virtual-method name="cursor_changed">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-text.h"
+             line="43">class handler for the #ClutterText::cursor-changed signal</doc>
         <source-position filename="clutter/clutter/clutter-text.h" line="56"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -53517,6 +53982,9 @@ This function is equivalent to calling [ctor@Text.new],
         </parameters>
       </virtual-method>
       <virtual-method name="text_changed">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-text.h"
+             line="41">class handler for the #ClutterText::text-changed signal</doc>
         <source-position filename="clutter/clutter/clutter-text.h" line="54"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -56035,6 +56503,9 @@ Note that the positions are specified in characters, not bytes.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="deleted_text">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-text-buffer.h"
+             line="49">default handler for the #ClutterTextBuffer::deleted-text signal</doc>
         <source-position filename="clutter/clutter/clutter-text-buffer.h"
                          line="70"/>
         <return-value transfer-ownership="none">
@@ -56074,6 +56545,9 @@ Note that the positions are specified in characters, not bytes.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_text">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-text-buffer.h"
+             line="50">virtual function</doc>
         <source-position filename="clutter/clutter/clutter-text-buffer.h"
                          line="75"/>
         <return-value transfer-ownership="none">
@@ -56136,6 +56610,9 @@ Note that the position and length are in characters, not in bytes.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="inserted_text">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-text-buffer.h"
+             line="48">default handler for the #ClutterTextBuffer::inserted-text signal</doc>
         <source-position filename="clutter/clutter/clutter-text-buffer.h"
                          line="65"/>
         <return-value transfer-ownership="none">
@@ -56575,6 +57052,9 @@ only private data.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="inserted_text">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-text-buffer.h"
+             line="48">default handler for the #ClutterTextBuffer::inserted-text signal</doc>
         <callback name="inserted_text">
           <source-position filename="clutter/clutter/clutter-text-buffer.h"
                            line="65"/>
@@ -56598,6 +57078,9 @@ only private data.</doc>
         </callback>
       </field>
       <field name="deleted_text">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-text-buffer.h"
+             line="49">default handler for the #ClutterTextBuffer::deleted-text signal</doc>
         <callback name="deleted_text">
           <source-position filename="clutter/clutter/clutter-text-buffer.h"
                            line="70"/>
@@ -56618,6 +57101,9 @@ only private data.</doc>
         </callback>
       </field>
       <field name="get_text">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-text-buffer.h"
+             line="50">virtual function</doc>
         <callback name="get_text">
           <source-position filename="clutter/clutter/clutter-text-buffer.h"
                            line="75"/>
@@ -56635,6 +57121,9 @@ only private data.</doc>
         </callback>
       </field>
       <field name="get_length">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-text-buffer.h"
+             line="51">virtual function</doc>
         <callback name="get_length">
           <source-position filename="clutter/clutter/clutter-text-buffer.h"
                            line="78"/>
@@ -56655,6 +57144,9 @@ only private data.</doc>
         </callback>
       </field>
       <field name="insert_text">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-text-buffer.h"
+             line="52">virtual function</doc>
         <callback name="insert_text">
           <source-position filename="clutter/clutter/clutter-text-buffer.h"
                            line="80"/>
@@ -56693,6 +57185,9 @@ only private data.</doc>
         </callback>
       </field>
       <field name="delete_text">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-text-buffer.h"
+             line="53">virtual function</doc>
         <callback name="delete_text">
           <source-position filename="clutter/clutter/clutter-text-buffer.h"
                            line="85"/>
@@ -56736,6 +57231,9 @@ only private data.</doc>
         <type name="ActorClass" c:type="ClutterActorClass"/>
       </field>
       <field name="text_changed">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-text.h"
+             line="41">class handler for the #ClutterText::text-changed signal</doc>
         <callback name="text_changed">
           <source-position filename="clutter/clutter/clutter-text.h"
                            line="54"/>
@@ -56750,6 +57248,9 @@ only private data.</doc>
         </callback>
       </field>
       <field name="activate">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-text.h"
+             line="42">class handler for the #ClutterText::activate signal</doc>
         <callback name="activate">
           <source-position filename="clutter/clutter/clutter-text.h"
                            line="55"/>
@@ -56764,6 +57265,9 @@ only private data.</doc>
         </callback>
       </field>
       <field name="cursor_changed">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-text.h"
+             line="43">class handler for the #ClutterText::cursor-changed signal</doc>
         <callback name="cursor_changed">
           <source-position filename="clutter/clutter/clutter-text.h"
                            line="56"/>
@@ -57150,6 +57654,9 @@ Timelines are used in the Clutter animation framework by classes like
         </parameters>
       </constructor>
       <virtual-method name="completed">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-timeline.h"
+             line="63">class handler for the #ClutterTimeline::completed signal</doc>
         <source-position filename="clutter/clutter/clutter-timeline.h"
                          line="78"/>
         <return-value transfer-ownership="none">
@@ -57162,6 +57669,9 @@ Timelines are used in the Clutter animation framework by classes like
         </parameters>
       </virtual-method>
       <virtual-method name="marker_reached">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-timeline.h"
+             line="66">class handler for the #ClutterTimeline::marker-reached signal</doc>
         <source-position filename="clutter/clutter/clutter-timeline.h"
                          line="84"/>
         <return-value transfer-ownership="none">
@@ -57180,6 +57690,9 @@ Timelines are used in the Clutter animation framework by classes like
         </parameters>
       </virtual-method>
       <virtual-method name="new_frame">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-timeline.h"
+             line="65">class handler for the #ClutterTimeline::new-frame signal</doc>
         <source-position filename="clutter/clutter/clutter-timeline.h"
                          line="81"/>
         <return-value transfer-ownership="none">
@@ -57195,6 +57708,9 @@ Timelines are used in the Clutter animation framework by classes like
         </parameters>
       </virtual-method>
       <virtual-method name="paused">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-timeline.h"
+             line="64">class handler for the #ClutterTimeline::paused signal</doc>
         <source-position filename="clutter/clutter/clutter-timeline.h"
                          line="79"/>
         <return-value transfer-ownership="none">
@@ -57207,6 +57723,9 @@ Timelines are used in the Clutter animation framework by classes like
         </parameters>
       </virtual-method>
       <virtual-method name="started">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-timeline.h"
+             line="62">class handler for the #ClutterTimeline::started signal</doc>
         <source-position filename="clutter/clutter/clutter-timeline.h"
                          line="77"/>
         <return-value transfer-ownership="none">
@@ -57219,6 +57738,9 @@ Timelines are used in the Clutter animation framework by classes like
         </parameters>
       </virtual-method>
       <virtual-method name="stopped">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-timeline.h"
+             line="67">class handler for the #ClutterTimeline::stopped signal</doc>
         <source-position filename="clutter/clutter/clutter-timeline.h"
                          line="87"/>
         <return-value transfer-ownership="none">
@@ -58590,6 +59112,9 @@ this signal will never be emitted.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="started">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-timeline.h"
+             line="62">class handler for the #ClutterTimeline::started signal</doc>
         <callback name="started">
           <source-position filename="clutter/clutter/clutter-timeline.h"
                            line="77"/>
@@ -58604,6 +59129,9 @@ this signal will never be emitted.</doc>
         </callback>
       </field>
       <field name="completed">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-timeline.h"
+             line="63">class handler for the #ClutterTimeline::completed signal</doc>
         <callback name="completed">
           <source-position filename="clutter/clutter/clutter-timeline.h"
                            line="78"/>
@@ -58618,6 +59146,9 @@ this signal will never be emitted.</doc>
         </callback>
       </field>
       <field name="paused">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-timeline.h"
+             line="64">class handler for the #ClutterTimeline::paused signal</doc>
         <callback name="paused">
           <source-position filename="clutter/clutter/clutter-timeline.h"
                            line="79"/>
@@ -58632,6 +59163,9 @@ this signal will never be emitted.</doc>
         </callback>
       </field>
       <field name="new_frame">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-timeline.h"
+             line="65">class handler for the #ClutterTimeline::new-frame signal</doc>
         <callback name="new_frame">
           <source-position filename="clutter/clutter/clutter-timeline.h"
                            line="81"/>
@@ -58649,6 +59183,9 @@ this signal will never be emitted.</doc>
         </callback>
       </field>
       <field name="marker_reached">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-timeline.h"
+             line="66">class handler for the #ClutterTimeline::marker-reached signal</doc>
         <callback name="marker_reached">
           <source-position filename="clutter/clutter/clutter-timeline.h"
                            line="84"/>
@@ -58669,6 +59206,9 @@ this signal will never be emitted.</doc>
         </callback>
       </field>
       <field name="stopped">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-timeline.h"
+             line="67">class handler for the #ClutterTimeline::stopped signal</doc>
         <callback name="stopped">
           <source-position filename="clutter/clutter/clutter-timeline.h"
                            line="87"/>
@@ -58890,6 +59430,10 @@ computes the interpolation between two values, stored by a [class@Interval].</do
       <source-position filename="clutter/clutter/clutter-transition.h"
                        line="71"/>
       <virtual-method name="attached">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-transition.h"
+             line="46">virtual function; called when a transition is attached to
+  a #ClutterAnimatable instance</doc>
         <source-position filename="clutter/clutter/clutter-transition.h"
                          line="62"/>
         <return-value transfer-ownership="none">
@@ -58905,6 +59449,10 @@ computes the interpolation between two values, stored by a [class@Interval].</do
         </parameters>
       </virtual-method>
       <virtual-method name="compute_value">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-transition.h"
+             line="50">virtual function; called each frame to compute and apply
+  the interpolation of the interval</doc>
         <source-position filename="clutter/clutter/clutter-transition.h"
                          line="67"/>
         <return-value transfer-ownership="none">
@@ -58926,6 +59474,10 @@ computes the interpolation between two values, stored by a [class@Interval].</do
         </parameters>
       </virtual-method>
       <virtual-method name="detached">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-transition.h"
+             line="48">virtual function; called when a transition is detached from
+  a #ClutterAnimatable instance</doc>
         <source-position filename="clutter/clutter/clutter-transition.h"
                          line="64"/>
         <return-value transfer-ownership="none">
@@ -59332,6 +59884,10 @@ private data.</doc>
         <type name="TimelineClass" c:type="ClutterTimelineClass"/>
       </field>
       <field name="attached">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-transition.h"
+             line="46">virtual function; called when a transition is attached to
+  a #ClutterAnimatable instance</doc>
         <callback name="attached">
           <source-position filename="clutter/clutter/clutter-transition.h"
                            line="62"/>
@@ -59349,6 +59905,10 @@ private data.</doc>
         </callback>
       </field>
       <field name="detached">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-transition.h"
+             line="48">virtual function; called when a transition is detached from
+  a #ClutterAnimatable instance</doc>
         <callback name="detached">
           <source-position filename="clutter/clutter/clutter-transition.h"
                            line="64"/>
@@ -59366,6 +59926,10 @@ private data.</doc>
         </callback>
       </field>
       <field name="compute_value">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/clutter-transition.h"
+             line="50">virtual function; called each frame to compute and apply
+  the interpolation of the interval</doc>
         <callback name="compute_value">
           <source-position filename="clutter/clutter/clutter-transition.h"
                            line="67"/>

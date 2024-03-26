@@ -344,6 +344,9 @@ with [method@Actor.add_action]</doc>
               c:type="AtkGObjectAccessibleClass"/>
       </field>
       <field name="notify_clutter">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/cally/cally-actor.h"
+             line="75">Signal handler for notify signal on Clutter actor</doc>
         <callback name="notify_clutter">
           <source-position filename="clutter/clutter/cally/cally-actor.h"
                            line="85"/>
@@ -361,6 +364,9 @@ with [method@Actor.add_action]</doc>
         </callback>
       </field>
       <field name="add_actor">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/cally/cally-actor.h"
+             line="76">Signal handler for child-added signal on Clutter actor</doc>
         <callback name="add_actor">
           <source-position filename="clutter/clutter/cally/cally-actor.h"
                            line="88"/>
@@ -381,6 +387,9 @@ with [method@Actor.add_action]</doc>
         </callback>
       </field>
       <field name="remove_actor">
+        <doc xml:space="preserve"
+             filename="clutter/clutter/cally/cally-actor.h"
+             line="77">Signal handler for child-removed signal on Clutter actor</doc>
         <callback name="remove_actor">
           <source-position filename="clutter/clutter/cally/cally-actor.h"
                            line="92"/>

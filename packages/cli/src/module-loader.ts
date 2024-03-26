@@ -7,7 +7,6 @@ import glob from 'tiny-glob'
 import { basename } from 'path'
 import { readFile } from 'fs/promises'
 import { bold } from 'colorette'
-import * as xml2js from 'xml2js'
 import {
     DependencyManager,
     ResolveType,
@@ -16,13 +15,13 @@ import {
     splitModuleName,
     union,
     isIterable,
+    girParser,
     WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE,
 } from '@ts-for-gir/lib'
 import { Config } from './config.js'
 
 import type {
     GirModulesGroupedMap,
-    ParsedGir,
     GenerateConfig,
     GirModuleResolvedBy,
     GirModulesGrouped,
@@ -386,7 +385,7 @@ export class ModuleLoader {
 
         this.log.log(`Parsing ${dependency.path}...`)
         const fileContents = await readFile(dependency.path, 'utf8')
-        const result = (await xml2js.parseStringPromise(fileContents)) as ParsedGir
+        const result = girParser(fileContents)
         const girModule = new GirModule(result, this.config)
         // Figure out transitive module dependencies
         this.extendDependencyMapByGirModule(girModule)

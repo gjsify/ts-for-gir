@@ -1,5 +1,6 @@
 # Dev
 - Upgrade dependencies
+- Replaced `xml2js` with `fast-xml-parser` (Backport from gi.ts merge branch)
 
 # 3.2.9
 - Upgrade dependencies

@@ -231,7 +231,7 @@ export class GirModule {
             tags: [],
         }
         if (girDoc.doc?.[0]?._) {
-            let text = girDoc.doc?.[0]?._ || ''
+            let text = String(girDoc.doc?.[0]?._ || '')
             text = this.transformation.transformGirDocText(text)
             tsDoc.text = text
         }
@@ -268,13 +268,19 @@ export class GirModule {
         if (!girReturnValue || !girReturnValue.doc?.[0]?._) {
             return []
         }
-        const returnTag: TsDocTag = {
-            tagName: 'returns',
-            paramName: '',
-            text: this.transformation.transformGirDocTagText(girReturnValue.doc[0]._),
-        }
 
-        return [returnTag]
+        try {
+            const returnTag: TsDocTag = {
+                tagName: 'returns',
+                paramName: '',
+                text: this.transformation.transformGirDocTagText(String(girReturnValue.doc[0]._)),
+            }
+
+            return [returnTag]
+        } catch (error) {
+            console.debug('Error: on getTsDocReturnTags, girReturnValue.doc: ', girReturnValue.doc)
+            throw error
+        }
     }
 
     private getTsDocInParamTags(inParams?: GirCallableParamElement[]): TsDocTag[] {

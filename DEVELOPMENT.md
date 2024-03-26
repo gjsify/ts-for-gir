@@ -165,8 +165,6 @@ NODE_OPTIONS=--max-old-space-size=25600 yarn run ...
 
 # Related Projects
 
-* [gnome-gtk](https://github.com/codejamninja/gnome-gtk) - Typescript bindings for gnome gtk
-* [ts-gir](https://github.com/codejamninja/ts-gir) - Typescript bindings for GJS
 * [node-gir-typedef](https://github.com/SolarLiner/node-gir-typedef) - TypeScript bindings for node-gir
 * [gir2dts](https://github.com/darkoverlordofdata/gir2dts) - The project this is inspired by
 * [gir-dts-generator](https://github.com/Place1/gir-dts-generator) - The project that inspired this project

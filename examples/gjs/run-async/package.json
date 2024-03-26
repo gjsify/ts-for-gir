@@ -19,7 +19,7 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
-    "esbuild": "^0.20.1",
+    "esbuild": "^0.20.2",
     "typescript": "5.2.2"
   }
 }

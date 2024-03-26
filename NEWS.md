@@ -1,6 +1,7 @@
-# Dev
+# 3.3.0
 - Upgrade dependencies
 - Replaced `xml2js` with `fast-xml-parser` (Backport from gi.ts merge branch)
+- Upgrade gir files for GNOME 46
 
 # 3.2.9
 - Upgrade dependencies

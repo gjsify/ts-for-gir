@@ -27,12 +27,12 @@ and/or use gtk-doc annotations.  -->
       <constructor name="new" c:identifier="st_adjustment_new">
         <doc xml:space="preserve"
              filename="src/st/st-adjustment.c"
-             line="411">Creates a new #StAdjustment</doc>
+             line="440">Creates a new #StAdjustment</doc>
         <source-position filename="src/st/st-adjustment.h" line="51"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/st/st-adjustment.c"
-               line="423">a new #StAdjustment</doc>
+               line="452">a new #StAdjustment</doc>
           <type name="Adjustment" c:type="StAdjustment*"/>
         </return-value>
         <parameters>
@@ -42,43 +42,43 @@ and/or use gtk-doc annotations.  -->
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="413">a #ClutterActor</doc>
+                 line="442">a #ClutterActor</doc>
             <type name="Clutter.Actor" c:type="ClutterActor*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="414">the initial value</doc>
+                 line="443">the initial value</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="lower" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="415">the minimum value</doc>
+                 line="444">the minimum value</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="upper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="416">the maximum value</doc>
+                 line="445">the maximum value</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="step_increment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="417">the step increment</doc>
+                 line="446">the step increment</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="page_increment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="418">the page increment</doc>
+                 line="447">the page increment</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="page_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="419">the page size</doc>
+                 line="448">the page size</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -98,7 +98,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="st_adjustment_add_transition">
         <doc xml:space="preserve"
              filename="src/st/st-adjustment.c"
-             line="936">Add a #ClutterTransition for the adjustment. If the transition stops, it will
+             line="940">Add a #ClutterTransition for the adjustment. If the transition stops, it will
 be automatically removed if #ClutterTransition:remove-on-complete is %TRUE.</doc>
         <source-position filename="src/st/st-adjustment.h" line="84"/>
         <return-value transfer-ownership="none">
@@ -108,19 +108,19 @@ be automatically removed if #ClutterTransition:remove-on-complete is %TRUE.</doc
           <instance-parameter name="adjustment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="938">a #StAdjustment</doc>
+                 line="942">a #StAdjustment</doc>
             <type name="Adjustment" c:type="StAdjustment*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="939">a unique name for the transition</doc>
+                 line="943">a unique name for the transition</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="transition" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="940">a #ClutterTransition</doc>
+                 line="944">a #ClutterTransition</doc>
             <type name="Clutter.Transition" c:type="ClutterTransition*"/>
           </parameter>
         </parameters>
@@ -129,7 +129,7 @@ be automatically removed if #ClutterTransition:remove-on-complete is %TRUE.</doc
               c:identifier="st_adjustment_adjust_for_scroll_event">
         <doc xml:space="preserve"
              filename="src/st/st-adjustment.c"
-             line="821">Adjusts the adjustment using delta values from a scroll event.
+             line="825">Adjusts the adjustment using delta values from a scroll event.
 You should use this instead of using st_adjustment_set_value()
 as this method will tweak the values directly using the same
 math as GTK+, to ensure that scrolling is consistent across
@@ -142,13 +142,13 @@ the environment.</doc>
           <instance-parameter name="adjustment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="823">An #StAdjustment</doc>
+                 line="827">An #StAdjustment</doc>
             <type name="Adjustment" c:type="StAdjustment*"/>
           </instance-parameter>
           <parameter name="delta" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="824">A delta, retrieved directly from clutter_event_get_scroll_delta()
+                 line="828">A delta, retrieved directly from clutter_event_get_scroll_delta()
   or similar.</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
@@ -157,7 +157,7 @@ the environment.</doc>
       <method name="clamp_page" c:identifier="st_adjustment_clamp_page">
         <doc xml:space="preserve"
              filename="src/st/st-adjustment.c"
-             line="495">Set #StAdjustment:value to a value clamped between @lower and @upper. The
+             line="524">Set #StAdjustment:value to a value clamped between @lower and @upper. The
 clamping described by st_adjustment_set_value() still applies.</doc>
         <source-position filename="src/st/st-adjustment.h" line="61"/>
         <return-value transfer-ownership="none">
@@ -167,19 +167,19 @@ clamping described by st_adjustment_set_value() still applies.</doc>
           <instance-parameter name="adjustment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="497">a #StAdjustment</doc>
+                 line="526">a #StAdjustment</doc>
             <type name="Adjustment" c:type="StAdjustment*"/>
           </instance-parameter>
           <parameter name="lower" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="498">the lower value</doc>
+                 line="527">the lower value</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="upper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="499">the upper value</doc>
+                 line="528">the upper value</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -188,26 +188,26 @@ clamping described by st_adjustment_set_value() still applies.</doc>
               c:identifier="st_adjustment_get_transition">
         <doc xml:space="preserve"
              filename="src/st/st-adjustment.c"
-             line="905">Get the #ClutterTransition for @name previously added with
+             line="909">Get the #ClutterTransition for @name previously added with
 st_adjustment_add_transition() or %NULL if not found.</doc>
         <source-position filename="src/st/st-adjustment.h" line="82"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/st/st-adjustment.c"
-               line="913">a #ClutterTransition</doc>
+               line="917">a #ClutterTransition</doc>
           <type name="Clutter.Transition" c:type="ClutterTransition*"/>
         </return-value>
         <parameters>
           <instance-parameter name="adjustment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="907">a #StAdjustment</doc>
+                 line="911">a #StAdjustment</doc>
             <type name="Adjustment" c:type="StAdjustment*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="908">a transition name</doc>
+                 line="912">a transition name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -217,19 +217,19 @@ st_adjustment_add_transition() or %NULL if not found.</doc>
               glib:get-property="value">
         <doc xml:space="preserve"
              filename="src/st/st-adjustment.c"
-             line="445">Gets the current value of the adjustment. See st_adjustment_set_value().</doc>
+             line="474">Gets the current value of the adjustment. See st_adjustment_set_value().</doc>
         <source-position filename="src/st/st-adjustment.h" line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-adjustment.c"
-               line="451">The current value of the adjustment</doc>
+               line="480">The current value of the adjustment</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
           <instance-parameter name="adjustment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="447">a #StAdjustment</doc>
+                 line="476">a #StAdjustment</doc>
             <type name="Adjustment" c:type="StAdjustment*"/>
           </instance-parameter>
         </parameters>
@@ -237,7 +237,7 @@ st_adjustment_add_transition() or %NULL if not found.</doc>
       <method name="get_values" c:identifier="st_adjustment_get_values">
         <doc xml:space="preserve"
              filename="src/st/st-adjustment.c"
-             line="775">Gets all of @adjustment's values at once.</doc>
+             line="779">Gets all of @adjustment's values at once.</doc>
         <source-position filename="src/st/st-adjustment.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -246,7 +246,7 @@ st_adjustment_add_transition() or %NULL if not found.</doc>
           <instance-parameter name="adjustment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="777">an #StAdjustment</doc>
+                 line="781">an #StAdjustment</doc>
             <type name="Adjustment" c:type="StAdjustment*"/>
           </instance-parameter>
           <parameter name="value"
@@ -257,7 +257,7 @@ st_adjustment_add_transition() or %NULL if not found.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="778">the current value</doc>
+                 line="782">the current value</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
           <parameter name="lower"
@@ -268,7 +268,7 @@ st_adjustment_add_transition() or %NULL if not found.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="779">the lower bound</doc>
+                 line="783">the lower bound</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
           <parameter name="upper"
@@ -279,7 +279,7 @@ st_adjustment_add_transition() or %NULL if not found.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="780">the upper bound</doc>
+                 line="784">the upper bound</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
           <parameter name="step_increment"
@@ -290,7 +290,7 @@ st_adjustment_add_transition() or %NULL if not found.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="781">the step increment</doc>
+                 line="785">the step increment</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
           <parameter name="page_increment"
@@ -301,7 +301,7 @@ st_adjustment_add_transition() or %NULL if not found.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="782">the page increment</doc>
+                 line="786">the page increment</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
           <parameter name="page_size"
@@ -312,7 +312,7 @@ st_adjustment_add_transition() or %NULL if not found.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="783">the page size</doc>
+                 line="787">the page size</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
         </parameters>
@@ -337,7 +337,7 @@ st_adjustment_add_transition() or %NULL if not found.</doc>
               glib:set-property="value">
         <doc xml:space="preserve"
              filename="src/st/st-adjustment.c"
-             line="461">Sets the #StAdjustment value. The value is clamped to lie between
+             line="490">Sets the #StAdjustment value. The value is clamped to lie between
 #StAdjustment:lower and #StAdjustment:upper - #StAdjustment:page-size.</doc>
         <source-position filename="src/st/st-adjustment.h" line="59"/>
         <return-value transfer-ownership="none">
@@ -347,13 +347,13 @@ st_adjustment_add_transition() or %NULL if not found.</doc>
           <instance-parameter name="adjustment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="463">a #StAdjustment</doc>
+                 line="492">a #StAdjustment</doc>
             <type name="Adjustment" c:type="StAdjustment*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="464">the new value</doc>
+                 line="493">the new value</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -361,12 +361,12 @@ st_adjustment_add_transition() or %NULL if not found.</doc>
       <method name="set_values" c:identifier="st_adjustment_set_values">
         <doc xml:space="preserve"
              filename="src/st/st-adjustment.c"
-             line="717">Sets all properties of the adjustment at once.
+             line="736">Sets all properties of the adjustment at once.
 
 Use this function to avoid multiple emissions of the #GObject::notify and
 #StAdjustment::changed signals. See st_adjustment_set_lower() for an
-alternative way of compressing multiple emissions of #GObject::notify into
-one.</doc>
+alternative way of compressing multiple emissions of #GObject::notify and
+#StAdjustmet::changed into one of each.</doc>
         <source-position filename="src/st/st-adjustment.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -375,43 +375,43 @@ one.</doc>
           <instance-parameter name="adjustment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="719">a #StAdjustment</doc>
+                 line="738">a #StAdjustment</doc>
             <type name="Adjustment" c:type="StAdjustment*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="720">the new value</doc>
+                 line="739">the new value</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="lower" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="721">the new minimum value</doc>
+                 line="740">the new minimum value</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="upper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="722">the new maximum value</doc>
+                 line="741">the new maximum value</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="step_increment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="723">the new step increment</doc>
+                 line="742">the new step increment</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="page_increment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="724">the new page increment</doc>
+                 line="743">the new page increment</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="page_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-adjustment.c"
-                 line="725">the new page size</doc>
+                 line="744">the new page size</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -419,7 +419,7 @@ one.</doc>
       <property name="actor" writable="1" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/st/st-adjustment.c"
-             line="295">If the adjustment is used as #ClutterAnimatable for a
+             line="324">If the adjustment is used as #ClutterAnimatable for a
 #ClutterPropertyTransition, this property is used to determine which
 monitor should drive the animation.</doc>
         <type name="Clutter.Actor"/>
@@ -431,7 +431,7 @@ monitor should drive the animation.</doc>
                 default-value="0.000000">
         <doc xml:space="preserve"
              filename="src/st/st-adjustment.c"
-             line="308">The minimum value of the adjustment.</doc>
+             line="337">The minimum value of the adjustment.</doc>
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="page-increment"
@@ -441,7 +441,7 @@ monitor should drive the animation.</doc>
                 default-value="0.000000">
         <doc xml:space="preserve"
              filename="src/st/st-adjustment.c"
-             line="359">The page increment of the adjustment.</doc>
+             line="388">The page increment of the adjustment.</doc>
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="page-size"
@@ -451,7 +451,7 @@ monitor should drive the animation.</doc>
                 default-value="0.000000">
         <doc xml:space="preserve"
              filename="src/st/st-adjustment.c"
-             line="371">The page size of the adjustment.
+             line="400">The page size of the adjustment.
 
 Note that the page-size is irrelevant and should be set to zero if the
 adjustment is used for a simple scalar value.</doc>
@@ -464,7 +464,7 @@ adjustment is used for a simple scalar value.</doc>
                 default-value="0.000000">
         <doc xml:space="preserve"
              filename="src/st/st-adjustment.c"
-             line="347">The step increment of the adjustment.</doc>
+             line="376">The step increment of the adjustment.</doc>
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="upper"
@@ -474,7 +474,7 @@ adjustment is used for a simple scalar value.</doc>
                 default-value="0.000000">
         <doc xml:space="preserve"
              filename="src/st/st-adjustment.c"
-             line="320">The maximum value of the adjustment.
+             line="349">The maximum value of the adjustment.
 
 Note that values will be restricted by `upper - page-size` if
 #StAdjustment:page-size is non-zero.</doc>
@@ -489,7 +489,7 @@ Note that values will be restricted by `upper - page-size` if
                 default-value="0.000000">
         <doc xml:space="preserve"
              filename="src/st/st-adjustment.c"
-             line="335">The value of the adjustment.</doc>
+             line="364">The value of the adjustment.</doc>
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent_instance">
@@ -498,7 +498,7 @@ Note that values will be restricted by `upper - page-size` if
       <glib:signal name="changed" when="last">
         <doc xml:space="preserve"
              filename="src/st/st-adjustment.c"
-             line="388">Emitted when any of the adjustment properties have changed, except for
+             line="417">Emitted when any of the adjustment properties have changed, except for
 #StAdjustment:value.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1287,7 +1287,7 @@ be removed and replaced with the icon.</doc>
               glib:set-property="toggle-mode">
         <doc xml:space="preserve"
              filename="src/st/st-button.c"
-             line="820">Enables or disables toggle mode for the button. In toggle mode, the active
+             line="820">Enables or disables toggle mode for the button. In toggle mode, the checked
 state will be "toggled" when the user clicks the button.</doc>
         <source-position filename="src/st/st-button.h" line="54"/>
         <return-value transfer-ownership="none">
@@ -3083,12 +3083,12 @@ through the public API.</doc>
       <constructor name="new" c:identifier="st_icon_new">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="587">Create a newly allocated #StIcon.</doc>
+             line="636">Create a newly allocated #StIcon.</doc>
         <source-position filename="src/st/st-icon.h" line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-icon.c"
-               line="592">A newly allocated #StIcon</doc>
+               line="641">A newly allocated #StIcon</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </return-value>
       </constructor>
@@ -3097,19 +3097,19 @@ through the public API.</doc>
               glib:get-property="fallback-gicon">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="694">Gets the currently set fallback #GIcon.</doc>
+             line="743">Gets the currently set fallback #GIcon.</doc>
         <source-position filename="src/st/st-icon.h" line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-icon.c"
-               line="700">The fallback #GIcon, if set, otherwise %NULL</doc>
+               line="749">The fallback #GIcon, if set, otherwise %NULL</doc>
           <type name="Gio.Icon" c:type="GIcon*"/>
         </return-value>
         <parameters>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="696">a #StIcon</doc>
+                 line="745">a #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
         </parameters>
@@ -3119,20 +3119,20 @@ through the public API.</doc>
               glib:get-property="fallback-icon-name">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="779">This is a convenience method to get the icon name of the fallback
+             line="828">This is a convenience method to get the icon name of the fallback
 #GThemedIcon that is currently set.</doc>
         <source-position filename="src/st/st-icon.h" line="71"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-icon.c"
-               line="786">The name of the icon or %NULL if no icon is set</doc>
+               line="835">The name of the icon or %NULL if no icon is set</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="781">an #StIcon</doc>
+                 line="830">an #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
         </parameters>
@@ -3142,19 +3142,19 @@ through the public API.</doc>
               glib:get-property="gicon">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="655">Gets the current #GIcon in use.</doc>
+             line="704">Gets the current #GIcon in use.</doc>
         <source-position filename="src/st/st-icon.h" line="59"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/st/st-icon.c"
-               line="661">The current #GIcon, if set, otherwise %NULL</doc>
+               line="710">The current #GIcon, if set, otherwise %NULL</doc>
           <type name="Gio.Icon" c:type="GIcon*"/>
         </return-value>
         <parameters>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="657">an #StIcon</doc>
+                 line="706">an #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
         </parameters>
@@ -3164,20 +3164,20 @@ through the public API.</doc>
               glib:get-property="icon-name">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="600">This is a convenience method to get the icon name of the current icon, if it
+             line="649">This is a convenience method to get the icon name of the current icon, if it
 is currently a #GThemedIcon, or %NULL otherwise.</doc>
         <source-position filename="src/st/st-icon.h" line="67"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/st/st-icon.c"
-               line="607">The name of the icon or %NULL</doc>
+               line="656">The name of the icon or %NULL</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="602">an #StIcon</doc>
+                 line="651">an #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
         </parameters>
@@ -3187,20 +3187,20 @@ is currently a #GThemedIcon, or %NULL otherwise.</doc>
               glib:get-property="icon-size">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="735">Gets the explicit size set using st_icon_set_icon_size() for the icon.
+             line="784">Gets the explicit size set using st_icon_set_icon_size() for the icon.
 This is not necessarily the size that the icon will be displayed at.</doc>
         <source-position filename="src/st/st-icon.h" line="75"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-icon.c"
-               line="742">The explicitly set size, or -1 if no size has been set</doc>
+               line="791">The explicitly set size, or -1 if no size has been set</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="737">an #StIcon</doc>
+                 line="786">an #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
         </parameters>
@@ -3210,7 +3210,7 @@ This is not necessarily the size that the icon will be displayed at.</doc>
               glib:set-property="fallback-gicon">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="710">Sets a fallback #GIcon to show if the normal icon fails to load.
+             line="759">Sets a fallback #GIcon to show if the normal icon fails to load.
 If @fallback_gicon is %NULL or fails to load, the icon is unset and no
 texture will be visible for the fallback icon.</doc>
         <source-position filename="src/st/st-icon.h" line="64"/>
@@ -3221,7 +3221,7 @@ texture will be visible for the fallback icon.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="712">a #StIcon</doc>
+                 line="761">a #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
           <parameter name="fallback_gicon"
@@ -3230,7 +3230,7 @@ texture will be visible for the fallback icon.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="713">the fallback #GIcon</doc>
+                 line="762">the fallback #GIcon</doc>
             <type name="Gio.Icon" c:type="GIcon*"/>
           </parameter>
         </parameters>
@@ -3240,7 +3240,7 @@ texture will be visible for the fallback icon.</doc>
               glib:set-property="fallback-icon-name">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="803">This is a convenience method to set the fallback #GIcon to a #GThemedIcon
+             line="852">This is a convenience method to set the fallback #GIcon to a #GThemedIcon
 created using the given icon name. If @fallback_icon_name is an empty
 string, %NULL or fails to load, the icon is unset and no texture will
 be visible for the fallback icon.</doc>
@@ -3252,7 +3252,7 @@ be visible for the fallback icon.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="805">an #StIcon</doc>
+                 line="854">an #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
           <parameter name="fallback_icon_name"
@@ -3261,7 +3261,7 @@ be visible for the fallback icon.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="806">the name of the fallback icon</doc>
+                 line="855">the name of the fallback icon</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3271,7 +3271,7 @@ be visible for the fallback icon.</doc>
               glib:set-property="gicon">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="671">Sets a #GIcon to show for the icon. If @gicon is %NULL or fails to load,
+             line="720">Sets a #GIcon to show for the icon. If @gicon is %NULL or fails to load,
 the fallback icon set using st_icon_set_fallback_icon() will be shown.</doc>
         <source-position filename="src/st/st-icon.h" line="60"/>
         <return-value transfer-ownership="none">
@@ -3281,7 +3281,7 @@ the fallback icon set using st_icon_set_fallback_icon() will be shown.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="673">an #StIcon</doc>
+                 line="722">an #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
           <parameter name="gicon"
@@ -3290,7 +3290,7 @@ the fallback icon set using st_icon_set_fallback_icon() will be shown.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="674">a #GIcon</doc>
+                 line="723">a #GIcon</doc>
             <type name="Gio.Icon" c:type="GIcon*"/>
           </parameter>
         </parameters>
@@ -3300,7 +3300,7 @@ the fallback icon set using st_icon_set_fallback_icon() will be shown.</doc>
               glib:set-property="icon-name">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="624">This is a convenience method to set the #GIcon to a #GThemedIcon created
+             line="673">This is a convenience method to set the #GIcon to a #GThemedIcon created
 using the given icon name. If @icon_name is an empty string, %NULL or
 fails to load, the fallback icon will be shown.</doc>
         <source-position filename="src/st/st-icon.h" line="68"/>
@@ -3311,7 +3311,7 @@ fails to load, the fallback icon will be shown.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="626">an #StIcon</doc>
+                 line="675">an #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
           <parameter name="icon_name"
@@ -3320,7 +3320,7 @@ fails to load, the fallback icon will be shown.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="627">the name of the icon</doc>
+                 line="676">the name of the icon</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3330,7 +3330,7 @@ fails to load, the fallback icon will be shown.</doc>
               glib:set-property="icon-size">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="752">Sets an explicit size for the icon. Setting @size to -1 will use the size
+             line="801">Sets an explicit size for the icon. Setting @size to -1 will use the size
 defined by the current style or the default icon size.</doc>
         <source-position filename="src/st/st-icon.h" line="76"/>
         <return-value transfer-ownership="none">
@@ -3340,13 +3340,13 @@ defined by the current style or the default icon size.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="754">an #StIcon</doc>
+                 line="803">an #StIcon</doc>
             <type name="Icon" c:type="StIcon*"/>
           </instance-parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-icon.c"
-                 line="755">if positive, the new size, otherwise the size will be
+                 line="804">if positive, the new size, otherwise the size will be
   derived from the current style</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
@@ -3359,7 +3359,7 @@ defined by the current style or the default icon size.</doc>
                 getter="get_fallback_gicon">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="300">The fallback #GIcon to display if #StIcon:gicon fails to load.</doc>
+             line="312">The fallback #GIcon to display if #StIcon:gicon fails to load.</doc>
         <type name="Gio.Icon"/>
       </property>
       <property name="fallback-icon-name"
@@ -3370,7 +3370,7 @@ defined by the current style or the default icon size.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="337">The fallback icon name of the #StIcon. See st_icon_set_fallback_icon_name()
+             line="349">The fallback icon name of the #StIcon. See st_icon_set_fallback_icon_name()
 for details.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -3381,7 +3381,7 @@ for details.</doc>
                 getter="get_gicon">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="288">The #GIcon being displayed by this #StIcon.</doc>
+             line="300">The #GIcon being displayed by this #StIcon.</doc>
         <type name="Gio.Icon"/>
       </property>
       <property name="icon-name"
@@ -3392,7 +3392,7 @@ for details.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="312">The name of the icon if the icon being displayed is a #GThemedIcon.</doc>
+             line="324">The name of the icon if the icon being displayed is a #GThemedIcon.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="icon-size"
@@ -3403,7 +3403,7 @@ for details.</doc>
                 default-value="-1">
         <doc xml:space="preserve"
              filename="src/st/st-icon.c"
-             line="324">The size of the icon, if greater than `0`. Otherwise the icon size is derived
+             line="336">The size of the icon, if greater than `0`. Otherwise the icon size is derived
 from the current style.</doc>
         <type name="gint" c:type="gint"/>
       </property>
@@ -5525,12 +5525,12 @@ through the public API.</doc>
       <constructor name="new" c:identifier="st_scroll_view_new">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="1047">Create a new #StScrollView.</doc>
+             line="1019">Create a new #StScrollView.</doc>
         <source-position filename="src/st/st-scroll-view.h" line="61"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/st/st-scroll-view.c"
-               line="1052">a new #StScrollView</doc>
+               line="1024">a new #StScrollView</doc>
           <type name="Widget" c:type="StWidget*"/>
         </return-value>
       </constructor>
@@ -5538,19 +5538,19 @@ through the public API.</doc>
               c:identifier="st_scroll_view_get_column_size">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="1092">Get the step increment of the horizontal plane.</doc>
+             line="1064">Get the step increment of the horizontal plane.</doc>
         <source-position filename="src/st/st-scroll-view.h" line="66"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-scroll-view.c"
-               line="1098">the horizontal step increment</doc>
+               line="1070">the horizontal step increment</doc>
           <type name="gfloat" c:type="gfloat"/>
         </return-value>
         <parameters>
           <instance-parameter name="scroll" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-scroll-view.c"
-                 line="1094">a #StScrollView</doc>
+                 line="1066">a #StScrollView</doc>
             <type name="ScrollView" c:type="StScrollView*"/>
           </instance-parameter>
         </parameters>
@@ -5559,19 +5559,19 @@ through the public API.</doc>
               c:identifier="st_scroll_view_get_hscroll_bar">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="1060">Gets the horizontal #StScrollBar of the #StScrollView.</doc>
+             line="1032">Gets the horizontal #StScrollBar of the #StScrollView.</doc>
         <source-position filename="src/st/st-scroll-view.h" line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-scroll-view.c"
-               line="1066">the horizontal scrollbar</doc>
+               line="1038">the horizontal scrollbar</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="scroll" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-scroll-view.c"
-                 line="1062">a #StScrollView</doc>
+                 line="1034">a #StScrollView</doc>
             <type name="ScrollView" c:type="StScrollView*"/>
           </instance-parameter>
         </parameters>
@@ -5580,19 +5580,19 @@ through the public API.</doc>
               c:identifier="st_scroll_view_get_mouse_scrolling">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="1223">Get whether automatic mouse wheel scrolling is enabled or disabled.</doc>
+             line="1195">Get whether automatic mouse wheel scrolling is enabled or disabled.</doc>
         <source-position filename="src/st/st-scroll-view.h" line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-scroll-view.c"
-               line="1229">%TRUE if enabled, %FALSE otherwise</doc>
+               line="1201">%TRUE if enabled, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="scroll" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-scroll-view.c"
-                 line="1225">a #StScrollView</doc>
+                 line="1197">a #StScrollView</doc>
             <type name="ScrollView" c:type="StScrollView*"/>
           </instance-parameter>
         </parameters>
@@ -5602,19 +5602,19 @@ through the public API.</doc>
               glib:get-property="overlay-scrollbars">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="1269">Gets whether scrollbars are painted on top of the content.</doc>
+             line="1241">Gets whether scrollbars are painted on top of the content.</doc>
         <source-position filename="src/st/st-scroll-view.h" line="80"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-scroll-view.c"
-               line="1275">%TRUE if enabled, %FALSE otherwise</doc>
+               line="1247">%TRUE if enabled, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="scroll" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-scroll-view.c"
-                 line="1271">A #StScrollView</doc>
+                 line="1243">A #StScrollView</doc>
             <type name="ScrollView" c:type="StScrollView*"/>
           </instance-parameter>
         </parameters>
@@ -5622,19 +5622,19 @@ through the public API.</doc>
       <method name="get_row_size" c:identifier="st_scroll_view_get_row_size">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="1143">Get the step increment of the vertical plane.</doc>
+             line="1115">Get the step increment of the vertical plane.</doc>
         <source-position filename="src/st/st-scroll-view.h" line="70"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-scroll-view.c"
-               line="1149">the vertical step increment</doc>
+               line="1121">the vertical step increment</doc>
           <type name="gfloat" c:type="gfloat"/>
         </return-value>
         <parameters>
           <instance-parameter name="scroll" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-scroll-view.c"
-                 line="1145">a #StScrollView</doc>
+                 line="1117">a #StScrollView</doc>
             <type name="ScrollView" c:type="StScrollView*"/>
           </instance-parameter>
         </parameters>
@@ -5643,19 +5643,19 @@ through the public API.</doc>
               c:identifier="st_scroll_view_get_vscroll_bar">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="1076">Gets the vertical scrollbar of the #StScrollView.</doc>
+             line="1048">Gets the vertical scrollbar of the #StScrollView.</doc>
         <source-position filename="src/st/st-scroll-view.h" line="64"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-scroll-view.c"
-               line="1082">the vertical #StScrollBar</doc>
+               line="1054">the vertical #StScrollBar</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="scroll" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-scroll-view.c"
-                 line="1078">a #StScrollView</doc>
+                 line="1050">a #StScrollView</doc>
             <type name="ScrollView" c:type="StScrollView*"/>
           </instance-parameter>
         </parameters>
@@ -5664,7 +5664,7 @@ through the public API.</doc>
               c:identifier="st_scroll_view_set_column_size">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="1114">Set the step increment of the horizontal plane to @column_size.</doc>
+             line="1086">Set the step increment of the horizontal plane to @column_size.</doc>
         <source-position filename="src/st/st-scroll-view.h" line="67"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5673,13 +5673,13 @@ through the public API.</doc>
           <instance-parameter name="scroll" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-scroll-view.c"
-                 line="1116">a #StScrollView</doc>
+                 line="1088">a #StScrollView</doc>
             <type name="ScrollView" c:type="StScrollView*"/>
           </instance-parameter>
           <parameter name="column_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-scroll-view.c"
-                 line="1117">horizontal step increment</doc>
+                 line="1089">horizontal step increment</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
         </parameters>
@@ -5688,7 +5688,7 @@ through the public API.</doc>
               c:identifier="st_scroll_view_set_mouse_scrolling">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="1194">Sets automatic mouse wheel scrolling to enabled or disabled.</doc>
+             line="1166">Sets automatic mouse wheel scrolling to enabled or disabled.</doc>
         <source-position filename="src/st/st-scroll-view.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5697,13 +5697,13 @@ through the public API.</doc>
           <instance-parameter name="scroll" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-scroll-view.c"
-                 line="1196">a #StScrollView</doc>
+                 line="1168">a #StScrollView</doc>
             <type name="ScrollView" c:type="StScrollView*"/>
           </instance-parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-scroll-view.c"
-                 line="1197">%TRUE or %FALSE</doc>
+                 line="1169">%TRUE or %FALSE</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5713,7 +5713,7 @@ through the public API.</doc>
               glib:set-property="overlay-scrollbars">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="1243">Sets whether scrollbars are painted on top of the content.</doc>
+             line="1215">Sets whether scrollbars are painted on top of the content.</doc>
         <source-position filename="src/st/st-scroll-view.h" line="78"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5722,13 +5722,13 @@ through the public API.</doc>
           <instance-parameter name="scroll" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-scroll-view.c"
-                 line="1245">A #StScrollView</doc>
+                 line="1217">A #StScrollView</doc>
             <type name="ScrollView" c:type="StScrollView*"/>
           </instance-parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-scroll-view.c"
-                 line="1246">Whether to enable overlay scrollbars</doc>
+                 line="1218">Whether to enable overlay scrollbars</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5736,7 +5736,7 @@ through the public API.</doc>
       <method name="set_policy" c:identifier="st_scroll_view_set_policy">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="1289">Set the scroll policy.</doc>
+             line="1261">Set the scroll policy.</doc>
         <source-position filename="src/st/st-scroll-view.h" line="82"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5745,19 +5745,19 @@ through the public API.</doc>
           <instance-parameter name="scroll" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-scroll-view.c"
-                 line="1291">A #StScrollView</doc>
+                 line="1263">A #StScrollView</doc>
             <type name="ScrollView" c:type="StScrollView*"/>
           </instance-parameter>
           <parameter name="hscroll" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-scroll-view.c"
-                 line="1292">Whether to enable horizontal scrolling</doc>
+                 line="1264">Whether to enable horizontal scrolling</doc>
             <type name="PolicyType" c:type="StPolicyType"/>
           </parameter>
           <parameter name="vscroll" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-scroll-view.c"
-                 line="1293">Whether to enable vertical scrolling</doc>
+                 line="1265">Whether to enable vertical scrolling</doc>
             <type name="PolicyType" c:type="StPolicyType"/>
           </parameter>
         </parameters>
@@ -5765,7 +5765,7 @@ through the public API.</doc>
       <method name="set_row_size" c:identifier="st_scroll_view_set_row_size">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="1165">Set the step increment of the vertical plane to @row_size.</doc>
+             line="1137">Set the step increment of the vertical plane to @row_size.</doc>
         <source-position filename="src/st/st-scroll-view.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5774,13 +5774,13 @@ through the public API.</doc>
           <instance-parameter name="scroll" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-scroll-view.c"
-                 line="1167">a #StScrollView</doc>
+                 line="1139">a #StScrollView</doc>
             <type name="ScrollView" c:type="StScrollView*"/>
           </instance-parameter>
           <parameter name="row_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-scroll-view.c"
-                 line="1168">vertical step increment</doc>
+                 line="1140">vertical step increment</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
         </parameters>
@@ -5816,13 +5816,13 @@ disables the effect.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="916">Whether to enable automatic mouse wheel scrolling.</doc>
+             line="888">Whether to enable automatic mouse wheel scrolling.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="hscroll" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="842">The horizontal #StScrollBar for the #StScrollView.</doc>
+             line="814">The horizontal #StScrollBar for the #StScrollView.</doc>
         <type name="ScrollBar"/>
       </property>
       <property name="hscrollbar-policy"
@@ -5831,7 +5831,7 @@ disables the effect.</doc>
                 default-value="ST_POLICY_AUTOMATIC">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="879">The #StPolicyType for when to show the horizontal #StScrollBar.</doc>
+             line="851">The #StPolicyType for when to show the horizontal #StScrollBar.</doc>
         <type name="PolicyType"/>
       </property>
       <property name="hscrollbar-visible"
@@ -5839,7 +5839,7 @@ disables the effect.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="892">Whether the horizontal #StScrollBar is visible.</doc>
+             line="864">Whether the horizontal #StScrollBar is visible.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="overlay-scrollbars"
@@ -5850,13 +5850,13 @@ disables the effect.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="928">Whether scrollbars are painted on top of the content.</doc>
+             line="900">Whether scrollbars are painted on top of the content.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="vscroll" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="854">The vertical #StScrollBar for the #StScrollView.</doc>
+             line="826">The vertical #StScrollBar for the #StScrollView.</doc>
         <type name="ScrollBar"/>
       </property>
       <property name="vscrollbar-policy"
@@ -5865,7 +5865,7 @@ disables the effect.</doc>
                 default-value="ST_POLICY_AUTOMATIC">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="866">The #StPolicyType for when to show the vertical #StScrollBar.</doc>
+             line="838">The #StPolicyType for when to show the vertical #StScrollBar.</doc>
         <type name="PolicyType"/>
       </property>
       <property name="vscrollbar-visible"
@@ -5873,7 +5873,7 @@ disables the effect.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/st/st-scroll-view.c"
-             line="904">Whether the vertical #StScrollBar is visible.</doc>
+             line="876">Whether the vertical #StScrollBar is visible.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <field name="parent_instance" readable="0" private="1">
@@ -6174,12 +6174,12 @@ property in JavaScript code.</doc>
       <function name="get" c:identifier="st_settings_get">
         <doc xml:space="preserve"
              filename="src/st/st-settings.c"
-             line="462">Gets the global #StSettings object.</doc>
+             line="460">Gets the global #StSettings object.</doc>
         <source-position filename="src/st/st-settings.h" line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-settings.c"
-               line="467">the global #StSettings object</doc>
+               line="465">the global #StSettings object</doc>
           <type name="Settings" c:type="StSettings*"/>
         </return-value>
       </function>
@@ -9753,14 +9753,14 @@ pseudo-classes.</doc>
       <virtual-method name="get_focus_chain" invoker="get_focus_chain">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="3044">Gets a list of the focusable children of @widget, in "Tab"
+             line="3052">Gets a list of the focusable children of @widget, in "Tab"
 order. By default, this returns all visible
 (as in clutter_actor_is_visible()) children of @widget.</doc>
         <source-position filename="src/st/st-widget.h" line="91"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="src/st/st-widget.c"
-               line="3052">
+               line="3060">
   @widget's focusable children</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Clutter.Actor"/>
@@ -9770,7 +9770,7 @@ order. By default, this returns all visible
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="3046">An #StWidget</doc>
+                 line="3054">An #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
         </parameters>
@@ -9807,7 +9807,7 @@ order. By default, this returns all visible
       <virtual-method name="popup_menu" invoker="popup_menu">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1968">Asks the widget to pop-up a context menu by emitting #StWidget::popup-menu.</doc>
+             line="1976">Asks the widget to pop-up a context menu by emitting #StWidget::popup-menu.</doc>
         <source-position filename="src/st/st-widget.h" line="76"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9816,7 +9816,7 @@ order. By default, this returns all visible
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1970">A #StWidget</doc>
+                 line="1978">A #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
         </parameters>
@@ -9836,7 +9836,7 @@ order. By default, this returns all visible
               c:identifier="st_widget_add_accessible_state">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="2556">This method adds @state as one of the accessible states for
+             line="2564">This method adds @state as one of the accessible states for
 @widget. The list of states of a widget describes the current state
 of user interface element @widget and is provided so that assistive
 technologies know how to present @widget to the user.
@@ -9856,13 +9856,13 @@ the toggled state).</doc>
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="2558">A #StWidget</doc>
+                 line="2566">A #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="2559">#AtkStateType state to add</doc>
+                 line="2567">#AtkStateType state to add</doc>
             <type name="Atk.StateType" c:type="AtkStateType"/>
           </parameter>
         </parameters>
@@ -9896,7 +9896,7 @@ already present.</doc>
               c:identifier="st_widget_add_style_pseudo_class">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1349">Adds @pseudo_class to @actor's pseudo class list, if it is not
+             line="1355">Adds @pseudo_class to @actor's pseudo class list, if it is not
 already present.</doc>
         <source-position filename="src/st/st-widget.h" line="96"/>
         <return-value transfer-ownership="none">
@@ -9906,13 +9906,13 @@ already present.</doc>
           <instance-parameter name="actor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1351">a #StWidget</doc>
+                 line="1357">a #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
           <parameter name="pseudo_class" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1352">a pseudo class string</doc>
+                 line="1358">a pseudo class string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -9920,7 +9920,7 @@ already present.</doc>
       <method name="ensure_style" c:identifier="st_widget_ensure_style">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1766">Ensures that @widget has read its style information and propagated any
+             line="1774">Ensures that @widget has read its style information and propagated any
 changes to its children.</doc>
         <source-position filename="src/st/st-widget.h" line="126"/>
         <return-value transfer-ownership="none">
@@ -9930,7 +9930,7 @@ changes to its children.</doc>
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1768">A #StWidget</doc>
+                 line="1776">A #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
         </parameters>
@@ -9940,13 +9940,13 @@ changes to its children.</doc>
               glib:get-property="accessible-name">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="2459">Gets the accessible name for this widget. See
+             line="2467">Gets the accessible name for this widget. See
 st_widget_set_accessible_name() for more information.</doc>
         <source-position filename="src/st/st-widget.h" line="162"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-widget.c"
-               line="2466">a character string representing the accessible name
+               line="2474">a character string representing the accessible name
 of the widget.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -9954,7 +9954,7 @@ of the widget.</doc>
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="2461">widget to get the accessible name for</doc>
+                 line="2469">widget to get the accessible name for</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
         </parameters>
@@ -9964,20 +9964,20 @@ of the widget.</doc>
               glib:get-property="accessible-role">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="2518">Gets the #AtkRole for this widget. See
+             line="2526">Gets the #AtkRole for this widget. See
 st_widget_set_accessible_role() for more information.</doc>
         <source-position filename="src/st/st-widget.h" line="155"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-widget.c"
-               line="2525">accessible #AtkRole for this widget</doc>
+               line="2533">accessible #AtkRole for this widget</doc>
           <type name="Atk.Role" c:type="AtkRole"/>
         </return-value>
         <parameters>
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="2520">widget to get the accessible role for</doc>
+                 line="2528">widget to get the accessible role for</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
         </parameters>
@@ -9987,20 +9987,20 @@ st_widget_set_accessible_role() for more information.</doc>
               glib:get-property="can-focus">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1951">Returns the current value of the can-focus property. See
+             line="1959">Returns the current value of the can-focus property. See
 st_widget_set_can_focus() for more information.</doc>
         <source-position filename="src/st/st-widget.h" line="130"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-widget.c"
-               line="1958">current value of can-focus on @widget</doc>
+               line="1966">current value of can-focus on @widget</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1953">A #StWidget</doc>
+                 line="1961">A #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
         </parameters>
@@ -10008,14 +10008,14 @@ st_widget_set_can_focus() for more information.</doc>
       <method name="get_focus_chain" c:identifier="st_widget_get_focus_chain">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="3044">Gets a list of the focusable children of @widget, in "Tab"
+             line="3052">Gets a list of the focusable children of @widget, in "Tab"
 order. By default, this returns all visible
 (as in clutter_actor_is_visible()) children of @widget.</doc>
         <source-position filename="src/st/st-widget.h" line="145"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="src/st/st-widget.c"
-               line="3052">
+               line="3060">
   @widget's focusable children</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Clutter.Actor"/>
@@ -10025,7 +10025,7 @@ order. By default, this returns all visible
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="3046">An #StWidget</doc>
+                 line="3054">An #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
         </parameters>
@@ -10035,20 +10035,20 @@ order. By default, this returns all visible
               glib:get-property="hover">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1908">If #StWidget:track-hover is set, this returns whether the pointer
+             line="1916">If #StWidget:track-hover is set, this returns whether the pointer
 is currently over the widget.</doc>
         <source-position filename="src/st/st-widget.h" line="123"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-widget.c"
-               line="1915">current value of hover on @widget</doc>
+               line="1923">current value of hover on @widget</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1910">A #StWidget</doc>
+                 line="1918">A #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
         </parameters>
@@ -10058,19 +10058,19 @@ is currently over the widget.</doc>
               glib:get-property="label-actor">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="2374">Gets the label that identifies @widget if it is defined</doc>
+             line="2382">Gets the label that identifies @widget if it is defined</doc>
         <source-position filename="src/st/st-widget.h" line="136"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-widget.c"
-               line="2380">the label that identifies the widget</doc>
+               line="2388">the label that identifies the widget</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="2376">a #StWidget</doc>
+                 line="2384">a #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
         </parameters>
@@ -10080,12 +10080,12 @@ is currently over the widget.</doc>
               glib:get-property="style">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1430">Get the current inline style string. See st_widget_set_style().</doc>
+             line="1438">Get the current inline style string. See st_widget_set_style().</doc>
         <source-position filename="src/st/st-widget.h" line="116"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/st/st-widget.c"
-               line="1436">The inline style string, or %NULL. The
+               line="1444">The inline style string, or %NULL. The
   string is owned by the #StWidget and should not be modified or freed.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -10093,7 +10093,7 @@ is currently over the widget.</doc>
           <instance-parameter name="actor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1432">a #StWidget</doc>
+                 line="1440">a #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
         </parameters>
@@ -10102,12 +10102,12 @@ is currently over the widget.</doc>
               c:identifier="st_widget_get_style_class_name">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1238">Get the current style class name</doc>
+             line="1240">Get the current style class name</doc>
         <source-position filename="src/st/st-widget.h" line="110"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-widget.c"
-               line="1244">the class name string. The string is owned by the #StWidget and
+               line="1246">the class name string. The string is owned by the #StWidget and
 should not be modified or freed.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -10115,7 +10115,7 @@ should not be modified or freed.</doc>
           <instance-parameter name="actor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1240">a #StWidget</doc>
+                 line="1242">a #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
         </parameters>
@@ -10124,7 +10124,7 @@ should not be modified or freed.</doc>
               c:identifier="st_widget_get_style_pseudo_class">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1278">Get the current style pseudo class list.
+             line="1282">Get the current style pseudo class list.
 
 Note that an actor can have multiple pseudo classes; if you just
 want to test for the presence of a specific pseudo class, use
@@ -10133,7 +10133,7 @@ st_widget_has_style_pseudo_class().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-widget.c"
-               line="1288">the pseudo class list string. The string is owned by the
+               line="1292">the pseudo class list string. The string is owned by the
 #StWidget and should not be modified or freed.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -10141,7 +10141,7 @@ st_widget_has_style_pseudo_class().</doc>
           <instance-parameter name="actor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1280">a #StWidget</doc>
+                 line="1284">a #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
         </parameters>
@@ -10180,20 +10180,20 @@ Note: it is a fatal error to call this on a widget that is
               glib:get-property="track-hover">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1829">Returns the current value of the #StWidget:track-hover property. See
+             line="1837">Returns the current value of the #StWidget:track-hover property. See
 st_widget_set_track_hover() for more information.</doc>
         <source-position filename="src/st/st-widget.h" line="119"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-widget.c"
-               line="1836">current value of track-hover on @widget</doc>
+               line="1844">current value of track-hover on @widget</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1831">A #StWidget</doc>
+                 line="1839">A #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
         </parameters>
@@ -10202,12 +10202,12 @@ st_widget_set_track_hover() for more information.</doc>
               c:identifier="st_widget_has_style_class_name">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1255">Tests if @actor's style class list includes @style_class.</doc>
+             line="1257">Tests if @actor's style class list includes @style_class.</doc>
         <source-position filename="src/st/st-widget.h" line="111"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-widget.c"
-               line="1262">whether or not @actor's style class list includes
+               line="1264">whether or not @actor's style class list includes
 @style_class.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -10215,13 +10215,13 @@ st_widget_set_track_hover() for more information.</doc>
           <instance-parameter name="actor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1257">a #StWidget</doc>
+                 line="1259">a #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
           <parameter name="style_class" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1258">a style class string</doc>
+                 line="1260">a style class string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -10230,12 +10230,12 @@ st_widget_set_track_hover() for more information.</doc>
               c:identifier="st_widget_has_style_pseudo_class">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1299">Tests if @actor's pseudo class list includes @pseudo_class.</doc>
+             line="1303">Tests if @actor's pseudo class list includes @pseudo_class.</doc>
         <source-position filename="src/st/st-widget.h" line="101"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-widget.c"
-               line="1306">whether or not @actor's pseudo class list includes
+               line="1310">whether or not @actor's pseudo class list includes
 @pseudo_class.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -10243,13 +10243,13 @@ st_widget_set_track_hover() for more information.</doc>
           <instance-parameter name="actor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1301">a #StWidget</doc>
+                 line="1305">a #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
           <parameter name="pseudo_class" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1302">a pseudo class string</doc>
+                 line="1306">a pseudo class string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -10257,7 +10257,7 @@ st_widget_set_track_hover() for more information.</doc>
       <method name="navigate_focus" c:identifier="st_widget_navigate_focus">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="2225">Tries to update the keyboard focus within @widget in response to a
+             line="2233">Tries to update the keyboard focus within @widget in response to a
 keyboard event.
 
 If @from is a descendant of @widget, this attempts to move the
@@ -10287,7 +10287,7 @@ to the first available widget in the given direction.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-widget.c"
-               line="2259">%TRUE if clutter_actor_grab_key_focus() has been
+               line="2267">%TRUE if clutter_actor_grab_key_focus() has been
 called on an actor. %FALSE if not.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -10295,7 +10295,7 @@ called on an actor. %FALSE if not.</doc>
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="2227">the "top level" container</doc>
+                 line="2235">the "top level" container</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
           <parameter name="from"
@@ -10304,19 +10304,19 @@ called on an actor. %FALSE if not.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="2228">the actor that the focus is coming from</doc>
+                 line="2236">the actor that the focus is coming from</doc>
             <type name="Clutter.Actor" c:type="ClutterActor*"/>
           </parameter>
           <parameter name="direction" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="2229">the direction focus is moving in</doc>
+                 line="2237">the direction focus is moving in</doc>
             <type name="DirectionType" c:type="StDirectionType"/>
           </parameter>
           <parameter name="wrap_around" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="2230">whether focus should wrap around</doc>
+                 line="2238">whether focus should wrap around</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -10374,7 +10374,7 @@ will be reliably emitted before the widget is allocated or painted.</doc>
       <method name="popup_menu" c:identifier="st_widget_popup_menu">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1968">Asks the widget to pop-up a context menu by emitting #StWidget::popup-menu.</doc>
+             line="1976">Asks the widget to pop-up a context menu by emitting #StWidget::popup-menu.</doc>
         <source-position filename="src/st/st-widget.h" line="124"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10383,7 +10383,7 @@ will be reliably emitted before the widget is allocated or painted.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1970">A #StWidget</doc>
+                 line="1978">A #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
         </parameters>
@@ -10392,7 +10392,7 @@ will be reliably emitted before the widget is allocated or painted.</doc>
               c:identifier="st_widget_remove_accessible_state">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="2589">This method removes @state as on of the accessible states for
+             line="2597">This method removes @state as on of the accessible states for
 @widget. See st_widget_add_accessible_state() for more information.</doc>
         <source-position filename="src/st/st-widget.h" line="158"/>
         <return-value transfer-ownership="none">
@@ -10402,13 +10402,13 @@ will be reliably emitted before the widget is allocated or painted.</doc>
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="2591">A #StWidget</doc>
+                 line="2599">A #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="2592">#AtkState state to remove</doc>
+                 line="2600">#AtkState state to remove</doc>
             <type name="Atk.StateType" c:type="AtkStateType"/>
           </parameter>
         </parameters>
@@ -10417,7 +10417,7 @@ will be reliably emitted before the widget is allocated or painted.</doc>
               c:identifier="st_widget_remove_style_class_name">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1212">Removes @style_class from @actor's style class name, if it is
+             line="1213">Removes @style_class from @actor's style class name, if it is
 present.</doc>
         <source-position filename="src/st/st-widget.h" line="108"/>
         <return-value transfer-ownership="none">
@@ -10427,13 +10427,13 @@ present.</doc>
           <instance-parameter name="actor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1214">a #StWidget</doc>
+                 line="1215">a #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
           <parameter name="style_class" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1215">a style class name string</doc>
+                 line="1216">a style class name string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -10442,7 +10442,7 @@ present.</doc>
               c:identifier="st_widget_remove_style_pseudo_class">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1375">Removes @pseudo_class from @actor's pseudo class, if it is present.</doc>
+             line="1382">Removes @pseudo_class from @actor's pseudo class, if it is present.</doc>
         <source-position filename="src/st/st-widget.h" line="98"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10451,13 +10451,13 @@ present.</doc>
           <instance-parameter name="actor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1377">a #StWidget</doc>
+                 line="1384">a #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
           <parameter name="pseudo_class" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1378">a pseudo class string</doc>
+                 line="1385">a pseudo class string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -10465,7 +10465,7 @@ present.</doc>
       <method name="set_accessible" c:identifier="st_widget_set_accessible">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="2703">This method allows to set a customly created accessible object to
+             line="2711">This method allows to set a customly created accessible object to
 this widget. For example if you define a new subclass of
 #StWidgetAccessible at the javascript code.
 
@@ -10485,13 +10485,13 @@ not a responsibility of this method.</doc>
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="2705">A #StWidget</doc>
+                 line="2713">A #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
           <parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="2706">an accessible (#AtkObject)</doc>
+                 line="2714">an accessible (#AtkObject)</doc>
             <type name="Atk.Object" c:type="AtkObject*"/>
           </parameter>
         </parameters>
@@ -10501,7 +10501,7 @@ not a responsibility of this method.</doc>
               glib:set-property="accessible-name">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="2424">This method sets @name as the accessible name for @widget.
+             line="2432">This method sets @name as the accessible name for @widget.
 
 Usually you will have no need to set the accessible name for an
 object, as usually there is a label for most of the interface
@@ -10517,7 +10517,7 @@ object.</doc>
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="2426">widget to set the accessible name for</doc>
+                 line="2434">widget to set the accessible name for</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
           <parameter name="name"
@@ -10526,7 +10526,7 @@ object.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="2427">a character string to be set as the accessible name</doc>
+                 line="2435">a character string to be set as the accessible name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -10536,7 +10536,7 @@ object.</doc>
               glib:set-property="accessible-role">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="2477">This method sets @role as the accessible role for @widget. This
+             line="2485">This method sets @role as the accessible role for @widget. This
 role describes what kind of user interface element @widget is and
 is provided so that assistive technologies know how to present
 @widget to the user.
@@ -10560,13 +10560,13 @@ and the accessible's default role will be used instead.</doc>
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="2479">widget to set the accessible role for</doc>
+                 line="2487">widget to set the accessible role for</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
           <parameter name="role" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="2480">The role to use</doc>
+                 line="2488">The role to use</doc>
             <type name="Atk.Role" c:type="AtkRole"/>
           </parameter>
         </parameters>
@@ -10576,7 +10576,7 @@ and the accessible's default role will be used instead.</doc>
               glib:set-property="can-focus">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1925">Marks @widget as being able to receive keyboard focus via
+             line="1933">Marks @widget as being able to receive keyboard focus via
 keyboard navigation.</doc>
         <source-position filename="src/st/st-widget.h" line="128"/>
         <return-value transfer-ownership="none">
@@ -10586,13 +10586,13 @@ keyboard navigation.</doc>
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1927">A #StWidget</doc>
+                 line="1935">A #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
           <parameter name="can_focus" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1928">%TRUE if the widget can receive keyboard focus
+                 line="1936">%TRUE if the widget can receive keyboard focus
   via keyboard navigation</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -10603,7 +10603,7 @@ keyboard navigation.</doc>
               glib:set-property="hover">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1846">Sets @widget's hover property and adds or removes "hover" from its
+             line="1854">Sets @widget's hover property and adds or removes "hover" from its
 pseudo class accordingly.
 
 If you have set #StWidget:track-hover, you should not need to call
@@ -10617,13 +10617,13 @@ state might be out of sync due to another actor's pointer grab.</doc>
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1848">A #StWidget</doc>
+                 line="1856">A #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
           <parameter name="hover" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1849">whether the pointer is hovering over the widget</doc>
+                 line="1857">whether the pointer is hovering over the widget</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -10633,7 +10633,7 @@ state might be out of sync due to another actor's pointer grab.</doc>
               glib:set-property="label-actor">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="2390">Sets @label as the #ClutterActor that identifies (labels)
+             line="2398">Sets @label as the #ClutterActor that identifies (labels)
 @widget. @label can be %NULL to indicate that @widget is not
 labelled any more</doc>
         <source-position filename="src/st/st-widget.h" line="137"/>
@@ -10644,13 +10644,13 @@ labelled any more</doc>
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="2392">a #StWidget</doc>
+                 line="2400">a #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="2393">a #ClutterActor</doc>
+                 line="2401">a #ClutterActor</doc>
             <type name="Clutter.Actor" c:type="ClutterActor*"/>
           </parameter>
         </parameters>
@@ -10660,7 +10660,7 @@ labelled any more</doc>
               glib:set-property="style">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1400">Set the inline style string for this widget. The inline style string is an
+             line="1408">Set the inline style string for this widget. The inline style string is an
 optional ';'-separated list of CSS properties that override the style as
 determined from the stylesheets of the current theme.</doc>
         <source-position filename="src/st/st-widget.h" line="114"/>
@@ -10671,7 +10671,7 @@ determined from the stylesheets of the current theme.</doc>
           <instance-parameter name="actor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1402">a #StWidget</doc>
+                 line="1410">a #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
           <parameter name="style"
@@ -10680,7 +10680,7 @@ determined from the stylesheets of the current theme.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1403">a inline style string, or %NULL</doc>
+                 line="1411">a inline style string, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -10719,7 +10719,7 @@ st_widget_remove_style_class_name().</doc>
               c:identifier="st_widget_set_style_pseudo_class">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1322">Set the style pseudo class list. @pseudo_class_list can either be
+             line="1328">Set the style pseudo class list. @pseudo_class_list can either be
 %NULL, for no classes, or a space-separated list of pseudo class
 names. See also st_widget_add_style_pseudo_class() and
 st_widget_remove_style_pseudo_class().</doc>
@@ -10731,7 +10731,7 @@ st_widget_remove_style_pseudo_class().</doc>
           <instance-parameter name="actor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1324">a #StWidget</doc>
+                 line="1330">a #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
           <parameter name="pseudo_class_list"
@@ -10740,7 +10740,7 @@ st_widget_remove_style_pseudo_class().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1325">a new pseudo class list string</doc>
+                 line="1331">a new pseudo class list string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -10750,7 +10750,7 @@ st_widget_remove_style_pseudo_class().</doc>
               glib:set-property="track-hover">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1789">Enables hover tracking on the #StWidget.
+             line="1797">Enables hover tracking on the #StWidget.
 
 If hover tracking is enabled, and the widget is visible and
 reactive, then @widget's #StWidget:hover property will be updated
@@ -10770,13 +10770,13 @@ case.</doc>
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1791">A #StWidget</doc>
+                 line="1799">A #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
           <parameter name="track_hover" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1792">%TRUE if the widget should track the pointer hover state</doc>
+                 line="1800">%TRUE if the widget should track the pointer hover state</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -10795,7 +10795,7 @@ case.</doc>
       <method name="sync_hover" c:identifier="st_widget_sync_hover">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="1879">Sets @widget's hover state according to the current pointer
+             line="1887">Sets @widget's hover state according to the current pointer
 position. This can be used to ensure that it is correct after
 (or during) a pointer grab.</doc>
         <source-position filename="src/st/st-widget.h" line="122"/>
@@ -10806,7 +10806,7 @@ position. This can be used to ensure that it is correct after
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="1881">A #StWidget</doc>
+                 line="1889">A #StWidget</doc>
             <type name="Widget" c:type="StWidget*"/>
           </instance-parameter>
         </parameters>
@@ -10992,7 +10992,7 @@ theme changes</doc>
             <parameter name="self" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/st/st-widget.c"
-                   line="1970">A #StWidget</doc>
+                   line="1978">A #StWidget</doc>
               <type name="Widget" c:type="StWidget*"/>
             </parameter>
           </parameters>
@@ -11043,7 +11043,7 @@ theme changes</doc>
           <return-value transfer-ownership="container">
             <doc xml:space="preserve"
                  filename="src/st/st-widget.c"
-                 line="3052">
+                 line="3060">
   @widget's focusable children</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Clutter.Actor"/>
@@ -11053,7 +11053,7 @@ theme changes</doc>
             <parameter name="widget" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/st/st-widget.c"
-                   line="3046">An #StWidget</doc>
+                   line="3054">An #StWidget</doc>
               <type name="Widget" c:type="StWidget*"/>
             </parameter>
           </parameters>
@@ -11063,21 +11063,21 @@ theme changes</doc>
     <function name="describe_actor" c:identifier="st_describe_actor">
       <doc xml:space="preserve"
            filename="src/st/st-widget.c"
-           line="2297">Creates a string describing @actor, for use in debugging. This
+           line="2305">Creates a string describing @actor, for use in debugging. This
 includes the class name and actor name (if any), plus if @actor
 is an #StWidget, its style class and pseudo class names.</doc>
       <source-position filename="src/st/st-widget.h" line="150"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/st/st-widget.c"
-             line="2305">the debug name.</doc>
+             line="2313">the debug name.</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
       <parameters>
         <parameter name="actor" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/st/st-widget.c"
-               line="2299">a #ClutterActor</doc>
+               line="2307">a #ClutterActor</doc>
           <type name="Clutter.Actor" c:type="ClutterActor*"/>
         </parameter>
       </parameters>

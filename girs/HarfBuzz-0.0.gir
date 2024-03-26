@@ -18,24 +18,24 @@ and/or use gtk-doc annotations.  -->
     <alias name="bool_t" c:type="hb_bool_t">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="91">Data type for booleans.</doc>
-      <source-position filename="hb-common.h" line="97"/>
+           line="85">Data type for booleans.</doc>
+      <source-position filename="hb-common.h" line="91"/>
       <type name="gint" c:type="int"/>
     </alias>
     <alias name="codepoint_t" c:type="hb_codepoint_t">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="99">Data type for holding Unicode codepoints. Also
+           line="93">Data type for holding Unicode codepoints. Also
 used to hold glyph IDs.</doc>
-      <source-position filename="hb-common.h" line="106"/>
+      <source-position filename="hb-common.h" line="100"/>
       <type name="guint32" c:type="uint32_t"/>
     </alias>
     <alias name="color_t" c:type="hb_color_t">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="871">Data type for holding color values. Colors are eight bits per
+           line="865">Data type for holding color values. Colors are eight bits per
 channel RGB plus alpha transparency.</doc>
-      <source-position filename="hb-common.h" line="879"/>
+      <source-position filename="hb-common.h" line="873"/>
       <type name="guint32" c:type="uint32_t"/>
     </alias>
     <alias name="font_get_font_h_extents_func_t"
@@ -167,8 +167,8 @@ must be returned in an #hb_position_t output parameter.</doc>
     <alias name="mask_t" c:type="hb_mask_t">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="126">Data type for bitmasks.</doc>
-      <source-position filename="hb-common.h" line="132"/>
+           line="120">Data type for bitmasks.</doc>
+      <source-position filename="hb-common.h" line="126"/>
       <type name="guint32" c:type="uint32_t"/>
     </alias>
     <alias name="ot_name_id_t" c:type="hb_ot_name_id_t">
@@ -183,22 +183,22 @@ API.  These can be used to fetch name strings from a font face.</doc>
     <alias name="position_t" c:type="hb_position_t">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="117">Data type for holding a single coordinate value.
+           line="111">Data type for holding a single coordinate value.
 Contour points and other multi-dimensional data are
 stored as tuples of #hb_position_t's.</doc>
-      <source-position filename="hb-common.h" line="125"/>
+      <source-position filename="hb-common.h" line="119"/>
       <type name="gint32" c:type="int32_t"/>
     </alias>
     <alias name="tag_t" c:type="hb_tag_t">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="156">Data type for tag identifiers. Tags are four
+           line="150">Data type for tag identifiers. Tags are four
 byte integers, each byte representing a character.
 
 Tags are used to identify tables, design-variation axes,
 scripts, languages, font features, and baselines with
 human-readable names.</doc>
-      <source-position filename="hb-common.h" line="167"/>
+      <source-position filename="hb-common.h" line="161"/>
       <type name="guint32" c:type="uint32_t"/>
     </alias>
     <constant name="AAT_LAYOUT_NO_SELECTOR_INDEX"
@@ -228,8 +228,8 @@ Set to U+FFFD REPLACEMENT CHARACTER.</doc>
               version="8.0.0">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="108">Unused #hb_codepoint_t value.</doc>
-      <source-position filename="hb-common.h" line="115"/>
+           line="102">Unused #hb_codepoint_t value.</doc>
+      <source-position filename="hb-common.h" line="109"/>
       <type name="codepoint_t" c:type="hb_codepoint_t"/>
     </constant>
     <function-macro name="COLOR"
@@ -238,35 +238,35 @@ Set to U+FFFD REPLACEMENT CHARACTER.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="881">Constructs an #hb_color_t from four integers.</doc>
-      <source-position filename="hb-common.h" line="892"/>
+           line="875">Constructs an #hb_color_t from four integers.</doc>
+      <source-position filename="hb-common.h" line="886"/>
       <parameters>
         <parameter name="b">
           <doc xml:space="preserve"
                filename="hb-common.h"
-               line="883">blue channel value</doc>
+               line="877">blue channel value</doc>
         </parameter>
         <parameter name="g">
           <doc xml:space="preserve"
                filename="hb-common.h"
-               line="884">green channel value</doc>
+               line="878">green channel value</doc>
         </parameter>
         <parameter name="r">
           <doc xml:space="preserve"
                filename="hb-common.h"
-               line="885">red channel value</doc>
+               line="879">red channel value</doc>
         </parameter>
         <parameter name="a">
           <doc xml:space="preserve"
                filename="hb-common.h"
-               line="886">alpha channel value</doc>
+               line="880">alpha channel value</doc>
         </parameter>
       </parameters>
     </function-macro>
     <function-macro name="DEPRECATED_FOR"
                     c:identifier="HB_DEPRECATED_FOR"
                     introspectable="0">
-      <source-position filename="hb-common.h" line="81"/>
+      <source-position filename="hb-common.h" line="75"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -277,14 +277,14 @@ Set to U+FFFD REPLACEMENT CHARACTER.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="290">Tests whether a text direction moves backward (from right to left, or from
+           line="284">Tests whether a text direction moves backward (from right to left, or from
 bottom to top). Requires that the direction be valid.</doc>
-      <source-position filename="hb-common.h" line="298"/>
+      <source-position filename="hb-common.h" line="292"/>
       <parameters>
         <parameter name="dir">
           <doc xml:space="preserve"
                filename="hb-common.h"
-               line="292">#hb_direction_t to test</doc>
+               line="286">#hb_direction_t to test</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -293,14 +293,14 @@ bottom to top). Requires that the direction be valid.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="281">Tests whether a text direction moves forward (from left to right, or from
+           line="275">Tests whether a text direction moves forward (from left to right, or from
 top to bottom). Requires that the direction be valid.</doc>
-      <source-position filename="hb-common.h" line="289"/>
+      <source-position filename="hb-common.h" line="283"/>
       <parameters>
         <parameter name="dir">
           <doc xml:space="preserve"
                filename="hb-common.h"
-               line="283">#hb_direction_t to test</doc>
+               line="277">#hb_direction_t to test</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -309,14 +309,14 @@ top to bottom). Requires that the direction be valid.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="263">Tests whether a text direction is horizontal. Requires
+           line="257">Tests whether a text direction is horizontal. Requires
 that the direction be valid.</doc>
-      <source-position filename="hb-common.h" line="271"/>
+      <source-position filename="hb-common.h" line="265"/>
       <parameters>
         <parameter name="dir">
           <doc xml:space="preserve"
                filename="hb-common.h"
-               line="265">#hb_direction_t to test</doc>
+               line="259">#hb_direction_t to test</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -325,13 +325,13 @@ that the direction be valid.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="254">Tests whether a text direction is valid.</doc>
-      <source-position filename="hb-common.h" line="261"/>
+           line="248">Tests whether a text direction is valid.</doc>
+      <source-position filename="hb-common.h" line="255"/>
       <parameters>
         <parameter name="dir">
           <doc xml:space="preserve"
                filename="hb-common.h"
-               line="256">#hb_direction_t to test</doc>
+               line="250">#hb_direction_t to test</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -340,14 +340,14 @@ that the direction be valid.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="272">Tests whether a text direction is vertical. Requires
+           line="266">Tests whether a text direction is vertical. Requires
 that the direction be valid.</doc>
-      <source-position filename="hb-common.h" line="280"/>
+      <source-position filename="hb-common.h" line="274"/>
       <parameters>
         <parameter name="dir">
           <doc xml:space="preserve"
                filename="hb-common.h"
-               line="274">#hb_direction_t to test</doc>
+               line="268">#hb_direction_t to test</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -356,14 +356,14 @@ that the direction be valid.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="299">Reverses a text direction. Requires that the direction
+           line="293">Reverses a text direction. Requires that the direction
 be valid.</doc>
-      <source-position filename="hb-common.h" line="307"/>
+      <source-position filename="hb-common.h" line="301"/>
       <parameters>
         <parameter name="dir">
           <doc xml:space="preserve"
                filename="hb-common.h"
-               line="301">#hb_direction_t to reverse</doc>
+               line="295">#hb_direction_t to reverse</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -373,9 +373,9 @@ be valid.</doc>
               version="2.0.0">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="797">Special setting for #hb_feature_t.start to apply the feature from the start
+           line="791">Special setting for #hb_feature_t.start to apply the feature from the start
 of the buffer.</doc>
-      <source-position filename="hb-common.h" line="805"/>
+      <source-position filename="hb-common.h" line="799"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="FONT_NO_VAR_NAMED_INSTANCE"
@@ -396,8 +396,8 @@ a font.</doc>
               version="0.6.0">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="327">An unset #hb_language_t.</doc>
-      <source-position filename="hb-common.h" line="334"/>
+           line="321">An unset #hb_language_t.</doc>
+      <source-position filename="hb-common.h" line="328"/>
       <type name="language_t" c:type="hb_language_t"/>
     </constant>
     <constant name="OT_LAYOUT_DEFAULT_LANGUAGE_INDEX"
@@ -471,28 +471,28 @@ a font.</doc>
     <function-macro name="TAG" c:identifier="HB_TAG" introspectable="0">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="169">Constructs an #hb_tag_t from four character literals.</doc>
-      <source-position filename="hb-common.h" line="179"/>
+           line="163">Constructs an #hb_tag_t from four character literals.</doc>
+      <source-position filename="hb-common.h" line="173"/>
       <parameters>
         <parameter name="c1">
           <doc xml:space="preserve"
                filename="hb-common.h"
-               line="171">1st character of the tag</doc>
+               line="165">1st character of the tag</doc>
         </parameter>
         <parameter name="c2">
           <doc xml:space="preserve"
                filename="hb-common.h"
-               line="172">2nd character of the tag</doc>
+               line="166">2nd character of the tag</doc>
         </parameter>
         <parameter name="c3">
           <doc xml:space="preserve"
                filename="hb-common.h"
-               line="173">3rd character of the tag</doc>
+               line="167">3rd character of the tag</doc>
         </parameter>
         <parameter name="c4">
           <doc xml:space="preserve"
                filename="hb-common.h"
-               line="174">4th character of the tag</doc>
+               line="168">4th character of the tag</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -534,13 +534,13 @@ a font.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="181">Extracts four character literals from an #hb_tag_t.</doc>
-      <source-position filename="hb-common.h" line="190"/>
+           line="175">Extracts four character literals from an #hb_tag_t.</doc>
+      <source-position filename="hb-common.h" line="184"/>
       <parameters>
         <parameter name="tag">
           <doc xml:space="preserve"
                filename="hb-common.h"
-               line="183">an #hb_tag_t</doc>
+               line="177">an #hb_tag_t</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -584,14 +584,14 @@ as three integer components.</doc>
       <source-position filename="hb-version.h" line="56"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_MINOR" value="2" c:type="HB_VERSION_MINOR">
+    <constant name="VERSION_MINOR" value="3" c:type="HB_VERSION_MINOR">
       <doc xml:space="preserve"
            filename="hb-version.h"
            line="45">The minor component of the library version available at compile-time.</doc>
       <source-position filename="hb-version.h" line="50"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_STRING" value="8.2.1" c:type="HB_VERSION_STRING">
+    <constant name="VERSION_STRING" value="8.3.1" c:type="HB_VERSION_STRING">
       <doc xml:space="preserve"
            filename="hb-version.h"
            line="58">A string literal containing the library version available at compile-time.</doc>
@@ -3039,11 +3039,11 @@ the selector that is selected by default.</doc>
              filename="hb-aat-layout.h"
              line="42">[Ligatures](https://developer.apple.com/fonts/TrueType-Reference-Manual/RM09/AppendixF.html#Type1)</doc>
       </member>
-      <member name="curisve_connection"
+      <member name="cursive_connection"
               value="2"
-              c:identifier="HB_AAT_LAYOUT_FEATURE_TYPE_CURISVE_CONNECTION"
-              glib:nick="curisve-connection"
-              glib:name="HB_AAT_LAYOUT_FEATURE_TYPE_CURISVE_CONNECTION">
+              c:identifier="HB_AAT_LAYOUT_FEATURE_TYPE_CURSIVE_CONNECTION"
+              glib:nick="cursive-connection"
+              glib:name="HB_AAT_LAYOUT_FEATURE_TYPE_CURSIVE_CONNECTION">
         <doc xml:space="preserve"
              filename="hb-aat-layout.h"
              line="43">[Cursive Connection](https://developer.apple.com/fonts/TrueType-Reference-Manual/RM09/AppendixF.html#Type2)</doc>
@@ -3583,12 +3583,17 @@ zero.  Destroy with hb_blob_destroy().</doc>
       <doc xml:space="preserve"
            filename="hb-blob.cc"
            line="594">Creates a new blob containing the data from the
-specified binary font file.</doc>
+specified binary font file.
+
+The filename is passed directly to the system on all platforms,
+except on Windows, where the filename is interpreted as UTF-8.
+Only if the filename is not valid UTF-8, it will be interpreted
+according to the system codepage.</doc>
       <source-position filename="hb-blob.h" line="101"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="hb-blob.cc"
-             line="601">An #hb_blob_t pointer with the content of the file,
+             line="606">An #hb_blob_t pointer with the content of the file,
 or hb_blob_get_empty() if failed.</doc>
         <type name="blob_t" c:type="hb_blob_t*"/>
       </return-value>
@@ -3606,13 +3611,18 @@ or hb_blob_get_empty() if failed.</doc>
               version="2.8.2">
       <doc xml:space="preserve"
            filename="hb-blob.cc"
-           line="613">Creates a new blob containing the data from the
-specified binary font file.</doc>
+           line="618">Creates a new blob containing the data from the
+specified binary font file.
+
+The filename is passed directly to the system on all platforms,
+except on Windows, where the filename is interpreted as UTF-8.
+Only if the filename is not valid UTF-8, it will be interpreted
+according to the system codepage.</doc>
       <source-position filename="hb-blob.h" line="104"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="hb-blob.cc"
-             line="620">An #hb_blob_t pointer with the content of the file,
+             line="630">An #hb_blob_t pointer with the content of the file,
 or `NULL` if failed.</doc>
         <type name="blob_t" c:type="hb_blob_t*"/>
       </return-value>
@@ -3620,7 +3630,7 @@ or `NULL` if failed.</doc>
         <parameter name="file_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-blob.cc"
-               line="615">A font filename</doc>
+               line="620">A font filename</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -6640,7 +6650,7 @@ and output glyphs and their information after shaping.</doc>
       <doc xml:space="preserve"
            filename="hb-common.cc"
            line="1148">Fetches the alpha channel of the given @color.</doc>
-      <source-position filename="hb-common.h" line="895"/>
+      <source-position filename="hb-common.h" line="889"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-common.cc"
@@ -6662,7 +6672,7 @@ and output glyphs and their information after shaping.</doc>
       <doc xml:space="preserve"
            filename="hb-common.cc"
            line="1196">Fetches the blue channel of the given @color.</doc>
-      <source-position filename="hb-common.h" line="907"/>
+      <source-position filename="hb-common.h" line="901"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-common.cc"
@@ -6684,7 +6694,7 @@ and output glyphs and their information after shaping.</doc>
       <doc xml:space="preserve"
            filename="hb-common.cc"
            line="1180">Fetches the green channel of the given @color.</doc>
-      <source-position filename="hb-common.h" line="903"/>
+      <source-position filename="hb-common.h" line="897"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-common.cc"
@@ -6706,7 +6716,7 @@ and output glyphs and their information after shaping.</doc>
       <doc xml:space="preserve"
            filename="hb-common.cc"
            line="1164">Fetches the red channel of the given @color.</doc>
-      <source-position filename="hb-common.h" line="899"/>
+      <source-position filename="hb-common.h" line="893"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-common.cc"
@@ -7006,8 +7016,8 @@ section for details.</doc>
     <callback name="destroy_func_t" c:type="hb_destroy_func_t">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="785">A virtual method for destroy user-data callbacks.</doc>
-      <source-position filename="hb-common.h" line="792"/>
+           line="779">A virtual method for destroy user-data callbacks.</doc>
+      <source-position filename="hb-common.h" line="786"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -7019,7 +7029,7 @@ section for details.</doc>
                    closure="0">
           <doc xml:space="preserve"
                filename="hb-common.h"
-               line="787">the data to be destroyed</doc>
+               line="781">the data to be destroyed</doc>
           <type name="gpointer" c:type="void*"/>
         </parameter>
       </parameters>
@@ -7035,7 +7045,7 @@ Matching is loose and applies only to the first letter. For
 examples, "LTR" and "left-to-right" will both return #HB_DIRECTION_LTR.
 
 Unmatched strings will return #HB_DIRECTION_INVALID.</doc>
-      <source-position filename="hb-common.h" line="249"/>
+      <source-position filename="hb-common.h" line="243"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-common.cc"
@@ -7065,7 +7075,7 @@ Unmatched strings will return #HB_DIRECTION_INVALID.</doc>
                  c:type="hb_direction_t">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="224">The direction of a text segment or buffer.
+           line="218">The direction of a text segment or buffer.
 
 A segment can also be tested for horizontal or vertical
 orientation (irrespective of specific direction) with
@@ -7077,7 +7087,7 @@ HB_DIRECTION_IS_HORIZONTAL() or HB_DIRECTION_IS_VERTICAL().</doc>
               glib:name="HB_DIRECTION_INVALID">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="226">Initial, unset direction.</doc>
+             line="220">Initial, unset direction.</doc>
       </member>
       <member name="ltr"
               value="4"
@@ -7086,7 +7096,7 @@ HB_DIRECTION_IS_HORIZONTAL() or HB_DIRECTION_IS_VERTICAL().</doc>
               glib:name="HB_DIRECTION_LTR">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="227">Text is set horizontally from left to right.</doc>
+             line="221">Text is set horizontally from left to right.</doc>
       </member>
       <member name="rtl"
               value="5"
@@ -7095,7 +7105,7 @@ HB_DIRECTION_IS_HORIZONTAL() or HB_DIRECTION_IS_VERTICAL().</doc>
               glib:name="HB_DIRECTION_RTL">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="228">Text is set horizontally from right to left.</doc>
+             line="222">Text is set horizontally from right to left.</doc>
       </member>
       <member name="ttb"
               value="6"
@@ -7104,7 +7114,7 @@ HB_DIRECTION_IS_HORIZONTAL() or HB_DIRECTION_IS_VERTICAL().</doc>
               glib:name="HB_DIRECTION_TTB">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="229">Text is set vertically from top to bottom.</doc>
+             line="223">Text is set vertically from top to bottom.</doc>
       </member>
       <member name="btt"
               value="7"
@@ -7113,7 +7123,7 @@ HB_DIRECTION_IS_HORIZONTAL() or HB_DIRECTION_IS_VERTICAL().</doc>
               glib:name="HB_DIRECTION_BTT">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="230">Text is set vertically from bottom to top.</doc>
+             line="224">Text is set vertically from bottom to top.</doc>
       </member>
     </enumeration>
     <function name="direction_to_string"
@@ -7122,7 +7132,7 @@ HB_DIRECTION_IS_HORIZONTAL() or HB_DIRECTION_IS_VERTICAL().</doc>
       <doc xml:space="preserve"
            filename="hb-common.cc"
            line="177">Converts an #hb_direction_t to a string.</doc>
-      <source-position filename="hb-common.h" line="252"/>
+      <source-position filename="hb-common.h" line="246"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-common.cc"
@@ -9042,7 +9052,7 @@ The format is Python-esque.  Here is how it all works:
 &lt;/tbody&gt;
 &lt;/tgroup&gt;
 &lt;/informaltable&gt;</doc>
-      <source-position filename="hb-common.h" line="840"/>
+      <source-position filename="hb-common.h" line="834"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-common.cc"
@@ -9082,22 +9092,22 @@ The format is Python-esque.  Here is how it all works:
             c:symbol-prefix="gobject_feature">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="817">The #hb_feature_t is the structure that holds information about requested
+           line="811">The #hb_feature_t is the structure that holds information about requested
 feature application. The feature will be applied with the given value to all
 glyphs which are in clusters between @start (inclusive) and @end (exclusive).
 Setting start to #HB_FEATURE_GLOBAL_START and end to #HB_FEATURE_GLOBAL_END
 specifies that the feature always applies to the entire buffer.</doc>
-      <source-position filename="hb-common.h" line="837"/>
+      <source-position filename="hb-common.h" line="831"/>
       <field name="tag" writable="1">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="819">The #hb_tag_t tag of the feature</doc>
+             line="813">The #hb_tag_t tag of the feature</doc>
         <type name="tag_t" c:type="hb_tag_t"/>
       </field>
       <field name="value" writable="1">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="820">The value of the feature. 0 disables the feature, non-zero (usually
+             line="814">The value of the feature. 0 disables the feature, non-zero (usually
 1) enables the feature.  For features implemented as lookup type 3 (like
 'salt') the @value is a one based index into the alternates.</doc>
         <type name="guint32" c:type="uint32_t"/>
@@ -9105,13 +9115,13 @@ specifies that the feature always applies to the entire buffer.</doc>
       <field name="start" writable="1">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="823">the cluster to start applying this feature setting (inclusive).</doc>
+             line="817">the cluster to start applying this feature setting (inclusive).</doc>
         <type name="guint" c:type="unsigned int"/>
       </field>
       <field name="end" writable="1">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="824">the cluster to end applying this feature setting (exclusive).</doc>
+             line="818">the cluster to end applying this feature setting (exclusive).</doc>
         <type name="guint" c:type="unsigned int"/>
       </field>
       <method name="_string"
@@ -9123,7 +9133,7 @@ specifies that the feature always applies to the entire buffer.</doc>
              line="958">Converts a #hb_feature_t into a `NULL`-terminated string in the format
 understood by hb_feature_from_string(). The client in responsible for
 allocating big enough size for @buf, 128 bytes is more than enough.</doc>
-        <source-position filename="hb-common.h" line="844"/>
+        <source-position filename="hb-common.h" line="838"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -9165,7 +9175,7 @@ allocating big enough size for @buf, 128 bytes is more than enough.</doc>
            line="958">Converts a #hb_feature_t into a `NULL`-terminated string in the format
 understood by hb_feature_from_string(). The client in responsible for
 allocating big enough size for @buf, 128 bytes is more than enough.</doc>
-      <source-position filename="hb-common.h" line="844"/>
+      <source-position filename="hb-common.h" line="838"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -14149,8 +14159,8 @@ or vertical) depending on the value of @direction.</doc>
             c:symbol-prefix="gobject_font">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="928">Data type for holding fonts.</doc>
-      <source-position filename="hb-common.h" line="934"/>
+           line="922">Data type for holding fonts.</doc>
+      <source-position filename="hb-common.h" line="928"/>
     </record>
     <function name="ft_face_create"
               c:identifier="hb_ft_face_create"
@@ -14412,7 +14422,7 @@ hb_ft_font_create() or hb_ft_font_create_referenced().</doc>
            line="249">Fetches the FT_Load_Glyph load flags of the specified #hb_font_t.
 
 For more information, see
-https://www.freetype.org/freetype2/docs/reference/ft2-base_interface.html#ft_load_xxx
+&lt;https://freetype.org/freetype2/docs/reference/ft2-glyph_retrieval.html#ft_load_xxx&gt;
 
 This function works with #hb_font_t objects created by
 hb_ft_font_create() or hb_ft_font_create_referenced().</doc>
@@ -14506,7 +14516,7 @@ to update the underlying FT_Face.
            line="220">Sets the FT_Load_Glyph load flags for the specified #hb_font_t.
 
 For more information, see
-https://www.freetype.org/freetype2/docs/reference/ft2-base_interface.html#ft_load_xxx
+&lt;https://freetype.org/freetype2/docs/reference/ft2-glyph_retrieval.html#ft_load_xxx&gt;
 
 This function works with #hb_font_t objects created by
 hb_ft_font_create() or hb_ft_font_create_referenced().</doc>
@@ -14662,32 +14672,32 @@ specified GUnicodeScript identifier.</doc>
     <record name="glyph_extents_t" c:type="hb_glyph_extents_t">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="910">Glyph extent values, measured in font units.
+           line="904">Glyph extent values, measured in font units.
 
 Note that @height is negative, in coordinate systems that grow up.</doc>
-      <source-position filename="hb-common.h" line="926"/>
+      <source-position filename="hb-common.h" line="920"/>
       <field name="x_bearing" writable="1">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="912">Distance from the x-origin to the left extremum of the glyph.</doc>
+             line="906">Distance from the x-origin to the left extremum of the glyph.</doc>
         <type name="position_t" c:type="hb_position_t"/>
       </field>
       <field name="y_bearing" writable="1">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="913">Distance from the top extremum of the glyph to the y-origin.</doc>
+             line="907">Distance from the top extremum of the glyph to the y-origin.</doc>
         <type name="position_t" c:type="hb_position_t"/>
       </field>
       <field name="width" writable="1">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="914">Distance from the left extremum of the glyph to the right extremum.</doc>
+             line="908">Distance from the left extremum of the glyph to the right extremum.</doc>
         <type name="position_t" c:type="hb_position_t"/>
       </field>
       <field name="height" writable="1">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="915">Distance from the top extremum of the glyph to the bottom extremum.</doc>
+             line="909">Distance from the top extremum of the glyph to the bottom extremum.</doc>
         <type name="position_t" c:type="hb_position_t"/>
       </field>
     </record>
@@ -15219,7 +15229,7 @@ conditionally based on those versions, again, at compile- or run-time.</doc>
            filename="hb-common.cc"
            line="330">Converts @str representing a BCP 47 language tag to the corresponding
 #hb_language_t.</doc>
-      <source-position filename="hb-common.h" line="322"/>
+      <source-position filename="hb-common.h" line="316"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-common.cc"
@@ -15258,7 +15268,7 @@ setlocale function is, in many implementations, NOT threadsafe.  To avoid
 problems, call this function once before multiple threads can call it.
 This function is only used from hb_buffer_guess_segment_properties() by
 HarfBuzz itself.&lt;/note&gt;</doc>
-      <source-position filename="hb-common.h" line="337"/>
+      <source-position filename="hb-common.h" line="331"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-common.cc"
@@ -15275,7 +15285,7 @@ an #hb_language_t</doc>
            line="418">Check whether a second language tag is the same or a more
 specific version of the provided language tag.  For example,
 "fa_IR.utf8" is a more specific tag for "fa" or for "fa_IR".</doc>
-      <source-position filename="hb-common.h" line="340"/>
+      <source-position filename="hb-common.h" line="334"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-common.cc"
@@ -15300,9 +15310,9 @@ specific version of the provided language tag.  For example,
     <record name="language_t" c:type="hb_language_t" disguised="1" pointer="1">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="312">Data type for languages. Each #hb_language_t corresponds to a BCP 47
+           line="306">Data type for languages. Each #hb_language_t corresponds to a BCP 47
 language tag.</doc>
-      <source-position filename="hb-common.h" line="319"/>
+      <source-position filename="hb-common.h" line="313"/>
       <method name="_string"
               c:identifier="hb_language_to_string"
               moved-to="language_to_string"
@@ -15310,7 +15320,7 @@ language tag.</doc>
         <doc xml:space="preserve"
              filename="hb-common.cc"
              line="366">Converts an #hb_language_t to a string.</doc>
-        <source-position filename="hb-common.h" line="325"/>
+        <source-position filename="hb-common.h" line="319"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-common.cc"
@@ -15335,7 +15345,7 @@ the caller.</doc>
       <doc xml:space="preserve"
            filename="hb-common.cc"
            line="366">Converts an #hb_language_t to a string.</doc>
-      <source-position filename="hb-common.h" line="325"/>
+      <source-position filename="hb-common.h" line="319"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-common.cc"
@@ -16668,7 +16678,7 @@ the specified script and language.</doc>
               version="0.9.8">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="1324">Fetches a list of all feature-lookup indexes in the specified face's GSUB
+           line="1329">Fetches a list of all feature-lookup indexes in the specified face's GSUB
 table or GPOS table, underneath the specified scripts, languages, and
 features. If no list of scripts is provided, all scripts will be queried.
 If no list of languages is provided, all languages will be queried. If no
@@ -16681,13 +16691,13 @@ list of features is provided, all features will be queried.</doc>
         <parameter name="face" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1326">#hb_face_t to work upon</doc>
+               line="1331">#hb_face_t to work upon</doc>
           <type name="face_t" c:type="hb_face_t*"/>
         </parameter>
         <parameter name="table_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1327">#HB_OT_TAG_GSUB or #HB_OT_TAG_GPOS</doc>
+               line="1332">#HB_OT_TAG_GSUB or #HB_OT_TAG_GPOS</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="scripts"
@@ -16696,7 +16706,7 @@ list of features is provided, all features will be queried.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1328">The array of scripts to collect lookups for,
+               line="1333">The array of scripts to collect lookups for,
   terminated by %HB_TAG_NONE</doc>
           <array c:type="const hb_tag_t*">
             <type name="tag_t" c:type="hb_tag_t"/>
@@ -16708,7 +16718,7 @@ list of features is provided, all features will be queried.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1330">The array of languages to collect lookups for,
+               line="1335">The array of languages to collect lookups for,
   terminated by %HB_TAG_NONE</doc>
           <array c:type="const hb_tag_t*">
             <type name="tag_t" c:type="hb_tag_t"/>
@@ -16720,7 +16730,7 @@ list of features is provided, all features will be queried.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1332">The array of features to collect lookups for,
+               line="1337">The array of features to collect lookups for,
   terminated by %HB_TAG_NONE</doc>
           <array c:type="const hb_tag_t*">
             <type name="tag_t" c:type="hb_tag_t"/>
@@ -16732,7 +16742,7 @@ list of features is provided, all features will be queried.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1334">The array of lookup indexes found for the query</doc>
+               line="1339">The array of lookup indexes found for the query</doc>
           <type name="set_t" c:type="hb_set_t*"/>
         </parameter>
       </parameters>
@@ -16742,38 +16752,38 @@ list of features is provided, all features will be queried.</doc>
               version="2.0.0">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="1826">Fetches a list of the characters defined as having a variant under the specified
+           line="1831">Fetches a list of the characters defined as having a variant under the specified
 "Character Variant" ("cvXX") feature tag.</doc>
       <source-position filename="hb-ot-layout.h" line="445"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-ot-layout.cc"
-             line="1841">Number of total sample characters in the cvXX feature.</doc>
+             line="1846">Number of total sample characters in the cvXX feature.</doc>
         <type name="guint" c:type="unsigned int"/>
       </return-value>
       <parameters>
         <parameter name="face" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1828">#hb_face_t to work upon</doc>
+               line="1833">#hb_face_t to work upon</doc>
           <type name="face_t" c:type="hb_face_t*"/>
         </parameter>
         <parameter name="table_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1829">table tag to query, "GSUB" or "GPOS".</doc>
+               line="1834">table tag to query, "GSUB" or "GPOS".</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="feature_index" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1830">index of feature to query.</doc>
+               line="1835">index of feature to query.</doc>
           <type name="guint" c:type="unsigned int"/>
         </parameter>
         <parameter name="start_offset" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1831">offset of the first character to retrieve</doc>
+               line="1836">offset of the first character to retrieve</doc>
           <type name="guint" c:type="unsigned int"/>
         </parameter>
         <parameter name="char_count"
@@ -16784,7 +16794,7 @@ list of features is provided, all features will be queried.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1832">Input = the maximum number of characters to return;
+               line="1837">Input = the maximum number of characters to return;
              Output = the actual number of characters returned (may be zero)</doc>
           <type name="guint" c:type="unsigned int*"/>
         </parameter>
@@ -16794,7 +16804,7 @@ list of features is provided, all features will be queried.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1834">A buffer pointer.
+               line="1839">A buffer pointer.
              The Unicode codepoints of the characters for which this feature provides
               glyph variants.</doc>
           <array length="4" zero-terminated="0" c:type="hb_codepoint_t*">
@@ -16873,32 +16883,32 @@ begin at the offset provided.</doc>
               version="2.0.0">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="1752">Fetches name indices from feature parameters for "Stylistic Set" ('ssXX') or
+           line="1757">Fetches name indices from feature parameters for "Stylistic Set" ('ssXX') or
 "Character Variant" ('cvXX') features.</doc>
       <source-position filename="hb-ot-layout.h" line="434"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-ot-layout.cc"
-             line="1772">`true` if data found, `false` otherwise</doc>
+             line="1777">`true` if data found, `false` otherwise</doc>
         <type name="bool_t" c:type="hb_bool_t"/>
       </return-value>
       <parameters>
         <parameter name="face" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1754">#hb_face_t to work upon</doc>
+               line="1759">#hb_face_t to work upon</doc>
           <type name="face_t" c:type="hb_face_t*"/>
         </parameter>
         <parameter name="table_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1755">table tag to query, "GSUB" or "GPOS".</doc>
+               line="1760">table tag to query, "GSUB" or "GPOS".</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="feature_index" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1756">index of feature to query.</doc>
+               line="1761">index of feature to query.</doc>
           <type name="guint" c:type="unsigned int"/>
         </parameter>
         <parameter name="label_id"
@@ -16909,7 +16919,7 @@ begin at the offset provided.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1757">The ‘name’ table name ID that specifies a string
+               line="1762">The ‘name’ table name ID that specifies a string
            for a user-interface label for this feature. (May be NULL.)</doc>
           <type name="ot_name_id_t" c:type="hb_ot_name_id_t*"/>
         </parameter>
@@ -16921,7 +16931,7 @@ begin at the offset provided.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1759">The ‘name’ table name ID that specifies a string
+               line="1764">The ‘name’ table name ID that specifies a string
              that an application can use for tooltip text for this
              feature. (May be NULL.)</doc>
           <type name="ot_name_id_t" c:type="hb_ot_name_id_t*"/>
@@ -16934,7 +16944,7 @@ begin at the offset provided.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1762">The ‘name’ table name ID that specifies sample text
+               line="1767">The ‘name’ table name ID that specifies sample text
             that illustrates the effect of this feature. (May be NULL.)</doc>
           <type name="ot_name_id_t" c:type="hb_ot_name_id_t*"/>
         </parameter>
@@ -16946,7 +16956,7 @@ begin at the offset provided.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1764">Number of named parameters. (May be zero.)</doc>
+               line="1769">Number of named parameters. (May be zero.)</doc>
           <type name="guint" c:type="unsigned int*"/>
         </parameter>
         <parameter name="first_param_id"
@@ -16957,7 +16967,7 @@ begin at the offset provided.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1765">The first ‘name’ table name ID used to specify
+               line="1770">The first ‘name’ table name ID used to specify
                  strings for user-interface labels for the feature
                  parameters. (Must be zero if numParameters is zero.)</doc>
           <type name="ot_name_id_t" c:type="hb_ot_name_id_t*"/>
@@ -16969,45 +16979,45 @@ begin at the offset provided.</doc>
               version="1.4.0">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="1446">Fetches a list of all lookups enumerated for the specified feature, in
+           line="1451">Fetches a list of all lookups enumerated for the specified feature, in
 the specified face's GSUB table or GPOS table, enabled at the specified
 variations index. The list returned will begin at the offset provided.</doc>
       <source-position filename="hb-ot-layout.h" line="362"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-ot-layout.cc"
-             line="1461">Total number of lookups.</doc>
+             line="1466">Total number of lookups.</doc>
         <type name="guint" c:type="unsigned int"/>
       </return-value>
       <parameters>
         <parameter name="face" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1448">#hb_face_t to work upon</doc>
+               line="1453">#hb_face_t to work upon</doc>
           <type name="face_t" c:type="hb_face_t*"/>
         </parameter>
         <parameter name="table_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1449">#HB_OT_TAG_GSUB or #HB_OT_TAG_GPOS</doc>
+               line="1454">#HB_OT_TAG_GSUB or #HB_OT_TAG_GPOS</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="feature_index" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1450">The index of the feature to query</doc>
+               line="1455">The index of the feature to query</doc>
           <type name="guint" c:type="unsigned int"/>
         </parameter>
         <parameter name="variations_index" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1451">The index of the feature variation to query</doc>
+               line="1456">The index of the feature variation to query</doc>
           <type name="guint" c:type="unsigned int"/>
         </parameter>
         <parameter name="start_offset" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1452">offset of the first lookup to retrieve</doc>
+               line="1457">offset of the first lookup to retrieve</doc>
           <type name="guint" c:type="unsigned int"/>
         </parameter>
         <parameter name="lookup_count"
@@ -17018,7 +17028,7 @@ variations index. The list returned will begin at the offset provided.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1453">Input = the maximum number of lookups to return;
+               line="1458">Input = the maximum number of lookups to return;
                Output = the actual number of lookups returned (may be zero)</doc>
           <type name="guint" c:type="unsigned int*"/>
         </parameter>
@@ -17028,7 +17038,7 @@ variations index. The list returned will begin at the offset provided.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1455">The array of lookups found for the query</doc>
+               line="1460">The array of lookups found for the query</doc>
           <array length="5" zero-terminated="0" c:type="unsigned int*">
             <type name="guint" c:type="unsigned int"/>
           </array>
@@ -17099,44 +17109,44 @@ Useful if the client program wishes to cache the list.</doc>
               version="2.6.0">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="2253">Fetches a baseline value from the face.</doc>
+           line="2258">Fetches a baseline value from the face.</doc>
       <source-position filename="hb-ot-layout.h" line="516"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-ot-layout.cc"
-             line="2264">`true` if found baseline value in the font.</doc>
+             line="2269">`true` if found baseline value in the font.</doc>
         <type name="bool_t" c:type="hb_bool_t"/>
       </return-value>
       <parameters>
         <parameter name="font" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2255">a font</doc>
+               line="2260">a font</doc>
           <type name="font_t" c:type="hb_font_t*"/>
         </parameter>
         <parameter name="baseline_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2256">a baseline tag</doc>
+               line="2261">a baseline tag</doc>
           <type name="ot_layout_baseline_tag_t"
                 c:type="hb_ot_layout_baseline_tag_t"/>
         </parameter>
         <parameter name="direction" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2257">text direction.</doc>
+               line="2262">text direction.</doc>
           <type name="direction_t" c:type="hb_direction_t"/>
         </parameter>
         <parameter name="script_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2258">script tag.</doc>
+               line="2263">script tag.</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="language_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2259">language tag, currently unused.</doc>
+               line="2264">language tag, currently unused.</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="coord"
@@ -17146,7 +17156,7 @@ Useful if the client program wishes to cache the list.</doc>
                    nullable="1">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2260">baseline value if found.</doc>
+               line="2265">baseline value if found.</doc>
           <type name="position_t" c:type="hb_position_t*"/>
         </parameter>
       </parameters>
@@ -17156,7 +17166,7 @@ Useful if the client program wishes to cache the list.</doc>
               version="8.0.0">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="2279">Fetches a baseline value from the face.
+           line="2284">Fetches a baseline value from the face.
 
 This function is like hb_ot_layout_get_baseline() but takes
 #hb_script_t and #hb_language_t instead of OpenType #hb_tag_t.</doc>
@@ -17164,33 +17174,33 @@ This function is like hb_ot_layout_get_baseline() but takes
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-ot-layout.cc"
-             line="2293">`true` if found baseline value in the font.</doc>
+             line="2298">`true` if found baseline value in the font.</doc>
         <type name="bool_t" c:type="hb_bool_t"/>
       </return-value>
       <parameters>
         <parameter name="font" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2281">a font</doc>
+               line="2286">a font</doc>
           <type name="font_t" c:type="hb_font_t*"/>
         </parameter>
         <parameter name="baseline_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2282">a baseline tag</doc>
+               line="2287">a baseline tag</doc>
           <type name="ot_layout_baseline_tag_t"
                 c:type="hb_ot_layout_baseline_tag_t"/>
         </parameter>
         <parameter name="direction" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2283">text direction.</doc>
+               line="2288">text direction.</doc>
           <type name="direction_t" c:type="hb_direction_t"/>
         </parameter>
         <parameter name="script" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2284">script.</doc>
+               line="2289">script.</doc>
           <type name="script_t" c:type="hb_script_t"/>
         </parameter>
         <parameter name="language"
@@ -17199,7 +17209,7 @@ This function is like hb_ot_layout_get_baseline() but takes
                    allow-none="1">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2285">language, currently unused.</doc>
+               line="2290">language, currently unused.</doc>
           <type name="language_t" c:type="hb_language_t"/>
         </parameter>
         <parameter name="coord"
@@ -17209,7 +17219,7 @@ This function is like hb_ot_layout_get_baseline() but takes
                    nullable="1">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2286">baseline value if found.</doc>
+               line="2291">baseline value if found.</doc>
           <type name="position_t" c:type="hb_position_t*"/>
         </parameter>
       </parameters>
@@ -17219,7 +17229,7 @@ This function is like hb_ot_layout_get_baseline() but takes
               version="4.0.0">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="2315">Fetches a baseline value from the face, and synthesizes
+           line="2320">Fetches a baseline value from the face, and synthesizes
 it if the font does not have it.</doc>
       <source-position filename="hb-ot-layout.h" line="532"/>
       <return-value transfer-ownership="none">
@@ -17229,32 +17239,32 @@ it if the font does not have it.</doc>
         <parameter name="font" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2317">a font</doc>
+               line="2322">a font</doc>
           <type name="font_t" c:type="hb_font_t*"/>
         </parameter>
         <parameter name="baseline_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2318">a baseline tag</doc>
+               line="2323">a baseline tag</doc>
           <type name="ot_layout_baseline_tag_t"
                 c:type="hb_ot_layout_baseline_tag_t"/>
         </parameter>
         <parameter name="direction" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2319">text direction.</doc>
+               line="2324">text direction.</doc>
           <type name="direction_t" c:type="hb_direction_t"/>
         </parameter>
         <parameter name="script_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2320">script tag.</doc>
+               line="2325">script tag.</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="language_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2321">language tag, currently unused.</doc>
+               line="2326">language tag, currently unused.</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="coord"
@@ -17263,7 +17273,7 @@ it if the font does not have it.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2322">baseline value if found.</doc>
+               line="2327">baseline value if found.</doc>
           <type name="position_t" c:type="hb_position_t*"/>
         </parameter>
       </parameters>
@@ -17273,7 +17283,7 @@ it if the font does not have it.</doc>
               version="8.0.0">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="2537">Fetches a baseline value from the face, and synthesizes
+           line="2542">Fetches a baseline value from the face, and synthesizes
 it if the font does not have it.
 
 This function is like hb_ot_layout_get_baseline_with_fallback() but takes
@@ -17286,26 +17296,26 @@ This function is like hb_ot_layout_get_baseline_with_fallback() but takes
         <parameter name="font" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2539">a font</doc>
+               line="2544">a font</doc>
           <type name="font_t" c:type="hb_font_t*"/>
         </parameter>
         <parameter name="baseline_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2540">a baseline tag</doc>
+               line="2545">a baseline tag</doc>
           <type name="ot_layout_baseline_tag_t"
                 c:type="hb_ot_layout_baseline_tag_t"/>
         </parameter>
         <parameter name="direction" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2541">text direction.</doc>
+               line="2546">text direction.</doc>
           <type name="direction_t" c:type="hb_direction_t"/>
         </parameter>
         <parameter name="script" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2542">script.</doc>
+               line="2547">script.</doc>
           <type name="script_t" c:type="hb_script_t"/>
         </parameter>
         <parameter name="language"
@@ -17314,7 +17324,7 @@ This function is like hb_ot_layout_get_baseline_with_fallback() but takes
                    allow-none="1">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2543">language, currently unused.</doc>
+               line="2548">language, currently unused.</doc>
           <type name="language_t" c:type="hb_language_t"/>
         </parameter>
         <parameter name="coord"
@@ -17323,7 +17333,7 @@ This function is like hb_ot_layout_get_baseline_with_fallback() but takes
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2544">baseline value if found.</doc>
+               line="2549">baseline value if found.</doc>
           <type name="position_t" c:type="hb_position_t*"/>
         </parameter>
       </parameters>
@@ -17333,7 +17343,7 @@ This function is like hb_ot_layout_get_baseline_with_fallback() but takes
               version="8.0.0">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="2097">Fetches script/language-specific font extents.  These values are
+           line="2102">Fetches script/language-specific font extents.  These values are
 looked up in the `BASE` table's `MinMax` records.
 
 If no such extents are found, the default extents for the font are
@@ -17345,32 +17355,32 @@ that case.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-ot-layout.cc"
-             line="2114">`true` if found script/language-specific font extents.</doc>
+             line="2119">`true` if found script/language-specific font extents.</doc>
         <type name="bool_t" c:type="hb_bool_t"/>
       </return-value>
       <parameters>
         <parameter name="font" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2099">a font</doc>
+               line="2104">a font</doc>
           <type name="font_t" c:type="hb_font_t*"/>
         </parameter>
         <parameter name="direction" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2100">text direction.</doc>
+               line="2105">text direction.</doc>
           <type name="direction_t" c:type="hb_direction_t"/>
         </parameter>
         <parameter name="script_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2101">script tag.</doc>
+               line="2106">script tag.</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="language_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2102">language tag.</doc>
+               line="2107">language tag.</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="extents"
@@ -17380,7 +17390,7 @@ that case.</doc>
                    nullable="1">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2103">font extents if found.</doc>
+               line="2108">font extents if found.</doc>
           <type name="font_extents_t" c:type="hb_font_extents_t*"/>
         </parameter>
       </parameters>
@@ -17390,7 +17400,7 @@ that case.</doc>
               version="8.0.0">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="2142">Fetches script/language-specific font extents.  These values are
+           line="2147">Fetches script/language-specific font extents.  These values are
 looked up in the `BASE` table's `MinMax` records.
 
 If no such extents are found, the default extents for the font are
@@ -17405,26 +17415,26 @@ This function is like hb_ot_layout_get_font_extents() but takes
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-ot-layout.cc"
-             line="2162">`true` if found script/language-specific font extents.</doc>
+             line="2167">`true` if found script/language-specific font extents.</doc>
         <type name="bool_t" c:type="hb_bool_t"/>
       </return-value>
       <parameters>
         <parameter name="font" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2144">a font</doc>
+               line="2149">a font</doc>
           <type name="font_t" c:type="hb_font_t*"/>
         </parameter>
         <parameter name="direction" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2145">text direction.</doc>
+               line="2150">text direction.</doc>
           <type name="direction_t" c:type="hb_direction_t"/>
         </parameter>
         <parameter name="script" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2146">script.</doc>
+               line="2151">script.</doc>
           <type name="script_t" c:type="hb_script_t"/>
         </parameter>
         <parameter name="language"
@@ -17433,7 +17443,7 @@ This function is like hb_ot_layout_get_font_extents() but takes
                    allow-none="1">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2147">language.</doc>
+               line="2152">language.</doc>
           <type name="language_t" c:type="hb_language_t"/>
         </parameter>
         <parameter name="extents"
@@ -17443,7 +17453,7 @@ This function is like hb_ot_layout_get_font_extents() but takes
                    nullable="1">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2148">font extents if found.</doc>
+               line="2153">font extents if found.</doc>
           <type name="font_extents_t" c:type="hb_font_extents_t*"/>
         </parameter>
       </parameters>
@@ -17520,12 +17530,12 @@ glyph class in the face's GDEF table.</doc>
               version="4.0.0">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="2182">Fetches the dominant horizontal baseline tag used by @script.</doc>
+           line="2187">Fetches the dominant horizontal baseline tag used by @script.</doc>
       <source-position filename="hb-ot-layout.h" line="513"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-ot-layout.cc"
-             line="2188">dominant baseline tag for the @script.</doc>
+             line="2193">dominant baseline tag for the @script.</doc>
         <type name="ot_layout_baseline_tag_t"
               c:type="hb_ot_layout_baseline_tag_t"/>
       </return-value>
@@ -17533,7 +17543,7 @@ glyph class in the face's GDEF table.</doc>
         <parameter name="script" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2184">a script tag.</doc>
+               line="2189">a script tag.</doc>
           <type name="script_t" c:type="hb_script_t"/>
         </parameter>
       </parameters>
@@ -17613,7 +17623,7 @@ be fixed up for kerning that may be applied to the ligature glyph.</doc>
               version="0.9.10">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="1688">Fetches optical-size feature data (i.e., the `size` feature from GPOS). Note that
+           line="1693">Fetches optical-size feature data (i.e., the `size` feature from GPOS). Note that
 the subfamily_id and the subfamily name string (accessible via the subfamily_name_id)
 as used here are defined as pertaining only to fonts within a font family that differ
 specifically in their respective size ranges; other ways to differentiate fonts within
@@ -17625,14 +17635,14 @@ https://docs.microsoft.com/en-us/typography/opentype/spec/features_pt#tag-size).
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-ot-layout.cc"
-             line="1706">`true` if data found, `false` otherwise</doc>
+             line="1711">`true` if data found, `false` otherwise</doc>
         <type name="bool_t" c:type="hb_bool_t"/>
       </return-value>
       <parameters>
         <parameter name="face" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1690">#hb_face_t to work upon</doc>
+               line="1695">#hb_face_t to work upon</doc>
           <type name="face_t" c:type="hb_face_t*"/>
         </parameter>
         <parameter name="design_size"
@@ -17641,7 +17651,7 @@ https://docs.microsoft.com/en-us/typography/opentype/spec/features_pt#tag-size).
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1691">The design size of the face</doc>
+               line="1696">The design size of the face</doc>
           <type name="guint" c:type="unsigned int*"/>
         </parameter>
         <parameter name="subfamily_id"
@@ -17650,7 +17660,7 @@ https://docs.microsoft.com/en-us/typography/opentype/spec/features_pt#tag-size).
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1692">The identifier of the face within the font subfamily</doc>
+               line="1697">The identifier of the face within the font subfamily</doc>
           <type name="guint" c:type="unsigned int*"/>
         </parameter>
         <parameter name="subfamily_name_id"
@@ -17659,7 +17669,7 @@ https://docs.microsoft.com/en-us/typography/opentype/spec/features_pt#tag-size).
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1693">The ‘name’ table name ID of the face within the font subfamily</doc>
+               line="1698">The ‘name’ table name ID of the face within the font subfamily</doc>
           <type name="ot_name_id_t" c:type="hb_ot_name_id_t*"/>
         </parameter>
         <parameter name="range_start"
@@ -17668,7 +17678,7 @@ https://docs.microsoft.com/en-us/typography/opentype/spec/features_pt#tag-size).
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1694">The minimum size of the recommended size range for the face</doc>
+               line="1699">The minimum size of the recommended size range for the face</doc>
           <type name="guint" c:type="unsigned int*"/>
         </parameter>
         <parameter name="range_end"
@@ -17677,7 +17687,7 @@ https://docs.microsoft.com/en-us/typography/opentype/spec/features_pt#tag-size).
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1695">The maximum size of the recommended size range for the face</doc>
+               line="1700">The maximum size of the recommended size range for the face</doc>
           <type name="guint" c:type="unsigned int*"/>
         </parameter>
       </parameters>
@@ -17760,19 +17770,19 @@ https://docs.microsoft.com/en-us/typography/opentype/spec/features_pt#tag-size).
               c:identifier="hb_ot_layout_has_positioning">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="1627">Tests whether the specified face includes any GPOS positioning.</doc>
+           line="1632">Tests whether the specified face includes any GPOS positioning.</doc>
       <source-position filename="hb-ot-layout.h" line="410"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-ot-layout.cc"
-             line="1633">`true` if the face has GPOS data, `false` otherwise</doc>
+             line="1638">`true` if the face has GPOS data, `false` otherwise</doc>
         <type name="bool_t" c:type="hb_bool_t"/>
       </return-value>
       <parameters>
         <parameter name="face" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1629">#hb_face_t to work upon</doc>
+               line="1634">#hb_face_t to work upon</doc>
           <type name="face_t" c:type="hb_face_t*"/>
         </parameter>
       </parameters>
@@ -17782,19 +17792,19 @@ https://docs.microsoft.com/en-us/typography/opentype/spec/features_pt#tag-size).
               version="0.6.0">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="1489">Tests whether the specified face includes any GSUB substitutions.</doc>
+           line="1494">Tests whether the specified face includes any GSUB substitutions.</doc>
       <source-position filename="hb-ot-layout.h" line="376"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-ot-layout.cc"
-             line="1495">`true` if data found, `false` otherwise</doc>
+             line="1500">`true` if data found, `false` otherwise</doc>
         <type name="bool_t" c:type="hb_bool_t"/>
       </return-value>
       <parameters>
         <parameter name="face" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1491">#hb_face_t to work upon</doc>
+               line="1496">#hb_face_t to work upon</doc>
           <type name="face_t" c:type="hb_face_t*"/>
         </parameter>
       </parameters>
@@ -18111,7 +18121,7 @@ underneath the specified script and language.</doc>
               version="0.9.7">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="1365">Fetches a list of all glyphs affected by the specified lookup in the
+           line="1370">Fetches a list of all glyphs affected by the specified lookup in the
 specified face's GSUB table or GPOS table.</doc>
       <source-position filename="hb-ot-layout.h" line="343"/>
       <return-value transfer-ownership="none">
@@ -18121,19 +18131,19 @@ specified face's GSUB table or GPOS table.</doc>
         <parameter name="face" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1367">#hb_face_t to work upon</doc>
+               line="1372">#hb_face_t to work upon</doc>
           <type name="face_t" c:type="hb_face_t*"/>
         </parameter>
         <parameter name="table_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1368">#HB_OT_TAG_GSUB or #HB_OT_TAG_GPOS</doc>
+               line="1373">#HB_OT_TAG_GSUB or #HB_OT_TAG_GPOS</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="lookup_index" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1369">The index of the feature lookup to query</doc>
+               line="1374">The index of the feature lookup to query</doc>
           <type name="guint" c:type="unsigned int"/>
         </parameter>
         <parameter name="glyphs_before"
@@ -18142,7 +18152,7 @@ specified face's GSUB table or GPOS table.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1370">Array of glyphs preceding the substitution range</doc>
+               line="1375">Array of glyphs preceding the substitution range</doc>
           <type name="set_t" c:type="hb_set_t*"/>
         </parameter>
         <parameter name="glyphs_input"
@@ -18151,7 +18161,7 @@ specified face's GSUB table or GPOS table.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1371">Array of input glyphs that would be substituted by the lookup</doc>
+               line="1376">Array of input glyphs that would be substituted by the lookup</doc>
           <type name="set_t" c:type="hb_set_t*"/>
         </parameter>
         <parameter name="glyphs_after"
@@ -18160,7 +18170,7 @@ specified face's GSUB table or GPOS table.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1372">Array of glyphs following the substitution range</doc>
+               line="1377">Array of glyphs following the substitution range</doc>
           <type name="set_t" c:type="hb_set_t*"/>
         </parameter>
         <parameter name="glyphs_output"
@@ -18169,7 +18179,7 @@ specified face's GSUB table or GPOS table.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1373">Array of glyphs that would be the substituted output of the lookup</doc>
+               line="1378">Array of glyphs that would be the substituted output of the lookup</doc>
           <type name="set_t" c:type="hb_set_t*"/>
         </parameter>
       </parameters>
@@ -18179,37 +18189,37 @@ specified face's GSUB table or GPOS table.</doc>
               version="2.6.8">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="2595">Fetches alternates of a glyph from a given GSUB lookup index.</doc>
+           line="2600">Fetches alternates of a glyph from a given GSUB lookup index.</doc>
       <source-position filename="hb-ot-layout.h" line="379"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-ot-layout.cc"
-             line="2608">Total number of alternates found in the specific lookup index for the given glyph id.</doc>
+             line="2613">Total number of alternates found in the specific lookup index for the given glyph id.</doc>
         <type name="guint" c:type="unsigned"/>
       </return-value>
       <parameters>
         <parameter name="face" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2597">a face.</doc>
+               line="2602">a face.</doc>
           <type name="face_t" c:type="hb_face_t*"/>
         </parameter>
         <parameter name="lookup_index" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2598">index of the feature lookup to query.</doc>
+               line="2603">index of the feature lookup to query.</doc>
           <type name="guint" c:type="unsigned"/>
         </parameter>
         <parameter name="glyph" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2599">a glyph id.</doc>
+               line="2604">a glyph id.</doc>
           <type name="codepoint_t" c:type="hb_codepoint_t"/>
         </parameter>
         <parameter name="start_offset" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2600">starting offset.</doc>
+               line="2605">starting offset.</doc>
           <type name="guint" c:type="unsigned"/>
         </parameter>
         <parameter name="alternate_count"
@@ -18220,7 +18230,7 @@ specified face's GSUB table or GPOS table.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2601">Input = the maximum number of alternate glyphs to return;
+               line="2606">Input = the maximum number of alternate glyphs to return;
                   Output = the actual number of alternate glyphs returned (may be zero).</doc>
           <type name="guint" c:type="unsigned*"/>
         </parameter>
@@ -18230,7 +18240,7 @@ specified face's GSUB table or GPOS table.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2603">A glyphs buffer.
+               line="2608">A glyphs buffer.
                    Alternate glyphs associated with the glyph id.</doc>
           <array length="4" zero-terminated="0" c:type="hb_codepoint_t*">
             <type name="codepoint_t" c:type="hb_codepoint_t"/>
@@ -18243,38 +18253,38 @@ specified face's GSUB table or GPOS table.</doc>
               version="5.3.0">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="2647">Fetches the optical bound of a glyph positioned at the margin of text.
+           line="2652">Fetches the optical bound of a glyph positioned at the margin of text.
 The direction identifies which edge of the glyph to query.</doc>
       <source-position filename="hb-ot-layout.h" line="423"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-ot-layout.cc"
-             line="2657">Adjustment value. Negative values mean the glyph will stick out of the margin.</doc>
+             line="2662">Adjustment value. Negative values mean the glyph will stick out of the margin.</doc>
         <type name="position_t" c:type="hb_position_t"/>
       </return-value>
       <parameters>
         <parameter name="font" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2649">a font.</doc>
+               line="2654">a font.</doc>
           <type name="font_t" c:type="hb_font_t*"/>
         </parameter>
         <parameter name="lookup_index" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2650">index of the feature lookup to query.</doc>
+               line="2655">index of the feature lookup to query.</doc>
           <type name="guint" c:type="unsigned"/>
         </parameter>
         <parameter name="direction" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2651">edge of the glyph to query.</doc>
+               line="2656">edge of the glyph to query.</doc>
           <type name="direction_t" c:type="hb_direction_t"/>
         </parameter>
         <parameter name="glyph" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="2652">a glyph id.</doc>
+               line="2657">a glyph id.</doc>
           <type name="codepoint_t" c:type="hb_codepoint_t"/>
         </parameter>
       </parameters>
@@ -18284,7 +18294,7 @@ The direction identifies which edge of the glyph to query.</doc>
               version="0.9.7">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="1556">Compute the transitive closure of glyphs needed for a
+           line="1561">Compute the transitive closure of glyphs needed for a
 specified lookup.</doc>
       <source-position filename="hb-ot-layout.h" line="394"/>
       <return-value transfer-ownership="none">
@@ -18294,13 +18304,13 @@ specified lookup.</doc>
         <parameter name="face" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1558">#hb_face_t to work upon</doc>
+               line="1563">#hb_face_t to work upon</doc>
           <type name="face_t" c:type="hb_face_t*"/>
         </parameter>
         <parameter name="lookup_index" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1559">index of the feature lookup to query</doc>
+               line="1564">index of the feature lookup to query</doc>
           <type name="guint" c:type="unsigned int"/>
         </parameter>
         <parameter name="glyphs"
@@ -18309,7 +18319,7 @@ specified lookup.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1560">Array of glyphs comprising the transitive closure of the lookup</doc>
+               line="1565">Array of glyphs comprising the transitive closure of the lookup</doc>
           <type name="set_t" c:type="hb_set_t*"/>
         </parameter>
       </parameters>
@@ -18319,44 +18329,44 @@ specified lookup.</doc>
               version="0.9.7">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="1507">Tests whether a specified lookup in the specified face would
+           line="1512">Tests whether a specified lookup in the specified face would
 trigger a substitution on the given glyph sequence.</doc>
       <source-position filename="hb-ot-layout.h" line="387"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-ot-layout.cc"
-             line="1519">`true` if a substitution would be triggered, `false` otherwise</doc>
+             line="1524">`true` if a substitution would be triggered, `false` otherwise</doc>
         <type name="bool_t" c:type="hb_bool_t"/>
       </return-value>
       <parameters>
         <parameter name="face" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1509">#hb_face_t to work upon</doc>
+               line="1514">#hb_face_t to work upon</doc>
           <type name="face_t" c:type="hb_face_t*"/>
         </parameter>
         <parameter name="lookup_index" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1510">The index of the lookup to query</doc>
+               line="1515">The index of the lookup to query</doc>
           <type name="guint" c:type="unsigned int"/>
         </parameter>
         <parameter name="glyphs" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1511">The sequence of glyphs to query for substitution</doc>
+               line="1516">The sequence of glyphs to query for substitution</doc>
           <type name="codepoint_t" c:type="const hb_codepoint_t*"/>
         </parameter>
         <parameter name="glyphs_length" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1512">The length of the glyph sequence</doc>
+               line="1517">The length of the glyph sequence</doc>
           <type name="guint" c:type="unsigned int"/>
         </parameter>
         <parameter name="zero_context" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1513">#hb_bool_t indicating whether pre-/post-context are disallowed
+               line="1518">#hb_bool_t indicating whether pre-/post-context are disallowed
 in substitutions</doc>
           <type name="bool_t" c:type="hb_bool_t"/>
         </parameter>
@@ -18367,7 +18377,7 @@ in substitutions</doc>
               version="1.8.1">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="1581">Compute the transitive closure of glyphs needed for all of the
+           line="1586">Compute the transitive closure of glyphs needed for all of the
 provided lookups.</doc>
       <source-position filename="hb-ot-layout.h" line="400"/>
       <return-value transfer-ownership="none">
@@ -18377,13 +18387,13 @@ provided lookups.</doc>
         <parameter name="face" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1583">#hb_face_t to work upon</doc>
+               line="1588">#hb_face_t to work upon</doc>
           <type name="face_t" c:type="hb_face_t*"/>
         </parameter>
         <parameter name="lookups" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1584">The set of lookups to query</doc>
+               line="1589">The set of lookups to query</doc>
           <type name="set_t" c:type="const hb_set_t*"/>
         </parameter>
         <parameter name="glyphs"
@@ -18392,7 +18402,7 @@ provided lookups.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1585">Array of glyphs comprising the transitive closure of the lookups</doc>
+               line="1590">Array of glyphs comprising the transitive closure of the lookups</doc>
           <type name="set_t" c:type="hb_set_t*"/>
         </parameter>
       </parameters>
@@ -18693,38 +18703,38 @@ If none of the given language tags is found, `false` is returned and
               version="1.4.0">
       <doc xml:space="preserve"
            filename="hb-ot-layout.cc"
-           line="1417">Fetches a list of feature variations in the specified face's GSUB table
+           line="1422">Fetches a list of feature variations in the specified face's GSUB table
 or GPOS table, at the specified variation coordinates.</doc>
       <source-position filename="hb-ot-layout.h" line="355"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-ot-layout.cc"
-             line="1428">`true` if feature variations were found, `false` otherwise.</doc>
+             line="1433">`true` if feature variations were found, `false` otherwise.</doc>
         <type name="bool_t" c:type="hb_bool_t"/>
       </return-value>
       <parameters>
         <parameter name="face" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1419">#hb_face_t to work upon</doc>
+               line="1424">#hb_face_t to work upon</doc>
           <type name="face_t" c:type="hb_face_t*"/>
         </parameter>
         <parameter name="table_tag" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1420">#HB_OT_TAG_GSUB or #HB_OT_TAG_GPOS</doc>
+               line="1425">#HB_OT_TAG_GSUB or #HB_OT_TAG_GPOS</doc>
           <type name="tag_t" c:type="hb_tag_t"/>
         </parameter>
         <parameter name="coords" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1421">The variation coordinates to query</doc>
+               line="1426">The variation coordinates to query</doc>
           <type name="gint" c:type="const int*"/>
         </parameter>
         <parameter name="num_coords" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1422">The number of variation coordinates</doc>
+               line="1427">The number of variation coordinates</doc>
           <type name="guint" c:type="unsigned int"/>
         </parameter>
         <parameter name="variations_index"
@@ -18733,7 +18743,7 @@ or GPOS table, at the specified variation coordinates.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="hb-ot-layout.cc"
-               line="1423">The array of feature variations found for the query</doc>
+               line="1428">The array of feature variations found for the query</doc>
           <type name="guint" c:type="unsigned int*"/>
         </parameter>
       </parameters>
@@ -24907,7 +24917,7 @@ of the gradient, and how to interpret the @color_line.</doc>
       <doc xml:space="preserve"
            filename="hb-common.cc"
            line="453">Converts an ISO 15924 script tag to a corresponding #hb_script_t.</doc>
-      <source-position filename="hb-common.h" line="760"/>
+      <source-position filename="hb-common.h" line="754"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-common.cc"
@@ -24931,7 +24941,7 @@ of the gradient, and how to interpret the @color_line.</doc>
            line="503">Converts a string @str representing an ISO 15924 script tag to a
 corresponding #hb_script_t. Shorthand for hb_tag_from_string() then
 hb_script_from_iso15924_tag().</doc>
-      <source-position filename="hb-common.h" line="763"/>
+      <source-position filename="hb-common.h" line="757"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-common.cc"
@@ -24967,7 +24977,7 @@ set horizontally. All right-to-left scripts will return
 #HB_DIRECTION_LTR.  Scripts that can be written either
 horizontally or vertically will return #HB_DIRECTION_INVALID.
 Unknown scripts will return #HB_DIRECTION_LTR.</doc>
-      <source-position filename="hb-common.h" line="769"/>
+      <source-position filename="hb-common.h" line="763"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-common.cc"
@@ -24989,7 +24999,7 @@ Unknown scripts will return #HB_DIRECTION_LTR.</doc>
                  c:type="hb_script_t">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="343">Data type for scripts. Each #hb_script_t's value is an #hb_tag_t corresponding
+           line="337">Data type for scripts. Each #hb_script_t's value is an #hb_tag_t corresponding
 to the four-letter values defined by [ISO 15924](https://unicode.org/iso15924/).
 
 See also the Script (sc) property of the Unicode Character Database.</doc>
@@ -25000,7 +25010,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_COMMON">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="345">`Zyyy`</doc>
+             line="339">`Zyyy`</doc>
       </member>
       <member name="inherited"
               value="1516858984"
@@ -25009,7 +25019,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_INHERITED">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="346">`Zinh`</doc>
+             line="340">`Zinh`</doc>
       </member>
       <member name="unknown"
               value="1517976186"
@@ -25018,7 +25028,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_UNKNOWN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="347">`Zzzz`</doc>
+             line="341">`Zzzz`</doc>
       </member>
       <member name="arabic"
               value="1098015074"
@@ -25027,7 +25037,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_ARABIC">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="348">`Arab`</doc>
+             line="342">`Arab`</doc>
       </member>
       <member name="armenian"
               value="1098018158"
@@ -25036,7 +25046,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_ARMENIAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="349">`Armn`</doc>
+             line="343">`Armn`</doc>
       </member>
       <member name="bengali"
               value="1113943655"
@@ -25045,7 +25055,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_BENGALI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="350">`Beng`</doc>
+             line="344">`Beng`</doc>
       </member>
       <member name="cyrillic"
               value="1132032620"
@@ -25054,7 +25064,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_CYRILLIC">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="351">`Cyrl`</doc>
+             line="345">`Cyrl`</doc>
       </member>
       <member name="devanagari"
               value="1147500129"
@@ -25063,7 +25073,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_DEVANAGARI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="352">`Deva`</doc>
+             line="346">`Deva`</doc>
       </member>
       <member name="georgian"
               value="1197830002"
@@ -25072,7 +25082,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_GEORGIAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="353">`Geor`</doc>
+             line="347">`Geor`</doc>
       </member>
       <member name="greek"
               value="1198679403"
@@ -25081,7 +25091,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_GREEK">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="354">`Grek`</doc>
+             line="348">`Grek`</doc>
       </member>
       <member name="gujarati"
               value="1198877298"
@@ -25090,7 +25100,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_GUJARATI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="355">`Gujr`</doc>
+             line="349">`Gujr`</doc>
       </member>
       <member name="gurmukhi"
               value="1198879349"
@@ -25099,7 +25109,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_GURMUKHI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="356">`Guru`</doc>
+             line="350">`Guru`</doc>
       </member>
       <member name="hangul"
               value="1214344807"
@@ -25108,7 +25118,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_HANGUL">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="357">`Hang`</doc>
+             line="351">`Hang`</doc>
       </member>
       <member name="han"
               value="1214344809"
@@ -25117,7 +25127,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_HAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="358">`Hani`</doc>
+             line="352">`Hani`</doc>
       </member>
       <member name="hebrew"
               value="1214603890"
@@ -25126,7 +25136,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_HEBREW">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="359">`Hebr`</doc>
+             line="353">`Hebr`</doc>
       </member>
       <member name="hiragana"
               value="1214870113"
@@ -25135,7 +25145,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_HIRAGANA">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="360">`Hira`</doc>
+             line="354">`Hira`</doc>
       </member>
       <member name="kannada"
               value="1265525857"
@@ -25144,7 +25154,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_KANNADA">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="361">`Knda`</doc>
+             line="355">`Knda`</doc>
       </member>
       <member name="katakana"
               value="1264676449"
@@ -25153,7 +25163,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_KATAKANA">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="362">`Kana`</doc>
+             line="356">`Kana`</doc>
       </member>
       <member name="lao"
               value="1281453935"
@@ -25162,7 +25172,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_LAO">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="363">`Laoo`</doc>
+             line="357">`Laoo`</doc>
       </member>
       <member name="latin"
               value="1281455214"
@@ -25171,7 +25181,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_LATIN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="364">`Latn`</doc>
+             line="358">`Latn`</doc>
       </member>
       <member name="malayalam"
               value="1298954605"
@@ -25180,7 +25190,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_MALAYALAM">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="365">`Mlym`</doc>
+             line="359">`Mlym`</doc>
       </member>
       <member name="oriya"
               value="1332902241"
@@ -25189,7 +25199,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_ORIYA">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="366">`Orya`</doc>
+             line="360">`Orya`</doc>
       </member>
       <member name="tamil"
               value="1415671148"
@@ -25198,7 +25208,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_TAMIL">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="367">`Taml`</doc>
+             line="361">`Taml`</doc>
       </member>
       <member name="telugu"
               value="1415933045"
@@ -25207,7 +25217,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_TELUGU">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="368">`Telu`</doc>
+             line="362">`Telu`</doc>
       </member>
       <member name="thai"
               value="1416126825"
@@ -25216,7 +25226,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_THAI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="369">`Thai`</doc>
+             line="363">`Thai`</doc>
       </member>
       <member name="tibetan"
               value="1416192628"
@@ -25225,7 +25235,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_TIBETAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="370">`Tibt`</doc>
+             line="364">`Tibt`</doc>
       </member>
       <member name="bopomofo"
               value="1114599535"
@@ -25234,7 +25244,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_BOPOMOFO">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="371">`Bopo`</doc>
+             line="365">`Bopo`</doc>
       </member>
       <member name="braille"
               value="1114792297"
@@ -25243,7 +25253,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_BRAILLE">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="372">`Brai`</doc>
+             line="366">`Brai`</doc>
       </member>
       <member name="canadian_syllabics"
               value="1130458739"
@@ -25252,7 +25262,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_CANADIAN_SYLLABICS">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="373">`Cans`</doc>
+             line="367">`Cans`</doc>
       </member>
       <member name="cherokee"
               value="1130915186"
@@ -25261,7 +25271,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_CHEROKEE">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="374">`Cher`</doc>
+             line="368">`Cher`</doc>
       </member>
       <member name="ethiopic"
               value="1165256809"
@@ -25270,7 +25280,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_ETHIOPIC">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="375">`Ethi`</doc>
+             line="369">`Ethi`</doc>
       </member>
       <member name="khmer"
               value="1265134962"
@@ -25279,7 +25289,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_KHMER">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="376">`Khmr`</doc>
+             line="370">`Khmr`</doc>
       </member>
       <member name="mongolian"
               value="1299148391"
@@ -25288,7 +25298,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_MONGOLIAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="377">`Mong`</doc>
+             line="371">`Mong`</doc>
       </member>
       <member name="myanmar"
               value="1299803506"
@@ -25297,7 +25307,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_MYANMAR">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="378">`Mymr`</doc>
+             line="372">`Mymr`</doc>
       </member>
       <member name="ogham"
               value="1332175213"
@@ -25306,7 +25316,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_OGHAM">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="379">`Ogam`</doc>
+             line="373">`Ogam`</doc>
       </member>
       <member name="runic"
               value="1383427698"
@@ -25315,7 +25325,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_RUNIC">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="380">`Runr`</doc>
+             line="374">`Runr`</doc>
       </member>
       <member name="sinhala"
               value="1399418472"
@@ -25324,7 +25334,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_SINHALA">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="381">`Sinh`</doc>
+             line="375">`Sinh`</doc>
       </member>
       <member name="syriac"
               value="1400468067"
@@ -25333,7 +25343,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_SYRIAC">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="382">`Syrc`</doc>
+             line="376">`Syrc`</doc>
       </member>
       <member name="thaana"
               value="1416126817"
@@ -25342,7 +25352,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_THAANA">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="383">`Thaa`</doc>
+             line="377">`Thaa`</doc>
       </member>
       <member name="yi"
               value="1500080489"
@@ -25351,7 +25361,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_YI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="384">`Yiii`</doc>
+             line="378">`Yiii`</doc>
       </member>
       <member name="deseret"
               value="1148416628"
@@ -25360,7 +25370,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_DESERET">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="385">`Dsrt`</doc>
+             line="379">`Dsrt`</doc>
       </member>
       <member name="gothic"
               value="1198486632"
@@ -25369,7 +25379,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_GOTHIC">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="386">`Goth`</doc>
+             line="380">`Goth`</doc>
       </member>
       <member name="old_italic"
               value="1232363884"
@@ -25378,7 +25388,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_OLD_ITALIC">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="387">`Ital`</doc>
+             line="381">`Ital`</doc>
       </member>
       <member name="buhid"
               value="1114990692"
@@ -25387,7 +25397,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_BUHID">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="388">`Buhd`</doc>
+             line="382">`Buhd`</doc>
       </member>
       <member name="hanunoo"
               value="1214344815"
@@ -25396,7 +25406,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_HANUNOO">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="389">`Hano`</doc>
+             line="383">`Hano`</doc>
       </member>
       <member name="tagalog"
               value="1416064103"
@@ -25405,7 +25415,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_TAGALOG">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="390">`Tglg`</doc>
+             line="384">`Tglg`</doc>
       </member>
       <member name="tagbanwa"
               value="1415669602"
@@ -25414,7 +25424,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_TAGBANWA">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="391">`Tagb`</doc>
+             line="385">`Tagb`</doc>
       </member>
       <member name="cypriot"
               value="1131442804"
@@ -25423,7 +25433,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_CYPRIOT">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="392">`Cprt`</doc>
+             line="386">`Cprt`</doc>
       </member>
       <member name="limbu"
               value="1281977698"
@@ -25432,7 +25442,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_LIMBU">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="393">`Limb`</doc>
+             line="387">`Limb`</doc>
       </member>
       <member name="linear_b"
               value="1281977954"
@@ -25441,7 +25451,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_LINEAR_B">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="394">`Linb`</doc>
+             line="388">`Linb`</doc>
       </member>
       <member name="osmanya"
               value="1332964705"
@@ -25450,7 +25460,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_OSMANYA">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="395">`Osma`</doc>
+             line="389">`Osma`</doc>
       </member>
       <member name="shavian"
               value="1399349623"
@@ -25459,7 +25469,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_SHAVIAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="396">`Shaw`</doc>
+             line="390">`Shaw`</doc>
       </member>
       <member name="tai_le"
               value="1415670885"
@@ -25468,7 +25478,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_TAI_LE">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="397">`Tale`</doc>
+             line="391">`Tale`</doc>
       </member>
       <member name="ugaritic"
               value="1432838514"
@@ -25477,7 +25487,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_UGARITIC">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="398">`Ugar`</doc>
+             line="392">`Ugar`</doc>
       </member>
       <member name="buginese"
               value="1114990441"
@@ -25486,7 +25496,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_BUGINESE">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="399">`Bugi`</doc>
+             line="393">`Bugi`</doc>
       </member>
       <member name="coptic"
               value="1131376756"
@@ -25495,7 +25505,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_COPTIC">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="400">`Copt`</doc>
+             line="394">`Copt`</doc>
       </member>
       <member name="glagolitic"
               value="1198285159"
@@ -25504,7 +25514,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_GLAGOLITIC">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="401">`Glag`</doc>
+             line="395">`Glag`</doc>
       </member>
       <member name="kharoshthi"
               value="1265131890"
@@ -25513,7 +25523,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_KHAROSHTHI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="402">`Khar`</doc>
+             line="396">`Khar`</doc>
       </member>
       <member name="new_tai_lue"
               value="1415670901"
@@ -25522,7 +25532,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_NEW_TAI_LUE">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="403">`Talu`</doc>
+             line="397">`Talu`</doc>
       </member>
       <member name="old_persian"
               value="1483761007"
@@ -25531,7 +25541,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_OLD_PERSIAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="404">`Xpeo`</doc>
+             line="398">`Xpeo`</doc>
       </member>
       <member name="syloti_nagri"
               value="1400466543"
@@ -25540,7 +25550,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_SYLOTI_NAGRI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="405">`Sylo`</doc>
+             line="399">`Sylo`</doc>
       </member>
       <member name="tifinagh"
               value="1415999079"
@@ -25549,7 +25559,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_TIFINAGH">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="406">`Tfng`</doc>
+             line="400">`Tfng`</doc>
       </member>
       <member name="balinese"
               value="1113681001"
@@ -25558,7 +25568,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_BALINESE">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="407">`Bali`</doc>
+             line="401">`Bali`</doc>
       </member>
       <member name="cuneiform"
               value="1483961720"
@@ -25567,7 +25577,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_CUNEIFORM">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="408">`Xsux`</doc>
+             line="402">`Xsux`</doc>
       </member>
       <member name="nko"
               value="1315663727"
@@ -25576,7 +25586,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_NKO">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="409">`Nkoo`</doc>
+             line="403">`Nkoo`</doc>
       </member>
       <member name="phags_pa"
               value="1349017959"
@@ -25585,7 +25595,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_PHAGS_PA">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="410">`Phag`</doc>
+             line="404">`Phag`</doc>
       </member>
       <member name="phoenician"
               value="1349021304"
@@ -25594,7 +25604,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_PHOENICIAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="411">`Phnx`</doc>
+             line="405">`Phnx`</doc>
       </member>
       <member name="carian"
               value="1130459753"
@@ -25603,7 +25613,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_CARIAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="412">`Cari`</doc>
+             line="406">`Cari`</doc>
       </member>
       <member name="cham"
               value="1130914157"
@@ -25612,7 +25622,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_CHAM">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="413">`Cham`</doc>
+             line="407">`Cham`</doc>
       </member>
       <member name="kayah_li"
               value="1264675945"
@@ -25621,7 +25631,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_KAYAH_LI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="414">`Kali`</doc>
+             line="408">`Kali`</doc>
       </member>
       <member name="lepcha"
               value="1281716323"
@@ -25630,7 +25640,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_LEPCHA">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="415">`Lepc`</doc>
+             line="409">`Lepc`</doc>
       </member>
       <member name="lycian"
               value="1283023721"
@@ -25639,7 +25649,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_LYCIAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="416">`Lyci`</doc>
+             line="410">`Lyci`</doc>
       </member>
       <member name="lydian"
               value="1283023977"
@@ -25648,7 +25658,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_LYDIAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="417">`Lydi`</doc>
+             line="411">`Lydi`</doc>
       </member>
       <member name="ol_chiki"
               value="1332503403"
@@ -25657,7 +25667,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_OL_CHIKI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="418">`Olck`</doc>
+             line="412">`Olck`</doc>
       </member>
       <member name="rejang"
               value="1382706791"
@@ -25666,7 +25676,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_REJANG">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="419">`Rjng`</doc>
+             line="413">`Rjng`</doc>
       </member>
       <member name="saurashtra"
               value="1398895986"
@@ -25675,7 +25685,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_SAURASHTRA">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="420">`Saur`</doc>
+             line="414">`Saur`</doc>
       </member>
       <member name="sundanese"
               value="1400204900"
@@ -25684,7 +25694,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_SUNDANESE">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="421">`Sund`</doc>
+             line="415">`Sund`</doc>
       </member>
       <member name="vai"
               value="1449224553"
@@ -25693,7 +25703,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_VAI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="422">`Vaii`</doc>
+             line="416">`Vaii`</doc>
       </member>
       <member name="avestan"
               value="1098281844"
@@ -25702,7 +25712,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_AVESTAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="423">`Avst`</doc>
+             line="417">`Avst`</doc>
       </member>
       <member name="bamum"
               value="1113681269"
@@ -25711,7 +25721,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_BAMUM">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="424">`Bamu`</doc>
+             line="418">`Bamu`</doc>
       </member>
       <member name="egyptian_hieroglyphs"
               value="1164409200"
@@ -25720,7 +25730,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_EGYPTIAN_HIEROGLYPHS">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="425">`Egyp`</doc>
+             line="419">`Egyp`</doc>
       </member>
       <member name="imperial_aramaic"
               value="1098018153"
@@ -25729,7 +25739,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_IMPERIAL_ARAMAIC">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="426">`Armi`</doc>
+             line="420">`Armi`</doc>
       </member>
       <member name="inscriptional_pahlavi"
               value="1349020777"
@@ -25738,7 +25748,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_INSCRIPTIONAL_PAHLAVI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="427">`Phli`</doc>
+             line="421">`Phli`</doc>
       </member>
       <member name="inscriptional_parthian"
               value="1349678185"
@@ -25747,7 +25757,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_INSCRIPTIONAL_PARTHIAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="428">`Prti`</doc>
+             line="422">`Prti`</doc>
       </member>
       <member name="javanese"
               value="1247901281"
@@ -25756,7 +25766,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_JAVANESE">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="429">`Java`</doc>
+             line="423">`Java`</doc>
       </member>
       <member name="kaithi"
               value="1265920105"
@@ -25765,7 +25775,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_KAITHI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="430">`Kthi`</doc>
+             line="424">`Kthi`</doc>
       </member>
       <member name="lisu"
               value="1281979253"
@@ -25774,7 +25784,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_LISU">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="431">`Lisu`</doc>
+             line="425">`Lisu`</doc>
       </member>
       <member name="meetei_mayek"
               value="1299473769"
@@ -25783,7 +25793,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_MEETEI_MAYEK">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="432">`Mtei`</doc>
+             line="426">`Mtei`</doc>
       </member>
       <member name="old_south_arabian"
               value="1398895202"
@@ -25792,7 +25802,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_OLD_SOUTH_ARABIAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="433">`Sarb`</doc>
+             line="427">`Sarb`</doc>
       </member>
       <member name="old_turkic"
               value="1332898664"
@@ -25801,7 +25811,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_OLD_TURKIC">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="434">`Orkh`</doc>
+             line="428">`Orkh`</doc>
       </member>
       <member name="samaritan"
               value="1398893938"
@@ -25810,7 +25820,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_SAMARITAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="435">`Samr`</doc>
+             line="429">`Samr`</doc>
       </member>
       <member name="tai_tham"
               value="1281453665"
@@ -25819,7 +25829,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_TAI_THAM">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="436">`Lana`</doc>
+             line="430">`Lana`</doc>
       </member>
       <member name="tai_viet"
               value="1415673460"
@@ -25828,7 +25838,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_TAI_VIET">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="437">`Tavt`</doc>
+             line="431">`Tavt`</doc>
       </member>
       <member name="batak"
               value="1113683051"
@@ -25837,7 +25847,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_BATAK">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="438">`Batk`</doc>
+             line="432">`Batk`</doc>
       </member>
       <member name="brahmi"
               value="1114792296"
@@ -25846,7 +25856,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_BRAHMI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="439">`Brah`</doc>
+             line="433">`Brah`</doc>
       </member>
       <member name="mandaic"
               value="1298230884"
@@ -25855,7 +25865,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_MANDAIC">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="440">`Mand`</doc>
+             line="434">`Mand`</doc>
       </member>
       <member name="chakma"
               value="1130457965"
@@ -25864,7 +25874,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_CHAKMA">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="441">`Cakm`</doc>
+             line="435">`Cakm`</doc>
       </member>
       <member name="meroitic_cursive"
               value="1298494051"
@@ -25873,7 +25883,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_MEROITIC_CURSIVE">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="442">`Merc`</doc>
+             line="436">`Merc`</doc>
       </member>
       <member name="meroitic_hieroglyphs"
               value="1298494063"
@@ -25882,7 +25892,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_MEROITIC_HIEROGLYPHS">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="443">`Mero`</doc>
+             line="437">`Mero`</doc>
       </member>
       <member name="miao"
               value="1349284452"
@@ -25891,7 +25901,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_MIAO">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="444">`Plrd`</doc>
+             line="438">`Plrd`</doc>
       </member>
       <member name="sharada"
               value="1399353956"
@@ -25900,7 +25910,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_SHARADA">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="445">`Shrd`</doc>
+             line="439">`Shrd`</doc>
       </member>
       <member name="sora_sompeng"
               value="1399812705"
@@ -25909,7 +25919,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_SORA_SOMPENG">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="446">`Sora`</doc>
+             line="440">`Sora`</doc>
       </member>
       <member name="takri"
               value="1415670642"
@@ -25918,7 +25928,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_TAKRI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="447">`Takr`</doc>
+             line="441">`Takr`</doc>
       </member>
       <member name="bassa_vah"
               value="1113682803"
@@ -25927,7 +25937,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_BASSA_VAH">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="448">`Bass`, Since: 0.9.30</doc>
+             line="442">`Bass`, Since: 0.9.30</doc>
       </member>
       <member name="caucasian_albanian"
               value="1097295970"
@@ -25936,7 +25946,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_CAUCASIAN_ALBANIAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="449">`Aghb`, Since: 0.9.30</doc>
+             line="443">`Aghb`, Since: 0.9.30</doc>
       </member>
       <member name="duployan"
               value="1148547180"
@@ -25945,7 +25955,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_DUPLOYAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="450">`Dupl`, Since: 0.9.30</doc>
+             line="444">`Dupl`, Since: 0.9.30</doc>
       </member>
       <member name="elbasan"
               value="1164730977"
@@ -25954,7 +25964,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_ELBASAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="451">`Elba`, Since: 0.9.30</doc>
+             line="445">`Elba`, Since: 0.9.30</doc>
       </member>
       <member name="grantha"
               value="1198678382"
@@ -25963,7 +25973,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_GRANTHA">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="452">`Gran`, Since: 0.9.30</doc>
+             line="446">`Gran`, Since: 0.9.30</doc>
       </member>
       <member name="khojki"
               value="1265135466"
@@ -25972,7 +25982,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_KHOJKI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="453">`Khoj`, Since: 0.9.30</doc>
+             line="447">`Khoj`, Since: 0.9.30</doc>
       </member>
       <member name="khudawadi"
               value="1399418468"
@@ -25981,7 +25991,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_KHUDAWADI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="454">`Sind`, Since: 0.9.30</doc>
+             line="448">`Sind`, Since: 0.9.30</doc>
       </member>
       <member name="linear_a"
               value="1281977953"
@@ -25990,7 +26000,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_LINEAR_A">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="455">`Lina`, Since: 0.9.30</doc>
+             line="449">`Lina`, Since: 0.9.30</doc>
       </member>
       <member name="mahajani"
               value="1298229354"
@@ -25999,7 +26009,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_MAHAJANI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="456">`Mahj`, Since: 0.9.30</doc>
+             line="450">`Mahj`, Since: 0.9.30</doc>
       </member>
       <member name="manichaean"
               value="1298230889"
@@ -26008,7 +26018,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_MANICHAEAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="457">`Mani`, Since: 0.9.30</doc>
+             line="451">`Mani`, Since: 0.9.30</doc>
       </member>
       <member name="mende_kikakui"
               value="1298493028"
@@ -26017,7 +26027,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_MENDE_KIKAKUI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="458">`Mend`, Since: 0.9.30</doc>
+             line="452">`Mend`, Since: 0.9.30</doc>
       </member>
       <member name="modi"
               value="1299145833"
@@ -26026,7 +26036,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_MODI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="459">`Modi`, Since: 0.9.30</doc>
+             line="453">`Modi`, Since: 0.9.30</doc>
       </member>
       <member name="mro"
               value="1299345263"
@@ -26035,7 +26045,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_MRO">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="460">`Mroo`, Since: 0.9.30</doc>
+             line="454">`Mroo`, Since: 0.9.30</doc>
       </member>
       <member name="nabataean"
               value="1315070324"
@@ -26044,7 +26054,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_NABATAEAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="461">`Nbat`, Since: 0.9.30</doc>
+             line="455">`Nbat`, Since: 0.9.30</doc>
       </member>
       <member name="old_north_arabian"
               value="1315009122"
@@ -26053,7 +26063,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_OLD_NORTH_ARABIAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="462">`Narb`, Since: 0.9.30</doc>
+             line="456">`Narb`, Since: 0.9.30</doc>
       </member>
       <member name="old_permic"
               value="1348825709"
@@ -26062,7 +26072,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_OLD_PERMIC">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="463">`Perm`, Since: 0.9.30</doc>
+             line="457">`Perm`, Since: 0.9.30</doc>
       </member>
       <member name="pahawh_hmong"
               value="1215131239"
@@ -26071,7 +26081,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_PAHAWH_HMONG">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="464">`Hmng`, Since: 0.9.30</doc>
+             line="458">`Hmng`, Since: 0.9.30</doc>
       </member>
       <member name="palmyrene"
               value="1348562029"
@@ -26080,7 +26090,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_PALMYRENE">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="465">`Palm`, Since: 0.9.30</doc>
+             line="459">`Palm`, Since: 0.9.30</doc>
       </member>
       <member name="pau_cin_hau"
               value="1348564323"
@@ -26089,7 +26099,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_PAU_CIN_HAU">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="466">`Pauc`, Since: 0.9.30</doc>
+             line="460">`Pauc`, Since: 0.9.30</doc>
       </member>
       <member name="psalter_pahlavi"
               value="1349020784"
@@ -26098,7 +26108,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_PSALTER_PAHLAVI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="467">`Phlp`, Since: 0.9.30</doc>
+             line="461">`Phlp`, Since: 0.9.30</doc>
       </member>
       <member name="siddham"
               value="1399415908"
@@ -26107,7 +26117,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_SIDDHAM">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="468">`Sidd`, Since: 0.9.30</doc>
+             line="462">`Sidd`, Since: 0.9.30</doc>
       </member>
       <member name="tirhuta"
               value="1416196712"
@@ -26116,7 +26126,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_TIRHUTA">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="469">`Tirh`, Since: 0.9.30</doc>
+             line="463">`Tirh`, Since: 0.9.30</doc>
       </member>
       <member name="warang_citi"
               value="1466004065"
@@ -26125,7 +26135,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_WARANG_CITI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="470">`Wara`, Since: 0.9.30</doc>
+             line="464">`Wara`, Since: 0.9.30</doc>
       </member>
       <member name="ahom"
               value="1097363309"
@@ -26134,7 +26144,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_AHOM">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="471">`Ahom`, Since: 0.9.30</doc>
+             line="465">`Ahom`, Since: 0.9.30</doc>
       </member>
       <member name="anatolian_hieroglyphs"
               value="1215067511"
@@ -26143,7 +26153,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_ANATOLIAN_HIEROGLYPHS">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="472">`Hluw`, Since: 0.9.30</doc>
+             line="466">`Hluw`, Since: 0.9.30</doc>
       </member>
       <member name="hatran"
               value="1214346354"
@@ -26152,7 +26162,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_HATRAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="473">`Hatr`, Since: 0.9.30</doc>
+             line="467">`Hatr`, Since: 0.9.30</doc>
       </member>
       <member name="multani"
               value="1299541108"
@@ -26161,7 +26171,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_MULTANI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="474">`Mult`, Since: 0.9.30</doc>
+             line="468">`Mult`, Since: 0.9.30</doc>
       </member>
       <member name="old_hungarian"
               value="1215655527"
@@ -26170,7 +26180,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_OLD_HUNGARIAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="475">`Hung`, Since: 0.9.30</doc>
+             line="469">`Hung`, Since: 0.9.30</doc>
       </member>
       <member name="signwriting"
               value="1399287415"
@@ -26179,7 +26189,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_SIGNWRITING">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="476">`Sgnw`, Since: 0.9.30</doc>
+             line="470">`Sgnw`, Since: 0.9.30</doc>
       </member>
       <member name="adlam"
               value="1097100397"
@@ -26188,7 +26198,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_ADLAM">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="477">`Adlm`, Since: 1.3.0</doc>
+             line="471">`Adlm`, Since: 1.3.0</doc>
       </member>
       <member name="bhaiksuki"
               value="1114139507"
@@ -26197,7 +26207,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_BHAIKSUKI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="478">`Bhks`, Since: 1.3.0</doc>
+             line="472">`Bhks`, Since: 1.3.0</doc>
       </member>
       <member name="marchen"
               value="1298231907"
@@ -26206,7 +26216,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_MARCHEN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="479">`Marc`, Since: 1.3.0</doc>
+             line="473">`Marc`, Since: 1.3.0</doc>
       </member>
       <member name="osage"
               value="1332963173"
@@ -26215,7 +26225,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_OSAGE">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="480">`Osge`, Since: 1.3.0</doc>
+             line="474">`Osge`, Since: 1.3.0</doc>
       </member>
       <member name="tangut"
               value="1415671399"
@@ -26224,7 +26234,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_TANGUT">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="481">`Tang`, Since: 1.3.0</doc>
+             line="475">`Tang`, Since: 1.3.0</doc>
       </member>
       <member name="newa"
               value="1315272545"
@@ -26233,7 +26243,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_NEWA">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="482">`Newa`, Since: 1.3.0</doc>
+             line="476">`Newa`, Since: 1.3.0</doc>
       </member>
       <member name="masaram_gondi"
               value="1198485101"
@@ -26242,7 +26252,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_MASARAM_GONDI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="483">`Gonm`, Since: 1.6.0</doc>
+             line="477">`Gonm`, Since: 1.6.0</doc>
       </member>
       <member name="nushu"
               value="1316186229"
@@ -26251,7 +26261,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_NUSHU">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="484">`Nshu`, Since: 1.6.0</doc>
+             line="478">`Nshu`, Since: 1.6.0</doc>
       </member>
       <member name="soyombo"
               value="1399814511"
@@ -26260,7 +26270,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_SOYOMBO">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="485">`Soyo`, Since: 1.6.0</doc>
+             line="479">`Soyo`, Since: 1.6.0</doc>
       </member>
       <member name="zanabazar_square"
               value="1516334690"
@@ -26269,7 +26279,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_ZANABAZAR_SQUARE">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="486">`Zanb`, Since: 1.6.0</doc>
+             line="480">`Zanb`, Since: 1.6.0</doc>
       </member>
       <member name="dogra"
               value="1148151666"
@@ -26278,7 +26288,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_DOGRA">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="487">`Dogr`, Since: 1.8.0</doc>
+             line="481">`Dogr`, Since: 1.8.0</doc>
       </member>
       <member name="gunjala_gondi"
               value="1198485095"
@@ -26287,7 +26297,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_GUNJALA_GONDI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="488">`Gong`, Since: 1.8.0</doc>
+             line="482">`Gong`, Since: 1.8.0</doc>
       </member>
       <member name="hanifi_rohingya"
               value="1383032935"
@@ -26296,7 +26306,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_HANIFI_ROHINGYA">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="489">`Rohg`, Since: 1.8.0</doc>
+             line="483">`Rohg`, Since: 1.8.0</doc>
       </member>
       <member name="makasar"
               value="1298230113"
@@ -26305,7 +26315,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_MAKASAR">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="490">`Maka`, Since: 1.8.0</doc>
+             line="484">`Maka`, Since: 1.8.0</doc>
       </member>
       <member name="medefaidrin"
               value="1298490470"
@@ -26314,7 +26324,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_MEDEFAIDRIN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="491">`Medf`, Since: 1.8.0</doc>
+             line="485">`Medf`, Since: 1.8.0</doc>
       </member>
       <member name="old_sogdian"
               value="1399809903"
@@ -26323,7 +26333,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_OLD_SOGDIAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="492">`Sogo`, Since: 1.8.0</doc>
+             line="486">`Sogo`, Since: 1.8.0</doc>
       </member>
       <member name="sogdian"
               value="1399809892"
@@ -26332,7 +26342,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_SOGDIAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="493">`Sogd`, Since: 1.8.0</doc>
+             line="487">`Sogd`, Since: 1.8.0</doc>
       </member>
       <member name="elymaic"
               value="1164736877"
@@ -26341,7 +26351,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_ELYMAIC">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="494">`Elym`, Since: 2.4.0</doc>
+             line="488">`Elym`, Since: 2.4.0</doc>
       </member>
       <member name="nandinagari"
               value="1315008100"
@@ -26350,7 +26360,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_NANDINAGARI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="495">`Nand`, Since: 2.4.0</doc>
+             line="489">`Nand`, Since: 2.4.0</doc>
       </member>
       <member name="nyiakeng_puachue_hmong"
               value="1215131248"
@@ -26359,7 +26369,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_NYIAKENG_PUACHUE_HMONG">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="496">`Hmnp`, Since: 2.4.0</doc>
+             line="490">`Hmnp`, Since: 2.4.0</doc>
       </member>
       <member name="wancho"
               value="1466132591"
@@ -26368,7 +26378,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_WANCHO">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="497">`Wcho`, Since: 2.4.0</doc>
+             line="491">`Wcho`, Since: 2.4.0</doc>
       </member>
       <member name="chorasmian"
               value="1130918515"
@@ -26377,7 +26387,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_CHORASMIAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="498">`Chrs`, Since: 2.6.7</doc>
+             line="492">`Chrs`, Since: 2.6.7</doc>
       </member>
       <member name="dives_akuru"
               value="1147756907"
@@ -26386,7 +26396,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_DIVES_AKURU">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="499">`Diak`, Since: 2.6.7</doc>
+             line="493">`Diak`, Since: 2.6.7</doc>
       </member>
       <member name="khitan_small_script"
               value="1265202291"
@@ -26395,7 +26405,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_KHITAN_SMALL_SCRIPT">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="500">`Kits`, Since: 2.6.7</doc>
+             line="494">`Kits`, Since: 2.6.7</doc>
       </member>
       <member name="yezidi"
               value="1499822697"
@@ -26404,7 +26414,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_YEZIDI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="501">`Yezi`, Since: 2.6.7</doc>
+             line="495">`Yezi`, Since: 2.6.7</doc>
       </member>
       <member name="cypro_minoan"
               value="1131441518"
@@ -26413,7 +26423,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_CYPRO_MINOAN">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="502">`Cpmn`, Since: 3.0.0</doc>
+             line="496">`Cpmn`, Since: 3.0.0</doc>
       </member>
       <member name="old_uyghur"
               value="1333094258"
@@ -26422,7 +26432,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_OLD_UYGHUR">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="503">`Ougr`, Since: 3.0.0</doc>
+             line="497">`Ougr`, Since: 3.0.0</doc>
       </member>
       <member name="tangsa"
               value="1416524641"
@@ -26431,7 +26441,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_TANGSA">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="504">`Tnsa`, Since: 3.0.0</doc>
+             line="498">`Tnsa`, Since: 3.0.0</doc>
       </member>
       <member name="toto"
               value="1416590447"
@@ -26440,7 +26450,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_TOTO">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="505">`Toto`, Since: 3.0.0</doc>
+             line="499">`Toto`, Since: 3.0.0</doc>
       </member>
       <member name="vithkuqi"
               value="1449751656"
@@ -26449,7 +26459,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_VITHKUQI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="506">`Vith`, Since: 3.0.0</doc>
+             line="500">`Vith`, Since: 3.0.0</doc>
       </member>
       <member name="math"
               value="1517122664"
@@ -26458,7 +26468,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_MATH">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="507">`Zmth`, Since: 3.4.0</doc>
+             line="501">`Zmth`, Since: 3.4.0</doc>
       </member>
       <member name="kawi"
               value="1264678761"
@@ -26467,7 +26477,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_KAWI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="508">`Kawi`, Since: 5.2.0</doc>
+             line="502">`Kawi`, Since: 5.2.0</doc>
       </member>
       <member name="nag_mundari"
               value="1315006317"
@@ -26476,7 +26486,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_NAG_MUNDARI">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="509">`Nagm`, Since: 5.2.0</doc>
+             line="503">`Nagm`, Since: 5.2.0</doc>
       </member>
       <member name="invalid"
               value="0"
@@ -26485,7 +26495,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
               glib:name="HB_SCRIPT_INVALID">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="510">No script set</doc>
+             line="504">No script set</doc>
       </member>
     </enumeration>
     <function name="script_to_iso15924_tag"
@@ -26494,7 +26504,7 @@ See also the Script (sc) property of the Unicode Character Database.</doc>
       <doc xml:space="preserve"
            filename="hb-common.cc"
            line="524">Converts an #hb_script_t to a corresponding ISO 15924 script tag.</doc>
-      <source-position filename="hb-common.h" line="766"/>
+      <source-position filename="hb-common.h" line="760"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-common.cc"
@@ -28305,7 +28315,7 @@ or the CSS font-weight property.</doc>
 are four characters. Shorter input strings will be
 padded with spaces. Longer input strings will be
 truncated.</doc>
-      <source-position filename="hb-common.h" line="217"/>
+      <source-position filename="hb-common.h" line="211"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-common.cc"
@@ -28336,7 +28346,7 @@ truncated.</doc>
            filename="hb-common.cc"
            line="115">Converts an #hb_tag_t to a string and returns it in @buf.
 Strings will be four characters long.</doc>
-      <source-position filename="hb-common.h" line="221"/>
+      <source-position filename="hb-common.h" line="215"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -30425,14 +30435,14 @@ specified Unicode code point.</doc>
             c:symbol-prefix="gobject_user_data_key">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="774">Data structure for holding user-data keys.</doc>
-      <source-position filename="hb-common.h" line="783"/>
+           line="768">Data structure for holding user-data keys.</doc>
+      <source-position filename="hb-common.h" line="777"/>
       <field name="unused" readable="0" private="1">
         <type name="gchar" c:type="char"/>
       </field>
     </record>
     <union name="var_int_t" c:type="hb_var_int_t">
-      <source-position filename="hb-common.h" line="141"/>
+      <source-position filename="hb-common.h" line="135"/>
       <field name="u32" writable="1">
         <type name="guint32" c:type="uint32_t"/>
       </field>
@@ -30461,7 +30471,7 @@ specified Unicode code point.</doc>
       </field>
     </union>
     <union name="var_num_t" c:type="hb_var_num_t">
-      <source-position filename="hb-common.h" line="151"/>
+      <source-position filename="hb-common.h" line="145"/>
       <field name="f" writable="1">
         <type name="gfloat" c:type="float"/>
       </field>
@@ -30505,7 +30515,7 @@ accepted, though, not documented below.
 
 The format is a tag, optionally followed by an equals sign, followed by a
 number. For example `wght=500`, or `slnt=-7.5`.</doc>
-      <source-position filename="hb-common.h" line="864"/>
+      <source-position filename="hb-common.h" line="858"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="hb-common.cc"
@@ -30541,20 +30551,20 @@ number. For example `wght=500`, or `slnt=-7.5`.</doc>
     <record name="variation_t" c:type="hb_variation_t" version="1.4.2">
       <doc xml:space="preserve"
            filename="hb-common.h"
-           line="847">Data type for holding variation data. Registered OpenType
+           line="841">Data type for holding variation data. Registered OpenType
 variation-axis tags are listed in
 [OpenType Axis Tag Registry](https://docs.microsoft.com/en-us/typography/opentype/spec/dvaraxisreg).</doc>
-      <source-position filename="hb-common.h" line="861"/>
+      <source-position filename="hb-common.h" line="855"/>
       <field name="tag" writable="1">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="849">The #hb_tag_t tag of the variation-axis name</doc>
+             line="843">The #hb_tag_t tag of the variation-axis name</doc>
         <type name="tag_t" c:type="hb_tag_t"/>
       </field>
       <field name="value" writable="1">
         <doc xml:space="preserve"
              filename="hb-common.h"
-             line="850">The value of the variation axis</doc>
+             line="844">The value of the variation axis</doc>
         <type name="gfloat" c:type="float"/>
       </field>
       <method name="_string"
@@ -30566,7 +30576,7 @@ variation-axis tags are listed in
              line="1111">Converts an #hb_variation_t into a `NULL`-terminated string in the format
 understood by hb_variation_from_string(). The client in responsible for
 allocating big enough size for @buf, 128 bytes is more than enough.</doc>
-        <source-position filename="hb-common.h" line="868"/>
+        <source-position filename="hb-common.h" line="862"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30608,7 +30618,7 @@ allocating big enough size for @buf, 128 bytes is more than enough.</doc>
            line="1111">Converts an #hb_variation_t into a `NULL`-terminated string in the format
 understood by hb_variation_from_string(). The client in responsible for
 allocating big enough size for @buf, 128 bytes is more than enough.</doc>
-      <source-position filename="hb-common.h" line="868"/>
+      <source-position filename="hb-common.h" line="862"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>

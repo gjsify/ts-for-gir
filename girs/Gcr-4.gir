@@ -3588,14 +3588,14 @@ importer.</doc>
       <source-position filename="gcr/gcr-version.h" line="31"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="GCR_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="1" c:type="GCR_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
            line="69">The micro version number of the Gcr library.</doc>
       <source-position filename="gcr/gcr-version.h" line="33"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="1" c:type="GCR_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="2" c:type="GCR_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="gcr/gcr-library.c"
            line="63">The minor version number of the Gcr library.</doc>

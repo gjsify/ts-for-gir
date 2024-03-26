@@ -772,7 +772,7 @@ A string name/value pair representing a generic attribute.</doc>
       </function>
     </record>
     <constant name="BINARY_AGE"
-              value="25010"
+              value="25210"
               c:type="ATK_BINARY_AGE"
               version="2.7.4">
       <doc xml:space="preserve"
@@ -2077,7 +2077,7 @@ or to the component's top level window</doc>
       <glib:signal name="bounds-changed" when="last">
         <doc xml:space="preserve"
              filename="atk/atkcomponent.c"
-             line="104">The 'bounds-changed" signal is emitted when the bposition or
+             line="104">The 'bounds-changed" signal is emitted when the position or
 size of the component changes.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2106,6 +2106,11 @@ representation of an object.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="add_focus_handler" introspectable="0">
+        <doc xml:space="preserve"
+             filename="atk/atkcomponent.h"
+             line="118">This virtual function is deprecated since 2.9.4
+  and it should not be overriden. See atk_component_add_focus_handler()
+  for more information.</doc>
         <callback name="add_focus_handler" introspectable="0">
           <source-position filename="atk/atkcomponent.h" line="153"/>
           <return-value transfer-ownership="none">
@@ -2277,6 +2282,10 @@ or to the components top level window</doc>
         </callback>
       </field>
       <field name="get_position">
+        <doc xml:space="preserve"
+             filename="atk/atkcomponent.h"
+             line="121">This virtual function is deprecated since 2.12 and
+  it should not be overriden. Use @AtkComponentIface.get_extents instead.</doc>
         <callback name="get_position">
           <source-position filename="atk/atkcomponent.h" line="171"/>
           <return-value transfer-ownership="none">
@@ -2322,6 +2331,10 @@ or to the components top level window</doc>
         </callback>
       </field>
       <field name="get_size">
+        <doc xml:space="preserve"
+             filename="atk/atkcomponent.h"
+             line="123">This virtual function is deprecated since 2.12 and it
+  should not be overriden. Use @AtkComponentIface.get_extents instead.</doc>
         <callback name="get_size">
           <source-position filename="atk/atkcomponent.h" line="175"/>
           <return-value transfer-ownership="none">
@@ -2379,6 +2392,11 @@ or to the components top level window</doc>
         </callback>
       </field>
       <field name="remove_focus_handler">
+        <doc xml:space="preserve"
+             filename="atk/atkcomponent.h"
+             line="125">This virtual function is deprecated since
+  2.9.4 and it should not be overriden. See atk_component_remove_focus_handler()
+  for more information.</doc>
         <callback name="remove_focus_handler">
           <source-position filename="atk/atkcomponent.h" line="179"/>
           <return-value transfer-ownership="none">
@@ -2859,7 +2877,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_FOR"
                     c:identifier="ATK_DEPRECATED_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="289"/>
+      <source-position filename="atk/atkversion.h" line="309"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2868,7 +2886,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_IN_2_10_FOR"
                     c:identifier="ATK_DEPRECATED_IN_2_10_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="359"/>
+      <source-position filename="atk/atkversion.h" line="379"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2877,7 +2895,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_IN_2_12_FOR"
                     c:identifier="ATK_DEPRECATED_IN_2_12_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="373"/>
+      <source-position filename="atk/atkversion.h" line="393"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2886,7 +2904,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_IN_2_14_FOR"
                     c:identifier="ATK_DEPRECATED_IN_2_14_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="387"/>
+      <source-position filename="atk/atkversion.h" line="407"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2895,7 +2913,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_IN_2_2_FOR"
                     c:identifier="ATK_DEPRECATED_IN_2_2_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="303"/>
+      <source-position filename="atk/atkversion.h" line="323"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2904,7 +2922,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_IN_2_30_FOR"
                     c:identifier="ATK_DEPRECATED_IN_2_30_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="401"/>
+      <source-position filename="atk/atkversion.h" line="421"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2913,7 +2931,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_IN_2_36_FOR"
                     c:identifier="ATK_DEPRECATED_IN_2_36_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="415"/>
+      <source-position filename="atk/atkversion.h" line="441"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2922,7 +2940,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_IN_2_4_FOR"
                     c:identifier="ATK_DEPRECATED_IN_2_4_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="317"/>
+      <source-position filename="atk/atkversion.h" line="337"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2931,7 +2949,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_IN_2_6_FOR"
                     c:identifier="ATK_DEPRECATED_IN_2_6_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="331"/>
+      <source-position filename="atk/atkversion.h" line="351"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2940,7 +2958,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
     <function-macro name="DEPRECATED_IN_2_8_FOR"
                     c:identifier="ATK_DEPRECATED_IN_2_8_FOR"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="345"/>
+      <source-position filename="atk/atkversion.h" line="365"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2972,7 +2990,7 @@ _get_type() function, e.g. interface implementations via G_IMPLEMENT_INTERFACE()
                glib:type-struct="DocumentIface">
       <doc xml:space="preserve"
            filename="atk/atkdocument.c"
-           line="24">The ATK interface which represents the toplevel
+           line="25">The ATK interface which represents the toplevel
  container for document content.
 
 The AtkDocument interface should be supported by any object whose
@@ -2982,18 +3000,18 @@ content; however AtkDocument instances may be nested (i.e. an
 AtkDocument may be a descendant of another AtkDocument) in those
 cases where one document contains "embedded content" which can
 reasonably be considered a document in its own right.</doc>
-      <source-position filename="atk/atkdocument.h" line="83"/>
+      <source-position filename="atk/atkdocument.h" line="127"/>
       <virtual-method name="get_current_page_number"
                       invoker="get_current_page_number"
                       version="2.12">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="365">Retrieves the current page number inside @document.</doc>
-        <source-position filename="atk/atkdocument.h" line="81"/>
+             line="389">Retrieves the current page number inside @document.</doc>
+        <source-position filename="atk/atkdocument.h" line="123"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkdocument.c"
-               line="371">the current page number inside @document, or -1 if
+               line="395">the current page number inside @document, or -1 if
   not implemented, not know by the implementor, or irrelevant.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -3001,7 +3019,7 @@ reasonably be considered a document in its own right.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="367">the #AtkDocument</doc>
+                 line="391">the #AtkDocument</doc>
             <type name="Document" c:type="AtkDocument*"/>
           </instance-parameter>
         </parameters>
@@ -3011,24 +3029,24 @@ reasonably be considered a document in its own right.</doc>
                       deprecated="1">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="195">Gets a %gpointer that points to an instance of the DOM.  It is
+             line="219">Gets a %gpointer that points to an instance of the DOM.  It is
 up to the caller to check atk_document_get_type to determine
 how to cast this pointer.</doc>
         <doc-deprecated xml:space="preserve">Since 2.12. @document is already a representation of
 the document. Use it directly, or one of its children, as an
 instance of the DOM.</doc-deprecated>
-        <source-position filename="atk/atkdocument.h" line="72"/>
+        <source-position filename="atk/atkdocument.h" line="114"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="atk/atkdocument.c"
-               line="207">a %gpointer that points to an instance of the DOM.</doc>
+               line="231">a %gpointer that points to an instance of the DOM.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="197">a #GObject instance that implements AtkDocumentIface</doc>
+                 line="221">a #GObject instance that implements AtkDocumentIface</doc>
             <type name="Document" c:type="AtkDocument*"/>
           </instance-parameter>
         </parameters>
@@ -3038,12 +3056,12 @@ instance of the DOM.</doc-deprecated>
                       version="1.12">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="295">Retrieves the value of the given @attribute_name inside @document.</doc>
-        <source-position filename="atk/atkdocument.h" line="76"/>
+             line="319">Retrieves the value of the given @attribute_name inside @document.</doc>
+        <source-position filename="atk/atkdocument.h" line="118"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="atk/atkdocument.c"
-               line="303">a string value associated with the named
+               line="327">a string value associated with the named
    attribute for this document, or %NULL if a value for
    @attribute_name has not been specified for this document.</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -3052,13 +3070,13 @@ instance of the DOM.</doc-deprecated>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="297">a #GObject instance that implements AtkDocumentIface</doc>
+                 line="321">a #GObject instance that implements AtkDocumentIface</doc>
             <type name="Document" c:type="AtkDocument*"/>
           </instance-parameter>
           <parameter name="attribute_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="298">a character string representing the name of the attribute
+                 line="322">a character string representing the name of the attribute
   whose value is being queried.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -3069,13 +3087,13 @@ instance of the DOM.</doc-deprecated>
                       version="1.12">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="263">Gets an AtkAttributeSet which describes document-wide
+             line="287">Gets an AtkAttributeSet which describes document-wide
          attributes as name-value pairs.</doc>
-        <source-position filename="atk/atkdocument.h" line="75"/>
+        <source-position filename="atk/atkdocument.h" line="117"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkdocument.c"
-               line="272">An AtkAttributeSet containing the explicitly
+               line="296">An AtkAttributeSet containing the explicitly
          set name-value-pair attributes associated with this document
          as a whole.</doc>
           <type name="AttributeSet" c:type="AtkAttributeSet*"/>
@@ -3084,7 +3102,7 @@ instance of the DOM.</doc-deprecated>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="265">a #GObject instance that implements AtkDocumentIface</doc>
+                 line="289">a #GObject instance that implements AtkDocumentIface</doc>
             <type name="Document" c:type="AtkDocument*"/>
           </instance-parameter>
         </parameters>
@@ -3095,17 +3113,17 @@ instance of the DOM.</doc-deprecated>
                       deprecated-version="2.7.90">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="228">Gets a UTF-8 string indicating the POSIX-style LC_MESSAGES locale
+             line="252">Gets a UTF-8 string indicating the POSIX-style LC_MESSAGES locale
          of the content of this document instance.  Individual
          text substrings or images within this document may have
          a different locale, see atk_text_get_attributes and
          atk_image_get_image_locale.</doc>
         <doc-deprecated xml:space="preserve">Please use atk_object_get_object_locale() instead.</doc-deprecated>
-        <source-position filename="atk/atkdocument.h" line="74"/>
+        <source-position filename="atk/atkdocument.h" line="116"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkdocument.c"
-               line="240">a UTF-8 string indicating the POSIX-style LC_MESSAGES
+               line="264">a UTF-8 string indicating the POSIX-style LC_MESSAGES
          locale of the document content as a whole, or NULL if
          the document content does not specify a locale.</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -3114,7 +3132,7 @@ instance of the DOM.</doc-deprecated>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="230">a #GObject instance that implements AtkDocumentIface</doc>
+                 line="254">a #GObject instance that implements AtkDocumentIface</doc>
             <type name="Document" c:type="AtkDocument*"/>
           </instance-parameter>
         </parameters>
@@ -3124,21 +3142,21 @@ instance of the DOM.</doc-deprecated>
                       deprecated="1">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="165">Gets a string indicating the document type.</doc>
+             line="189">Gets a string indicating the document type.</doc>
         <doc-deprecated xml:space="preserve">Since 2.12. Please use atk_document_get_attributes() to
 ask for the document type if it applies.</doc-deprecated>
-        <source-position filename="atk/atkdocument.h" line="71"/>
+        <source-position filename="atk/atkdocument.h" line="113"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkdocument.c"
-               line="174">a string indicating the document type</doc>
+               line="198">a string indicating the document type</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="167">a #GObject instance that implements AtkDocumentIface</doc>
+                 line="191">a #GObject instance that implements AtkDocumentIface</doc>
             <type name="Document" c:type="AtkDocument*"/>
           </instance-parameter>
         </parameters>
@@ -3148,12 +3166,12 @@ ask for the document type if it applies.</doc-deprecated>
                       version="2.12">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="395">Retrieves the total number of pages inside @document.</doc>
-        <source-position filename="atk/atkdocument.h" line="82"/>
+             line="419">Retrieves the total number of pages inside @document.</doc>
+        <source-position filename="atk/atkdocument.h" line="124"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkdocument.c"
-               line="401">total page count of @document, or -1 if not implemented,
+               line="425">total page count of @document, or -1 if not implemented,
   not know by the implementor or irrelevant.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -3161,7 +3179,32 @@ ask for the document type if it applies.</doc-deprecated>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="397">the #AtkDocument</doc>
+                 line="421">the #AtkDocument</doc>
+            <type name="Document" c:type="AtkDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_text_selections"
+                      invoker="get_text_selections"
+                      version="2.52">
+        <doc xml:space="preserve"
+             filename="atk/atkdocument.c"
+             line="449">Returns an array of AtkTextSelections within this document.</doc>
+        <source-position filename="atk/atkdocument.h" line="125"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="atk/atkdocument.c"
+               line="455">a GArray of
+AtkTextSelection structures representing the selection.</doc>
+          <array name="GLib.Array" c:type="GArray*">
+            <type name="TextSelection"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atk/atkdocument.c"
+                 line="451">an #AtkDocument</doc>
             <type name="Document" c:type="AtkDocument*"/>
           </instance-parameter>
         </parameters>
@@ -3171,12 +3214,12 @@ ask for the document type if it applies.</doc-deprecated>
                       version="1.12">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="329">Sets the value for the given @attribute_name inside @document.</doc>
-        <source-position filename="atk/atkdocument.h" line="78"/>
+             line="353">Sets the value for the given @attribute_name inside @document.</doc>
+        <source-position filename="atk/atkdocument.h" line="120"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkdocument.c"
-               line="340">%TRUE if @attribute_value is successfully associated
+               line="364">%TRUE if @attribute_value is successfully associated
   with @attribute_name for this @document, and %FALSE if if the
   document does not allow the attribute to be modified</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -3185,21 +3228,56 @@ ask for the document type if it applies.</doc-deprecated>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="331">a #GObject instance that implements #AtkDocumentIface</doc>
+                 line="355">a #GObject instance that implements #AtkDocumentIface</doc>
             <type name="Document" c:type="AtkDocument*"/>
           </instance-parameter>
           <parameter name="attribute_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="332">a character string representing the name of the attribute
+                 line="356">a character string representing the name of the attribute
   whose value is being set.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="attribute_value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="334">a string value to be associated with @attribute_name.</doc>
+                 line="358">a string value to be associated with @attribute_name.</doc>
             <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_text_selections"
+                      invoker="set_text_selections"
+                      version="2.52">
+        <doc xml:space="preserve"
+             filename="atk/atkdocument.c"
+             line="475">Makes 1 or more selections within this document denoted by the given
+array of AtkTextSelections. Any existing physical selection (inside or
+outside this document) is replaced by the new selections. All objects within
+the given selection ranges must be descendants of this document. Otherwise
+FALSE will be returned.</doc>
+        <source-position filename="atk/atkdocument.h" line="126"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="atk/atkdocument.c"
+               line="487">TRUE if the selection was made successfully; FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atk/atkdocument.c"
+                 line="477">an #AtkDocument.</doc>
+            <type name="Document" c:type="AtkDocument*"/>
+          </instance-parameter>
+          <parameter name="selections" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atk/atkdocument.c"
+                 line="478">a GArray of AtkTextSelections
+             to be selected.</doc>
+            <array name="GLib.Array" c:type="GArray*">
+              <type name="TextSelection"/>
+            </array>
           </parameter>
         </parameters>
       </virtual-method>
@@ -3208,12 +3286,12 @@ ask for the document type if it applies.</doc-deprecated>
               version="1.12">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="295">Retrieves the value of the given @attribute_name inside @document.</doc>
-        <source-position filename="atk/atkdocument.h" line="100"/>
+             line="319">Retrieves the value of the given @attribute_name inside @document.</doc>
+        <source-position filename="atk/atkdocument.h" line="144"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="atk/atkdocument.c"
-               line="303">a string value associated with the named
+               line="327">a string value associated with the named
    attribute for this document, or %NULL if a value for
    @attribute_name has not been specified for this document.</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -3222,13 +3300,13 @@ ask for the document type if it applies.</doc-deprecated>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="297">a #GObject instance that implements AtkDocumentIface</doc>
+                 line="321">a #GObject instance that implements AtkDocumentIface</doc>
             <type name="Document" c:type="AtkDocument*"/>
           </instance-parameter>
           <parameter name="attribute_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="298">a character string representing the name of the attribute
+                 line="322">a character string representing the name of the attribute
   whose value is being queried.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -3239,13 +3317,13 @@ ask for the document type if it applies.</doc-deprecated>
               version="1.12">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="263">Gets an AtkAttributeSet which describes document-wide
+             line="287">Gets an AtkAttributeSet which describes document-wide
          attributes as name-value pairs.</doc>
-        <source-position filename="atk/atkdocument.h" line="98"/>
+        <source-position filename="atk/atkdocument.h" line="142"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkdocument.c"
-               line="272">An AtkAttributeSet containing the explicitly
+               line="296">An AtkAttributeSet containing the explicitly
          set name-value-pair attributes associated with this document
          as a whole.</doc>
           <type name="AttributeSet" c:type="AtkAttributeSet*"/>
@@ -3254,7 +3332,7 @@ ask for the document type if it applies.</doc-deprecated>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="265">a #GObject instance that implements AtkDocumentIface</doc>
+                 line="289">a #GObject instance that implements AtkDocumentIface</doc>
             <type name="Document" c:type="AtkDocument*"/>
           </instance-parameter>
         </parameters>
@@ -3264,12 +3342,12 @@ ask for the document type if it applies.</doc-deprecated>
               version="2.12">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="365">Retrieves the current page number inside @document.</doc>
-        <source-position filename="atk/atkdocument.h" line="107"/>
+             line="389">Retrieves the current page number inside @document.</doc>
+        <source-position filename="atk/atkdocument.h" line="151"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkdocument.c"
-               line="371">the current page number inside @document, or -1 if
+               line="395">the current page number inside @document, or -1 if
   not implemented, not know by the implementor, or irrelevant.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -3277,7 +3355,7 @@ ask for the document type if it applies.</doc-deprecated>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="367">the #AtkDocument</doc>
+                 line="391">the #AtkDocument</doc>
             <type name="Document" c:type="AtkDocument*"/>
           </instance-parameter>
         </parameters>
@@ -3287,24 +3365,24 @@ ask for the document type if it applies.</doc-deprecated>
               deprecated="1">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="195">Gets a %gpointer that points to an instance of the DOM.  It is
+             line="219">Gets a %gpointer that points to an instance of the DOM.  It is
 up to the caller to check atk_document_get_type to determine
 how to cast this pointer.</doc>
         <doc-deprecated xml:space="preserve">Since 2.12. @document is already a representation of
 the document. Use it directly, or one of its children, as an
 instance of the DOM.</doc-deprecated>
-        <source-position filename="atk/atkdocument.h" line="92"/>
+        <source-position filename="atk/atkdocument.h" line="136"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="atk/atkdocument.c"
-               line="207">a %gpointer that points to an instance of the DOM.</doc>
+               line="231">a %gpointer that points to an instance of the DOM.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="197">a #GObject instance that implements AtkDocumentIface</doc>
+                 line="221">a #GObject instance that implements AtkDocumentIface</doc>
             <type name="Document" c:type="AtkDocument*"/>
           </instance-parameter>
         </parameters>
@@ -3314,21 +3392,21 @@ instance of the DOM.</doc-deprecated>
               deprecated="1">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="165">Gets a string indicating the document type.</doc>
+             line="189">Gets a string indicating the document type.</doc>
         <doc-deprecated xml:space="preserve">Since 2.12. Please use atk_document_get_attributes() to
 ask for the document type if it applies.</doc-deprecated>
-        <source-position filename="atk/atkdocument.h" line="89"/>
+        <source-position filename="atk/atkdocument.h" line="133"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkdocument.c"
-               line="174">a string indicating the document type</doc>
+               line="198">a string indicating the document type</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="167">a #GObject instance that implements AtkDocumentIface</doc>
+                 line="191">a #GObject instance that implements AtkDocumentIface</doc>
             <type name="Document" c:type="AtkDocument*"/>
           </instance-parameter>
         </parameters>
@@ -3339,17 +3417,17 @@ ask for the document type if it applies.</doc-deprecated>
               deprecated-version="2.7.90">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="228">Gets a UTF-8 string indicating the POSIX-style LC_MESSAGES locale
+             line="252">Gets a UTF-8 string indicating the POSIX-style LC_MESSAGES locale
          of the content of this document instance.  Individual
          text substrings or images within this document may have
          a different locale, see atk_text_get_attributes and
          atk_image_get_image_locale.</doc>
         <doc-deprecated xml:space="preserve">Please use atk_object_get_object_locale() instead.</doc-deprecated>
-        <source-position filename="atk/atkdocument.h" line="95"/>
+        <source-position filename="atk/atkdocument.h" line="139"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkdocument.c"
-               line="240">a UTF-8 string indicating the POSIX-style LC_MESSAGES
+               line="264">a UTF-8 string indicating the POSIX-style LC_MESSAGES
          locale of the document content as a whole, or NULL if
          the document content does not specify a locale.</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -3358,7 +3436,7 @@ ask for the document type if it applies.</doc-deprecated>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="230">a #GObject instance that implements AtkDocumentIface</doc>
+                 line="254">a #GObject instance that implements AtkDocumentIface</doc>
             <type name="Document" c:type="AtkDocument*"/>
           </instance-parameter>
         </parameters>
@@ -3368,12 +3446,12 @@ ask for the document type if it applies.</doc-deprecated>
               version="2.12">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="395">Retrieves the total number of pages inside @document.</doc>
-        <source-position filename="atk/atkdocument.h" line="109"/>
+             line="419">Retrieves the total number of pages inside @document.</doc>
+        <source-position filename="atk/atkdocument.h" line="153"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkdocument.c"
-               line="401">total page count of @document, or -1 if not implemented,
+               line="425">total page count of @document, or -1 if not implemented,
   not know by the implementor or irrelevant.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -3381,7 +3459,32 @@ ask for the document type if it applies.</doc-deprecated>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="397">the #AtkDocument</doc>
+                 line="421">the #AtkDocument</doc>
+            <type name="Document" c:type="AtkDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_text_selections"
+              c:identifier="atk_document_get_text_selections"
+              version="2.52">
+        <doc xml:space="preserve"
+             filename="atk/atkdocument.c"
+             line="449">Returns an array of AtkTextSelections within this document.</doc>
+        <source-position filename="atk/atkdocument.h" line="158"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="atk/atkdocument.c"
+               line="455">a GArray of
+AtkTextSelection structures representing the selection.</doc>
+          <array name="GLib.Array" c:type="GArray*">
+            <type name="TextSelection"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atk/atkdocument.c"
+                 line="451">an #AtkDocument</doc>
             <type name="Document" c:type="AtkDocument*"/>
           </instance-parameter>
         </parameters>
@@ -3391,12 +3494,12 @@ ask for the document type if it applies.</doc-deprecated>
               version="1.12">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="329">Sets the value for the given @attribute_name inside @document.</doc>
-        <source-position filename="atk/atkdocument.h" line="103"/>
+             line="353">Sets the value for the given @attribute_name inside @document.</doc>
+        <source-position filename="atk/atkdocument.h" line="147"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkdocument.c"
-               line="340">%TRUE if @attribute_value is successfully associated
+               line="364">%TRUE if @attribute_value is successfully associated
   with @attribute_name for this @document, and %FALSE if if the
   document does not allow the attribute to be modified</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -3405,28 +3508,90 @@ ask for the document type if it applies.</doc-deprecated>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="331">a #GObject instance that implements #AtkDocumentIface</doc>
+                 line="355">a #GObject instance that implements #AtkDocumentIface</doc>
             <type name="Document" c:type="AtkDocument*"/>
           </instance-parameter>
           <parameter name="attribute_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="332">a character string representing the name of the attribute
+                 line="356">a character string representing the name of the attribute
   whose value is being set.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="attribute_value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="334">a string value to be associated with @attribute_name.</doc>
+                 line="358">a string value to be associated with @attribute_name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
+      <method name="set_text_selections"
+              c:identifier="atk_document_set_text_selections"
+              version="2.52">
+        <doc xml:space="preserve"
+             filename="atk/atkdocument.c"
+             line="475">Makes 1 or more selections within this document denoted by the given
+array of AtkTextSelections. Any existing physical selection (inside or
+outside this document) is replaced by the new selections. All objects within
+the given selection ranges must be descendants of this document. Otherwise
+FALSE will be returned.</doc>
+        <source-position filename="atk/atkdocument.h" line="161"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="atk/atkdocument.c"
+               line="487">TRUE if the selection was made successfully; FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atk/atkdocument.c"
+                 line="477">an #AtkDocument.</doc>
+            <type name="Document" c:type="AtkDocument*"/>
+          </instance-parameter>
+          <parameter name="selections" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atk/atkdocument.c"
+                 line="478">a GArray of AtkTextSelections
+             to be selected.</doc>
+            <array name="GLib.Array" c:type="GArray*">
+              <type name="TextSelection"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <glib:signal name="document-attribute-changed"
+                   when="last"
+                   version="2.52">
+        <doc xml:space="preserve"
+             filename="atk/atkdocument.c"
+             line="163">The "document-attribute-changed" signal should be emitted when there is a
+change to one of the document attributes returned by
+atk_document_get_attributes.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="arg1" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atk/atkdocument.c"
+                 line="166">the name of the attribute being modified, or %NULL if not
+         available.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="arg2" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atk/atkdocument.c"
+                 line="168">the attribute's new value, or %null if not available.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
       <glib:signal name="load-complete" when="last">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="79">The 'load-complete' signal is emitted when a pending load of
+             line="81">The 'load-complete' signal is emitted when a pending load of
 a static document has completed.  This signal is to be
 expected by ATK clients if and when AtkDocument implementors
 expose ATK_STATE_BUSY.  If the state of an AtkObject which
@@ -3442,7 +3607,7 @@ signals.)</doc>
       <glib:signal name="load-stopped" when="last">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="120">The 'load-stopped' signal is emitted when a pending load of
+             line="122">The 'load-stopped' signal is emitted when a pending load of
 document contents is cancelled, paused, or otherwise
 interrupted by the user or application logic.  It should not
 however be emitted while waiting for a resource (for instance
@@ -3455,7 +3620,7 @@ user-significant timeout has occurred.</doc>
       <glib:signal name="page-changed" when="last" version="2.12">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="140">The 'page-changed' signal is emitted when the current page of
+             line="142">The 'page-changed' signal is emitted when the current page of
 a document changes, e.g. pressing page up/down in a document
 viewer.</doc>
         <return-value transfer-ownership="none">
@@ -3465,7 +3630,7 @@ viewer.</doc>
           <parameter name="page_number" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="143">the new page number. If this value is unknown
+                 line="145">the new page number. If this value is unknown
 or not applicable, -1 should be provided.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
@@ -3474,7 +3639,7 @@ or not applicable, -1 should be provided.</doc>
       <glib:signal name="reload" when="last">
         <doc xml:space="preserve"
              filename="atk/atkdocument.c"
-             line="101">The 'reload' signal is emitted when the contents of a
+             line="103">The 'reload' signal is emitted when the contents of a
 document is refreshed from its source.  Once 'reload' has
 been emitted, a matching 'load-complete' or 'load-stopped'
 signal should follow, which clients may await before
@@ -3487,55 +3652,69 @@ interrogating ATK for the latest document content.</doc>
     <record name="DocumentIface"
             c:type="AtkDocumentIface"
             glib:is-gtype-struct-for="Document">
-      <source-position filename="atk/atkdocument.h" line="83"/>
+      <source-position filename="atk/atkdocument.h" line="127"/>
       <field name="parent">
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_document_type">
+        <doc xml:space="preserve"
+             filename="atk/atkdocument.h"
+             line="93">gets a string indicating the document
+  type. This virtual function is deprecated since 2.12 and it
+  should not be overriden.</doc>
         <callback name="get_document_type">
-          <source-position filename="atk/atkdocument.h" line="71"/>
+          <source-position filename="atk/atkdocument.h" line="113"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="174">a string indicating the document type</doc>
+                 line="198">a string indicating the document type</doc>
             <type name="utf8" c:type="const gchar*"/>
           </return-value>
           <parameters>
             <parameter name="document" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkdocument.c"
-                   line="167">a #GObject instance that implements AtkDocumentIface</doc>
+                   line="191">a #GObject instance that implements AtkDocumentIface</doc>
               <type name="Document" c:type="AtkDocument*"/>
             </parameter>
           </parameters>
         </callback>
       </field>
       <field name="get_document">
+        <doc xml:space="preserve"
+             filename="atk/atkdocument.h"
+             line="96">a #GObject instance that implements
+  AtkDocumentIface. This virtual method is deprecated since 2.12
+  and it should not be overriden.</doc>
         <callback name="get_document">
-          <source-position filename="atk/atkdocument.h" line="72"/>
+          <source-position filename="atk/atkdocument.h" line="114"/>
           <return-value transfer-ownership="none" nullable="1">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="207">a %gpointer that points to an instance of the DOM.</doc>
+                 line="231">a %gpointer that points to an instance of the DOM.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </return-value>
           <parameters>
             <parameter name="document" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkdocument.c"
-                   line="197">a #GObject instance that implements AtkDocumentIface</doc>
+                   line="221">a #GObject instance that implements AtkDocumentIface</doc>
               <type name="Document" c:type="AtkDocument*"/>
             </parameter>
           </parameters>
         </callback>
       </field>
       <field name="get_document_locale">
+        <doc xml:space="preserve"
+             filename="atk/atkdocument.h"
+             line="99">gets locale. This virtual function is
+  deprecated since 2.7.90 and it should not be overriden.</doc>
         <callback name="get_document_locale">
-          <source-position filename="atk/atkdocument.h" line="74"/>
+          <source-position filename="atk/atkdocument.h" line="116"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="240">a UTF-8 string indicating the POSIX-style LC_MESSAGES
+                 line="264">a UTF-8 string indicating the POSIX-style LC_MESSAGES
          locale of the document content as a whole, or NULL if
          the document content does not specify a locale.</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -3544,19 +3723,23 @@ interrogating ATK for the latest document content.</doc>
             <parameter name="document" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkdocument.c"
-                   line="230">a #GObject instance that implements AtkDocumentIface</doc>
+                   line="254">a #GObject instance that implements AtkDocumentIface</doc>
               <type name="Document" c:type="AtkDocument*"/>
             </parameter>
           </parameters>
         </callback>
       </field>
       <field name="get_document_attributes">
+        <doc xml:space="preserve"
+             filename="atk/atkdocument.h"
+             line="101">gets an AtkAttributeSet which describes
+  document-wide attributes as name-value pairs.</doc>
         <callback name="get_document_attributes">
-          <source-position filename="atk/atkdocument.h" line="75"/>
+          <source-position filename="atk/atkdocument.h" line="117"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="272">An AtkAttributeSet containing the explicitly
+                 line="296">An AtkAttributeSet containing the explicitly
          set name-value-pair attributes associated with this document
          as a whole.</doc>
             <type name="AttributeSet" c:type="AtkAttributeSet*"/>
@@ -3565,19 +3748,23 @@ interrogating ATK for the latest document content.</doc>
             <parameter name="document" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkdocument.c"
-                   line="265">a #GObject instance that implements AtkDocumentIface</doc>
+                   line="289">a #GObject instance that implements AtkDocumentIface</doc>
               <type name="Document" c:type="AtkDocument*"/>
             </parameter>
           </parameters>
         </callback>
       </field>
       <field name="get_document_attribute_value">
+        <doc xml:space="preserve"
+             filename="atk/atkdocument.h"
+             line="103">returns a string value assocciated
+  with the named attribute for this document, or NULL</doc>
         <callback name="get_document_attribute_value">
-          <source-position filename="atk/atkdocument.h" line="76"/>
+          <source-position filename="atk/atkdocument.h" line="118"/>
           <return-value transfer-ownership="none" nullable="1">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="303">a string value associated with the named
+                 line="327">a string value associated with the named
    attribute for this document, or %NULL if a value for
    @attribute_name has not been specified for this document.</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -3586,13 +3773,13 @@ interrogating ATK for the latest document content.</doc>
             <parameter name="document" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkdocument.c"
-                   line="297">a #GObject instance that implements AtkDocumentIface</doc>
+                   line="321">a #GObject instance that implements AtkDocumentIface</doc>
               <type name="Document" c:type="AtkDocument*"/>
             </parameter>
             <parameter name="attribute_name" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkdocument.c"
-                   line="298">a character string representing the name of the attribute
+                   line="322">a character string representing the name of the attribute
   whose value is being queried.</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
@@ -3600,12 +3787,16 @@ interrogating ATK for the latest document content.</doc>
         </callback>
       </field>
       <field name="set_document_attribute">
+        <doc xml:space="preserve"
+             filename="atk/atkdocument.h"
+             line="105">sets the value of an attribute. Returns
+  TRUE on success, FALSE otherwise</doc>
         <callback name="set_document_attribute">
-          <source-position filename="atk/atkdocument.h" line="78"/>
+          <source-position filename="atk/atkdocument.h" line="120"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="340">%TRUE if @attribute_value is successfully associated
+                 line="364">%TRUE if @attribute_value is successfully associated
   with @attribute_name for this @document, and %FALSE if if the
   document does not allow the attribute to be modified</doc>
             <type name="gboolean" c:type="gboolean"/>
@@ -3614,32 +3805,35 @@ interrogating ATK for the latest document content.</doc>
             <parameter name="document" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkdocument.c"
-                   line="331">a #GObject instance that implements #AtkDocumentIface</doc>
+                   line="355">a #GObject instance that implements #AtkDocumentIface</doc>
               <type name="Document" c:type="AtkDocument*"/>
             </parameter>
             <parameter name="attribute_name" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkdocument.c"
-                   line="332">a character string representing the name of the attribute
+                   line="356">a character string representing the name of the attribute
   whose value is being set.</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
             <parameter name="attribute_value" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkdocument.c"
-                   line="334">a string value to be associated with @attribute_name.</doc>
+                   line="358">a string value to be associated with @attribute_name.</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
           </parameters>
         </callback>
       </field>
       <field name="get_current_page_number">
+        <doc xml:space="preserve"
+             filename="atk/atkdocument.h"
+             line="107">gets the current page number. Since 2.12</doc>
         <callback name="get_current_page_number">
-          <source-position filename="atk/atkdocument.h" line="81"/>
+          <source-position filename="atk/atkdocument.h" line="123"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="371">the current page number inside @document, or -1 if
+                 line="395">the current page number inside @document, or -1 if
   not implemented, not know by the implementor, or irrelevant.</doc>
             <type name="gint" c:type="gint"/>
           </return-value>
@@ -3647,19 +3841,22 @@ interrogating ATK for the latest document content.</doc>
             <parameter name="document" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkdocument.c"
-                   line="367">the #AtkDocument</doc>
+                   line="391">the #AtkDocument</doc>
               <type name="Document" c:type="AtkDocument*"/>
             </parameter>
           </parameters>
         </callback>
       </field>
       <field name="get_page_count">
+        <doc xml:space="preserve"
+             filename="atk/atkdocument.h"
+             line="108">gets the page count of the document. Since 2.12</doc>
         <callback name="get_page_count">
-          <source-position filename="atk/atkdocument.h" line="82"/>
+          <source-position filename="atk/atkdocument.h" line="124"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkdocument.c"
-                 line="401">total page count of @document, or -1 if not implemented,
+                 line="425">total page count of @document, or -1 if not implemented,
   not know by the implementor or irrelevant.</doc>
             <type name="gint" c:type="gint"/>
           </return-value>
@@ -3667,8 +3864,58 @@ interrogating ATK for the latest document content.</doc>
             <parameter name="document" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkdocument.c"
-                   line="397">the #AtkDocument</doc>
+                   line="421">the #AtkDocument</doc>
               <type name="Document" c:type="AtkDocument*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_text_selections">
+        <callback name="get_text_selections">
+          <source-position filename="atk/atkdocument.h" line="125"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="atk/atkdocument.c"
+                 line="455">a GArray of
+AtkTextSelection structures representing the selection.</doc>
+            <array name="GLib.Array" c:type="GArray*">
+              <type name="TextSelection"/>
+            </array>
+          </return-value>
+          <parameters>
+            <parameter name="document" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="atk/atkdocument.c"
+                   line="451">an #AtkDocument</doc>
+              <type name="Document" c:type="AtkDocument*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_text_selections">
+        <callback name="set_text_selections">
+          <source-position filename="atk/atkdocument.h" line="126"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atk/atkdocument.c"
+                 line="487">TRUE if the selection was made successfully; FALSE otherwise.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="document" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="atk/atkdocument.c"
+                   line="477">an #AtkDocument.</doc>
+              <type name="Document" c:type="AtkDocument*"/>
+            </parameter>
+            <parameter name="selections" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="atk/atkdocument.c"
+                   line="478">a GArray of AtkTextSelections
+             to be selected.</doc>
+              <array name="GLib.Array" c:type="GArray*">
+                <type name="TextSelection"/>
+              </array>
             </parameter>
           </parameters>
         </callback>
@@ -6611,13 +6858,13 @@ not be completed.</doc>
               c:identifier="atk_implementor_ref_accessible">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1168">Gets a reference to an object's #AtkObject implementation, if
+             line="1211">Gets a reference to an object's #AtkObject implementation, if
 the object implements #AtkObjectIface</doc>
         <source-position filename="atk/atkobject.h" line="724"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="1176">a reference to an object's #AtkObject
+               line="1219">a reference to an object's #AtkObject
 implementation</doc>
           <type name="Object" c:type="AtkObject*"/>
         </return-value>
@@ -6625,7 +6872,7 @@ implementation</doc>
           <instance-parameter name="implementor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1170">The #GObject instance which should implement #AtkImplementorIface
+                 line="1213">The #GObject instance which should implement #AtkImplementorIface
 if a non-null return value is required.</doc>
             <type name="Implementor" c:type="AtkImplementor*"/>
           </instance-parameter>
@@ -6920,7 +7167,7 @@ against at application run time.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MINOR_VERSION"
-              value="50"
+              value="52"
               c:type="ATK_MINOR_VERSION"
               version="2.7.4">
       <doc xml:space="preserve"
@@ -7107,6 +7354,10 @@ be bracketed by atk_misc_threads_leave/atk_misc_threads_enter calls.
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="threads_enter">
+        <doc xml:space="preserve"
+             filename="atk/atkmisc.h"
+             line="84">This virtual function is deprecated since 2.12 and
+  it should not be overriden.</doc>
         <callback name="threads_enter">
           <source-position filename="atk/atkmisc.h" line="94"/>
           <return-value transfer-ownership="none">
@@ -7123,6 +7374,10 @@ be bracketed by atk_misc_threads_leave/atk_misc_threads_enter calls.
         </callback>
       </field>
       <field name="threads_leave">
+        <doc xml:space="preserve"
+             filename="atk/atkmisc.h"
+             line="86">This virtual function is deprecated sice 2.12 and
+  it should not be overriden.</doc>
         <callback name="threads_leave">
           <source-position filename="atk/atkmisc.h" line="95"/>
           <return-value transfer-ownership="none">
@@ -7427,14 +7682,14 @@ See [class@AtkObjectFactory], [class@AtkRegistry].  (GTK+ users see also
                       deprecated-version="2.12">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1091">Calls @handler on property changes.</doc>
+             line="1134">Calls @handler on property changes.</doc>
         <doc-deprecated xml:space="preserve">Connect directly to #AtkObject::property-change or
   the relevant #GObject::notify signal for each desired property.</doc-deprecated>
         <source-position filename="atk/atkobject.h" line="639"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="1098">a #guint which is the handler id used in
+               line="1141">a #guint which is the handler id used in
   atk_object_remove_property_change_handler()</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -7442,19 +7697,25 @@ See [class@AtkObjectFactory], [class@AtkRegistry].  (GTK+ users see also
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1093">an #AtkObject</doc>
+                 line="1136">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
           <parameter name="handler" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1094">a function to be called when a property changes its value</doc>
+                 line="1137">a function to be called when a property changes its value</doc>
             <type name="PropertyChangeHandler"
                   c:type="AtkPropertyChangeHandler*"/>
           </parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="focus_event">
+        <doc xml:space="preserve"
+             filename="atk/atkobject.h"
+             line="564">The signal handler which is executed when there is a
+  focus event for an object. This virtual function is deprecated
+  since 2.9.4 and it should not be overriden. Use
+  the #AtkObject::state-change "focused" signal instead.</doc>
         <source-position filename="atk/atkobject.h" line="663"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7473,7 +7734,7 @@ See [class@AtkObjectFactory], [class@AtkRegistry].  (GTK+ users see also
                       version="1.12">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1197">Get a list of properties applied to this object as a whole, as an #AtkAttributeSet consisting of
+             line="1240">Get a list of properties applied to this object as a whole, as an #AtkAttributeSet consisting of
 name-value pairs. As such these attributes may be considered weakly-typed properties or annotations,
 as distinct from strongly-typed object data available via other get/set methods.
 Not all objects have explicit "name-value pair" #AtkAttributeSet properties.</doc>
@@ -7481,7 +7742,7 @@ Not all objects have explicit "name-value pair" #AtkAttributeSet properties.</do
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="1208">an #AtkAttributeSet consisting of all
+               line="1251">an #AtkAttributeSet consisting of all
 explicit properties/annotations applied to the object, or an empty
 set if the object has no name-value pair attributes assigned to
 it. This #atkattributeset should be freed by a call to
@@ -7492,7 +7753,7 @@ atk_attribute_set_free().</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1199">An #AtkObject.</doc>
+                 line="1242">An #AtkObject.</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -7500,12 +7761,12 @@ atk_attribute_set_free().</doc>
       <virtual-method name="get_description" invoker="get_description">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="664">Gets the accessible description of the accessible.</doc>
+             line="707">Gets the accessible description of the accessible.</doc>
         <source-position filename="atk/atkobject.h" line="580"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="670">a character string representing the accessible description
+               line="713">a character string representing the accessible description
 of the accessible.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -7513,7 +7774,7 @@ of the accessible.</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="666">an #AtkObject</doc>
+                 line="709">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -7521,20 +7782,20 @@ of the accessible.</doc>
       <virtual-method name="get_index_in_parent" invoker="get_index_in_parent">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="950">Gets the 0-based index of this accessible in its parent; returns -1 if the
+             line="993">Gets the 0-based index of this accessible in its parent; returns -1 if the
 accessible does not have an accessible parent.</doc>
         <source-position filename="atk/atkobject.h" line="601"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="957">an integer which is the index of the accessible in its parent</doc>
+               line="1000">an integer which is the index of the accessible in its parent</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="952">an #AtkObject</doc>
+                 line="995">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -7542,20 +7803,20 @@ accessible does not have an accessible parent.</doc>
       <virtual-method name="get_layer" invoker="get_layer" deprecated="1">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="874">Gets the layer of the accessible.</doc>
+             line="917">Gets the layer of the accessible.</doc>
         <doc-deprecated xml:space="preserve">Use atk_component_get_layer instead.</doc-deprecated>
         <source-position filename="atk/atkobject.h" line="610"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="882">an #AtkLayer which is the layer of the accessible</doc>
+               line="925">an #AtkLayer which is the layer of the accessible</doc>
           <type name="Layer" c:type="AtkLayer"/>
         </return-value>
         <parameters>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="876">an #AtkObject</doc>
+                 line="919">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -7565,14 +7826,14 @@ accessible does not have an accessible parent.</doc>
                       deprecated="1">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="898">Gets the zorder of the accessible. The value G_MININT will be returned
+             line="941">Gets the zorder of the accessible. The value G_MININT will be returned
 if the layer of the accessible is not ATK_LAYER_MDI.</doc>
         <doc-deprecated xml:space="preserve">Use atk_component_get_mdi_zorder instead.</doc-deprecated>
         <source-position filename="atk/atkobject.h" line="611"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="907">a gint which is the zorder of the accessible, i.e. the depth at
+               line="950">a gint which is the zorder of the accessible, i.e. the depth at
 which the component is shown in relation to other components in the same
 container.</doc>
           <type name="gint" c:type="gint"/>
@@ -7581,7 +7842,7 @@ container.</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="900">an #AtkObject</doc>
+                 line="943">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -7600,19 +7861,19 @@ container.</doc>
       <virtual-method name="get_name" invoker="get_name">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="642">Gets the accessible name of the accessible.</doc>
+             line="685">Gets the accessible name of the accessible.</doc>
         <source-position filename="atk/atkobject.h" line="576"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="648">a character string representing the accessible name of the object.</doc>
+               line="691">a character string representing the accessible name of the object.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="644">an #AtkObject</doc>
+                 line="687">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -7622,13 +7883,13 @@ container.</doc>
                       version="2.8">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1538">Gets a UTF-8 string indicating the POSIX-style LC_MESSAGES locale
+             line="1588">Gets a UTF-8 string indicating the POSIX-style LC_MESSAGES locale
 of @accessible.</doc>
         <source-position filename="atk/atkobject.h" line="699"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="1547">a UTF-8 string indicating the POSIX-style LC_MESSAGES
+               line="1597">a UTF-8 string indicating the POSIX-style LC_MESSAGES
          locale of @accessible.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -7636,7 +7897,7 @@ of @accessible.</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1540">an #AtkObject</doc>
+                 line="1590">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -7644,7 +7905,7 @@ of @accessible.</doc>
       <virtual-method name="get_parent" invoker="get_parent">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="688">Gets the accessible parent of the accessible. By default this is
+             line="731">Gets the accessible parent of the accessible. By default this is
 the one assigned with atk_object_set_parent(), but it is assumed
 that ATK implementors have ways to get the parent of the object
 without the need of assigning it manually with
@@ -7656,7 +7917,7 @@ atk_object_set_parent(), use atk_object_peek_parent().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="701">an #AtkObject representing the accessible
+               line="744">an #AtkObject representing the accessible
 parent of the accessible</doc>
           <type name="Object" c:type="AtkObject*"/>
         </return-value>
@@ -7664,7 +7925,7 @@ parent of the accessible</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="690">an #AtkObject</doc>
+                 line="733">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -7672,19 +7933,19 @@ parent of the accessible</doc>
       <virtual-method name="get_role" invoker="get_role">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="852">Gets the role of the accessible.</doc>
+             line="895">Gets the role of the accessible.</doc>
         <source-position filename="atk/atkobject.h" line="609"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="858">an #AtkRole which is the role of the accessible</doc>
+               line="901">an #AtkRole which is the role of the accessible</doc>
           <type name="Role" c:type="AtkRole"/>
         </return-value>
         <parameters>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="854">an #AtkObject</doc>
+                 line="897">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -7692,7 +7953,7 @@ parent of the accessible</doc>
       <virtual-method name="initialize" invoker="initialize">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1446">This function is called when implementing subclasses of #AtkObject.
+             line="1496">This function is called when implementing subclasses of #AtkObject.
 It does initialization required for the new object. It is intended
 that this function should called only in the ..._new() functions used
 to create an instance of a subclass of #AtkObject</doc>
@@ -7704,7 +7965,7 @@ to create an instance of a subclass of #AtkObject</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1448">a #AtkObject</doc>
+                 line="1498">a #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
           <parameter name="data"
@@ -7713,7 +7974,7 @@ to create an instance of a subclass of #AtkObject</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1449">a #gpointer which identifies the object for which the AtkObject was created.</doc>
+                 line="1499">a #gpointer which identifies the object for which the AtkObject was created.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -7749,12 +8010,12 @@ to create an instance of a subclass of #AtkObject</doc>
       <virtual-method name="ref_relation_set" invoker="ref_relation_set">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="789">Gets the #AtkRelationSet associated with the object.</doc>
+             line="832">Gets the #AtkRelationSet associated with the object.</doc>
         <source-position filename="atk/atkobject.h" line="605"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="795">an #AtkRelationSet representing the relation set
+               line="838">an #AtkRelationSet representing the relation set
 of the object.</doc>
           <type name="RelationSet" c:type="AtkRelationSet*"/>
         </return-value>
@@ -7762,7 +8023,7 @@ of the object.</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="791">an #AtkObject</doc>
+                 line="834">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -7770,13 +8031,13 @@ of the object.</doc>
       <virtual-method name="ref_state_set" invoker="ref_state_set">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="926">Gets a reference to the state set of the accessible; the caller must
+             line="969">Gets a reference to the state set of the accessible; the caller must
 unreference it when it is no longer needed.</doc>
         <source-position filename="atk/atkobject.h" line="615"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="933">a reference to an #AtkStateSet which is the state
+               line="976">a reference to an #AtkStateSet which is the state
 set of the accessible</doc>
           <type name="StateSet" c:type="AtkStateSet*"/>
         </return-value>
@@ -7784,7 +8045,7 @@ set of the accessible</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="928">an #AtkObject</doc>
+                 line="971">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -7795,7 +8056,7 @@ set of the accessible</doc>
                       deprecated-version="2.12">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1120">Removes a property change handler.</doc>
+             line="1163">Removes a property change handler.</doc>
         <doc-deprecated xml:space="preserve">See atk_object_connect_property_change_handler()</doc-deprecated>
         <source-position filename="atk/atkobject.h" line="646"/>
         <return-value transfer-ownership="none">
@@ -7805,13 +8066,13 @@ set of the accessible</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1122">an #AtkObject</doc>
+                 line="1165">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
           <parameter name="handler_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1123">a guint which identifies the handler to be removed.</doc>
+                 line="1166">a guint which identifies the handler to be removed.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -7819,7 +8080,7 @@ set of the accessible</doc>
       <virtual-method name="set_description" invoker="set_description">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1005">Sets the accessible description of the accessible. You can't set
+             line="1048">Sets the accessible description of the accessible. You can't set
 the description to NULL. This is reserved for the initial value. In
 this aspect NULL is similar to ATK_ROLE_UNKNOWN. If you want to set
 the name to a empty value you can use "".</doc>
@@ -7831,13 +8092,13 @@ the name to a empty value you can use "".</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1007">an #AtkObject</doc>
+                 line="1050">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
           <parameter name="description" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1008">a character string to be set as the accessible description</doc>
+                 line="1051">a character string to be set as the accessible description</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -7845,7 +8106,7 @@ the name to a empty value you can use "".</doc>
       <virtual-method name="set_name" invoker="set_name">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="973">Sets the accessible name of the accessible. You can't set the name
+             line="1016">Sets the accessible name of the accessible. You can't set the name
 to NULL. This is reserved for the initial value. In this aspect
 NULL is similar to ATK_ROLE_UNKNOWN. If you want to set the name to
 a empty value you can use "".</doc>
@@ -7857,13 +8118,13 @@ a empty value you can use "".</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="975">an #AtkObject</doc>
+                 line="1018">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="976">a character string to be set as the accessible name</doc>
+                 line="1019">a character string to be set as the accessible name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -7871,7 +8132,7 @@ a empty value you can use "".</doc>
       <virtual-method name="set_parent" invoker="set_parent">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1038">Sets the accessible parent of the accessible. @parent can be NULL.</doc>
+             line="1081">Sets the accessible parent of the accessible. @parent can be NULL.</doc>
         <source-position filename="atk/atkobject.h" line="629"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7880,13 +8141,13 @@ a empty value you can use "".</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1040">an #AtkObject</doc>
+                 line="1083">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
           <parameter name="parent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1041">an #AtkObject to be set as the accessible parent</doc>
+                 line="1084">an #AtkObject to be set as the accessible parent</doc>
             <type name="Object" c:type="AtkObject*"/>
           </parameter>
         </parameters>
@@ -7894,7 +8155,7 @@ a empty value you can use "".</doc>
       <virtual-method name="set_role" invoker="set_role">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1061">Sets the role of the accessible.</doc>
+             line="1104">Sets the role of the accessible.</doc>
         <source-position filename="atk/atkobject.h" line="634"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7903,13 +8164,13 @@ a empty value you can use "".</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1063">an #AtkObject</doc>
+                 line="1106">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
           <parameter name="role" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1064">an #AtkRole to be set as the role</doc>
+                 line="1107">an #AtkRole to be set as the role</doc>
             <type name="Role" c:type="AtkRole"/>
           </parameter>
         </parameters>
@@ -7946,31 +8207,31 @@ a empty value you can use "".</doc>
               c:identifier="atk_object_add_relationship">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1600">Adds a relationship of the specified type with the specified target.</doc>
+             line="1650">Adds a relationship of the specified type with the specified target.</doc>
         <source-position filename="atk/atkobject.h" line="794"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="1608">TRUE if the relationship is added.</doc>
+               line="1658">TRUE if the relationship is added.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1602">The #AtkObject to which an AtkRelation is to be added.</doc>
+                 line="1652">The #AtkObject to which an AtkRelation is to be added.</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
           <parameter name="relationship" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1603">The #AtkRelationType of the relation</doc>
+                 line="1653">The #AtkRelationType of the relation</doc>
             <type name="RelationType" c:type="AtkRelationType"/>
           </parameter>
           <parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1604">The #AtkObject which is to be the target of the relation.</doc>
+                 line="1654">The #AtkObject which is to be the target of the relation.</doc>
             <type name="Object" c:type="AtkObject*"/>
           </parameter>
         </parameters>
@@ -7982,14 +8243,14 @@ a empty value you can use "".</doc>
               deprecated-version="2.12">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1091">Calls @handler on property changes.</doc>
+             line="1134">Calls @handler on property changes.</doc>
         <doc-deprecated xml:space="preserve">Connect directly to #AtkObject::property-change or
   the relevant #GObject::notify signal for each desired property.</doc-deprecated>
         <source-position filename="atk/atkobject.h" line="773"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="1098">a #guint which is the handler id used in
+               line="1141">a #guint which is the handler id used in
   atk_object_remove_property_change_handler()</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -7997,13 +8258,13 @@ a empty value you can use "".</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1093">an #AtkObject</doc>
+                 line="1136">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
           <parameter name="handler" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1094">a function to be called when a property changes its value</doc>
+                 line="1137">a function to be called when a property changes its value</doc>
             <type name="PropertyChangeHandler"
                   c:type="AtkPropertyChangeHandler*"/>
           </parameter>
@@ -8011,15 +8272,16 @@ a empty value you can use "".</doc>
       </method>
       <method name="get_accessible_id"
               c:identifier="atk_object_get_accessible_id"
+              glib:get-property="accessible-id"
               version="2.34">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1667">Gets the accessible id of the accessible.</doc>
+             line="1717">Gets the accessible id of the accessible.</doc>
         <source-position filename="atk/atkobject.h" line="809"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="1675">a character string representing the accessible id of the object, or
+               line="1725">a character string representing the accessible id of the object, or
 NULL if no such string was set.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -8027,7 +8289,7 @@ NULL if no such string was set.</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1669">an #AtkObject</doc>
+                 line="1719">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -8037,7 +8299,7 @@ NULL if no such string was set.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1197">Get a list of properties applied to this object as a whole, as an #AtkAttributeSet consisting of
+             line="1240">Get a list of properties applied to this object as a whole, as an #AtkAttributeSet consisting of
 name-value pairs. As such these attributes may be considered weakly-typed properties or annotations,
 as distinct from strongly-typed object data available via other get/set methods.
 Not all objects have explicit "name-value pair" #AtkAttributeSet properties.</doc>
@@ -8045,7 +8307,7 @@ Not all objects have explicit "name-value pair" #AtkAttributeSet properties.</do
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="1208">an #AtkAttributeSet consisting of all
+               line="1251">an #AtkAttributeSet consisting of all
 explicit properties/annotations applied to the object, or an empty
 set if the object has no name-value pair attributes assigned to
 it. This #atkattributeset should be freed by a call to
@@ -8056,7 +8318,7 @@ atk_attribute_set_free().</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1199">An #AtkObject.</doc>
+                 line="1242">An #AtkObject.</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -8064,12 +8326,12 @@ atk_attribute_set_free().</doc>
       <method name="get_description" c:identifier="atk_object_get_description">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="664">Gets the accessible description of the accessible.</doc>
+             line="707">Gets the accessible description of the accessible.</doc>
         <source-position filename="atk/atkobject.h" line="733"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="670">a character string representing the accessible description
+               line="713">a character string representing the accessible description
 of the accessible.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -8077,7 +8339,30 @@ of the accessible.</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="666">an #AtkObject</doc>
+                 line="709">an #AtkObject</doc>
+            <type name="Object" c:type="AtkObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_help_text"
+              c:identifier="atk_object_get_help_text"
+              version="2.52">
+        <doc xml:space="preserve"
+             filename="atk/atkobject.c"
+             line="1756">Gets the help text associated with the accessible.</doc>
+        <source-position filename="atk/atkobject.h" line="816"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="atk/atkobject.c"
+               line="1764">a character string representing the help text or the object, or
+NULL if no such string was set.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="accessible" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atk/atkobject.c"
+                 line="1758">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -8086,20 +8371,20 @@ of the accessible.</doc>
               c:identifier="atk_object_get_index_in_parent">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="950">Gets the 0-based index of this accessible in its parent; returns -1 if the
+             line="993">Gets the 0-based index of this accessible in its parent; returns -1 if the
 accessible does not have an accessible parent.</doc>
         <source-position filename="atk/atkobject.h" line="758"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="957">an integer which is the index of the accessible in its parent</doc>
+               line="1000">an integer which is the index of the accessible in its parent</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="952">an #AtkObject</doc>
+                 line="995">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -8109,20 +8394,20 @@ accessible does not have an accessible parent.</doc>
               deprecated="1">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="874">Gets the layer of the accessible.</doc>
+             line="917">Gets the layer of the accessible.</doc>
         <doc-deprecated xml:space="preserve">Use atk_component_get_layer instead.</doc-deprecated>
         <source-position filename="atk/atkobject.h" line="749"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="882">an #AtkLayer which is the layer of the accessible</doc>
+               line="925">an #AtkLayer which is the layer of the accessible</doc>
           <type name="Layer" c:type="AtkLayer"/>
         </return-value>
         <parameters>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="876">an #AtkObject</doc>
+                 line="919">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -8132,14 +8417,14 @@ accessible does not have an accessible parent.</doc>
               deprecated="1">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="898">Gets the zorder of the accessible. The value G_MININT will be returned
+             line="941">Gets the zorder of the accessible. The value G_MININT will be returned
 if the layer of the accessible is not ATK_LAYER_MDI.</doc>
         <doc-deprecated xml:space="preserve">Use atk_component_get_mdi_zorder instead.</doc-deprecated>
         <source-position filename="atk/atkobject.h" line="751"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="907">a gint which is the zorder of the accessible, i.e. the depth at
+               line="950">a gint which is the zorder of the accessible, i.e. the depth at
 which the component is shown in relation to other components in the same
 container.</doc>
           <type name="gint" c:type="gint"/>
@@ -8148,7 +8433,7 @@ container.</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="900">an #AtkObject</doc>
+                 line="943">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -8157,12 +8442,12 @@ container.</doc>
               c:identifier="atk_object_get_n_accessible_children">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="739">Gets the number of accessible children of the accessible.</doc>
+             line="782">Gets the number of accessible children of the accessible.</doc>
         <source-position filename="atk/atkobject.h" line="739"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="745">an integer representing the number of accessible children
+               line="788">an integer representing the number of accessible children
 of the accessible.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -8170,7 +8455,7 @@ of the accessible.</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="741">an #AtkObject</doc>
+                 line="784">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -8178,19 +8463,19 @@ of the accessible.</doc>
       <method name="get_name" c:identifier="atk_object_get_name">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="642">Gets the accessible name of the accessible.</doc>
+             line="685">Gets the accessible name of the accessible.</doc>
         <source-position filename="atk/atkobject.h" line="731"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="648">a character string representing the accessible name of the object.</doc>
+               line="691">a character string representing the accessible name of the object.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="644">an #AtkObject</doc>
+                 line="687">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -8200,13 +8485,13 @@ of the accessible.</doc>
               version="2.8">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1538">Gets a UTF-8 string indicating the POSIX-style LC_MESSAGES locale
+             line="1588">Gets a UTF-8 string indicating the POSIX-style LC_MESSAGES locale
 of @accessible.</doc>
         <source-position filename="atk/atkobject.h" line="806"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="1547">a UTF-8 string indicating the POSIX-style LC_MESSAGES
+               line="1597">a UTF-8 string indicating the POSIX-style LC_MESSAGES
          locale of @accessible.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -8214,7 +8499,7 @@ of @accessible.</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1540">an #AtkObject</doc>
+                 line="1590">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -8222,7 +8507,7 @@ of @accessible.</doc>
       <method name="get_parent" c:identifier="atk_object_get_parent">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="688">Gets the accessible parent of the accessible. By default this is
+             line="731">Gets the accessible parent of the accessible. By default this is
 the one assigned with atk_object_set_parent(), but it is assumed
 that ATK implementors have ways to get the parent of the object
 without the need of assigning it manually with
@@ -8234,7 +8519,7 @@ atk_object_set_parent(), use atk_object_peek_parent().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="701">an #AtkObject representing the accessible
+               line="744">an #AtkObject representing the accessible
 parent of the accessible</doc>
           <type name="Object" c:type="AtkObject*"/>
         </return-value>
@@ -8242,7 +8527,7 @@ parent of the accessible</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="690">an #AtkObject</doc>
+                 line="733">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -8250,19 +8535,19 @@ parent of the accessible</doc>
       <method name="get_role" c:identifier="atk_object_get_role">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="852">Gets the role of the accessible.</doc>
+             line="895">Gets the role of the accessible.</doc>
         <source-position filename="atk/atkobject.h" line="746"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="858">an #AtkRole which is the role of the accessible</doc>
+               line="901">an #AtkRole which is the role of the accessible</doc>
           <type name="Role" c:type="AtkRole"/>
         </return-value>
         <parameters>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="854">an #AtkObject</doc>
+                 line="897">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -8270,7 +8555,7 @@ parent of the accessible</doc>
       <method name="initialize" c:identifier="atk_object_initialize">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1446">This function is called when implementing subclasses of #AtkObject.
+             line="1496">This function is called when implementing subclasses of #AtkObject.
 It does initialization required for the new object. It is intended
 that this function should called only in the ..._new() functions used
 to create an instance of a subclass of #AtkObject</doc>
@@ -8282,7 +8567,7 @@ to create an instance of a subclass of #AtkObject</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1448">a #AtkObject</doc>
+                 line="1498">a #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
           <parameter name="data"
@@ -8291,7 +8576,7 @@ to create an instance of a subclass of #AtkObject</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1449">a #gpointer which identifies the object for which the AtkObject was created.</doc>
+                 line="1499">a #gpointer which identifies the object for which the AtkObject was created.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -8300,7 +8585,7 @@ to create an instance of a subclass of #AtkObject</doc>
               c:identifier="atk_object_notify_state_change">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1142">Emits a state-change signal for the specified state.
+             line="1185">Emits a state-change signal for the specified state.
 
 Note that as a general rule when the state of an existing object changes,
 emitting a notification is expected.</doc>
@@ -8312,19 +8597,19 @@ emitting a notification is expected.</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1144">an #AtkObject</doc>
+                 line="1187">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1145">an #AtkState whose state is changed</doc>
+                 line="1188">an #AtkState whose state is changed</doc>
             <type name="State" c:type="AtkState"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1146">a gboolean which indicates whether the state is being set on or off</doc>
+                 line="1189">a gboolean which indicates whether the state is being set on or off</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -8332,7 +8617,7 @@ emitting a notification is expected.</doc>
       <method name="peek_parent" c:identifier="atk_object_peek_parent">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="718">Gets the accessible parent of the accessible, if it has been
+             line="761">Gets the accessible parent of the accessible, if it has been
 manually assigned with atk_object_set_parent. Otherwise, this
 function returns %NULL.
 
@@ -8343,7 +8628,7 @@ further reference.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="730">an #AtkObject representing the accessible
+               line="773">an #AtkObject representing the accessible
 parent of the accessible if assigned</doc>
           <type name="Object" c:type="AtkObject*"/>
         </return-value>
@@ -8351,7 +8636,7 @@ parent of the accessible if assigned</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="720">an #AtkObject</doc>
+                 line="763">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -8360,14 +8645,14 @@ parent of the accessible if assigned</doc>
               c:identifier="atk_object_ref_accessible_child">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="762">Gets a reference to the specified accessible child of the object.
+             line="805">Gets a reference to the specified accessible child of the object.
 The accessible children are 0-based so the first accessible child is
 at index 0, the second at index 1 and so on.</doc>
         <source-position filename="atk/atkobject.h" line="741"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="771">an #AtkObject representing the specified
+               line="814">an #AtkObject representing the specified
 accessible child of the accessible.</doc>
           <type name="Object" c:type="AtkObject*"/>
         </return-value>
@@ -8375,13 +8660,13 @@ accessible child of the accessible.</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="764">an #AtkObject</doc>
+                 line="807">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
           <parameter name="i" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="765">a gint representing the position of the child, starting from 0</doc>
+                 line="808">a gint representing the position of the child, starting from 0</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -8390,12 +8675,12 @@ accessible child of the accessible.</doc>
               c:identifier="atk_object_ref_relation_set">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="789">Gets the #AtkRelationSet associated with the object.</doc>
+             line="832">Gets the #AtkRelationSet associated with the object.</doc>
         <source-position filename="atk/atkobject.h" line="744"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="795">an #AtkRelationSet representing the relation set
+               line="838">an #AtkRelationSet representing the relation set
 of the object.</doc>
           <type name="RelationSet" c:type="AtkRelationSet*"/>
         </return-value>
@@ -8403,7 +8688,7 @@ of the object.</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="791">an #AtkObject</doc>
+                 line="834">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -8411,13 +8696,13 @@ of the object.</doc>
       <method name="ref_state_set" c:identifier="atk_object_ref_state_set">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="926">Gets a reference to the state set of the accessible; the caller must
+             line="969">Gets a reference to the state set of the accessible; the caller must
 unreference it when it is no longer needed.</doc>
         <source-position filename="atk/atkobject.h" line="756"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="933">a reference to an #AtkStateSet which is the state
+               line="976">a reference to an #AtkStateSet which is the state
 set of the accessible</doc>
           <type name="StateSet" c:type="AtkStateSet*"/>
         </return-value>
@@ -8425,7 +8710,7 @@ set of the accessible</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="928">an #AtkObject</doc>
+                 line="971">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
         </parameters>
@@ -8436,7 +8721,7 @@ set of the accessible</doc>
               deprecated-version="2.12">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1120">Removes a property change handler.</doc>
+             line="1163">Removes a property change handler.</doc>
         <doc-deprecated xml:space="preserve">See atk_object_connect_property_change_handler()</doc-deprecated>
         <source-position filename="atk/atkobject.h" line="776"/>
         <return-value transfer-ownership="none">
@@ -8446,13 +8731,13 @@ set of the accessible</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1122">an #AtkObject</doc>
+                 line="1165">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
           <parameter name="handler_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1123">a guint which identifies the handler to be removed.</doc>
+                 line="1166">a guint which identifies the handler to be removed.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -8461,41 +8746,42 @@ set of the accessible</doc>
               c:identifier="atk_object_remove_relationship">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1633">Removes a relationship of the specified type with the specified target.</doc>
+             line="1683">Removes a relationship of the specified type with the specified target.</doc>
         <source-position filename="atk/atkobject.h" line="798"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="1641">TRUE if the relationship is removed.</doc>
+               line="1691">TRUE if the relationship is removed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1635">The #AtkObject from which an AtkRelation is to be removed.</doc>
+                 line="1685">The #AtkObject from which an AtkRelation is to be removed.</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
           <parameter name="relationship" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1636">The #AtkRelationType of the relation</doc>
+                 line="1686">The #AtkRelationType of the relation</doc>
             <type name="RelationType" c:type="AtkRelationType"/>
           </parameter>
           <parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1637">The #AtkObject which is the target of the relation to be removed.</doc>
+                 line="1687">The #AtkObject which is the target of the relation to be removed.</doc>
             <type name="Object" c:type="AtkObject*"/>
           </parameter>
         </parameters>
       </method>
       <method name="set_accessible_id"
               c:identifier="atk_object_set_accessible_id"
+              glib:set-property="accessible-id"
               version="2.34">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1685">Sets the accessible ID of the accessible.  This is not meant to be presented
+             line="1735">Sets the accessible ID of the accessible.  This is not meant to be presented
 to the user, but to be an ID which is stable over application development.
 Typically, this is the gtkbuilder ID. Such an ID will be available for
 instance to identify a given well-known accessible object for tailored screen
@@ -8508,13 +8794,13 @@ reading, or for automatic regression testing.</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1687">an #AtkObject</doc>
+                 line="1737">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
-          <parameter name="name" transfer-ownership="none">
+          <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1688">a character string to be set as the accessible id</doc>
+                 line="1738">a character string to be set as the accessible id</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -8522,7 +8808,7 @@ reading, or for automatic regression testing.</doc>
       <method name="set_description" c:identifier="atk_object_set_description">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1005">Sets the accessible description of the accessible. You can't set
+             line="1048">Sets the accessible description of the accessible. You can't set
 the description to NULL. This is reserved for the initial value. In
 this aspect NULL is similar to ATK_ROLE_UNKNOWN. If you want to set
 the name to a empty value you can use "".</doc>
@@ -8534,13 +8820,40 @@ the name to a empty value you can use "".</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1007">an #AtkObject</doc>
+                 line="1050">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
           <parameter name="description" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1008">a character string to be set as the accessible description</doc>
+                 line="1051">a character string to be set as the accessible description</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_help_text"
+              c:identifier="atk_object_set_help_text"
+              version="2.52">
+        <doc xml:space="preserve"
+             filename="atk/atkobject.c"
+             line="1774">Sets the help text associated with the accessible. This can be used to
+expose context-sensitive information to help a user understand how to
+interact with the object.</doc>
+        <source-position filename="atk/atkobject.h" line="819"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="accessible" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atk/atkobject.c"
+                 line="1776">an #AtkObject</doc>
+            <type name="Object" c:type="AtkObject*"/>
+          </instance-parameter>
+          <parameter name="help_text" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atk/atkobject.c"
+                 line="1777">a character string to be set as the accessible's help text</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -8548,7 +8861,7 @@ the name to a empty value you can use "".</doc>
       <method name="set_name" c:identifier="atk_object_set_name">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="973">Sets the accessible name of the accessible. You can't set the name
+             line="1016">Sets the accessible name of the accessible. You can't set the name
 to NULL. This is reserved for the initial value. In this aspect
 NULL is similar to ATK_ROLE_UNKNOWN. If you want to set the name to
 a empty value you can use "".</doc>
@@ -8560,13 +8873,13 @@ a empty value you can use "".</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="975">an #AtkObject</doc>
+                 line="1018">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="976">a character string to be set as the accessible name</doc>
+                 line="1019">a character string to be set as the accessible name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -8574,7 +8887,7 @@ a empty value you can use "".</doc>
       <method name="set_parent" c:identifier="atk_object_set_parent">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1038">Sets the accessible parent of the accessible. @parent can be NULL.</doc>
+             line="1081">Sets the accessible parent of the accessible. @parent can be NULL.</doc>
         <source-position filename="atk/atkobject.h" line="766"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8583,13 +8896,13 @@ a empty value you can use "".</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1040">an #AtkObject</doc>
+                 line="1083">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
           <parameter name="parent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1041">an #AtkObject to be set as the accessible parent</doc>
+                 line="1084">an #AtkObject to be set as the accessible parent</doc>
             <type name="Object" c:type="AtkObject*"/>
           </parameter>
         </parameters>
@@ -8597,7 +8910,7 @@ a empty value you can use "".</doc>
       <method name="set_role" c:identifier="atk_object_set_role">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1061">Sets the role of the accessible.</doc>
+             line="1104">Sets the role of the accessible.</doc>
         <source-position filename="atk/atkobject.h" line="769"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8606,13 +8919,13 @@ a empty value you can use "".</doc>
           <instance-parameter name="accessible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1063">an #AtkObject</doc>
+                 line="1106">an #AtkObject</doc>
             <type name="Object" c:type="AtkObject*"/>
           </instance-parameter>
           <parameter name="role" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1064">an #AtkRole to be set as the role</doc>
+                 line="1107">an #AtkRole to be set as the role</doc>
             <type name="Role" c:type="AtkRole"/>
           </parameter>
         </parameters>
@@ -8633,10 +8946,24 @@ a empty value you can use "".</doc>
                 default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
+      <property name="accessible-help-text"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
       <property name="accessible-hypertext-nlinks"
                 transfer-ownership="none"
                 default-value="0">
         <type name="gint" c:type="gint"/>
+      </property>
+      <property name="accessible-id"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_accessible_id"
+                getter="get_accessible_id"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="accessible-name"
                 writable="1"
@@ -8662,7 +8989,7 @@ a empty value you can use "".</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="332">Table caption.</doc>
+             line="337">Table caption.</doc>
         <doc-deprecated xml:space="preserve">Since 1.3. Use table-caption-object instead.</doc-deprecated>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -8678,7 +9005,7 @@ a empty value you can use "".</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="362">Accessible table column description.</doc>
+             line="367">Accessible table column description.</doc>
         <doc-deprecated xml:space="preserve">Since 2.12. Use atk_table_get_column_description()
 and atk_table_set_column_description() instead.</doc-deprecated>
         <type name="utf8" c:type="gchar*"/>
@@ -8689,7 +9016,7 @@ and atk_table_set_column_description() instead.</doc-deprecated>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="346">Accessible table column header.</doc>
+             line="351">Accessible table column header.</doc>
         <doc-deprecated xml:space="preserve">Since 2.12. Use atk_table_get_column_header() and
 atk_table_set_column_header() instead.</doc-deprecated>
         <type name="Object"/>
@@ -8701,7 +9028,7 @@ atk_table_set_column_header() instead.</doc-deprecated>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="393">Accessible table row description.</doc>
+             line="398">Accessible table row description.</doc>
         <doc-deprecated xml:space="preserve">Since 2.12. Use atk_table_get_row_description() and
 atk_table_set_row_description() instead.</doc-deprecated>
         <type name="utf8" c:type="gchar*"/>
@@ -8712,7 +9039,7 @@ atk_table_set_row_description() instead.</doc-deprecated>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="378">Accessible table row header.</doc>
+             line="383">Accessible table row header.</doc>
         <doc-deprecated xml:space="preserve">Since 2.12. Use atk_table_get_row_header() and
 atk_table_set_row_header() instead.</doc-deprecated>
         <type name="Object"/>
@@ -8729,7 +9056,7 @@ atk_table_set_row_header() instead.</doc-deprecated>
                 default-value="0.000000">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="287">Numeric value of this object, in case being and AtkValue.</doc>
+             line="292">Numeric value of this object, in case being and AtkValue.</doc>
         <doc-deprecated xml:space="preserve">Since 2.12. Use atk_value_get_value_and_text() to get
 the value, and value-changed signal to be notified on their value
 changes.</doc-deprecated>
@@ -8759,7 +9086,7 @@ changes.</doc-deprecated>
       <glib:signal name="active-descendant-changed" when="last" detailed="1">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="544">The "active-descendant-changed" signal is emitted by an object
+             line="563">The "active-descendant-changed" signal is emitted by an object
 which has the state ATK_STATE_MANAGES_DESCENDANTS when the focus
 object in the object changes. For instance, a table will emit the
 signal when the cell in the table which has focus changes.</doc>
@@ -8770,7 +9097,7 @@ signal when the cell in the table which has focus changes.</doc>
           <parameter name="arg1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="547">the newly focused object.</doc>
+                 line="566">the newly focused object.</doc>
             <type name="Object" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -8778,7 +9105,7 @@ signal when the cell in the table which has focus changes.</doc>
       <glib:signal name="announcement" when="last" version="2.46">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="564">The "announcement" signal can be emitted to pass an announcement on to
+             line="583">The "announcement" signal can be emitted to pass an announcement on to
 be read by a screen reader.
 
 Depcrecated (2.50): Use AtkObject::notification instead.</doc>
@@ -8789,7 +9116,31 @@ Depcrecated (2.50): Use AtkObject::notification instead.</doc>
           <parameter name="arg1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="567">the text to be announced.</doc>
+                 line="586">the text to be announced.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="attribute-changed" when="last" version="2.52">
+        <doc xml:space="preserve"
+             filename="atk/atkobject.c"
+             line="627">The "attribute-changed" signal should be emitted when one of an object's
+attributes changes.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="arg1" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atk/atkobject.c"
+                 line="630">the name of the attribute being modified, or %NULL if not
+         available.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="arg2" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="atk/atkobject.c"
+                 line="632">the attribute's new value, or %null if not available.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -8797,8 +9148,8 @@ Depcrecated (2.50): Use AtkObject::notification instead.</doc>
       <glib:signal name="children-changed" when="last" detailed="1">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="432">The signal "children-changed" is emitted when a child is added or
-removed form an object. It supports two details: "add" and
+             line="451">The signal "children-changed" is emitted when a child is added or
+removed from an object. It supports two details: "add" and
 "remove"</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8807,7 +9158,7 @@ removed form an object. It supports two details: "add" and
           <parameter name="arg1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="435">The index of the added or removed child. The value can be
+                 line="454">The index of the added or removed child. The value can be
 -1. This is used if the value is not known by the implementor
 when the child is added/removed or irrelevant.</doc>
             <type name="guint" c:type="guint"/>
@@ -8815,7 +9166,7 @@ when the child is added/removed or irrelevant.</doc>
           <parameter name="arg2" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="438">A gpointer to the child AtkObject which was added or
+                 line="457">A gpointer to the child AtkObject which was added or
 removed. If the child was removed, it is possible that it is not
 available for the implementor. In that case this pointer can be
 NULL.</doc>
@@ -8829,7 +9180,7 @@ NULL.</doc>
                    deprecated-version="2.9.4">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="457">The signal "focus-event" is emitted when an object gained or lost
+             line="476">The signal "focus-event" is emitted when an object gained or lost
 focus.</doc>
         <doc-deprecated xml:space="preserve">Use the #AtkObject::state-change signal instead.</doc-deprecated>
         <return-value transfer-ownership="none">
@@ -8839,7 +9190,7 @@ focus.</doc>
           <parameter name="arg1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="460">a boolean value which indicates whether the object gained
+                 line="479">a boolean value which indicates whether the object gained
 or lost focus.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -8848,7 +9199,7 @@ or lost focus.</doc>
       <glib:signal name="notification" when="last" version="2.50">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="586">The "notification" signal can be emitted to pass an announcement on to
+             line="605">The "notification" signal can be emitted to pass an announcement on to
 be read by a screen reader.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8857,13 +9208,13 @@ be read by a screen reader.</doc>
           <parameter name="arg1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="589">the text to be announced.</doc>
+                 line="608">the text to be announced.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="arg2" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="590">an #AtkLive specifying the politeness of the notification.
+                 line="609">an #AtkLive specifying the politeness of the notification.
 Should be either ATK_LIVE_POLITE or ATK_LIVE_ASSERTIVE.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
@@ -8872,7 +9223,7 @@ Should be either ATK_LIVE_POLITE or ATK_LIVE_ASSERTIVE.</doc>
       <glib:signal name="property-change" when="last" detailed="1">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="477">The signal "property-change" is emitted when an object's property
+             line="496">The signal "property-change" is emitted when an object's property
 value changes. @arg1 contains an #AtkPropertyValues with the name
 and the new value of the property whose value has changed. Note
 that, as with GObject notify, getting this signal does not
@@ -8892,7 +9243,7 @@ notify doesn't support emission hooks.</doc>
           <parameter name="arg1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="480">an #AtkPropertyValues containing the new
+                 line="499">an #AtkPropertyValues containing the new
 value of the property which changed.</doc>
             <type name="PropertyValues" c:type="gpointer"/>
           </parameter>
@@ -8901,7 +9252,7 @@ value of the property which changed.</doc>
       <glib:signal name="state-change" when="last" detailed="1">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="507">The "state-change" signal is emitted when an object's state
+             line="526">The "state-change" signal is emitted when an object's state
 changes.  The detail value identifies the state type which has
 changed.</doc>
         <return-value transfer-ownership="none">
@@ -8911,13 +9262,13 @@ changed.</doc>
           <parameter name="arg1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="510">The name of the state which has changed</doc>
+                 line="529">The name of the state which has changed</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="arg2" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="511">A boolean which indicates whether the state has been set or unset.</doc>
+                 line="530">A boolean which indicates whether the state has been set or unset.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -8925,7 +9276,7 @@ changed.</doc>
       <glib:signal name="visible-data-changed" when="last">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="528">The "visible-data-changed" signal is emitted when the visual
+             line="547">The "visible-data-changed" signal is emitted when the visual
 appearance of the object changed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8945,14 +9296,14 @@ appearance of the object changed.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="648">a character string representing the accessible name of the object.</doc>
+                 line="691">a character string representing the accessible name of the object.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </return-value>
           <parameters>
             <parameter name="accessible" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="644">an #AtkObject</doc>
+                   line="687">an #AtkObject</doc>
               <type name="Object" c:type="AtkObject*"/>
             </parameter>
           </parameters>
@@ -8964,7 +9315,7 @@ appearance of the object changed.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="670">a character string representing the accessible description
+                 line="713">a character string representing the accessible description
 of the accessible.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </return-value>
@@ -8972,7 +9323,7 @@ of the accessible.</doc>
             <parameter name="accessible" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="666">an #AtkObject</doc>
+                   line="709">an #AtkObject</doc>
               <type name="Object" c:type="AtkObject*"/>
             </parameter>
           </parameters>
@@ -8984,7 +9335,7 @@ of the accessible.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="701">an #AtkObject representing the accessible
+                 line="744">an #AtkObject representing the accessible
 parent of the accessible</doc>
             <type name="Object" c:type="AtkObject*"/>
           </return-value>
@@ -8992,7 +9343,7 @@ parent of the accessible</doc>
             <parameter name="accessible" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="690">an #AtkObject</doc>
+                   line="733">an #AtkObject</doc>
               <type name="Object" c:type="AtkObject*"/>
             </parameter>
           </parameters>
@@ -9033,14 +9384,14 @@ parent of the accessible</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="957">an integer which is the index of the accessible in its parent</doc>
+                 line="1000">an integer which is the index of the accessible in its parent</doc>
             <type name="gint" c:type="gint"/>
           </return-value>
           <parameters>
             <parameter name="accessible" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="952">an #AtkObject</doc>
+                   line="995">an #AtkObject</doc>
               <type name="Object" c:type="AtkObject*"/>
             </parameter>
           </parameters>
@@ -9052,7 +9403,7 @@ parent of the accessible</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="795">an #AtkRelationSet representing the relation set
+                 line="838">an #AtkRelationSet representing the relation set
 of the object.</doc>
             <type name="RelationSet" c:type="AtkRelationSet*"/>
           </return-value>
@@ -9060,7 +9411,7 @@ of the object.</doc>
             <parameter name="accessible" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="791">an #AtkObject</doc>
+                   line="834">an #AtkObject</doc>
               <type name="Object" c:type="AtkObject*"/>
             </parameter>
           </parameters>
@@ -9072,14 +9423,14 @@ of the object.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="858">an #AtkRole which is the role of the accessible</doc>
+                 line="901">an #AtkRole which is the role of the accessible</doc>
             <type name="Role" c:type="AtkRole"/>
           </return-value>
           <parameters>
             <parameter name="accessible" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="854">an #AtkObject</doc>
+                   line="897">an #AtkObject</doc>
               <type name="Object" c:type="AtkObject*"/>
             </parameter>
           </parameters>
@@ -9091,14 +9442,14 @@ of the object.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="882">an #AtkLayer which is the layer of the accessible</doc>
+                 line="925">an #AtkLayer which is the layer of the accessible</doc>
             <type name="Layer" c:type="AtkLayer"/>
           </return-value>
           <parameters>
             <parameter name="accessible" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="876">an #AtkObject</doc>
+                   line="919">an #AtkObject</doc>
               <type name="Object" c:type="AtkObject*"/>
             </parameter>
           </parameters>
@@ -9110,7 +9461,7 @@ of the object.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="907">a gint which is the zorder of the accessible, i.e. the depth at
+                 line="950">a gint which is the zorder of the accessible, i.e. the depth at
 which the component is shown in relation to other components in the same
 container.</doc>
             <type name="gint" c:type="gint"/>
@@ -9119,7 +9470,7 @@ container.</doc>
             <parameter name="accessible" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="900">an #AtkObject</doc>
+                   line="943">an #AtkObject</doc>
               <type name="Object" c:type="AtkObject*"/>
             </parameter>
           </parameters>
@@ -9131,7 +9482,7 @@ container.</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="933">a reference to an #AtkStateSet which is the state
+                 line="976">a reference to an #AtkStateSet which is the state
 set of the accessible</doc>
             <type name="StateSet" c:type="AtkStateSet*"/>
           </return-value>
@@ -9139,7 +9490,7 @@ set of the accessible</doc>
             <parameter name="accessible" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="928">an #AtkObject</doc>
+                   line="971">an #AtkObject</doc>
               <type name="Object" c:type="AtkObject*"/>
             </parameter>
           </parameters>
@@ -9155,13 +9506,13 @@ set of the accessible</doc>
             <parameter name="accessible" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="975">an #AtkObject</doc>
+                   line="1018">an #AtkObject</doc>
               <type name="Object" c:type="AtkObject*"/>
             </parameter>
             <parameter name="name" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="976">a character string to be set as the accessible name</doc>
+                   line="1019">a character string to be set as the accessible name</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
           </parameters>
@@ -9177,13 +9528,13 @@ set of the accessible</doc>
             <parameter name="accessible" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="1007">an #AtkObject</doc>
+                   line="1050">an #AtkObject</doc>
               <type name="Object" c:type="AtkObject*"/>
             </parameter>
             <parameter name="description" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="1008">a character string to be set as the accessible description</doc>
+                   line="1051">a character string to be set as the accessible description</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
           </parameters>
@@ -9199,13 +9550,13 @@ set of the accessible</doc>
             <parameter name="accessible" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="1040">an #AtkObject</doc>
+                   line="1083">an #AtkObject</doc>
               <type name="Object" c:type="AtkObject*"/>
             </parameter>
             <parameter name="parent" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="1041">an #AtkObject to be set as the accessible parent</doc>
+                   line="1084">an #AtkObject to be set as the accessible parent</doc>
               <type name="Object" c:type="AtkObject*"/>
             </parameter>
           </parameters>
@@ -9221,25 +9572,31 @@ set of the accessible</doc>
             <parameter name="accessible" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="1063">an #AtkObject</doc>
+                   line="1106">an #AtkObject</doc>
               <type name="Object" c:type="AtkObject*"/>
             </parameter>
             <parameter name="role" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="1064">an #AtkRole to be set as the role</doc>
+                   line="1107">an #AtkRole to be set as the role</doc>
               <type name="Role" c:type="AtkRole"/>
             </parameter>
           </parameters>
         </callback>
       </field>
       <field name="connect_property_change_handler" introspectable="0">
+        <doc xml:space="preserve"
+             filename="atk/atkobject.h"
+             line="557">specifies a function to be called
+  when a property changes value. This virtual function is
+  deprecated since 2.12 and it should not be overriden. Connect
+  directly to property-change or notify signal instead.</doc>
         <callback name="connect_property_change_handler" introspectable="0">
           <source-position filename="atk/atkobject.h" line="639"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1098">a #guint which is the handler id used in
+                 line="1141">a #guint which is the handler id used in
   atk_object_remove_property_change_handler()</doc>
             <type name="guint" c:type="guint"/>
           </return-value>
@@ -9247,13 +9604,13 @@ set of the accessible</doc>
             <parameter name="accessible" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="1093">an #AtkObject</doc>
+                   line="1136">an #AtkObject</doc>
               <type name="Object" c:type="AtkObject*"/>
             </parameter>
             <parameter name="handler" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="1094">a function to be called when a property changes its value</doc>
+                   line="1137">a function to be called when a property changes its value</doc>
               <type name="PropertyChangeHandler"
                     c:type="AtkPropertyChangeHandler*"/>
             </parameter>
@@ -9261,6 +9618,11 @@ set of the accessible</doc>
         </callback>
       </field>
       <field name="remove_property_change_handler">
+        <doc xml:space="preserve"
+             filename="atk/atkobject.h"
+             line="561">removes a property changed handler
+  as returned by @connect_property_change_handler. This virtual
+  function is deprecated sice 2.12 and it should not be overriden.</doc>
         <callback name="remove_property_change_handler">
           <source-position filename="atk/atkobject.h" line="646"/>
           <return-value transfer-ownership="none">
@@ -9270,13 +9632,13 @@ set of the accessible</doc>
             <parameter name="accessible" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="1122">an #AtkObject</doc>
+                   line="1165">an #AtkObject</doc>
               <type name="Object" c:type="AtkObject*"/>
             </parameter>
             <parameter name="handler_id" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="1123">a guint which identifies the handler to be removed.</doc>
+                   line="1166">a guint which identifies the handler to be removed.</doc>
               <type name="guint" c:type="guint"/>
             </parameter>
           </parameters>
@@ -9292,7 +9654,7 @@ set of the accessible</doc>
             <parameter name="accessible" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="1448">a #AtkObject</doc>
+                   line="1498">a #AtkObject</doc>
               <type name="Object" c:type="AtkObject*"/>
             </parameter>
             <parameter name="data"
@@ -9301,7 +9663,7 @@ set of the accessible</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="1449">a #gpointer which identifies the object for which the AtkObject was created.</doc>
+                   line="1499">a #gpointer which identifies the object for which the AtkObject was created.</doc>
               <type name="gpointer" c:type="gpointer"/>
             </parameter>
           </parameters>
@@ -9330,6 +9692,12 @@ set of the accessible</doc>
         </callback>
       </field>
       <field name="focus_event">
+        <doc xml:space="preserve"
+             filename="atk/atkobject.h"
+             line="564">The signal handler which is executed when there is a
+  focus event for an object. This virtual function is deprecated
+  since 2.9.4 and it should not be overriden. Use
+  the #AtkObject::state-change "focused" signal instead.</doc>
         <callback name="focus_event">
           <source-position filename="atk/atkobject.h" line="663"/>
           <return-value transfer-ownership="none">
@@ -9418,7 +9786,7 @@ set of the accessible</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1208">an #AtkAttributeSet consisting of all
+                 line="1251">an #AtkAttributeSet consisting of all
 explicit properties/annotations applied to the object, or an empty
 set if the object has no name-value pair attributes assigned to
 it. This #atkattributeset should be freed by a call to
@@ -9429,7 +9797,7 @@ atk_attribute_set_free().</doc>
             <parameter name="accessible" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="1199">An #AtkObject.</doc>
+                   line="1242">An #AtkObject.</doc>
               <type name="Object" c:type="AtkObject*"/>
             </parameter>
           </parameters>
@@ -9441,7 +9809,7 @@ atk_attribute_set_free().</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1547">a UTF-8 string indicating the POSIX-style LC_MESSAGES
+                 line="1597">a UTF-8 string indicating the POSIX-style LC_MESSAGES
          locale of @accessible.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </return-value>
@@ -9449,7 +9817,7 @@ atk_attribute_set_free().</doc>
             <parameter name="accessible" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atk/atkobject.c"
-                   line="1540">an #AtkObject</doc>
+                   line="1590">an #AtkObject</doc>
               <type name="Object" c:type="AtkObject*"/>
             </parameter>
           </parameters>
@@ -12243,12 +12611,12 @@ actual change is. (Since: 2.36)</doc>
       <function name="for_name" c:identifier="atk_role_for_name">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1564">Get the #AtkRole type corresponding to a rolew name.</doc>
+             line="1614">Get the #AtkRole type corresponding to a rolew name.</doc>
         <source-position filename="atk/atkobject.h" line="790"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="1570">the #AtkRole enumerated type corresponding to the specified name,
+               line="1620">the #AtkRole enumerated type corresponding to the specified name,
          or #ATK_ROLE_INVALID if no matching role is found.</doc>
           <type name="Role" c:type="AtkRole"/>
         </return-value>
@@ -12256,7 +12624,7 @@ actual change is. (Since: 2.36)</doc>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1566">a string which is the (non-localized) name of an ATK role.</doc>
+                 line="1616">a string which is the (non-localized) name of an ATK role.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -12265,19 +12633,19 @@ actual change is. (Since: 2.36)</doc>
                 c:identifier="atk_role_get_localized_name">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1516">Gets the localized description string describing the #AtkRole @role.</doc>
+             line="1566">Gets the localized description string describing the #AtkRole @role.</doc>
         <source-position filename="atk/atkobject.h" line="802"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="1522">the localized string describing the AtkRole</doc>
+               line="1572">the localized string describing the AtkRole</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <parameter name="role" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1518">The #AtkRole whose localized name is required</doc>
+                 line="1568">The #AtkRole whose localized name is required</doc>
             <type name="Role" c:type="AtkRole"/>
           </parameter>
         </parameters>
@@ -12285,19 +12653,19 @@ actual change is. (Since: 2.36)</doc>
       <function name="get_name" c:identifier="atk_role_get_name">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1494">Gets the description string describing the #AtkRole @role.</doc>
+             line="1544">Gets the description string describing the #AtkRole @role.</doc>
         <source-position filename="atk/atkobject.h" line="788"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="1500">the string describing the AtkRole</doc>
+               line="1550">the string describing the AtkRole</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <parameter name="role" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="1496">The #AtkRole whose name is required</doc>
+                 line="1546">The #AtkRole whose name is required</doc>
             <type name="Role" c:type="AtkRole"/>
           </parameter>
         </parameters>
@@ -12307,7 +12675,7 @@ actual change is. (Since: 2.36)</doc>
                 deprecated="1">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="812">Registers the role specified by @name. @name must be a meaningful
+             line="855">Registers the role specified by @name. @name must be a meaningful
 name. So it should not be empty, or consisting on whitespaces.</doc>
         <doc-deprecated xml:space="preserve">Since 2.12. If your application/toolkit doesn't find a
 suitable role for a specific object defined at #AtkRole, please
@@ -12316,7 +12684,7 @@ submit a bug in order to add a new role to the specification.</doc-deprecated>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="823">an #AtkRole for the new role if added
+               line="866">an #AtkRole for the new role if added
 properly. ATK_ROLE_INVALID in case of error.</doc>
           <type name="Role" c:type="AtkRole"/>
         </return-value>
@@ -12324,7 +12692,7 @@ properly. ATK_ROLE_INVALID in case of error.</doc>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atk/atkobject.c"
-                 line="814">a character string describing the new role.</doc>
+                 line="857">a character string describing the new role.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -16935,6 +17303,10 @@ or 0 if the cell does not implement this method.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_column_span">
+        <doc xml:space="preserve"
+             filename="atk/atktablecell.h"
+             line="44">virtual function that returns the number of
+  columns occupied by this cell accessible</doc>
         <callback name="get_column_span">
           <source-position filename="atk/atktablecell.h" line="69"/>
           <return-value transfer-ownership="none">
@@ -16955,6 +17327,10 @@ or 0 if the cell does not implement this method.</doc>
         </callback>
       </field>
       <field name="get_column_header_cells">
+        <doc xml:space="preserve"
+             filename="atk/atktablecell.h"
+             line="46">virtual function that returns the column
+  headers as an array of cell accessibles</doc>
         <callback name="get_column_header_cells">
           <source-position filename="atk/atktablecell.h" line="70"/>
           <return-value transfer-ownership="full">
@@ -16977,6 +17353,10 @@ representing the column header cells.</doc>
         </callback>
       </field>
       <field name="get_position">
+        <doc xml:space="preserve"
+             filename="atk/atktablecell.h"
+             line="48">virtual function that retrieves the tabular position
+  of this cell</doc>
         <callback name="get_position">
           <source-position filename="atk/atktablecell.h" line="71"/>
           <return-value transfer-ownership="none">
@@ -17014,6 +17394,10 @@ representing the column header cells.</doc>
         </callback>
       </field>
       <field name="get_row_span">
+        <doc xml:space="preserve"
+             filename="atk/atktablecell.h"
+             line="50">virtual function that returns the number of rows
+  occupied by this cell</doc>
         <callback name="get_row_span">
           <source-position filename="atk/atktablecell.h" line="74"/>
           <return-value transfer-ownership="none">
@@ -17034,6 +17418,10 @@ or 0 if the cell does not implement this method.</doc>
         </callback>
       </field>
       <field name="get_row_header_cells">
+        <doc xml:space="preserve"
+             filename="atk/atktablecell.h"
+             line="52">virtual function that returns the row
+  headers as an array of cell accessibles</doc>
         <callback name="get_row_header_cells">
           <source-position filename="atk/atktablecell.h" line="75"/>
           <return-value transfer-ownership="full">
@@ -17056,6 +17444,10 @@ representing the row header cells.</doc>
         </callback>
       </field>
       <field name="get_row_column_span">
+        <doc xml:space="preserve"
+             filename="atk/atktablecell.h"
+             line="54">virtual function that get the row an column
+  indexes and span of this cell</doc>
         <callback name="get_row_column_span">
           <source-position filename="atk/atktablecell.h" line="76"/>
           <return-value transfer-ownership="none">
@@ -17111,6 +17503,10 @@ representing the row header cells.</doc>
         </callback>
       </field>
       <field name="get_table">
+        <doc xml:space="preserve"
+             filename="atk/atktablecell.h"
+             line="56">virtual function that returns a reference to the
+  accessible of the containing table</doc>
         <callback name="get_table">
           <source-position filename="atk/atktablecell.h" line="81"/>
           <return-value transfer-ownership="full">
@@ -19092,6 +19488,11 @@ the selection</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="text_changed">
+        <doc xml:space="preserve"
+             filename="atk/atktext.h"
+             line="249">the signal handler which is executed when there is a
+  text change. This virtual function is deprecated sice 2.9.4 and
+  it should not be overriden.</doc>
         <source-position filename="atk/atktext.h" line="315"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -20843,6 +21244,10 @@ the following one, if present.</doc>
         </callback>
       </field>
       <field name="get_text_after_offset">
+        <doc xml:space="preserve"
+             filename="atk/atktext.h"
+             line="239">Gets specified text. This virtual function
+  is deprecated and it should not be overridden.</doc>
         <callback name="get_text_after_offset">
           <source-position filename="atk/atktext.h" line="260"/>
           <return-value transfer-ownership="full">
@@ -20895,6 +21300,10 @@ the following one, if present.</doc>
         </callback>
       </field>
       <field name="get_text_at_offset">
+        <doc xml:space="preserve"
+             filename="atk/atktext.h"
+             line="241">Gets specified text. This virtual function
+  is deprecated and it should not be overridden.</doc>
         <callback name="get_text_at_offset">
           <source-position filename="atk/atktext.h" line="265"/>
           <return-value transfer-ownership="full">
@@ -20972,6 +21381,10 @@ the following one, if present.</doc>
         </callback>
       </field>
       <field name="get_text_before_offset">
+        <doc xml:space="preserve"
+             filename="atk/atktext.h"
+             line="243">Gets specified text. This virtual function
+  is deprecated and it should not be overridden.</doc>
         <callback name="get_text_before_offset">
           <source-position filename="atk/atktext.h" line="272"/>
           <return-value transfer-ownership="full">
@@ -21437,6 +21850,11 @@ the selection</doc>
         </callback>
       </field>
       <field name="text_changed">
+        <doc xml:space="preserve"
+             filename="atk/atktext.h"
+             line="249">the signal handler which is executed when there is a
+  text change. This virtual function is deprecated sice 2.9.4 and
+  it should not be overriden.</doc>
         <callback name="text_changed">
           <source-position filename="atk/atktext.h" line="315"/>
           <return-value transfer-ownership="none">
@@ -21589,6 +22007,12 @@ the selection</doc>
         </callback>
       </field>
       <field name="get_string_at_offset">
+        <doc xml:space="preserve"
+             filename="atk/atktext.h"
+             line="245">Gets a portion of the text exposed through
+  an AtkText according to a given offset and a specific
+  granularity, along with the start and end offsets defining the
+  boundaries of such a portion of text.</doc>
         <callback name="get_string_at_offset">
           <source-position filename="atk/atktext.h" line="336"/>
           <return-value transfer-ownership="full" nullable="1">
@@ -21794,10 +22218,66 @@ parent object.</doc>
         <type name="gint" c:type="gint"/>
       </field>
     </record>
+    <record name="TextSelection" c:type="AtkTextSelection" version="2.52">
+      <doc xml:space="preserve"
+           filename="atk/atkdocument.h"
+           line="43">This structure represents a single  text selection within a document. This
+selection is defined by two points in the content, where each one is defined
+by an AtkObject supporting the AtkText interface and a character offset
+relative to it.
+
+The end object must appear after the start object in the accessibility tree,
+i.e. the end object must be reachable from the start object by navigating
+forward (next, first child etc).
+
+This struct also contains a @start_is_active boolean, to communicate if the
+start of the selection is the active point or not.
+
+The active point corresponds to the user's focus or point of interest. The
+user moves the active point to expand or collapse the range. The anchor
+point is the other point of the range and typically remains constant. In
+most cases, anchor is the start of the range and active is the end. However,
+when selecting backwards (e.g. pressing shift+left arrow in a text field),
+the start of the range is the active point, as the user moves this to
+manipulate the selection.</doc>
+      <source-position filename="atk/atkdocument.h" line="83"/>
+      <field name="start_object" writable="1">
+        <doc xml:space="preserve"
+             filename="atk/atkdocument.h"
+             line="45">the AtkText containing the start of the selection.</doc>
+        <type name="Object" c:type="AtkObject*"/>
+      </field>
+      <field name="start_offset" writable="1">
+        <doc xml:space="preserve"
+             filename="atk/atkdocument.h"
+             line="46">the text offset of the beginning of the selection within
+               @start_object.</doc>
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="end_object" writable="1">
+        <doc xml:space="preserve"
+             filename="atk/atkdocument.h"
+             line="48">the AtkText containing the end of the selection.</doc>
+        <type name="Object" c:type="AtkObject*"/>
+      </field>
+      <field name="end_offset" writable="1">
+        <doc xml:space="preserve"
+             filename="atk/atkdocument.h"
+             line="49">the text offset of the end of the selection within @end_object.</doc>
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="start_is_active" writable="1">
+        <doc xml:space="preserve"
+             filename="atk/atkdocument.h"
+             line="50">a gboolean indicating whether the start of the selection
+                 is the active point.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+    </record>
     <function-macro name="UNAVAILABLE"
                     c:identifier="ATK_UNAVAILABLE"
                     introspectable="0">
-      <source-position filename="atk/atkversion.h" line="290"/>
+      <source-position filename="atk/atkversion.h" line="310"/>
       <parameters>
         <parameter name="maj">
         </parameter>
@@ -21858,6 +22338,11 @@ and toolkit version.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="add_global_event_listener" introspectable="0">
+        <doc xml:space="preserve"
+             filename="atk/atkutil.h"
+             line="142">adds the specified function to the list
+ of functions to be called when an ATK event occurs. ATK
+ implementors are discouraged from reimplementing this method.</doc>
         <callback name="add_global_event_listener" introspectable="0">
           <source-position filename="atk/atkutil.h" line="163"/>
           <return-value transfer-ownership="none">
@@ -21875,6 +22360,11 @@ and toolkit version.</doc>
         </callback>
       </field>
       <field name="remove_global_event_listener">
+        <doc xml:space="preserve"
+             filename="atk/atkutil.h"
+             line="145">removes the specified function to
+ the list of functions to be called when an ATK event occurs. ATK
+ implementors are discouraged from reimplementing this method.</doc>
         <callback name="remove_global_event_listener">
           <source-position filename="atk/atkutil.h" line="165"/>
           <return-value transfer-ownership="none">
@@ -21888,6 +22378,10 @@ and toolkit version.</doc>
         </callback>
       </field>
       <field name="add_key_event_listener" introspectable="0">
+        <doc xml:space="preserve"
+             filename="atk/atkutil.h"
+             line="148">adds the specified function to the list of
+ functions to be called when a key event occurs.</doc>
         <callback name="add_key_event_listener" introspectable="0">
           <source-position filename="atk/atkutil.h" line="166"/>
           <return-value transfer-ownership="none">
@@ -21907,6 +22401,10 @@ and toolkit version.</doc>
         </callback>
       </field>
       <field name="remove_key_event_listener">
+        <doc xml:space="preserve"
+             filename="atk/atkutil.h"
+             line="150">remove the specified function to the
+ list of functions to be called when a key event occurs.</doc>
         <callback name="remove_key_event_listener">
           <source-position filename="atk/atkutil.h" line="168"/>
           <return-value transfer-ownership="none">
@@ -21920,6 +22418,10 @@ and toolkit version.</doc>
         </callback>
       </field>
       <field name="get_root" introspectable="0">
+        <doc xml:space="preserve"
+             filename="atk/atkutil.h"
+             line="152">gets the root accessible container for the current
+ application.</doc>
         <callback name="get_root" introspectable="0">
           <source-position filename="atk/atkutil.h" line="169"/>
           <return-value>
@@ -21928,6 +22430,10 @@ and toolkit version.</doc>
         </callback>
       </field>
       <field name="get_toolkit_name">
+        <doc xml:space="preserve"
+             filename="atk/atkutil.h"
+             line="154">gets name string for the GUI toolkit
+ implementing ATK for this application.</doc>
         <callback name="get_toolkit_name">
           <source-position filename="atk/atkutil.h" line="170"/>
           <return-value transfer-ownership="none">
@@ -21936,6 +22442,10 @@ and toolkit version.</doc>
         </callback>
       </field>
       <field name="get_toolkit_version">
+        <doc xml:space="preserve"
+             filename="atk/atkutil.h"
+             line="156">gets version string for the GUI toolkit
+ implementing ATK for this application.</doc>
         <callback name="get_toolkit_version">
           <source-position filename="atk/atkutil.h" line="171"/>
           <return-value transfer-ownership="none">
@@ -21966,7 +22476,7 @@ and toolkit version.</doc>
               version="2.14">
       <doc xml:space="preserve"
            filename="atk/atkversion.h"
-           line="215">A macro that should be defined by the user prior to including
+           line="235">A macro that should be defined by the user prior to including
 the atk/atk.h header.
 The definition should be one of the predefined ATK version
 macros: %ATK_VERSION_2_12, %ATK_VERSION_2_14,...
@@ -21978,7 +22488,7 @@ If the compiler is configured to warn about the use of deprecated
 functions, then using functions that were deprecated in version
 %ATK_VERSION_MIN_REQUIRED or earlier will cause warnings (but
 using functions deprecated in later releases will not).</doc>
-      <source-position filename="atk/atkversion.h" line="241"/>
+      <source-position filename="atk/atkversion.h" line="261"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <interface name="Value"
@@ -22783,6 +23293,10 @@ description) of this object. NULL if not available.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_current_value">
+        <doc xml:space="preserve"
+             filename="atk/atkvalue.h"
+             line="73">This virtual function is deprecated since 2.12
+ and it should not be overriden.</doc>
         <callback name="get_current_value">
           <source-position filename="atk/atkvalue.h" line="100"/>
           <return-value transfer-ownership="none">
@@ -22808,6 +23322,10 @@ description) of this object. NULL if not available.</doc>
         </callback>
       </field>
       <field name="get_maximum_value">
+        <doc xml:space="preserve"
+             filename="atk/atkvalue.h"
+             line="75">This virtual function is deprecated since 2.12
+ and it should not be overriden.</doc>
         <callback name="get_maximum_value">
           <source-position filename="atk/atkvalue.h" line="102"/>
           <return-value transfer-ownership="none">
@@ -22833,6 +23351,10 @@ description) of this object. NULL if not available.</doc>
         </callback>
       </field>
       <field name="get_minimum_value">
+        <doc xml:space="preserve"
+             filename="atk/atkvalue.h"
+             line="77">This virtual function is deprecated since 2.12
+ and it should not be overriden.</doc>
         <callback name="get_minimum_value">
           <source-position filename="atk/atkvalue.h" line="104"/>
           <return-value transfer-ownership="none">
@@ -22858,6 +23380,10 @@ description) of this object. NULL if not available.</doc>
         </callback>
       </field>
       <field name="set_current_value">
+        <doc xml:space="preserve"
+             filename="atk/atkvalue.h"
+             line="79">This virtual function is deprecated since 2.12
+ and it should not be overriden.</doc>
         <callback name="set_current_value">
           <source-position filename="atk/atkvalue.h" line="106"/>
           <return-value transfer-ownership="none">
@@ -22883,6 +23409,10 @@ description) of this object. NULL if not available.</doc>
         </callback>
       </field>
       <field name="get_minimum_increment">
+        <doc xml:space="preserve"
+             filename="atk/atkvalue.h"
+             line="81">This virtual function is deprecated since
+ 2.12 and it should not be overriden.</doc>
         <callback name="get_minimum_increment">
           <source-position filename="atk/atkvalue.h" line="108"/>
           <return-value transfer-ownership="none">
@@ -22908,6 +23438,10 @@ description) of this object. NULL if not available.</doc>
         </callback>
       </field>
       <field name="get_value_and_text">
+        <doc xml:space="preserve"
+             filename="atk/atkvalue.h"
+             line="83">gets the current value and the human readable
+text alternative (if available) of this object. Since 2.12.</doc>
         <callback name="get_value_and_text">
           <source-position filename="atk/atkvalue.h" line="111"/>
           <return-value transfer-ownership="none">
@@ -22945,6 +23479,11 @@ readable text alternative for @value</doc>
         </callback>
       </field>
       <field name="get_range">
+        <doc xml:space="preserve"
+             filename="atk/atkvalue.h"
+             line="85">gets the range that defines the minimum and maximum
+ value of this object. Returns NULL if there is no range
+ defined. Since 2.12.</doc>
         <callback name="get_range">
           <source-position filename="atk/atkvalue.h" line="114"/>
           <return-value transfer-ownership="full" nullable="1">
@@ -22966,6 +23505,10 @@ of @obj. NULL if that range is not defined.</doc>
         </callback>
       </field>
       <field name="get_increment">
+        <doc xml:space="preserve"
+             filename="atk/atkvalue.h"
+             line="88">gets the minimum increment by which the value of
+ this object may be changed. If zero it is undefined. Since 2.12.</doc>
         <callback name="get_increment">
           <source-position filename="atk/atkvalue.h" line="115"/>
           <return-value transfer-ownership="none">
@@ -22986,6 +23529,11 @@ object may be changed. zero if undefined.</doc>
         </callback>
       </field>
       <field name="get_sub_ranges">
+        <doc xml:space="preserve"
+             filename="atk/atkvalue.h"
+             line="90">returns a list of different subranges, and their
+ description (if available) of this object. Returns NULL if there
+ is not subranges defined. Since 2.12.</doc>
         <callback name="get_sub_ranges">
           <source-position filename="atk/atkvalue.h" line="116"/>
           <return-value transfer-ownership="full">
@@ -23009,6 +23557,9 @@ the returns list with g_slist_free().</doc>
         </callback>
       </field>
       <field name="set_value">
+        <doc xml:space="preserve"
+             filename="atk/atkvalue.h"
+             line="93">sets the value of this object. Since 2.12.</doc>
         <callback name="set_value">
           <source-position filename="atk/atkvalue.h" line="117"/>
           <return-value transfer-ownership="none">
@@ -23504,7 +24055,7 @@ atk_object_notify_state_change() instead.</doc-deprecated>
            filename="atk/atkversion.c"
            line="101">Returns the binary age as passed to libtool when building the ATK
 library the process is running against.</doc>
-      <source-position filename="atk/atkversion.h" line="434"/>
+      <source-position filename="atk/atkversion.h" line="466"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atk/atkversion.c"
@@ -23554,7 +24105,7 @@ application</doc>
            filename="atk/atkversion.c"
            line="117">Returns the interface age as passed to libtool when building the
 ATK library the process is running against.</doc>
-      <source-position filename="atk/atkversion.h" line="436"/>
+      <source-position filename="atk/atkversion.h" line="468"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atk/atkversion.c"
@@ -23574,7 +24125,7 @@ This function is in the library, so it represents the ATK library
 your code is running against. In contrast, the #ATK_MAJOR_VERSION
 macro represents the major version of the ATK headers you have
 included when compiling your code.</doc>
-      <source-position filename="atk/atkversion.h" line="428"/>
+      <source-position filename="atk/atkversion.h" line="460"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atk/atkversion.c"
@@ -23594,7 +24145,7 @@ This function is in the library, so it represents the ATK library
 your code is are running against. In contrast, the
 #ATK_MICRO_VERSION macro represents the micro version of the ATK
 headers you have included when compiling your code.</doc>
-      <source-position filename="atk/atkversion.h" line="432"/>
+      <source-position filename="atk/atkversion.h" line="464"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atk/atkversion.c"
@@ -23614,7 +24165,7 @@ This function is in the library, so it represents the ATK library
 your code is are running against. In contrast, the
 #ATK_MINOR_VERSION macro represents the minor version of the ATK
 headers you have included when compiling your code.</doc>
-      <source-position filename="atk/atkversion.h" line="430"/>
+      <source-position filename="atk/atkversion.h" line="462"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atk/atkversion.c"
@@ -23818,12 +24369,12 @@ Removes the specified event listener.</doc>
               moved-to="Role.for_name">
       <doc xml:space="preserve"
            filename="atk/atkobject.c"
-           line="1564">Get the #AtkRole type corresponding to a rolew name.</doc>
+           line="1614">Get the #AtkRole type corresponding to a rolew name.</doc>
       <source-position filename="atk/atkobject.h" line="790"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1570">the #AtkRole enumerated type corresponding to the specified name,
+             line="1620">the #AtkRole enumerated type corresponding to the specified name,
          or #ATK_ROLE_INVALID if no matching role is found.</doc>
         <type name="Role" c:type="AtkRole"/>
       </return-value>
@@ -23831,7 +24382,7 @@ Removes the specified event listener.</doc>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="1566">a string which is the (non-localized) name of an ATK role.</doc>
+               line="1616">a string which is the (non-localized) name of an ATK role.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -23841,19 +24392,19 @@ Removes the specified event listener.</doc>
               moved-to="Role.get_localized_name">
       <doc xml:space="preserve"
            filename="atk/atkobject.c"
-           line="1516">Gets the localized description string describing the #AtkRole @role.</doc>
+           line="1566">Gets the localized description string describing the #AtkRole @role.</doc>
       <source-position filename="atk/atkobject.h" line="802"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1522">the localized string describing the AtkRole</doc>
+             line="1572">the localized string describing the AtkRole</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
         <parameter name="role" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="1518">The #AtkRole whose localized name is required</doc>
+               line="1568">The #AtkRole whose localized name is required</doc>
           <type name="Role" c:type="AtkRole"/>
         </parameter>
       </parameters>
@@ -23863,19 +24414,19 @@ Removes the specified event listener.</doc>
               moved-to="Role.get_name">
       <doc xml:space="preserve"
            filename="atk/atkobject.c"
-           line="1494">Gets the description string describing the #AtkRole @role.</doc>
+           line="1544">Gets the description string describing the #AtkRole @role.</doc>
       <source-position filename="atk/atkobject.h" line="788"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="1500">the string describing the AtkRole</doc>
+             line="1550">the string describing the AtkRole</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
         <parameter name="role" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="1496">The #AtkRole whose name is required</doc>
+               line="1546">The #AtkRole whose name is required</doc>
           <type name="Role" c:type="AtkRole"/>
         </parameter>
       </parameters>
@@ -23886,7 +24437,7 @@ Removes the specified event listener.</doc>
               deprecated="1">
       <doc xml:space="preserve"
            filename="atk/atkobject.c"
-           line="812">Registers the role specified by @name. @name must be a meaningful
+           line="855">Registers the role specified by @name. @name must be a meaningful
 name. So it should not be empty, or consisting on whitespaces.</doc>
       <doc-deprecated xml:space="preserve">Since 2.12. If your application/toolkit doesn't find a
 suitable role for a specific object defined at #AtkRole, please
@@ -23895,7 +24446,7 @@ submit a bug in order to add a new role to the specification.</doc-deprecated>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atk/atkobject.c"
-             line="823">an #AtkRole for the new role if added
+             line="866">an #AtkRole for the new role if added
 properly. ATK_ROLE_INVALID in case of error.</doc>
         <type name="Role" c:type="AtkRole"/>
       </return-value>
@@ -23903,7 +24454,7 @@ properly. ATK_ROLE_INVALID in case of error.</doc>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atk/atkobject.c"
-               line="814">a character string describing the new role.</doc>
+               line="857">a character string describing the new role.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>

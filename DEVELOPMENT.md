@@ -11,6 +11,7 @@ sudo apt-get update && sudo apt-get install \
     libgtk-3-dev \
     libgtk-4-dev \
     libgtksourceview-3.0-dev \
+    libgtksourceview-4.0-dev \
     libnotify-dev \
     libsoup2.4-dev \
     libsoup-3.0-dev \
@@ -26,6 +27,7 @@ sudo dnf update && sudo dnf install \
     gtk4-devel \
     libsoup3-devel \
     gtksourceview3-devel \
+    gtksourceview4-devel \
     libnotify-devel \
     libsoup-devel \
     webkit2gtk3-devel \
@@ -37,10 +39,10 @@ sudo dnf update && sudo dnf install \
 ```bash
 
 # Ubuntu
-sudo apt-get install gnome-shell-common libmutter-10-dev libgcr-3-dev libgnome-desktop-3-dev
+sudo apt-get install gnome-shell-common libmutter-10-dev libgcr-3-dev libgnome-desktop-3-dev libgnome-desktop-4-dev
 
 # Fedora
-sudo dnf install gnome-shell gcr-devel gnome-desktop3-devel
+sudo dnf install gnome-shell gcr-devel gnome-desktop3-devel gnome-desktop4-devel
 ```
 
 ## Other GNOME types

@@ -11580,7 +11580,7 @@ that is currently set by calling gdk_gl_context_clear_current().</doc>
                 version="3.16">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="987">Clears the current #GdkGLContext.
+             line="1022">Clears the current #GdkGLContext.
 
 Any OpenGL call after this function returns will be ignored
 until gdk_gl_context_make_current() is called.</doc>
@@ -11594,12 +11594,12 @@ until gdk_gl_context_make_current() is called.</doc>
                 version="3.16">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="1012">Retrieves the current #GdkGLContext.</doc>
+             line="1047">Retrieves the current #GdkGLContext.</doc>
         <source-position filename="gdk/gdkglcontext.h" line="88"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="1017">the current #GdkGLContext, or %NULL</doc>
+               line="1052">the current #GdkGLContext, or %NULL</doc>
           <type name="GLContext" c:type="GdkGLContext*"/>
         </return-value>
       </function>
@@ -11608,19 +11608,19 @@ until gdk_gl_context_make_current() is called.</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="472">Retrieves the value set using gdk_gl_context_set_debug_enabled().</doc>
+             line="499">Retrieves the value set using gdk_gl_context_set_debug_enabled().</doc>
         <source-position filename="gdk/gdkglcontext.h" line="70"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="478">%TRUE if debugging is enabled</doc>
+               line="505">%TRUE if debugging is enabled</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="474">a #GdkGLContext</doc>
+                 line="501">a #GdkGLContext</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11631,19 +11631,19 @@ until gdk_gl_context_make_current() is called.</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="899">Retrieves the #GdkDisplay the @context is created for</doc>
+             line="934">Retrieves the #GdkDisplay the @context is created for</doc>
         <source-position filename="gdk/gdkglcontext.h" line="46"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="905">a #GdkDisplay or %NULL</doc>
+               line="940">a #GdkDisplay or %NULL</doc>
           <type name="Display" c:type="GdkDisplay*"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="901">a #GdkGLContext</doc>
+                 line="936">a #GdkGLContext</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11653,19 +11653,19 @@ until gdk_gl_context_make_current() is called.</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="523">Retrieves the value set using gdk_gl_context_set_forward_compatible().</doc>
+             line="550">Retrieves the value set using gdk_gl_context_set_forward_compatible().</doc>
         <source-position filename="gdk/gdkglcontext.h" line="75"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="529">%TRUE if the context should be forward compatible</doc>
+               line="556">%TRUE if the context should be forward compatible</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="525">a #GdkGLContext</doc>
+                 line="552">a #GdkGLContext</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11675,7 +11675,7 @@ until gdk_gl_context_make_current() is called.</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="594">Retrieves the major and minor version requested by calling
+             line="621">Retrieves the major and minor version requested by calling
 gdk_gl_context_set_required_version().</doc>
         <source-position filename="gdk/gdkglcontext.h" line="63"/>
         <return-value transfer-ownership="none">
@@ -11685,7 +11685,7 @@ gdk_gl_context_set_required_version().</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="596">a #GdkGLContext</doc>
+                 line="623">a #GdkGLContext</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
           <parameter name="major"
@@ -11695,7 +11695,7 @@ gdk_gl_context_set_required_version().</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="597">return location for the major version to request</doc>
+                 line="624">return location for the major version to request</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="minor"
@@ -11705,7 +11705,7 @@ gdk_gl_context_set_required_version().</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="598">return location for the minor version to request</doc>
+                 line="625">return location for the minor version to request</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -11716,19 +11716,19 @@ gdk_gl_context_set_required_version().</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="939">Retrieves the #GdkGLContext that this @context share data with.</doc>
+             line="974">Retrieves the #GdkGLContext that this @context share data with.</doc>
         <source-position filename="gdk/gdkglcontext.h" line="50"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="945">a #GdkGLContext or %NULL</doc>
+               line="980">a #GdkGLContext or %NULL</doc>
           <type name="GLContext" c:type="GdkGLContext*"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="941">a #GdkGLContext</doc>
+                 line="976">a #GdkGLContext</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11738,19 +11738,19 @@ gdk_gl_context_set_required_version().</doc>
               version="3.22">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="722">Checks whether the @context is using an OpenGL or OpenGL ES profile.</doc>
+             line="749">Checks whether the @context is using an OpenGL or OpenGL ES profile.</doc>
         <source-position filename="gdk/gdkglcontext.h" line="80"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="728">%TRUE if the #GdkGLContext is using an OpenGL ES profile</doc>
+               line="755">%TRUE if the #GdkGLContext is using an OpenGL ES profile</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="724">a #GdkGLContext</doc>
+                 line="751">a #GdkGLContext</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11760,7 +11760,7 @@ gdk_gl_context_set_required_version().</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="959">Retrieves the OpenGL version of the @context.
+             line="994">Retrieves the OpenGL version of the @context.
 
 The @context must be realized prior to calling this function.</doc>
         <source-position filename="gdk/gdkglcontext.h" line="52"/>
@@ -11771,7 +11771,7 @@ The @context must be realized prior to calling this function.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="961">a #GdkGLContext</doc>
+                 line="996">a #GdkGLContext</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
           <parameter name="major"
@@ -11780,7 +11780,7 @@ The @context must be realized prior to calling this function.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="962">return location for the major version</doc>
+                 line="997">return location for the major version</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="minor"
@@ -11789,7 +11789,7 @@ The @context must be realized prior to calling this function.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="963">return location for the minor version</doc>
+                 line="998">return location for the minor version</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -11800,19 +11800,19 @@ The @context must be realized prior to calling this function.</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="919">Retrieves the #GdkWindow used by the @context.</doc>
+             line="954">Retrieves the #GdkWindow used by the @context.</doc>
         <source-position filename="gdk/gdkglcontext.h" line="48"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="925">a #GdkWindow or %NULL</doc>
+               line="960">a #GdkWindow or %NULL</doc>
           <type name="Window" c:type="GdkWindow*"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="921">a #GdkGLContext</doc>
+                 line="956">a #GdkGLContext</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11822,7 +11822,7 @@ The @context must be realized prior to calling this function.</doc>
               version="3.20">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="643">Whether the #GdkGLContext is in legacy mode or not.
+             line="670">Whether the #GdkGLContext is in legacy mode or not.
 
 The #GdkGLContext must be realized before calling this function.
 
@@ -11842,14 +11842,14 @@ kind of shader programs to load.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="664">%TRUE if the GL context is in legacy mode</doc>
+               line="691">%TRUE if the GL context is in legacy mode</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="645">a #GdkGLContext</doc>
+                 line="672">a #GdkGLContext</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11859,7 +11859,7 @@ kind of shader programs to load.</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="858">Makes the @context the current one.</doc>
+             line="893">Makes the @context the current one.</doc>
         <source-position filename="gdk/gdkglcontext.h" line="86"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11868,7 +11868,7 @@ kind of shader programs to load.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="860">a #GdkGLContext</doc>
+                 line="895">a #GdkGLContext</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11879,21 +11879,21 @@ kind of shader programs to load.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="745">Realizes the given #GdkGLContext.
+             line="772">Realizes the given #GdkGLContext.
 
 It is safe to call this function on a realized #GdkGLContext.</doc>
         <source-position filename="gdk/gdkglcontext.h" line="83"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkglcontext.c"
-               line="754">%TRUE if the context is realized</doc>
+               line="781">%TRUE if the context is realized</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="747">a #GdkGLContext</doc>
+                 line="774">a #GdkGLContext</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
         </parameters>
@@ -11903,7 +11903,7 @@ It is safe to call this function on a realized #GdkGLContext.</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="444">Sets whether the #GdkGLContext should perform extra validations and
+             line="471">Sets whether the #GdkGLContext should perform extra validations and
 run time checking. This is useful during development, but has
 additional overhead.
 
@@ -11917,13 +11917,13 @@ calling this function.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="446">a #GdkGLContext</doc>
+                 line="473">a #GdkGLContext</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="447">whether to enable debugging in the context</doc>
+                 line="474">whether to enable debugging in the context</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -11933,7 +11933,7 @@ calling this function.</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="492">Sets whether the #GdkGLContext should be forward compatible.
+             line="519">Sets whether the #GdkGLContext should be forward compatible.
 
 Forward compatibile contexts must not support OpenGL functionality that
 has been marked as deprecated in the requested version; non-forward
@@ -11950,13 +11950,13 @@ this function.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="494">a #GdkGLContext</doc>
+                 line="521">a #GdkGLContext</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
           <parameter name="compatible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="495">whether the context should be forward compatible</doc>
+                 line="522">whether the context should be forward compatible</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -11966,7 +11966,7 @@ this function.</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="543">Sets the major and minor version of OpenGL to request.
+             line="570">Sets the major and minor version of OpenGL to request.
 
 Setting @major and @minor to zero will use the default values.
 
@@ -11980,19 +11980,19 @@ this function.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="545">a #GdkGLContext</doc>
+                 line="572">a #GdkGLContext</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
           <parameter name="major" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="546">the major version to request</doc>
+                 line="573">the major version to request</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="minor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="547">the minor version to request</doc>
+                 line="574">the minor version to request</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -12002,7 +12002,7 @@ this function.</doc>
               version="3.22">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="688">Requests that GDK create a OpenGL ES context instead of an OpenGL one,
+             line="715">Requests that GDK create a OpenGL ES context instead of an OpenGL one,
 if the platform and windowing system allows it.
 
 The @context must not have been realized.
@@ -12022,13 +12022,13 @@ OpenGL ES API, extensions, or shaders.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="690">a #GdkGLContext:</doc>
+                 line="717">a #GdkGLContext:</doc>
             <type name="GLContext" c:type="GdkGLContext*"/>
           </instance-parameter>
           <parameter name="use_es" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkglcontext.c"
-                 line="691">whether the context should use OpenGL ES instead of OpenGL,
+                 line="718">whether the context should use OpenGL ES instead of OpenGL,
   or -1 to allow auto-detection</doc>
             <type name="gint" c:type="int"/>
           </parameter>
@@ -12042,7 +12042,7 @@ OpenGL ES API, extensions, or shaders.</doc>
                 getter="get_display">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="308">The #GdkDisplay used to create the #GdkGLContext.</doc>
+             line="311">The #GdkDisplay used to create the #GdkGLContext.</doc>
         <type name="Display"/>
       </property>
       <property name="shared-context"
@@ -12053,7 +12053,7 @@ OpenGL ES API, extensions, or shaders.</doc>
                 getter="get_shared_context">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="340">The #GdkGLContext that this context is sharing data with, or %NULL</doc>
+             line="343">The #GdkGLContext that this context is sharing data with, or %NULL</doc>
         <type name="GLContext"/>
       </property>
       <property name="window"
@@ -12064,7 +12064,7 @@ OpenGL ES API, extensions, or shaders.</doc>
                 getter="get_window">
         <doc xml:space="preserve"
              filename="gdk/gdkglcontext.c"
-             line="324">The #GdkWindow the gl context is bound to.</doc>
+             line="327">The #GdkWindow the gl context is bound to.</doc>
         <type name="Window"/>
       </property>
     </class>
@@ -24725,7 +24725,7 @@ See gdk_keymap_get_caps_lock_state().</doc>
       <source-position filename="gdk/gdkdevice.h" line="110"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="38" c:type="GDK_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="41" c:type="GDK_MICRO_VERSION">
       <source-position filename="gdk/gdkversionmacros.h" line="29"/>
       <type name="gint" c:type="gint"/>
     </constant>
@@ -29141,7 +29141,7 @@ explicitly.</doc>
       <method name="begin_move_drag" c:identifier="gdk_window_begin_move_drag">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11251">Begins a window move operation (for a toplevel window).
+             line="11257">Begins a window move operation (for a toplevel window).
 
 This function assumes that the drag is controlled by the
 client pointer device, use gdk_window_begin_move_drag_for_device()
@@ -29154,31 +29154,31 @@ to begin a drag with a different device.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11253">a toplevel #GdkWindow</doc>
+                 line="11259">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11254">the button being used to drag, or 0 for a keyboard-initiated drag</doc>
+                 line="11260">the button being used to drag, or 0 for a keyboard-initiated drag</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="root_x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11255">root window X coordinate of mouse click that began the drag</doc>
+                 line="11261">root window X coordinate of mouse click that began the drag</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="root_y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11256">root window Y coordinate of mouse click that began the drag</doc>
+                 line="11262">root window Y coordinate of mouse click that began the drag</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="timestamp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11257">timestamp of mouse click that began the drag</doc>
+                 line="11263">timestamp of mouse click that began the drag</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -29188,7 +29188,7 @@ to begin a drag with a different device.</doc>
               version="3.4">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11222">Begins a window move operation (for a toplevel window).
+             line="11228">Begins a window move operation (for a toplevel window).
 You might use this function to implement a “window move grip,” for
 example. The function works best with window managers that support the
 [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec)
@@ -29201,37 +29201,37 @@ but has a fallback implementation for other window managers.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11224">a toplevel #GdkWindow</doc>
+                 line="11230">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11225">the device used for the operation</doc>
+                 line="11231">the device used for the operation</doc>
             <type name="Device" c:type="GdkDevice*"/>
           </parameter>
           <parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11226">the button being used to drag, or 0 for a keyboard-initiated drag</doc>
+                 line="11232">the button being used to drag, or 0 for a keyboard-initiated drag</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="root_x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11227">root window X coordinate of mouse click that began the drag</doc>
+                 line="11233">root window X coordinate of mouse click that began the drag</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="root_y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11228">root window Y coordinate of mouse click that began the drag</doc>
+                 line="11234">root window Y coordinate of mouse click that began the drag</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="timestamp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11229">timestamp of mouse click that began the drag</doc>
+                 line="11235">timestamp of mouse click that began the drag</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -29333,7 +29333,7 @@ gdk_window_begin_paint_region().</doc>
               c:identifier="gdk_window_begin_resize_drag">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11190">Begins a window resize operation (for a toplevel window).
+             line="11196">Begins a window resize operation (for a toplevel window).
 
 This function assumes that the drag is controlled by the
 client pointer device, use gdk_window_begin_resize_drag_for_device()
@@ -29346,37 +29346,37 @@ to begin a drag with a different device.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11192">a toplevel #GdkWindow</doc>
+                 line="11198">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="edge" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11193">the edge or corner from which the drag is started</doc>
+                 line="11199">the edge or corner from which the drag is started</doc>
             <type name="WindowEdge" c:type="GdkWindowEdge"/>
           </parameter>
           <parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11194">the button being used to drag, or 0 for a keyboard-initiated drag</doc>
+                 line="11200">the button being used to drag, or 0 for a keyboard-initiated drag</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="root_x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11195">root window X coordinate of mouse click that began the drag</doc>
+                 line="11201">root window X coordinate of mouse click that began the drag</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="root_y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11196">root window Y coordinate of mouse click that began the drag</doc>
+                 line="11202">root window Y coordinate of mouse click that began the drag</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="timestamp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11197">timestamp of mouse click that began the drag (use gdk_event_get_time())</doc>
+                 line="11203">timestamp of mouse click that began the drag (use gdk_event_get_time())</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -29386,7 +29386,7 @@ to begin a drag with a different device.</doc>
               version="3.4">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11159">Begins a window resize operation (for a toplevel window).
+             line="11165">Begins a window resize operation (for a toplevel window).
 You might use this function to implement a “window resize grip,” for
 example; in fact #GtkStatusbar uses it. The function works best
 with window managers that support the
@@ -29400,43 +29400,43 @@ but has a fallback implementation for other window managers.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11161">a toplevel #GdkWindow</doc>
+                 line="11167">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="edge" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11162">the edge or corner from which the drag is started</doc>
+                 line="11168">the edge or corner from which the drag is started</doc>
             <type name="WindowEdge" c:type="GdkWindowEdge"/>
           </parameter>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11163">the device used for the operation</doc>
+                 line="11169">the device used for the operation</doc>
             <type name="Device" c:type="GdkDevice*"/>
           </parameter>
           <parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11164">the button being used to drag, or 0 for a keyboard-initiated drag</doc>
+                 line="11170">the button being used to drag, or 0 for a keyboard-initiated drag</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="root_x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11165">root window X coordinate of mouse click that began the drag</doc>
+                 line="11171">root window X coordinate of mouse click that began the drag</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="root_y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11166">root window Y coordinate of mouse click that began the drag</doc>
+                 line="11172">root window Y coordinate of mouse click that began the drag</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="timestamp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11167">timestamp of mouse click that began the drag (use gdk_event_get_time())</doc>
+                 line="11173">timestamp of mouse click that began the drag (use gdk_event_get_time())</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -29448,7 +29448,7 @@ but has a fallback implementation for other window managers.</doc>
               deprecated-version="3.8">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11294">Does nothing, present only for compatiblity.</doc>
+             line="11300">Does nothing, present only for compatiblity.</doc>
         <doc-deprecated xml:space="preserve">this function is no longer needed</doc-deprecated>
         <source-position filename="gdk/gdkwindow.h" line="1087"/>
         <return-value transfer-ownership="none">
@@ -29458,7 +29458,7 @@ but has a fallback implementation for other window managers.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11296">a toplevel #GdkWindow</doc>
+                 line="11302">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
         </parameters>
@@ -29772,7 +29772,7 @@ or any other error occurs.</doc>
       <method name="deiconify" c:identifier="gdk_window_deiconify">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10767">Attempt to deiconify (unminimize) @window. On X11 the window manager may
+             line="10773">Attempt to deiconify (unminimize) @window. On X11 the window manager may
 choose to ignore the request to deiconify. When using GTK+,
 use gtk_window_deiconify() instead of the #GdkWindow variant. Or better yet,
 you probably want to use gtk_window_present_with_time(), which raises the window, focuses it,
@@ -29785,7 +29785,7 @@ unminimizes it, and puts it on the current desktop.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10769">a toplevel #GdkWindow</doc>
+                 line="10775">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
         </parameters>
@@ -29830,7 +29830,7 @@ reaches zero. You must call this function yourself before that happens.</doc>
               deprecated-version="3.8">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11280">Does nothing, present only for compatiblity.</doc>
+             line="11286">Does nothing, present only for compatiblity.</doc>
         <doc-deprecated xml:space="preserve">this function is no longer needed</doc-deprecated>
         <source-position filename="gdk/gdkwindow.h" line="1085"/>
         <return-value transfer-ownership="none">
@@ -29840,7 +29840,7 @@ reaches zero. You must call this function yourself before that happens.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11282">a toplevel #GdkWindow</doc>
+                 line="11288">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
         </parameters>
@@ -30028,7 +30028,7 @@ an equal number of times to begin processing exposes.</doc>
               version="2.2">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10865">Moves the window into fullscreen mode. This means the
+             line="10871">Moves the window into fullscreen mode. This means the
 window covers the entire screen and is above any panels
 or task bars.
 
@@ -30049,7 +30049,7 @@ it to happen.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10867">a toplevel #GdkWindow</doc>
+                 line="10873">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
         </parameters>
@@ -30058,7 +30058,7 @@ it to happen.</doc>
               c:identifier="gdk_window_fullscreen_on_monitor">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10891">Moves the window into fullscreen mode on the given monitor. This means
+             line="10897">Moves the window into fullscreen mode on the given monitor. This means
 the window covers the entire screen and is above any panels or task bars.
 
 If the window was already fullscreen, then this function does nothing.</doc>
@@ -30071,13 +30071,13 @@ If the window was already fullscreen, then this function does nothing.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10893">a toplevel #GdkWindow</doc>
+                 line="10899">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10894">Which monitor to display fullscreen on.</doc>
+                 line="10900">Which monitor to display fullscreen on.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -30307,20 +30307,20 @@ using the cursor for its parent window.</doc>
       <method name="get_decorations" c:identifier="gdk_window_get_decorations">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11115">Returns the decorations set on the GdkWindow with
+             line="11121">Returns the decorations set on the GdkWindow with
 gdk_window_set_decorations().</doc>
         <source-position filename="gdk/gdkwindow.h" line="931"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11123">%TRUE if the window has decorations set, %FALSE otherwise.</doc>
+               line="11129">%TRUE if the window has decorations set, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11117">The toplevel #GdkWindow to get the decorations from</doc>
+                 line="11123">The toplevel #GdkWindow to get the decorations from</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="decorations"
@@ -30329,7 +30329,7 @@ gdk_window_set_decorations().</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11118">The window decorations will be written here</doc>
+                 line="11124">The window decorations will be written here</doc>
             <type name="WMDecoration" c:type="GdkWMDecoration*"/>
           </parameter>
         </parameters>
@@ -30555,19 +30555,19 @@ window is not known to GDK.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11378">Finds out the DND protocol supported by a window.</doc>
+             line="11384">Finds out the DND protocol supported by a window.</doc>
         <source-position filename="gdk/gdkwindow.h" line="992"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11387">the supported DND protocol.</doc>
+               line="11393">the supported DND protocol.</doc>
           <type name="DragProtocol" c:type="GdkDragProtocol"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11380">the destination window</doc>
+                 line="11386">the destination window</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="target"
@@ -30578,7 +30578,7 @@ window is not known to GDK.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11381">location of the window
+                 line="11387">location of the window
    where the drop should happen. This may be @window or a proxy window,
    or %NULL if @window does not support Drag and Drop.</doc>
             <type name="Window" c:type="GdkWindow**"/>
@@ -30643,19 +30643,19 @@ See also: gdk_offscreen_window_get_embedder()</doc>
               version="3.12">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10684">Get the current event compression setting for this window.</doc>
+             line="10690">Get the current event compression setting for this window.</doc>
         <source-position filename="gdk/gdkwindow.h" line="1123"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="10690">%TRUE if motion events will be compressed</doc>
+               line="10696">%TRUE if motion events will be compressed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10686">a #GdkWindow</doc>
+                 line="10692">a #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
         </parameters>
@@ -30710,21 +30710,21 @@ it is mapped.</doc>
               version="3.8">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11787">Gets the frame clock for the window. The frame clock for a window
+             line="11793">Gets the frame clock for the window. The frame clock for a window
 never changes unless the window is reparented to a new toplevel
 window.</doc>
         <source-position filename="gdk/gdkwindow.h" line="1113"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11796">the frame clock</doc>
+               line="11802">the frame clock</doc>
           <type name="FrameClock" c:type="GdkFrameClock*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11789">window to get frame clock for</doc>
+                 line="11795">window to get frame clock for</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
         </parameters>
@@ -30733,7 +30733,7 @@ window.</doc>
               c:identifier="gdk_window_get_frame_extents">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10576">Obtains the bounding box of the window, including window manager
+             line="10582">Obtains the bounding box of the window, including window manager
 titlebar/borders if any. The frame position is given in root window
 coordinates. To get the position of the window itself (rather than
 the frame) in root window coordinates, use gdk_window_get_origin().</doc>
@@ -30745,7 +30745,7 @@ the frame) in root window coordinates, use gdk_window_get_origin().</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10578">a toplevel #GdkWindow</doc>
+                 line="10584">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="rect"
@@ -30754,7 +30754,7 @@ the frame) in root window coordinates, use gdk_window_get_origin().</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10579">rectangle to fill with bounding box of the window frame</doc>
+                 line="10585">rectangle to fill with bounding box of the window frame</doc>
             <type name="Rectangle" c:type="GdkRectangle*"/>
           </parameter>
         </parameters>
@@ -30764,19 +30764,19 @@ the frame) in root window coordinates, use gdk_window_get_origin().</doc>
               version="3.8">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10960">Obtains the #GdkFullscreenMode of the @window.</doc>
+             line="10966">Obtains the #GdkFullscreenMode of the @window.</doc>
         <source-position filename="gdk/gdkwindow.h" line="975"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="10966">The #GdkFullscreenMode applied to the window when fullscreen.</doc>
+               line="10972">The #GdkFullscreenMode applied to the window when fullscreen.</doc>
           <type name="FullscreenMode" c:type="GdkFullscreenMode"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10962">a toplevel #GdkWindow</doc>
+                 line="10968">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
         </parameters>
@@ -30866,19 +30866,19 @@ the 16-bit coordinates of X11.</doc>
               version="2.4">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11048">Returns the group leader window for @window. See gdk_window_set_group().</doc>
+             line="11054">Returns the group leader window for @window. See gdk_window_set_group().</doc>
         <source-position filename="gdk/gdkwindow.h" line="926"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11054">the group leader window for @window</doc>
+               line="11060">the group leader window for @window</doc>
           <type name="Window" c:type="GdkWindow*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11050">a toplevel #GdkWindow</doc>
+                 line="11056">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
         </parameters>
@@ -31193,7 +31193,7 @@ in any position in the window, not just the origin.</doc>
       <method name="get_root_origin" c:identifier="gdk_window_get_root_origin">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10550">Obtains the top-left corner of the window manager frame in root
+             line="10556">Obtains the top-left corner of the window manager frame in root
 window coordinates.</doc>
         <source-position filename="gdk/gdkwindow.h" line="848"/>
         <return-value transfer-ownership="none">
@@ -31203,7 +31203,7 @@ window coordinates.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10552">a toplevel #GdkWindow</doc>
+                 line="10558">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="x"
@@ -31212,7 +31212,7 @@ window coordinates.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10553">return location for X position of window frame</doc>
+                 line="10559">return location for X position of window frame</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
           <parameter name="y"
@@ -31221,7 +31221,7 @@ window coordinates.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10554">return location for Y position of window frame</doc>
+                 line="10560">return location for Y position of window frame</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
         </parameters>
@@ -31231,7 +31231,7 @@ window coordinates.</doc>
               version="3.10">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11810">Returns the internal scale factor that maps from window coordiantes
+             line="11816">Returns the internal scale factor that maps from window coordiantes
 to the actual device pixels. On traditional systems this is 1, but
 on very high density outputs this can be a higher value (often 2).
 
@@ -31247,14 +31247,14 @@ a configure event will be sent to the toplevel window.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11828">the scale factor</doc>
+               line="11834">the scale factor</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11812">window to get scale factor for</doc>
+                 line="11818">window to get scale factor for</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
         </parameters>
@@ -31596,7 +31596,7 @@ part of gtk_widget_hide().</doc>
       <method name="iconify" c:identifier="gdk_window_iconify">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10750">Asks to iconify (minimize) @window. The window manager may choose
+             line="10756">Asks to iconify (minimize) @window. The window manager may choose
 to ignore the request, but normally will honor it. Using
 gtk_window_iconify() is preferred, if you have a #GtkWindow widget.
 
@@ -31609,7 +31609,7 @@ This function only makes sense when @window is a toplevel window.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10752">a toplevel #GdkWindow</doc>
+                 line="10758">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
         </parameters>
@@ -31978,7 +31978,7 @@ to care about this.</doc>
       <method name="maximize" c:identifier="gdk_window_maximize">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10819">Maximizes the window. If the window was already maximized, then
+             line="10825">Maximizes the window. If the window was already maximized, then
 this function does nothing.
 
 On X11, asks the window manager to maximize @window, if the window
@@ -31997,7 +31997,7 @@ On Windows, reliably maximizes the window.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10821">a toplevel #GdkWindow</doc>
+                 line="10827">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
         </parameters>
@@ -32327,7 +32327,7 @@ requests the restack, does not guarantee it.</doc>
       <method name="register_dnd" c:identifier="gdk_window_register_dnd">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11366">Registers a window as a potential drop destination.</doc>
+             line="11372">Registers a window as a potential drop destination.</doc>
         <source-position filename="gdk/gdkwindow.h" line="988"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -32336,7 +32336,7 @@ requests the restack, does not guarantee it.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11368">a #GdkWindow.</doc>
+                 line="11374">a #GdkWindow.</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
         </parameters>
@@ -32532,7 +32532,7 @@ artifacts and unnecessary invalidations.</doc>
               version="2.4">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10616">Setting @accept_focus to %FALSE hints the desktop environment that the
+             line="10622">Setting @accept_focus to %FALSE hints the desktop environment that the
 window doesn’t want to receive input focus.
 
 On X, it is the responsibility of the window manager to interpret this
@@ -32545,13 +32545,13 @@ hint. ICCCM-compliant window manager usually respect it.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10618">a toplevel #GdkWindow</doc>
+                 line="10624">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="accept_focus" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10619">%TRUE if the window should receive input focus</doc>
+                 line="10625">%TRUE if the window should receive input focus</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -32786,7 +32786,7 @@ should use this default.</doc>
       <method name="set_decorations" c:identifier="gdk_window_set_decorations">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11087">“Decorations” are the features the window manager adds to a toplevel #GdkWindow.
+             line="11093">“Decorations” are the features the window manager adds to a toplevel #GdkWindow.
 This function sets the traditional Motif window manager hints that tell the
 window manager which decorations you would like your window to have.
 Usually you should use gtk_window_set_decorated() on a #GtkWindow instead of
@@ -32808,13 +32808,13 @@ but very few honor all possible combinations of bits.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11089">a toplevel #GdkWindow</doc>
+                 line="11095">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="decorations" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11090">decoration hint mask</doc>
+                 line="11096">decoration hint mask</doc>
             <type name="WMDecoration" c:type="GdkWMDecoration"/>
           </parameter>
         </parameters>
@@ -32897,7 +32897,7 @@ See the [input handling overview][event-masks] for details.</doc>
               version="3.12">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10659">Determines whether or not extra unprocessed motion events in
+             line="10665">Determines whether or not extra unprocessed motion events in
 the event queue can be discarded. If %TRUE only the most recent
 event will be delivered.
 
@@ -32913,13 +32913,13 @@ By default, event compression is enabled.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10661">a #GdkWindow</doc>
+                 line="10667">a #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="event_compression" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10662">%TRUE if motion events should be compressed</doc>
+                 line="10668">%TRUE if motion events should be compressed</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -32958,7 +32958,7 @@ See the [input handling overview][event-masks] for details.</doc>
               version="2.6">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10636">Setting @focus_on_map to %FALSE hints the desktop environment that the
+             line="10642">Setting @focus_on_map to %FALSE hints the desktop environment that the
 window doesn’t want to receive input focus when it is mapped.
 focus_on_map should be turned off for windows that aren’t triggered
 interactively (such as popups from network activity).
@@ -32974,13 +32974,13 @@ manager extension specification should respect it.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10638">a toplevel #GdkWindow</doc>
+                 line="10644">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="focus_on_map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10639">%TRUE if the window should receive input focus when mapped</doc>
+                 line="10645">%TRUE if the window should receive input focus when mapped</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -32990,7 +32990,7 @@ manager extension specification should respect it.</doc>
               version="3.8">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10917">Specifies whether the @window should span over all monitors (in a multi-head
+             line="10923">Specifies whether the @window should span over all monitors (in a multi-head
 setup) or only the current monitor when in fullscreen mode.
 
 The @mode argument is from the #GdkFullscreenMode enumeration.
@@ -33015,13 +33015,13 @@ is specified.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10919">a toplevel #GdkWindow</doc>
+                 line="10925">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10920">fullscreen mode</doc>
+                 line="10926">fullscreen mode</doc>
             <type name="FullscreenMode" c:type="GdkFullscreenMode"/>
           </parameter>
         </parameters>
@@ -33029,7 +33029,7 @@ is specified.</doc>
       <method name="set_functions" c:identifier="gdk_window_set_functions">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11132">Sets hints about the window management functions to make available
+             line="11138">Sets hints about the window management functions to make available
 via buttons on the window frame.
 
 On the X backend, this function sets the traditional Motif window
@@ -33050,13 +33050,13 @@ enable.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11134">a toplevel #GdkWindow</doc>
+                 line="11140">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="functions" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11135">bitmask of operations to allow on @window</doc>
+                 line="11141">bitmask of operations to allow on @window</doc>
             <type name="WMFunction" c:type="GdkWMFunction"/>
           </parameter>
         </parameters>
@@ -33114,7 +33114,7 @@ appropriate sizes.</doc>
       <method name="set_group" c:identifier="gdk_window_set_group">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11064">Sets the group leader window for @window. By default,
+             line="11070">Sets the group leader window for @window. By default,
 GDK sets the group leader for all toplevel windows
 to a global window implicitly created by GDK. With this function
 you can override this default.
@@ -33132,7 +33132,7 @@ if your application pretends to be multiple applications.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11066">a toplevel #GdkWindow</doc>
+                 line="11072">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="leader"
@@ -33141,7 +33141,7 @@ if your application pretends to be multiple applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11067">group leader window, or %NULL to restore the default group leader window</doc>
+                 line="11073">group leader window, or %NULL to restore the default group leader window</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </parameter>
         </parameters>
@@ -33149,7 +33149,7 @@ if your application pretends to be multiple applications.</doc>
       <method name="set_icon_list" c:identifier="gdk_window_set_icon_list">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10702">Sets a list of icons for the window. One of these will be used
+             line="10708">Sets a list of icons for the window. One of these will be used
 to represent the window when it has been iconified. The icon is
 usually shown in an icon box or some sort of task bar. Which icon
 size is shown depends on the window manager. The window manager
@@ -33166,13 +33166,13 @@ Note that some platforms don't support window icons.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10704">The #GdkWindow toplevel window to set the icon of.</doc>
+                 line="10710">The #GdkWindow toplevel window to set the icon of.</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="pixbufs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10705">
+                 line="10711">
     A list of pixbufs, of different sizes.</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="GdkPixbuf.Pixbuf"/>
@@ -33183,7 +33183,7 @@ Note that some platforms don't support window icons.</doc>
       <method name="set_icon_name" c:identifier="gdk_window_set_icon_name">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10725">Windows may have a name used while minimized, distinct from the
+             line="10731">Windows may have a name used while minimized, distinct from the
 name they display in their titlebar. Most of the time this is a bad
 idea from a user interface standpoint. But you can set such a name
 with this function, if you like.
@@ -33203,7 +33203,7 @@ Note that some platforms don't support window icons.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10727">a toplevel #GdkWindow</doc>
+                 line="10733">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="name"
@@ -33212,7 +33212,7 @@ Note that some platforms don't support window icons.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10728">name of window while iconified (minimized)</doc>
+                 line="10734">name of window while iconified (minimized)</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -33257,7 +33257,7 @@ e.g. a child widget appears in multiple places.</doc>
               version="2.4">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11001">Set if @window must be kept above other windows. If the
+             line="11007">Set if @window must be kept above other windows. If the
 window was already above, then this function does nothing.
 
 On X11, asks the window manager to keep @window above, if the window
@@ -33274,13 +33274,13 @@ and GDK makes a best effort to get it to happen.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11003">a toplevel #GdkWindow</doc>
+                 line="11009">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11004">whether to keep @window above other windows</doc>
+                 line="11010">whether to keep @window above other windows</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -33290,7 +33290,7 @@ and GDK makes a best effort to get it to happen.</doc>
               version="2.4">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11025">Set if @window must be kept below other windows. If the
+             line="11031">Set if @window must be kept below other windows. If the
 window was already below, then this function does nothing.
 
 On X11, asks the window manager to keep @window below, if the window
@@ -33307,13 +33307,13 @@ and GDK makes a best effort to get it to happen.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11027">a toplevel #GdkWindow</doc>
+                 line="11033">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11028">whether to keep @window below other windows</doc>
+                 line="11034">whether to keep @window below other windows</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -33352,7 +33352,7 @@ previously called gdk_window_set_transient_for()</doc>
               version="2.12">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11308">Set @window to render as partially transparent,
+             line="11314">Set @window to render as partially transparent,
 with opacity 0 being fully transparent and 1 fully opaque. (Values
 of the opacity parameter are clamped to the [0,1] range.)
 
@@ -33379,13 +33379,13 @@ Support for non-toplevel windows was added in 3.8.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11310">a top-level or non-native #GdkWindow</doc>
+                 line="11316">a top-level or non-native #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="opacity" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11311">opacity</doc>
+                 line="11317">opacity</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -33395,7 +33395,7 @@ Support for non-toplevel windows was added in 3.8.</doc>
               version="3.10">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11882">For optimisation purposes, compositing window managers may
+             line="11888">For optimisation purposes, compositing window managers may
 like to not draw obscured regions of windows, or turn off blending
 during for these regions. With RGB windows with no transparency,
 this is just the shape of the window, but with ARGB32 windows, the
@@ -33416,7 +33416,7 @@ property in your #GtkWidget::style-updated handler.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11884">a top-level or non-native #GdkWindow</doc>
+                 line="11890">a top-level or non-native #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="region"
@@ -33425,7 +33425,7 @@ property in your #GtkWidget::style-updated handler.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11885">a region, or %NULL</doc>
+                 line="11891">a region, or %NULL</doc>
             <type name="cairo.Region" c:type="cairo_region_t*"/>
           </parameter>
         </parameters>
@@ -33434,7 +33434,7 @@ property in your #GtkWidget::style-updated handler.</doc>
               c:identifier="gdk_window_set_override_redirect">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10594">An override redirect window is not under the control of the window manager.
+             line="10600">An override redirect window is not under the control of the window manager.
 This means it won’t have a titlebar, won’t be minimizable, etc. - it will
 be entirely under the control of the application. The window manager
 can’t see the override redirect window at all.
@@ -33450,13 +33450,13 @@ window in its implementation, for example.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10596">a toplevel #GdkWindow</doc>
+                 line="10602">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="override_redirect" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10597">%TRUE if window should be override redirect</doc>
+                 line="10603">%TRUE if window should be override redirect</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -33542,7 +33542,7 @@ non-interchangeable kind of window.</doc>
               version="3.12">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11926">Newer GTK+ windows using client-side decorations use extra geometry
+             line="11932">Newer GTK+ windows using client-side decorations use extra geometry
 around their frames for effects like shadows and invisible borders.
 Window managers that want to maximize windows or snap to edges need
 to know where the extents of the actual frame lie, so that users
@@ -33559,31 +33559,31 @@ to create toplevel windows.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11928">a #GdkWindow</doc>
+                 line="11934">a #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="left" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11929">The left extent</doc>
+                 line="11935">The left extent</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="right" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11930">The right extent</doc>
+                 line="11936">The right extent</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="top" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11931">The top extent</doc>
+                 line="11937">The top extent</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="bottom" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11932">The bottom extent</doc>
+                 line="11938">The bottom extent</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -34020,7 +34020,7 @@ that you can’t really use XMapWindow() directly on a GDK window).</doc>
               version="3.14">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11970">Asks the windowing system to show the window menu. The window menu
+             line="11976">Asks the windowing system to show the window menu. The window menu
 is the menu shown when right-clicking the titlebar on traditional
 windows managed by the window manager. This is useful for windows
 using client-side decorations, activating it with a right-click
@@ -34029,20 +34029,20 @@ on the window decorations.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11981">%TRUE if the window menu was shown and %FALSE otherwise.</doc>
+               line="11987">%TRUE if the window menu was shown and %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11972">a #GdkWindow</doc>
+                 line="11978">a #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
           <parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="11973">a #GdkEvent to show the menu for</doc>
+                 line="11979">a #GdkEvent to show the menu for</doc>
             <type name="Event" c:type="GdkEvent*"/>
           </parameter>
         </parameters>
@@ -34050,7 +34050,7 @@ on the window decorations.</doc>
       <method name="stick" c:identifier="gdk_window_stick">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10784">“Pins” a window such that it’s on all workspaces and does not scroll
+             line="10790">“Pins” a window such that it’s on all workspaces and does not scroll
 with viewports, for window managers that have scrollable viewports.
 (When using #GtkWindow, gtk_window_stick() may be more useful.)
 
@@ -34067,7 +34067,7 @@ there’s nothing you can do to force it to happen.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10786">a toplevel #GdkWindow</doc>
+                 line="10792">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
         </parameters>
@@ -34119,7 +34119,7 @@ for use by GTK+.</doc>
               version="2.2">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10978">Moves the window out of fullscreen mode. If the window was not
+             line="10984">Moves the window out of fullscreen mode. If the window was not
 fullscreen, does nothing.
 
 On X11, asks the window manager to move @window out of the fullscreen
@@ -34137,7 +34137,7 @@ it to happen.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10980">a toplevel #GdkWindow</doc>
+                 line="10986">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
         </parameters>
@@ -34145,7 +34145,7 @@ it to happen.</doc>
       <method name="unmaximize" c:identifier="gdk_window_unmaximize">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10842">Unmaximizes the window. If the window wasn’t maximized, then this
+             line="10848">Unmaximizes the window. If the window wasn’t maximized, then this
 function does nothing.
 
 On X11, asks the window manager to unmaximize @window, if the
@@ -34164,7 +34164,7 @@ On Windows, reliably unmaximizes the window.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10844">a toplevel #GdkWindow</doc>
+                 line="10850">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
         </parameters>
@@ -34172,7 +34172,7 @@ On Windows, reliably unmaximizes the window.</doc>
       <method name="unstick" c:identifier="gdk_window_unstick">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="10805">Reverse operation for gdk_window_stick(); see gdk_window_stick(),
+             line="10811">Reverse operation for gdk_window_stick(); see gdk_window_stick(),
 and gtk_window_unstick().</doc>
         <source-position filename="gdk/gdkwindow.h" line="960"/>
         <return-value transfer-ownership="none">
@@ -34182,7 +34182,7 @@ and gtk_window_unstick().</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/gdkwindow.c"
-                 line="10807">a toplevel #GdkWindow</doc>
+                 line="10813">a toplevel #GdkWindow</doc>
             <type name="Window" c:type="GdkWindow*"/>
           </instance-parameter>
         </parameters>
@@ -35559,7 +35559,7 @@ instead. GTK will automatically do this for you when drawing a widget.</doc>
               version="3.16">
       <doc xml:space="preserve"
            filename="gdk/gdkgl.c"
-           line="302">This is the main way to draw GL content in GTK+. It takes a render buffer ID
+           line="298">This is the main way to draw GL content in GTK+. It takes a render buffer ID
 (@source_type == #GL_RENDERBUFFER) or a texture id (@source_type == #GL_TEXTURE)
 and draws it onto @cr with an OVER operation, respecting the current clip.
 The top left corner of the rectangle specified by @x, @y, @width and @height
@@ -35583,55 +35583,55 @@ Calling this may change the current GL context.</doc>
         <parameter name="cr" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkgl.c"
-               line="304">a cairo context</doc>
+               line="300">a cairo context</doc>
           <type name="cairo.Context" c:type="cairo_t*"/>
         </parameter>
         <parameter name="window" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkgl.c"
-               line="305">The window we're rendering for (not necessarily into)</doc>
+               line="301">The window we're rendering for (not necessarily into)</doc>
           <type name="Window" c:type="GdkWindow*"/>
         </parameter>
         <parameter name="source" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkgl.c"
-               line="306">The GL ID of the source buffer</doc>
+               line="302">The GL ID of the source buffer</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="source_type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkgl.c"
-               line="307">The type of the @source</doc>
+               line="303">The type of the @source</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="buffer_scale" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkgl.c"
-               line="308">The scale-factor that the @source buffer is allocated for</doc>
+               line="304">The scale-factor that the @source buffer is allocated for</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="x" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkgl.c"
-               line="309">The source x position in @source to start copying from in GL coordinates</doc>
+               line="305">The source x position in @source to start copying from in GL coordinates</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="y" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkgl.c"
-               line="310">The source y position in @source to start copying from in GL coordinates</doc>
+               line="306">The source y position in @source to start copying from in GL coordinates</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="width" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkgl.c"
-               line="311">The width of the region to draw</doc>
+               line="307">The width of the region to draw</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="height" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkgl.c"
-               line="312">The height of the region to draw</doc>
+               line="308">The height of the region to draw</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
@@ -36089,7 +36089,7 @@ operations. See gdk_drag_context_manage_dnd() for more information.</doc>
     <function name="drag_begin" c:identifier="gdk_drag_begin">
       <doc xml:space="preserve"
            filename="gdk/gdkwindow.c"
-           line="11400">Starts a drag and creates a new drag context for it.
+           line="11406">Starts a drag and creates a new drag context for it.
 This function assumes that the drag is controlled by the
 client pointer device, use gdk_drag_begin_for_device() to
 begin a drag with a different device.
@@ -36099,20 +36099,20 @@ This function is called by the drag source.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11413">a newly created #GdkDragContext</doc>
+             line="11419">a newly created #GdkDragContext</doc>
         <type name="DragContext" c:type="GdkDragContext*"/>
       </return-value>
       <parameters>
         <parameter name="window" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11402">the source window for this drag.</doc>
+               line="11408">the source window for this drag.</doc>
           <type name="Window" c:type="GdkWindow*"/>
         </parameter>
         <parameter name="targets" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11403">the offered targets,
+               line="11409">the offered targets,
     as list of #GdkAtoms</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Atom"/>
@@ -36124,33 +36124,33 @@ This function is called by the drag source.</doc>
               c:identifier="gdk_drag_begin_for_device">
       <doc xml:space="preserve"
            filename="gdk/gdkwindow.c"
-           line="11428">Starts a drag and creates a new drag context for it.
+           line="11434">Starts a drag and creates a new drag context for it.
 
 This function is called by the drag source.</doc>
       <source-position filename="gdk/gdkdnd.h" line="160"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11439">a newly created #GdkDragContext</doc>
+             line="11445">a newly created #GdkDragContext</doc>
         <type name="DragContext" c:type="GdkDragContext*"/>
       </return-value>
       <parameters>
         <parameter name="window" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11430">the source window for this drag</doc>
+               line="11436">the source window for this drag</doc>
           <type name="Window" c:type="GdkWindow*"/>
         </parameter>
         <parameter name="device" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11431">the device that controls this drag</doc>
+               line="11437">the device that controls this drag</doc>
           <type name="Device" c:type="GdkDevice*"/>
         </parameter>
         <parameter name="targets" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11432">the offered targets,
+               line="11438">the offered targets,
     as list of #GdkAtoms</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Atom"/>
@@ -36163,33 +36163,33 @@ This function is called by the drag source.</doc>
               version="3.20">
       <doc xml:space="preserve"
            filename="gdk/gdkwindow.c"
-           line="11453">Starts a drag and creates a new drag context for it.
+           line="11459">Starts a drag and creates a new drag context for it.
 
 This function is called by the drag source.</doc>
       <source-position filename="gdk/gdkdnd.h" line="164"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11466">a newly created #GdkDragContext</doc>
+             line="11472">a newly created #GdkDragContext</doc>
         <type name="DragContext" c:type="GdkDragContext*"/>
       </return-value>
       <parameters>
         <parameter name="window" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11455">the source window for this drag</doc>
+               line="11461">the source window for this drag</doc>
           <type name="Window" c:type="GdkWindow*"/>
         </parameter>
         <parameter name="device" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11456">the device that controls this drag</doc>
+               line="11462">the device that controls this drag</doc>
           <type name="Device" c:type="GdkDevice*"/>
         </parameter>
         <parameter name="targets" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11457">the offered targets,
+               line="11463">the offered targets,
     as list of #GdkAtoms</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Atom"/>
@@ -36198,13 +36198,13 @@ This function is called by the drag source.</doc>
         <parameter name="x_root" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11459">the x coordinate where the drag nominally started</doc>
+               line="11465">the x coordinate where the drag nominally started</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="y_root" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11460">the y coordinate where the drag nominally started</doc>
+               line="11466">the y coordinate where the drag nominally started</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -38228,7 +38228,7 @@ data commonly stored in X window properties.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="gdk/gdkwindow.c"
-           line="11646">Changes the contents of a property on a window.</doc>
+           line="11652">Changes the contents of a property on a window.</doc>
       <source-position filename="gdk/gdkproperty.h" line="76"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -38237,19 +38237,19 @@ data commonly stored in X window properties.</doc>
         <parameter name="window" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11648">a #GdkWindow</doc>
+               line="11654">a #GdkWindow</doc>
           <type name="Window" c:type="GdkWindow*"/>
         </parameter>
         <parameter name="property" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11649">the property to change</doc>
+               line="11655">the property to change</doc>
           <type name="Atom" c:type="GdkAtom"/>
         </parameter>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11650">the new type for the property. If @mode is
+               line="11656">the new type for the property. If @mode is
   %GDK_PROP_MODE_PREPEND or %GDK_PROP_MODE_APPEND, then this
   must match the existing type or an error will occur.</doc>
           <type name="Atom" c:type="GdkAtom"/>
@@ -38257,7 +38257,7 @@ data commonly stored in X window properties.</doc>
         <parameter name="format" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11653">the new format for the property. If @mode is
+               line="11659">the new format for the property. If @mode is
   %GDK_PROP_MODE_PREPEND or %GDK_PROP_MODE_APPEND, then this
   must match the existing format or an error will occur.</doc>
           <type name="gint" c:type="gint"/>
@@ -38265,14 +38265,14 @@ data commonly stored in X window properties.</doc>
         <parameter name="mode" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11656">a value describing how the new data is to be combined
+               line="11662">a value describing how the new data is to be combined
   with the current data.</doc>
           <type name="PropMode" c:type="GdkPropMode"/>
         </parameter>
         <parameter name="data" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11658">the data (a `guchar *`
+               line="11664">the data (a `guchar *`
   `gushort *`, or `gulong *`,
   depending on @format), cast to a `guchar *`.</doc>
           <type name="guint8" c:type="const guchar*"/>
@@ -38280,7 +38280,7 @@ data commonly stored in X window properties.</doc>
         <parameter name="nelements" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11661">the number of elements of size determined by the format,
+               line="11667">the number of elements of size determined by the format,
   contained in @data.</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
@@ -38289,7 +38289,7 @@ data commonly stored in X window properties.</doc>
     <function name="property_delete" c:identifier="gdk_property_delete">
       <doc xml:space="preserve"
            filename="gdk/gdkwindow.c"
-           line="11679">Deletes a property from a window.</doc>
+           line="11685">Deletes a property from a window.</doc>
       <source-position filename="gdk/gdkproperty.h" line="84"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -38298,13 +38298,13 @@ data commonly stored in X window properties.</doc>
         <parameter name="window" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11681">a #GdkWindow</doc>
+               line="11687">a #GdkWindow</doc>
           <type name="Window" c:type="GdkWindow*"/>
         </parameter>
         <parameter name="property" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11682">the property to delete</doc>
+               line="11688">the property to delete</doc>
           <type name="Atom" c:type="GdkAtom"/>
         </parameter>
       </parameters>
@@ -38312,7 +38312,7 @@ data commonly stored in X window properties.</doc>
     <function name="property_get" c:identifier="gdk_property_get">
       <doc xml:space="preserve"
            filename="gdk/gdkwindow.c"
-           line="11580">Retrieves a portion of the contents of a property. If the
+           line="11586">Retrieves a portion of the contents of a property. If the
 property does not exist, then the function returns %FALSE,
 and %GDK_NONE will be stored in @actual_property_type.
 
@@ -38328,7 +38328,7 @@ gdk_property_get() is provided.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11625">%TRUE if data was successfully received and stored
+             line="11631">%TRUE if data was successfully received and stored
   in @data, otherwise %FALSE.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -38336,19 +38336,19 @@ gdk_property_get() is provided.</doc>
         <parameter name="window" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11582">a #GdkWindow</doc>
+               line="11588">a #GdkWindow</doc>
           <type name="Window" c:type="GdkWindow*"/>
         </parameter>
         <parameter name="property" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11583">the property to retrieve</doc>
+               line="11589">the property to retrieve</doc>
           <type name="Atom" c:type="GdkAtom"/>
         </parameter>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11584">the desired property type, or %GDK_NONE, if any type of data
+               line="11590">the desired property type, or %GDK_NONE, if any type of data
   is acceptable. If this does not match the actual
   type, then @actual_format and @actual_length will
   be filled in, a warning will be printed to stderr
@@ -38358,14 +38358,14 @@ gdk_property_get() is provided.</doc>
         <parameter name="offset" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11589">the offset into the property at which to begin
+               line="11595">the offset into the property at which to begin
   retrieving data, in 4 byte units.</doc>
           <type name="gulong" c:type="gulong"/>
         </parameter>
         <parameter name="length" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11591">the length of the data to retrieve in bytes.  Data is
+               line="11597">the length of the data to retrieve in bytes.  Data is
   considered to be retrieved in 4 byte chunks, so @length
   will be rounded up to the next highest 4 byte boundary
   (so be careful not to pass a value that might overflow
@@ -38375,7 +38375,7 @@ gdk_property_get() is provided.</doc>
         <parameter name="pdelete" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11596">if %TRUE, delete the property after retrieving the
+               line="11602">if %TRUE, delete the property after retrieving the
   data.</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
@@ -38385,7 +38385,7 @@ gdk_property_get() is provided.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11598">location to store the
+               line="11604">location to store the
   actual type of the property.</doc>
           <type name="Atom" c:type="GdkAtom*"/>
         </parameter>
@@ -38395,7 +38395,7 @@ gdk_property_get() is provided.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11600">location to store the actual return format of the
+               line="11606">location to store the actual return format of the
   data; either 8, 16 or 32 bits.</doc>
           <type name="gint" c:type="gint*"/>
         </parameter>
@@ -38405,7 +38405,7 @@ gdk_property_get() is provided.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11602">location to store the length of the retrieved data, in
+               line="11608">location to store the length of the retrieved data, in
   bytes.  Data returned in the 32 bit format is stored
   in a long variable, so the actual number of 32 bit
   elements should be be calculated via
@@ -38419,7 +38419,7 @@ gdk_property_get() is provided.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11608">location
+               line="11614">location
   to store a pointer to the data. The retrieved data should be
   freed with g_free() when you are finished using it.</doc>
           <array length="8" zero-terminated="0" c:type="guchar**">
@@ -39078,7 +39078,7 @@ for the default screen. See gdk_screen_get_setting().</doc>
               version="2.14">
       <doc xml:space="preserve"
            filename="gdk/gdkwindow.c"
-           line="11480">Retrieves a pixel from @window to force the windowing
+           line="11486">Retrieves a pixel from @window to force the windowing
 system to carry out any pending rendering commands.
 
 This function is intended to be used to synchronize with rendering
@@ -39091,7 +39091,7 @@ pipelines, to benchmark windowing system rendering operations.</doc>
         <parameter name="window" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11482">a mapped #GdkWindow</doc>
+               line="11488">a mapped #GdkWindow</doc>
           <type name="Window" c:type="GdkWindow*"/>
         </parameter>
       </parameters>
@@ -39101,7 +39101,7 @@ pipelines, to benchmark windowing system rendering operations.</doc>
               version="2.14">
       <doc xml:space="preserve"
            filename="gdk/gdkwindow.c"
-           line="11541">This function is intended to be used in GTK+ test programs.
+           line="11547">This function is intended to be used in GTK+ test programs.
 It will warp the mouse pointer to the given (@x,@y) coordinates
 within @window and simulate a button press or release event.
 Because the mouse pointer needs to be warped to the target
@@ -39117,7 +39117,7 @@ by its accompanying button release event.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11563">whether all actions necessary for a button event simulation
+             line="11569">whether all actions necessary for a button event simulation
     were carried out successfully</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -39125,37 +39125,37 @@ by its accompanying button release event.</doc>
         <parameter name="window" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11543">a #GdkWindow to simulate a button event for</doc>
+               line="11549">a #GdkWindow to simulate a button event for</doc>
           <type name="Window" c:type="GdkWindow*"/>
         </parameter>
         <parameter name="x" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11544">x coordinate within @window for the button event</doc>
+               line="11550">x coordinate within @window for the button event</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="y" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11545">y coordinate within @window for the button event</doc>
+               line="11551">y coordinate within @window for the button event</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="button" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11546">Number of the pointer button for the event, usually 1, 2 or 3</doc>
+               line="11552">Number of the pointer button for the event, usually 1, 2 or 3</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="modifiers" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11547">Keyboard modifiers the event is setup with</doc>
+               line="11553">Keyboard modifiers the event is setup with</doc>
           <type name="ModifierType" c:type="GdkModifierType"/>
         </parameter>
         <parameter name="button_pressrelease" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11548">either %GDK_BUTTON_PRESS or %GDK_BUTTON_RELEASE</doc>
+               line="11554">either %GDK_BUTTON_PRESS or %GDK_BUTTON_RELEASE</doc>
           <type name="EventType" c:type="GdkEventType"/>
         </parameter>
       </parameters>
@@ -39165,7 +39165,7 @@ by its accompanying button release event.</doc>
               version="2.14">
       <doc xml:space="preserve"
            filename="gdk/gdkwindow.c"
-           line="11498">This function is intended to be used in GTK+ test programs.
+           line="11504">This function is intended to be used in GTK+ test programs.
 If (@x,@y) are &gt; (-1,-1), it will warp the mouse pointer to
 the given (@x,@y) coordinates within @window and simulate a
 key press or release event.
@@ -39185,7 +39185,7 @@ followed by its accompanying key release event.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gdk/gdkwindow.c"
-             line="11524">whether all actions necessary for a key event simulation
+             line="11530">whether all actions necessary for a key event simulation
     were carried out successfully</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -39193,37 +39193,37 @@ followed by its accompanying key release event.</doc>
         <parameter name="window" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11500">a #GdkWindow to simulate a key event for</doc>
+               line="11506">a #GdkWindow to simulate a key event for</doc>
           <type name="Window" c:type="GdkWindow*"/>
         </parameter>
         <parameter name="x" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11501">x coordinate within @window for the key event</doc>
+               line="11507">x coordinate within @window for the key event</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="y" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11502">y coordinate within @window for the key event</doc>
+               line="11508">y coordinate within @window for the key event</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="keyval" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11503">A GDK keyboard value</doc>
+               line="11509">A GDK keyboard value</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="modifiers" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11504">Keyboard modifiers the event is setup with</doc>
+               line="11510">Keyboard modifiers the event is setup with</doc>
           <type name="ModifierType" c:type="GdkModifierType"/>
         </parameter>
         <parameter name="key_pressrelease" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/gdkwindow.c"
-               line="11505">either %GDK_KEY_PRESS or %GDK_KEY_RELEASE</doc>
+               line="11511">either %GDK_KEY_PRESS or %GDK_KEY_RELEASE</doc>
           <type name="EventType" c:type="GdkEventType"/>
         </parameter>
       </parameters>

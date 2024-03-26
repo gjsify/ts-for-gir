@@ -20,7 +20,7 @@
   "license": "MIT",
   "devDependencies": {
     "esbuild": "^0.20.2",
-    "typescript": "5.2.2"
+    "typescript": "5.4.3"
   },
   "dependencies": {
     "node-gtk": "^0.14.0"

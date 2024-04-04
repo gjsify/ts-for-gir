@@ -40,7 +40,7 @@
     "validate": "yarn workspaces foreach -v --all --parallel run validate",
     "validate:types": "yarn workspaces foreach -v --all --parallel run validate:types",
     "validate:examples": "yarn workspaces foreach -v --all --parallel run validate:app",
-    "validate:types:packages": "tsc --project tsconfig.json",
+    "validate:types:packages": "yarn workspace @ts-for-gir/test-types-packages run validate:types:packages",
     "clear": "yarn clear:build && yarn clear:types",
     "clear:build": "yarn workspaces foreach -v --include '@ts-for-gir/*' run clear:build",
     "clear:types": "yarn run clear:types:local",
@@ -90,6 +90,7 @@
     "typescript": "^5.4.2"
   },
   "workspaces": [
+    "test",
     "examples/*/*",
     "packages/*",
     "types/*"

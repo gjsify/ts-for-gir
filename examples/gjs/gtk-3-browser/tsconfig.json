@@ -1,18 +1,12 @@
 {
-  "compilerOptions": {
-    "lib": [
-      "ESNext"
-    ],
-    "types": [
-      "@girs/gjs",
-      "@girs/pango-1.0",
-      "@girs/gtk-3.0",
-      "@girs/webkit2-4.0"
-    ],
+  "compilerOptions": {   
+    "lib": ["ESNext"],
+    "types": ["@girs/gjs", "@girs/pango-1.0", "@girs/gtk-3.0", "@girs/webkit2-4.0"],
     "target": "ESNext",
     "module": "ESNext",
+    "moduleResolution": "bundler",
     "strict": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,

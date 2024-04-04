@@ -1,15 +1,14 @@
 {
-  "name": "ts-for-gir-gtk-3-webkit-example",
-  "version": "3.2.8",
+  "name": "@ts-for-gir-example/gtk-3-webkit-example",
+  "version": "4.0.0",
   "description": "Simple GJS Gtk 3 example app to demonstrate how you can use WebKit2",
   "main": "index.js",
   "type": "module",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:types": "yarn ts-for-gir generate WebKit2-4.0 --generateAlias",
     "build:app": "yarn node esbuild.js",
-    "build": "yarn build:types && yarn build:app",
+    "build": "yarn build:app",
     "start:app": "gjs -m dist/main.js",
     "debug:app": "GTK_DEBUG=interactive yarn start:app",
     "start": "yarn build && yarn start:app",
@@ -21,7 +20,6 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
-    "@ts-for-gir/cli": "workspace:^",
     "esbuild": "^0.20.1",
     "typescript": "^5.4.2"
   },

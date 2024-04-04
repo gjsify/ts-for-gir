@@ -1,15 +1,14 @@
 {
-  "name": "ts-for-gir-gio-2-list-model-example",
-  "version": "3.2.8",
+  "name": "@ts-for-gir-example/gio-2-list-model-example",
+  "version": "4.0.0",
   "description": "An example of implementing the GListModel interface in GJS",
   "main": "index.js",
   "type": "module",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:types": "yarn ts-for-gir generate Gtk-4.0 --generateAlias",
     "build:app": "yarn node esbuild.js",
-    "build": "yarn build:types && yarn build:app",
+    "build": "yarn build:app",
     "start:app": "gjs -m dist/main.js",
     "debug:app": "GTK_DEBUG=interactive gjs -m dist/main.js",
     "start": "yarn build && yarn start:app",
@@ -20,7 +19,6 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
-    "@ts-for-gir/cli": "workspace:^",
     "esbuild": "^0.20.1",
     "typescript": "^5.4.2"
   },

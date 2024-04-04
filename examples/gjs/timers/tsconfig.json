@@ -4,6 +4,7 @@
     "types": ["@girs/gjs", "@girs/gjs/dom"],
     "target": "ESNext",
     "module": "ESNext",
+    "moduleResolution": "bundler",
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,

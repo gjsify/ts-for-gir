@@ -1,15 +1,14 @@
 {
-  "name": "ts-for-gir-gtk-4-template-example",
-  "version": "3.2.8",
+  "name": "@ts-for-gir-example/gtk-4-template-example",
+  "version": "4.0.0",
   "description": "Simple GJS Gtk 4 example app to demonstrate how you can use .ui template XML files",
   "main": "index.js",
   "type": "module",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:types": "yarn ts-for-gir generate Gtk-4.0 --generateAlias",
     "build:app": "yarn node esbuild.js",
-    "build": "yarn build:types && yarn build:app",
+    "build": "yarn build:app",
     "start:app": "gjs -m dist/main.js",
     "debug:app": "GTK_DEBUG=interactive yarn start:app",
     "start": "yarn build && yarn start:app",

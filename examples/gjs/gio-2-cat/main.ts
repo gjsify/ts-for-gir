@@ -11,8 +11,10 @@
  * the label should show a translation of 'Print help'
  */
 
-import GLib from './@types/glib-2.0.js';
-import Gio from './@types/gio-2.0.js';
+import '@girs/gjs';
+import '@girs/gjs/dom';
+import GLib from '@girs/glib-2.0';
+import Gio from '@girs/gio-2.0';
 
 const loop = GLib.MainLoop.new(null, false);
 const textDecoder = new TextDecoder()

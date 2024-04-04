@@ -4,6 +4,7 @@
     "types": ["@girs/gjs", "@girs/adw-1"],
     "target": "ESNext",
     "module": "ESNext",
+    "moduleResolution": "bundler",
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,

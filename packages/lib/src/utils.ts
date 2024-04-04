@@ -5,7 +5,7 @@ import { existsSync } from 'fs'
 import { readFile } from 'fs/promises'
 
 import { fileURLToPath } from 'url'
-import { GirInfoAttrs, TsType, FileInfo } from './types/index.js'
+import { FileInfo } from './types/index.js'
 import { inspect } from 'util'
 import { Logger } from './logger.js'
 
@@ -404,53 +404,4 @@ export const girBool = (boolStr: string | undefined, defaultVal = false): boolea
 export const signaturesMatch = (d1: string, d2: string) => {
     if (isCommentLine(d1) || isCommentLine(d2)) return false
     return stripParamNames(d1) == stripParamNames(d2)
-}
-
-/**
- * GirElements contains an attribute `introspectable`, which is a GirBoolean.
- * If this is attribute is falsy the element is not introspectable,
- * this means doesn't exist in the bindings, due in general to missing information in the annotations in the original C code
- */
-export const girElementIsIntrospectable = (girElement?: { $: GirInfoAttrs & { name: string } }, name?: string) => {
-    if (!girElement) {
-        return false
-    }
-    name = name || girElement?.$?.name
-    if (!name) {
-        return false
-    }
-    // Handle introspectable only if the attribute is also present...
-    if ({}.hasOwnProperty.call(girElement.$, 'introspectable') && girElement.$.introspectable !== undefined) {
-        return girBool(girElement.$.introspectable, true)
-    }
-    // ...otherwise we assume that it is introspectable
-    return true
-}
-
-/**
- * Check if a type is optional
- * @param types The types to check
- * @returns Whether the type is optional or not
- */
-export const typesContainsNullable = (tsTypes: TsType[]) => {
-    for (const tsType of tsTypes) {
-        if (tsType.nullable) {
-            return true
-        }
-    }
-    return false
-}
-
-/**
- * Check if a type is optional
- * @param types The types to check
- * @returns Whether the type is optional or not
- */
-export const typesContainsOptional = (tsTypes: TsType[]) => {
-    for (const tsType of tsTypes) {
-        if (tsType.optional) {
-            return true
-        }
-    }
-    return false
 }

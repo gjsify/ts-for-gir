@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "lib": ["ESNext"],
-        "types": ["@girs/gjs", "@girs/gjs/dom", "@girs/glib-2.0", "@girs/gobject-2.0"],
+        "types": ["@girs/gjs", "@girs/gjs/dom", "@girs/glib-2.0"],
         "target": "ESNext",
         "module": "ESNext",
         "moduleResolution": "Bundler",

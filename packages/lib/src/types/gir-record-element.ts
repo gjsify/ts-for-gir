@@ -6,7 +6,6 @@ import {
     GirPropertyElement,
     GirUnionElement,
     PartOfModule,
-    TsClass,
 } from './index.js'
 
 import * as parser from '@gi.ts/parser'
@@ -18,6 +17,4 @@ export interface GirRecordElement extends PartOfModule, parser.GirRecordElement 
     method?: GirMethodElement[]
     constructor?: GirConstructorElement[]
     property?: GirPropertyElement[]
-
-    _tsData?: TsClass
 }

@@ -4,7 +4,6 @@ import { GenerationOptions } from "../types.js";
 
 import { override as overrideGLib } from "./dts/glib.js";
 import { override as overrideGObject } from "./dts/gobject.js";
-import { override as overrideGio } from "./dts/gio.js";
 import { DtsGenerator } from "./dts.js";
 import { IntrospectedNamespaceMember } from "../gir/base.js";
 
@@ -26,8 +25,6 @@ export class DtsModuleGenerator extends DtsGenerator {
             suffix = `\n${overrideGLib(node)}\n`;
         } else if (node.name === "GObject") {
             suffix = `\n${overrideGObject(node)}\n`;
-        } else if (node.name === "Gio") {
-            suffix = `\n${overrideGio(node)}\n`;
         }
 
         try {

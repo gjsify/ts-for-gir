@@ -164,6 +164,8 @@ function isConflictingFunction(
     parentThis: TypeIdentifier,
     parent: IntrospectedClassFunction | IntrospectedFunction | IntrospectedConstructor
 ) {
+    if (!parent.isIntrospectable || !child.isIntrospectable) return false;
+
     if (child instanceof IntrospectedConstructor && parent instanceof IntrospectedConstructor) {
         return (
             child.parameters.length > parent.parameters.length ||

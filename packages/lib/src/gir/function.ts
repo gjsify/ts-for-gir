@@ -718,19 +718,21 @@ export class IntrospectedClassFunction<
 
     copy({
         parent = this.parent,
+        name,
         interfaceParent,
         parameters,
         outputParameters,
         returnType
     }: {
         parent?: Parent;
+        name?: string;
         interfaceParent?: IntrospectedBaseClass | IntrospectedEnum;
         parameters?: IntrospectedFunctionParameter[];
         outputParameters?: IntrospectedFunctionParameter[];
         returnType?: TypeExpression;
     } = {}): IntrospectedClassFunction<Parent> {
         const fn = new IntrospectedClassFunction<Parent>({
-            name: this.name,
+            name: name ?? this.name,
             parent,
             output_parameters: outputParameters ?? this.output_parameters,
             parameters: parameters ?? this.parameters,

@@ -34,7 +34,7 @@ function onNameAppeared(connection: Gio.DBusConnection, name: string, _owner: an
 
     // Proxy wrapper signals use the special functions `connectSignal()` and
     // `disconnectSignal()` to avoid conflicting with regular GObject signals.
-    proxySignalId = proxy.connectSignal('TtestSignal', (proxy_, name_, args) => {
+    proxySignalId = proxy.connectSignal('TestSignal', (proxy_, name_, args) => {
         print(`TestSignal: ${args[0]}, ${args[1]}`);
     });
 

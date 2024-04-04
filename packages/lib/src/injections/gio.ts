@@ -20,7 +20,8 @@ import {
     Generic,
     Uint8ArrayType,
     BooleanType,
-    TypeIdentifier
+    TypeIdentifier,
+    ThisType
 } from "../gir.js";
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedField, JSField } from "../gir/property.js";
@@ -156,9 +157,18 @@ export default {
                     parent: DBusProxy,
                     parameters: [
                         new IntrospectedFunctionParameter({
+                            name: "proxy",
+                            type: ThisType,
+                            direction: GirDirection.In
+                        }),
+                        new IntrospectedFunctionParameter({
+                            name: "name",
+                            type: StringType,
+                            direction: GirDirection.In
+                        }),
+                        new IntrospectedFunctionParameter({
                             name: "args",
                             type: new ArrayType(AnyType),
-                            isVarArgs: true,
                             direction: GirDirection.In
                         })
                     ],

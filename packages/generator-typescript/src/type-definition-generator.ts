@@ -1578,7 +1578,8 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         // START CLASS
         {
             const isAbstract = girClass instanceof IntrospectedClass && girClass.isAbstract
-            const isOpaque = girClass instanceof IntrospectedRecord && girClass.isPrivate
+            // TODO: I believe if a record has a constructor, we should not mark it as abstract
+            const isOpaque = girClass instanceof IntrospectedRecord && girClass.isPrivate && !girClass.mainConstructor
             if (isAbstract || isOpaque) {
                 def.push(this.generateExport('abstract class', classHead, '{'))
             } else {
@@ -1804,7 +1805,15 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         const def: string[] = []
         const dep = this.dependencyManager.get(packageName)
 
-        def.push(dep.importDef)
+        if (this.namespace.hasSymbol(dep.namespace)) {
+            if (this.config.noNamespace) {
+                def.push(`import * as ${dep.namespace}__ from '${dep.importPath}';`)
+            } else {
+                def.push(`import ${dep.namespace}__ from '${dep.importPath}';`)
+            }
+        } else {
+            def.push(dep.importDef)
+        }
 
         return def
     }
@@ -1960,33 +1969,6 @@ export class TypeDefinitionGenerator implements Generator {
         this.log = new Logger(this.config.verbose, TypeDefinitionGenerator.name)
         this.dependencyManager = DependencyManager.getInstance(this.config)
         this.packageData = new PackageDataParser(this.config)
-    }
-
-    /**
-     *
-     * @param namespace E.g. 'Gtk'
-     * @param packageName E.g. 'Gtk-3.0'
-     * @param asExternType Currently only used for node type imports
-     */
-    generateModuleDependenciesImport(packageName: string): string[] {
-        const def: string[] = []
-        const dep = this.dependencyManager.get(packageName)
-
-        // if (this.config.package) {
-        //     if (this.config.buildType === 'types') {
-        //         // See https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
-        //         def.push(`/// <reference types="${this.config.npmScope}/${dep.importName}" />`)
-        //     }
-        // } else {
-        //     if (this.config.buildType === 'types') {
-        //         // See https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
-        //         def.push(`/// <reference path="${dep.importName}.d.ts" />`)
-        //     }
-        // }
-
-        def.push(dep.importDef)
-
-        return def
     }
 
     async exportGjs() {

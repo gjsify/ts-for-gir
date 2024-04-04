@@ -34,7 +34,7 @@ const onActivate = (app: Adw.Application) => {
     log(`label.marginTop: ${label.marginTop}`)
     log(`label.marginBottom: ${label.marginBottom}`)
 
-    const window = new Gtk.ApplicationWindow(app)
+    const window = new Gtk.ApplicationWindow({ application: app })
     window.set_title('Hello')
     window.set_default_size(200, 200)
 

@@ -1,0 +1,1616 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="WebKit2" version="4.1"/>
+  <include name="libxml2" version="2.0"/>
+  <c:include name="gepub.h"/>
+  <namespace name="Gepub"
+             version="0.7"
+             shared-library="libgepub-0.7.so.0"
+             c:identifier-prefixes="Gepub"
+             c:symbol-prefixes="gepub">
+    <function-macro name="ARCHIVE"
+                    c:identifier="GEPUB_ARCHIVE"
+                    introspectable="0">
+      <source-position filename="libgepub/gepub-archive.h" line="30"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ARCHIVE_CLASS"
+                    c:identifier="GEPUB_ARCHIVE_CLASS"
+                    introspectable="0">
+      <source-position filename="libgepub/gepub-archive.h" line="31"/>
+      <parameters>
+        <parameter name="cls">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ARCHIVE_GET_CLASS"
+                    c:identifier="GEPUB_ARCHIVE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libgepub/gepub-archive.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Archive"
+           c:symbol-prefix="archive"
+           c:type="GepubArchive"
+           parent="GObject.Object"
+           glib:type-name="GepubArchive"
+           glib:get-type="gepub_archive_get_type"
+           glib:type-struct="ArchiveClass">
+      <source-position filename="libgepub/gepub-archive.h" line="37"/>
+      <constructor name="new" c:identifier="gepub_archive_new">
+        <source-position filename="libgepub/gepub-archive.h" line="41"/>
+        <return-value transfer-ownership="full">
+          <type name="Archive" c:type="GepubArchive*"/>
+        </return-value>
+        <parameters>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_root_file" c:identifier="gepub_archive_get_root_file">
+        <source-position filename="libgepub/gepub-archive.h" line="45"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="archive" transfer-ownership="none">
+            <type name="Archive" c:type="GepubArchive*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="list_files" c:identifier="gepub_archive_list_files">
+        <source-position filename="libgepub/gepub-archive.h" line="42"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-archive.c"
+               line="112">list of files in the archive</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="archive" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-archive.c"
+                 line="110">a #GepubArchive</doc>
+            <type name="Archive" c:type="GepubArchive*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="read_entry" c:identifier="gepub_archive_read_entry">
+        <source-position filename="libgepub/gepub-archive.h" line="43"/>
+        <return-value transfer-ownership="full">
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="archive" transfer-ownership="none">
+            <type name="Archive" c:type="GepubArchive*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="ArchiveClass"
+            c:type="GepubArchiveClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="Archive">
+      <source-position filename="libgepub/gepub-archive.h" line="37"/>
+    </record>
+    <function-macro name="DOC" c:identifier="GEPUB_DOC" introspectable="0">
+      <source-position filename="libgepub/gepub-doc.h" line="29"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOC_CLASS"
+                    c:identifier="GEPUB_DOC_CLASS"
+                    introspectable="0">
+      <source-position filename="libgepub/gepub-doc.h" line="30"/>
+      <parameters>
+        <parameter name="cls">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOC_GET_CLASS"
+                    c:identifier="GEPUB_DOC_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libgepub/gepub-doc.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Doc"
+           c:symbol-prefix="doc"
+           c:type="GepubDoc"
+           parent="GObject.Object"
+           glib:type-name="GepubDoc"
+           glib:get-type="gepub_doc_get_type"
+           glib:type-struct="DocClass">
+      <source-position filename="libgepub/gepub-doc.h" line="36"/>
+      <implements name="Gio.Initable"/>
+      <constructor name="new" c:identifier="gepub_doc_new" throws="1">
+        <source-position filename="libgepub/gepub-doc.h" line="54"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="258">the new GepubDoc created</doc>
+          <type name="Doc" c:type="GepubDoc*"/>
+        </return-value>
+        <parameters>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="255">the epub doc path</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_chapter"
+              c:identifier="gepub_doc_get_chapter"
+              glib:get-property="chapter">
+        <source-position filename="libgepub/gepub-doc.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="820">the current chapter index, starting from 0</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="818">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_content" c:identifier="gepub_doc_get_content">
+        <source-position filename="libgepub/gepub-doc.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="456">the document content</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="454">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_cover" c:identifier="gepub_doc_get_cover">
+        <source-position filename="libgepub/gepub-doc.h" line="67"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="857">cover file path to retrieve with
+gepub_doc_get_resource</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="855">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current" c:identifier="gepub_doc_get_current">
+        <source-position filename="libgepub/gepub-doc.h" line="65"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="647">the current chapter data</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="645">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_id" c:identifier="gepub_doc_get_current_id">
+        <source-position filename="libgepub/gepub-doc.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="928">the current resource id</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="925">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_mime"
+              c:identifier="gepub_doc_get_current_mime">
+        <source-position filename="libgepub/gepub-doc.h" line="62"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="632">the current resource mime</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="630">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_path"
+              c:identifier="gepub_doc_get_current_path">
+        <source-position filename="libgepub/gepub-doc.h" line="69"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="912">the current resource path</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="910">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_with_epub_uris"
+              c:identifier="gepub_doc_get_current_with_epub_uris">
+        <source-position filename="libgepub/gepub-doc.h" line="66"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="662">the current chapter
+data, with resource uris renamed so they have the epub:/// prefix and all
+are relative to the root file</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="660">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_metadata" c:identifier="gepub_doc_get_metadata">
+        <source-position filename="libgepub/gepub-doc.h" line="56"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="471">metadata string</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="468">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+          <parameter name="mdata" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="469">a metadata name string, GEPUB_META_TITLE for example</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_n_chapters" c:identifier="gepub_doc_get_n_chapters">
+        <source-position filename="libgepub/gepub-doc.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="806">the number of chapters in the document</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="804">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_resource" c:identifier="gepub_doc_get_resource">
+        <source-position filename="libgepub/gepub-doc.h" line="57"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="548">the resource content</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="545">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="546">the resource path</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_resource_by_id"
+              c:identifier="gepub_doc_get_resource_by_id">
+        <source-position filename="libgepub/gepub-doc.h" line="58"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="522">the resource content</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="519">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="520">the resource id</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_resource_mime"
+              c:identifier="gepub_doc_get_resource_mime">
+        <source-position filename="libgepub/gepub-doc.h" line="60"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="594">the resource mime</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="591">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="592">the resource path</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_resource_mime_by_id"
+              c:identifier="gepub_doc_get_resource_mime_by_id">
+        <source-position filename="libgepub/gepub-doc.h" line="61"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="570">the resource content</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="567">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="568">the resource id</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_resource_path"
+              c:identifier="gepub_doc_get_resource_path">
+        <source-position filename="libgepub/gepub-doc.h" line="68"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="889">the resource path</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="886">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="887">the resource id</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_resources" c:identifier="gepub_doc_get_resources">
+        <source-position filename="libgepub/gepub-doc.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="507">doc resource table</doc>
+          <type name="GLib.HashTable" c:type="GHashTable*">
+            <type name="utf8"/>
+            <type name="Resource"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="505">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_text" c:identifier="gepub_doc_get_text">
+        <source-position filename="libgepub/gepub-doc.h" line="63"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="692">the list of text in the current chapter.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="TextChunk"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="690">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_text_by_id" c:identifier="gepub_doc_get_text_by_id">
+        <source-position filename="libgepub/gepub-doc.h" line="64"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="727">the list of text in the current chapter.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="TextChunk"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="724">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="725">the resource id</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_toc" c:identifier="gepub_doc_get_toc">
+        <source-position filename="libgepub/gepub-doc.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="944">the navigation list in order</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="NavPoint"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="941">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="go_next" c:identifier="gepub_doc_go_next">
+        <source-position filename="libgepub/gepub-doc.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="776">TRUE on success, FALSE if there's no next chapter</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="774">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="go_prev" c:identifier="gepub_doc_go_prev">
+        <source-position filename="libgepub/gepub-doc.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="791">TRUE on success, FALSE if there's no previous chapter</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="789">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="resource_id_to_chapter"
+              c:identifier="gepub_doc_resource_id_to_chapter">
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-doc.c"
+             line="1000">This method tries to find the resource by id in the doc spine and
+will return the index in that list. If the resourse isn't there this method
+will return -1.</doc>
+        <source-position filename="libgepub/gepub-doc.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="1009">the chapter index to use with gepub_doc_set_chapter or -1 if the
+resource isn't found</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="1002">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="1003">The resource id</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="resource_uri_to_chapter"
+              c:identifier="gepub_doc_resource_uri_to_chapter">
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-doc.c"
+             line="953">This method tries to find the resource by path in the doc spine and
+will return the index in that list. If the resourse isn't there this method
+will return -1.</doc>
+        <source-position filename="libgepub/gepub-doc.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-doc.c"
+               line="962">the chapter index to use with gepub_doc_set_chapter or -1 if the
+resource isn't found</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="955">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="956">The resource path</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_chapter"
+              c:identifier="gepub_doc_set_chapter"
+              glib:set-property="chapter">
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-doc.c"
+             line="832">Sets the document current chapter to @index.</doc>
+        <source-position filename="libgepub/gepub-doc.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="834">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+          <parameter name="index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-doc.c"
+                 line="835">the index of the new chapter</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="chapter"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_chapter"
+                getter="get_chapter"
+                default-value="0">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="path"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="DocClass"
+            c:type="GepubDocClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="Doc">
+      <source-position filename="libgepub/gepub-doc.h" line="36"/>
+    </record>
+    <function-macro name="IS_ARCHIVE"
+                    c:identifier="GEPUB_IS_ARCHIVE"
+                    introspectable="0">
+      <source-position filename="libgepub/gepub-archive.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_ARCHIVE_CLASS"
+                    c:identifier="GEPUB_IS_ARCHIVE_CLASS"
+                    introspectable="0">
+      <source-position filename="libgepub/gepub-archive.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOC"
+                    c:identifier="GEPUB_IS_DOC"
+                    introspectable="0">
+      <source-position filename="libgepub/gepub-doc.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOC_CLASS"
+                    c:identifier="GEPUB_IS_DOC_CLASS"
+                    introspectable="0">
+      <source-position filename="libgepub/gepub-doc.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TEXT_CHUNK"
+                    c:identifier="GEPUB_IS_TEXT_CHUNK"
+                    introspectable="0">
+      <source-position filename="libgepub/gepub-text-chunk.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TEXT_CHUNK_CLASS"
+                    c:identifier="GEPUB_IS_TEXT_CHUNK_CLASS"
+                    introspectable="0">
+      <source-position filename="libgepub/gepub-text-chunk.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_WIDGET"
+                    c:identifier="GEPUB_IS_WIDGET"
+                    introspectable="0">
+      <source-position filename="libgepub/gepub-widget.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_WIDGET_CLASS"
+                    c:identifier="GEPUB_IS_WIDGET_CLASS"
+                    introspectable="0">
+      <source-position filename="libgepub/gepub-widget.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="META_AUTHOR" value="creator" c:type="GEPUB_META_AUTHOR">
+      <doc xml:space="preserve"
+           filename="libgepub/gepub-doc.h"
+           line="105">The book author.</doc>
+      <source-position filename="libgepub/gepub-doc.h" line="109"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="META_DESC" value="description" c:type="GEPUB_META_DESC">
+      <doc xml:space="preserve"
+           filename="libgepub/gepub-doc.h"
+           line="111">The book description.</doc>
+      <source-position filename="libgepub/gepub-doc.h" line="115"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="META_ID" value="identifier" c:type="GEPUB_META_ID">
+      <doc xml:space="preserve"
+           filename="libgepub/gepub-doc.h"
+           line="99">The book id.</doc>
+      <source-position filename="libgepub/gepub-doc.h" line="103"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="META_LANG" value="language" c:type="GEPUB_META_LANG">
+      <doc xml:space="preserve"
+           filename="libgepub/gepub-doc.h"
+           line="93">The book lang.</doc>
+      <source-position filename="libgepub/gepub-doc.h" line="97"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="META_TITLE" value="title" c:type="GEPUB_META_TITLE">
+      <doc xml:space="preserve"
+           filename="libgepub/gepub-doc.h"
+           line="87">The book title.</doc>
+      <source-position filename="libgepub/gepub-doc.h" line="91"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <record name="NavPoint" c:type="GepubNavPoint">
+      <source-position filename="libgepub/gepub-doc.h" line="47"/>
+      <field name="label" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="content" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="playorder" writable="1">
+        <type name="guint64" c:type="guint64"/>
+      </field>
+    </record>
+    <record name="Resource" c:type="GepubResource">
+      <source-position filename="libgepub/gepub-doc.h" line="41"/>
+      <field name="mime" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="uri" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+    </record>
+    <function-macro name="TEXT_CHUNK"
+                    c:identifier="GEPUB_TEXT_CHUNK"
+                    introspectable="0">
+      <source-position filename="libgepub/gepub-text-chunk.h" line="29"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TEXT_CHUNK_CLASS"
+                    c:identifier="GEPUB_TEXT_CHUNK_CLASS"
+                    introspectable="0">
+      <source-position filename="libgepub/gepub-text-chunk.h" line="30"/>
+      <parameters>
+        <parameter name="cls">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TEXT_CHUNK_GET_CLASS"
+                    c:identifier="GEPUB_TEXT_CHUNK_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libgepub/gepub-text-chunk.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="TextChunk"
+           c:symbol-prefix="text_chunk"
+           c:type="GepubTextChunk"
+           parent="GObject.Object"
+           glib:type-name="GepubTextChunk"
+           glib:get-type="gepub_text_chunk_get_type"
+           glib:type-struct="TextChunkClass">
+      <source-position filename="libgepub/gepub-text-chunk.h" line="51"/>
+      <constructor name="new" c:identifier="gepub_text_chunk_new">
+        <source-position filename="libgepub/gepub-text-chunk.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-text-chunk.c"
+               line="54">the chunk text</doc>
+          <type name="TextChunk" c:type="GepubTextChunk*"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-text-chunk.c"
+                 line="51">a #GepubTextChunkType, the chunk type</doc>
+            <type name="TextChunkType" c:type="GepubTextChunkType"/>
+          </parameter>
+          <parameter name="text" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-text-chunk.c"
+                 line="52">the chunk text</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="text" c:identifier="gepub_text_chunk_text">
+        <source-position filename="libgepub/gepub-text-chunk.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-text-chunk.c"
+               line="94">the chunk text</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chunk" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-text-chunk.c"
+                 line="92">a #GepubTextChunk</doc>
+            <type name="TextChunk" c:type="GepubTextChunk*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="type" c:identifier="gepub_text_chunk_type">
+        <source-position filename="libgepub/gepub-text-chunk.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-text-chunk.c"
+               line="106">the chunk type</doc>
+          <type name="TextChunkType" c:type="GepubTextChunkType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chunk" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-text-chunk.c"
+                 line="104">a #GepubTextChunk</doc>
+            <type name="TextChunk" c:type="GepubTextChunk*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="type_str" c:identifier="gepub_text_chunk_type_str">
+        <source-position filename="libgepub/gepub-text-chunk.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-text-chunk.c"
+               line="72">the chunk text</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chunk" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-text-chunk.c"
+                 line="70">a #GepubTextChunk</doc>
+            <type name="TextChunk" c:type="GepubTextChunk*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="type">
+        <type name="TextChunkType" c:type="GepubTextChunkType"/>
+      </field>
+      <field name="text">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+    </class>
+    <record name="TextChunkClass"
+            c:type="GepubTextChunkClass"
+            glib:is-gtype-struct-for="TextChunk">
+      <source-position filename="libgepub/gepub-text-chunk.h" line="51"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="TextChunkType" c:type="GepubTextChunkType">
+      <source-position filename="libgepub/gepub-text-chunk.h" line="40"/>
+      <member name="epubtextheader" value="0" c:identifier="GEPUBTextHeader">
+      </member>
+      <member name="epubtextbold" value="1" c:identifier="GEPUBTextBold">
+      </member>
+      <member name="epubtextitalic" value="2" c:identifier="GEPUBTextItalic">
+      </member>
+      <member name="epubtextnormal" value="3" c:identifier="GEPUBTextNormal">
+      </member>
+    </enumeration>
+    <function-macro name="WIDGET"
+                    c:identifier="GEPUB_WIDGET"
+                    introspectable="0">
+      <source-position filename="libgepub/gepub-widget.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="WIDGET_CLASS"
+                    c:identifier="GEPUB_WIDGET_CLASS"
+                    introspectable="0">
+      <source-position filename="libgepub/gepub-widget.h" line="33"/>
+      <parameters>
+        <parameter name="cls">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="WIDGET_GET_CLASS"
+                    c:identifier="GEPUB_WIDGET_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libgepub/gepub-widget.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Widget"
+           c:symbol-prefix="widget"
+           c:type="GepubWidget"
+           parent="WebKit2.WebView"
+           glib:type-name="GepubWidget"
+           glib:get-type="gepub_widget_get_type"
+           glib:type-struct="WidgetClass">
+      <source-position filename="libgepub/gepub-widget.h" line="39"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="gepub_widget_new">
+        <source-position filename="libgepub/gepub-widget.h" line="43"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-widget.c"
+               line="487">the new GepubWidget created</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="chapter_next" c:identifier="gepub_widget_chapter_next">
+        <source-position filename="libgepub/gepub-widget.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-widget.c"
+               line="653">TRUE on success, FALSE if there's no next chapter</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="651">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="chapter_prev" c:identifier="gepub_widget_chapter_prev">
+        <source-position filename="libgepub/gepub-widget.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-widget.c"
+               line="666">TRUE on success, FALSE if there's no prev chapter</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="664">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_chapter"
+              c:identifier="gepub_widget_get_chapter"
+              glib:get-property="chapter">
+        <source-position filename="libgepub/gepub-widget.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-widget.c"
+               line="612">the current chapter in the document</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="610">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_chapter_length"
+              c:identifier="gepub_widget_get_chapter_length">
+        <source-position filename="libgepub/gepub-widget.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-widget.c"
+               line="625">the current chapter length</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="623">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_doc"
+              c:identifier="gepub_widget_get_doc"
+              glib:get-property="doc">
+        <source-position filename="libgepub/gepub-widget.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-widget.c"
+               line="500">the #GepubDoc</doc>
+          <type name="Doc" c:type="GepubDoc*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="498">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_fontfamily" c:identifier="gepub_widget_get_fontfamily">
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-widget.c"
+             line="812">Gets the widget custom font family</doc>
+        <source-position filename="libgepub/gepub-widget.h" line="74"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="814">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_fontsize" c:identifier="gepub_widget_get_fontsize">
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-widget.c"
+             line="785">Gets the widget custom font size in pt, if 0, it's not set</doc>
+        <source-position filename="libgepub/gepub-widget.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="787">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_lineheight" c:identifier="gepub_widget_get_lineheight">
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-widget.c"
+             line="841">Gets the widget custom line height, if 0, it's not set</doc>
+        <source-position filename="libgepub/gepub-widget.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="gfloat" c:type="gfloat"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="843">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_margin" c:identifier="gepub_widget_get_margin">
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-widget.c"
+             line="773">Gets the widget left and right margin</doc>
+        <source-position filename="libgepub/gepub-widget.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="775">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_n_chapters" c:identifier="gepub_widget_get_n_chapters">
+        <source-position filename="libgepub/gepub-widget.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-widget.c"
+               line="599">the number of chapters in the document</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="597">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_paginate"
+              c:identifier="gepub_widget_get_paginate"
+              glib:get-property="paginate">
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-widget.c"
+             line="564">Returns whether pagination is enabled or disabled</doc>
+        <source-position filename="libgepub/gepub-widget.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="566">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_pos" c:identifier="gepub_widget_get_pos">
+        <source-position filename="libgepub/gepub-widget.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-widget.c"
+               line="725">the current position in the chapter</doc>
+          <type name="gfloat" c:type="gfloat"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="723">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="page_next" c:identifier="gepub_widget_page_next">
+        <source-position filename="libgepub/gepub-widget.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-widget.c"
+               line="679">TRUE on success, FALSE if there's no next page</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="677">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="page_prev" c:identifier="gepub_widget_page_prev">
+        <source-position filename="libgepub/gepub-widget.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-widget.c"
+               line="702">TRUE on success, FALSE if there's no next page</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="700">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_chapter"
+              c:identifier="gepub_widget_set_chapter"
+              glib:set-property="chapter">
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-widget.c"
+             line="634">Sets the current chapter in the doc</doc>
+        <source-position filename="libgepub/gepub-widget.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="636">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+          <parameter name="index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="637">the new chapter</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_doc"
+              c:identifier="gepub_widget_set_doc"
+              glib:set-property="doc">
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-widget.c"
+             line="530">Sets @doc as the document displayed by the widget.</doc>
+        <source-position filename="libgepub/gepub-widget.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="532">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+          <parameter name="doc"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="533">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_fontfamily" c:identifier="gepub_widget_set_fontfamily">
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-widget.c"
+             line="824">Sets the widget custom font family</doc>
+        <source-position filename="libgepub/gepub-widget.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="826">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+          <parameter name="family" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="827">the custom font family name</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_fontsize" c:identifier="gepub_widget_set_fontsize">
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-widget.c"
+             line="797">Sets the widget custom font size, use 0 to show book's styles</doc>
+        <source-position filename="libgepub/gepub-widget.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="799">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="800">the custom font size in pt</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_lineheight" c:identifier="gepub_widget_set_lineheight">
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-widget.c"
+             line="853">Sets the widget custom line height, the real size will be this
+number multiplied by the font size.
+Use 0 to show book's styles</doc>
+        <source-position filename="libgepub/gepub-widget.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="855">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="856">the custom line height</doc>
+            <type name="gfloat" c:type="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_margin" c:identifier="gepub_widget_set_margin">
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-widget.c"
+             line="758">Sets the widget left and right margin</doc>
+        <source-position filename="libgepub/gepub-widget.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="760">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+          <parameter name="margin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="761">the margin in pixels</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_paginate"
+              c:identifier="gepub_widget_set_paginate"
+              glib:set-property="paginate">
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-widget.c"
+             line="578">Enable or disable pagination</doc>
+        <source-position filename="libgepub/gepub-widget.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="580">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+          <parameter name="p" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="581">true if the widget should paginate</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_pos" c:identifier="gepub_widget_set_pos">
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-widget.c"
+             line="739">Sets the current position in the chapter</doc>
+        <source-position filename="libgepub/gepub-widget.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="741">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+          <parameter name="index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgepub/gepub-widget.c"
+                 line="742">the new pos</doc>
+            <type name="gfloat" c:type="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="chapter"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_chapter"
+                getter="get_chapter"
+                default-value="0">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="chapter-pos"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
+        <type name="gfloat" c:type="gfloat"/>
+      </property>
+      <property name="doc"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_doc"
+                getter="get_doc">
+        <type name="Doc"/>
+      </property>
+      <property name="nchapters" transfer-ownership="none" default-value="0">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="paginate"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_paginate"
+                getter="get_paginate"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+    </class>
+    <record name="WidgetClass"
+            c:type="GepubWidgetClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="Widget">
+      <source-position filename="libgepub/gepub-widget.h" line="39"/>
+    </record>
+    <function name="utils_get_element_by_attr"
+              c:identifier="gepub_utils_get_element_by_attr"
+              introspectable="0">
+      <source-position filename="libgepub/gepub-utils.h" line="26"/>
+      <return-value>
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-utils.c"
+             line="159">the element matching @attr and @value.</doc>
+        <type name="libxml2.Node" c:type="xmlNode*"/>
+      </return-value>
+      <parameters>
+        <parameter name="node" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-utils.c"
+               line="155">an #xmlNode</doc>
+          <type name="libxml2.Node" c:type="xmlNode*"/>
+        </parameter>
+        <parameter name="attr" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-utils.c"
+               line="156">the attribute</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="value" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-utils.c"
+               line="157">the value</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="utils_get_element_by_tag"
+              c:identifier="gepub_utils_get_element_by_tag"
+              introspectable="0">
+      <source-position filename="libgepub/gepub-utils.h" line="25"/>
+      <return-value>
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-utils.c"
+             line="132">the tag matching @name.</doc>
+        <type name="libxml2.Node" c:type="xmlNode*"/>
+      </return-value>
+      <parameters>
+        <parameter name="node" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-utils.c"
+               line="129">an #xmlNode</doc>
+          <type name="libxml2.Node" c:type="xmlNode*"/>
+        </parameter>
+        <parameter name="name" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-utils.c"
+               line="130">the tag name</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="utils_get_prop" c:identifier="gepub_utils_get_prop">
+      <source-position filename="libgepub/gepub-utils.h" line="29"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-utils.c"
+             line="290">a string with the property contained in @prop</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="node" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-utils.c"
+               line="287">an #xmlNode</doc>
+          <type name="libxml2.Node" c:type="xmlNode*"/>
+        </parameter>
+        <parameter name="prop" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-utils.c"
+               line="288">a property</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="utils_get_text_elements"
+              c:identifier="gepub_utils_get_text_elements">
+      <source-position filename="libgepub/gepub-utils.h" line="27"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-utils.c"
+             line="194">the text elements
+ of @node.</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="TextChunk"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="node" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-utils.c"
+               line="192">an #xmlNode</doc>
+          <type name="libxml2.Node" c:type="xmlNode*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="utils_replace_resources"
+              c:identifier="gepub_utils_replace_resources">
+      <doc xml:space="preserve"
+           filename="libgepub/gepub-utils.c"
+           line="246">Replacing epub media paths, for css, image and svg files, to be
+able to provide these files to webkit from the epub file.</doc>
+      <source-position filename="libgepub/gepub-utils.h" line="28"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libgepub/gepub-utils.c"
+             line="254">a new #GBytes containing the updated XML data</doc>
+        <type name="GLib.Bytes" c:type="GBytes*"/>
+      </return-value>
+      <parameters>
+        <parameter name="content" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-utils.c"
+               line="248">a #GBytes containing the XML data</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </parameter>
+        <parameter name="path" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgepub/gepub-utils.c"
+               line="249">The path to replace</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

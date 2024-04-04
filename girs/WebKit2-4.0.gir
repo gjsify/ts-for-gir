@@ -6117,7 +6117,7 @@ the in-memory cache during the current execution.</doc>
       <method name="clear" c:identifier="webkit_favicon_database_clear">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitFaviconDatabase.cpp"
-             line="282">Clears all icons from the database.</doc>
+             line="288">Clears all icons from the database.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitFaviconDatabase.h"
                          line="88"/>
         <return-value transfer-ownership="none">
@@ -6127,7 +6127,7 @@ the in-memory cache during the current execution.</doc>
           <instance-parameter name="database" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitFaviconDatabase.cpp"
-                 line="284">a #WebKitFaviconDatabase</doc>
+                 line="290">a #WebKitFaviconDatabase</doc>
             <type name="FaviconDatabase" c:type="WebKitFaviconDatabase*"/>
           </instance-parameter>
         </parameters>
@@ -6228,13 +6228,13 @@ to get the result of the operation.</doc>
               c:identifier="webkit_favicon_database_get_favicon_uri">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitFaviconDatabase.cpp"
-             line="256">Obtains the URI of the favicon for the given @page_uri.</doc>
+             line="262">Obtains the URI of the favicon for the given @page_uri.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitFaviconDatabase.h"
                          line="85"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitFaviconDatabase.cpp"
-               line="263">a newly allocated URI for the favicon, or %NULL if the
+               line="269">a newly allocated URI for the favicon, or %NULL if the
 database doesn't have a favicon for @page_uri.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -6242,13 +6242,13 @@ database doesn't have a favicon for @page_uri.</doc>
           <instance-parameter name="database" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitFaviconDatabase.cpp"
-                 line="258">a #WebKitFaviconDatabase</doc>
+                 line="264">a #WebKitFaviconDatabase</doc>
             <type name="FaviconDatabase" c:type="WebKitFaviconDatabase*"/>
           </instance-parameter>
           <parameter name="page_uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitFaviconDatabase.cpp"
-                 line="259">URI of the page containing the icon</doc>
+                 line="265">URI of the page containing the icon</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -12351,7 +12351,7 @@ against at application run time.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MICRO_VERSION" value="1" c:type="WEBKIT_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="5" c:type="WEBKIT_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="Source/WebKit/UIProcess/API/glib/WebKitVersion.cpp"
            line="39">Like webkit_get_micro_version(), but from the headers used at
@@ -26691,7 +26691,10 @@ See also webkit_web_context_set_sandbox_enabled()</doc>
               version="2.6">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-             line="1744">Ignore further TLS errors on the @host for the certificate present in @info.</doc>
+             line="1744">Ignore further TLS errors on the @host for the certificate present in @info.
+
+If @host is an IPv6 address, it should not be surrounded by brackets. This
+expectation matches g_uri_get_host().</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebContext.h"
                          line="310"/>
         <return-value transfer-ownership="none">
@@ -26993,7 +26996,7 @@ webkit_web_context_get_plugins_finish() to get the result of the operation.</doc
               deprecated-version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-             line="1789">Returns %WEBKIT_PROCESS_MODEL_MULTIPLE_SECONDARY_PROCESSES.
+             line="1792">Returns %WEBKIT_PROCESS_MODEL_MULTIPLE_SECONDARY_PROCESSES.
 
 For more information about why this function is deprecated,
 see webkit_web_context_set_process_model().</doc>
@@ -27002,14 +27005,14 @@ see webkit_web_context_set_process_model().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-               line="1798">%WEBKIT_PROCESS_MODEL_MULTIPLE_SECONDARY_PROCESSES</doc>
+               line="1801">%WEBKIT_PROCESS_MODEL_MULTIPLE_SECONDARY_PROCESSES</doc>
           <type name="ProcessModel" c:type="WebKitProcessModel"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-                 line="1791">the #WebKitWebContext</doc>
+                 line="1794">the #WebKitWebContext</doc>
             <type name="WebContext" c:type="WebKitWebContext*"/>
           </instance-parameter>
         </parameters>
@@ -27118,7 +27121,7 @@ details on the format of the languages in the list.</doc>
               version="2.38">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-             line="1967">Get the #WebKitWebContext:time-zone-override property.</doc>
+             line="1970">Get the #WebKitWebContext:time-zone-override property.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebContext.h"
                          line="339"/>
         <return-value transfer-ownership="none">
@@ -27128,7 +27131,7 @@ details on the format of the languages in the list.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-                 line="1969">a #WebKitWebContext</doc>
+                 line="1972">a #WebKitWebContext</doc>
             <type name="WebContext" c:type="WebKitWebContext*"/>
           </instance-parameter>
         </parameters>
@@ -27164,20 +27167,20 @@ details on the format of the languages in the list.</doc>
               version="2.30">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-             line="1949">Get the #WebKitWebContext:use-system-appearance-for-scrollbars property.</doc>
+             line="1952">Get the #WebKitWebContext:use-system-appearance-for-scrollbars property.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebContext.h"
                          line="336"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-               line="1955">%TRUE if scrollbars are rendering using the system appearance, or %FALSE otherwise</doc>
+               line="1958">%TRUE if scrollbars are rendering using the system appearance, or %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-                 line="1951">a #WebKitWebContext</doc>
+                 line="1954">a #WebKitWebContext</doc>
             <type name="WebContext" c:type="WebKitWebContext*"/>
           </instance-parameter>
         </parameters>
@@ -27189,7 +27192,7 @@ details on the format of the languages in the list.</doc>
               deprecated-version="2.26">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-             line="1834">Gets the maximum number of web processes that can be created at the same time for the @context.
+             line="1837">Gets the maximum number of web processes that can be created at the same time for the @context.
 
 This function is now deprecated and always returns 0 (no limit). See also webkit_web_context_set_web_process_count_limit().</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebContext.h"
@@ -27197,14 +27200,14 @@ This function is now deprecated and always returns 0 (no limit). See also webkit
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-               line="1842">the maximum limit of web processes, or 0 if there isn't a limit.</doc>
+               line="1845">the maximum limit of web processes, or 0 if there isn't a limit.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-                 line="1836">the #WebKitWebContext</doc>
+                 line="1839">the #WebKitWebContext</doc>
             <type name="WebContext" c:type="WebKitWebContext*"/>
           </instance-parameter>
         </parameters>
@@ -27238,7 +27241,7 @@ This function is now deprecated and always returns 0 (no limit). See also webkit
               version="2.16">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-             line="1863">Sets initial desktop notification permissions for the @context.
+             line="1866">Sets initial desktop notification permissions for the @context.
 
 @allowed_origins and @disallowed_origins must each be #GList of
 #WebKitSecurityOrigin objects representing origins that will,
@@ -27263,13 +27266,13 @@ permissions.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-                 line="1865">the #WebKitWebContext</doc>
+                 line="1868">the #WebKitWebContext</doc>
             <type name="WebContext" c:type="WebKitWebContext*"/>
           </instance-parameter>
           <parameter name="allowed_origins" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-                 line="1866">a #GList of security origins</doc>
+                 line="1869">a #GList of security origins</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="SecurityOrigin"/>
             </type>
@@ -27277,7 +27280,7 @@ permissions.</doc>
           <parameter name="disallowed_origins" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-                 line="1867">a #GList of security origins</doc>
+                 line="1870">a #GList of security origins</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="SecurityOrigin"/>
             </type>
@@ -27454,7 +27457,7 @@ about_uri_scheme_request_cb (WebKitURISchemeRequest *request,
               version="2.28">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-             line="1900">Send @message to all web process extensions associated to @context.
+             line="1903">Send @message to all web process extensions associated to @context.
 
 If @message is floating, it's consumed.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebContext.h"
@@ -27466,13 +27469,13 @@ If @message is floating, it's consumed.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-                 line="1902">the #WebKitWebContext</doc>
+                 line="1905">the #WebKitWebContext</doc>
             <type name="WebContext" c:type="WebKitWebContext*"/>
           </instance-parameter>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-                 line="1903">a #WebKitUserMessage</doc>
+                 line="1906">a #WebKitUserMessage</doc>
             <type name="UserMessage" c:type="WebKitUserMessage*"/>
           </parameter>
         </parameters>
@@ -27749,7 +27752,7 @@ to least desirable. The list will be used in the following ways:
               deprecated-version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-             line="1767">This function previously allowed specifying the process model to use.
+             line="1770">This function previously allowed specifying the process model to use.
 However, since 2.26, the only allowed process model is
 %WEBKIT_PROCESS_MODEL_MULTIPLE_SECONDARY_PROCESSES, so this function
 does nothing.</doc>
@@ -27762,13 +27765,13 @@ does nothing.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-                 line="1769">the #WebKitWebContext</doc>
+                 line="1772">the #WebKitWebContext</doc>
             <type name="WebContext" c:type="WebKitWebContext*"/>
           </instance-parameter>
           <parameter name="process_model" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-                 line="1770">a #WebKitProcessModel</doc>
+                 line="1773">a #WebKitProcessModel</doc>
             <type name="ProcessModel" c:type="WebKitProcessModel"/>
           </parameter>
         </parameters>
@@ -27901,7 +27904,7 @@ in WebKit.</doc>
               version="2.30">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-             line="1923">Set the #WebKitWebContext:use-system-appearance-for-scrollbars property.</doc>
+             line="1926">Set the #WebKitWebContext:use-system-appearance-for-scrollbars property.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebContext.h"
                          line="332"/>
         <return-value transfer-ownership="none">
@@ -27911,13 +27914,13 @@ in WebKit.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-                 line="1925">a #WebKitWebContext</doc>
+                 line="1928">a #WebKitWebContext</doc>
             <type name="WebContext" c:type="WebKitWebContext*"/>
           </instance-parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-                 line="1926">value to set</doc>
+                 line="1929">value to set</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -27992,7 +27995,7 @@ before anything is loaded.</doc>
               deprecated-version="2.26">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-             line="1811">Sets the maximum number of web processes.
+             line="1814">Sets the maximum number of web processes.
 
 Sets the maximum number of web processes that can be created at the same time for the @context.
 The default value is 0 and means no limit.
@@ -28007,13 +28010,13 @@ This function is now deprecated and does nothing for security reasons.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-                 line="1813">the #WebKitWebContext</doc>
+                 line="1816">the #WebKitWebContext</doc>
             <type name="WebContext" c:type="WebKitWebContext*"/>
           </instance-parameter>
           <parameter name="limit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebContext.cpp"
-                 line="1814">the maximum number of web processes</doc>
+                 line="1817">the maximum number of web processes</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -30457,13 +30460,13 @@ For more information see also webkit_web_view_set_background_color()</doc>
               version="2.34">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="5421">Get the camera capture state of a #WebKitWebView.</doc>
+             line="5426">Get the camera capture state of a #WebKitWebView.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebView.h"
                          line="688"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-               line="5427">The #WebKitMediaCaptureState of the camera device. If #WebKitSettings:enable-mediastream
+               line="5432">The #WebKitMediaCaptureState of the camera device. If #WebKitSettings:enable-mediastream
 is %FALSE, this method will return %WEBKIT_MEDIA_CAPTURE_STATE_NONE.</doc>
           <type name="MediaCaptureState" c:type="WebKitMediaCaptureState"/>
         </return-value>
@@ -30471,7 +30474,7 @@ is %FALSE, this method will return %WEBKIT_MEDIA_CAPTURE_STATE_NONE.</doc>
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5423">a #WebKitWebView</doc>
+                 line="5428">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
         </parameters>
@@ -30526,20 +30529,20 @@ is %FALSE, this method will return %WEBKIT_MEDIA_CAPTURE_STATE_NONE.</doc>
               version="2.38">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="5578">Gets the configured default Content-Security-Policy.</doc>
+             line="5583">Gets the configured default Content-Security-Policy.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebView.h"
                          line="712"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-               line="5584">The default policy or %NULL</doc>
+               line="5589">The default policy or %NULL</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5580">a #WebKitWebView</doc>
+                 line="5585">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
         </parameters>
@@ -30550,13 +30553,13 @@ is %FALSE, this method will return %WEBKIT_MEDIA_CAPTURE_STATE_NONE.</doc>
               version="2.34">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="5505">Get the display capture state of a #WebKitWebView.</doc>
+             line="5510">Get the display capture state of a #WebKitWebView.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebView.h"
                          line="702"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-               line="5511">The #WebKitMediaCaptureState of the display device. If #WebKitSettings:enable-mediastream
+               line="5516">The #WebKitMediaCaptureState of the display device. If #WebKitSettings:enable-mediastream
 is %FALSE, this method will return %WEBKIT_MEDIA_CAPTURE_STATE_NONE.</doc>
           <type name="MediaCaptureState" c:type="WebKitMediaCaptureState"/>
         </return-value>
@@ -30564,7 +30567,7 @@ is %FALSE, this method will return %WEBKIT_MEDIA_CAPTURE_STATE_NONE.</doc>
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5507">a #WebKitWebView</doc>
+                 line="5512">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
         </parameters>
@@ -30574,20 +30577,20 @@ is %FALSE, this method will return %WEBKIT_MEDIA_CAPTURE_STATE_NONE.</doc>
               version="2.10">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="5010">Gets the web editor state of @web_view.</doc>
+             line="5015">Gets the web editor state of @web_view.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebView.h"
                          line="645"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-               line="5016">the #WebKitEditorState of the view</doc>
+               line="5021">the #WebKitEditorState of the view</doc>
           <type name="EditorState" c:type="WebKitEditorState*"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5012">a #WebKitWebView</doc>
+                 line="5017">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
         </parameters>
@@ -30678,7 +30681,7 @@ this particular #WebKitWebView.</doc>
               version="2.28">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="5220">Get the #WebKitInputMethodContext currently in use by @web_view.
+             line="5225">Get the #WebKitInputMethodContext currently in use by @web_view.
 
 Get the #WebKitInputMethodContext currently in use by @web_view, or %NULL if no input method is being used.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebView.h"
@@ -30686,14 +30689,14 @@ Get the #WebKitInputMethodContext currently in use by @web_view, or %NULL if no 
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-               line="5228">a #WebKitInputMethodContext, or %NULL</doc>
+               line="5233">a #WebKitInputMethodContext, or %NULL</doc>
           <type name="InputMethodContext" c:type="WebKitInputMethodContext*"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5222">a #WebKitWebView</doc>
+                 line="5227">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
         </parameters>
@@ -30750,20 +30753,20 @@ Get the #WebKitInputMethodContext currently in use by @web_view, or %NULL if no 
               version="2.34">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="5277">Get whether the current web process of a #WebKitWebView is responsive.</doc>
+             line="5282">Get whether the current web process of a #WebKitWebView is responsive.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebView.h"
                          line="682"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-               line="5283">%TRUE if the web process attached to @web_view is responsive, or %FALSE otherwise.</doc>
+               line="5288">%TRUE if the web process attached to @web_view is responsive, or %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5279">a #WebKitWebView</doc>
+                 line="5284">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
         </parameters>
@@ -30827,13 +30830,13 @@ result values of scripts executed with webkit_web_view_run_javascript().</doc>
               version="2.34">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="5463">Get the microphone capture state of a #WebKitWebView.</doc>
+             line="5468">Get the microphone capture state of a #WebKitWebView.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebView.h"
                          line="695"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-               line="5469">The #WebKitMediaCaptureState of the microphone device. If #WebKitSettings:enable-mediastream
+               line="5474">The #WebKitMediaCaptureState of the microphone device. If #WebKitSettings:enable-mediastream
 is %FALSE, this method will return %WEBKIT_MEDIA_CAPTURE_STATE_NONE.</doc>
           <type name="MediaCaptureState" c:type="WebKitMediaCaptureState"/>
         </return-value>
@@ -30841,7 +30844,7 @@ is %FALSE, this method will return %WEBKIT_MEDIA_CAPTURE_STATE_NONE.</doc>
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5465">a #WebKitWebView</doc>
+                 line="5470">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
         </parameters>
@@ -30875,13 +30878,13 @@ the #WebKitWebView</doc>
               version="2.12">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="5030">Gets the current session state of @web_view</doc>
+             line="5035">Gets the current session state of @web_view</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebView.h"
                          line="648"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-               line="5036">a #WebKitWebViewSessionState</doc>
+               line="5041">a #WebKitWebViewSessionState</doc>
           <type name="WebViewSessionState"
                 c:type="WebKitWebViewSessionState*"/>
         </return-value>
@@ -30889,7 +30892,7 @@ the #WebKitWebView</doc>
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5032">a #WebKitWebView</doc>
+                 line="5037">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
         </parameters>
@@ -31209,20 +31212,20 @@ signal of @web_view.</doc>
               version="2.38">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="5561">Get the view's #WebKitWebExtensionMode.</doc>
+             line="5566">Get the view's #WebKitWebExtensionMode.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebView.h"
                          line="709"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-               line="5567">the #WebKitWebExtensionMode</doc>
+               line="5572">the #WebKitWebExtensionMode</doc>
           <type name="WebExtensionMode" c:type="WebKitWebExtensionMode"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5563">a #WebKitWebView</doc>
+                 line="5568">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
         </parameters>
@@ -31260,7 +31263,7 @@ of @web_view's #WebKitWebContext.</doc>
               version="2.30">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="5244">Gets the default website policies.
+             line="5249">Gets the default website policies.
 
 Gets the default website policies set on construction in the
 @web_view. These can be overridden on a per-origin basis via the
@@ -31272,7 +31275,7 @@ See also webkit_policy_decision_use_with_policies().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-               line="5256">the default #WebKitWebsitePolicies
+               line="5261">the default #WebKitWebsitePolicies
     associated with the view.</doc>
           <type name="WebsitePolicies" c:type="WebKitWebsitePolicies*"/>
         </return-value>
@@ -31280,7 +31283,7 @@ See also webkit_policy_decision_use_with_policies().</doc>
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5246">a #WebKitWebView</doc>
+                 line="5251">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
         </parameters>
@@ -31439,7 +31442,7 @@ automation session.</doc>
               version="2.8">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="4959">Gets whether the user is allowed to edit the HTML document.
+             line="4964">Gets whether the user is allowed to edit the HTML document.
 
 When @web_view is not editable an element in the HTML document can only be edited if the
 CONTENTEDITABLE attribute has been set on the element or one of its parent
@@ -31449,14 +31452,14 @@ elements. By default a #WebKitWebView is not editable.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-               line="4969">%TRUE if the user is allowed to edit the HTML document, or %FALSE otherwise.</doc>
+               line="4974">%TRUE if the user is allowed to edit the HTML document, or %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="4961">a #WebKitWebView</doc>
+                 line="4966">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
         </parameters>
@@ -31820,7 +31823,7 @@ using any cached data.</doc>
               version="2.12">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="5048">Restore the @web_view session state from @state</doc>
+             line="5053">Restore the @web_view session state from @state</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebView.h"
                          line="651"/>
         <return-value transfer-ownership="none">
@@ -31830,13 +31833,13 @@ using any cached data.</doc>
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5050">a #WebKitWebView</doc>
+                 line="5055">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5051">a #WebKitWebViewSessionState</doc>
+                 line="5056">a #WebKitWebViewSessionState</doc>
             <type name="WebViewSessionState"
                   c:type="WebKitWebViewSessionState*"/>
           </parameter>
@@ -32498,7 +32501,7 @@ operation.</doc>
               version="2.28">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="5117">Send @message to the #WebKitWebPage corresponding to @web_view.
+             line="5122">Send @message to the #WebKitWebPage corresponding to @web_view.
 
 If @message is floating, it's consumed.
 If you don't expect any reply, or you simply want to ignore it, you can pass %NULL as @callback.
@@ -32513,13 +32516,13 @@ webkit_web_view_send_message_to_page_finish() to get the message reply.</doc>
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5119">a #WebKitWebView</doc>
+                 line="5124">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5120">a #WebKitUserMessage</doc>
+                 line="5125">a #WebKitUserMessage</doc>
             <type name="UserMessage" c:type="WebKitUserMessage*"/>
           </parameter>
           <parameter name="cancellable"
@@ -32528,7 +32531,7 @@ webkit_web_view_send_message_to_page_finish() to get the message reply.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5121">a #GCancellable or %NULL to ignore</doc>
+                 line="5126">a #GCancellable or %NULL to ignore</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -32539,7 +32542,7 @@ webkit_web_view_send_message_to_page_finish() to get the message reply.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5122">(nullable): A #GAsyncReadyCallback to call when the request is satisfied or %NULL</doc>
+                 line="5127">(nullable): A #GAsyncReadyCallback to call when the request is satisfied or %NULL</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -32548,7 +32551,7 @@ webkit_web_view_send_message_to_page_finish() to get the message reply.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5123">the data to pass to callback function</doc>
+                 line="5128">the data to pass to callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -32559,26 +32562,26 @@ webkit_web_view_send_message_to_page_finish() to get the message reply.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="5165">Finish an asynchronous operation started with webkit_web_view_send_message_to_page().</doc>
+             line="5170">Finish an asynchronous operation started with webkit_web_view_send_message_to_page().</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebView.h"
                          line="663"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-               line="5173">a #WebKitUserMessage with the reply or %NULL in case of error.</doc>
+               line="5178">a #WebKitUserMessage with the reply or %NULL in case of error.</doc>
           <type name="UserMessage" c:type="WebKitUserMessage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5167">a #WebKitWebView</doc>
+                 line="5172">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5168">a #GAsyncResult</doc>
+                 line="5173">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -32641,7 +32644,7 @@ static void browser_window_set_background_color (BrowserWindow *window,
               version="2.34">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="5442">Set the camera capture state of a #WebKitWebView.
+             line="5447">Set the camera capture state of a #WebKitWebView.
 
 If #WebKitSettings:enable-mediastream is %FALSE, this method will have no visible effect. Once the
 state of the device has been set to %WEBKIT_MEDIA_CAPTURE_STATE_NONE it cannot be changed
@@ -32655,13 +32658,13 @@ anymore. The page can however request capture again using the mediaDevices API.<
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5444">a #WebKitWebView</doc>
+                 line="5449">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5445">a #WebKitMediaCaptureState</doc>
+                 line="5450">a #WebKitMediaCaptureState</doc>
             <type name="MediaCaptureState" c:type="WebKitMediaCaptureState"/>
           </parameter>
         </parameters>
@@ -32671,7 +32674,7 @@ anymore. The page can however request capture again using the mediaDevices API.<
               version="2.34">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="5321">Sets the @allowlist for CORS.
+             line="5326">Sets the @allowlist for CORS.
 
 Sets the @allowlist for which
 [Cross-Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
@@ -32696,7 +32699,7 @@ the most recent call will be effective.</doc>
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5323">a #WebKitWebView</doc>
+                 line="5328">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
           <parameter name="allowlist"
@@ -32705,7 +32708,7 @@ the most recent call will be effective.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5324">an allowlist of URI patterns, or %NULL</doc>
+                 line="5329">an allowlist of URI patterns, or %NULL</doc>
             <array c:type="const gchar* const*">
               <type name="utf8"/>
             </array>
@@ -32751,7 +32754,7 @@ encoding override.</doc>
               version="2.34">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="5526">Set the display capture state of a #WebKitWebView.
+             line="5531">Set the display capture state of a #WebKitWebView.
 
 If #WebKitSettings:enable-mediastream is %FALSE, this method will have no visible effect. Once the
 state of the device has been set to %WEBKIT_MEDIA_CAPTURE_STATE_NONE it cannot be changed
@@ -32765,13 +32768,13 @@ anymore. The page can however request capture again using the mediaDevices API.<
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5528">a #WebKitWebView</doc>
+                 line="5533">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5529">a #WebKitMediaCaptureState</doc>
+                 line="5534">a #WebKitMediaCaptureState</doc>
             <type name="MediaCaptureState" c:type="WebKitMediaCaptureState"/>
           </parameter>
         </parameters>
@@ -32782,7 +32785,7 @@ anymore. The page can however request capture again using the mediaDevices API.<
               version="2.8">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="4980">Sets whether the user is allowed to edit the HTML document.
+             line="4985">Sets whether the user is allowed to edit the HTML document.
 
 If @editable is %TRUE, @web_view allows the user to edit the HTML document. If
 @editable is %FALSE, an element in @web_view's document can only be edited if the
@@ -32801,13 +32804,13 @@ of a #WebKitWebView editable without altering the document or DOM structure.</do
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="4982">a #WebKitWebView</doc>
+                 line="4987">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
           <parameter name="editable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="4983">a #gboolean indicating the editable state</doc>
+                 line="4988">a #gboolean indicating the editable state</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -32817,7 +32820,7 @@ of a #WebKitWebView editable without altering the document or DOM structure.</do
               version="2.28">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="5185">Set the #WebKitInputMethodContext to be used by @web_view.
+             line="5190">Set the #WebKitInputMethodContext to be used by @web_view.
 
 Set the #WebKitInputMethodContext to be used by @web_view, or %NULL to not use any input method.
 Note that the same #WebKitInputMethodContext can't be set on more than one #WebKitWebView at the same time.</doc>
@@ -32830,7 +32833,7 @@ Note that the same #WebKitInputMethodContext can't be set on more than one #WebK
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5187">a #WebKitWebView</doc>
+                 line="5192">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
           <parameter name="context"
@@ -32839,7 +32842,7 @@ Note that the same #WebKitInputMethodContext can't be set on more than one #WebK
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5188">the #WebKitInputMethodContext to set, or %NULL</doc>
+                 line="5193">the #WebKitInputMethodContext to set, or %NULL</doc>
             <type name="InputMethodContext"
                   c:type="WebKitInputMethodContext*"/>
           </parameter>
@@ -32878,7 +32881,7 @@ Note that the same #WebKitInputMethodContext can't be set on more than one #WebK
               version="2.34">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="5484">Set the microphone capture state of a #WebKitWebView.
+             line="5489">Set the microphone capture state of a #WebKitWebView.
 
 If #WebKitSettings:enable-mediastream is %FALSE, this method will have no visible effect. Once the
 state of the device has been set to %WEBKIT_MEDIA_CAPTURE_STATE_NONE it cannot be changed
@@ -32892,13 +32895,13 @@ anymore. The page can however request capture again using the mediaDevices API.<
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5486">a #WebKitWebView</doc>
+                 line="5491">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5487">a #WebKitMediaCaptureState</doc>
+                 line="5492">a #WebKitMediaCaptureState</doc>
             <type name="MediaCaptureState" c:type="WebKitMediaCaptureState"/>
           </parameter>
         </parameters>
@@ -32992,7 +32995,7 @@ If there is a loading operation in progress, it will be cancelled and
               version="2.34">
         <doc xml:space="preserve"
              filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-             line="5294">Terminates the web process associated to @web_view.
+             line="5299">Terminates the web process associated to @web_view.
 
 When the web process gets terminated
 using this method, the #WebKitWebView::web-process-terminated signal is emitted with
@@ -33006,7 +33009,7 @@ using this method, the #WebKitWebView::web-process-terminated signal is emitted 
           <instance-parameter name="web_view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp"
-                 line="5296">a #WebKitWebView</doc>
+                 line="5301">a #WebKitWebView</doc>
             <type name="WebView" c:type="WebKitWebView*"/>
           </instance-parameter>
         </parameters>

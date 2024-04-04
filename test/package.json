@@ -1,5 +1,5 @@
 {
-    "name": "@ts-for-gir/test-types-packages",
+    "name": "@ts-for-gir-test/types-packages",
     "scripts": {
         "validate:types:packages": "tsc --project tsconfig.json --noEmit"
     },

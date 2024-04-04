@@ -67,6 +67,6 @@ jobs:
     - run: yarn run build
     - run: yarn run build:types:packages:no-install
     - name: Show diff
-      run: git diff --submodule | cat
+      run: (cd ./types && git diff | cat)
     - run: yarn install
     - run: NODE_OPTIONS=--max_old_space_size=9216 yarn run validate:types:packages

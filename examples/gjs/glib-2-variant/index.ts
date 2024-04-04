@@ -204,7 +204,7 @@ deepDict = new GLib.Variant('a{sv}', {
     'key2': GLib.Variant.new_boolean(true)
 });
 
-const deepDictFull = deepDict.recursiveUnpack<{key1: string; key2: boolean}>();
+const deepDictFull = deepDict.recursiveUnpack() as {key1: string; key2: boolean};
 
 print("deepDictFull", JSON.stringify(deepDictFull, null, 2));
 
@@ -232,7 +232,7 @@ const emptyReply = Gio.DBus.session.call_sync(
     null
 );
 
-print("emptyReply", JSON.stringify(emptyReply.recursiveUnpack<[]>(), null, 2));
+print("emptyReply", JSON.stringify(emptyReply.recursiveUnpack() as [], null, 2));
 
 
 // This method takes no arguments. For convenience you can pass `null` instead
@@ -252,7 +252,7 @@ const reply = Gio.DBus.session.call_sync(
     null
 );
 
-print("reply", JSON.stringify(reply.recursiveUnpack<any>(), null, 2));
+print("reply", JSON.stringify(reply.recursiveUnpack(), null, 2));
 
 // We know the first and only child of the tuple is the actual return value
 const value = reply.get_child_value(0);

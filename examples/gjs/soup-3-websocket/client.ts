@@ -22,7 +22,7 @@ const message = new Soup.Message({
 
 session.websocket_connect_async(message, 'origin', [], 1, null, websocket_connect_async_callback);
 
-function websocket_connect_async_callback(_session: Soup.Session, res: Gio.AsyncResult) {
+function websocket_connect_async_callback(_session: Soup.Session | null, res: Gio.AsyncResult) {
     let connection: Soup.WebsocketConnection;
 
     try {

@@ -58,7 +58,7 @@ console.log('Finished with status:', status)
 /* Event handlers */
 
 function onActivate() {
-  const window = new Gtk.ApplicationWindow(app)
+  const window = new Gtk.ApplicationWindow({application: app})
   window.set_title('Window')
   window.set_default_size(200, 200)
   window.connect('close-request', onQuit)

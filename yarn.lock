@@ -9006,6 +9006,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ts-for-gir-example/glib-2-variant-example@workspace:examples/gjs/glib-2-variant"
   dependencies:
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
     esbuild: "npm:^0.20.1"
     typescript: "npm:^5.4.2"
   languageName: unknown

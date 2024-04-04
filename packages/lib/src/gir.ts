@@ -159,6 +159,12 @@ export class TypeIdentifier extends TypeExpression {
 
     // eslint-disable-next-line  @typescript-eslint/no-unused-vars
     print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
+        if (namespace.hasSymbol(this.namespace) && this.namespace !== namespace.name) {
+            // TODO: Move to TypeScript generator...
+            // Libraries like zbar have classes named things like "Gtk"
+            return `${this.namespace}__.${this.name}`
+        }
+
         if (namespace.name === this.namespace) {
             return `${this.name}`
         } else {

@@ -16,7 +16,6 @@ import {
     APP_VERSION,
     PACKAGE_DESC,
     PACKAGE_KEYWORDS,
-    getDestPath,
     DependencyManager,
     Transformation,
 } from '@ts-for-gir/lib'
@@ -40,7 +39,7 @@ export class TemplateProcessor {
         let outdir = config.outdir || './'
         // Make outdir relative to the root directory
         outdir = relative(config.root, outdir)
-        const typeDir = getDestPath(outdir)
+        const typeDir = outdir
 
         this.data = {
             ...this.data,
@@ -95,17 +94,17 @@ export class TemplateProcessor {
      */
     public async load(
         templateFilename: string,
-        options: Partial<ejs.Options> = {},
+        ejsOptions: Partial<ejs.Options> = {},
         overrideTemplateData: TemplateData = {},
     ): Promise<{ prepend: string; append: string }> {
         const fileContent = await this.read(templateFilename)
-        const prepend = await this.render(fileContent, options, overrideTemplateData)
+        const prepend = await this.render(fileContent, ejsOptions, overrideTemplateData)
         let append = ''
 
         const appendTemplateFilename = this.getAppendTemplateName(templateFilename)
         if (this.exists(appendTemplateFilename)) {
             const appendFileContent = await this.read(appendTemplateFilename)
-            append = await this.render(appendFileContent, options, overrideTemplateData)
+            append = await this.render(appendFileContent, ejsOptions, overrideTemplateData)
         }
 
         return { prepend, append }
@@ -115,19 +114,19 @@ export class TemplateProcessor {
      * Loads and renders all templates in a directory and gets the rendered templates back
      * @param templateDirname
      * @param fileExtension
-     * @param options EJS options
+     * @param ejsOptions EJS options
      * @param overrideTemplateData Override template data if you want
      * @returns The rendered templates
      */
     public async loadAll(
         templateDirname: string,
         fileExtension: string,
-        options: Partial<ejs.Options> = {},
+        ejsOptions: Partial<ejs.Options> = {},
         overrideTemplateData: TemplateData = {},
     ): Promise<{ [path: string]: string }> {
         const fileContents = await this.readAll(templateDirname, fileExtension)
         for (const file of Object.keys(fileContents)) {
-            fileContents[file] = await this.render(fileContents[file], options, overrideTemplateData)
+            fileContents[file] = await this.render(fileContents[file], ejsOptions, overrideTemplateData)
         }
         return fileContents
     }
@@ -137,9 +136,8 @@ export class TemplateProcessor {
      * @param templateFilename The filename of the template
      * @param baseOutputPath The base output directory path where the templates should be written to
      * @param outputFilename The filename of the output file
-     * @param prependEnv A (optional) boolean that indicates if the environment should be prepended to the output path
      * @param content A (optional) string that should be appended to the rendered template
-     * @param options EJS options
+     * @param ejsOptions EJS options
      * @param overrideTemplateData Override template data if you want
      * @return The rendered template string
      */
@@ -147,14 +145,13 @@ export class TemplateProcessor {
         templateFilename: string,
         baseOutputPath: string,
         outputFilename: string,
-        prependEnv = true,
         content = '',
-        options: Partial<ejs.Options> = {},
+        ejsOptions: Partial<ejs.Options> = {},
         overrideTemplateData: TemplateData = {},
     ): Promise<string> {
-        const { prepend, append } = await this.load(templateFilename, options, overrideTemplateData)
+        const { prepend, append } = await this.load(templateFilename, ejsOptions, overrideTemplateData)
         const code = prepend + '\n' + content + '\n' + append
-        await this.write(code, baseOutputPath, outputFilename, prependEnv)
+        await this.write(code, baseOutputPath, outputFilename)
         return code
     }
 
@@ -164,9 +161,8 @@ export class TemplateProcessor {
      * @param templateDirname The directory where the templates are located
      * @param baseOutputPath The base output directory path where the templates should be written to
      * @param outputDirname The child output directory of the base output directory where the templates should be written to
-     * @param prependEnv A (optional) boolean that indicates if the environment should be prepended to the output path
      * @param append A (optional) string that should be appended to the rendered template
-     * @param options EJS options
+     * @param ejsOptions EJS options
      * @param overrideTemplateData Override template data if you want
      * @return The rendered (and if possible prettified) templates
      */
@@ -175,25 +171,24 @@ export class TemplateProcessor {
         templateDirname: string,
         baseOutputPath: string,
         outputDirname: string,
-        prependEnv = true,
         append = '',
-        options: Partial<ejs.Options> = {},
+        ejsOptions: Partial<ejs.Options> = {},
         overrideTemplateData: TemplateData = {},
     ) {
-        const rendered = await this.loadAll(templateDirname, fileExtension, options, overrideTemplateData)
+        const rendered = await this.loadAll(templateDirname, fileExtension, ejsOptions, overrideTemplateData)
         const result: { [path: string]: string } = {}
         for (const filename of Object.keys(rendered)) {
-            const destPath = getDestPath(baseOutputPath, outputDirname, filename)
+            const destPath = join(baseOutputPath, outputDirname, filename)
             result[destPath] = rendered[filename] + '\n' + append
-            await this.write(result[destPath], baseOutputPath, join(outputDirname, filename), prependEnv)
+            await this.write(result[destPath], baseOutputPath, join(outputDirname, filename))
         }
 
         return result
     }
 
-    public getOutputPath(baseOutputPath: string, outputFilename: string, prependEnv = true): string {
+    public getOutputPath(baseOutputPath: string, outputFilename: string): string {
         const filePath = join(this.data?.importName || this.packageName, outputFilename)
-        const outputPath = prependEnv ? getDestPath(baseOutputPath, filePath) : join(baseOutputPath, filePath)
+        const outputPath = join(baseOutputPath, filePath)
         return outputPath
     }
 
@@ -202,16 +197,10 @@ export class TemplateProcessor {
      * @param content The content (normally the content of a rendered template file) that should be written to the filesystem
      * @param baseOutputPath The base output directory path where the templates should be written to
      * @param outputFilename The filename of the output file
-     * @param prependEnv A (optional) boolean that indicates if the environment should be prepended to the output path
      * @returns
      */
-    protected async write(
-        content: string,
-        baseOutputPath: string,
-        outputFilename: string,
-        prependEnv = true,
-    ): Promise<string> {
-        const outputPath = this.getOutputPath(baseOutputPath, outputFilename, prependEnv)
+    protected async write(content: string, baseOutputPath: string, outputFilename: string): Promise<string> {
+        const outputPath = this.getOutputPath(baseOutputPath, outputFilename)
 
         // write template result file
         await mkdir(dirname(outputPath), { recursive: true })

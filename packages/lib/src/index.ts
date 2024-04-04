@@ -1,8 +1,9 @@
 export * from './types/index.js'
-export * from './conflict-resolver.js'
 export * from './constants.js'
 export * from './dependency-manager.js'
-export * from './gir-factory.js'
+// TODO: Finish migrating the types for TSDoc support
+export * from './types/ts-doc.js'
+export * from './types/ts-doc-tag.js'
 export * from './gir-module.js'
 export * from './library-version.js'
 export * from './logger.js'
@@ -11,4 +12,6 @@ export * from './symtable.js'
 export * from './transformation.js'
 export * from './utils.js'
 export * from './gir.js'
+// TODO: Export this from gir.js once we resolve circular dependencies
+export { promisifyNamespaceFunctions } from './gir/namespace.js'
 export * from './registry.js'

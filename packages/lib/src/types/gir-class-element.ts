@@ -12,7 +12,6 @@ import {
     GirUnionElement,
     GirVirtualMethodElement,
     PartOfModule,
-    TsClass,
 } from './index.js'
 import * as parser from '@gi.ts/parser'
 
@@ -30,6 +29,4 @@ export interface GirClassElement extends PartOfModule, parser.GirClassElement {
     constant?: GirConstantElement[]
     record?: GirRecordElement[]
     callback?: GirCallbackElement[]
-
-    _tsData?: TsClass
 }

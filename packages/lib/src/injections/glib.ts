@@ -12,7 +12,6 @@ import {
     BooleanType,
     Uint8ArrayType,
     StringType,
-    UnknownType,
     GenericType,
     TypeIdentifier,
     BinaryType,
@@ -145,6 +144,10 @@ export default {
             VariantConstructor.generics = [new Generic(new GenericType("A"), undefined, undefined, StringType)];
 
             Variant.mainConstructor = VariantConstructor.copy();
+            if (!(Variant instanceof IntrospectedRecord)) {
+                throw new Error("GLib.Variant is not a record");
+            }
+            Variant.setPrivate(false);
 
             // static _new_internal: (sig: any, value: any) => any;
             const internalConstructor = new IntrospectedConstructor({
@@ -158,25 +161,28 @@ export default {
 
             Variant.constructors.unshift(VariantConstructor.copy(), internalConstructor);
 
+            const unpackedReturnType = new GenericType("T");
+            // unpack<T= any>(): T;
+            const unpack = new IntrospectedClassFunction({
+                name: "unpack",
+                return_type: unpackedReturnType,
+                parent: Variant
+            });
+            unpack.generics.push(new Generic(unpackedReturnType));
+
+            // deepUnpack<T = any>(): T;
+            const deepUnpack = new IntrospectedClassFunction({
+                name: "deepUnpack",
+                return_type: unpackedReturnType,
+                parent: Variant
+            });
+            deepUnpack.generics.push(new Generic(unpackedReturnType));
+
             Variant.members.push(
-                // unpack<T= any>(): T;
-                new IntrospectedClassFunction({
-                    name: "unpack",
-                    return_type: UnknownType,
-                    parent: Variant
-                }),
-                // deepUnpack<T = any>(): T;
-                new IntrospectedClassFunction({
-                    name: "deepUnpack",
-                    return_type: UnknownType,
-                    parent: Variant
-                }),
+                unpack,
+                deepUnpack,
                 // deep_unpack<T = any>(): T;
-                new IntrospectedClassFunction({
-                    name: "deep_unpack",
-                    return_type: UnknownType,
-                    parent: Variant
-                }),
+                deepUnpack.copy({ name: "deep_unpack" }),
                 // recursiveUnpack: () => any;
                 new IntrospectedClassFunction({
                     name: "recursiveUnpack",

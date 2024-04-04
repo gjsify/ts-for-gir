@@ -3,7 +3,6 @@ import {
     GirClassElement,
     GirRecordElement,
     GirInterfaceElement,
-    TsSignal,
     GirCallableParams,
     GirCallableReturn,
 } from './index.js'
@@ -17,6 +16,4 @@ export interface GirSignalElement extends PartOfModule, parser.GirSignalElement 
      * The class this function is defined in
      */
     _class?: GirClassElement | GirRecordElement | GirInterfaceElement
-
-    _tsData?: TsSignal
 }

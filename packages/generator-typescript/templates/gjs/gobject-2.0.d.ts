@@ -2,6 +2,7 @@
 // See https://gitlab.gnome.org/ewlsh/gi.ts/-/blob/master/packages/lib/src/generators/dts/gobject.ts
 // Copyright Evan Welsh
 
+// __type__ forces all GTypes to not match structurally.
 export type GType<T = unknown> = {
     __type__(arg: never): T
     name: string
@@ -28,7 +29,9 @@ export interface MetaInfo<Props, Interfaces, Sigs> {
     InternalChildren?: string[]
 }
 
-/** Interface of GObject Interface should be implemented by all GObject interfaces */
+// Correctly types interface checks.
+export function type_is_a<T extends Object>(obj: Object, is_a_type: { $gtype: GType<T> }): obj is T;
+
 export class Interface<T = unknown> {
     static _classInit: (cls: any) => any;
     __name__: string;
@@ -44,6 +47,11 @@ export class Interface<T = unknown> {
 export class NotImplementedError extends Error {
     get name(): 'NotImplementedError'
 }
+
+export const __gtkCssName__: unique symbol;
+export const __gtkTemplate__: unique symbol;
+export const __gtkChildren__: unique symbol;
+export const __gtkInternalChildren__: unique symbol;
 
 // Expose GObject static properties for ES6 classes
 
@@ -90,9 +98,9 @@ export enum AccumulatorType {
 // methods (such as Gio.Socket.connect or NMClient.Device.disconnect)
 // The original g_signal_* functions are not introspectable anyway, because
 // we need our own handling of signal argument marshalling
-export function signal_connect(object: Object, name: string, handler: (...args: any[]) => any): number
-export function signal_connect_after(object: Object, name: string, handler: (...args: any[]) => any): number
-export function signal_emit_by_name(object: Object, ...nameAndArgs: any[]): void
+export function signal_connect(object: Object, name: string, handler: (...args: any[]) => any): number;
+export function signal_connect_after(object: Object, name: string, handler: (...args: any[]) => any): number;
+export function signal_emit_by_name(object: Object, name: string, ...args: any[]): void;
 
 /**
  * Finds the first signal handler that matches certain selection criteria.
@@ -199,11 +207,8 @@ export type Property<K extends ParamSpec> = K extends ParamSpec<infer T>
 // TODO: What about the generated class Closure 
 export type TClosure<R = any, P = any> = (...args: P[]) => R;
 
-// This should be replaces by a class of GObject.Object as soon as once we have implemented inheritance
-export class AnyClass {}
-
 export function registerClass<
-    T extends AnyClass,
+    T extends Object,
     Props extends { [key: string]: ParamSpec },
     Interfaces extends { $gtype: GType }[],
     Sigs extends {
@@ -217,4 +222,4 @@ export function registerClass<
     cls: T
 ): T;
 
-export function registerClass<T extends AnyClass>(cls: T): T
+export function registerClass<T extends Object>(cls: T): T

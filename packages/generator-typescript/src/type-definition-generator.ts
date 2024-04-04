@@ -34,6 +34,7 @@ import {
     FilterBehavior,
     VoidType,
     ClassStructTypeIdentifier,
+    promisifyNamespaceFunctions,
 } from '@ts-for-gir/lib'
 import { TemplateProcessor } from './template-processor.js'
 import { PackageDataParser } from './package-data-parser.js'
@@ -810,6 +811,9 @@ class ModuleGenerator extends FormatGenerator<string[]> {
                     indentCount,
                 ),
             )
+
+        const warning = tsFunction.getWarning()
+        if (warning) def.push(warning)
 
         const staticStr = isStatic && tsFunction.name !== 'constructor' ? 'static ' : ''
 
@@ -1830,6 +1834,8 @@ class ModuleGenerator extends FormatGenerator<string[]> {
 
             // Newline
             out.push('')
+
+            promisifyNamespaceFunctions(girModule)
 
             if (girModule.members)
                 for (const m of girModule.members.values()) {

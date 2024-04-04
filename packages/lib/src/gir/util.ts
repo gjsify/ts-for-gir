@@ -548,6 +548,9 @@ export function resolveDirectedType(type: TypeExpression, direction: GirDirectio
             type.arrayDepth === 0
         ) {
             return new BinaryType(type, StringType);
+        } else {
+            // Rewrap arrays if they have directional types
+            return type.rewrap(resolveDirectedType(type.type, direction) ?? type.type);
         }
     } else if (type instanceof TypeIdentifier) {
         if ((direction === GirDirection.In || direction === GirDirection.Inout) && type.is("GLib", "Bytes")) {

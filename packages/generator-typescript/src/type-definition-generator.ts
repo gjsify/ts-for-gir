@@ -502,6 +502,15 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         return tsType.resolve(this.namespace, this.config).print(this.namespace, this.config)
     }
 
+    generateDirectedType(tsType: TypeExpression, direction: GirDirection) {
+        return (
+            resolveDirectedType(tsType, direction)
+                ?.resolve(this.namespace, this.config)
+                ?.print(this.namespace, this.config) ??
+            tsType.resolve(this.namespace, this.config).print(this.namespace, this.config)
+        )
+    }
+
     // TODO:
     // generateGenericValues(tsType: TypeExpression, namespace: string) {
     //     // We just use the generic values here
@@ -686,7 +695,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
     generateParameter(tsParam: IntrospectedFunctionParameter) {
         const types = tsParam.type
         const name = tsParam.name
-        const typeStr = this.generateType(types)
+        const typeStr = this.generateDirectedType(types, GirDirection.In)
         const optional = tsParam.isOptional && !tsParam.isVarArgs
         const affix = optional ? '?' : ''
         const prefix = tsParam.isVarArgs ? '...' : ''
@@ -753,7 +762,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
             return ''
         }
 
-        const typeStr = this.generateType(tsFunction.return())
+        const typeStr = this.generateDirectedType(tsFunction.return(), GirDirection.Out)
 
         const outputParameters = tsFunction.output_parameters
 

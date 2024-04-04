@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir-example/gio-2-dbus-example",
-  "version": "4.0.0-beta.1",
+  "version": "4.0.0-beta.2",
   "description": "GJS example showing how to build a DBus server/client",
   "main": "index.js",
   "type": "module",

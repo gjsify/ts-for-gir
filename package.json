@@ -31,7 +31,7 @@
     "build:generator-html-doc": "yarn workspace @ts-for-gir/generator-html-doc run build",
     "build:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --parallel run build",
     "build:all": "yarn build && yarn build:examples",
-    "start:cli-examples": "yarn workspace ts-for-gir-glib-2-spawn-command-example run start && yarn workspace ts-for-gir-gio-2-cat-promisify-packages run start",
+    "start:cli-examples": "yarn workspace @ts-for-gir-example/glib-2-spawn-command-example run start && yarn workspace @ts-for-gir-example/gio-2-cat-example run start",
     "build:types:packages": "yarn ts-for-gir generate --configName='.ts-for-gir.packages-all.rc.js' && yarn install",
     "build:types:packages:gtk4": "yarn ts-for-gir generate --configName='.ts-for-gir.packages-gtk4.rc.js' && yarn install",
     "build:types:local": "yarn ts-for-gir generate --configName='.ts-for-gir.all.rc.js'",

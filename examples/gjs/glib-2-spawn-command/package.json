@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "yarn build && yarn start:gjs",
-    "start:gjs": "gjs dist/main.js",
+    "start:gjs": "gjs -m dist/main.js",
     "watch": "yarn build:app --watch",
     "build": "yarn build:app",
     "build:app": "yarn clear:ts && webpack --env production",

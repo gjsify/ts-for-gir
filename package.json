@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir",
-  "version": "3.2.8",
+  "version": "4.0.0",
   "description": "Typescript .d.ts generator from GIR for gjs",
   "type": "module",
   "private": true,
@@ -29,7 +29,7 @@
     "build:generator-base": "yarn workspace @ts-for-gir/generator-base run build",
     "build:generator-typescript": "yarn workspace @ts-for-gir/generator-typescript run build",
     "build:generator-html-doc": "yarn workspace @ts-for-gir/generator-html-doc run build",
-    "build:examples": "yarn workspaces foreach -v --all --exclude '@ts-for-gir/*' --parallel run build",
+    "build:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --parallel run build",
     "build:all": "yarn build && yarn build:examples",
     "start:cli-examples": "yarn workspace ts-for-gir-glib-2-spawn-command-example run start && yarn workspace ts-for-gir-gio-2-cat-promisify-packages run start",
     "build:types:packages": "yarn ts-for-gir generate --configName='.ts-for-gir.packages-all.rc.js' && yarn install",
@@ -40,12 +40,12 @@
     "validate": "yarn workspaces foreach -v --all --parallel run validate",
     "validate:types": "yarn workspaces foreach -v --all --parallel run validate:types",
     "validate:examples": "yarn workspaces foreach -v --all --parallel run validate:app",
-    "validate:types:local": "tsc --project tsconfig.json",
+    "validate:types:packages": "tsc --project tsconfig.json",
     "clear": "yarn clear:build && yarn clear:types",
     "clear:build": "yarn workspaces foreach -v --include '@ts-for-gir/*' run clear:build",
-    "clear:types": "rimraf ./@types",
+    "clear:types": "yarn run clear:types:local",
     "clear:types:local": "rimraf ./@types",
-    "clear:examples": "yarn workspaces foreach -v --all --exclude @ts-for-gir/cli,@ts-for-gir/lib,@ts-for-gir/generator-base,@ts-for-gir/generator-typescript,@ts-for-gir/generator-html-doc,@gi.ts/parser --parallel run clear",
+    "clear:examples": "yarn workspaces foreach -v --all --include @@ts-for-gir-example/*,*-example --parallel run clear",
     "clear:all": "yarn clear && yarn clear:examples",
     "watch": "concurrently 'yarn:watch:*'",
     "watch:cli": "yarn workspace @ts-for-gir/cli run watch",
@@ -87,12 +87,12 @@
     "eslint-plugin-prettier": "^5.1.3",
     "prettier": "^3.2.5",
     "rimraf": "^5.0.5",
-    "typescript": "^5.2.2"
+    "typescript": "^5.4.2"
   },
   "workspaces": [
     "examples/*/*",
-    "types/*",
-    "packages/*"
+    "packages/*",
+    "types/*"
   ],
-  "packageManager": "yarn@4.1.0"
+  "packageManager": "yarn@4.1.1"
 }

@@ -1,0 +1,3001 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <package name="libnautilus-extension"/>
+  <c:include name="nautilus-extension.h"/>
+  <namespace name="Nautilus"
+             version="4.0"
+             shared-library="libnautilus-extension.so.4"
+             c:identifier-prefixes="Nautilus"
+             c:symbol-prefixes="nautilus">
+    <class name="Column"
+           c:symbol-prefix="column"
+           c:type="NautilusColumn"
+           parent="GObject.Object"
+           glib:type-name="NautilusColumn"
+           glib:get-type="nautilus_column_get_type"
+           glib:type-struct="ColumnClass">
+      <doc xml:space="preserve"
+           filename="libnautilus-extension/nautilus-column.h"
+           line="38">List view column descriptor object.
+
+`NautilusColumn` is an object that describes a column in the file manager
+list view. Extensions can provide `NautilusColumn` by registering a
+[iface@ColumnProvider] and returning them from
+[method@ColumnProvider.get_columns], which will be called by the main
+application when creating a view.</doc>
+      <source-position filename="libnautilus-extension/nautilus-column.h"
+                       line="36"/>
+      <constructor name="new" c:identifier="nautilus_column_new">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-column.h"
+             line="50">Creates a new [class@Column] object.</doc>
+        <source-position filename="libnautilus-extension/nautilus-column.h"
+                         line="61"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-column.h"
+               line="59">a new #NautilusColumn</doc>
+          <type name="Column" c:type="NautilusColumn*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-column.h"
+                 line="52">identifier of the column</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="attribute" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-column.h"
+                 line="53">the file attribute to be displayed in the column</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="label" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-column.h"
+                 line="54">the user-visible label for the column</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="description" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-column.h"
+                 line="55">a user-visible description of the column</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="attribute"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-column.c"
+             line="258">The file attribute to be displayed in the column.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="attribute-q" transfer-ownership="none" default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="default-sort-order"
+                stability="Private"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-column.c"
+             line="324">Actually meant to store the enum values of GtkSortType, but we don't want
+extensions to depend on GTK. Also, this is for internal consumption only.</doc>
+        <doc-stability xml:space="preserve">Internal to the application.</doc-stability>
+        <type name="gboolean" c:type="gint"/>
+      </property>
+      <property name="description"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-column.c"
+             line="297">The user-visible description of the column.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="label"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-column.c"
+             line="284">The label to display in the column.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-column.c"
+             line="245">The identifier for the column.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="visible"
+                stability="Private"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-column.c"
+             line="340">Whether to show the NautilusColumn in a ColumnChooser.
+This is not meant to be used by extensions. The value may be changed
+over the life of the NautilusColumn.</doc>
+        <doc-stability xml:space="preserve">Internal to the application.</doc-stability>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="xalign"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-column.c"
+             line="310">The x-alignment of the column.</doc>
+        <type name="gfloat" c:type="gfloat"/>
+      </property>
+    </class>
+    <record name="ColumnClass"
+            c:type="NautilusColumnClass"
+            glib:is-gtype-struct-for="Column">
+      <source-position filename="libnautilus-extension/nautilus-column.h"
+                       line="36"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <interface name="ColumnProvider"
+               c:symbol-prefix="column_provider"
+               c:type="NautilusColumnProvider"
+               glib:type-name="NautilusColumnProvider"
+               glib:get-type="nautilus_column_provider_get_type"
+               glib:type-struct="ColumnProviderInterface">
+      <source-position filename="libnautilus-extension/nautilus-column-provider.h"
+                       line="68"/>
+      <virtual-method name="get_columns" invoker="get_columns">
+        <source-position filename="libnautilus-extension/nautilus-column-provider.h"
+                         line="67"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-column-provider.h"
+               line="74">the provided #NautilusColumn objects</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Column"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-column-provider.h"
+                 line="72">a #NautilusColumnProvider</doc>
+            <type name="ColumnProvider" c:type="NautilusColumnProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_columns"
+              c:identifier="nautilus_column_provider_get_columns">
+        <source-position filename="libnautilus-extension/nautilus-column-provider.h"
+                         line="76"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-column-provider.h"
+               line="74">the provided #NautilusColumn objects</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Column"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-column-provider.h"
+                 line="72">a #NautilusColumnProvider</doc>
+            <type name="ColumnProvider" c:type="NautilusColumnProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="ColumnProviderInterface"
+            c:type="NautilusColumnProviderInterface"
+            glib:is-gtype-struct-for="ColumnProvider">
+      <doc xml:space="preserve"
+           filename="libnautilus-extension/nautilus-column-provider.h"
+           line="55">Interface for extensions to provide additional list view columns.</doc>
+      <source-position filename="libnautilus-extension/nautilus-column-provider.h"
+                       line="68"/>
+      <field name="g_iface">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-column-provider.h"
+             line="57">The parent interface.</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_columns">
+        <callback name="get_columns">
+          <source-position filename="libnautilus-extension/nautilus-column-provider.h"
+                           line="67"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-column-provider.h"
+                 line="74">the provided #NautilusColumn objects</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Column"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-column-provider.h"
+                   line="72">a #NautilusColumnProvider</doc>
+              <type name="ColumnProvider" c:type="NautilusColumnProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <interface name="FileInfo"
+               c:symbol-prefix="file_info"
+               c:type="NautilusFileInfo"
+               glib:type-name="NautilusFileInfo"
+               glib:get-type="nautilus_file_info_get_type"
+               glib:type-struct="FileInfoInterface">
+      <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                       line="126"/>
+      <function name="create" c:identifier="nautilus_file_info_create">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="312"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="310">a #NautilusFileInfo</doc>
+          <type name="FileInfo" c:type="NautilusFileInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="location" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="308">the location to create the file info for</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="create_for_uri"
+                c:identifier="nautilus_file_info_create_for_uri">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="326"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="324">a #NautilusFileInfo</doc>
+          <type name="FileInfo" c:type="NautilusFileInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="322">the URI to lookup the file info for</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="list_copy" c:identifier="nautilus_file_info_list_copy">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="135"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="132">a copy of @files.
+ Use #nautilus_file_info_list_free to free the list and unref its contents.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="FileInfo"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="files" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="130">the files to copy</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="list_free" c:identifier="nautilus_file_info_list_free">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="141"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="files" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="138">a list created with #nautilus_file_info_list_copy</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="lookup" c:identifier="nautilus_file_info_lookup">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="305"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="303">a #NautilusFileInfo</doc>
+          <type name="FileInfo" c:type="NautilusFileInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="location" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="301">the location for which to look up a corresponding #NautilusFileInfo object</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="lookup_for_uri"
+                c:identifier="nautilus_file_info_lookup_for_uri">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="319"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="317">a #NautilusFileInfo</doc>
+          <type name="FileInfo" c:type="NautilusFileInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="315">the URI to lookup the file info for</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="add_emblem" invoker="add_emblem">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="109"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="267">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+          <parameter name="emblem_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="268">the name of an emblem</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="add_string_attribute"
+                      invoker="add_string_attribute">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="113"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="284">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+          <parameter name="attribute_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="285">the name of an attribute</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="286">the name of an attribute</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="can_write" invoker="can_write">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="125"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="259">%TRUE when @file_info is writeable, and %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="257">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_activation_uri" invoker="get_activation_uri">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="118"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="184">the activation URI of @file_info, which may differ from the actual
+  URI if e.g. the file is a .desktop file or a Nautilus XML link file</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="182">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_file_type" invoker="get_file_type">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="120"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="156">a #GFileType for the location of @file_info</doc>
+          <type name="Gio.FileType" c:type="GFileType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="154">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_location" invoker="get_location">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="121"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="163">a #GFile for the location of @file_info</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="161">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_mime_type" invoker="get_mime_type">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="104"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="235">the MIME type of @file_info</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="233">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_mount" invoker="get_mount">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="124"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="208">a #GMount for the mount of @file_info,
+                                     or %NULL if @file_info has no mount</doc>
+          <type name="Gio.Mount" c:type="GMount*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="206">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_name" invoker="get_name">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="99"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="170">the file name of @file_info</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="168">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_parent_info" invoker="get_parent_info">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="219">It's not safe to call this recursively multiple times, as it works
+only for files already cached by Nautilus.</doc>
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="123"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="226">a #NautilusFileInfo for the parent of @file_info,
+                                     or %NULL if @file_info has no parent.</doc>
+          <type name="FileInfo" c:type="NautilusFileInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="221">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_parent_location" invoker="get_parent_location">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="122"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="192">a #GFile for the parent location of @file_info,
+  or %NULL if @file_info has no parent</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="190">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_parent_uri" invoker="get_parent_uri">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="101"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="200">the URI for the parent location of @file_info, or the empty string
+  if it has none</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="198">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_string_attribute"
+                      invoker="get_string_attribute">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="111"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="277">the value for the given @attribute_name, or %NULL if
+  there is none</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="274">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+          <parameter name="attribute_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="275">the name of an attribute</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_uri" invoker="get_uri">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="100"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="177">the file URI of @file_info</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="175">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_uri_scheme" invoker="get_uri_scheme">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="102"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="216">the URI scheme of @file_info</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="214">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="invalidate_extension_info"
+                      invoker="invalidate_extension_info">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="116"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="295">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="is_directory" invoker="is_directory">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="107"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="252">%TRUE when @file_info is a directory, and %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="250">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="is_gone" invoker="is_gone">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="97"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="147">whether the file has been deleted</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="145">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="is_mime_type" invoker="is_mime_type">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="105"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="243">%TRUE when the MIME type of @file_info matches @mime_type, and
+  %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="240">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+          <parameter name="mime_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="241">a MIME type</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="add_emblem" c:identifier="nautilus_file_info_add_emblem">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="270"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="267">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+          <parameter name="emblem_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="268">the name of an emblem</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_string_attribute"
+              c:identifier="nautilus_file_info_add_string_attribute">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="288"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="284">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+          <parameter name="attribute_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="285">the name of an attribute</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="286">the name of an attribute</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_write" c:identifier="nautilus_file_info_can_write">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="261"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="259">%TRUE when @file_info is writeable, and %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="257">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_activation_uri"
+              c:identifier="nautilus_file_info_get_activation_uri">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="187"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="184">the activation URI of @file_info, which may differ from the actual
+  URI if e.g. the file is a .desktop file or a Nautilus XML link file</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="182">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_file_type"
+              c:identifier="nautilus_file_info_get_file_type">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="158"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="156">a #GFileType for the location of @file_info</doc>
+          <type name="Gio.FileType" c:type="GFileType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="154">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_location"
+              c:identifier="nautilus_file_info_get_location">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="165"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="163">a #GFile for the location of @file_info</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="161">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_mime_type"
+              c:identifier="nautilus_file_info_get_mime_type">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="237"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="235">the MIME type of @file_info</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="233">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_mount" c:identifier="nautilus_file_info_get_mount">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="211"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="208">a #GMount for the mount of @file_info,
+                                     or %NULL if @file_info has no mount</doc>
+          <type name="Gio.Mount" c:type="GMount*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="206">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="nautilus_file_info_get_name">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="172"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="170">the file name of @file_info</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="168">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parent_info"
+              c:identifier="nautilus_file_info_get_parent_info">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="219">It's not safe to call this recursively multiple times, as it works
+only for files already cached by Nautilus.</doc>
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="229"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="226">a #NautilusFileInfo for the parent of @file_info,
+                                     or %NULL if @file_info has no parent.</doc>
+          <type name="FileInfo" c:type="NautilusFileInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="221">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parent_location"
+              c:identifier="nautilus_file_info_get_parent_location">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="195"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="192">a #GFile for the parent location of @file_info,
+  or %NULL if @file_info has no parent</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="190">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parent_uri"
+              c:identifier="nautilus_file_info_get_parent_uri">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="203"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="200">the URI for the parent location of @file_info, or the empty string
+  if it has none</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="198">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_string_attribute"
+              c:identifier="nautilus_file_info_get_string_attribute">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="280"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="277">the value for the given @attribute_name, or %NULL if
+  there is none</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="274">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+          <parameter name="attribute_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="275">the name of an attribute</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_uri" c:identifier="nautilus_file_info_get_uri">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="179"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="177">the file URI of @file_info</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="175">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_uri_scheme"
+              c:identifier="nautilus_file_info_get_uri_scheme">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="218"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="216">the URI scheme of @file_info</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="214">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="invalidate_extension_info"
+              c:identifier="nautilus_file_info_invalidate_extension_info">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="297"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="295">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_directory"
+              c:identifier="nautilus_file_info_is_directory">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="254"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="252">%TRUE when @file_info is a directory, and %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="250">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_gone" c:identifier="nautilus_file_info_is_gone">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="149"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="147">whether the file has been deleted</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="145">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_mime_type"
+              c:identifier="nautilus_file_info_is_mime_type">
+        <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                         line="246"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="243">%TRUE when the MIME type of @file_info matches @mime_type, and
+  %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="240">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </instance-parameter>
+          <parameter name="mime_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="241">a MIME type</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="FileInfoInterface"
+            c:type="NautilusFileInfoInterface"
+            glib:is-gtype-struct-for="FileInfo">
+      <doc xml:space="preserve"
+           filename="libnautilus-extension/nautilus-file-info.h"
+           line="49">Interface for extensions to provide additional menu items.</doc>
+      <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                       line="126"/>
+      <field name="g_iface">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="51">The parent interface.</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="is_gone">
+        <callback name="is_gone">
+          <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                           line="97"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="147">whether the file has been deleted</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="145">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_name">
+        <callback name="get_name">
+          <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                           line="99"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="170">the file name of @file_info</doc>
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="168">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_uri">
+        <callback name="get_uri">
+          <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                           line="100"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="177">the file URI of @file_info</doc>
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="175">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_parent_uri">
+        <callback name="get_parent_uri">
+          <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                           line="101"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="200">the URI for the parent location of @file_info, or the empty string
+  if it has none</doc>
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="198">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_uri_scheme">
+        <callback name="get_uri_scheme">
+          <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                           line="102"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="216">the URI scheme of @file_info</doc>
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="214">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_mime_type">
+        <callback name="get_mime_type">
+          <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                           line="104"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="235">the MIME type of @file_info</doc>
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="233">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="is_mime_type">
+        <callback name="is_mime_type">
+          <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                           line="105"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="243">%TRUE when the MIME type of @file_info matches @mime_type, and
+  %FALSE otherwise</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="240">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+            <parameter name="mime_type" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="241">a MIME type</doc>
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="is_directory">
+        <callback name="is_directory">
+          <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                           line="107"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="252">%TRUE when @file_info is a directory, and %FALSE otherwise</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="250">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="add_emblem">
+        <callback name="add_emblem">
+          <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                           line="109"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="267">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+            <parameter name="emblem_name" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="268">the name of an emblem</doc>
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_string_attribute">
+        <callback name="get_string_attribute">
+          <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                           line="111"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="277">the value for the given @attribute_name, or %NULL if
+  there is none</doc>
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="274">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+            <parameter name="attribute_name" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="275">the name of an attribute</doc>
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="add_string_attribute">
+        <callback name="add_string_attribute">
+          <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                           line="113"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="284">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+            <parameter name="attribute_name" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="285">the name of an attribute</doc>
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="value" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="286">the name of an attribute</doc>
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="invalidate_extension_info">
+        <callback name="invalidate_extension_info">
+          <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                           line="116"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="295">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_activation_uri">
+        <callback name="get_activation_uri">
+          <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                           line="118"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="184">the activation URI of @file_info, which may differ from the actual
+  URI if e.g. the file is a .desktop file or a Nautilus XML link file</doc>
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="182">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_file_type">
+        <callback name="get_file_type">
+          <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                           line="120"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="156">a #GFileType for the location of @file_info</doc>
+            <type name="Gio.FileType" c:type="GFileType"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="154">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_location">
+        <callback name="get_location">
+          <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                           line="121"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="163">a #GFile for the location of @file_info</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="161">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_parent_location">
+        <callback name="get_parent_location">
+          <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                           line="122"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="192">a #GFile for the parent location of @file_info,
+  or %NULL if @file_info has no parent</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="190">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_parent_info">
+        <callback name="get_parent_info">
+          <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                           line="123"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="226">a #NautilusFileInfo for the parent of @file_info,
+                                     or %NULL if @file_info has no parent.</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="221">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_mount">
+        <callback name="get_mount">
+          <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                           line="124"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="208">a #GMount for the mount of @file_info,
+                                     or %NULL if @file_info has no mount</doc>
+            <type name="Gio.Mount" c:type="GMount*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="206">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="can_write">
+        <callback name="can_write">
+          <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                           line="125"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-file-info.h"
+                 line="259">%TRUE when @file_info is writeable, and %FALSE otherwise</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="file_info" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-file-info.h"
+                   line="257">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <interface name="InfoProvider"
+               c:symbol-prefix="info_provider"
+               c:type="NautilusInfoProvider"
+               glib:type-name="NautilusInfoProvider"
+               glib:get-type="nautilus_info_provider_get_type"
+               glib:type-struct="InfoProviderInterface">
+      <source-position filename="libnautilus-extension/nautilus-info-provider.h"
+                       line="114"/>
+      <function name="update_complete_invoke"
+                c:identifier="nautilus_info_provider_update_complete_invoke">
+        <source-position filename="libnautilus-extension/nautilus-info-provider.h"
+                         line="151"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="update_complete" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-info-provider.h"
+                 line="146">a #GClosure</doc>
+            <type name="GObject.Closure" c:type="GClosure*"/>
+          </parameter>
+          <parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-info-provider.h"
+                 line="147">a #NautilusInfoProvider</doc>
+            <type name="InfoProvider" c:type="NautilusInfoProvider*"/>
+          </parameter>
+          <parameter name="handle" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-info-provider.h"
+                 line="148">an opaque #NautilusOperationHandle</doc>
+            <type name="OperationHandle" c:type="NautilusOperationHandle*"/>
+          </parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-info-provider.h"
+                 line="149">a #NautilusOperationResult</doc>
+            <type name="OperationResult" c:type="NautilusOperationResult"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="cancel_update" invoker="cancel_update">
+        <source-position filename="libnautilus-extension/nautilus-info-provider.h"
+                         line="112"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-info-provider.h"
+                 line="134">a #NautilusInfoProvider</doc>
+            <type name="InfoProvider" c:type="NautilusInfoProvider*"/>
+          </instance-parameter>
+          <parameter name="handle" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-info-provider.h"
+                 line="135">the opaque #NautilusOperationHandle returned from a previous call to
+         nautilus_info_provider_update_file_info().</doc>
+            <type name="OperationHandle" c:type="NautilusOperationHandle*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="update_file_info" invoker="update_file_info">
+        <source-position filename="libnautilus-extension/nautilus-info-provider.h"
+                         line="108"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-info-provider.h"
+               line="126">A #NautilusOperationResult.</doc>
+          <type name="OperationResult" c:type="NautilusOperationResult"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-info-provider.h"
+                 line="119">a #NautilusInfoProvider</doc>
+            <type name="InfoProvider" c:type="NautilusInfoProvider*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-info-provider.h"
+                 line="120">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </parameter>
+          <parameter name="update_complete" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-info-provider.h"
+                 line="121">the closure to invoke at some later time when returning
+                  @NAUTILUS_OPERATION_IN_PROGRESS.</doc>
+            <type name="GObject.Closure" c:type="GClosure*"/>
+          </parameter>
+          <parameter name="handle"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-info-provider.h"
+                 line="123">an opaque #NautilusOperationHandle
+          that must be set when returning @NAUTILUS_OPERATION_IN_PROGRESS.</doc>
+            <type name="OperationHandle" c:type="NautilusOperationHandle**"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="cancel_update"
+              c:identifier="nautilus_info_provider_cancel_update">
+        <source-position filename="libnautilus-extension/nautilus-info-provider.h"
+                         line="138"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-info-provider.h"
+                 line="134">a #NautilusInfoProvider</doc>
+            <type name="InfoProvider" c:type="NautilusInfoProvider*"/>
+          </instance-parameter>
+          <parameter name="handle" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-info-provider.h"
+                 line="135">the opaque #NautilusOperationHandle returned from a previous call to
+         nautilus_info_provider_update_file_info().</doc>
+            <type name="OperationHandle" c:type="NautilusOperationHandle*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="update_file_info"
+              c:identifier="nautilus_info_provider_update_file_info">
+        <source-position filename="libnautilus-extension/nautilus-info-provider.h"
+                         line="128"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-info-provider.h"
+               line="126">A #NautilusOperationResult.</doc>
+          <type name="OperationResult" c:type="NautilusOperationResult"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-info-provider.h"
+                 line="119">a #NautilusInfoProvider</doc>
+            <type name="InfoProvider" c:type="NautilusInfoProvider*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-info-provider.h"
+                 line="120">a #NautilusFileInfo</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </parameter>
+          <parameter name="update_complete" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-info-provider.h"
+                 line="121">the closure to invoke at some later time when returning
+                  @NAUTILUS_OPERATION_IN_PROGRESS.</doc>
+            <type name="GObject.Closure" c:type="GClosure*"/>
+          </parameter>
+          <parameter name="handle"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-info-provider.h"
+                 line="123">an opaque #NautilusOperationHandle
+          that must be set when returning @NAUTILUS_OPERATION_IN_PROGRESS.</doc>
+            <type name="OperationHandle" c:type="NautilusOperationHandle**"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="InfoProviderInterface"
+            c:type="NautilusInfoProviderInterface"
+            glib:is-gtype-struct-for="InfoProvider">
+      <doc xml:space="preserve"
+           filename="libnautilus-extension/nautilus-info-provider.h"
+           line="94">Interface for extensions to provide additional information about files.</doc>
+      <source-position filename="libnautilus-extension/nautilus-info-provider.h"
+                       line="114"/>
+      <field name="g_iface">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-info-provider.h"
+             line="96">The parent interface.</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="update_file_info">
+        <callback name="update_file_info">
+          <source-position filename="libnautilus-extension/nautilus-info-provider.h"
+                           line="108"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-info-provider.h"
+                 line="126">A #NautilusOperationResult.</doc>
+            <type name="OperationResult" c:type="NautilusOperationResult"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-info-provider.h"
+                   line="119">a #NautilusInfoProvider</doc>
+              <type name="InfoProvider" c:type="NautilusInfoProvider*"/>
+            </parameter>
+            <parameter name="file" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-info-provider.h"
+                   line="120">a #NautilusFileInfo</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+            <parameter name="update_complete" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-info-provider.h"
+                   line="121">the closure to invoke at some later time when returning
+                  @NAUTILUS_OPERATION_IN_PROGRESS.</doc>
+              <type name="GObject.Closure" c:type="GClosure*"/>
+            </parameter>
+            <parameter name="handle"
+                       direction="out"
+                       caller-allocates="0"
+                       transfer-ownership="none"
+                       nullable="1">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-info-provider.h"
+                   line="123">an opaque #NautilusOperationHandle
+          that must be set when returning @NAUTILUS_OPERATION_IN_PROGRESS.</doc>
+              <type name="OperationHandle" c:type="NautilusOperationHandle**"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="cancel_update">
+        <callback name="cancel_update">
+          <source-position filename="libnautilus-extension/nautilus-info-provider.h"
+                           line="112"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-info-provider.h"
+                   line="134">a #NautilusInfoProvider</doc>
+              <type name="InfoProvider" c:type="NautilusInfoProvider*"/>
+            </parameter>
+            <parameter name="handle" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-info-provider.h"
+                   line="135">the opaque #NautilusOperationHandle returned from a previous call to
+         nautilus_info_provider_update_file_info().</doc>
+              <type name="OperationHandle" c:type="NautilusOperationHandle*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="Menu"
+           c:symbol-prefix="menu"
+           c:type="NautilusMenu"
+           parent="GObject.Object"
+           glib:type-name="NautilusMenu"
+           glib:get-type="nautilus_menu_get_type"
+           glib:type-struct="MenuClass">
+      <source-position filename="libnautilus-extension/nautilus-menu.h"
+                       line="38"/>
+      <constructor name="new" c:identifier="nautilus_menu_new">
+        <source-position filename="libnautilus-extension/nautilus-menu.h"
+                         line="76"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-menu.h"
+               line="74">a new #NautilusMenu.</doc>
+          <type name="Menu" c:type="NautilusMenu*"/>
+        </return-value>
+      </constructor>
+      <method name="append_item" c:identifier="nautilus_menu_append_item">
+        <source-position filename="libnautilus-extension/nautilus-menu.h"
+                         line="83"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu.h"
+                 line="80">a #NautilusMenu</doc>
+            <type name="Menu" c:type="NautilusMenu*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu.h"
+                 line="81">a #NautilusMenuItem to append</doc>
+            <type name="MenuItem" c:type="NautilusMenuItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_items" c:identifier="nautilus_menu_get_items">
+        <source-position filename="libnautilus-extension/nautilus-menu.h"
+                         line="91"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-menu.h"
+               line="89">the provided #NautilusMenuItem list</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu.h"
+                 line="87">a #NautilusMenu</doc>
+            <type name="Menu" c:type="NautilusMenu*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="MenuClass"
+            c:type="NautilusMenuClass"
+            glib:is-gtype-struct-for="Menu">
+      <source-position filename="libnautilus-extension/nautilus-menu.h"
+                       line="38"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="MenuItem"
+           c:symbol-prefix="menu_item"
+           c:type="NautilusMenuItem"
+           parent="GObject.Object"
+           glib:type-name="NautilusMenuItem"
+           glib:get-type="nautilus_menu_item_get_type"
+           glib:type-struct="MenuItemClass">
+      <source-position filename="libnautilus-extension/nautilus-menu.h"
+                       line="69"/>
+      <constructor name="new" c:identifier="nautilus_menu_item_new">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-menu.h"
+             line="99">Creates a new menu item that can be added to the toolbar or to a contextual menu.</doc>
+        <source-position filename="libnautilus-extension/nautilus-menu.h"
+                         line="110"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-menu.h"
+               line="108">a new #NautilusMenuItem</doc>
+          <type name="MenuItem" c:type="NautilusMenuItem*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu.h"
+                 line="101">the identifier for the menu item</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="label" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu.h"
+                 line="102">the user-visible label of the menu item</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="tip"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu.h"
+                 line="103">the tooltip of the menu item</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="icon"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu.h"
+                 line="104">the name of the icon to display in the menu item</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="list_free" c:identifier="nautilus_menu_item_list_free">
+        <source-position filename="libnautilus-extension/nautilus-menu.h"
+                         line="97"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="item_list" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu.h"
+                 line="94">a list of #NautilusMenuItem</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="MenuItem"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="activate" invoker="activate">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-menu.h"
+             line="115">Emits #NautilusMenuItem::activate.</doc>
+        <source-position filename="libnautilus-extension/nautilus-menu.h"
+                         line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu.h"
+                 line="117">pointer to a #NautilusMenuItem</doc>
+            <type name="MenuItem" c:type="NautilusMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="activate" c:identifier="nautilus_menu_item_activate">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-menu.h"
+             line="115">Emits #NautilusMenuItem::activate.</doc>
+        <source-position filename="libnautilus-extension/nautilus-menu.h"
+                         line="121"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu.h"
+                 line="117">pointer to a #NautilusMenuItem</doc>
+            <type name="MenuItem" c:type="NautilusMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_submenu" c:identifier="nautilus_menu_item_set_submenu">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-menu.h"
+             line="122">Attaches a menu to the given #NautilusMenuItem.</doc>
+        <source-position filename="libnautilus-extension/nautilus-menu.h"
+                         line="129"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu.h"
+                 line="124">pointer to a #NautilusMenuItem</doc>
+            <type name="MenuItem" c:type="NautilusMenuItem*"/>
+          </instance-parameter>
+          <parameter name="menu" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu.h"
+                 line="125">pointer to a #NautilusMenu to attach to the button</doc>
+            <type name="Menu" c:type="NautilusMenu*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="icon"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="label"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="menu" writable="1" transfer-ownership="none">
+        <type name="Menu"/>
+      </property>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="priority"
+                writable="1"
+                transfer-ownership="none"
+                default-value="TRUE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="sensitive"
+                writable="1"
+                transfer-ownership="none"
+                default-value="TRUE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="tip"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="activate" when="last">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-menu-item.c"
+             line="282">Signals that the user has activated this menu item.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="MenuItemClass"
+            c:type="NautilusMenuItemClass"
+            glib:is-gtype-struct-for="MenuItem">
+      <source-position filename="libnautilus-extension/nautilus-menu.h"
+                       line="69"/>
+      <field name="parent">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="activate">
+        <callback name="activate">
+          <source-position filename="libnautilus-extension/nautilus-menu.h"
+                           line="68"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="item" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-menu.h"
+                   line="117">pointer to a #NautilusMenuItem</doc>
+              <type name="MenuItem" c:type="NautilusMenuItem*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <interface name="MenuProvider"
+               c:symbol-prefix="menu_provider"
+               c:type="NautilusMenuProvider"
+               glib:type-name="NautilusMenuProvider"
+               glib:get-type="nautilus_menu_provider_get_type"
+               glib:type-struct="MenuProviderInterface">
+      <source-position filename="libnautilus-extension/nautilus-menu-provider.h"
+                       line="73"/>
+      <virtual-method name="get_background_items"
+                      invoker="get_background_items">
+        <source-position filename="libnautilus-extension/nautilus-menu-provider.h"
+                         line="71"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-menu-provider.h"
+               line="89">the provided list of #NautilusMenuItem.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu-provider.h"
+                 line="86">a #NautilusMenuProvider</doc>
+            <type name="MenuProvider" c:type="NautilusMenuProvider*"/>
+          </instance-parameter>
+          <parameter name="current_folder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu-provider.h"
+                 line="87">the folder for which background items are requested</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_file_items" invoker="get_file_items">
+        <source-position filename="libnautilus-extension/nautilus-menu-provider.h"
+                         line="69"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-menu-provider.h"
+               line="80">the provided list of #NautilusMenuItem.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu-provider.h"
+                 line="77">a #NautilusMenuProvider</doc>
+            <type name="MenuProvider" c:type="NautilusMenuProvider*"/>
+          </instance-parameter>
+          <parameter name="files" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu-provider.h"
+                 line="78">a list of #NautilusFileInfo</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="emit_items_updated_signal"
+              c:identifier="nautilus_menu_provider_emit_items_updated_signal">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-menu-provider.h"
+             line="94">Emits #NautilusMenuProvider::items-updated.</doc>
+        <source-position filename="libnautilus-extension/nautilus-menu-provider.h"
+                         line="100"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu-provider.h"
+                 line="96">a #NautilusMenuProvider</doc>
+            <type name="MenuProvider" c:type="NautilusMenuProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_background_items"
+              c:identifier="nautilus_menu_provider_get_background_items">
+        <source-position filename="libnautilus-extension/nautilus-menu-provider.h"
+                         line="91"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-menu-provider.h"
+               line="89">the provided list of #NautilusMenuItem.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu-provider.h"
+                 line="86">a #NautilusMenuProvider</doc>
+            <type name="MenuProvider" c:type="NautilusMenuProvider*"/>
+          </instance-parameter>
+          <parameter name="current_folder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu-provider.h"
+                 line="87">the folder for which background items are requested</doc>
+            <type name="FileInfo" c:type="NautilusFileInfo*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_file_items"
+              c:identifier="nautilus_menu_provider_get_file_items">
+        <source-position filename="libnautilus-extension/nautilus-menu-provider.h"
+                         line="82"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-menu-provider.h"
+               line="80">the provided list of #NautilusMenuItem.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu-provider.h"
+                 line="77">a #NautilusMenuProvider</doc>
+            <type name="MenuProvider" c:type="NautilusMenuProvider*"/>
+          </instance-parameter>
+          <parameter name="files" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu-provider.h"
+                 line="78">a list of #NautilusFileInfo</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <glib:signal name="items-updated" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </interface>
+    <record name="MenuProviderInterface"
+            c:type="NautilusMenuProviderInterface"
+            glib:is-gtype-struct-for="MenuProvider">
+      <doc xml:space="preserve"
+           filename="libnautilus-extension/nautilus-menu-provider.h"
+           line="55">Interface for extensions to provide additional menu items.</doc>
+      <source-position filename="libnautilus-extension/nautilus-menu-provider.h"
+                       line="73"/>
+      <field name="g_iface">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-menu-provider.h"
+             line="57">The parent interface.</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_file_items">
+        <callback name="get_file_items">
+          <source-position filename="libnautilus-extension/nautilus-menu-provider.h"
+                           line="69"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu-provider.h"
+                 line="80">the provided list of #NautilusMenuItem.</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="MenuItem"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-menu-provider.h"
+                   line="77">a #NautilusMenuProvider</doc>
+              <type name="MenuProvider" c:type="NautilusMenuProvider*"/>
+            </parameter>
+            <parameter name="files" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-menu-provider.h"
+                   line="78">a list of #NautilusFileInfo</doc>
+              <type name="GLib.List" c:type="GList*">
+                <type name="FileInfo"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_background_items">
+        <callback name="get_background_items">
+          <source-position filename="libnautilus-extension/nautilus-menu-provider.h"
+                           line="71"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-menu-provider.h"
+                 line="89">the provided list of #NautilusMenuItem.</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="MenuItem"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-menu-provider.h"
+                   line="86">a #NautilusMenuProvider</doc>
+              <type name="MenuProvider" c:type="NautilusMenuProvider*"/>
+            </parameter>
+            <parameter name="current_folder" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-menu-provider.h"
+                   line="87">the folder for which background items are requested</doc>
+              <type name="FileInfo" c:type="NautilusFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="OperationHandle"
+            c:type="NautilusOperationHandle"
+            disguised="1"
+            opaque="1">
+      <doc xml:space="preserve"
+           filename="libnautilus-extension/nautilus-info-provider.h"
+           line="57">Handle for asynchronous interfaces. These are opaque handles that must
+be unique within an extension object. These are returned by operations
+that return #NAUTILUS_OPERATION_IN_PROGRESS.</doc>
+      <source-position filename="libnautilus-extension/nautilus-info-provider.h"
+                       line="64"/>
+    </record>
+    <enumeration name="OperationResult"
+                 glib:type-name="NautilusOperationResult"
+                 glib:get-type="nautilus_operation_result_get_type"
+                 c:type="NautilusOperationResult">
+      <doc xml:space="preserve"
+           filename="libnautilus-extension/nautilus-info-provider.h"
+           line="66">Return values for asynchronous operations performed by the extension.
+See nautilus_info_provider_update_file_info().</doc>
+      <member name="complete"
+              value="0"
+              c:identifier="NAUTILUS_OPERATION_COMPLETE"
+              glib:nick="complete"
+              glib:name="NAUTILUS_OPERATION_COMPLETE">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-info-provider.h"
+             line="68">the operation succeeded, and the extension
+ is done with the request.</doc>
+      </member>
+      <member name="failed"
+              value="1"
+              c:identifier="NAUTILUS_OPERATION_FAILED"
+              glib:nick="failed"
+              glib:name="NAUTILUS_OPERATION_FAILED">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-info-provider.h"
+             line="70">the operation failed.</doc>
+      </member>
+      <member name="in_progress"
+              value="2"
+              c:identifier="NAUTILUS_OPERATION_IN_PROGRESS"
+              glib:nick="in-progress"
+              glib:name="NAUTILUS_OPERATION_IN_PROGRESS">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-info-provider.h"
+             line="71">the extension has begin an async operation.
+ When this value is returned, the extension must set the handle parameter
+ and call the callback closure when the operation is complete.</doc>
+      </member>
+    </enumeration>
+    <class name="PropertiesItem"
+           c:symbol-prefix="properties_item"
+           c:type="NautilusPropertiesItem"
+           parent="GObject.Object"
+           glib:type-name="NautilusPropertiesItem"
+           glib:get-type="nautilus_properties_item_get_type"
+           glib:type-struct="PropertiesItemClass">
+      <source-position filename="libnautilus-extension/nautilus-properties-item.h"
+                       line="19"/>
+      <constructor name="new" c:identifier="nautilus_properties_item_new">
+        <source-position filename="libnautilus-extension/nautilus-properties-item.h"
+                         line="41"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-properties-item.h"
+               line="39">a new #NautilusPropertiesItem</doc>
+          <type name="PropertiesItem" c:type="NautilusPropertiesItem*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-properties-item.h"
+                 line="36">the user-visible name for the properties item.</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-properties-item.h"
+                 line="37">the user-visible value for the properties item.</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_name"
+              c:identifier="nautilus_properties_item_get_name"
+              glib:get-property="name">
+        <source-position filename="libnautilus-extension/nautilus-properties-item.h"
+                         line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-properties-item.h"
+               line="48">the name of this #NautilusPropertiesItem</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-properties-item.h"
+                 line="46">the properties item</doc>
+            <type name="PropertiesItem" c:type="NautilusPropertiesItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_value"
+              c:identifier="nautilus_properties_item_get_value"
+              glib:get-property="value">
+        <source-position filename="libnautilus-extension/nautilus-properties-item.h"
+                         line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-properties-item.h"
+               line="56">the value of this #NautilusPropertiesItem</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-properties-item.h"
+                 line="54">the properties item</doc>
+            <type name="PropertiesItem" c:type="NautilusPropertiesItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_name"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="value"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_value"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="PropertiesItemClass"
+            c:type="NautilusPropertiesItemClass"
+            glib:is-gtype-struct-for="PropertiesItem">
+      <source-position filename="libnautilus-extension/nautilus-properties-item.h"
+                       line="19"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="PropertiesModel"
+           c:symbol-prefix="properties_model"
+           c:type="NautilusPropertiesModel"
+           parent="GObject.Object"
+           glib:type-name="NautilusPropertiesModel"
+           glib:get-type="nautilus_properties_model_get_type"
+           glib:type-struct="PropertiesModelClass">
+      <source-position filename="libnautilus-extension/nautilus-properties-model.h"
+                       line="19"/>
+      <constructor name="new" c:identifier="nautilus_properties_model_new">
+        <source-position filename="libnautilus-extension/nautilus-properties-model.h"
+                         line="43"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-properties-model.h"
+               line="41">a new #NautilusPropertiesModel</doc>
+          <type name="PropertiesModel" c:type="NautilusPropertiesModel*"/>
+        </return-value>
+        <parameters>
+          <parameter name="title" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-properties-model.h"
+                 line="38">the user-visible name for the set of properties in this model</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="model" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-properties-model.h"
+                 line="39">a #GListModel containing #NautilusPropertyItem objects.</doc>
+            <type name="Gio.ListModel" c:type="GListModel*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_model"
+              c:identifier="nautilus_properties_model_get_model"
+              glib:get-property="model">
+        <source-position filename="libnautilus-extension/nautilus-properties-model.h"
+                         line="68"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-properties-model.h"
+               line="66">a #GListModel containing #NautilusPropertiesItem.</doc>
+          <type name="Gio.ListModel" c:type="GListModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-properties-model.h"
+                 line="64">the properties model</doc>
+            <type name="PropertiesModel" c:type="NautilusPropertiesModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_title"
+              c:identifier="nautilus_properties_model_get_title"
+              glib:get-property="title">
+        <source-position filename="libnautilus-extension/nautilus-properties-model.h"
+                         line="52"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-properties-model.h"
+               line="50">the title of this #NautilusPropertiesModel</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-properties-model.h"
+                 line="48">the properties model</doc>
+            <type name="PropertiesModel" c:type="NautilusPropertiesModel*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_title"
+              c:identifier="nautilus_properties_model_set_title"
+              glib:set-property="title">
+        <source-position filename="libnautilus-extension/nautilus-properties-model.h"
+                         line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-properties-model.h"
+                 line="56">the properties model</doc>
+            <type name="PropertiesModel" c:type="NautilusPropertiesModel*"/>
+          </instance-parameter>
+          <parameter name="title" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-properties-model.h"
+                 line="57">the new title of this #NautilusPropertiesModel</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="model"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_model">
+        <type name="Gio.ListModel"/>
+      </property>
+      <property name="title"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_title"
+                getter="get_title"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="PropertiesModelClass"
+            c:type="NautilusPropertiesModelClass"
+            glib:is-gtype-struct-for="PropertiesModel">
+      <source-position filename="libnautilus-extension/nautilus-properties-model.h"
+                       line="19"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <interface name="PropertiesModelProvider"
+               c:symbol-prefix="properties_model_provider"
+               c:type="NautilusPropertiesModelProvider"
+               glib:type-name="NautilusPropertiesModelProvider"
+               glib:get-type="nautilus_properties_model_provider_get_type"
+               glib:type-struct="PropertiesModelProviderInterface">
+      <source-position filename="libnautilus-extension/nautilus-properties-model-provider.h"
+                       line="47"/>
+      <virtual-method name="get_models" invoker="get_models">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-properties-model-provider.h"
+             line="49">This function is called by the application when it wants properties models
+from the extension.
+
+This function is called in the main thread before the Properties are shown,
+so it should return quickly. The models can be populated and updated
+asynchronously.</doc>
+        <source-position filename="libnautilus-extension/nautilus-properties-model-provider.h"
+                         line="45"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-properties-model-provider.h"
+               line="61">A #GList of allocated #NautilusPropertiesModel models.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="PropertiesModel"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-properties-model-provider.h"
+                 line="51">a #NautilusPropertiesModelProvider</doc>
+            <type name="PropertiesModelProvider"
+                  c:type="NautilusPropertiesModelProvider*"/>
+          </instance-parameter>
+          <parameter name="files" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-properties-model-provider.h"
+                 line="52">a #GList of #NautilusFileInfo</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_models"
+              c:identifier="nautilus_properties_model_provider_get_models">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-properties-model-provider.h"
+             line="49">This function is called by the application when it wants properties models
+from the extension.
+
+This function is called in the main thread before the Properties are shown,
+so it should return quickly. The models can be populated and updated
+asynchronously.</doc>
+        <source-position filename="libnautilus-extension/nautilus-properties-model-provider.h"
+                         line="63"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-properties-model-provider.h"
+               line="61">A #GList of allocated #NautilusPropertiesModel models.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="PropertiesModel"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-properties-model-provider.h"
+                 line="51">a #NautilusPropertiesModelProvider</doc>
+            <type name="PropertiesModelProvider"
+                  c:type="NautilusPropertiesModelProvider*"/>
+          </instance-parameter>
+          <parameter name="files" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-properties-model-provider.h"
+                 line="52">a #GList of #NautilusFileInfo</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="PropertiesModelProviderInterface"
+            c:type="NautilusPropertiesModelProviderInterface"
+            glib:is-gtype-struct-for="PropertiesModelProvider">
+      <doc xml:space="preserve"
+           filename="libnautilus-extension/nautilus-properties-model-provider.h"
+           line="33">Interface for extensions to provide additional properties.</doc>
+      <source-position filename="libnautilus-extension/nautilus-properties-model-provider.h"
+                       line="47"/>
+      <field name="g_iface">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-properties-model-provider.h"
+             line="35">The parent interface.</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_models">
+        <callback name="get_models">
+          <source-position filename="libnautilus-extension/nautilus-properties-model-provider.h"
+                           line="45"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <doc xml:space="preserve"
+                 filename="libnautilus-extension/nautilus-properties-model-provider.h"
+                 line="61">A #GList of allocated #NautilusPropertiesModel models.</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="PropertiesModel"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-properties-model-provider.h"
+                   line="51">a #NautilusPropertiesModelProvider</doc>
+              <type name="PropertiesModelProvider"
+                    c:type="NautilusPropertiesModelProvider*"/>
+            </parameter>
+            <parameter name="files" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnautilus-extension/nautilus-properties-model-provider.h"
+                   line="52">a #GList of #NautilusFileInfo</doc>
+              <type name="GLib.List" c:type="GList*">
+                <type name="FileInfo"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <function name="file_info_create"
+              c:identifier="nautilus_file_info_create"
+              moved-to="FileInfo.create">
+      <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                       line="312"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="310">a #NautilusFileInfo</doc>
+        <type name="FileInfo" c:type="NautilusFileInfo*"/>
+      </return-value>
+      <parameters>
+        <parameter name="location" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="308">the location to create the file info for</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_create_for_uri"
+              c:identifier="nautilus_file_info_create_for_uri"
+              moved-to="FileInfo.create_for_uri">
+      <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                       line="326"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="324">a #NautilusFileInfo</doc>
+        <type name="FileInfo" c:type="NautilusFileInfo*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uri" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="322">the URI to lookup the file info for</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_list_copy"
+              c:identifier="nautilus_file_info_list_copy"
+              moved-to="FileInfo.list_copy">
+      <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                       line="135"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="132">a copy of @files.
+ Use #nautilus_file_info_list_free to free the list and unref its contents.</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="FileInfo"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="files" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="130">the files to copy</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="FileInfo"/>
+          </type>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_list_free"
+              c:identifier="nautilus_file_info_list_free"
+              moved-to="FileInfo.list_free">
+      <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                       line="141"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="files" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="138">a list created with #nautilus_file_info_list_copy</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="FileInfo"/>
+          </type>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_lookup"
+              c:identifier="nautilus_file_info_lookup"
+              moved-to="FileInfo.lookup">
+      <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                       line="305"/>
+      <return-value transfer-ownership="full" nullable="1">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="303">a #NautilusFileInfo</doc>
+        <type name="FileInfo" c:type="NautilusFileInfo*"/>
+      </return-value>
+      <parameters>
+        <parameter name="location" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="301">the location for which to look up a corresponding #NautilusFileInfo object</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_lookup_for_uri"
+              c:identifier="nautilus_file_info_lookup_for_uri"
+              moved-to="FileInfo.lookup_for_uri">
+      <source-position filename="libnautilus-extension/nautilus-file-info.h"
+                       line="319"/>
+      <return-value transfer-ownership="full" nullable="1">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="317">a #NautilusFileInfo</doc>
+        <type name="FileInfo" c:type="NautilusFileInfo*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uri" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-file-info.h"
+               line="315">the URI to lookup the file info for</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="info_provider_update_complete_invoke"
+              c:identifier="nautilus_info_provider_update_complete_invoke"
+              moved-to="InfoProvider.update_complete_invoke">
+      <source-position filename="libnautilus-extension/nautilus-info-provider.h"
+                       line="151"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="update_complete" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-info-provider.h"
+               line="146">a #GClosure</doc>
+          <type name="GObject.Closure" c:type="GClosure*"/>
+        </parameter>
+        <parameter name="provider" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-info-provider.h"
+               line="147">a #NautilusInfoProvider</doc>
+          <type name="InfoProvider" c:type="NautilusInfoProvider*"/>
+        </parameter>
+        <parameter name="handle" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-info-provider.h"
+               line="148">an opaque #NautilusOperationHandle</doc>
+          <type name="OperationHandle" c:type="NautilusOperationHandle*"/>
+        </parameter>
+        <parameter name="result" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-info-provider.h"
+               line="149">a #NautilusOperationResult</doc>
+          <type name="OperationResult" c:type="NautilusOperationResult"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="module_initialize"
+              c:identifier="nautilus_module_initialize"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="libnautilus-extension/nautilus-extension.h"
+           line="37">Called when the extension is begin loaded to register the types it exports
+and to perform other initializations.</doc>
+      <source-position filename="libnautilus-extension/nautilus-extension.h"
+                       line="44"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="module" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-extension.h"
+               line="39">a #GTypeModule used in type registration</doc>
+          <type name="GObject.TypeModule" c:type="GTypeModule*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="module_list_types"
+              c:identifier="nautilus_module_list_types"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="libnautilus-extension/nautilus-extension.h"
+           line="51">Called after the extension has been initialized and has registered all the
+types it exports, to load them into Nautilus.</doc>
+      <source-position filename="libnautilus-extension/nautilus-extension.h"
+                       line="59"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="types"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-extension.h"
+               line="53">array of GType *</doc>
+          <array length="1" zero-terminated="0" c:type="const GType**">
+            <type name="GType" c:type="GType*"/>
+          </array>
+        </parameter>
+        <parameter name="num_types"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnautilus-extension/nautilus-extension.h"
+               line="54">the number of types in the array</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="module_shutdown"
+              c:identifier="nautilus_module_shutdown"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="libnautilus-extension/nautilus-extension.h"
+           line="45">Called when the extension is being unloaded.</doc>
+      <source-position filename="libnautilus-extension/nautilus-extension.h"
+                       line="50"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <docsection name="nautilus-column-provider">
+      <doc xml:space="preserve"
+           filename="libnautilus-extension/nautilus-column-provider.h"
+           line="46">#NautilusColumnProvider allows extension to provide additional columns
+in the file manager list view.</doc>
+    </docsection>
+    <docsection name="nautilus-file-info">
+      <doc xml:space="preserve"
+           filename="libnautilus-extension/nautilus-file-info.h"
+           line="40">#NautilusFileInfo provides methods to get and modify information
+about file objects in the file manager.</doc>
+    </docsection>
+    <docsection name="nautilus-info-provider">
+      <doc xml:space="preserve"
+           filename="libnautilus-extension/nautilus-info-provider.h"
+           line="46">#NautilusInfoProvider allows extension to provide additional information about
+files. When nautilus_info_provider_update_file_info() is called by the application,
+extensions will know that it's time to add extra information to the provided
+#NautilusFileInfo.</doc>
+    </docsection>
+    <docsection name="nautilus-menu">
+      <doc xml:space="preserve"
+           filename="libnautilus-extension/nautilus-menu.h"
+           line="45">#NautilusMenu is an object that describes a submenu in a file manager
+menu. Extensions can provide #NautilusMenu objects by attaching them to
+#NautilusMenuItem objects, using nautilus_menu_item_set_submenu().
+
+## Menu Items
+
+#NautilusMenuItem is an object that describes an item in a file manager
+menu. Extensions can provide #NautilusMenuItem objects by registering a
+#NautilusMenuProvider and returning them from
+nautilus_menu_provider_get_file_items(), or
+nautilus_menu_provider_get_background_items(), which will be called by the
+main application when creating menus.</doc>
+    </docsection>
+    <docsection name="nautilus-menu-provider">
+      <doc xml:space="preserve"
+           filename="libnautilus-extension/nautilus-menu-provider.h"
+           line="46">#NautilusMenuProvider allows extension to provide additional menu items
+in the file manager menus.</doc>
+    </docsection>
+    <docsection name="nautilus-properties-item">
+      <doc xml:space="preserve"
+           filename="libnautilus-extension/nautilus-properties-item.h"
+           line="24">#NautilusPropertiesItem is an object that describes a name &amp; value pair in
+file properties. Extensions can provide #NautilusPropertiesItem objects in
+models provided by #NautilusPropertiesModel.</doc>
+    </docsection>
+    <docsection name="nautilus-properties-model">
+      <doc xml:space="preserve"
+           filename="libnautilus-extension/nautilus-properties-model.h"
+           line="24">#NautilusPropertiesModel is an model that describes a set of file properties.
+Extensions can provide #NautilusPropertiesModel objects by registering a
+#NautilusPropertiesModelProvider and returning them from
+nautilus_properties_model_provider_get_models(), which will be called by
+the main application when creating file properties.</doc>
+    </docsection>
+    <docsection name="nautilus-properties-model-provider">
+      <doc xml:space="preserve"
+           filename="libnautilus-extension/nautilus-properties-model-provider.h"
+           line="24">#NautilusPropertiesModelProvider allows extension to provide additional
+information for the file properties.</doc>
+    </docsection>
+  </namespace>
+</repository>

@@ -561,7 +561,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/accounts-1.0@workspace:types/accounts-1.0":
+"@girs/accounts-1.0@workspace:^, @girs/accounts-1.0@workspace:types/accounts-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/accounts-1.0@workspace:types/accounts-1.0"
   dependencies:
@@ -608,7 +608,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/amtk-4@workspace:types/amtk-4":
+"@girs/amtk-4@workspace:^, @girs/amtk-4@workspace:types/amtk-4":
   version: 0.0.0-use.local
   resolution: "@girs/amtk-4@workspace:types/amtk-4"
   dependencies:
@@ -675,7 +675,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/anthy-9000@workspace:types/anthy-9000":
+"@girs/anthy-9000@workspace:^, @girs/anthy-9000@workspace:types/anthy-9000":
   version: 0.0.0-use.local
   resolution: "@girs/anthy-9000@workspace:types/anthy-9000"
   dependencies:
@@ -686,7 +686,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/appindicator3-0.1@workspace:types/appindicator3-0.1":
+"@girs/appindicator3-0.1@workspace:^, @girs/appindicator3-0.1@workspace:types/appindicator3-0.1":
   version: 0.0.0-use.local
   resolution: "@girs/appindicator3-0.1@workspace:types/appindicator3-0.1"
   dependencies:
@@ -720,7 +720,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/appstreambuilder-1.0@workspace:types/appstreambuilder-1.0":
+"@girs/appstreambuilder-1.0@workspace:^, @girs/appstreambuilder-1.0@workspace:types/appstreambuilder-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/appstreambuilder-1.0@workspace:types/appstreambuilder-1.0"
   dependencies:
@@ -735,7 +735,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/appstreamcompose-1.0@workspace:types/appstreamcompose-1.0":
+"@girs/appstreamcompose-1.0@workspace:^, @girs/appstreamcompose-1.0@workspace:types/appstreamcompose-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/appstreamcompose-1.0@workspace:types/appstreamcompose-1.0"
   dependencies:
@@ -789,7 +789,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/arrowdataset-1.0@workspace:types/arrowdataset-1.0":
+"@girs/arrowdataset-1.0@workspace:^, @girs/arrowdataset-1.0@workspace:types/arrowdataset-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/arrowdataset-1.0@workspace:types/arrowdataset-1.0"
   dependencies:
@@ -802,7 +802,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/arrowflight-1.0@workspace:types/arrowflight-1.0":
+"@girs/arrowflight-1.0@workspace:^, @girs/arrowflight-1.0@workspace:types/arrowflight-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/arrowflight-1.0@workspace:types/arrowflight-1.0"
   dependencies:
@@ -826,7 +826,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/atspi-2.0@workspace:types/atspi-2.0":
+"@girs/atspi-2.0@workspace:^, @girs/atspi-2.0@workspace:types/atspi-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/atspi-2.0@workspace:types/atspi-2.0"
   dependencies:
@@ -838,7 +838,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/avahi-0.6@workspace:types/avahi-0.6":
+"@girs/avahi-0.6@workspace:^, @girs/avahi-0.6@workspace:types/avahi-0.6":
   version: 0.0.0-use.local
   resolution: "@girs/avahi-0.6@workspace:types/avahi-0.6"
   dependencies:
@@ -860,7 +860,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/ayatanaappindicator3-0.1@workspace:types/ayatanaappindicator3-0.1":
+"@girs/ayatanaappindicator3-0.1@workspace:^, @girs/ayatanaappindicator3-0.1@workspace:types/ayatanaappindicator3-0.1":
   version: 0.0.0-use.local
   resolution: "@girs/ayatanaappindicator3-0.1@workspace:types/ayatanaappindicator3-0.1"
   dependencies:
@@ -882,7 +882,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/ayatanaido3-0.4@workspace:types/ayatanaido3-0.4":
+"@girs/ayatanaido3-0.4@workspace:^, @girs/ayatanaido3-0.4@workspace:types/ayatanaido3-0.4":
   version: 0.0.0-use.local
   resolution: "@girs/ayatanaido3-0.4@workspace:types/ayatanaido3-0.4"
   dependencies:
@@ -914,7 +914,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/bamf-3@workspace:types/bamf-3":
+"@girs/bamf-3@workspace:^, @girs/bamf-3@workspace:types/bamf-3":
   version: 0.0.0-use.local
   resolution: "@girs/bamf-3@workspace:types/bamf-3"
   dependencies:
@@ -925,7 +925,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/blockdev-3.0@workspace:types/blockdev-3.0":
+"@girs/blockdev-3.0@workspace:^, @girs/blockdev-3.0@workspace:types/blockdev-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/blockdev-3.0@workspace:types/blockdev-3.0"
   dependencies:
@@ -937,7 +937,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/builder-1.0@workspace:types/builder-1.0":
+"@girs/builder-1.0@workspace:^, @girs/builder-1.0@workspace:types/builder-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/builder-1.0@workspace:types/builder-1.0"
   dependencies:
@@ -966,7 +966,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/bump-0.1@workspace:types/bump-0.1":
+"@girs/bump-0.1@workspace:^, @girs/bump-0.1@workspace:types/bump-0.1":
   version: 0.0.0-use.local
   resolution: "@girs/bump-0.1@workspace:types/bump-0.1"
   dependencies:
@@ -990,7 +990,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/cally-1.0@workspace:types/cally-1.0":
+"@girs/cally-1.0@workspace:^, @girs/cally-1.0@workspace:types/cally-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/cally-1.0@workspace:types/cally-1.0"
   dependencies:
@@ -1013,7 +1013,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/cally-10@workspace:types/cally-10":
+"@girs/cally-10@workspace:^, @girs/cally-10@workspace:types/cally-10":
   version: 0.0.0-use.local
   resolution: "@girs/cally-10@workspace:types/cally-10"
   dependencies:
@@ -1148,7 +1148,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/caribou-1.0@workspace:types/caribou-1.0":
+"@girs/caribou-1.0@workspace:^, @girs/caribou-1.0@workspace:types/caribou-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/caribou-1.0@workspace:types/caribou-1.0"
   dependencies:
@@ -1190,7 +1190,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/cheese-3.0@workspace:types/cheese-3.0":
+"@girs/cheese-3.0@workspace:^, @girs/cheese-3.0@workspace:types/cheese-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/cheese-3.0@workspace:types/cheese-3.0"
   dependencies:
@@ -1216,7 +1216,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/cloudproviders-0.3@workspace:types/cloudproviders-0.3":
+"@girs/cloudproviders-0.3@workspace:^, @girs/cloudproviders-0.3@workspace:types/cloudproviders-0.3":
   version: 0.0.0-use.local
   resolution: "@girs/cloudproviders-0.3@workspace:types/cloudproviders-0.3"
   dependencies:
@@ -1367,7 +1367,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/cluttergdk-1.0@workspace:types/cluttergdk-1.0":
+"@girs/cluttergdk-1.0@workspace:^, @girs/cluttergdk-1.0@workspace:types/cluttergdk-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/cluttergdk-1.0@workspace:types/cluttergdk-1.0"
   dependencies:
@@ -1393,7 +1393,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/cluttergst-2.0@workspace:types/cluttergst-2.0":
+"@girs/cluttergst-2.0@workspace:^, @girs/cluttergst-2.0@workspace:types/cluttergst-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/cluttergst-2.0@workspace:types/cluttergst-2.0"
   dependencies:
@@ -1421,7 +1421,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/cluttergst-3.0@workspace:types/cluttergst-3.0":
+"@girs/cluttergst-3.0@workspace:^, @girs/cluttergst-3.0@workspace:types/cluttergst-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/cluttergst-3.0@workspace:types/cluttergst-3.0"
   dependencies:
@@ -1451,7 +1451,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/clutterx11-1.0@workspace:types/clutterx11-1.0":
+"@girs/clutterx11-1.0@workspace:^, @girs/clutterx11-1.0@workspace:types/clutterx11-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/clutterx11-1.0@workspace:types/clutterx11-1.0"
   dependencies:
@@ -1570,7 +1570,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/coglgst-2.0@workspace:types/coglgst-2.0":
+"@girs/coglgst-2.0@workspace:^, @girs/coglgst-2.0@workspace:types/coglgst-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/coglgst-2.0@workspace:types/coglgst-2.0"
   dependencies:
@@ -1707,7 +1707,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/coglpango-2.0@workspace:types/coglpango-2.0":
+"@girs/coglpango-2.0@workspace:^, @girs/coglpango-2.0@workspace:types/coglpango-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/coglpango-2.0@workspace:types/coglpango-2.0"
   dependencies:
@@ -1738,7 +1738,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/colordgtk-1.0@workspace:types/colordgtk-1.0":
+"@girs/colordgtk-1.0@workspace:^, @girs/colordgtk-1.0@workspace:types/colordgtk-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/colordgtk-1.0@workspace:types/colordgtk-1.0"
   dependencies:
@@ -1761,7 +1761,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/colorhug-1.0@workspace:types/colorhug-1.0":
+"@girs/colorhug-1.0@workspace:^, @girs/colorhug-1.0@workspace:types/colorhug-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/colorhug-1.0@workspace:types/colorhug-1.0"
   dependencies:
@@ -1840,7 +1840,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/dbusmenugtk-0.4@workspace:types/dbusmenugtk-0.4":
+"@girs/dbusmenugtk-0.4@workspace:^, @girs/dbusmenugtk-0.4@workspace:types/dbusmenugtk-0.4":
   version: 0.0.0-use.local
   resolution: "@girs/dbusmenugtk-0.4@workspace:types/dbusmenugtk-0.4"
   dependencies:
@@ -1862,7 +1862,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/dbusmenugtk3-0.4@workspace:types/dbusmenugtk3-0.4":
+"@girs/dbusmenugtk3-0.4@workspace:^, @girs/dbusmenugtk3-0.4@workspace:types/dbusmenugtk3-0.4":
   version: 0.0.0-use.local
   resolution: "@girs/dbusmenugtk3-0.4@workspace:types/dbusmenugtk3-0.4"
   dependencies:
@@ -1897,7 +1897,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/devhelp-3.0@workspace:types/devhelp-3.0":
+"@girs/devhelp-3.0@workspace:^, @girs/devhelp-3.0@workspace:types/devhelp-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/devhelp-3.0@workspace:types/devhelp-3.0"
   dependencies:
@@ -1922,7 +1922,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/dex-1@workspace:types/dex-1":
+"@girs/dex-1@workspace:^, @girs/dex-1@workspace:types/dex-1":
   version: 0.0.0-use.local
   resolution: "@girs/dex-1@workspace:types/dex-1"
   dependencies:
@@ -1934,7 +1934,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/dmap-3.0@workspace:types/dmap-3.0":
+"@girs/dmap-3.0@workspace:^, @girs/dmap-3.0@workspace:types/dmap-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/dmap-3.0@workspace:types/dmap-3.0"
   dependencies:
@@ -1947,7 +1947,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/dmap-4.0@workspace:types/dmap-4.0":
+"@girs/dmap-4.0@workspace:^, @girs/dmap-4.0@workspace:types/dmap-4.0":
   version: 0.0.0-use.local
   resolution: "@girs/dmap-4.0@workspace:types/dmap-4.0"
   dependencies:
@@ -1979,7 +1979,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/ebook-1.2@workspace:types/ebook-1.2":
+"@girs/ebook-1.2@workspace:^, @girs/ebook-1.2@workspace:types/ebook-1.2":
   version: 0.0.0-use.local
   resolution: "@girs/ebook-1.2@workspace:types/ebook-1.2"
   dependencies:
@@ -2032,7 +2032,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/ecalendar-1.2@workspace:types/ecalendar-1.2":
+"@girs/ecalendar-1.2@workspace:^, @girs/ecalendar-1.2@workspace:types/ecalendar-1.2":
   version: 0.0.0-use.local
   resolution: "@girs/ecalendar-1.2@workspace:types/ecalendar-1.2"
   dependencies:
@@ -2049,7 +2049,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/edatabook-1.2@workspace:types/edatabook-1.2":
+"@girs/edatabook-1.2@workspace:^, @girs/edatabook-1.2@workspace:types/edatabook-1.2":
   version: 0.0.0-use.local
   resolution: "@girs/edatabook-1.2@workspace:types/edatabook-1.2"
   dependencies:
@@ -2068,7 +2068,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/edatacal-2.0@workspace:types/edatacal-2.0":
+"@girs/edatacal-2.0@workspace:^, @girs/edatacal-2.0@workspace:types/edatacal-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/edatacal-2.0@workspace:types/edatacal-2.0"
   dependencies:
@@ -2104,7 +2104,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/edataserverui-1.2@workspace:types/edataserverui-1.2":
+"@girs/edataserverui-1.2@workspace:^, @girs/edataserverui-1.2@workspace:types/edataserverui-1.2":
   version: 0.0.0-use.local
   resolution: "@girs/edataserverui-1.2@workspace:types/edataserverui-1.2"
   dependencies:
@@ -2133,7 +2133,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/edataserverui4-1.0@workspace:types/edataserverui4-1.0":
+"@girs/edataserverui4-1.0@workspace:^, @girs/edataserverui4-1.0@workspace:types/edataserverui4-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/edataserverui4-1.0@workspace:types/edataserverui4-1.0"
   dependencies:
@@ -2163,7 +2163,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/egg-1.0@workspace:types/egg-1.0":
+"@girs/egg-1.0@workspace:^, @girs/egg-1.0@workspace:types/egg-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/egg-1.0@workspace:types/egg-1.0"
   dependencies:
@@ -2185,7 +2185,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/eog-3.0@workspace:types/eog-3.0":
+"@girs/eog-3.0@workspace:^, @girs/eog-3.0@workspace:types/eog-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/eog-3.0@workspace:types/eog-3.0"
   dependencies:
@@ -2218,7 +2218,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/epcui-1.0@workspace:types/epcui-1.0":
+"@girs/epcui-1.0@workspace:^, @girs/epcui-1.0@workspace:types/epcui-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/epcui-1.0@workspace:types/epcui-1.0"
   dependencies:
@@ -2263,7 +2263,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/evinceview-3.0@workspace:types/evinceview-3.0":
+"@girs/evinceview-3.0@workspace:^, @girs/evinceview-3.0@workspace:types/evinceview-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/evinceview-3.0@workspace:types/evinceview-3.0"
   dependencies:
@@ -2286,7 +2286,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/farstream-0.1@workspace:types/farstream-0.1":
+"@girs/farstream-0.1@workspace:^, @girs/farstream-0.1@workspace:types/farstream-0.1":
   version: 0.0.0-use.local
   resolution: "@girs/farstream-0.1@workspace:types/farstream-0.1"
   dependencies:
@@ -2313,7 +2313,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/flatpak-1.0@workspace:types/flatpak-1.0":
+"@girs/flatpak-1.0@workspace:^, @girs/flatpak-1.0@workspace:types/flatpak-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/flatpak-1.0@workspace:types/flatpak-1.0"
   dependencies:
@@ -2351,7 +2351,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/folksdummy-0.6@workspace:types/folksdummy-0.6":
+"@girs/folksdummy-0.6@workspace:^, @girs/folksdummy-0.6@workspace:types/folksdummy-0.6":
   version: 0.0.0-use.local
   resolution: "@girs/folksdummy-0.6@workspace:types/folksdummy-0.6"
   dependencies:
@@ -2365,7 +2365,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/folksdummy-0.7@workspace:types/folksdummy-0.7":
+"@girs/folksdummy-0.7@workspace:^, @girs/folksdummy-0.7@workspace:types/folksdummy-0.7":
   version: 0.0.0-use.local
   resolution: "@girs/folksdummy-0.7@workspace:types/folksdummy-0.7"
   dependencies:
@@ -2379,7 +2379,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/folkseds-0.6@workspace:types/folkseds-0.6":
+"@girs/folkseds-0.6@workspace:^, @girs/folkseds-0.6@workspace:types/folkseds-0.6":
   version: 0.0.0-use.local
   resolution: "@girs/folkseds-0.6@workspace:types/folkseds-0.6"
   dependencies:
@@ -2399,7 +2399,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/folkseds-0.7@workspace:types/folkseds-0.7":
+"@girs/folkseds-0.7@workspace:^, @girs/folkseds-0.7@workspace:types/folkseds-0.7":
   version: 0.0.0-use.local
   resolution: "@girs/folkseds-0.7@workspace:types/folkseds-0.7"
   dependencies:
@@ -2419,7 +2419,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/folkslibsocialweb-0.6@workspace:types/folkslibsocialweb-0.6":
+"@girs/folkslibsocialweb-0.6@workspace:^, @girs/folkslibsocialweb-0.6@workspace:types/folkslibsocialweb-0.6":
   version: 0.0.0-use.local
   resolution: "@girs/folkslibsocialweb-0.6@workspace:types/folkslibsocialweb-0.6"
   dependencies:
@@ -2434,7 +2434,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/folkstelepathy-0.6@workspace:types/folkstelepathy-0.6":
+"@girs/folkstelepathy-0.6@workspace:^, @girs/folkstelepathy-0.6@workspace:types/folkstelepathy-0.6":
   version: 0.0.0-use.local
   resolution: "@girs/folkstelepathy-0.6@workspace:types/folkstelepathy-0.6"
   dependencies:
@@ -2449,7 +2449,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/folkstelepathy-0.7@workspace:types/folkstelepathy-0.7":
+"@girs/folkstelepathy-0.7@workspace:^, @girs/folkstelepathy-0.7@workspace:types/folkstelepathy-0.7":
   version: 0.0.0-use.local
   resolution: "@girs/folkstelepathy-0.7@workspace:types/folkstelepathy-0.7"
   dependencies:
@@ -2474,7 +2474,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/fprint-2.0@workspace:types/fprint-2.0":
+"@girs/fprint-2.0@workspace:^, @girs/fprint-2.0@workspace:types/fprint-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/fprint-2.0@workspace:types/fprint-2.0"
   dependencies:
@@ -2498,7 +2498,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/fwupd-2.0@workspace:types/fwupd-2.0":
+"@girs/fwupd-2.0@workspace:^, @girs/fwupd-2.0@workspace:types/fwupd-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/fwupd-2.0@workspace:types/fwupd-2.0"
   dependencies:
@@ -2510,7 +2510,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gandiva-1.0@workspace:types/gandiva-1.0":
+"@girs/gandiva-1.0@workspace:^, @girs/gandiva-1.0@workspace:types/gandiva-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gandiva-1.0@workspace:types/gandiva-1.0"
   dependencies:
@@ -2523,7 +2523,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gcab-1.0@workspace:types/gcab-1.0":
+"@girs/gcab-1.0@workspace:^, @girs/gcab-1.0@workspace:types/gcab-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gcab-1.0@workspace:types/gcab-1.0"
   dependencies:
@@ -2535,7 +2535,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gcalc-1@workspace:types/gcalc-1":
+"@girs/gcalc-1@workspace:^, @girs/gcalc-1@workspace:types/gcalc-1":
   version: 0.0.0-use.local
   resolution: "@girs/gcalc-1@workspace:types/gcalc-1"
   dependencies:
@@ -2561,7 +2561,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gci-1@workspace:types/gci-1":
+"@girs/gci-1@workspace:^, @girs/gci-1@workspace:types/gci-1":
   version: 0.0.0-use.local
   resolution: "@girs/gci-1@workspace:types/gci-1"
   dependencies:
@@ -2645,7 +2645,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gcrgtk3-4@workspace:types/gcrgtk3-4":
+"@girs/gcrgtk3-4@workspace:^, @girs/gcrgtk3-4@workspace:types/gcrgtk3-4":
   version: 0.0.0-use.local
   resolution: "@girs/gcrgtk3-4@workspace:types/gcrgtk3-4"
   dependencies:
@@ -2669,7 +2669,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gcrgtk4-4@workspace:types/gcrgtk4-4":
+"@girs/gcrgtk4-4@workspace:^, @girs/gcrgtk4-4@workspace:types/gcrgtk4-4":
   version: 0.0.0-use.local
   resolution: "@girs/gcrgtk4-4@workspace:types/gcrgtk4-4"
   dependencies:
@@ -2694,7 +2694,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gcrui-3@workspace:types/gcrui-3":
+"@girs/gcrui-3@workspace:^, @girs/gcrui-3@workspace:types/gcrui-3":
   version: 0.0.0-use.local
   resolution: "@girs/gcrui-3@workspace:types/gcrui-3"
   dependencies:
@@ -2718,7 +2718,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gd-1.0@workspace:types/gd-1.0":
+"@girs/gd-1.0@workspace:^, @girs/gd-1.0@workspace:types/gd-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gd-1.0@workspace:types/gd-1.0"
   dependencies:
@@ -2765,7 +2765,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gdata-0.0@workspace:types/gdata-0.0":
+"@girs/gdata-0.0@workspace:^, @girs/gdata-0.0@workspace:types/gdata-0.0":
   version: 0.0.0-use.local
   resolution: "@girs/gdata-0.0@workspace:types/gdata-0.0"
   dependencies:
@@ -2781,7 +2781,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gdaui-5.0@workspace:types/gdaui-5.0":
+"@girs/gdaui-5.0@workspace:^, @girs/gdaui-5.0@workspace:types/gdaui-5.0":
   version: 0.0.0-use.local
   resolution: "@girs/gdaui-5.0@workspace:types/gdaui-5.0"
   dependencies:
@@ -2805,7 +2805,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gdaui-6.0@workspace:types/gdaui-6.0":
+"@girs/gdaui-6.0@workspace:^, @girs/gdaui-6.0@workspace:types/gdaui-6.0":
   version: 0.0.0-use.local
   resolution: "@girs/gdaui-6.0@workspace:types/gdaui-6.0"
   dependencies:
@@ -2907,7 +2907,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gdkpixdata-2.0@workspace:types/gdkpixdata-2.0":
+"@girs/gdkpixdata-2.0@workspace:^, @girs/gdkpixdata-2.0@workspace:types/gdkpixdata-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/gdkpixdata-2.0@workspace:types/gdkpixdata-2.0"
   dependencies:
@@ -2921,7 +2921,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gdkwayland-4.0@workspace:types/gdkwayland-4.0":
+"@girs/gdkwayland-4.0@workspace:^, @girs/gdkwayland-4.0@workspace:types/gdkwayland-4.0":
   version: 0.0.0-use.local
   resolution: "@girs/gdkwayland-4.0@workspace:types/gdkwayland-4.0"
   dependencies:
@@ -2941,7 +2941,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gdkx11-2.0@workspace:types/gdkx11-2.0":
+"@girs/gdkx11-2.0@workspace:^, @girs/gdkx11-2.0@workspace:types/gdkx11-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/gdkx11-2.0@workspace:types/gdkx11-2.0"
   dependencies:
@@ -2961,7 +2961,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gdkx11-3.0@workspace:types/gdkx11-3.0":
+"@girs/gdkx11-3.0@workspace:^, @girs/gdkx11-3.0@workspace:types/gdkx11-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/gdkx11-3.0@workspace:types/gdkx11-3.0"
   dependencies:
@@ -2981,7 +2981,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gdkx11-4.0@workspace:types/gdkx11-4.0":
+"@girs/gdkx11-4.0@workspace:^, @girs/gdkx11-4.0@workspace:types/gdkx11-4.0":
   version: 0.0.0-use.local
   resolution: "@girs/gdkx11-4.0@workspace:types/gdkx11-4.0"
   dependencies:
@@ -3024,7 +3024,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gdm-1.0@workspace:types/gdm-1.0":
+"@girs/gdm-1.0@workspace:^, @girs/gdm-1.0@workspace:types/gdm-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gdm-1.0@workspace:types/gdm-1.0"
   dependencies:
@@ -3036,7 +3036,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gedit-3.0@workspace:types/gedit-3.0":
+"@girs/gedit-3.0@workspace:^, @girs/gedit-3.0@workspace:types/gedit-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/gedit-3.0@workspace:types/gedit-3.0"
   dependencies:
@@ -3071,7 +3071,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gee-1.0@workspace:types/gee-1.0":
+"@girs/gee-1.0@workspace:^, @girs/gee-1.0@workspace:types/gee-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gee-1.0@workspace:types/gee-1.0"
   dependencies:
@@ -3082,7 +3082,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gegl-0.3@workspace:types/gegl-0.3":
+"@girs/gegl-0.3@workspace:^, @girs/gegl-0.3@workspace:types/gegl-0.3":
   version: 0.0.0-use.local
   resolution: "@girs/gegl-0.3@workspace:types/gegl-0.3"
   dependencies:
@@ -3105,7 +3105,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/geglgtk3-0.1@workspace:types/geglgtk3-0.1":
+"@girs/geglgtk3-0.1@workspace:^, @girs/geglgtk3-0.1@workspace:types/geglgtk3-0.1":
   version: 0.0.0-use.local
   resolution: "@girs/geglgtk3-0.1@workspace:types/geglgtk3-0.1"
   dependencies:
@@ -3129,7 +3129,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/geoclue-2.0@workspace:types/geoclue-2.0":
+"@girs/geoclue-2.0@workspace:^, @girs/geoclue-2.0@workspace:types/geoclue-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/geoclue-2.0@workspace:types/geoclue-2.0"
   dependencies:
@@ -3155,7 +3155,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/geocodeglib-2.0@workspace:types/geocodeglib-2.0":
+"@girs/geocodeglib-2.0@workspace:^, @girs/geocodeglib-2.0@workspace:types/geocodeglib-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/geocodeglib-2.0@workspace:types/geocodeglib-2.0"
   dependencies:
@@ -3169,7 +3169,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gepub-0.5@workspace:types/gepub-0.5":
+"@girs/gepub-0.5@workspace:^, @girs/gepub-0.5@workspace:types/gepub-0.5":
   version: 0.0.0-use.local
   resolution: "@girs/gepub-0.5@workspace:types/gepub-0.5"
   dependencies:
@@ -3195,7 +3195,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gepub-0.7@workspace:types/gepub-0.7":
+"@girs/gepub-0.7@workspace:^, @girs/gepub-0.7@workspace:types/gepub-0.7":
   version: 0.0.0-use.local
   resolution: "@girs/gepub-0.7@workspace:types/gepub-0.7"
   dependencies:
@@ -3221,7 +3221,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/ges-1.0@workspace:types/ges-1.0":
+"@girs/ges-1.0@workspace:^, @girs/ges-1.0@workspace:types/ges-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/ges-1.0@workspace:types/ges-1.0"
   dependencies:
@@ -3239,7 +3239,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gexiv2-0.10@workspace:types/gexiv2-0.10":
+"@girs/gexiv2-0.10@workspace:^, @girs/gexiv2-0.10@workspace:types/gexiv2-0.10":
   version: 0.0.0-use.local
   resolution: "@girs/gexiv2-0.10@workspace:types/gexiv2-0.10"
   dependencies:
@@ -3251,7 +3251,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gfbgraph-0.2@workspace:types/gfbgraph-0.2":
+"@girs/gfbgraph-0.2@workspace:^, @girs/gfbgraph-0.2@workspace:types/gfbgraph-0.2":
   version: 0.0.0-use.local
   resolution: "@girs/gfbgraph-0.2@workspace:types/gfbgraph-0.2"
   dependencies:
@@ -3266,7 +3266,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gfbgraph-0.3@workspace:types/gfbgraph-0.3":
+"@girs/gfbgraph-0.3@workspace:^, @girs/gfbgraph-0.3@workspace:types/gfbgraph-0.3":
   version: 0.0.0-use.local
   resolution: "@girs/gfbgraph-0.3@workspace:types/gfbgraph-0.3"
   dependencies:
@@ -3304,7 +3304,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/giounix-2.0@workspace:types/giounix-2.0":
+"@girs/giounix-2.0@workspace:^, @girs/giounix-2.0@workspace:types/giounix-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/giounix-2.0@workspace:types/giounix-2.0"
   dependencies:
@@ -3328,7 +3328,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/girepository-3.0@workspace:types/girepository-3.0":
+"@girs/girepository-3.0@workspace:^, @girs/girepository-3.0@workspace:types/girepository-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/girepository-3.0@workspace:types/girepository-3.0"
   dependencies:
@@ -3365,7 +3365,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gitgext-1.0@workspace:types/gitgext-1.0":
+"@girs/gitgext-1.0@workspace:^, @girs/gitgext-1.0@workspace:types/gitgext-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gitgext-1.0@workspace:types/gitgext-1.0"
   dependencies:
@@ -3400,7 +3400,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gjsdbus-1.0@workspace:types/gjsdbus-1.0":
+"@girs/gjsdbus-1.0@workspace:^, @girs/gjsdbus-1.0@workspace:types/gjsdbus-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gjsdbus-1.0@workspace:types/gjsdbus-1.0"
   dependencies:
@@ -3412,7 +3412,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gkbd-3.0@workspace:types/gkbd-3.0":
+"@girs/gkbd-3.0@workspace:^, @girs/gkbd-3.0@workspace:types/gkbd-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/gkbd-3.0@workspace:types/gkbd-3.0"
   dependencies:
@@ -3445,7 +3445,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gladeui-2.0@workspace:types/gladeui-2.0":
+"@girs/gladeui-2.0@workspace:^, @girs/gladeui-2.0@workspace:types/gladeui-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/gladeui-2.0@workspace:types/gladeui-2.0"
   dependencies:
@@ -3477,7 +3477,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/glibunix-2.0@workspace:types/glibunix-2.0":
+"@girs/glibunix-2.0@workspace:^, @girs/glibunix-2.0@workspace:types/glibunix-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/glibunix-2.0@workspace:types/glibunix-2.0"
   dependencies:
@@ -3488,7 +3488,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gmenu-3.0@workspace:types/gmenu-3.0":
+"@girs/gmenu-3.0@workspace:^, @girs/gmenu-3.0@workspace:types/gmenu-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/gmenu-3.0@workspace:types/gmenu-3.0"
   dependencies:
@@ -3500,7 +3500,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gmime-3.0@workspace:types/gmime-3.0":
+"@girs/gmime-3.0@workspace:^, @girs/gmime-3.0@workspace:types/gmime-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/gmime-3.0@workspace:types/gmime-3.0"
   dependencies:
@@ -3535,7 +3535,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gnomeautoargtk-0.1@workspace:types/gnomeautoargtk-0.1":
+"@girs/gnomeautoargtk-0.1@workspace:^, @girs/gnomeautoargtk-0.1@workspace:types/gnomeautoargtk-0.1":
   version: 0.0.0-use.local
   resolution: "@girs/gnomeautoargtk-0.1@workspace:types/gnomeautoargtk-0.1"
   dependencies:
@@ -3558,7 +3558,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gnomebg-4.0@workspace:types/gnomebg-4.0":
+"@girs/gnomebg-4.0@workspace:^, @girs/gnomebg-4.0@workspace:types/gnomebg-4.0":
   version: 0.0.0-use.local
   resolution: "@girs/gnomebg-4.0@workspace:types/gnomebg-4.0"
   dependencies:
@@ -3580,7 +3580,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gnomebluetooth-1.0@workspace:types/gnomebluetooth-1.0":
+"@girs/gnomebluetooth-1.0@workspace:^, @girs/gnomebluetooth-1.0@workspace:types/gnomebluetooth-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gnomebluetooth-1.0@workspace:types/gnomebluetooth-1.0"
   dependencies:
@@ -3602,7 +3602,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gnomebluetooth-3.0@workspace:types/gnomebluetooth-3.0":
+"@girs/gnomebluetooth-3.0@workspace:^, @girs/gnomebluetooth-3.0@workspace:types/gnomebluetooth-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/gnomebluetooth-3.0@workspace:types/gnomebluetooth-3.0"
   dependencies:
@@ -3614,7 +3614,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gnomedesktop-3.0@workspace:types/gnomedesktop-3.0":
+"@girs/gnomedesktop-3.0@workspace:^, @girs/gnomedesktop-3.0@workspace:types/gnomedesktop-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/gnomedesktop-3.0@workspace:types/gnomedesktop-3.0"
   dependencies:
@@ -3652,7 +3652,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gnomekeyring-1.0@workspace:types/gnomekeyring-1.0":
+"@girs/gnomekeyring-1.0@workspace:^, @girs/gnomekeyring-1.0@workspace:types/gnomekeyring-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gnomekeyring-1.0@workspace:types/gnomekeyring-1.0"
   dependencies:
@@ -3663,7 +3663,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gnomemaps-1.0@workspace:types/gnomemaps-1.0":
+"@girs/gnomemaps-1.0@workspace:^, @girs/gnomemaps-1.0@workspace:types/gnomemaps-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gnomemaps-1.0@workspace:types/gnomemaps-1.0"
   dependencies:
@@ -3690,7 +3690,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gnomerr-4.0@workspace:types/gnomerr-4.0":
+"@girs/gnomerr-4.0@workspace:^, @girs/gnomerr-4.0@workspace:types/gnomerr-4.0":
   version: 0.0.0-use.local
   resolution: "@girs/gnomerr-4.0@workspace:types/gnomerr-4.0"
   dependencies:
@@ -3734,7 +3734,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gom-1.0@workspace:types/gom-1.0":
+"@girs/gom-1.0@workspace:^, @girs/gom-1.0@workspace:types/gom-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gom-1.0@workspace:types/gom-1.0"
   dependencies:
@@ -3746,7 +3746,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/goocanvas-2.0@workspace:types/goocanvas-2.0":
+"@girs/goocanvas-2.0@workspace:^, @girs/goocanvas-2.0@workspace:types/goocanvas-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/goocanvas-2.0@workspace:types/goocanvas-2.0"
   dependencies:
@@ -3768,7 +3768,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/goocanvas-3.0@workspace:types/goocanvas-3.0":
+"@girs/goocanvas-3.0@workspace:^, @girs/goocanvas-3.0@workspace:types/goocanvas-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/goocanvas-3.0@workspace:types/goocanvas-3.0"
   dependencies:
@@ -3790,7 +3790,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/govirt-1.0@workspace:types/govirt-1.0":
+"@girs/govirt-1.0@workspace:^, @girs/govirt-1.0@workspace:types/govirt-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/govirt-1.0@workspace:types/govirt-1.0"
   dependencies:
@@ -3804,7 +3804,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gpseq-1.0@workspace:types/gpseq-1.0":
+"@girs/gpseq-1.0@workspace:^, @girs/gpseq-1.0@workspace:types/gpseq-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gpseq-1.0@workspace:types/gpseq-1.0"
   dependencies:
@@ -3817,7 +3817,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/granite-1.0@workspace:types/granite-1.0":
+"@girs/granite-1.0@workspace:^, @girs/granite-1.0@workspace:types/granite-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/granite-1.0@workspace:types/granite-1.0"
   dependencies:
@@ -3840,7 +3840,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/granite-7.0@workspace:types/granite-7.0":
+"@girs/granite-7.0@workspace:^, @girs/granite-7.0@workspace:types/granite-7.0":
   version: 0.0.0-use.local
   resolution: "@girs/granite-7.0@workspace:types/granite-7.0"
   dependencies:
@@ -3875,7 +3875,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/grl-0.1@workspace:types/grl-0.1":
+"@girs/grl-0.1@workspace:^, @girs/grl-0.1@workspace:types/grl-0.1":
   version: 0.0.0-use.local
   resolution: "@girs/grl-0.1@workspace:types/grl-0.1"
   dependencies:
@@ -3913,7 +3913,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/grlnet-0.1@workspace:types/grlnet-0.1":
+"@girs/grlnet-0.1@workspace:^, @girs/grlnet-0.1@workspace:types/grlnet-0.1":
   version: 0.0.0-use.local
   resolution: "@girs/grlnet-0.1@workspace:types/grlnet-0.1"
   dependencies:
@@ -3925,7 +3925,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/grlnet-0.2@workspace:types/grlnet-0.2":
+"@girs/grlnet-0.2@workspace:^, @girs/grlnet-0.2@workspace:types/grlnet-0.2":
   version: 0.0.0-use.local
   resolution: "@girs/grlnet-0.2@workspace:types/grlnet-0.2"
   dependencies:
@@ -3938,7 +3938,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/grlnet-0.3@workspace:types/grlnet-0.3":
+"@girs/grlnet-0.3@workspace:^, @girs/grlnet-0.3@workspace:types/grlnet-0.3":
   version: 0.0.0-use.local
   resolution: "@girs/grlnet-0.3@workspace:types/grlnet-0.3"
   dependencies:
@@ -3951,7 +3951,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/grlpls-0.2@workspace:types/grlpls-0.2":
+"@girs/grlpls-0.2@workspace:^, @girs/grlpls-0.2@workspace:types/grlpls-0.2":
   version: 0.0.0-use.local
   resolution: "@girs/grlpls-0.2@workspace:types/grlpls-0.2"
   dependencies:
@@ -3965,7 +3965,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/grlpls-0.3@workspace:types/grlpls-0.3":
+"@girs/grlpls-0.3@workspace:^, @girs/grlpls-0.3@workspace:types/grlpls-0.3":
   version: 0.0.0-use.local
   resolution: "@girs/grlpls-0.3@workspace:types/grlpls-0.3"
   dependencies:
@@ -3979,7 +3979,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/grss-0.7@workspace:types/grss-0.7":
+"@girs/grss-0.7@workspace:^, @girs/grss-0.7@workspace:types/grss-0.7":
   version: 0.0.0-use.local
   resolution: "@girs/grss-0.7@workspace:types/grss-0.7"
   dependencies:
@@ -3993,7 +3993,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gsf-1@workspace:types/gsf-1":
+"@girs/gsf-1@workspace:^, @girs/gsf-1@workspace:types/gsf-1":
   version: 0.0.0-use.local
   resolution: "@girs/gsf-1@workspace:types/gsf-1"
   dependencies:
@@ -4006,7 +4006,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gsignon-1.0@workspace:types/gsignon-1.0":
+"@girs/gsignon-1.0@workspace:^, @girs/gsignon-1.0@workspace:types/gsignon-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gsignon-1.0@workspace:types/gsignon-1.0"
   dependencies:
@@ -4018,7 +4018,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gsignond-1.0@workspace:types/gsignond-1.0":
+"@girs/gsignond-1.0@workspace:^, @girs/gsignond-1.0@workspace:types/gsignond-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gsignond-1.0@workspace:types/gsignond-1.0"
   dependencies:
@@ -4051,7 +4051,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gsound-1.0@workspace:types/gsound-1.0":
+"@girs/gsound-1.0@workspace:^, @girs/gsound-1.0@workspace:types/gsound-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gsound-1.0@workspace:types/gsound-1.0"
   dependencies:
@@ -4063,7 +4063,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gspell-1@workspace:types/gspell-1":
+"@girs/gspell-1@workspace:^, @girs/gspell-1@workspace:types/gspell-1":
   version: 0.0.0-use.local
   resolution: "@girs/gspell-1@workspace:types/gspell-1"
   dependencies:
@@ -4149,7 +4149,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstallocators-1.0@workspace:types/gstallocators-1.0":
+"@girs/gstallocators-1.0@workspace:^, @girs/gstallocators-1.0@workspace:types/gstallocators-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstallocators-1.0@workspace:types/gstallocators-1.0"
   dependencies:
@@ -4162,7 +4162,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstanalytics-1.0@workspace:types/gstanalytics-1.0":
+"@girs/gstanalytics-1.0@workspace:^, @girs/gstanalytics-1.0@workspace:types/gstanalytics-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstanalytics-1.0@workspace:types/gstanalytics-1.0"
   dependencies:
@@ -4176,7 +4176,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstapp-1.0@workspace:types/gstapp-1.0":
+"@girs/gstapp-1.0@workspace:^, @girs/gstapp-1.0@workspace:types/gstapp-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstapp-1.0@workspace:types/gstapp-1.0"
   dependencies:
@@ -4204,7 +4204,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstbadallocators-1.0@workspace:types/gstbadallocators-1.0":
+"@girs/gstbadallocators-1.0@workspace:^, @girs/gstbadallocators-1.0@workspace:types/gstbadallocators-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstbadallocators-1.0@workspace:types/gstbadallocators-1.0"
   dependencies:
@@ -4217,7 +4217,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstbadaudio-1.0@workspace:types/gstbadaudio-1.0":
+"@girs/gstbadaudio-1.0@workspace:^, @girs/gstbadaudio-1.0@workspace:types/gstbadaudio-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstbadaudio-1.0@workspace:types/gstbadaudio-1.0"
   dependencies:
@@ -4259,7 +4259,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstcheck-1.0@workspace:types/gstcheck-1.0":
+"@girs/gstcheck-1.0@workspace:^, @girs/gstcheck-1.0@workspace:types/gstcheck-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstcheck-1.0@workspace:types/gstcheck-1.0"
   dependencies:
@@ -4287,7 +4287,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstcontroller-1.0@workspace:types/gstcontroller-1.0":
+"@girs/gstcontroller-1.0@workspace:^, @girs/gstcontroller-1.0@workspace:types/gstcontroller-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstcontroller-1.0@workspace:types/gstcontroller-1.0"
   dependencies:
@@ -4300,7 +4300,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstcuda-1.0@workspace:types/gstcuda-1.0":
+"@girs/gstcuda-1.0@workspace:^, @girs/gstcuda-1.0@workspace:types/gstcuda-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstcuda-1.0@workspace:types/gstcuda-1.0"
   dependencies:
@@ -4317,7 +4317,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstdxva-1.0@workspace:types/gstdxva-1.0":
+"@girs/gstdxva-1.0@workspace:^, @girs/gstdxva-1.0@workspace:types/gstdxva-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstdxva-1.0@workspace:types/gstdxva-1.0"
   dependencies:
@@ -4333,7 +4333,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstfft-1.0@workspace:types/gstfft-1.0":
+"@girs/gstfft-1.0@workspace:^, @girs/gstfft-1.0@workspace:types/gstfft-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstfft-1.0@workspace:types/gstfft-1.0"
   dependencies:
@@ -4361,7 +4361,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstglegl-1.0@workspace:types/gstglegl-1.0":
+"@girs/gstglegl-1.0@workspace:^, @girs/gstglegl-1.0@workspace:types/gstglegl-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstglegl-1.0@workspace:types/gstglegl-1.0"
   dependencies:
@@ -4377,7 +4377,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstglwayland-1.0@workspace:types/gstglwayland-1.0":
+"@girs/gstglwayland-1.0@workspace:^, @girs/gstglwayland-1.0@workspace:types/gstglwayland-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstglwayland-1.0@workspace:types/gstglwayland-1.0"
   dependencies:
@@ -4393,7 +4393,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstglx11-1.0@workspace:types/gstglx11-1.0":
+"@girs/gstglx11-1.0@workspace:^, @girs/gstglx11-1.0@workspace:types/gstglx11-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstglx11-1.0@workspace:types/gstglx11-1.0"
   dependencies:
@@ -4409,7 +4409,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstinsertbin-1.0@workspace:types/gstinsertbin-1.0":
+"@girs/gstinsertbin-1.0@workspace:^, @girs/gstinsertbin-1.0@workspace:types/gstinsertbin-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstinsertbin-1.0@workspace:types/gstinsertbin-1.0"
   dependencies:
@@ -4422,7 +4422,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstinterfaces-0.10@workspace:types/gstinterfaces-0.10":
+"@girs/gstinterfaces-0.10@workspace:^, @girs/gstinterfaces-0.10@workspace:types/gstinterfaces-0.10":
   version: 0.0.0-use.local
   resolution: "@girs/gstinterfaces-0.10@workspace:types/gstinterfaces-0.10"
   dependencies:
@@ -4436,7 +4436,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstmpegts-1.0@workspace:types/gstmpegts-1.0":
+"@girs/gstmpegts-1.0@workspace:^, @girs/gstmpegts-1.0@workspace:types/gstmpegts-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstmpegts-1.0@workspace:types/gstmpegts-1.0"
   dependencies:
@@ -4449,7 +4449,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstmse-1.0@workspace:types/gstmse-1.0":
+"@girs/gstmse-1.0@workspace:^, @girs/gstmse-1.0@workspace:types/gstmse-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstmse-1.0@workspace:types/gstmse-1.0"
   dependencies:
@@ -4506,7 +4506,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstplay-1.0@workspace:types/gstplay-1.0":
+"@girs/gstplay-1.0@workspace:^, @girs/gstplay-1.0@workspace:types/gstplay-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstplay-1.0@workspace:types/gstplay-1.0"
   dependencies:
@@ -4524,7 +4524,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstplayer-1.0@workspace:types/gstplayer-1.0":
+"@girs/gstplayer-1.0@workspace:^, @girs/gstplayer-1.0@workspace:types/gstplayer-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstplayer-1.0@workspace:types/gstplayer-1.0"
   dependencies:
@@ -4542,7 +4542,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstriff-1.0@workspace:types/gstriff-1.0":
+"@girs/gstriff-1.0@workspace:^, @girs/gstriff-1.0@workspace:types/gstriff-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstriff-1.0@workspace:types/gstriff-1.0"
   dependencies:
@@ -4555,7 +4555,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstrtp-1.0@workspace:types/gstrtp-1.0":
+"@girs/gstrtp-1.0@workspace:^, @girs/gstrtp-1.0@workspace:types/gstrtp-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstrtp-1.0@workspace:types/gstrtp-1.0"
   dependencies:
@@ -4585,7 +4585,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstrtspserver-1.0@workspace:types/gstrtspserver-1.0":
+"@girs/gstrtspserver-1.0@workspace:^, @girs/gstrtspserver-1.0@workspace:types/gstrtspserver-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstrtspserver-1.0@workspace:types/gstrtspserver-1.0"
   dependencies:
@@ -4644,7 +4644,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gsttranscoder-1.0@workspace:types/gsttranscoder-1.0":
+"@girs/gsttranscoder-1.0@workspace:^, @girs/gsttranscoder-1.0@workspace:types/gsttranscoder-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gsttranscoder-1.0@workspace:types/gsttranscoder-1.0"
   dependencies:
@@ -4661,7 +4661,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstva-1.0@workspace:types/gstva-1.0":
+"@girs/gstva-1.0@workspace:^, @girs/gstva-1.0@workspace:types/gstva-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstva-1.0@workspace:types/gstva-1.0"
   dependencies:
@@ -4676,7 +4676,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstvideo-0.10@workspace:types/gstvideo-0.10":
+"@girs/gstvideo-0.10@workspace:^, @girs/gstvideo-0.10@workspace:types/gstvideo-0.10":
   version: 0.0.0-use.local
   resolution: "@girs/gstvideo-0.10@workspace:types/gstvideo-0.10"
   dependencies:
@@ -4721,7 +4721,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstvulkanwayland-1.0@workspace:types/gstvulkanwayland-1.0":
+"@girs/gstvulkanwayland-1.0@workspace:^, @girs/gstvulkanwayland-1.0@workspace:types/gstvulkanwayland-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstvulkanwayland-1.0@workspace:types/gstvulkanwayland-1.0"
   dependencies:
@@ -4738,7 +4738,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstvulkanxcb-1.0@workspace:types/gstvulkanxcb-1.0":
+"@girs/gstvulkanxcb-1.0@workspace:^, @girs/gstvulkanxcb-1.0@workspace:types/gstvulkanxcb-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstvulkanxcb-1.0@workspace:types/gstvulkanxcb-1.0"
   dependencies:
@@ -4755,7 +4755,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gstwebrtc-1.0@workspace:types/gstwebrtc-1.0":
+"@girs/gstwebrtc-1.0@workspace:^, @girs/gstwebrtc-1.0@workspace:types/gstwebrtc-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gstwebrtc-1.0@workspace:types/gstwebrtc-1.0"
   dependencies:
@@ -4769,7 +4769,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gsystem-1.0@workspace:types/gsystem-1.0":
+"@girs/gsystem-1.0@workspace:^, @girs/gsystem-1.0@workspace:types/gsystem-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gsystem-1.0@workspace:types/gsystem-1.0"
   dependencies:
@@ -4781,7 +4781,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gtef-2@workspace:types/gtef-2":
+"@girs/gtef-2@workspace:^, @girs/gtef-2@workspace:types/gtef-2":
   version: 0.0.0-use.local
   resolution: "@girs/gtef-2@workspace:types/gtef-2"
   dependencies:
@@ -4867,7 +4867,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gtkchamplain-0.12@workspace:types/gtkchamplain-0.12":
+"@girs/gtkchamplain-0.12@workspace:^, @girs/gtkchamplain-0.12@workspace:types/gtkchamplain-0.12":
   version: 0.0.0-use.local
   resolution: "@girs/gtkchamplain-0.12@workspace:types/gtkchamplain-0.12"
   dependencies:
@@ -4896,7 +4896,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gtkclutter-1.0@workspace:types/gtkclutter-1.0":
+"@girs/gtkclutter-1.0@workspace:^, @girs/gtkclutter-1.0@workspace:types/gtkclutter-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gtkclutter-1.0@workspace:types/gtkclutter-1.0"
   dependencies:
@@ -4946,7 +4946,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gtksource-300@workspace:types/gtksource-300":
+"@girs/gtksource-300@workspace:^, @girs/gtksource-300@workspace:types/gtksource-300":
   version: 0.0.0-use.local
   resolution: "@girs/gtksource-300@workspace:types/gtksource-300"
   dependencies:
@@ -4990,7 +4990,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gtksource-5@workspace:types/gtksource-5":
+"@girs/gtksource-5@workspace:^, @girs/gtksource-5@workspace:types/gtksource-5":
   version: 0.0.0-use.local
   resolution: "@girs/gtksource-5@workspace:types/gtksource-5"
   dependencies:
@@ -5013,7 +5013,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gtkspell-3.0@workspace:types/gtkspell-3.0":
+"@girs/gtkspell-3.0@workspace:^, @girs/gtkspell-3.0@workspace:types/gtkspell-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/gtkspell-3.0@workspace:types/gtkspell-3.0"
   dependencies:
@@ -5035,7 +5035,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gtkvnc-2.0@workspace:types/gtkvnc-2.0":
+"@girs/gtkvnc-2.0@workspace:^, @girs/gtkvnc-2.0@workspace:types/gtkvnc-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/gtkvnc-2.0@workspace:types/gtkvnc-2.0"
   dependencies:
@@ -5058,7 +5058,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gtop-2.0@workspace:types/gtop-2.0":
+"@girs/gtop-2.0@workspace:^, @girs/gtop-2.0@workspace:types/gtop-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/gtop-2.0@workspace:types/gtop-2.0"
   dependencies:
@@ -5069,7 +5069,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gucharmap-2.90@workspace:types/gucharmap-2.90":
+"@girs/gucharmap-2.90@workspace:^, @girs/gucharmap-2.90@workspace:types/gucharmap-2.90":
   version: 0.0.0-use.local
   resolution: "@girs/gucharmap-2.90@workspace:types/gucharmap-2.90"
   dependencies:
@@ -5102,7 +5102,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/guestfs-1.0@workspace:types/guestfs-1.0":
+"@girs/guestfs-1.0@workspace:^, @girs/guestfs-1.0@workspace:types/guestfs-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/guestfs-1.0@workspace:types/guestfs-1.0"
   dependencies:
@@ -5114,7 +5114,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gupnp-1.0@workspace:types/gupnp-1.0":
+"@girs/gupnp-1.0@workspace:^, @girs/gupnp-1.0@workspace:types/gupnp-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gupnp-1.0@workspace:types/gupnp-1.0"
   dependencies:
@@ -5171,7 +5171,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gupnpdlna-1.0@workspace:types/gupnpdlna-1.0":
+"@girs/gupnpdlna-1.0@workspace:^, @girs/gupnpdlna-1.0@workspace:types/gupnpdlna-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gupnpdlna-1.0@workspace:types/gupnpdlna-1.0"
   dependencies:
@@ -5200,7 +5200,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gupnpdlnagst-2.0@workspace:types/gupnpdlnagst-2.0":
+"@girs/gupnpdlnagst-2.0@workspace:^, @girs/gupnpdlnagst-2.0@workspace:types/gupnpdlnagst-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/gupnpdlnagst-2.0@workspace:types/gupnpdlnagst-2.0"
   dependencies:
@@ -5218,7 +5218,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gupnpigd-1.0@workspace:types/gupnpigd-1.0":
+"@girs/gupnpigd-1.0@workspace:^, @girs/gupnpigd-1.0@workspace:types/gupnpigd-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gupnpigd-1.0@workspace:types/gupnpigd-1.0"
   dependencies:
@@ -5229,7 +5229,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gupnpigd-1.6@workspace:types/gupnpigd-1.6":
+"@girs/gupnpigd-1.6@workspace:^, @girs/gupnpigd-1.6@workspace:types/gupnpigd-1.6":
   version: 0.0.0-use.local
   resolution: "@girs/gupnpigd-1.6@workspace:types/gupnpigd-1.6"
   dependencies:
@@ -5277,7 +5277,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gvncpulse-1.0@workspace:types/gvncpulse-1.0":
+"@girs/gvncpulse-1.0@workspace:^, @girs/gvncpulse-1.0@workspace:types/gvncpulse-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gvncpulse-1.0@workspace:types/gvncpulse-1.0"
   dependencies:
@@ -5290,7 +5290,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gweather-3.0@workspace:types/gweather-3.0":
+"@girs/gweather-3.0@workspace:^, @girs/gweather-3.0@workspace:types/gweather-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/gweather-3.0@workspace:types/gweather-3.0"
   dependencies:
@@ -5312,7 +5312,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gweather-4.0@workspace:types/gweather-4.0":
+"@girs/gweather-4.0@workspace:^, @girs/gweather-4.0@workspace:types/gweather-4.0":
   version: 0.0.0-use.local
   resolution: "@girs/gweather-4.0@workspace:types/gweather-4.0"
   dependencies:
@@ -5324,7 +5324,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gxml-0.14@workspace:types/gxml-0.14":
+"@girs/gxml-0.14@workspace:^, @girs/gxml-0.14@workspace:types/gxml-0.14":
   version: 0.0.0-use.local
   resolution: "@girs/gxml-0.14@workspace:types/gxml-0.14"
   dependencies:
@@ -5338,7 +5338,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gxml-0.16@workspace:types/gxml-0.16":
+"@girs/gxml-0.16@workspace:^, @girs/gxml-0.16@workspace:types/gxml-0.16":
   version: 0.0.0-use.local
   resolution: "@girs/gxml-0.16@workspace:types/gxml-0.16"
   dependencies:
@@ -5352,7 +5352,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gxml-0.18@workspace:types/gxml-0.18":
+"@girs/gxml-0.18@workspace:^, @girs/gxml-0.18@workspace:types/gxml-0.18":
   version: 0.0.0-use.local
   resolution: "@girs/gxml-0.18@workspace:types/gxml-0.18"
   dependencies:
@@ -5380,7 +5380,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gxps-0.1@workspace:types/gxps-0.1":
+"@girs/gxps-0.1@workspace:^, @girs/gxps-0.1@workspace:types/gxps-0.1":
   version: 0.0.0-use.local
   resolution: "@girs/gxps-0.1@workspace:types/gxps-0.1"
   dependencies:
@@ -5393,7 +5393,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gxps-1.0@workspace:types/gxps-1.0":
+"@girs/gxps-1.0@workspace:^, @girs/gxps-1.0@workspace:types/gxps-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gxps-1.0@workspace:types/gxps-1.0"
   dependencies:
@@ -5406,7 +5406,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/handy-0.0@workspace:types/handy-0.0":
+"@girs/handy-0.0@workspace:^, @girs/handy-0.0@workspace:types/handy-0.0":
   version: 0.0.0-use.local
   resolution: "@girs/handy-0.0@workspace:types/handy-0.0"
   dependencies:
@@ -5428,7 +5428,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/handy-1@workspace:types/handy-1":
+"@girs/handy-1@workspace:^, @girs/handy-1@workspace:types/handy-1":
   version: 0.0.0-use.local
   resolution: "@girs/handy-1@workspace:types/handy-1"
   dependencies:
@@ -5462,7 +5462,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/ianjuta-3.0@workspace:types/ianjuta-3.0":
+"@girs/ianjuta-3.0@workspace:^, @girs/ianjuta-3.0@workspace:types/ianjuta-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/ianjuta-3.0@workspace:types/ianjuta-3.0"
   dependencies:
@@ -5486,7 +5486,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/ibus-1.0@workspace:types/ibus-1.0":
+"@girs/ibus-1.0@workspace:^, @girs/ibus-1.0@workspace:types/ibus-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/ibus-1.0@workspace:types/ibus-1.0"
   dependencies:
@@ -5498,7 +5498,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/ical-3.0@workspace:types/ical-3.0":
+"@girs/ical-3.0@workspace:^, @girs/ical-3.0@workspace:types/ical-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/ical-3.0@workspace:types/ical-3.0"
   dependencies:
@@ -5592,7 +5592,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/jcat-1.0@workspace:types/jcat-1.0":
+"@girs/jcat-1.0@workspace:^, @girs/jcat-1.0@workspace:types/jcat-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/jcat-1.0@workspace:types/jcat-1.0"
   dependencies:
@@ -5605,7 +5605,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/jscore-3.0@workspace:types/jscore-3.0":
+"@girs/jscore-3.0@workspace:^, @girs/jscore-3.0@workspace:types/jscore-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/jscore-3.0@workspace:types/jscore-3.0"
   dependencies:
@@ -5627,7 +5627,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/jsonrpc-1.0@workspace:types/jsonrpc-1.0":
+"@girs/jsonrpc-1.0@workspace:^, @girs/jsonrpc-1.0@workspace:types/jsonrpc-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/jsonrpc-1.0@workspace:types/jsonrpc-1.0"
   dependencies:
@@ -5639,7 +5639,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/libmsi-1.0@workspace:types/libmsi-1.0":
+"@girs/libmsi-1.0@workspace:^, @girs/libmsi-1.0@workspace:types/libmsi-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/libmsi-1.0@workspace:types/libmsi-1.0"
   dependencies:
@@ -5651,7 +5651,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/libosinfo-1.0@workspace:types/libosinfo-1.0":
+"@girs/libosinfo-1.0@workspace:^, @girs/libosinfo-1.0@workspace:types/libosinfo-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/libosinfo-1.0@workspace:types/libosinfo-1.0"
   dependencies:
@@ -5664,7 +5664,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/libproxy-1.0@workspace:types/libproxy-1.0":
+"@girs/libproxy-1.0@workspace:^, @girs/libproxy-1.0@workspace:types/libproxy-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/libproxy-1.0@workspace:types/libproxy-1.0"
   dependencies:
@@ -5699,7 +5699,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/libvirtgobject-1.0@workspace:types/libvirtgobject-1.0":
+"@girs/libvirtgobject-1.0@workspace:^, @girs/libvirtgobject-1.0@workspace:types/libvirtgobject-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/libvirtgobject-1.0@workspace:types/libvirtgobject-1.0"
   dependencies:
@@ -5736,7 +5736,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/malcontentui-1@workspace:types/malcontentui-1":
+"@girs/malcontentui-1@workspace:^, @girs/malcontentui-1@workspace:types/malcontentui-1":
   version: 0.0.0-use.local
   resolution: "@girs/malcontentui-1@workspace:types/malcontentui-1"
   dependencies:
@@ -5762,7 +5762,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/manette-0.2@workspace:types/manette-0.2":
+"@girs/manette-0.2@workspace:^, @girs/manette-0.2@workspace:types/manette-0.2":
   version: 0.0.0-use.local
   resolution: "@girs/manette-0.2@workspace:types/manette-0.2"
   dependencies:
@@ -5775,7 +5775,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/mash-0.2@workspace:types/mash-0.2":
+"@girs/mash-0.2@workspace:^, @girs/mash-0.2@workspace:types/mash-0.2":
   version: 0.0.0-use.local
   resolution: "@girs/mash-0.2@workspace:types/mash-0.2"
   dependencies:
@@ -5801,7 +5801,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/mbim-1.0@workspace:types/mbim-1.0":
+"@girs/mbim-1.0@workspace:^, @girs/mbim-1.0@workspace:types/mbim-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/mbim-1.0@workspace:types/mbim-1.0"
   dependencies:
@@ -5813,7 +5813,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/mediaart-1.0@workspace:types/mediaart-1.0":
+"@girs/mediaart-1.0@workspace:^, @girs/mediaart-1.0@workspace:types/mediaart-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/mediaart-1.0@workspace:types/mediaart-1.0"
   dependencies:
@@ -5825,7 +5825,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/mediaart-2.0@workspace:types/mediaart-2.0":
+"@girs/mediaart-2.0@workspace:^, @girs/mediaart-2.0@workspace:types/mediaart-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/mediaart-2.0@workspace:types/mediaart-2.0"
   dependencies:
@@ -5837,7 +5837,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/meta-10@workspace:types/meta-10":
+"@girs/meta-10@workspace:^, @girs/meta-10@workspace:types/meta-10":
   version: 0.0.0-use.local
   resolution: "@girs/meta-10@workspace:types/meta-10"
   dependencies:
@@ -5981,7 +5981,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/metatest-12@workspace:types/metatest-12":
+"@girs/metatest-12@workspace:^, @girs/metatest-12@workspace:types/metatest-12":
   version: 0.0.0-use.local
   resolution: "@girs/metatest-12@workspace:types/metatest-12"
   dependencies:
@@ -6009,7 +6009,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/metatest-13@workspace:types/metatest-13":
+"@girs/metatest-13@workspace:^, @girs/metatest-13@workspace:types/metatest-13":
   version: 0.0.0-use.local
   resolution: "@girs/metatest-13@workspace:types/metatest-13"
   dependencies:
@@ -6038,7 +6038,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/metatest-14@workspace:types/metatest-14":
+"@girs/metatest-14@workspace:^, @girs/metatest-14@workspace:types/metatest-14":
   version: 0.0.0-use.local
   resolution: "@girs/metatest-14@workspace:types/metatest-14"
   dependencies:
@@ -6066,7 +6066,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/modemmanager-1.0@workspace:types/modemmanager-1.0":
+"@girs/modemmanager-1.0@workspace:^, @girs/modemmanager-1.0@workspace:types/modemmanager-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/modemmanager-1.0@workspace:types/modemmanager-1.0"
   dependencies:
@@ -6103,7 +6103,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/mx-1.0@workspace:types/mx-1.0":
+"@girs/mx-1.0@workspace:^, @girs/mx-1.0@workspace:types/mx-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/mx-1.0@workspace:types/mx-1.0"
   dependencies:
@@ -6129,7 +6129,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/mx-2.0@workspace:types/mx-2.0":
+"@girs/mx-2.0@workspace:^, @girs/mx-2.0@workspace:types/mx-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/mx-2.0@workspace:types/mx-2.0"
   dependencies:
@@ -6155,7 +6155,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/mxgtk-1.0@workspace:types/mxgtk-1.0":
+"@girs/mxgtk-1.0@workspace:^, @girs/mxgtk-1.0@workspace:types/mxgtk-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/mxgtk-1.0@workspace:types/mxgtk-1.0"
   dependencies:
@@ -6187,7 +6187,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/mypaintgegl-1.6@workspace:types/mypaintgegl-1.6":
+"@girs/mypaintgegl-1.6@workspace:^, @girs/mypaintgegl-1.6@workspace:types/mypaintgegl-1.6":
   version: 0.0.0-use.local
   resolution: "@girs/mypaintgegl-1.6@workspace:types/mypaintgegl-1.6"
   dependencies:
@@ -6201,7 +6201,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/nautilus-3.0@workspace:types/nautilus-3.0":
+"@girs/nautilus-3.0@workspace:^, @girs/nautilus-3.0@workspace:types/nautilus-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/nautilus-3.0@workspace:types/nautilus-3.0"
   dependencies:
@@ -6223,7 +6223,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/nautilus-4.0@workspace:types/nautilus-4.0":
+"@girs/nautilus-4.0@workspace:^, @girs/nautilus-4.0@workspace:types/nautilus-4.0":
   version: 0.0.0-use.local
   resolution: "@girs/nautilus-4.0@workspace:types/nautilus-4.0"
   dependencies:
@@ -6247,7 +6247,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/nice-0.1@workspace:types/nice-0.1":
+"@girs/nice-0.1@workspace:^, @girs/nice-0.1@workspace:types/nice-0.1":
   version: 0.0.0-use.local
   resolution: "@girs/nice-0.1@workspace:types/nice-0.1"
   dependencies:
@@ -6271,7 +6271,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/nma-1.0@workspace:types/nma-1.0":
+"@girs/nma-1.0@workspace:^, @girs/nma-1.0@workspace:types/nma-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/nma-1.0@workspace:types/nma-1.0"
   dependencies:
@@ -6294,7 +6294,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/nma4-1.0@workspace:types/nma4-1.0":
+"@girs/nma4-1.0@workspace:^, @girs/nma4-1.0@workspace:types/nma4-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/nma4-1.0@workspace:types/nma4-1.0"
   dependencies:
@@ -6332,7 +6332,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/nmgtk-1.0@workspace:types/nmgtk-1.0":
+"@girs/nmgtk-1.0@workspace:^, @girs/nmgtk-1.0@workspace:types/nmgtk-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/nmgtk-1.0@workspace:types/nmgtk-1.0"
   dependencies:
@@ -6357,7 +6357,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/notify-0.7@workspace:types/notify-0.7":
+"@girs/notify-0.7@workspace:^, @girs/notify-0.7@workspace:types/notify-0.7":
   version: 0.0.0-use.local
   resolution: "@girs/notify-0.7@workspace:types/notify-0.7"
   dependencies:
@@ -6371,7 +6371,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/ostree-1.0@workspace:types/ostree-1.0":
+"@girs/ostree-1.0@workspace:^, @girs/ostree-1.0@workspace:types/ostree-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/ostree-1.0@workspace:types/ostree-1.0"
   dependencies:
@@ -6383,7 +6383,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/p11kit-1.0@workspace:types/p11kit-1.0":
+"@girs/p11kit-1.0@workspace:^, @girs/p11kit-1.0@workspace:types/p11kit-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/p11kit-1.0@workspace:types/p11kit-1.0"
   dependencies:
@@ -6405,7 +6405,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/packagekitplugin-1.0@workspace:types/packagekitplugin-1.0":
+"@girs/packagekitplugin-1.0@workspace:^, @girs/packagekitplugin-1.0@workspace:types/packagekitplugin-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/packagekitplugin-1.0@workspace:types/packagekitplugin-1.0"
   dependencies:
@@ -6418,7 +6418,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/panel-1@workspace:types/panel-1":
+"@girs/panel-1@workspace:^, @girs/panel-1@workspace:types/panel-1":
   version: 0.0.0-use.local
   resolution: "@girs/panel-1@workspace:types/panel-1"
   dependencies:
@@ -6442,7 +6442,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/panelapplet-4.0@workspace:types/panelapplet-4.0":
+"@girs/panelapplet-4.0@workspace:^, @girs/panelapplet-4.0@workspace:types/panelapplet-4.0":
   version: 0.0.0-use.local
   resolution: "@girs/panelapplet-4.0@workspace:types/panelapplet-4.0"
   dependencies:
@@ -6549,7 +6549,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/pangoxft-1.0@workspace:types/pangoxft-1.0":
+"@girs/pangoxft-1.0@workspace:^, @girs/pangoxft-1.0@workspace:types/pangoxft-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/pangoxft-1.0@workspace:types/pangoxft-1.0"
   dependencies:
@@ -6571,7 +6571,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/parquet-1.0@workspace:types/parquet-1.0":
+"@girs/parquet-1.0@workspace:^, @girs/parquet-1.0@workspace:types/parquet-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/parquet-1.0@workspace:types/parquet-1.0"
   dependencies:
@@ -6584,7 +6584,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/passim-1.0@workspace:types/passim-1.0":
+"@girs/passim-1.0@workspace:^, @girs/passim-1.0@workspace:types/passim-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/passim-1.0@workspace:types/passim-1.0"
   dependencies:
@@ -6610,7 +6610,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/peas-2@workspace:types/peas-2":
+"@girs/peas-2@workspace:^, @girs/peas-2@workspace:types/peas-2":
   version: 0.0.0-use.local
   resolution: "@girs/peas-2@workspace:types/peas-2"
   dependencies:
@@ -6623,7 +6623,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/peasgtk-1.0@workspace:types/peasgtk-1.0":
+"@girs/peasgtk-1.0@workspace:^, @girs/peasgtk-1.0@workspace:types/peasgtk-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/peasgtk-1.0@workspace:types/peasgtk-1.0"
   dependencies:
@@ -6647,7 +6647,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/plasma-1.0@workspace:types/plasma-1.0":
+"@girs/plasma-1.0@workspace:^, @girs/plasma-1.0@workspace:types/plasma-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/plasma-1.0@workspace:types/plasma-1.0"
   dependencies:
@@ -6661,7 +6661,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/pnl-1.0@workspace:types/pnl-1.0":
+"@girs/pnl-1.0@workspace:^, @girs/pnl-1.0@workspace:types/pnl-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/pnl-1.0@workspace:types/pnl-1.0"
   dependencies:
@@ -6708,7 +6708,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/poppler-0.18@workspace:types/poppler-0.18":
+"@girs/poppler-0.18@workspace:^, @girs/poppler-0.18@workspace:types/poppler-0.18":
   version: 0.0.0-use.local
   resolution: "@girs/poppler-0.18@workspace:types/poppler-0.18"
   dependencies:
@@ -6721,7 +6721,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/qmi-1.0@workspace:types/qmi-1.0":
+"@girs/qmi-1.0@workspace:^, @girs/qmi-1.0@workspace:types/qmi-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/qmi-1.0@workspace:types/qmi-1.0"
   dependencies:
@@ -6772,7 +6772,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/restextras-0.7@workspace:types/restextras-0.7":
+"@girs/restextras-0.7@workspace:^, @girs/restextras-0.7@workspace:types/restextras-0.7":
   version: 0.0.0-use.local
   resolution: "@girs/restextras-0.7@workspace:types/restextras-0.7"
   dependencies:
@@ -6787,7 +6787,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/restextras-1.0@workspace:types/restextras-1.0":
+"@girs/restextras-1.0@workspace:^, @girs/restextras-1.0@workspace:types/restextras-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/restextras-1.0@workspace:types/restextras-1.0"
   dependencies:
@@ -6801,7 +6801,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/retro-0.14@workspace:types/retro-0.14":
+"@girs/retro-0.14@workspace:^, @girs/retro-0.14@workspace:types/retro-0.14":
   version: 0.0.0-use.local
   resolution: "@girs/retro-0.14@workspace:types/retro-0.14"
   dependencies:
@@ -6823,7 +6823,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/retro-1@workspace:types/retro-1":
+"@girs/retro-1@workspace:^, @girs/retro-1@workspace:types/retro-1":
   version: 0.0.0-use.local
   resolution: "@girs/retro-1@workspace:types/retro-1"
   dependencies:
@@ -6845,7 +6845,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/retro-2@workspace:types/retro-2":
+"@girs/retro-2@workspace:^, @girs/retro-2@workspace:types/retro-2":
   version: 0.0.0-use.local
   resolution: "@girs/retro-2@workspace:types/retro-2"
   dependencies:
@@ -6868,7 +6868,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/rsvg-2.0@workspace:types/rsvg-2.0":
+"@girs/rsvg-2.0@workspace:^, @girs/rsvg-2.0@workspace:types/rsvg-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/rsvg-2.0@workspace:types/rsvg-2.0"
   dependencies:
@@ -6955,7 +6955,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/rygelrenderergst-2.6@workspace:types/rygelrenderergst-2.6":
+"@girs/rygelrenderergst-2.6@workspace:^, @girs/rygelrenderergst-2.6@workspace:types/rygelrenderergst-2.6":
   version: 0.0.0-use.local
   resolution: "@girs/rygelrenderergst-2.6@workspace:types/rygelrenderergst-2.6"
   dependencies:
@@ -6977,7 +6977,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/rygelrenderergst-2.8@workspace:types/rygelrenderergst-2.8":
+"@girs/rygelrenderergst-2.8@workspace:^, @girs/rygelrenderergst-2.8@workspace:types/rygelrenderergst-2.8":
   version: 0.0.0-use.local
   resolution: "@girs/rygelrenderergst-2.8@workspace:types/rygelrenderergst-2.8"
   dependencies:
@@ -6999,7 +6999,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/rygelserver-2.6@workspace:types/rygelserver-2.6":
+"@girs/rygelserver-2.6@workspace:^, @girs/rygelserver-2.6@workspace:types/rygelserver-2.6":
   version: 0.0.0-use.local
   resolution: "@girs/rygelserver-2.6@workspace:types/rygelserver-2.6"
   dependencies:
@@ -7018,7 +7018,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/rygelserver-2.8@workspace:types/rygelserver-2.8":
+"@girs/rygelserver-2.8@workspace:^, @girs/rygelserver-2.8@workspace:types/rygelserver-2.8":
   version: 0.0.0-use.local
   resolution: "@girs/rygelserver-2.8@workspace:types/rygelserver-2.8"
   dependencies:
@@ -7049,7 +7049,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/secretunstable-0@workspace:types/secretunstable-0":
+"@girs/secretunstable-0@workspace:^, @girs/secretunstable-0@workspace:types/secretunstable-0":
   version: 0.0.0-use.local
   resolution: "@girs/secretunstable-0@workspace:types/secretunstable-0"
   dependencies:
@@ -7062,7 +7062,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/shell-0.1@workspace:types/shell-0.1":
+"@girs/shell-0.1@workspace:^, @girs/shell-0.1@workspace:types/shell-0.1":
   version: 0.0.0-use.local
   resolution: "@girs/shell-0.1@workspace:types/shell-0.1"
   dependencies:
@@ -7102,7 +7102,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/shell-12@workspace:types/shell-12":
+"@girs/shell-12@workspace:^, @girs/shell-12@workspace:types/shell-12":
   version: 0.0.0-use.local
   resolution: "@girs/shell-12@workspace:types/shell-12"
   dependencies:
@@ -7140,7 +7140,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/shell-13@workspace:types/shell-13":
+"@girs/shell-13@workspace:^, @girs/shell-13@workspace:types/shell-13":
   version: 0.0.0-use.local
   resolution: "@girs/shell-13@workspace:types/shell-13"
   dependencies:
@@ -7179,7 +7179,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/shell-14@workspace:types/shell-14":
+"@girs/shell-14@workspace:^, @girs/shell-14@workspace:types/shell-14":
   version: 0.0.0-use.local
   resolution: "@girs/shell-14@workspace:types/shell-14"
   dependencies:
@@ -7217,7 +7217,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/shew-0@workspace:types/shew-0":
+"@girs/shew-0@workspace:^, @girs/shew-0@workspace:types/shew-0":
   version: 0.0.0-use.local
   resolution: "@girs/shew-0@workspace:types/shew-0"
   dependencies:
@@ -7240,7 +7240,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/shumate-1.0@workspace:types/shumate-1.0":
+"@girs/shumate-1.0@workspace:^, @girs/shumate-1.0@workspace:types/shumate-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/shumate-1.0@workspace:types/shumate-1.0"
   dependencies:
@@ -7263,7 +7263,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/signon-2.0@workspace:types/signon-2.0":
+"@girs/signon-2.0@workspace:^, @girs/signon-2.0@workspace:types/signon-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/signon-2.0@workspace:types/signon-2.0"
   dependencies:
@@ -7275,7 +7275,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/snapd-1@workspace:types/snapd-1":
+"@girs/snapd-1@workspace:^, @girs/snapd-1@workspace:types/snapd-1":
   version: 0.0.0-use.local
   resolution: "@girs/snapd-1@workspace:types/snapd-1"
   dependencies:
@@ -7323,7 +7323,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/soupgnome-2.4@workspace:types/soupgnome-2.4":
+"@girs/soupgnome-2.4@workspace:^, @girs/soupgnome-2.4@workspace:types/soupgnome-2.4":
   version: 0.0.0-use.local
   resolution: "@girs/soupgnome-2.4@workspace:types/soupgnome-2.4"
   dependencies:
@@ -7351,7 +7351,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/spiceclientgtk-3.0@workspace:types/spiceclientgtk-3.0":
+"@girs/spiceclientgtk-3.0@workspace:^, @girs/spiceclientgtk-3.0@workspace:types/spiceclientgtk-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/spiceclientgtk-3.0@workspace:types/spiceclientgtk-3.0"
   dependencies:
@@ -7503,7 +7503,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/sushi-1.0@workspace:types/sushi-1.0":
+"@girs/sushi-1.0@workspace:^, @girs/sushi-1.0@workspace:types/sushi-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/sushi-1.0@workspace:types/sushi-1.0"
   dependencies:
@@ -7541,7 +7541,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/telepathyfarstream-0.6@workspace:types/telepathyfarstream-0.6":
+"@girs/telepathyfarstream-0.6@workspace:^, @girs/telepathyfarstream-0.6@workspace:types/telepathyfarstream-0.6":
   version: 0.0.0-use.local
   resolution: "@girs/telepathyfarstream-0.6@workspace:types/telepathyfarstream-0.6"
   dependencies:
@@ -7569,7 +7569,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/telepathylogger-0.2@workspace:types/telepathylogger-0.2":
+"@girs/telepathylogger-0.2@workspace:^, @girs/telepathylogger-0.2@workspace:types/telepathylogger-0.2":
   version: 0.0.0-use.local
   resolution: "@girs/telepathylogger-0.2@workspace:types/telepathylogger-0.2"
   dependencies:
@@ -7594,7 +7594,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/tepl-4@workspace:types/tepl-4":
+"@girs/tepl-4@workspace:^, @girs/tepl-4@workspace:types/tepl-4":
   version: 0.0.0-use.local
   resolution: "@girs/tepl-4@workspace:types/tepl-4"
   dependencies:
@@ -7618,7 +7618,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/tepl-5@workspace:types/tepl-5":
+"@girs/tepl-5@workspace:^, @girs/tepl-5@workspace:types/tepl-5":
   version: 0.0.0-use.local
   resolution: "@girs/tepl-5@workspace:types/tepl-5"
   dependencies:
@@ -7642,7 +7642,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/tepl-6@workspace:types/tepl-6":
+"@girs/tepl-6@workspace:^, @girs/tepl-6@workspace:types/tepl-6":
   version: 0.0.0-use.local
   resolution: "@girs/tepl-6@workspace:types/tepl-6"
   dependencies:
@@ -7666,7 +7666,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/timezonemap-1.0@workspace:types/timezonemap-1.0":
+"@girs/timezonemap-1.0@workspace:^, @girs/timezonemap-1.0@workspace:types/timezonemap-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/timezonemap-1.0@workspace:types/timezonemap-1.0"
   dependencies:
@@ -7689,7 +7689,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/totem-1.0@workspace:types/totem-1.0":
+"@girs/totem-1.0@workspace:^, @girs/totem-1.0@workspace:types/totem-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/totem-1.0@workspace:types/totem-1.0"
   dependencies:
@@ -7736,7 +7736,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/tracker-2.0@workspace:types/tracker-2.0":
+"@girs/tracker-2.0@workspace:^, @girs/tracker-2.0@workspace:types/tracker-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/tracker-2.0@workspace:types/tracker-2.0"
   dependencies:
@@ -7748,7 +7748,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/tracker-3.0@workspace:types/tracker-3.0":
+"@girs/tracker-3.0@workspace:^, @girs/tracker-3.0@workspace:types/tracker-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/tracker-3.0@workspace:types/tracker-3.0"
   dependencies:
@@ -7760,7 +7760,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/trackercontrol-1.0@workspace:types/trackercontrol-1.0":
+"@girs/trackercontrol-1.0@workspace:^, @girs/trackercontrol-1.0@workspace:types/trackercontrol-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/trackercontrol-1.0@workspace:types/trackercontrol-1.0"
   dependencies:
@@ -7772,7 +7772,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/trackercontrol-2.0@workspace:types/trackercontrol-2.0":
+"@girs/trackercontrol-2.0@workspace:^, @girs/trackercontrol-2.0@workspace:types/trackercontrol-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/trackercontrol-2.0@workspace:types/trackercontrol-2.0"
   dependencies:
@@ -7784,7 +7784,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/trackerminer-1.0@workspace:types/trackerminer-1.0":
+"@girs/trackerminer-1.0@workspace:^, @girs/trackerminer-1.0@workspace:types/trackerminer-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/trackerminer-1.0@workspace:types/trackerminer-1.0"
   dependencies:
@@ -7798,7 +7798,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/trackerminer-2.0@workspace:types/trackerminer-2.0":
+"@girs/trackerminer-2.0@workspace:^, @girs/trackerminer-2.0@workspace:types/trackerminer-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/trackerminer-2.0@workspace:types/trackerminer-2.0"
   dependencies:
@@ -7810,7 +7810,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/udisks-2.0@workspace:types/udisks-2.0":
+"@girs/udisks-2.0@workspace:^, @girs/udisks-2.0@workspace:types/udisks-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/udisks-2.0@workspace:types/udisks-2.0"
   dependencies:
@@ -7822,7 +7822,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/uhm-0.0@workspace:types/uhm-0.0":
+"@girs/uhm-0.0@workspace:^, @girs/uhm-0.0@workspace:types/uhm-0.0":
   version: 0.0.0-use.local
   resolution: "@girs/uhm-0.0@workspace:types/uhm-0.0"
   dependencies:
@@ -7835,7 +7835,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/uhm-1.0@workspace:types/uhm-1.0":
+"@girs/uhm-1.0@workspace:^, @girs/uhm-1.0@workspace:types/uhm-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/uhm-1.0@workspace:types/uhm-1.0"
   dependencies:
@@ -7848,7 +7848,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/umockdev-1.0@workspace:types/umockdev-1.0":
+"@girs/umockdev-1.0@workspace:^, @girs/umockdev-1.0@workspace:types/umockdev-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/umockdev-1.0@workspace:types/umockdev-1.0"
   dependencies:
@@ -7859,7 +7859,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/unique-3.0@workspace:types/unique-3.0":
+"@girs/unique-3.0@workspace:^, @girs/unique-3.0@workspace:types/unique-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/unique-3.0@workspace:types/unique-3.0"
   dependencies:
@@ -7881,7 +7881,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/unity-6.0@workspace:types/unity-6.0":
+"@girs/unity-6.0@workspace:^, @girs/unity-6.0@workspace:types/unity-6.0":
   version: 0.0.0-use.local
   resolution: "@girs/unity-6.0@workspace:types/unity-6.0"
   dependencies:
@@ -7909,7 +7909,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/unityextras-7.0@workspace:types/unityextras-7.0":
+"@girs/unityextras-7.0@workspace:^, @girs/unityextras-7.0@workspace:types/unityextras-7.0":
   version: 0.0.0-use.local
   resolution: "@girs/unityextras-7.0@workspace:types/unityextras-7.0"
   dependencies:
@@ -7922,7 +7922,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/upowerglib-1.0@workspace:types/upowerglib-1.0":
+"@girs/upowerglib-1.0@workspace:^, @girs/upowerglib-1.0@workspace:types/upowerglib-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/upowerglib-1.0@workspace:types/upowerglib-1.0"
   dependencies:
@@ -7969,7 +7969,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/vgpg-1@workspace:types/vgpg-1":
+"@girs/vgpg-1@workspace:^, @girs/vgpg-1@workspace:types/vgpg-1":
   version: 0.0.0-use.local
   resolution: "@girs/vgpg-1@workspace:types/vgpg-1"
   dependencies:
@@ -7988,7 +7988,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/vgsl-1@workspace:types/vgsl-1":
+"@girs/vgsl-1@workspace:^, @girs/vgsl-1@workspace:types/vgsl-1":
   version: 0.0.0-use.local
   resolution: "@girs/vgsl-1@workspace:types/vgsl-1"
   dependencies:
@@ -8007,7 +8007,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/vips-8.0@workspace:types/vips-8.0":
+"@girs/vips-8.0@workspace:^, @girs/vips-8.0@workspace:types/vips-8.0":
   version: 0.0.0-use.local
   resolution: "@girs/vips-8.0@workspace:types/vips-8.0"
   dependencies:
@@ -8018,7 +8018,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/vpg-1@workspace:types/vpg-1":
+"@girs/vpg-1@workspace:^, @girs/vpg-1@workspace:types/vpg-1":
   version: 0.0.0-use.local
   resolution: "@girs/vpg-1@workspace:types/vpg-1"
   dependencies:
@@ -8036,7 +8036,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/vsqlite-1@workspace:types/vsqlite-1":
+"@girs/vsqlite-1@workspace:^, @girs/vsqlite-1@workspace:types/vsqlite-1":
   version: 0.0.0-use.local
   resolution: "@girs/vsqlite-1@workspace:types/vsqlite-1"
   dependencies:
@@ -8054,7 +8054,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/vte-2.91@workspace:types/vte-2.91":
+"@girs/vte-2.91@workspace:^, @girs/vte-2.91@workspace:types/vte-2.91":
   version: 0.0.0-use.local
   resolution: "@girs/vte-2.91@workspace:types/vte-2.91"
   dependencies:
@@ -8076,7 +8076,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/vte-3.91@workspace:types/vte-3.91":
+"@girs/vte-3.91@workspace:^, @girs/vte-3.91@workspace:types/vte-3.91":
   version: 0.0.0-use.local
   resolution: "@girs/vte-3.91@workspace:types/vte-3.91"
   dependencies:
@@ -8099,7 +8099,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/vte-4-2.91@workspace:types/vte-4-2.91":
+"@girs/vte-4-2.91@workspace:^, @girs/vte-4-2.91@workspace:types/vte-4-2.91":
   version: 0.0.0-use.local
   resolution: "@girs/vte-4-2.91@workspace:types/vte-4-2.91"
   dependencies:
@@ -8132,7 +8132,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/webkit-6.0@workspace:types/webkit-6.0":
+"@girs/webkit-6.0@workspace:^, @girs/webkit-6.0@workspace:types/webkit-6.0":
   version: 0.0.0-use.local
   resolution: "@girs/webkit-6.0@workspace:types/webkit-6.0"
   dependencies:
@@ -8205,7 +8205,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/webkit2-5.0@workspace:types/webkit2-5.0":
+"@girs/webkit2-5.0@workspace:^, @girs/webkit2-5.0@workspace:types/webkit2-5.0":
   version: 0.0.0-use.local
   resolution: "@girs/webkit2-5.0@workspace:types/webkit2-5.0"
   dependencies:
@@ -8230,7 +8230,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/webkit2webextension-4.0@workspace:types/webkit2webextension-4.0":
+"@girs/webkit2webextension-4.0@workspace:^, @girs/webkit2webextension-4.0@workspace:types/webkit2webextension-4.0":
   version: 0.0.0-use.local
   resolution: "@girs/webkit2webextension-4.0@workspace:types/webkit2webextension-4.0"
   dependencies:
@@ -8254,7 +8254,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/webkit2webextension-4.1@workspace:types/webkit2webextension-4.1":
+"@girs/webkit2webextension-4.1@workspace:^, @girs/webkit2webextension-4.1@workspace:types/webkit2webextension-4.1":
   version: 0.0.0-use.local
   resolution: "@girs/webkit2webextension-4.1@workspace:types/webkit2webextension-4.1"
   dependencies:
@@ -8278,7 +8278,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/webkit2webextension-5.0@workspace:types/webkit2webextension-5.0":
+"@girs/webkit2webextension-5.0@workspace:^, @girs/webkit2webextension-5.0@workspace:types/webkit2webextension-5.0":
   version: 0.0.0-use.local
   resolution: "@girs/webkit2webextension-5.0@workspace:types/webkit2webextension-5.0"
   dependencies:
@@ -8303,7 +8303,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/webkitwebextension-6.0@workspace:types/webkitwebextension-6.0":
+"@girs/webkitwebextension-6.0@workspace:^, @girs/webkitwebextension-6.0@workspace:types/webkitwebextension-6.0":
   version: 0.0.0-use.local
   resolution: "@girs/webkitwebextension-6.0@workspace:types/webkitwebextension-6.0"
   dependencies:
@@ -8328,7 +8328,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/webkitwebprocessextension-6.0@workspace:types/webkitwebprocessextension-6.0":
+"@girs/webkitwebprocessextension-6.0@workspace:^, @girs/webkitwebprocessextension-6.0@workspace:types/webkitwebprocessextension-6.0":
   version: 0.0.0-use.local
   resolution: "@girs/webkitwebprocessextension-6.0@workspace:types/webkitwebprocessextension-6.0"
   dependencies:
@@ -8353,7 +8353,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/win32-1.0@workspace:types/win32-1.0":
+"@girs/win32-1.0@workspace:^, @girs/win32-1.0@workspace:types/win32-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/win32-1.0@workspace:types/win32-1.0"
   dependencies:
@@ -8363,7 +8363,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/wnck-3.0@workspace:types/wnck-3.0":
+"@girs/wnck-3.0@workspace:^, @girs/wnck-3.0@workspace:types/wnck-3.0":
   version: 0.0.0-use.local
   resolution: "@girs/wnck-3.0@workspace:types/wnck-3.0"
   dependencies:
@@ -8385,7 +8385,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/wp-0.5@workspace:types/wp-0.5":
+"@girs/wp-0.5@workspace:^, @girs/wp-0.5@workspace:types/wp-0.5":
   version: 0.0.0-use.local
   resolution: "@girs/wp-0.5@workspace:types/wp-0.5"
   dependencies:
@@ -8409,7 +8409,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/xdpgtk3-1.0@workspace:types/xdpgtk3-1.0":
+"@girs/xdpgtk3-1.0@workspace:^, @girs/xdpgtk3-1.0@workspace:types/xdpgtk3-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/xdpgtk3-1.0@workspace:types/xdpgtk3-1.0"
   dependencies:
@@ -8432,7 +8432,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/xdpgtk4-1.0@workspace:types/xdpgtk4-1.0":
+"@girs/xdpgtk4-1.0@workspace:^, @girs/xdpgtk4-1.0@workspace:types/xdpgtk4-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/xdpgtk4-1.0@workspace:types/xdpgtk4-1.0"
   dependencies:
@@ -8499,7 +8499,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/xmlb-2.0@workspace:types/xmlb-2.0":
+"@girs/xmlb-2.0@workspace:^, @girs/xmlb-2.0@workspace:types/xmlb-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/xmlb-2.0@workspace:types/xmlb-2.0"
   dependencies:
@@ -8511,7 +8511,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/xrandr-1.3@workspace:types/xrandr-1.3":
+"@girs/xrandr-1.3@workspace:^, @girs/xrandr-1.3@workspace:types/xrandr-1.3":
   version: 0.0.0-use.local
   resolution: "@girs/xrandr-1.3@workspace:types/xrandr-1.3"
   dependencies:
@@ -8521,7 +8521,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/zbar-1.0@workspace:types/zbar-1.0":
+"@girs/zbar-1.0@workspace:^, @girs/zbar-1.0@workspace:types/zbar-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/zbar-1.0@workspace:types/zbar-1.0"
   dependencies:
@@ -8543,7 +8543,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/zeitgeist-2.0@workspace:types/zeitgeist-2.0":
+"@girs/zeitgeist-2.0@workspace:^, @girs/zeitgeist-2.0@workspace:types/zeitgeist-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/zeitgeist-2.0@workspace:types/zeitgeist-2.0"
   dependencies:
@@ -8555,7 +8555,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/zpj-0.0@workspace:types/zpj-0.0":
+"@girs/zpj-0.0@workspace:^, @girs/zpj-0.0@workspace:types/zpj-0.0":
   version: 0.0.0-use.local
   resolution: "@girs/zpj-0.0@workspace:types/zpj-0.0"
   dependencies:
@@ -9327,6 +9327,486 @@ __metadata:
     lodash: "npm:^4.17.21"
     prettier: "npm:^3.2.5"
     rimraf: "npm:^5.0.5"
+    typescript: "npm:^5.4.2"
+  languageName: unknown
+  linkType: soft
+
+"@ts-for-gir/test-types-packages@workspace:test":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir/test-types-packages@workspace:test"
+  dependencies:
+    "@girs/accounts-1.0": "workspace:^"
+    "@girs/accountsservice-1.0": "workspace:^"
+    "@girs/adw-1": "workspace:^"
+    "@girs/amtk-4": "workspace:^"
+    "@girs/amtk-5": "workspace:^"
+    "@girs/anjuta-3.0": "workspace:^"
+    "@girs/anthy-9000": "workspace:^"
+    "@girs/appindicator3-0.1": "workspace:^"
+    "@girs/appstream-1.0": "workspace:^"
+    "@girs/appstreambuilder-1.0": "workspace:^"
+    "@girs/appstreamcompose-1.0": "workspace:^"
+    "@girs/appstreamglib-1.0": "workspace:^"
+    "@girs/arrow-1.0": "workspace:^"
+    "@girs/arrowcuda-1.0": "workspace:^"
+    "@girs/arrowdataset-1.0": "workspace:^"
+    "@girs/arrowflight-1.0": "workspace:^"
+    "@girs/atk-1.0": "workspace:^"
+    "@girs/atspi-2.0": "workspace:^"
+    "@girs/avahi-0.6": "workspace:^"
+    "@girs/avahicore-0.6": "workspace:^"
+    "@girs/ayatanaappindicator3-0.1": "workspace:^"
+    "@girs/ayatanaido3-0.4": "workspace:^"
+    "@girs/babl-0.1": "workspace:^"
+    "@girs/bamf-3": "workspace:^"
+    "@girs/blockdev-3.0": "workspace:^"
+    "@girs/builder-1.0": "workspace:^"
+    "@girs/bump-0.1": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/cally-1.0": "workspace:^"
+    "@girs/cally-10": "workspace:^"
+    "@girs/cally-11": "workspace:^"
+    "@girs/cally-12": "workspace:^"
+    "@girs/cally-13": "workspace:^"
+    "@girs/cally-14": "workspace:^"
+    "@girs/camel-1.2": "workspace:^"
+    "@girs/caribou-1.0": "workspace:^"
+    "@girs/champlain-0.12": "workspace:^"
+    "@girs/cheese-3.0": "workspace:^"
+    "@girs/cloudproviders-0.3": "workspace:^"
+    "@girs/clutter-1.0": "workspace:^"
+    "@girs/clutter-10": "workspace:^"
+    "@girs/clutter-11": "workspace:^"
+    "@girs/clutter-12": "workspace:^"
+    "@girs/clutter-13": "workspace:^"
+    "@girs/clutter-14": "workspace:^"
+    "@girs/cluttergdk-1.0": "workspace:^"
+    "@girs/cluttergst-2.0": "workspace:^"
+    "@girs/cluttergst-3.0": "workspace:^"
+    "@girs/clutterx11-1.0": "workspace:^"
+    "@girs/cogl-1.0": "workspace:^"
+    "@girs/cogl-10": "workspace:^"
+    "@girs/cogl-11": "workspace:^"
+    "@girs/cogl-12": "workspace:^"
+    "@girs/cogl-13": "workspace:^"
+    "@girs/cogl-14": "workspace:^"
+    "@girs/cogl-2.0": "workspace:^"
+    "@girs/coglgst-2.0": "workspace:^"
+    "@girs/coglpango-1.0": "workspace:^"
+    "@girs/coglpango-10": "workspace:^"
+    "@girs/coglpango-11": "workspace:^"
+    "@girs/coglpango-12": "workspace:^"
+    "@girs/coglpango-13": "workspace:^"
+    "@girs/coglpango-14": "workspace:^"
+    "@girs/coglpango-2.0": "workspace:^"
+    "@girs/colord-1.0": "workspace:^"
+    "@girs/colordgtk-1.0": "workspace:^"
+    "@girs/colorhug-1.0": "workspace:^"
+    "@girs/cudagst-1.0": "workspace:^"
+    "@girs/dazzle-1.0": "workspace:^"
+    "@girs/dbus-1.0": "workspace:^"
+    "@girs/dbusglib-1.0": "workspace:^"
+    "@girs/dbusmenu-0.4": "workspace:^"
+    "@girs/dbusmenugtk-0.4": "workspace:^"
+    "@girs/dbusmenugtk3-0.4": "workspace:^"
+    "@girs/dee-1.0": "workspace:^"
+    "@girs/devhelp-3.0": "workspace:^"
+    "@girs/dex-1": "workspace:^"
+    "@girs/dmap-3.0": "workspace:^"
+    "@girs/dmap-4.0": "workspace:^"
+    "@girs/ebackend-1.2": "workspace:^"
+    "@girs/ebook-1.2": "workspace:^"
+    "@girs/ebookcontacts-1.2": "workspace:^"
+    "@girs/ecal-2.0": "workspace:^"
+    "@girs/ecalendar-1.2": "workspace:^"
+    "@girs/edatabook-1.2": "workspace:^"
+    "@girs/edatacal-2.0": "workspace:^"
+    "@girs/edataserver-1.2": "workspace:^"
+    "@girs/edataserverui-1.2": "workspace:^"
+    "@girs/edataserverui4-1.0": "workspace:^"
+    "@girs/egg-1.0": "workspace:^"
+    "@girs/eog-3.0": "workspace:^"
+    "@girs/epc-1.0": "workspace:^"
+    "@girs/epcui-1.0": "workspace:^"
+    "@girs/evincedocument-3.0": "workspace:^"
+    "@girs/evinceview-3.0": "workspace:^"
+    "@girs/farstream-0.1": "workspace:^"
+    "@girs/farstream-0.2": "workspace:^"
+    "@girs/flatpak-1.0": "workspace:^"
+    "@girs/folks-0.6": "workspace:^"
+    "@girs/folks-0.7": "workspace:^"
+    "@girs/folksdummy-0.6": "workspace:^"
+    "@girs/folksdummy-0.7": "workspace:^"
+    "@girs/folkseds-0.6": "workspace:^"
+    "@girs/folkseds-0.7": "workspace:^"
+    "@girs/folkslibsocialweb-0.6": "workspace:^"
+    "@girs/folkstelepathy-0.6": "workspace:^"
+    "@girs/folkstelepathy-0.7": "workspace:^"
+    "@girs/fontconfig-2.0": "workspace:^"
+    "@girs/fprint-2.0": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/fwupd-2.0": "workspace:^"
+    "@girs/gandiva-1.0": "workspace:^"
+    "@girs/gcab-1.0": "workspace:^"
+    "@girs/gcalc-1": "workspace:^"
+    "@girs/gcalc-2": "workspace:^"
+    "@girs/gci-1": "workspace:^"
+    "@girs/gck-1": "workspace:^"
+    "@girs/gck-2": "workspace:^"
+    "@girs/gconf-2.0": "workspace:^"
+    "@girs/gcr-3": "workspace:^"
+    "@girs/gcr-4": "workspace:^"
+    "@girs/gcrgtk3-4": "workspace:^"
+    "@girs/gcrgtk4-4": "workspace:^"
+    "@girs/gcrui-3": "workspace:^"
+    "@girs/gd-1.0": "workspace:^"
+    "@girs/gda-5.0": "workspace:^"
+    "@girs/gda-6.0": "workspace:^"
+    "@girs/gdata-0.0": "workspace:^"
+    "@girs/gdaui-5.0": "workspace:^"
+    "@girs/gdaui-6.0": "workspace:^"
+    "@girs/gdesktopenums-3.0": "workspace:^"
+    "@girs/gdk-2.0": "workspace:^"
+    "@girs/gdk-3.0": "workspace:^"
+    "@girs/gdk-4.0": "workspace:^"
+    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/gdkpixdata-2.0": "workspace:^"
+    "@girs/gdkwayland-4.0": "workspace:^"
+    "@girs/gdkx11-2.0": "workspace:^"
+    "@girs/gdkx11-3.0": "workspace:^"
+    "@girs/gdkx11-4.0": "workspace:^"
+    "@girs/gdl-3": "workspace:^"
+    "@girs/gdm-1.0": "workspace:^"
+    "@girs/gedit-3.0": "workspace:^"
+    "@girs/gee-0.8": "workspace:^"
+    "@girs/gee-1.0": "workspace:^"
+    "@girs/gegl-0.3": "workspace:^"
+    "@girs/gegl-0.4": "workspace:^"
+    "@girs/geglgtk3-0.1": "workspace:^"
+    "@girs/geoclue-2.0": "workspace:^"
+    "@girs/geocodeglib-1.0": "workspace:^"
+    "@girs/geocodeglib-2.0": "workspace:^"
+    "@girs/gepub-0.5": "workspace:^"
+    "@girs/gepub-0.7": "workspace:^"
+    "@girs/ges-1.0": "workspace:^"
+    "@girs/gexiv2-0.10": "workspace:^"
+    "@girs/gfbgraph-0.2": "workspace:^"
+    "@girs/gfbgraph-0.3": "workspace:^"
+    "@girs/ggit-1.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/giounix-2.0": "workspace:^"
+    "@girs/girepository-2.0": "workspace:^"
+    "@girs/girepository-3.0": "workspace:^"
+    "@girs/gitg-1.0": "workspace:^"
+    "@girs/gitgext-1.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/gjsdbus-1.0": "workspace:^"
+    "@girs/gkbd-3.0": "workspace:^"
+    "@girs/gl-1.0": "workspace:^"
+    "@girs/gladeui-2.0": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/glibunix-2.0": "workspace:^"
+    "@girs/gmenu-3.0": "workspace:^"
+    "@girs/gmime-3.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gnomeautoar-0.1": "workspace:^"
+    "@girs/gnomeautoargtk-0.1": "workspace:^"
+    "@girs/gnomebg-4.0": "workspace:^"
+    "@girs/gnomebluetooth-1.0": "workspace:^"
+    "@girs/gnomebluetooth-3.0": "workspace:^"
+    "@girs/gnomedesktop-3.0": "workspace:^"
+    "@girs/gnomedesktop-4.0": "workspace:^"
+    "@girs/gnomekeyring-1.0": "workspace:^"
+    "@girs/gnomemaps-1.0": "workspace:^"
+    "@girs/gnomerr-4.0": "workspace:^"
+    "@girs/goa-1.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/gom-1.0": "workspace:^"
+    "@girs/goocanvas-2.0": "workspace:^"
+    "@girs/goocanvas-3.0": "workspace:^"
+    "@girs/govirt-1.0": "workspace:^"
+    "@girs/gpseq-1.0": "workspace:^"
+    "@girs/granite-1.0": "workspace:^"
+    "@girs/granite-7.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/grl-0.1": "workspace:^"
+    "@girs/grl-0.2": "workspace:^"
+    "@girs/grl-0.3": "workspace:^"
+    "@girs/grlnet-0.1": "workspace:^"
+    "@girs/grlnet-0.2": "workspace:^"
+    "@girs/grlnet-0.3": "workspace:^"
+    "@girs/grlpls-0.2": "workspace:^"
+    "@girs/grlpls-0.3": "workspace:^"
+    "@girs/grss-0.7": "workspace:^"
+    "@girs/gsf-1": "workspace:^"
+    "@girs/gsignon-1.0": "workspace:^"
+    "@girs/gsignond-1.0": "workspace:^"
+    "@girs/gsk-4.0": "workspace:^"
+    "@girs/gsound-1.0": "workspace:^"
+    "@girs/gspell-1": "workspace:^"
+    "@girs/gssdp-1.0": "workspace:^"
+    "@girs/gssdp-1.2": "workspace:^"
+    "@girs/gssdp-1.6": "workspace:^"
+    "@girs/gst-0.10": "workspace:^"
+    "@girs/gst-1.0": "workspace:^"
+    "@girs/gstallocators-1.0": "workspace:^"
+    "@girs/gstanalytics-1.0": "workspace:^"
+    "@girs/gstapp-1.0": "workspace:^"
+    "@girs/gstaudio-1.0": "workspace:^"
+    "@girs/gstbadallocators-1.0": "workspace:^"
+    "@girs/gstbadaudio-1.0": "workspace:^"
+    "@girs/gstbase-0.10": "workspace:^"
+    "@girs/gstbase-1.0": "workspace:^"
+    "@girs/gstcheck-1.0": "workspace:^"
+    "@girs/gstcodecs-1.0": "workspace:^"
+    "@girs/gstcontroller-1.0": "workspace:^"
+    "@girs/gstcuda-1.0": "workspace:^"
+    "@girs/gstdxva-1.0": "workspace:^"
+    "@girs/gstfft-1.0": "workspace:^"
+    "@girs/gstgl-1.0": "workspace:^"
+    "@girs/gstglegl-1.0": "workspace:^"
+    "@girs/gstglwayland-1.0": "workspace:^"
+    "@girs/gstglx11-1.0": "workspace:^"
+    "@girs/gstinsertbin-1.0": "workspace:^"
+    "@girs/gstinterfaces-0.10": "workspace:^"
+    "@girs/gstmpegts-1.0": "workspace:^"
+    "@girs/gstmse-1.0": "workspace:^"
+    "@girs/gstnet-1.0": "workspace:^"
+    "@girs/gstpbutils-0.10": "workspace:^"
+    "@girs/gstpbutils-1.0": "workspace:^"
+    "@girs/gstplay-1.0": "workspace:^"
+    "@girs/gstplayer-1.0": "workspace:^"
+    "@girs/gstriff-1.0": "workspace:^"
+    "@girs/gstrtp-1.0": "workspace:^"
+    "@girs/gstrtsp-1.0": "workspace:^"
+    "@girs/gstrtspserver-1.0": "workspace:^"
+    "@girs/gstsdp-1.0": "workspace:^"
+    "@girs/gsttag-0.10": "workspace:^"
+    "@girs/gsttag-1.0": "workspace:^"
+    "@girs/gsttranscoder-1.0": "workspace:^"
+    "@girs/gstva-1.0": "workspace:^"
+    "@girs/gstvideo-0.10": "workspace:^"
+    "@girs/gstvideo-1.0": "workspace:^"
+    "@girs/gstvulkan-1.0": "workspace:^"
+    "@girs/gstvulkanwayland-1.0": "workspace:^"
+    "@girs/gstvulkanxcb-1.0": "workspace:^"
+    "@girs/gstwebrtc-1.0": "workspace:^"
+    "@girs/gsystem-1.0": "workspace:^"
+    "@girs/gtef-2": "workspace:^"
+    "@girs/gtk-2.0": "workspace:^"
+    "@girs/gtk-3.0": "workspace:^"
+    "@girs/gtk-4.0": "workspace:^"
+    "@girs/gtkchamplain-0.12": "workspace:^"
+    "@girs/gtkclutter-1.0": "workspace:^"
+    "@girs/gtksource-3.0": "workspace:^"
+    "@girs/gtksource-300": "workspace:^"
+    "@girs/gtksource-4": "workspace:^"
+    "@girs/gtksource-5": "workspace:^"
+    "@girs/gtkspell-3.0": "workspace:^"
+    "@girs/gtkvnc-2.0": "workspace:^"
+    "@girs/gtop-2.0": "workspace:^"
+    "@girs/gucharmap-2.90": "workspace:^"
+    "@girs/gudev-1.0": "workspace:^"
+    "@girs/guestfs-1.0": "workspace:^"
+    "@girs/gupnp-1.0": "workspace:^"
+    "@girs/gupnp-1.2": "workspace:^"
+    "@girs/gupnp-1.6": "workspace:^"
+    "@girs/gupnpav-1.0": "workspace:^"
+    "@girs/gupnpdlna-1.0": "workspace:^"
+    "@girs/gupnpdlna-2.0": "workspace:^"
+    "@girs/gupnpdlnagst-2.0": "workspace:^"
+    "@girs/gupnpigd-1.0": "workspace:^"
+    "@girs/gupnpigd-1.6": "workspace:^"
+    "@girs/gusb-1.0": "workspace:^"
+    "@girs/gvc-1.0": "workspace:^"
+    "@girs/gvnc-1.0": "workspace:^"
+    "@girs/gvncpulse-1.0": "workspace:^"
+    "@girs/gweather-3.0": "workspace:^"
+    "@girs/gweather-4.0": "workspace:^"
+    "@girs/gxml-0.14": "workspace:^"
+    "@girs/gxml-0.16": "workspace:^"
+    "@girs/gxml-0.18": "workspace:^"
+    "@girs/gxml-0.20": "workspace:^"
+    "@girs/gxps-0.1": "workspace:^"
+    "@girs/gxps-1.0": "workspace:^"
+    "@girs/handy-0.0": "workspace:^"
+    "@girs/handy-1": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/ianjuta-3.0": "workspace:^"
+    "@girs/ibus-1.0": "workspace:^"
+    "@girs/ical-3.0": "workspace:^"
+    "@girs/icalglib-3.0": "workspace:^"
+    "@girs/ide-1.0": "workspace:^"
+    "@girs/javascriptcore-4.0": "workspace:^"
+    "@girs/javascriptcore-4.1": "workspace:^"
+    "@girs/javascriptcore-5.0": "workspace:^"
+    "@girs/javascriptcore-6.0": "workspace:^"
+    "@girs/jcat-1.0": "workspace:^"
+    "@girs/jscore-3.0": "workspace:^"
+    "@girs/json-1.0": "workspace:^"
+    "@girs/jsonrpc-1.0": "workspace:^"
+    "@girs/libmsi-1.0": "workspace:^"
+    "@girs/libosinfo-1.0": "workspace:^"
+    "@girs/libproxy-1.0": "workspace:^"
+    "@girs/libvirtgconfig-1.0": "workspace:^"
+    "@girs/libvirtglib-1.0": "workspace:^"
+    "@girs/libvirtgobject-1.0": "workspace:^"
+    "@girs/libxml2-2.0": "workspace:^"
+    "@girs/malcontent-0": "workspace:^"
+    "@girs/malcontentui-1": "workspace:^"
+    "@girs/manette-0.2": "workspace:^"
+    "@girs/mash-0.2": "workspace:^"
+    "@girs/mbim-1.0": "workspace:^"
+    "@girs/mediaart-1.0": "workspace:^"
+    "@girs/mediaart-2.0": "workspace:^"
+    "@girs/meta-10": "workspace:^"
+    "@girs/meta-11": "workspace:^"
+    "@girs/meta-12": "workspace:^"
+    "@girs/meta-13": "workspace:^"
+    "@girs/meta-14": "workspace:^"
+    "@girs/metatest-12": "workspace:^"
+    "@girs/metatest-13": "workspace:^"
+    "@girs/metatest-14": "workspace:^"
+    "@girs/modemmanager-1.0": "workspace:^"
+    "@girs/mtk-13": "workspace:^"
+    "@girs/mtk-14": "workspace:^"
+    "@girs/mx-1.0": "workspace:^"
+    "@girs/mx-2.0": "workspace:^"
+    "@girs/mxgtk-1.0": "workspace:^"
+    "@girs/mypaint-1.6": "workspace:^"
+    "@girs/mypaintgegl-1.6": "workspace:^"
+    "@girs/nautilus-3.0": "workspace:^"
+    "@girs/nautilus-4.0": "workspace:^"
+    "@girs/networkmanager-1.0": "workspace:^"
+    "@girs/nice-0.1": "workspace:^"
+    "@girs/nm-1.0": "workspace:^"
+    "@girs/nma-1.0": "workspace:^"
+    "@girs/nma4-1.0": "workspace:^"
+    "@girs/nmclient-1.0": "workspace:^"
+    "@girs/nmgtk-1.0": "workspace:^"
+    "@girs/notify-0.7": "workspace:^"
+    "@girs/ostree-1.0": "workspace:^"
+    "@girs/p11kit-1.0": "workspace:^"
+    "@girs/packagekitglib-1.0": "workspace:^"
+    "@girs/packagekitplugin-1.0": "workspace:^"
+    "@girs/panel-1": "workspace:^"
+    "@girs/panelapplet-4.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/pangofc-1.0": "workspace:^"
+    "@girs/pangoft2-1.0": "workspace:^"
+    "@girs/pangoot-1.0": "workspace:^"
+    "@girs/pangoxft-1.0": "workspace:^"
+    "@girs/parquet-1.0": "workspace:^"
+    "@girs/passim-1.0": "workspace:^"
+    "@girs/peas-1.0": "workspace:^"
+    "@girs/peas-2": "workspace:^"
+    "@girs/peasgtk-1.0": "workspace:^"
+    "@girs/plasma-1.0": "workspace:^"
+    "@girs/pnl-1.0": "workspace:^"
+    "@girs/polkit-1.0": "workspace:^"
+    "@girs/polkitagent-1.0": "workspace:^"
+    "@girs/poppler-0.18": "workspace:^"
+    "@girs/qmi-1.0": "workspace:^"
+    "@girs/qrtr-1.0": "workspace:^"
+    "@girs/rest-0.7": "workspace:^"
+    "@girs/rest-1.0": "workspace:^"
+    "@girs/restextras-0.7": "workspace:^"
+    "@girs/restextras-1.0": "workspace:^"
+    "@girs/retro-0.14": "workspace:^"
+    "@girs/retro-1": "workspace:^"
+    "@girs/retro-2": "workspace:^"
+    "@girs/rsvg-2.0": "workspace:^"
+    "@girs/rygelcore-2.6": "workspace:^"
+    "@girs/rygelcore-2.8": "workspace:^"
+    "@girs/rygelrenderer-2.6": "workspace:^"
+    "@girs/rygelrenderer-2.8": "workspace:^"
+    "@girs/rygelrenderergst-2.6": "workspace:^"
+    "@girs/rygelrenderergst-2.8": "workspace:^"
+    "@girs/rygelserver-2.6": "workspace:^"
+    "@girs/rygelserver-2.8": "workspace:^"
+    "@girs/secret-1": "workspace:^"
+    "@girs/secretunstable-0": "workspace:^"
+    "@girs/shell-0.1": "workspace:^"
+    "@girs/shell-12": "workspace:^"
+    "@girs/shell-13": "workspace:^"
+    "@girs/shell-14": "workspace:^"
+    "@girs/shew-0": "workspace:^"
+    "@girs/shumate-1.0": "workspace:^"
+    "@girs/signon-2.0": "workspace:^"
+    "@girs/snapd-1": "workspace:^"
+    "@girs/socialwebclient-0.25": "workspace:^"
+    "@girs/soup-2.4": "workspace:^"
+    "@girs/soup-3.0": "workspace:^"
+    "@girs/soupgnome-2.4": "workspace:^"
+    "@girs/spiceclientglib-2.0": "workspace:^"
+    "@girs/spiceclientgtk-3.0": "workspace:^"
+    "@girs/st-1.0": "workspace:^"
+    "@girs/st-12": "workspace:^"
+    "@girs/st-13": "workspace:^"
+    "@girs/st-14": "workspace:^"
+    "@girs/sushi-1.0": "workspace:^"
+    "@girs/telepathyfarstream-0.6": "workspace:^"
+    "@girs/telepathyglib-0.12": "workspace:^"
+    "@girs/telepathylogger-0.2": "workspace:^"
+    "@girs/template-1.0": "workspace:^"
+    "@girs/tepl-4": "workspace:^"
+    "@girs/tepl-5": "workspace:^"
+    "@girs/tepl-6": "workspace:^"
+    "@girs/timezonemap-1.0": "workspace:^"
+    "@girs/totem-1.0": "workspace:^"
+    "@girs/totemplparser-1.0": "workspace:^"
+    "@girs/tracker-1.0": "workspace:^"
+    "@girs/tracker-2.0": "workspace:^"
+    "@girs/tracker-3.0": "workspace:^"
+    "@girs/trackercontrol-1.0": "workspace:^"
+    "@girs/trackercontrol-2.0": "workspace:^"
+    "@girs/trackerminer-1.0": "workspace:^"
+    "@girs/trackerminer-2.0": "workspace:^"
+    "@girs/udisks-2.0": "workspace:^"
+    "@girs/uhm-0.0": "workspace:^"
+    "@girs/uhm-1.0": "workspace:^"
+    "@girs/umockdev-1.0": "workspace:^"
+    "@girs/unique-3.0": "workspace:^"
+    "@girs/unity-6.0": "workspace:^"
+    "@girs/unity-7.0": "workspace:^"
+    "@girs/unityextras-7.0": "workspace:^"
+    "@girs/upowerglib-1.0": "workspace:^"
+    "@girs/vda-1": "workspace:^"
+    "@girs/vgda-1": "workspace:^"
+    "@girs/vgpg-1": "workspace:^"
+    "@girs/vgsl-1": "workspace:^"
+    "@girs/vips-8.0": "workspace:^"
+    "@girs/vpg-1": "workspace:^"
+    "@girs/vsqlite-1": "workspace:^"
+    "@girs/vte-2.91": "workspace:^"
+    "@girs/vte-3.91": "workspace:^"
+    "@girs/vte-4-2.91": "workspace:^"
+    "@girs/vulkan-1.0": "workspace:^"
+    "@girs/webkit-6.0": "workspace:^"
+    "@girs/webkit2-4.0": "workspace:^"
+    "@girs/webkit2-4.1": "workspace:^"
+    "@girs/webkit2-5.0": "workspace:^"
+    "@girs/webkit2webextension-4.0": "workspace:^"
+    "@girs/webkit2webextension-4.1": "workspace:^"
+    "@girs/webkit2webextension-5.0": "workspace:^"
+    "@girs/webkitwebextension-6.0": "workspace:^"
+    "@girs/webkitwebprocessextension-6.0": "workspace:^"
+    "@girs/win32-1.0": "workspace:^"
+    "@girs/wnck-3.0": "workspace:^"
+    "@girs/wp-0.5": "workspace:^"
+    "@girs/xdp-1.0": "workspace:^"
+    "@girs/xdpgtk3-1.0": "workspace:^"
+    "@girs/xdpgtk4-1.0": "workspace:^"
+    "@girs/xfixes-4.0": "workspace:^"
+    "@girs/xft-2.0": "workspace:^"
+    "@girs/xkl-1.0": "workspace:^"
+    "@girs/xlib-2.0": "workspace:^"
+    "@girs/xmlb-2.0": "workspace:^"
+    "@girs/xrandr-1.3": "workspace:^"
+    "@girs/zbar-1.0": "workspace:^"
+    "@girs/zeitgeist-2.0": "workspace:^"
+    "@girs/zpj-0.0": "workspace:^"
     typescript: "npm:^5.4.2"
   languageName: unknown
   linkType: soft

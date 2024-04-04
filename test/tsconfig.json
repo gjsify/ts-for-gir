@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "lib": ["ESNext"],
+    "skipLibCheck": false,
     "types": [],
     "strict": true,
     "noImplicitAny": true,
@@ -8,6 +9,6 @@
     "noImplicitThis": true,
     "alwaysStrict": true
   },
-  "include": ["./types/**/*.ts"],
+  "include": ["types.ts"],
   "exclude": []
 }

@@ -657,19 +657,19 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gvc_mixer_card_change_profile">
         <doc xml:space="preserve"
              filename="gvc-mixer-card.c"
-             line="225">Change the profile in use on this card.</doc>
+             line="228">Change the profile in use on this card.</doc>
         <source-position filename="gvc-mixer-card.h" line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gvc-mixer-card.c"
-               line="232">%TRUE if profile successfully changed or already using this profile.</doc>
+               line="235">%TRUE if profile successfully changed or already using this profile.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="card" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gvc-mixer-card.c"
-                 line="227">a #GvcMixerCard</doc>
+                 line="230">a #GvcMixerCard</doc>
             <type name="MixerCard" c:type="GvcMixerCard*"/>
           </instance-parameter>
           <parameter name="profile"
@@ -678,7 +678,7 @@ and/or use gtk-doc annotations.  -->
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gvc-mixer-card.c"
-                 line="228">the profile to change to or %NULL.</doc>
+                 line="231">the profile to change to or %NULL.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -991,7 +991,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gvc-mixer-card.c"
-               line="301">1 if @a has a higher priority, -1 if @b has a higher
+               line="304">1 if @a has a higher priority, -1 if @b has a higher
 priority, 0 if @a and @b have the same priority.</doc>
           <type name="gint" c:type="int"/>
         </return-value>
@@ -1253,7 +1253,7 @@ priority, 0 if @a and @b have the same priority.</doc>
           <parameter name="input" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gvc-mixer-control.c"
-                 line="674">This method is called from the UI when the user selects a previously unselected device.
+                 line="673">This method is called from the UI when the user selects a previously unselected device.
 - Firstly it queries the stream from the device.
   - It assumes that if the stream is null that it cannot be a bluetooth or network stream (they never show unless they have valid sinks and sources)
   In the scenario of a NULL stream on the device
@@ -3318,7 +3318,7 @@ moves to that device it should have this profile active.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gvc-mixer-ui-device.c"
-               line="461">a profile name, valid as long as the UI device profiles are.</doc>
+               line="468">a profile name, valid as long as the UI device profiles are.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
@@ -3331,13 +3331,13 @@ moves to that device it should have this profile active.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gvc-mixer-ui-device.c"
-                 line="458">The selected profile or its canonical name or %NULL for any profile</doc>
+                 line="465">The selected profile or its canonical name or %NULL for any profile</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="current" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gvc-mixer-ui-device.c"
-                 line="459">The currently selected profile</doc>
+                 line="466">The currently selected profile</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3532,7 +3532,7 @@ moves to that device it should have this profile active.</doc>
               c:identifier="gvc_mixer_ui_device_set_profiles">
         <doc xml:space="preserve"
              filename="gvc-mixer-ui-device.c"
-             line="403">Assigns value to
+             line="407">Assigns value to
  - device-&gt;priv-&gt;profiles (profiles to be added to combobox)
  - device-&gt;priv-&gt;supported_profiles (all profiles of this port)
  - device-&gt;priv-&gt;disable_profile_swapping (whether to show the combobox)
@@ -3561,7 +3561,7 @@ It does this by the following.
           <parameter name="in_profiles" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gvc-mixer-ui-device.c"
-                 line="405">a list of GvcMixerCardProfile</doc>
+                 line="409">a list of GvcMixerCardProfile</doc>
             <type name="GLib.List" c:type="const GList*">
               <type name="MixerCardProfile"/>
             </type>

@@ -562,12 +562,12 @@ status.</doc>
                 c:identifier="cloud_providers_collector_dup_singleton">
         <doc xml:space="preserve"
              filename="src/cloudproviderscollector.c"
-             line="386">Main object to track changes in all providers.</doc>
+             line="390">Main object to track changes in all providers.</doc>
         <source-position filename="src/cloudproviderscollector.h" line="35"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/cloudproviderscollector.c"
-               line="390">A manager singleton</doc>
+               line="394">A manager singleton</doc>
           <type name="Collector" c:type="CloudProvidersCollector*"/>
         </return-value>
       </function>
@@ -577,7 +577,7 @@ status.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/cloudproviderscollector.c"
-               line="150">A GList* of #CloudProvidersProvider objects.</doc>
+               line="154">A GList* of #CloudProvidersProvider objects.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Provider"/>
           </type>
@@ -586,7 +586,7 @@ status.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/cloudproviderscollector.c"
-                 line="149">A CloudProvidersCollector</doc>
+                 line="153">A CloudProvidersCollector</doc>
             <type name="Collector" c:type="CloudProvidersCollector*"/>
           </instance-parameter>
         </parameters>
@@ -3486,7 +3486,7 @@ associated with it.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/cloudprovidersprovider.c"
-               line="429">A GList* of #CloudProvidersProvider objects.</doc>
+               line="437">A GList* of #CloudProvidersProvider objects.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Account"/>
           </type>
@@ -3495,7 +3495,7 @@ associated with it.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/cloudprovidersprovider.c"
-                 line="428">A CloudProvidersProvider</doc>
+                 line="436">A CloudProvidersProvider</doc>
             <type name="Provider" c:type="CloudProvidersProvider*"/>
           </instance-parameter>
         </parameters>

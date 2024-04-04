@@ -27594,7 +27594,7 @@ Extensions using reserved bits of the header will change them in @header.</doc>
                  c:type="SoupXMLRPCFault">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc.c"
-           line="1448">Pre-defined XML-RPC fault codes from &lt;ulink
+           line="1449">Pre-defined XML-RPC fault codes from &lt;ulink
 url="http://xmlrpc-epi.sourceforge.net/specs/rfc.fault_codes.php"&gt;http://xmlrpc-epi.sourceforge.net/specs/rfc.fault_codes.php&lt;/ulink&gt;.
 These are an extension, not part of the XML-RPC spec; you can't
 assume servers will use them.</doc>
@@ -27605,7 +27605,7 @@ assume servers will use them.</doc>
               glib:name="SOUP_XMLRPC_FAULT_PARSE_ERROR_NOT_WELL_FORMED">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="1450">request was not
+             line="1451">request was not
   well-formed</doc>
       </member>
       <member name="parse_error_unsupported_encoding"
@@ -27615,7 +27615,7 @@ assume servers will use them.</doc>
               glib:name="SOUP_XMLRPC_FAULT_PARSE_ERROR_UNSUPPORTED_ENCODING">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="1452">request was in
+             line="1453">request was in
   an unsupported encoding</doc>
       </member>
       <member name="parse_error_invalid_character_for_encoding"
@@ -27625,7 +27625,7 @@ assume servers will use them.</doc>
               glib:name="SOUP_XMLRPC_FAULT_PARSE_ERROR_INVALID_CHARACTER_FOR_ENCODING">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="1454">request contained an invalid character</doc>
+             line="1455">request contained an invalid character</doc>
       </member>
       <member name="server_error_invalid_xml_rpc"
               value="-32600"
@@ -27634,7 +27634,7 @@ assume servers will use them.</doc>
               glib:name="SOUP_XMLRPC_FAULT_SERVER_ERROR_INVALID_XML_RPC">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="1456">request was not
+             line="1457">request was not
   valid XML-RPC</doc>
       </member>
       <member name="server_error_requested_method_not_found"
@@ -27644,7 +27644,7 @@ assume servers will use them.</doc>
               glib:name="SOUP_XMLRPC_FAULT_SERVER_ERROR_REQUESTED_METHOD_NOT_FOUND">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="1458">method
+             line="1459">method
   not found</doc>
       </member>
       <member name="server_error_invalid_method_parameters"
@@ -27654,7 +27654,7 @@ assume servers will use them.</doc>
               glib:name="SOUP_XMLRPC_FAULT_SERVER_ERROR_INVALID_METHOD_PARAMETERS">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="1460">invalid
+             line="1461">invalid
   parameters</doc>
       </member>
       <member name="server_error_internal_xml_rpc_error"
@@ -27664,7 +27664,7 @@ assume servers will use them.</doc>
               glib:name="SOUP_XMLRPC_FAULT_SERVER_ERROR_INTERNAL_XML_RPC_ERROR">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="1462">internal
+             line="1463">internal
   error</doc>
       </member>
       <member name="application_error"
@@ -27674,7 +27674,7 @@ assume servers will use them.</doc>
               glib:name="SOUP_XMLRPC_FAULT_APPLICATION_ERROR">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="1464">start of reserved range for
+             line="1465">start of reserved range for
   application error codes</doc>
       </member>
       <member name="system_error"
@@ -27684,7 +27684,7 @@ assume servers will use them.</doc>
               glib:name="SOUP_XMLRPC_FAULT_SYSTEM_ERROR">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="1466">start of reserved range for
+             line="1467">start of reserved range for
   system error codes</doc>
       </member>
       <member name="transport_error"
@@ -27694,7 +27694,7 @@ assume servers will use them.</doc>
               glib:name="SOUP_XMLRPC_FAULT_TRANSPORT_ERROR">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="1468">start of reserved range for
+             line="1469">start of reserved range for
   transport error codes</doc>
       </member>
       <function name="quark" c:identifier="soup_xmlrpc_fault_quark">
@@ -27711,7 +27711,7 @@ assume servers will use them.</doc>
             version="2.52">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc.c"
-           line="1080">Opaque structure containing XML-RPC methodCall parameter values.
+           line="1081">Opaque structure containing XML-RPC methodCall parameter values.
 Can be parsed using soup_xmlrpc_params_parse() and freed with
 soup_xmlrpc_params_free().</doc>
       <source-position filename="libsoup/soup-xmlrpc.h" line="31"/>
@@ -27720,7 +27720,7 @@ soup_xmlrpc_params_free().</doc>
               version="2.52">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="1094">Free a #SoupXMLRPCParams returned by soup_xmlrpc_parse_request().</doc>
+             line="1095">Free a #SoupXMLRPCParams returned by soup_xmlrpc_parse_request().</doc>
         <source-position filename="libsoup/soup-xmlrpc.h" line="33"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -27729,7 +27729,7 @@ soup_xmlrpc_params_free().</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-xmlrpc.c"
-                 line="1096">a SoupXMLRPCParams</doc>
+                 line="1097">a SoupXMLRPCParams</doc>
             <type name="XMLRPCParams" c:type="SoupXMLRPCParams*"/>
           </instance-parameter>
         </parameters>
@@ -27740,7 +27740,7 @@ soup_xmlrpc_params_free().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="1123">Parse method parameters returned by soup_xmlrpc_parse_request().
+             line="1124">Parse method parameters returned by soup_xmlrpc_parse_request().
 
 Deserialization details:
  - If @signature is provided, &amp;lt;int&amp;gt; and &amp;lt;i4&amp;gt; can be deserialized
@@ -27764,14 +27764,14 @@ Deserialization details:
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="1150">a new (non-floating) #GVariant, or %NULL</doc>
+               line="1151">a new (non-floating) #GVariant, or %NULL</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-xmlrpc.c"
-                 line="1125">A #SoupXMLRPCParams</doc>
+                 line="1126">A #SoupXMLRPCParams</doc>
             <type name="XMLRPCParams" c:type="SoupXMLRPCParams*"/>
           </instance-parameter>
           <parameter name="signature"
@@ -27780,7 +27780,7 @@ Deserialization details:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-xmlrpc.c"
-                 line="1126">A valid #GVariant type string, or %NULL</doc>
+                 line="1127">A valid #GVariant type string, or %NULL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -31322,33 +31322,33 @@ connections, it will call this for you.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc.c"
-           line="466">This creates an XML-RPC fault response and returns it as a string.
+           line="467">This creates an XML-RPC fault response and returns it as a string.
 (To create a successful response, use
 soup_xmlrpc_build_method_response().)</doc>
       <source-position filename="libsoup/soup-xmlrpc.h" line="47"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="476">the text of the fault</doc>
+             line="477">the text of the fault</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
       <parameters>
         <parameter name="fault_code" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="468">the fault code</doc>
+               line="469">the fault code</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="fault_format" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="469">a printf()-style format string</doc>
+               line="470">a printf()-style format string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="470">the parameters to @fault_format</doc>
+               line="471">the parameters to @fault_format</doc>
           <varargs/>
         </parameter>
       </parameters>
@@ -31358,7 +31358,7 @@ soup_xmlrpc_build_method_response().)</doc>
               deprecated="1">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc-old.c"
-           line="121">This creates an XML-RPC methodCall and returns it as a string.
+           line="122">This creates an XML-RPC methodCall and returns it as a string.
 This is the low-level method that soup_xmlrpc_request_new() is
 built on.
 
@@ -31385,7 +31385,7 @@ soup_value_hash_new() and related methods can help with this.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc-old.c"
-             line="150">the text of the methodCall, or %NULL on
+             line="151">the text of the methodCall, or %NULL on
 error</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
@@ -31393,13 +31393,13 @@ error</doc>
         <parameter name="method_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="123">the name of the XML-RPC method</doc>
+               line="124">the name of the XML-RPC method</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="params" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="124">arguments to @method</doc>
+               line="125">arguments to @method</doc>
           <array length="2" zero-terminated="0" c:type="GValue*">
             <type name="GObject.Value" c:type="GValue"/>
           </array>
@@ -31407,7 +31407,7 @@ error</doc>
         <parameter name="n_params" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="125">length of @params</doc>
+               line="126">length of @params</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
@@ -31417,7 +31417,7 @@ error</doc>
               deprecated="1">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc-old.c"
-           line="245">This creates a (successful) XML-RPC methodResponse and returns it
+           line="246">This creates a (successful) XML-RPC methodResponse and returns it
 as a string. To create a fault response, use
 soup_xmlrpc_build_fault().
 
@@ -31428,7 +31428,7 @@ soup_xmlrpc_build_method_call(), qv.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc-old.c"
-             line="256">the text of the methodResponse, or %NULL
+             line="257">the text of the methodResponse, or %NULL
 on error</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
@@ -31436,7 +31436,7 @@ on error</doc>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="247">the return value</doc>
+               line="248">the return value</doc>
           <type name="GObject.Value" c:type="GValue*"/>
         </parameter>
       </parameters>
@@ -31447,7 +31447,7 @@ on error</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc.c"
-           line="239">This creates an XML-RPC methodCall and returns it as a string.
+           line="240">This creates an XML-RPC methodCall and returns it as a string.
 This is the low-level method that soup_xmlrpc_message_new() is
 built on.
 
@@ -31474,20 +31474,20 @@ If @params is floating, it is consumed.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="269">the text of the methodCall, or %NULL on error.</doc>
+             line="270">the text of the methodCall, or %NULL on error.</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
       <parameters>
         <parameter name="method_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="241">the name of the XML-RPC method</doc>
+               line="242">the name of the XML-RPC method</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="params" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="242">a #GVariant tuple</doc>
+               line="243">a #GVariant tuple</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </parameter>
       </parameters>
@@ -31498,7 +31498,7 @@ If @params is floating, it is consumed.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc.c"
-           line="360">This creates a (successful) XML-RPC methodResponse and returns it
+           line="361">This creates a (successful) XML-RPC methodResponse and returns it
 as a string. To create a fault response, use soup_xmlrpc_build_fault(). This
 is the low-level method that soup_xmlrpc_message_set_response() is built on.
 
@@ -31511,14 +31511,14 @@ If @value is floating, it is consumed.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="375">the text of the methodResponse, or %NULL on error.</doc>
+             line="376">the text of the methodResponse, or %NULL on error.</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
       <parameters>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="362">the return value</doc>
+               line="363">the return value</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </parameter>
       </parameters>
@@ -31536,7 +31536,7 @@ If @value is floating, it is consumed.</doc>
               deprecated="1">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc-old.c"
-           line="558">Parses @method_call to get the name and parameters, and puts
+           line="559">Parses @method_call to get the name and parameters, and puts
 the parameters into variables of the appropriate types.
 
 The parameters are handled similarly to
@@ -31551,20 +31551,20 @@ you don't know the types of the parameters.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc-old.c"
-             line="576">success or failure.</doc>
+             line="577">success or failure.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="method_call" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="560">the XML-RPC methodCall string</doc>
+               line="561">the XML-RPC methodCall string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="length" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="561">the length of @method_call, or -1 if it is NUL-terminated</doc>
+               line="562">the length of @method_call, or -1 if it is NUL-terminated</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="method_name"
@@ -31573,13 +31573,13 @@ you don't know the types of the parameters.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="562">on return, the methodName from @method_call</doc>
+               line="563">on return, the methodName from @method_call</doc>
           <type name="utf8" c:type="char**"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="563">return types and locations for parameters</doc>
+               line="564">return types and locations for parameters</doc>
           <varargs/>
         </parameter>
       </parameters>
@@ -31590,7 +31590,7 @@ you don't know the types of the parameters.</doc>
               deprecated="1">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc-old.c"
-           line="686">Parses @method_response and extracts the return value into
+           line="687">Parses @method_response and extracts the return value into
 a variable of the correct type.
 
 If @method_response is a fault, the return value will be unset,
@@ -31604,7 +31604,7 @@ but @error will be unset.)</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc-old.c"
-             line="704">%TRUE if a return value was parsed, %FALSE if the
+             line="705">%TRUE if a return value was parsed, %FALSE if the
 response was of the wrong type, or contained a fault.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -31612,31 +31612,31 @@ response was of the wrong type, or contained a fault.</doc>
         <parameter name="method_response" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="688">the XML-RPC methodResponse string</doc>
+               line="689">the XML-RPC methodResponse string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="length" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="689">the length of @method_response, or -1 if it is NUL-terminated</doc>
+               line="690">the length of @method_response, or -1 if it is NUL-terminated</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="error" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="690">error return value</doc>
+               line="691">error return value</doc>
           <type name="GLib.Error" c:type="GError**"/>
         </parameter>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="691">the expected type of the return value</doc>
+               line="692">the expected type of the return value</doc>
           <type name="GType" c:type="GType"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="692">location for return value</doc>
+               line="693">location for return value</doc>
           <varargs/>
         </parameter>
       </parameters>
@@ -31655,7 +31655,7 @@ response was of the wrong type, or contained a fault.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc.c"
-           line="322">Creates an XML-RPC methodCall and returns a #SoupMessage, ready
+           line="323">Creates an XML-RPC methodCall and returns a #SoupMessage, ready
 to send, for that method call.
 
 See soup_xmlrpc_build_request() for serialization details.
@@ -31665,7 +31665,7 @@ If @params is floating, it is consumed.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="336">a #SoupMessage encoding the
+             line="337">a #SoupMessage encoding the
   indicated XML-RPC request, or %NULL on error.</doc>
         <type name="Message" c:type="SoupMessage*"/>
       </return-value>
@@ -31673,19 +31673,19 @@ If @params is floating, it is consumed.</doc>
         <parameter name="uri" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="324">URI of the XML-RPC service</doc>
+               line="325">URI of the XML-RPC service</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="method_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="325">the name of the XML-RPC method to invoke at @uri</doc>
+               line="326">the name of the XML-RPC method to invoke at @uri</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="params" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="326">a #GVariant tuple</doc>
+               line="327">a #GVariant tuple</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </parameter>
       </parameters>
@@ -31696,7 +31696,7 @@ If @params is floating, it is consumed.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc.c"
-           line="490">Sets the status code and response body of @msg to indicate an
+           line="491">Sets the status code and response body of @msg to indicate an
 unsuccessful XML-RPC call, with the error described by @fault_code
 and @fault_format.</doc>
       <source-position filename="libsoup/soup-xmlrpc.h" line="55"/>
@@ -31707,25 +31707,25 @@ and @fault_format.</doc>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="492">an XML-RPC request</doc>
+               line="493">an XML-RPC request</doc>
           <type name="Message" c:type="SoupMessage*"/>
         </parameter>
         <parameter name="fault_code" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="493">the fault code</doc>
+               line="494">the fault code</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="fault_format" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="494">a printf()-style format string</doc>
+               line="495">a printf()-style format string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="495">the parameters to @fault_format</doc>
+               line="496">the parameters to @fault_format</doc>
           <varargs/>
         </parameter>
       </parameters>
@@ -31736,7 +31736,7 @@ and @fault_format.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc.c"
-           line="519">Sets the status code and response body of @msg to indicate a
+           line="520">Sets the status code and response body of @msg to indicate a
 successful XML-RPC call, with a return value given by @value. To set a
 fault response, use soup_xmlrpc_message_set_fault().
 
@@ -31747,20 +31747,20 @@ If @value is floating, it is consumed.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="533">%TRUE on success, %FALSE otherwise.</doc>
+             line="534">%TRUE on success, %FALSE otherwise.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="521">an XML-RPC request</doc>
+               line="522">an XML-RPC request</doc>
           <type name="Message" c:type="SoupMessage*"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="522">a #GVariant</doc>
+               line="523">a #GVariant</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </parameter>
       </parameters>
@@ -31770,7 +31770,7 @@ If @value is floating, it is consumed.</doc>
               deprecated="1">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc-old.c"
-           line="486">Parses @method_call to get the name and parameters, and returns the
+           line="487">Parses @method_call to get the name and parameters, and returns the
 parameter values in a #GValueArray; see also
 soup_xmlrpc_extract_method_call(), which is more convenient if you
 know in advance what the types of the parameters will be.</doc>
@@ -31779,20 +31779,20 @@ know in advance what the types of the parameters will be.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc-old.c"
-             line="498">success or failure.</doc>
+             line="499">success or failure.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="method_call" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="488">the XML-RPC methodCall string</doc>
+               line="489">the XML-RPC methodCall string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="length" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="489">the length of @method_call, or -1 if it is NUL-terminated</doc>
+               line="490">the length of @method_call, or -1 if it is NUL-terminated</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="method_name"
@@ -31801,7 +31801,7 @@ know in advance what the types of the parameters will be.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="490">on return, the methodName from @method_call</doc>
+               line="491">on return, the methodName from @method_call</doc>
           <type name="utf8" c:type="char**"/>
         </parameter>
         <parameter name="params"
@@ -31810,7 +31810,7 @@ know in advance what the types of the parameters will be.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="491">on return, the parameters from @method_call</doc>
+               line="492">on return, the parameters from @method_call</doc>
           <type name="GObject.ValueArray" c:type="GValueArray**"/>
         </parameter>
       </parameters>
@@ -31821,7 +31821,7 @@ know in advance what the types of the parameters will be.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc-old.c"
-           line="601">Parses @method_response and returns the return value in @value. If
+           line="602">Parses @method_response and returns the return value in @value. If
 @method_response is a fault, @value will be unchanged, and @error
 will be set to an error of type %SOUP_XMLRPC_FAULT, with the error
 #code containing the fault code, and the error #message containing
@@ -31833,7 +31833,7 @@ will be unset.)</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc-old.c"
-             line="616">%TRUE if a return value was parsed, %FALSE if the
+             line="617">%TRUE if a return value was parsed, %FALSE if the
 response could not be parsed, or contained a fault.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -31841,13 +31841,13 @@ response could not be parsed, or contained a fault.</doc>
         <parameter name="method_response" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="603">the XML-RPC methodResponse string</doc>
+               line="604">the XML-RPC methodResponse string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="length" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="604">the length of @method_response, or -1 if it is NUL-terminated</doc>
+               line="605">the length of @method_response, or -1 if it is NUL-terminated</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="value"
@@ -31856,7 +31856,7 @@ response could not be parsed, or contained a fault.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="605">on return, the return value from @method_call</doc>
+               line="606">on return, the return value from @method_call</doc>
           <type name="GObject.Value" c:type="GValue*"/>
         </parameter>
       </parameters>
@@ -31867,26 +31867,26 @@ response could not be parsed, or contained a fault.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc.c"
-           line="1182">Parses @method_call and return the method name. Method parameters can be
+           line="1183">Parses @method_call and return the method name. Method parameters can be
 parsed later using soup_xmlrpc_params_parse().</doc>
       <source-position filename="libsoup/soup-xmlrpc.h" line="39"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="1192">method's name, or %NULL on error.</doc>
+             line="1193">method's name, or %NULL on error.</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
       <parameters>
         <parameter name="method_call" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="1184">the XML-RPC methodCall string</doc>
+               line="1185">the XML-RPC methodCall string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="length" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="1185">the length of @method_call, or -1 if it is NUL-terminated</doc>
+               line="1186">the length of @method_call, or -1 if it is NUL-terminated</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="params"
@@ -31895,7 +31895,7 @@ parsed later using soup_xmlrpc_params_parse().</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="1186">on success, a new #SoupXMLRPCParams</doc>
+               line="1187">on success, a new #SoupXMLRPCParams</doc>
           <type name="XMLRPCParams" c:type="SoupXMLRPCParams**"/>
         </parameter>
       </parameters>
@@ -31906,7 +31906,7 @@ parsed later using soup_xmlrpc_params_parse().</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc.c"
-           line="1254">Parses @method_response and returns the return value. If
+           line="1255">Parses @method_response and returns the return value. If
 @method_response is a fault, %NULL is returned, and @error
 will be set to an error in the %SOUP_XMLRPC_FAULT domain, with the error
 code containing the fault code, and the error message containing
@@ -31918,20 +31918,20 @@ See soup_xmlrpc_params_parse() for deserialization details.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="1270">a new (non-floating) #GVariant, or %NULL</doc>
+             line="1271">a new (non-floating) #GVariant, or %NULL</doc>
         <type name="GLib.Variant" c:type="GVariant*"/>
       </return-value>
       <parameters>
         <parameter name="method_response" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="1256">the XML-RPC methodResponse string</doc>
+               line="1257">the XML-RPC methodResponse string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="length" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="1257">the length of @method_response, or -1 if it is NUL-terminated</doc>
+               line="1258">the length of @method_response, or -1 if it is NUL-terminated</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="signature"
@@ -31940,7 +31940,7 @@ See soup_xmlrpc_params_parse() for deserialization details.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="1258">A valid #GVariant type string, or %NULL</doc>
+               line="1259">A valid #GVariant type string, or %NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -31951,7 +31951,7 @@ See soup_xmlrpc_params_parse() for deserialization details.</doc>
               deprecated="1">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc-old.c"
-           line="215">Creates an XML-RPC methodCall and returns a #SoupMessage, ready
+           line="216">Creates an XML-RPC methodCall and returns a #SoupMessage, ready
 to send, for that method call.
 
 The parameters are passed as type/value pairs; ie, first a #GType,
@@ -31962,7 +31962,7 @@ and then a value of the appropriate type, finally terminated by
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc-old.c"
-             line="228">a #SoupMessage encoding the
+             line="229">a #SoupMessage encoding the
 indicated XML-RPC request.</doc>
         <type name="Message" c:type="SoupMessage*"/>
       </return-value>
@@ -31970,19 +31970,19 @@ indicated XML-RPC request.</doc>
         <parameter name="uri" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="217">URI of the XML-RPC service</doc>
+               line="218">URI of the XML-RPC service</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="method_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="218">the name of the XML-RPC method to invoke at @uri</doc>
+               line="219">the name of the XML-RPC method to invoke at @uri</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="219">parameters for @method</doc>
+               line="220">parameters for @method</doc>
           <varargs/>
         </parameter>
       </parameters>
@@ -31993,7 +31993,7 @@ indicated XML-RPC request.</doc>
               deprecated="1">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc-old.c"
-           line="326">Sets the status code and response body of @msg to indicate an
+           line="327">Sets the status code and response body of @msg to indicate an
 unsuccessful XML-RPC call, with the error described by @fault_code
 and @fault_format.</doc>
       <doc-deprecated xml:space="preserve">Use soup_xmlrpc_message_set_fault() instead.</doc-deprecated>
@@ -32005,25 +32005,25 @@ and @fault_format.</doc>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="328">an XML-RPC request</doc>
+               line="329">an XML-RPC request</doc>
           <type name="Message" c:type="SoupMessage*"/>
         </parameter>
         <parameter name="fault_code" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="329">the fault code</doc>
+               line="330">the fault code</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="fault_format" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="330">a printf()-style format string</doc>
+               line="331">a printf()-style format string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="331">the parameters to @fault_format</doc>
+               line="332">the parameters to @fault_format</doc>
           <varargs/>
         </parameter>
       </parameters>
@@ -32034,7 +32034,7 @@ and @fault_format.</doc>
               deprecated="1">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc-old.c"
-           line="292">Sets the status code and response body of @msg to indicate a
+           line="293">Sets the status code and response body of @msg to indicate a
 successful XML-RPC call, with a return value given by @type and the
 following varargs argument, of the type indicated by @type.</doc>
       <doc-deprecated xml:space="preserve">Use soup_xmlrpc_message_set_response() instead.</doc-deprecated>
@@ -32046,19 +32046,19 @@ following varargs argument, of the type indicated by @type.</doc>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="294">an XML-RPC request</doc>
+               line="295">an XML-RPC request</doc>
           <type name="Message" c:type="SoupMessage*"/>
         </parameter>
         <parameter name="type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="295">the type of the response value</doc>
+               line="296">the type of the response value</doc>
           <type name="GType" c:type="GType"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc-old.c"
-               line="296">the response value</doc>
+               line="297">the response value</doc>
           <varargs/>
         </parameter>
       </parameters>
@@ -32069,7 +32069,7 @@ following varargs argument, of the type indicated by @type.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc.c"
-           line="1386">Get the #SoupDate from special #GVariant created by
+           line="1387">Get the #SoupDate from special #GVariant created by
 soup_xmlrpc_variant_new_datetime() or by parsing a &amp;lt;dateTime.iso8601&amp;gt;
 node. See soup_xmlrpc_params_parse().
 
@@ -32080,14 +32080,14 @@ are not in the expected type.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="1399">a new #SoupDate, or %NULL on error.</doc>
+             line="1400">a new #SoupDate, or %NULL on error.</doc>
         <type name="Date" c:type="SoupDate*"/>
       </return-value>
       <parameters>
         <parameter name="variant" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="1388">a #GVariant</doc>
+               line="1389">a #GVariant</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </parameter>
       </parameters>
@@ -32097,7 +32097,7 @@ are not in the expected type.</doc>
               version="2.52">
       <doc xml:space="preserve"
            filename="libsoup/soup-xmlrpc.c"
-           line="1356">Construct a special #GVariant used to serialize a &amp;lt;dateTime.iso8601&amp;gt;
+           line="1357">Construct a special #GVariant used to serialize a &amp;lt;dateTime.iso8601&amp;gt;
 node. See soup_xmlrpc_build_request().
 
 The actual type of the returned #GVariant is unspecified and "v" or "*"
@@ -32109,14 +32109,14 @@ args = g_variant_new ("(v)", soup_xmlrpc_variant_new_datetime (date));
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libsoup/soup-xmlrpc.c"
-             line="1369">a floating #GVariant.</doc>
+             line="1370">a floating #GVariant.</doc>
         <type name="GLib.Variant" c:type="GVariant*"/>
       </return-value>
       <parameters>
         <parameter name="date" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-xmlrpc.c"
-               line="1358">a #SoupDate</doc>
+               line="1359">a #SoupDate</doc>
           <type name="Date" c:type="SoupDate*"/>
         </parameter>
       </parameters>

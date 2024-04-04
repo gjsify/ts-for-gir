@@ -1,16 +1,17 @@
 {
-  "extends": "./tsconfig.alias.json",
   "compilerOptions": {   
     "lib": ["ESNext"],
     "types": ["@girs/gjs", "@girs/gio-2.0"],
     "target": "ESNext",
     "module": "ESNext",
+    "moduleResolution": "bundler",
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
   },
+  "include": ["@girs/gjs"],
   "files": [
     "dbus-client.ts",
     "dbus-server.ts",

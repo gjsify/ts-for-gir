@@ -1,6 +1,6 @@
 {
-  "name": "ts-for-gir-glib-2-spawn-command-example",
-  "version": "3.2.8",
+  "name": "@ts-for-gir-example/glib-2-spawn-command-example",
+  "version": "4.0.0",
   "description": "",
   "module": "dist/main.js",
   "private": true,
@@ -8,9 +8,8 @@
     "start": "yarn build && yarn start:gjs",
     "start:gjs": "gjs dist/main.js",
     "watch": "yarn build:app --watch",
-    "build": "yarn build:types && yarn build:app",
+    "build": "yarn build:app",
     "build:app": "yarn clear:ts && webpack --env production",
-    "build:types": "yarn ts-for-gir generate GLib-2.0 --noNamespace",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
     "clear": "yarn clear:ts && yarn clear:types",
@@ -22,11 +21,14 @@
   "author": "",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@ts-for-gir/cli": "workspace:^",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "ts-loader": "^9.5.1",
     "typescript": "^5.4.2",
     "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@girs/gjs": "workspace:^",
+    "@girs/glib-2.0": "workspace:^"
   }
 }

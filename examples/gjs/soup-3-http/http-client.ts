@@ -6,6 +6,10 @@
 // https://developer.gnome.org/libsoup/stable/libsoup-client-howto.html
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/http-client.js
 
+import '@girs/gjs';
+import '@girs/gjs/dom';
+import '@girs/soup-3.0';
+
 import Gio from 'gi://Gio?version=2.0';
 import GLib from 'gi://GLib?version=2.0';
 import Soup from 'gi://Soup?version=3.0';

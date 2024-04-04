@@ -1,15 +1,14 @@
 {
-  "name": "ts-for-gir-gjs-gtk-4-custom-widget-example",
-  "version": "3.2.8",
+  "name": "@ts-for-gir-example/gjs-gtk-4-custom-widget-example",
+  "version": "4.0.0",
   "description": "This example shows the usage of custom widgets and virtual functions in GJS",
   "main": "dist/index.js",
   "type": "module",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:types": "yarn ts-for-gir generate Gtk-4.0 Gdk-4.0 Graphene-1.0 --generateAlias",
     "build:app": "yarn node esbuild.js",
-    "build": "yarn build:types && yarn build:app",
+    "build": "yarn build:app",
     "start:app": "gjs -m dist/index.js",
     "debug:app": "GTK_DEBUG=interactive yarn start:app",
     "start": "yarn build && yarn start:app",

@@ -1,17 +1,16 @@
 {
-  "extends": "./tsconfig.alias.json",
   "compilerOptions": {   
     "lib": ["ESNext"],
     "types": ["@girs/gjs", "@girs/gtk-3.0", "@girs/gtk-3.0/import"],
     "target": "ESNext",
     "module": "ESNext",
+    "moduleResolution": "bundler",
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
   },
-  "include": ["@types/gjs.d.ts", "@types/gtk-3.0.d.ts"],
   "files": [
     "main.ts",
   ]

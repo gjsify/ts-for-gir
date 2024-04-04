@@ -1,6 +1,6 @@
-import imports from './@types/gjs.js'
-import * as Gtk from './@types/gtk-3.0'
-import * as GtkSource from './@types/gtksource-3.0'
+import imports from '@girs/gjs'
+import Gtk from '@girs/gtk-3.0'
+import GtkSource from '@girs/gtksource-3.0'
 const { gettext } = imports;
 
 Gtk.init(null)

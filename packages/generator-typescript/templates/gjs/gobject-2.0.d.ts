@@ -207,8 +207,10 @@ export type Property<K extends ParamSpec> = K extends ParamSpec<infer T>
 // TODO: What about the generated class Closure 
 export type TClosure<R = any, P = any> = (...args: P[]) => R;
 
+type ObjectConstructor = { new(...args: any[]): Object };
+
 export function registerClass<
-    T extends Object,
+    T extends ObjectConstructor,
     Props extends { [key: string]: ParamSpec },
     Interfaces extends { $gtype: GType }[],
     Sigs extends {
@@ -222,4 +224,4 @@ export function registerClass<
     cls: T
 ): T;
 
-export function registerClass<T extends Object>(cls: T): T
+export function registerClass<T extends ObjectConstructor>(cls: T): T

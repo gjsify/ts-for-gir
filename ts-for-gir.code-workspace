@@ -609,9 +609,9 @@
             "workbench.colorCustomizations": "undefined",
             "window.zoomLevel": "undefined",
         },
-        "typescript.tsdk": ".yarn/sdks/typescript/lib",
-        "eslint.nodePath": ".yarn/sdks",
-        "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
+        "typescript.tsdk": "ts-for-gir/.yarn/sdks/typescript/lib",
+        "eslint.nodePath": "ts-for-gir/.yarn/sdks",
+        "prettier.prettierPath": "ts-for-gir/.yarn/sdks/prettier/index.cjs",
         "files.exclude": {
             "**/.git": true,
             "**/.svn": true,

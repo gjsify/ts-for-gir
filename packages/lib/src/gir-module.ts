@@ -7,18 +7,7 @@ import { find } from './utils.js'
 import { SymTable } from './symtable.js'
 import { LibraryVersion } from './library-version.js'
 
-import type {
-    Dependency,
-    GirRepository,
-    GirType,
-    GirConstantElement,
-    TsDoc,
-    TsDocTag,
-    ParsedGir,
-    GirInfoAttrs,
-    GenerateConfig,
-    GirDocElement,
-} from './types/index.js'
+import type { Dependency, TsDoc, TsDocTag, GenerateConfig } from './types/index.js'
 import {
     ClosureType,
     TypeIdentifier,
@@ -47,6 +36,7 @@ import { NSRegistry } from './gir/registry.js'
 import { isPrimitiveType } from './gir/util.js'
 import { LoadOptions } from './types.js'
 import { GirVisitor } from './visitor.js'
+import { GirConstantElement, GirDocElement, GirInfoAttrs, GirRepository, GirType, GirXML } from '@gi.ts/parser'
 
 export class GirModule {
     /**
@@ -479,7 +469,7 @@ export class GirModule {
         this.__dts__references.push(reference)
     }
 
-    static load(repo: ParsedGir, config: GenerateConfig, registry: NSRegistry): GirModule {
+    static load(repo: GirXML, config: GenerateConfig, registry: NSRegistry): GirModule {
         const ns = repo.repository[0]?.namespace?.[0]
 
         if (!ns) throw new Error(`Missing namespace in ${repo.repository[0].package[0].$.name}`)

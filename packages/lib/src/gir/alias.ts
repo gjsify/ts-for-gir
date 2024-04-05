@@ -1,7 +1,7 @@
 import { TypeExpression } from "../gir.js";
 import { IntrospectedNamespaceMember, Options } from "./base.js";
 
-import { GirAliasElement } from "../index.js";
+import { GirAliasElement } from "@gi.ts/parser";
 import { IntrospectedNamespace, isIntrospectable } from "./namespace.js";
 import { sanitizeIdentifierName, getAliasType, parseDoc, parseMetadata } from "./util.js";
 import { FormatGenerator, GenericDescriptor } from "../generators/generator.js";

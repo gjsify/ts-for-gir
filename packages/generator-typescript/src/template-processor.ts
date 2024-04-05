@@ -6,7 +6,7 @@
 import { existsSync } from 'fs'
 import { readFile, writeFile, mkdir, readdir } from 'fs/promises'
 import { join, dirname, relative, extname } from 'path'
-import ejs from 'ejs'
+import ejs, { Data } from 'ejs'
 import { __dirname } from './utils.js'
 import {
     Logger,
@@ -20,9 +20,14 @@ import {
     Transformation,
 } from '@ts-for-gir/lib'
 
-import type { GenerateConfig, Dependency, TemplateData } from '@ts-for-gir/lib'
+import type { GenerateConfig, Dependency, GirModule } from '@ts-for-gir/lib'
 
 const TEMPLATE_DIR = join(__dirname, '../templates')
+
+interface TemplateData extends Data, Partial<GenerateConfig> {
+    girModule?: GirModule
+    importName?: string
+}
 
 export class TemplateProcessor {
     protected environmentTemplateDir: string

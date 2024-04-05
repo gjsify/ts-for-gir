@@ -9965,6 +9965,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ts-for-gir/generator-typescript@workspace:packages/generator-typescript"
   dependencies:
+    "@gi.ts/parser": "workspace:^"
     "@ts-for-gir/generator-base": "workspace:^"
     "@ts-for-gir/lib": "workspace:^"
     "@types/ejs": "npm:^3.1.5"

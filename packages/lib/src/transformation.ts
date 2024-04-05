@@ -3,14 +3,7 @@
  * For example function names should keep their original name for gjs
  */
 
-import {
-    Transformations,
-    ConstructName,
-    GenerateConfig,
-    GirCallableParamElement,
-    GirEnumElement,
-    GirBitfieldElement,
-} from './types/index.js'
+import { GirCallableParamElement, GirEnumElement, GirBitfieldElement } from '@gi.ts/parser'
 import { lowerCamelCase, upperCamelCase, isFirstCharNumeric, underscores, slugCase, snakeCase } from './utils.js'
 import { Logger } from './logger.js'
 import { NEW_LINE_REG_EXP } from './constants.js'
@@ -23,6 +16,9 @@ import {
     WARN_RENAMED_ENUM,
     WARN_RENAMED_PARAMETER,
 } from './messages.js'
+import { Transformations } from './types/transformations.js'
+import { ConstructName } from './types/construct-name.js'
+import { GenerateConfig } from './types/generate-config.js'
 
 export const ARRAY_TYPE_MAP = {
     guint8: 'Uint8Array',

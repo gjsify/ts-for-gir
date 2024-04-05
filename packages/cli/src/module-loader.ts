@@ -25,10 +25,13 @@ import type {
     GenerateConfig,
     GirModuleResolvedBy,
     GirModulesGrouped,
-    DependencyMap,
     Dependency,
     AnswerVersion,
 } from '@ts-for-gir/lib'
+
+export interface DependencyMap {
+    [packageName: string]: Dependency[]
+}
 
 export class ModuleLoader {
     log: Logger

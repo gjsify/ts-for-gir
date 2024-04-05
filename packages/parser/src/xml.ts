@@ -194,7 +194,7 @@ export interface GirClassElement extends GirInfoElements {
     /* Other elements a class can contain */
 
     implements?: GirImplements[];
-    constructor?: GirConstructorElement[];
+    constructors?: GirConstructorElement[];
     method?: GirMethodElement[];
     function?: GirFunctionElement[];
     "virtual-method"?: GirVirtualMethodElement[];
@@ -233,9 +233,9 @@ export interface GirRecordElement extends GirInfoElements {
         name: string;
         /** Corresponding C type of the record */
         "c:type"?: string;
-        /** 
+        /**
          * @deprecated
-         * 
+         *
          * Binary attribute to tell if the record is disguised, i.e. whether the c:type
          * is a typedef that doesn't look like a pointer, but is one internally. Its second meaning
          * is "private" and is set when any typedef struct is parsed which doesn't also include a
@@ -265,7 +265,7 @@ export interface GirRecordElement extends GirInfoElements {
     function?: GirFunctionElement[];
     union?: GirUnionElement[];
     method?: GirMethodElement[];
-    constructor?: GirConstructorElement[];
+    constructors?: GirConstructorElement[];
     property?: GirPropertyElement[];
 }
 
@@ -693,7 +693,7 @@ export interface GirUnionElement extends GirInfoElements {
     };
 
     field?: GirFieldElement[];
-    constructor?: GirConstructorElement[];
+    constructors?: GirConstructorElement[];
     method?: GirMethodElement[];
     function?: GirFunctionElement[];
     record?: GirRecordElement[];

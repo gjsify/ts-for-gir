@@ -54,6 +54,7 @@
     "typescript": "^5.4.2"
   },
   "dependencies": {
+    "@gi.ts/parser": "workspace:^",
     "@ts-for-gir/generator-base": "workspace:^",
     "@ts-for-gir/lib": "workspace:^",
     "ejs": "^3.1.9",

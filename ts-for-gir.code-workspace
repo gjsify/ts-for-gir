@@ -611,7 +611,7 @@
         },
         "typescript.tsdk": "ts-for-gir/.yarn/sdks/typescript/lib",
         "eslint.nodePath": "ts-for-gir/.yarn/sdks",
-        "prettier.prettierPath": "ts-for-gir/.yarn/sdks/prettier/index.cjs",
+        "prettier.prettierPath": "../../.yarn/sdks/prettier/index.cjs",
         "files.exclude": {
             "**/.git": true,
             "**/.svn": true,

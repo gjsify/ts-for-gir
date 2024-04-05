@@ -58,7 +58,8 @@ const parser = new XMLParser({
     parseTagValue: true,
     parseAttributeValue: false,
     trimValues: true,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    // Avoids conflicts with built-in JavaScript properties
+    transformTagName: (tagName) => tagName === 'constructor' ? 'constructors' : tagName,
     isArray: (name, _jpath, isLeafNode, _isAttribute) => {
         // Restore previous behaviour...
         if (isArrayProperty.includes(name)) {

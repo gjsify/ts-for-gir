@@ -1,8 +1,6 @@
 import { DefaultFormatter } from "../formatters/default.js";
 import { Formatter } from "../formatters/formatter.js";
 import { JSONFormatter } from "../formatters/json.js";
-import { DtsGenerator } from "../generators/dts.js";
-import { JsonGenerator } from "../generators/json.js";
 import { FormatGenerator } from "../generators/generator.js";
 import { generify } from "../generics/generify.js";
 import { inject } from "../injections/inject.js";
@@ -12,14 +10,12 @@ import { ClassVisitor } from "../validators/class.js";
 import { InterfaceVisitor } from "../validators/interface.js";
 import { GirVisitor } from "../visitor.js";
 import { IntrospectedNamespace } from "./namespace.js";
-import { DtsModuleGenerator } from "../generators/dts-modules.js";
-import { DtsInlineGenerator } from "../generators/dts-inline.js";
-import { ParsedGir } from "../types/parsed-gir.js";
 import { GirModule } from "../index.js";
+import { GirXML } from "@gi.ts/parser";
 
 export interface NSLoader {
-    load(namespace: string, version: string): ParsedGir | null;
-    loadAll(namespace: string): ParsedGir[];
+    load(namespace: string, version: string): GirXML | null;
+    loadAll(namespace: string): GirXML[];
 }
 
 type GeneratorConstructor<T> = {
@@ -61,61 +57,6 @@ export class NSRegistry {
         generator: { new (namespace: IntrospectedNamespace, options: GenerationOptions): FormatGenerator<T> }
     ) {
         this.generators.set(output, generator);
-    }
-
-    async getGenerator(
-        output: "json"
-    ): Promise<{ new (namespace: IntrospectedNamespace, options: GenerationOptions): JsonGenerator }>;
-    async getGenerator(
-        output: "dts"
-    ): Promise<{ new (namespace: IntrospectedNamespace, options: GenerationOptions): DtsGenerator }>;
-    async getGenerator<T>(output: string): Promise<GeneratorConstructor<T> | undefined>;
-    async getGenerator(output: string): Promise<GeneratorConstructor<unknown> | undefined> {
-        if (output === "dts") {
-            return DtsModuleGenerator;
-        }
-
-        if (output === "dts-inline") {
-            return DtsInlineGenerator;
-        }
-
-        if (output === "json") {
-            return JsonGenerator;
-        }
-
-        // Handle loading external generators...
-        if (!this.generators.has(output)) {
-            let Generator: { default: GeneratorConstructor<unknown> };
-            try {
-                Generator = (await import(`@gi.ts/generator-${output}`)) as { default: GeneratorConstructor<unknown> };
-
-                if (Generator) {
-                    console.log(`Loading generator "@gi.ts/generator-${output}"...`);
-                    this.generators.set(output, Generator.default);
-                    return;
-                }
-            } catch {
-                try {
-                    Generator = (await import(`gi-ts-generator-${output}`)) as {
-                        default: GeneratorConstructor<unknown>;
-                    };
-
-                    console.log(`Loading generator "gi-ts-generator-${output}"...`);
-                    this.generators.set(output, Generator.default);
-                    return;
-                } catch {
-                    try {
-                        Generator = (await import(`${output}`)) as { default: GeneratorConstructor<unknown> };
-
-                        console.log(`Loading generator "${output}"...`);
-                        this.generators.set(output, Generator.default);
-                        return;
-                    } catch {}
-                }
-            }
-        }
-
-        return this.generators.get(output);
     }
 
     private _transformNamespace(namespace: IntrospectedNamespace) {

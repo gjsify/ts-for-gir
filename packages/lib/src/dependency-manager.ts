@@ -2,7 +2,8 @@ import { findFileInDirs, splitModuleName, pascalCase } from './utils.js'
 import { Logger } from './logger.js'
 import { Transformation } from './transformation.js'
 
-import type { Dependency, GenerateConfig, GirInclude } from './types/index.js'
+import type { GirInclude } from '@gi.ts/parser'
+import type { Dependency, GenerateConfig } from './types/index.js'
 import type { GirModule } from './gir-module.js'
 import { GirNSRegistry } from './registry.js'
 

@@ -15,7 +15,8 @@ import {
     GirConstructorElement,
     GirFieldElement,
     GirPropertyElement,
-} from './index.js'
+} from '@gi.ts/parser'
+
 export type GirAnyElement =
     | GirBitfieldElement
     | GirCallbackElement

@@ -1,8 +1,6 @@
 import { SanitizedIdentifiers } from './gir/util.js'
 export { FormatGenerator } from './generators/generator.js'
 
-export * as dts from './generators/dts-modules.js'
-
 export * as json from './generators/json.js'
 
 export * from './generators/index.js'

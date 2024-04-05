@@ -17,7 +17,6 @@ import {
     IntrospectedInterface,
     IntrospectedBaseClass,
     IntrospectedField,
-    GirDirection,
     TsDoc,
     TsDocTag,
     upperCamelCase,
@@ -36,6 +35,7 @@ import {
     ClassStructTypeIdentifier,
     promisifyNamespaceFunctions,
 } from '@ts-for-gir/lib'
+import { GirDirection } from '@gi.ts/parser'
 import { TemplateProcessor } from './template-processor.js'
 import { PackageDataParser } from './package-data-parser.js'
 import { writeFile, mkdir } from 'fs/promises'

@@ -1,12 +1,13 @@
 import { BinaryType, VoidType, PromiseType, BooleanType, TupleType, TypeIdentifier, ClosureType } from "../gir.js";
 
-import { GirInfoAttrs, GirModule } from "../index.js";
+import { GirModule } from "../index.js";
 
 import { IntrospectedBaseClass } from "./class.js";
 import { IntrospectedFunction } from "./function.js";
 import { IntrospectedEnum } from "./enum.js";
 import { IntrospectedConstant } from "./const.js";
 import { IntrospectedAlias } from "./alias.js";
+import { GirInfoAttrs } from "@gi.ts/parser";
 
 export type GirNSMember =
     | IntrospectedBaseClass

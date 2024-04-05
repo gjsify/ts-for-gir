@@ -18,9 +18,8 @@ import {
     GirCallableParamElement,
     GirCallbackElement,
     GirVirtualMethodElement,
-    GirConstructorElement,
-    GirModule
-} from "../index.js";
+    GirConstructorElement
+} from "@gi.ts/parser";
 
 import { IntrospectedNamespace, isIntrospectable } from "./namespace.js";
 import { getType, isInvalid, sanitizeMemberName, sanitizeIdentifierName, parseDoc, parseMetadata } from "./util.js";
@@ -32,6 +31,7 @@ import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
 import { IntrospectedField } from "./property.js";
 import { IntrospectedBaseClass } from "./nodes.js";
+import { GirModule } from "../index.js";
 
 function hasShadow(obj: GirFunctionElement | GirMethodElement): obj is GirFunctionElement & { $: { shadows: string } } {
     return obj.$["shadows"] != null;

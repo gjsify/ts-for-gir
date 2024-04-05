@@ -8,7 +8,13 @@ import { join, extname, dirname, resolve } from 'path'
 import { writeFile } from 'fs/promises'
 import { merge, isEqual, Logger, APP_NAME, APP_USAGE, ERROR_CONFIG_EXTENSION_UNSUPPORTED } from '@ts-for-gir/lib'
 
-import type { UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from '@ts-for-gir/lib'
+import type { UserConfig, ConfigFlags, GenerateConfig } from '@ts-for-gir/lib'
+
+export interface UserConfigLoadResult {
+    config: Partial<UserConfig>
+    filepath: string
+    isEmpty?: boolean | undefined
+}
 
 export class Config {
     static appName = APP_NAME

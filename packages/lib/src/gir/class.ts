@@ -14,19 +14,13 @@ import {
     GenerifiedTypeIdentifier,
     AnyType,
     ConflictType,
-    TypeConflict
+    TypeConflict,
+    ClassStructTypeIdentifier
 } from "../gir.js";
 import { TypeExpression } from "../gir.js";
 import { IntrospectedBase, IntrospectedClassMember, IntrospectedNamespaceMember, Options } from "./base.js";
 
-import {
-    GirInterfaceElement,
-    GirClassElement,
-    GirRecordElement,
-    GirDirection,
-    GirUnionElement,
-    ClassStructTypeIdentifier
-} from "../index.js";
+import { GirInterfaceElement, GirClassElement, GirRecordElement, GirDirection, GirUnionElement } from "@gi.ts/parser";
 import {
     IntrospectedClassFunction,
     IntrospectedVirtualClassFunction,
@@ -929,9 +923,9 @@ export class IntrospectedClass extends IntrospectedBaseClass {
                 clazz.isAbstract = true;
             }
 
-            if (Array.isArray(element.constructor)) {
+            if (Array.isArray(element.constructors)) {
                 clazz.constructors.push(
-                    ...element.constructor.map(constructor =>
+                    ...element.constructors.map(constructor =>
                         IntrospectedConstructor.fromXML(constructor, clazz, options)
                     )
                 );
@@ -1033,6 +1027,7 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 
         return clazz;
     }
+
     registerStaticDefinition(typeStruct: string) {
         this._staticDefinition = typeStruct;
     }
@@ -1246,8 +1241,8 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
             }
 
             // Constructors
-            if (Array.isArray(element.constructor)) {
-                element.constructor.forEach(constructor => {
+            if (Array.isArray(element.constructors)) {
+                element.constructors.forEach(constructor => {
                     const c = IntrospectedConstructor.fromXML(constructor, clazz, options);
 
                     clazz.constructors.push(c);
@@ -1601,8 +1596,8 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
                 }
             }
 
-            if (Array.isArray(element.constructor)) {
-                for (const constructor of element.constructor) {
+            if (Array.isArray(element.constructors)) {
+                for (const constructor of element.constructors) {
                     clazz.constructors.push(IntrospectedConstructor.fromXML(constructor, clazz, options));
                 }
             }

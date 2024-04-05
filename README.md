@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".github/ts-for-gir.png" />
+  <img src=".github/ts-for-gir_x4.png" />
   <h1 align="center">TS <small>for</small> GIR</h1>
 </p>
 

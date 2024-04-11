@@ -175,6 +175,16 @@ export class Config {
     static listOptions = {
         modules: this.options.modules,
         girDirectories: Config.options.girDirectories,
+        root: this.options.root,
+        ignore: Config.options.ignore,
+        configName: Config.options.configName,
+        verbose: Config.options.verbose,
+    }
+
+    static copyOptions = {
+        girDirectories: Config.options.girDirectories,
+        root: this.options.root,
+        outdir: Config.options.outdir,
         ignore: Config.options.ignore,
         configName: Config.options.configName,
         verbose: Config.options.verbose,
@@ -183,6 +193,7 @@ export class Config {
     static docOptions = {
         modules: this.options.modules,
         girDirectories: Config.options.girDirectories,
+        root: this.options.root,
         outdir: Config.options.outdir,
         ignore: Config.options.ignore,
         verbose: Config.options.verbose,

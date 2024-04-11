@@ -478,6 +478,6 @@
         "@girs/zpj-0.0": "workspace:^"
     },
     "devDependencies": {
-        "typescript": "^5.4.2"
+        "typescript": "^5.4.5"
     }
 }

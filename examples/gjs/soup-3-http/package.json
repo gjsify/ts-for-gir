@@ -22,8 +22,8 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
-    "esbuild": "^0.20.1",
-    "typescript": "^5.4.2"
+    "esbuild": "^0.20.2",
+    "typescript": "^5.4.5"
   },
   "dependencies": {
     "@girs/gio-2.0": "workspace:^",

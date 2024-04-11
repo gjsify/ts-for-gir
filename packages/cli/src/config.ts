@@ -182,6 +182,7 @@ export class Config {
     }
 
     static copyOptions = {
+        modules: this.options.modules,
         girDirectories: Config.options.girDirectories,
         root: this.options.root,
         outdir: Config.options.outdir,

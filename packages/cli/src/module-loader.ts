@@ -451,6 +451,7 @@ export class ModuleLoader {
                         packageName: girModule.packageName,
                         module: girModule,
                         resolvedBy,
+                        path: dependency.path,
                     }
                     girModules.push(addModule)
                     newModuleFound = true

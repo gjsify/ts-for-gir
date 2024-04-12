@@ -3,8 +3,8 @@
  */
 
 import inquirer, { ListQuestion, Answers } from 'inquirer'
-import glob from 'tiny-glob'
-import { basename } from 'path'
+import { glob } from 'glob'
+import { basename, join } from 'path'
 import { readFile } from 'fs/promises'
 import { bold } from 'colorette'
 import { parser } from '@gi.ts/parser'
@@ -176,7 +176,7 @@ export class ModuleLoader {
      * @param girModulesGroupedMap
      * @param packageName
      */
-    protected findPackageNamesDependOnPackage(
+    protected findGirFilesDependOnPackage(
         girModulesGroupedMap: GirModulesGroupedMap,
         packageName: string,
     ): GirModuleResolvedBy[] {
@@ -201,13 +201,13 @@ export class ModuleLoader {
      * @param girModulesGroupedMap
      * @param packageName
      */
-    protected findPackageNamesDependOnPackages(
+    protected findGirFilesDependOnPackages(
         girModulesGroupedMap: GirModulesGroupedMap,
         packageNames: string[],
     ): GirModuleResolvedBy[] {
         let girModules: GirModuleResolvedBy[] = []
         for (const packageName of packageNames) {
-            girModules = girModules.concat(this.findPackageNamesDependOnPackage(girModulesGroupedMap, packageName))
+            girModules = [...girModules, ...this.findGirFilesDependOnPackage(girModulesGroupedMap, packageName)]
         }
         return girModules
     }
@@ -270,10 +270,7 @@ export class ModuleLoader {
                 while (goBack) {
                     versionAnswer = await this.askForVersionsPrompt(girModulesGrouped)
                     // Check modules that depend on the unchosen modules
-                    wouldIgnoreDeps = this.findPackageNamesDependOnPackages(
-                        girModulesGroupedMap,
-                        versionAnswer.unselected,
-                    )
+                    wouldIgnoreDeps = this.findGirFilesDependOnPackages(girModulesGroupedMap, versionAnswer.unselected)
                     // Do not check dependencies that have already been ignored
                     wouldIgnoreDeps = wouldIgnoreDeps.filter((dep) => !ignore.includes(dep.packageName))
                     ignoreDepsAnswer = await this.askIgnoreDepsPrompt(wouldIgnoreDeps)
@@ -502,38 +499,25 @@ export class ModuleLoader {
      * @param modules
      * @param ignore
      */
-    protected async findPackageNames(modules: string[], ignore: string[] = []): Promise<Set<string>> {
-        const foundModules = new Set<string>()
+    protected async findGirFiles(globPackageNames: string[], ignore: string[] = []): Promise<Set<string>> {
+        const foundFiles = new Set<string>()
 
-        for (let i = 0; i < modules.length; i++) {
-            if (modules[i]) {
-                const filename = `${modules[i]}.gir`
-                let files: string[] = []
-                for (const girDirectory of this.config.girDirectories) {
-                    try {
-                        files = files.concat(await glob(filename, { cwd: girDirectory }))
-                    } catch (error) {
-                        this.log.warn(`Error on finding "${filename}" in "${girDirectory}"`, error)
-                    }
-                }
-
-                let globModules = files.map((file) => basename(file, '.gir'))
-                // Filter out the ignored modules
-                globModules = globModules.filter((mod) => {
-                    const isIgnored = ignore.includes(mod)
-                    if (isIgnored) {
-                        this.log.warn(`Ignore ${mod}`)
-                    }
-                    return !isIgnored
-                })
-                globModules.forEach((mod) => foundModules.add(mod))
+        for (let i = 0; i < globPackageNames.length; i++) {
+            if (!globPackageNames[i]) {
+                continue
             }
+            const filename = `${globPackageNames[i]}.gir`
+            const pattern = this.config.girDirectories.map((girDirectory) => join(girDirectory, filename))
+            const files = await glob(pattern, { ignore })
+            files.forEach((file) => foundFiles.add(file))
         }
-        return foundModules
+
+        return foundFiles
     }
 
-    protected packageNamesToDependencies(packageNames: Set<string>): Dependency[] {
-        return Array.from(packageNames).map((packageName) => {
+    protected girFilePathToDependencies(girFiles: Set<string>): Dependency[] {
+        return Array.from(girFiles).map((girFile) => {
+            const packageName = basename(girFile, '.gir')
             const { namespace, version } = splitModuleName(packageName)
             return this.dependencyManager.get(namespace, version)
         })
@@ -549,13 +533,13 @@ export class ModuleLoader {
         ignore: string[] = [],
         doNotAskForVersionOnConflict = true,
     ): Promise<{ keep: GirModuleResolvedBy[]; grouped: GirModulesGroupedMap; ignore: string[]; failed: Set<string> }> {
-        const foundPackageNames = await this.findPackageNames([...packageNames], ignore)
+        const girFiles = await this.findGirFiles([...packageNames], ignore)
         // Always require these because GJS does...
         const GLib = this.dependencyManager.get('GLib', '2.0')
         const Gio = this.dependencyManager.get('Gio', '2.0')
         const GObject = this.dependencyManager.get('GObject', '2.0')
 
-        const dependencies = this.packageNamesToDependencies(foundPackageNames)
+        const dependencies = this.girFilePathToDependencies(girFiles)
 
         const { loaded, failed } = await this.loadGirModules(
             [
@@ -591,8 +575,8 @@ export class ModuleLoader {
         modules: string[],
         ignore: string[] = [],
     ): Promise<{ grouped: GirModulesGroupedMap; loaded: GirModuleResolvedBy[]; failed: string[] }> {
-        const foundPackageNames = await this.findPackageNames(modules, ignore)
-        const dependencies = this.packageNamesToDependencies(foundPackageNames)
+        const girFiles = await this.findGirFiles(modules, ignore)
+        const dependencies = this.girFilePathToDependencies(girFiles)
         const { loaded, failed } = await this.loadGirModules(dependencies, ignore)
         const grouped = this.groupGirFiles(loaded)
         return { grouped, loaded, failed: Array.from(failed) }

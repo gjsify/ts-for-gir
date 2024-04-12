@@ -1,0 +1,376 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="WebKit2" version="4.0"/>
+  <include name="libxml2" version="2.0"/>
+  <namespace name="Gepub"
+             version="0.5"
+             shared-library="libgepub.so.0"
+             c:identifier-prefixes="Gepub"
+             c:symbol-prefixes="gepub">
+    <class name="Doc"
+           c:symbol-prefix="doc"
+           c:type="GepubDoc"
+           parent="GObject.Object"
+           glib:type-name="GepubDoc"
+           glib:get-type="gepub_doc_get_type"
+           glib:type-struct="DocClass">
+      <implements name="Gio.Initable"/>
+      <constructor name="new" c:identifier="gepub_doc_new">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the new GepubDoc created</doc>
+          <type name="Doc" c:type="GepubDoc*"/>
+        </return-value>
+        <parameters>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve">the epub doc path</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_cover" c:identifier="gepub_doc_get_cover">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">cover file path to retrieve with
+gepub_doc_get_resource</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current" c:identifier="gepub_doc_get_current">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the current chapter data</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_id" c:identifier="gepub_doc_get_current_id">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the current resource id</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_mime"
+              c:identifier="gepub_doc_get_current_mime">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the current resource mime</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_path"
+              c:identifier="gepub_doc_get_current_path">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the current resource path</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_with_epub_uris"
+              c:identifier="gepub_doc_get_current_with_epub_uris">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the current chapter
+data, with resource uris renamed so they have the epub:// prefix and all
+are relative to the root file</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_metadata" c:identifier="gepub_doc_get_metadata">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">metadata string</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+          <parameter name="mdata" transfer-ownership="none">
+            <doc xml:space="preserve">a metadata name string, GEPUB_META_TITLE for example</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_n_pages" c:identifier="gepub_doc_get_n_pages">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the number of pages in the document</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_page" c:identifier="gepub_doc_get_page">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the current page index, starting from 0</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_resource" c:identifier="gepub_doc_get_resource">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the resource content</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve">the resource path</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_resource_by_id"
+              c:identifier="gepub_doc_get_resource_by_id">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the resource content</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve">the resource id</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_resource_mime"
+              c:identifier="gepub_doc_get_resource_mime">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the resource mime</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve">the resource path</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_resource_mime_by_id"
+              c:identifier="gepub_doc_get_resource_mime_by_id">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the resource content</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve">the resource id</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_resource_path"
+              c:identifier="gepub_doc_get_resource_path">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the resource path</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve">the resource id</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="go_next" c:identifier="gepub_doc_go_next">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE on success, FALSE if there's no next pages</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="go_prev" c:identifier="gepub_doc_go_prev">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE on success, FALSE if there's no prev pages</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_page" c:identifier="gepub_doc_set_page">
+        <doc xml:space="preserve">Sets the document current page to @index.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </instance-parameter>
+          <parameter name="index" transfer-ownership="none">
+            <doc xml:space="preserve">the index of the new page</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="file"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Gio.File"/>
+      </property>
+      <property name="page" writable="1" transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="path"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="DocClass"
+            c:type="GepubDocClass"
+            disguised="1"
+            glib:is-gtype-struct-for="Doc">
+    </record>
+    <constant name="META_AUTHOR" value="creator" c:type="GEPUB_META_AUTHOR">
+      <doc xml:space="preserve">The book author.</doc>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="META_DESC" value="description" c:type="GEPUB_META_DESC">
+      <doc xml:space="preserve">The book description.</doc>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="META_ID" value="identifier" c:type="GEPUB_META_ID">
+      <doc xml:space="preserve">The book id.</doc>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="META_LANG" value="language" c:type="GEPUB_META_LANG">
+      <doc xml:space="preserve">The book lang.</doc>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="META_TITLE" value="title" c:type="GEPUB_META_TITLE">
+      <doc xml:space="preserve">The book title.</doc>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <class name="Widget"
+           c:symbol-prefix="widget"
+           c:type="GepubWidget"
+           parent="WebKit2.WebView"
+           glib:type-name="GepubWidget"
+           glib:get-type="gepub_widget_get_type"
+           glib:type-struct="WidgetClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="gepub_widget_new">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the new GepubWidget created</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="get_doc" c:identifier="gepub_widget_get_doc">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #GepubDoc</doc>
+          <type name="Doc" c:type="GepubDoc*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_doc" c:identifier="gepub_widget_set_doc">
+        <doc xml:space="preserve">Sets @doc as the document displayed by the widget.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve">a #GepubWidget</doc>
+            <type name="Widget" c:type="GepubWidget*"/>
+          </instance-parameter>
+          <parameter name="doc"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a #GepubDoc</doc>
+            <type name="Doc" c:type="GepubDoc*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="doc" writable="1" transfer-ownership="none">
+        <type name="Doc"/>
+      </property>
+    </class>
+    <record name="WidgetClass"
+            c:type="GepubWidgetClass"
+            disguised="1"
+            glib:is-gtype-struct-for="Widget">
+    </record>
+  </namespace>
+</repository>

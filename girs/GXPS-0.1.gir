@@ -1,0 +1,1855 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="cairo" version="1.0"/>
+  <c:include name="gxps.h"/>
+  <namespace name="GXPS"
+             version="0.1"
+             shared-library="libgxps.so.2"
+             c:identifier-prefixes="GXPS,Gxps"
+             c:symbol-prefixes="gxps">
+    <function-macro name="CHECK_VERSION"
+                    c:identifier="GXPS_CHECK_VERSION"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-version.h"
+           line="69">Checks the version fo the GXPS library</doc>
+      <source-position filename="libgxps/gxps-version.h" line="80"/>
+      <parameters>
+        <parameter name="major">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-version.h"
+               line="71">major version (e.g. 0 for version 0.1.2)</doc>
+        </parameter>
+        <parameter name="minor">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-version.h"
+               line="72">minor version (e.g. 1 for version 0.1.2)</doc>
+        </parameter>
+        <parameter name="micro">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-version.h"
+               line="73">micro version (e.g. 2 for version 0.1.2)</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CORE_PROPERTIES"
+                    c:identifier="GXPS_CORE_PROPERTIES"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-core-properties.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CORE_PROPERTIES_CLASS"
+                    c:identifier="GXPS_CORE_PROPERTIES_CLASS"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-core-properties.h" line="35"/>
+      <parameters>
+        <parameter name="cls">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CORE_PROPERTIES_GET_CLASS"
+                    c:identifier="GXPS_CORE_PROPERTIES_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-core-properties.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="CoreProperties"
+           c:symbol-prefix="core_properties"
+           c:type="GXPSCoreProperties"
+           parent="GObject.Object"
+           glib:type-name="GXPSCoreProperties"
+           glib:get-type="gxps_core_properties_get_type"
+           glib:type-struct="CorePropertiesClass">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-core-properties.h"
+           line="43">The &lt;structname&gt;GXPSCoreProperties&lt;/structname&gt; struct contains
+only private fields and should not be directly accessed.</doc>
+      <source-position filename="libgxps/gxps-core-properties.h" line="58"/>
+      <implements name="Gio.Initable"/>
+      <method name="get_category"
+              c:identifier="gxps_core_properties_get_category"
+              version="0.2.3">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-core-properties.c"
+             line="743">Get the category.</doc>
+        <source-position filename="libgxps/gxps-core-properties.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-core-properties.c"
+               line="749">a string containing the category or %NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="core_props" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-core-properties.c"
+                 line="745">a #GXPSCoreProperties</doc>
+            <type name="CoreProperties" c:type="GXPSCoreProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_content_status"
+              c:identifier="gxps_core_properties_get_content_status"
+              version="0.2.3">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-core-properties.c"
+             line="761">Get the status of the content (e.g. Draft, Reviewed, Final)</doc>
+        <source-position filename="libgxps/gxps-core-properties.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-core-properties.c"
+               line="767">a string containing the status of the content or %NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="core_props" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-core-properties.c"
+                 line="763">a #GXPSCoreProperties</doc>
+            <type name="CoreProperties" c:type="GXPSCoreProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_content_type"
+              c:identifier="gxps_core_properties_get_content_type"
+              version="0.2.3">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-core-properties.c"
+             line="779">Get the type of content represented, generally defined by a
+specific use and intended audience. This is not the MIME-Type.</doc>
+        <source-position filename="libgxps/gxps-core-properties.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-core-properties.c"
+               line="786">a string containing the type of content or %NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="core_props" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-core-properties.c"
+                 line="781">a #GXPSCoreProperties</doc>
+            <type name="CoreProperties" c:type="GXPSCoreProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_created"
+              c:identifier="gxps_core_properties_get_created"
+              version="0.2.3">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-core-properties.c"
+             line="798">Get the creating date.</doc>
+        <source-position filename="libgxps/gxps-core-properties.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-core-properties.c"
+               line="804">the creating date as a &lt;type&gt;time_t&lt;/type&gt; or -1.</doc>
+          <type name="glong" c:type="time_t"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="core_props" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-core-properties.c"
+                 line="800">a #GXPSCoreProperties</doc>
+            <type name="CoreProperties" c:type="GXPSCoreProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_creator"
+              c:identifier="gxps_core_properties_get_creator"
+              version="0.2.3">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-core-properties.c"
+             line="599">Get the creator.</doc>
+        <source-position filename="libgxps/gxps-core-properties.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-core-properties.c"
+               line="605">a string containing the creator or %NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="core_props" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-core-properties.c"
+                 line="601">a #GXPSCoreProperties</doc>
+            <type name="CoreProperties" c:type="GXPSCoreProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_description"
+              c:identifier="gxps_core_properties_get_description"
+              version="0.2.3">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-core-properties.c"
+             line="617">Get the description.</doc>
+        <source-position filename="libgxps/gxps-core-properties.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-core-properties.c"
+               line="623">a string containing the description or %NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="core_props" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-core-properties.c"
+                 line="619">a #GXPSCoreProperties</doc>
+            <type name="CoreProperties" c:type="GXPSCoreProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_identifier"
+              c:identifier="gxps_core_properties_get_identifier"
+              version="0.2.3">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-core-properties.c"
+             line="707">Get the unique identifier.</doc>
+        <source-position filename="libgxps/gxps-core-properties.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-core-properties.c"
+               line="713">a string containing the identifier or %NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="core_props" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-core-properties.c"
+                 line="709">a #GXPSCoreProperties</doc>
+            <type name="CoreProperties" c:type="GXPSCoreProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_keywords"
+              c:identifier="gxps_core_properties_get_keywords"
+              version="0.2.3">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-core-properties.c"
+             line="653">Get the keywords.</doc>
+        <source-position filename="libgxps/gxps-core-properties.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-core-properties.c"
+               line="659">a string containing the keywords or %NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="core_props" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-core-properties.c"
+                 line="655">a #GXPSCoreProperties</doc>
+            <type name="CoreProperties" c:type="GXPSCoreProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_language"
+              c:identifier="gxps_core_properties_get_language"
+              version="0.2.3">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-core-properties.c"
+             line="725">Get the language.</doc>
+        <source-position filename="libgxps/gxps-core-properties.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-core-properties.c"
+               line="731">a string containing the language or %NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="core_props" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-core-properties.c"
+                 line="727">a #GXPSCoreProperties</doc>
+            <type name="CoreProperties" c:type="GXPSCoreProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_last_modified_by"
+              c:identifier="gxps_core_properties_get_last_modified_by"
+              version="0.2.3">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-core-properties.c"
+             line="816">Get the user who performed the last modification.</doc>
+        <source-position filename="libgxps/gxps-core-properties.h" line="90"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-core-properties.c"
+               line="822">a string containing the user who performed the
+   last modification or %NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="core_props" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-core-properties.c"
+                 line="818">a #GXPSCoreProperties</doc>
+            <type name="CoreProperties" c:type="GXPSCoreProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_last_printed"
+              c:identifier="gxps_core_properties_get_last_printed"
+              version="0.2.3">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-core-properties.c"
+             line="853">Get the date of the last printing.</doc>
+        <source-position filename="libgxps/gxps-core-properties.h" line="94"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-core-properties.c"
+               line="859">the date of the last printing as a &lt;type&gt;time_t&lt;/type&gt; or -1.</doc>
+          <type name="glong" c:type="time_t"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="core_props" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-core-properties.c"
+                 line="855">a #GXPSCoreProperties</doc>
+            <type name="CoreProperties" c:type="GXPSCoreProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_modified"
+              c:identifier="gxps_core_properties_get_modified"
+              version="0.2.3">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-core-properties.c"
+             line="835">Get the last modification date.</doc>
+        <source-position filename="libgxps/gxps-core-properties.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-core-properties.c"
+               line="841">the modification date as a &lt;type&gt;time_t&lt;/type&gt; or -1.</doc>
+          <type name="glong" c:type="time_t"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="core_props" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-core-properties.c"
+                 line="837">a #GXPSCoreProperties</doc>
+            <type name="CoreProperties" c:type="GXPSCoreProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_revision"
+              c:identifier="gxps_core_properties_get_revision"
+              version="0.2.3">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-core-properties.c"
+             line="689">Get the revision number.</doc>
+        <source-position filename="libgxps/gxps-core-properties.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-core-properties.c"
+               line="695">a string containing the revision number or %NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="core_props" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-core-properties.c"
+                 line="691">a #GXPSCoreProperties</doc>
+            <type name="CoreProperties" c:type="GXPSCoreProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_subject"
+              c:identifier="gxps_core_properties_get_subject"
+              version="0.2.3">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-core-properties.c"
+             line="635">Get the subject.</doc>
+        <source-position filename="libgxps/gxps-core-properties.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-core-properties.c"
+               line="641">a string containing the subject or %NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="core_props" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-core-properties.c"
+                 line="637">a #GXPSCoreProperties</doc>
+            <type name="CoreProperties" c:type="GXPSCoreProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_title"
+              c:identifier="gxps_core_properties_get_title"
+              version="0.2.3">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-core-properties.c"
+             line="581">Get the title.</doc>
+        <source-position filename="libgxps/gxps-core-properties.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-core-properties.c"
+               line="587">a string containing the title or %NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="core_props" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-core-properties.c"
+                 line="583">a #GXPSCoreProperties</doc>
+            <type name="CoreProperties" c:type="GXPSCoreProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_version"
+              c:identifier="gxps_core_properties_get_version"
+              version="0.2.3">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-core-properties.c"
+             line="671">Get the version number.</doc>
+        <source-position filename="libgxps/gxps-core-properties.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-core-properties.c"
+               line="677">a string containing the version number or %NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="core_props" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-core-properties.c"
+                 line="673">a #GXPSCoreProperties</doc>
+            <type name="CoreProperties" c:type="GXPSCoreProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="archive"
+                introspectable="0"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type/>
+      </property>
+      <property name="source"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="CorePropertiesPrivate"
+              c:type="GXPSCorePropertiesPrivate*"/>
+      </field>
+    </class>
+    <record name="CorePropertiesClass"
+            c:type="GXPSCorePropertiesClass"
+            glib:is-gtype-struct-for="CoreProperties">
+      <source-position filename="libgxps/gxps-core-properties.h" line="58"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="CorePropertiesPrivate"
+            c:type="GXPSCorePropertiesPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="libgxps/gxps-core-properties.h" line="41"/>
+    </record>
+    <function-macro name="DOCUMENT"
+                    c:identifier="GXPS_DOCUMENT"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-document.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOCUMENT_CLASS"
+                    c:identifier="GXPS_DOCUMENT_CLASS"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-document.h" line="39"/>
+      <parameters>
+        <parameter name="cls">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOCUMENT_GET_CLASS"
+                    c:identifier="GXPS_DOCUMENT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-document.h" line="42"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOCUMENT_STRUCTURE"
+                    c:identifier="GXPS_DOCUMENT_STRUCTURE"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-document-structure.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOCUMENT_STRUCTURE_CLASS"
+                    c:identifier="GXPS_DOCUMENT_STRUCTURE_CLASS"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-document-structure.h" line="34"/>
+      <parameters>
+        <parameter name="cls">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOCUMENT_STRUCTURE_GET_CLASS"
+                    c:identifier="GXPS_DOCUMENT_STRUCTURE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-document-structure.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Document"
+           c:symbol-prefix="document"
+           c:type="GXPSDocument"
+           parent="GObject.Object"
+           glib:type-name="GXPSDocument"
+           glib:get-type="gxps_document_get_type"
+           glib:type-struct="DocumentClass">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-document.h"
+           line="48">The &lt;structname&gt;GXPSDocument&lt;/structname&gt; struct contains
+only private fields and should not be directly accessed.</doc>
+      <source-position filename="libgxps/gxps-document.h" line="63"/>
+      <implements name="Gio.Initable"/>
+      <method name="get_n_pages" c:identifier="gxps_document_get_n_pages">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-document.c"
+             line="442">Gets the number of pages in @doc.</doc>
+        <source-position filename="libgxps/gxps-document.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-document.c"
+               line="448">the number of pages.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-document.c"
+                 line="444">a #GXPSDocument</doc>
+            <type name="Document" c:type="GXPSDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_page" c:identifier="gxps_document_get_page" throws="1">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-document.c"
+             line="458">Creates a new #GXPSPage representing the page at
+index @n_doc in @doc document.</doc>
+        <source-position filename="libgxps/gxps-document.h" line="71"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-document.c"
+               line="467">a new #GXPSPage or %NULL on error.
+    Free the returned object with g_object_unref().</doc>
+          <type name="Page" c:type="GXPSPage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-document.c"
+                 line="460">a #GXPSDocument</doc>
+            <type name="Document" c:type="GXPSDocument*"/>
+          </instance-parameter>
+          <parameter name="n_page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-document.c"
+                 line="461">the index of the page to get</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_page_for_anchor"
+              c:identifier="gxps_document_get_page_for_anchor">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-document.c"
+             line="528">Gets the index of the page in @doc where the given
+anchor is.</doc>
+        <source-position filename="libgxps/gxps-document.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-document.c"
+               line="536">the page index of the given anchor.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-document.c"
+                 line="530">a #GXPSDocument</doc>
+            <type name="Document" c:type="GXPSDocument*"/>
+          </instance-parameter>
+          <parameter name="anchor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-document.c"
+                 line="531">the name of an anchor</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_page_size" c:identifier="gxps_document_get_page_size">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-document.c"
+             line="486">Gets the typical size of the page at index @n_page in @doc document.
+This function is useful to get the advisory size of pages in a document
+without creating #GXPSPage objects. This page size might be different than
+the actual page size so page dimension might need to be updated once the
+page is loaded. Advisory page sizes are not always available in @doc,
+in which case this function returns %FALSE.
+To get the authoritative size of a page you should use gxps_page_get_size()
+instead.</doc>
+        <source-position filename="libgxps/gxps-document.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-document.c"
+               line="502">%TRUE if the page size information is available in @doc,
+    %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-document.c"
+                 line="488">a #GXPSDocument</doc>
+            <type name="Document" c:type="GXPSDocument*"/>
+          </instance-parameter>
+          <parameter name="n_page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-document.c"
+                 line="489">the index of a page in @doc</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="width"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-document.c"
+                 line="490">return location for the width of @n_page</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+          <parameter name="height"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-document.c"
+                 line="491">return location for the height of @n_page</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_structure" c:identifier="gxps_document_get_structure">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-document.c"
+             line="555">Creates a new #GXPSDocumentStructure representing the document
+structure of @doc.</doc>
+        <source-position filename="libgxps/gxps-document.h" line="83"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-document.c"
+               line="562">a new #GXPSDocumentStructure or %NULL if document doesn't have a structure.
+    Free the returned object with g_object_unref().</doc>
+          <type name="DocumentStructure" c:type="GXPSDocumentStructure*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-document.c"
+                 line="557">a a #GXPSDocument</doc>
+            <type name="Document" c:type="GXPSDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="archive"
+                introspectable="0"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type/>
+      </property>
+      <property name="source"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="DocumentPrivate" c:type="GXPSDocumentPrivate*"/>
+      </field>
+    </class>
+    <record name="DocumentClass"
+            c:type="GXPSDocumentClass"
+            glib:is-gtype-struct-for="Document">
+      <source-position filename="libgxps/gxps-document.h" line="63"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="DocumentPrivate"
+            c:type="GXPSDocumentPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="libgxps/gxps-document.h" line="46"/>
+    </record>
+    <class name="DocumentStructure"
+           c:symbol-prefix="document_structure"
+           c:type="GXPSDocumentStructure"
+           parent="GObject.Object"
+           glib:type-name="GXPSDocumentStructure"
+           glib:get-type="gxps_document_structure_get_type"
+           glib:type-struct="DocumentStructureClass">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-document-structure.h"
+           line="43">The &lt;structname&gt;GXPSDocumentStructure&lt;/structname&gt; struct contains
+only private fields and should not be directly accessed.</doc>
+      <source-position filename="libgxps/gxps-document-structure.h" line="58"/>
+      <function name="outline_iter_init"
+                c:identifier="gxps_document_structure_outline_iter_init">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-document-structure.c"
+             line="375">Initializes @iter to the root item of the outline contained by @structure
+and a associates it with @structure.
+
+Here is a simple example of some code that walks the full outline:
+
+&lt;informalexample&gt;&lt;programlisting&gt;
+static void
+walk_outline (GXPSOutlineIter *iter)
+{
+    do {
+        GXPSOutlineIter child_iter;
+        const gchar    *description = gxps_outline_iter_get_description (iter);
+        GXPSLinkTarget *target = gxps_outline_iter_get_target (iter);
+
+        /&lt;!-- --&gt;* Do something with description and taregt *&lt;!-- --&gt;/
+        if (gxps_outline_iter_children (&amp;child_iter, iter))
+            walk_outline (&amp;child_iter);
+    } while (gxps_outline_iter_next (iter));
+}
+...
+{
+    GXPSOutlineIter iter;
+    if (gxps_document_structure_outline_iter_init (&amp;iter, structure))
+        walk_outline (&amp;iter);
+}
+&lt;/programlisting&gt;&lt;/informalexample&gt;</doc>
+        <source-position filename="libgxps/gxps-document-structure.h"
+                         line="80"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-document-structure.c"
+               line="407">%TRUE if @iter was successfully initialized to the root item,
+    %FALSE if it failed or @structure does not have an outline.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-document-structure.c"
+                 line="377">an uninitialized #GXPSOutlineIter</doc>
+            <type name="OutlineIter" c:type="GXPSOutlineIter*"/>
+          </parameter>
+          <parameter name="structure" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-document-structure.c"
+                 line="378">a #GXPSDocumentStructure</doc>
+            <type name="DocumentStructure" c:type="GXPSDocumentStructure*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="has_outline"
+              c:identifier="gxps_document_structure_has_outline">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-document-structure.c"
+             line="342">Whether @structure has an outline or not.</doc>
+        <source-position filename="libgxps/gxps-document-structure.h"
+                         line="78"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-document-structure.c"
+               line="348">%TRUE if @structure has an outline, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="structure" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-document-structure.c"
+                 line="344">a #GXPSDocumentStructure</doc>
+            <type name="DocumentStructure" c:type="GXPSDocumentStructure*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="archive"
+                introspectable="0"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type/>
+      </property>
+      <property name="source"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="DocumentStructurePrivate"
+              c:type="GXPSDocumentStructurePrivate*"/>
+      </field>
+    </class>
+    <record name="DocumentStructureClass"
+            c:type="GXPSDocumentStructureClass"
+            glib:is-gtype-struct-for="DocumentStructure">
+      <source-position filename="libgxps/gxps-document-structure.h" line="58"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="DocumentStructurePrivate"
+            c:type="GXPSDocumentStructurePrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="libgxps/gxps-document-structure.h" line="41"/>
+    </record>
+    <enumeration name="Error"
+                 c:type="GXPSError"
+                 glib:error-domain="gxps-error-quark">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-error.h"
+           line="41">Error codes returned by GXPS functions.</doc>
+      <source-position filename="libgxps/gxps-error.h" line="53"/>
+      <member name="source_not_found"
+              value="0"
+              c:identifier="GXPS_ERROR_SOURCE_NOT_FOUND">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-error.h"
+             line="43">Internal source file not found in XPS file</doc>
+      </member>
+      <member name="font" value="1" c:identifier="GXPS_ERROR_FONT">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-error.h"
+             line="44">Error loading fonts</doc>
+      </member>
+      <member name="image" value="2" c:identifier="GXPS_ERROR_IMAGE">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-error.h"
+             line="45">Error loading images</doc>
+      </member>
+    </enumeration>
+    <function-macro name="FILE" c:identifier="GXPS_FILE" introspectable="0">
+      <source-position filename="libgxps/gxps-file.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="FILE_CLASS"
+                    c:identifier="GXPS_FILE_CLASS"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-file.h" line="38"/>
+      <parameters>
+        <parameter name="cls">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="FILE_GET_CLASS"
+                    c:identifier="GXPS_FILE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-file.h" line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="File"
+           c:symbol-prefix="file"
+           c:type="GXPSFile"
+           parent="GObject.Object"
+           glib:type-name="GXPSFile"
+           glib:get-type="gxps_file_get_type"
+           glib:type-struct="FileClass">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-file.h"
+           line="66">The &lt;structname&gt;GXPSFile&lt;/structname&gt; struct contains
+only private fields and should not be directly accessed.</doc>
+      <source-position filename="libgxps/gxps-file.h" line="81"/>
+      <implements name="Gio.Initable"/>
+      <constructor name="new" c:identifier="gxps_file_new" throws="1">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-file.c"
+             line="353">Creates a new #GXPSFile for the given #GFile.</doc>
+        <source-position filename="libgxps/gxps-file.h" line="88"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-file.c"
+               line="360">a #GXPSFile or %NULL on error.</doc>
+          <type name="File" c:type="GXPSFile*"/>
+        </return-value>
+        <parameters>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-file.c"
+                 line="355">a #GFile</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="error_quark" c:identifier="gxps_file_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+      <method name="get_core_properties"
+              c:identifier="gxps_file_get_core_properties"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-file.c"
+             line="453">Create a #GXPSCoreProperties object containing the metadata
+of @xpsm, or %NULL in case of error or if the #GXPSFile
+doesn't contain core properties.</doc>
+        <source-position filename="libgxps/gxps-file.h" line="101"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-file.c"
+               line="462">a new #GXPSCoreProperties or %NULL.
+   Free the returned object with g_object_unref().</doc>
+          <type name="CoreProperties" c:type="GXPSCoreProperties*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="xps" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-file.c"
+                 line="455">a #GXPSFile</doc>
+            <type name="File" c:type="GXPSFile*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_document"
+              c:identifier="gxps_file_get_document"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-file.c"
+             line="390">Creates a new #GXPSDocument representing the document at
+index @n_doc in @xps file.</doc>
+        <source-position filename="libgxps/gxps-file.h" line="94"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-file.c"
+               line="399">a new #GXPSDocument or %NULL on error.
+    Free the returned object with g_object_unref().</doc>
+          <type name="Document" c:type="GXPSDocument*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="xps" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-file.c"
+                 line="392">a #GXPSFile</doc>
+            <type name="File" c:type="GXPSFile*"/>
+          </instance-parameter>
+          <parameter name="n_doc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-file.c"
+                 line="393">the index of the document to get</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_document_for_link_target"
+              c:identifier="gxps_file_get_document_for_link_target">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-file.c"
+             line="418">Gets the index of the document in @xps pointed by @target.
+If the #GXPSLinkTarget does not reference a document, or
+referenced document is not found in @xps file -1 will be
+returned. In this case you can look for the page pointed by
+the link target by calling gxps_document_get_page_for_anchor()
+with the anchor of the #GXPSLinkTarget for every document in
+@xps.</doc>
+        <source-position filename="libgxps/gxps-file.h" line="98"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-file.c"
+               line="431">the index of the document pointed by the given
+    #GXPSLinkTarget or -1.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="xps" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-file.c"
+                 line="420">a #GXPSFile</doc>
+            <type name="File" c:type="GXPSFile*"/>
+          </instance-parameter>
+          <parameter name="target" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-file.c"
+                 line="421">a #GXPSLinkTarget</doc>
+            <type name="LinkTarget" c:type="GXPSLinkTarget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_n_documents" c:identifier="gxps_file_get_n_documents">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-file.c"
+             line="374">Gets the number of documents in @xps.</doc>
+        <source-position filename="libgxps/gxps-file.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-file.c"
+               line="380">the number of documents.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="xps" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-file.c"
+                 line="376">a #GXPSFile</doc>
+            <type name="File" c:type="GXPSFile*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="file"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Gio.File"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="FilePrivate" c:type="GXPSFilePrivate*"/>
+      </field>
+    </class>
+    <record name="FileClass"
+            c:type="GXPSFileClass"
+            glib:is-gtype-struct-for="File">
+      <source-position filename="libgxps/gxps-file.h" line="81"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="FileError" c:type="GXPSFileError">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-file.h"
+           line="52">Error codes returned by #GXPSFile functions.</doc>
+      <source-position filename="libgxps/gxps-file.h" line="60"/>
+      <member name="file_error_invalid"
+              value="0"
+              c:identifier="GXPS_FILE_ERROR_INVALID">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-file.h"
+             line="54">The XPS is invalid.</doc>
+      </member>
+    </enumeration>
+    <record name="FilePrivate"
+            c:type="GXPSFilePrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="libgxps/gxps-file.h" line="64"/>
+    </record>
+    <function-macro name="IS_CORE_PROPERTIES"
+                    c:identifier="GXPS_IS_CORE_PROPERTIES"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-core-properties.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CORE_PROPERTIES_CLASS"
+                    c:identifier="GXPS_IS_CORE_PROPERTIES_CLASS"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-core-properties.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOCUMENT"
+                    c:identifier="GXPS_IS_DOCUMENT"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-document.h" line="40"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOCUMENT_CLASS"
+                    c:identifier="GXPS_IS_DOCUMENT_CLASS"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-document.h" line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOCUMENT_STRUCTURE"
+                    c:identifier="GXPS_IS_DOCUMENT_STRUCTURE"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-document-structure.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOCUMENT_STRUCTURE_CLASS"
+                    c:identifier="GXPS_IS_DOCUMENT_STRUCTURE_CLASS"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-document-structure.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_FILE"
+                    c:identifier="GXPS_IS_FILE"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-file.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_FILE_CLASS"
+                    c:identifier="GXPS_IS_FILE_CLASS"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-file.h" line="40"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PAGE"
+                    c:identifier="GXPS_IS_PAGE"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-page.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PAGE_CLASS"
+                    c:identifier="GXPS_IS_PAGE_CLASS"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-page.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <record name="Link"
+            c:type="GXPSLink"
+            opaque="1"
+            glib:type-name="GXPSLink"
+            glib:get-type="gxps_link_get_type"
+            c:symbol-prefix="link">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-links.h"
+           line="36">GXPSLink maps a location in a page to a #GXPSLinkTarget.</doc>
+      <source-position filename="libgxps/gxps-links.h" line="41"/>
+      <method name="copy" c:identifier="gxps_link_copy">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-links.c"
+             line="62">Creates a copy of a #GXPSLink.</doc>
+        <source-position filename="libgxps/gxps-links.h" line="53"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-links.c"
+               line="68">a copy of @link.
+    Free the returned object with gxps_link_free().</doc>
+          <type name="Link" c:type="GXPSLink*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="link" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-links.c"
+                 line="64">a #GXPSLink</doc>
+            <type name="Link" c:type="GXPSLink*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="gxps_link_free">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-links.c"
+             line="87">Frees a #GXPSLink.</doc>
+        <source-position filename="libgxps/gxps-links.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="link" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-links.c"
+                 line="89">a #GXPSLink</doc>
+            <type name="Link" c:type="GXPSLink*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_area" c:identifier="gxps_link_get_area">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-links.c"
+             line="119">Gets the rectangle of a page where the #GXPSLinkTarget
+mapped by @link is.</doc>
+        <source-position filename="libgxps/gxps-links.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="link" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-links.c"
+                 line="121">a #GXPSLink</doc>
+            <type name="Link" c:type="GXPSLink*"/>
+          </instance-parameter>
+          <parameter name="area"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-links.c"
+                 line="122">return location for page area</doc>
+            <type name="cairo.Rectangle" c:type="cairo_rectangle_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_target" c:identifier="gxps_link_get_target">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-links.c"
+             line="103">Gets the #GXPSLinkTarget mapped by @link.</doc>
+        <source-position filename="libgxps/gxps-links.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-links.c"
+               line="109">the #GXPSLinkTarget of @link.</doc>
+          <type name="LinkTarget" c:type="GXPSLinkTarget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="link" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-links.c"
+                 line="105">a #GXPSLink</doc>
+            <type name="Link" c:type="GXPSLink*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="LinkTarget"
+            c:type="GXPSLinkTarget"
+            opaque="1"
+            glib:type-name="GXPSLinkTarget"
+            glib:get-type="gxps_link_target_get_type"
+            c:symbol-prefix="link_target">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-links.h"
+           line="43">GXPSLinkTarget represents a hyperlink source.</doc>
+      <source-position filename="libgxps/gxps-links.h" line="48"/>
+      <method name="copy" c:identifier="gxps_link_target_copy">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-links.c"
+             line="137">Creates a copy of a #GXPSLinkTarget</doc>
+        <source-position filename="libgxps/gxps-links.h" line="65"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-links.c"
+               line="143">a copy of @target.
+    Free the returned object with gxps_link_target_free()</doc>
+          <type name="LinkTarget" c:type="GXPSLinkTarget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="target" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-links.c"
+                 line="139">a #GXPSLinkTarget</doc>
+            <type name="LinkTarget" c:type="GXPSLinkTarget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="gxps_link_target_free">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-links.c"
+             line="162">Frees a #GXPSLinkTarget.</doc>
+        <source-position filename="libgxps/gxps-links.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="target" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-links.c"
+                 line="164">a #GXPSLinkTarget</doc>
+            <type name="LinkTarget" c:type="GXPSLinkTarget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_anchor" c:identifier="gxps_link_target_get_anchor">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-links.c"
+             line="196">Gets the anchor name @target links to. If @target is
+an internal #GXPSLinkTarget this function always returns
+and anchor, if it is external it might return %NULL if the
+@target does not have an anchor.</doc>
+        <source-position filename="libgxps/gxps-links.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-links.c"
+               line="205">the name of the anchor of @target.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="target" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-links.c"
+                 line="198">a #GXPSLinkTarget</doc>
+            <type name="LinkTarget" c:type="GXPSLinkTarget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_uri" c:identifier="gxps_link_target_get_uri">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-links.c"
+             line="215">Gets the URI @target links to.</doc>
+        <source-position filename="libgxps/gxps-links.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-links.c"
+               line="221">the URI of @target.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="target" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-links.c"
+                 line="217">a #GXPSLinkTarget</doc>
+            <type name="LinkTarget" c:type="GXPSLinkTarget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_internal" c:identifier="gxps_link_target_is_internal">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-links.c"
+             line="179">Gets whether @target destination is internal or not.</doc>
+        <source-position filename="libgxps/gxps-links.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-links.c"
+               line="185">%TRUE if the #GXPSLinkTarget points to an internal location,
+    %FALSE if it points to a external one.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="target" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-links.c"
+                 line="181">a #GXPSLinkTarget</doc>
+            <type name="LinkTarget" c:type="GXPSLinkTarget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <constant name="MAJOR_VERSION" value="0" c:type="GXPS_MAJOR_VERSION">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-version.h"
+           line="36">The major version number of the GXPS header files (e.g. in GXPS version
+0.1.2 this is 0.)</doc>
+      <source-position filename="libgxps/gxps-version.h" line="42"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MICRO_VERSION" value="2" c:type="GXPS_MICRO_VERSION">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-version.h"
+           line="52">The micro version number of the GXPS header files (e.g. in GXPS version
+0.1.2 this is 2.)</doc>
+      <source-position filename="libgxps/gxps-version.h" line="58"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MINOR_VERSION" value="3" c:type="GXPS_MINOR_VERSION">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-version.h"
+           line="44">The major version number of the GXPS header files (e.g. in GXPS version
+0.1.2 this is 1.)</doc>
+      <source-position filename="libgxps/gxps-version.h" line="50"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <record name="OutlineIter" c:type="GXPSOutlineIter">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-document-structure.h"
+           line="60">GXPSOutlineIter represents an iterator that can be
+used to iterate over the items of an outline
+contained in a #GXPSDocumentStructure</doc>
+      <source-position filename="libgxps/gxps-document-structure.h" line="72"/>
+      <field name="dummy1" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="dummy2" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <method name="children" c:identifier="gxps_outline_iter_children">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-document-structure.c"
+             line="450">Initializes @iter to the first child item of @parent.
+See gxps_document_structure_outline_iter_init() for
+more details.</doc>
+        <source-position filename="libgxps/gxps-document-structure.h"
+                         line="85"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-document-structure.c"
+               line="459">%TRUE if @iter was set to the first child of @parent,
+    %FALSE if @parent does not have children.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-document-structure.c"
+                 line="452">an uninitialized #GXPSOutlineIter</doc>
+            <type name="OutlineIter" c:type="GXPSOutlineIter*"/>
+          </instance-parameter>
+          <parameter name="parent" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-document-structure.c"
+                 line="453">an initialized #GXPSOutlineIter</doc>
+            <type name="OutlineIter" c:type="GXPSOutlineIter*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_description"
+              c:identifier="gxps_outline_iter_get_description">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-document-structure.c"
+             line="482">Gets the description of the outline item associated with @iter.
+See gxps_document_structure_outline_iter_init() for
+more details.</doc>
+        <source-position filename="libgxps/gxps-document-structure.h"
+                         line="88"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-document-structure.c"
+               line="490">the description of the outline item</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-document-structure.c"
+                 line="484">an initialized #GXPSOutlineIter</doc>
+            <type name="OutlineIter" c:type="GXPSOutlineIter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_target" c:identifier="gxps_outline_iter_get_target">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-document-structure.c"
+             line="505">Gets the #GXPSLinkTarget of the outline item associated with @iter.
+See gxps_document_structure_outline_iter_init() for
+more details.</doc>
+        <source-position filename="libgxps/gxps-document-structure.h"
+                         line="90"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-document-structure.c"
+               line="513">a new allocated #GXPSLinkTarget.
+    Free the returned object with gxps_link_target_free().</doc>
+          <type name="LinkTarget" c:type="GXPSLinkTarget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-document-structure.c"
+                 line="507">an initialized #GXPSOutlineIter</doc>
+            <type name="OutlineIter" c:type="GXPSOutlineIter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="next" c:identifier="gxps_outline_iter_next">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-document-structure.c"
+             line="427">Advances @iter to the next item at the current level.
+See gxps_document_structure_outline_iter_init() for
+more details.</doc>
+        <source-position filename="libgxps/gxps-document-structure.h"
+                         line="83"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-document-structure.c"
+               line="435">%TRUE if @iter was set to the next item,
+    %FALSE if the end of the current level has been reached</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-document-structure.c"
+                 line="429">an initialized #GXPSOutlineIter</doc>
+            <type name="OutlineIter" c:type="GXPSOutlineIter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <function-macro name="PAGE" c:identifier="GXPS_PAGE" introspectable="0">
+      <source-position filename="libgxps/gxps-page.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PAGE_CLASS"
+                    c:identifier="GXPS_PAGE_CLASS"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-page.h" line="36"/>
+      <parameters>
+        <parameter name="cls">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PAGE_GET_CLASS"
+                    c:identifier="GXPS_PAGE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libgxps/gxps-page.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Page"
+           c:symbol-prefix="page"
+           c:type="GXPSPage"
+           parent="GObject.Object"
+           glib:type-name="GXPSPage"
+           glib:get-type="gxps_page_get_type"
+           glib:type-struct="PageClass">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-page.h"
+           line="68">The &lt;structname&gt;GXPSPage&lt;/structname&gt; struct contains
+only private fields and should not be directly accessed.</doc>
+      <source-position filename="libgxps/gxps-page.h" line="83"/>
+      <implements name="Gio.Initable"/>
+      <function name="error_quark" c:identifier="gxps_page_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+      <method name="get_anchor_destination"
+              c:identifier="gxps_page_get_anchor_destination"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-page.c"
+             line="1865">Gets the rectangle of @page corresponding to the destination
+of the given anchor. If @anchor is not found in @page, %FALSE
+will be returned and @error will contain %GXPS_PAGE_ERROR_INVALID_ANCHOR</doc>
+        <source-position filename="libgxps/gxps-page.h" line="102"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-page.c"
+               line="1876">%TRUE if the destination for the anchor was found in page
+    and @area contains the rectangle, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-page.c"
+                 line="1867">a #GXPSPage</doc>
+            <type name="Page" c:type="GXPSPage*"/>
+          </instance-parameter>
+          <parameter name="anchor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-page.c"
+                 line="1868">the name of an anchor in @page</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="area"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-page.c"
+                 line="1869">return location for page area of @anchor</doc>
+            <type name="cairo.Rectangle" c:type="cairo_rectangle_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_links" c:identifier="gxps_page_get_links" throws="1">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-page.c"
+             line="1827">Gets a list of #GXPSLink items that map from a location
+in @page to a #GXPSLinkTarget. Items in the list should
+be freed with gxps_link_free() and the list itself with
+g_list_free() when done.</doc>
+        <source-position filename="libgxps/gxps-page.h" line="99"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-page.c"
+               line="1837">a #GList
+    of #GXPSLink items.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Link"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-page.c"
+                 line="1829">a #GXPSPage</doc>
+            <type name="Page" c:type="GXPSPage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_size" c:identifier="gxps_page_get_size">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-page.c"
+             line="1782">Gets the size of the page.</doc>
+        <source-position filename="libgxps/gxps-page.h" line="91"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-page.c"
+                 line="1784">a #GXPSPage</doc>
+            <type name="Page" c:type="GXPSPage*"/>
+          </instance-parameter>
+          <parameter name="width"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-page.c"
+                 line="1785">return location for the page width</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+          <parameter name="height"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-page.c"
+                 line="1786">return location for the page height</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="render" c:identifier="gxps_page_render" throws="1">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-page.c"
+             line="1803">Render the page to the given cairo context. In case of
+error, %FALSE is returned and @error is filled with
+information about error.</doc>
+        <source-position filename="libgxps/gxps-page.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgxps/gxps-page.c"
+               line="1813">%TRUE if page was successfully rendered,
+    %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-page.c"
+                 line="1805">a #GXPSPage</doc>
+            <type name="Page" c:type="GXPSPage*"/>
+          </instance-parameter>
+          <parameter name="cr" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgxps/gxps-page.c"
+                 line="1806">a cairo context to render to</doc>
+            <type name="cairo.Context" c:type="cairo_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="archive"
+                introspectable="0"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type/>
+      </property>
+      <property name="source"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="PagePrivate" c:type="GXPSPagePrivate*"/>
+      </field>
+    </class>
+    <record name="PageClass"
+            c:type="GXPSPageClass"
+            glib:is-gtype-struct-for="Page">
+      <source-position filename="libgxps/gxps-page.h" line="83"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="PageError" c:type="GXPSPageError">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-page.h"
+           line="50">Error codes returned by #GXPSPage functions</doc>
+      <source-position filename="libgxps/gxps-page.h" line="62"/>
+      <member name="invalid" value="0" c:identifier="GXPS_PAGE_ERROR_INVALID">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-page.h"
+             line="52">The page is invalid.</doc>
+      </member>
+      <member name="render" value="1" c:identifier="GXPS_PAGE_ERROR_RENDER">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-page.h"
+             line="53">Error rendering the page.</doc>
+      </member>
+      <member name="invalid_anchor"
+              value="2"
+              c:identifier="GXPS_PAGE_ERROR_INVALID_ANCHOR">
+        <doc xml:space="preserve"
+             filename="libgxps/gxps-page.h"
+             line="54">Anchor is invalid for the page.</doc>
+      </member>
+    </enumeration>
+    <record name="PagePrivate"
+            c:type="GXPSPagePrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="libgxps/gxps-page.h" line="66"/>
+    </record>
+    <constant name="VERSION_STRING"
+              value="0.3.2"
+              c:type="GXPS_VERSION_STRING"
+              version="0.2.1">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-version.h"
+           line="60">The version number of the GXPS library as a string</doc>
+      <source-position filename="libgxps/gxps-version.h" line="67"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function name="error_quark" c:identifier="gxps_error_quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <docsection name="gxps-core-properties">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-core-properties.c"
+           line="28">#GXPSCoreProperties represents the metadata of a #GXPSFile.
+#GXPSCoreProperties objects can not be created directly, they
+are retrieved from a #GXPSFile with gxps_file_get_core_properties().</doc>
+    </docsection>
+    <docsection name="gxps-document">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-document.c"
+           line="31">#GXPSDocument represents a document in a #GXPSFile. #GXPSDocument
+objects can not be created directly, they are retrieved from a
+#GXPSFile with gxps_file_get_document().</doc>
+    </docsection>
+    <docsection name="gxps-document-structure">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-document-structure.c"
+           line="28">#GXPSDocumentStructure represents the structural organization of
+a XPS document. A #GXPSDocumentStructure can contain the document
+outline, similar to a table of contents, containing hyperlinks.
+To iterate over the outline items you can use #GXPSOutlineIter.
+
+#GXPSDocumentStructure objects can not be created directly, they
+are retrieved from a #GXPSDocument with gxps_document_get_structure().</doc>
+    </docsection>
+    <docsection name="gxps-file">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-file.c"
+           line="30">#GXPSFile represents a XPS file. A #GXPSFile is a set of one or more
+documents, you can get the amount of documents contained in the set
+with gxps_file_get_n_documents(). Documents can be retrieved by their
+index in the set with gxps_file_get_document().</doc>
+    </docsection>
+    <docsection name="gxps-links">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-links.c"
+           line="27">#GXPSLinkTarget is a hyperlink source that can point to a location in
+any of the documents of the XPS file or to an external document.
+Internal #GXPSLinkTarget&lt;!-- --&gt;s have an URI relative to the XPS file,
+and a named destination represented by an anchor. External
+#GXPSLinkTarget&lt;!-- --&gt;s have an absolute URI pointing to a location
+in another XPS File and might optionally have an anchor.
+To get the destination pointed by a in internal #GXPSLinkTarget you can use
+gxps_file_get_document_for_link_target() to get the document within the file,
+gxps_document_get_page_for_anchor() to get the page within the document, and
+gxps_page_get_anchor_destination() to get the page area.
+
+#GXPSLink maps a location in a page to a #GXPSLinkTarget. To get the list of
+link for a page you can use gxps_page_get_links().</doc>
+    </docsection>
+    <docsection name="gxps-page">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-page.c"
+           line="38">#GXPSPage represents a page in a XPS document. #GXPSPage&lt;!-- --&gt;s
+can be rendered into a cairo context with gxps_page_render().
+#GXPSPage objects can not be created directly, they are retrieved
+from a #GXPSDocument with gxps_document_get_page().</doc>
+    </docsection>
+    <docsection name="gxps-version">
+      <doc xml:space="preserve"
+           filename="libgxps/gxps-version.h"
+           line="26">GXPS provides version information, primarily useful in configure checks
+for builds that have a configure script. Applications will not typically
+use the features described here.</doc>
+    </docsection>
+  </namespace>
+</repository>

@@ -1,0 +1,2221 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Json" version="1.0"/>
+  <include name="Rest" version="0.7"/>
+  <include name="Soup" version="2.4"/>
+  <package name="libgfbgraph.0.2"/>
+  <c:include name="gfbgraph/gfbgraph.h"/>
+  <namespace name="GFBGraph"
+             version="0.2"
+             shared-library="libgfbgraph-0.2.so.0"
+             c:identifier-prefixes="GFBGraph"
+             c:symbol-prefixes="gfbgraph">
+    <function-macro name="ALBUM"
+                    c:identifier="GFBGRAPH_ALBUM"
+                    introspectable="0">
+      <source-position filename="gfbgraph-album.h" line="29"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ALBUM_CLASS"
+                    c:identifier="GFBGRAPH_ALBUM_CLASS"
+                    introspectable="0">
+      <source-position filename="gfbgraph-album.h" line="30"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ALBUM_GET_CLASS"
+                    c:identifier="GFBGRAPH_ALBUM_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gfbgraph-album.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="AUTHORIZER"
+                    c:identifier="GFBGRAPH_AUTHORIZER"
+                    introspectable="0">
+      <source-position filename="gfbgraph-authorizer.h" line="31"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="AUTHORIZER_GET_IFACE"
+                    c:identifier="GFBGRAPH_AUTHORIZER_GET_IFACE"
+                    introspectable="0">
+      <source-position filename="gfbgraph-authorizer.h" line="33"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Album"
+           c:symbol-prefix="album"
+           c:type="GFBGraphAlbum"
+           parent="Node"
+           glib:type-name="GFBGraphAlbum"
+           glib:get-type="gfbgraph_album_get_type"
+           glib:type-struct="AlbumClass">
+      <source-position filename="gfbgraph-album.h" line="50"/>
+      <implements name="Connectable"/>
+      <constructor name="new" c:identifier="gfbgraph_album_new">
+        <doc xml:space="preserve"
+             filename="gfbgraph-album.c"
+             line="232">Creates a new #GFBGraphAlbum.</doc>
+        <source-position filename="gfbgraph-album.h" line="53"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-album.c"
+               line="237">a new #GFBGraphAlbum; unref with g_object_unref()</doc>
+          <type name="Album" c:type="GFBGraphAlbum*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_id"
+                   c:identifier="gfbgraph_album_new_from_id"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="gfbgraph-album.c"
+             line="245">Retrieves an album node from the Facebook Graph with the give ID.</doc>
+        <source-position filename="gfbgraph-album.h" line="54"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-album.c"
+               line="253">a new #GFBGraphAlbum; unref with g_object_unref()</doc>
+          <type name="Album" c:type="GFBGraphAlbum*"/>
+        </return-value>
+        <parameters>
+          <parameter name="authorizer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-album.c"
+                 line="247">a #GFBGraphAuthorizer.</doc>
+            <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+          </parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-album.c"
+                 line="248">a const #gchar with the album ID.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_count" c:identifier="gfbgraph_album_get_count">
+        <source-position filename="gfbgraph-album.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfbgraph-album.c"
+               line="307">the number of photos into the @album or -1 in case of error.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="album" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-album.c"
+                 line="305">a #GFBGraphAlbum.</doc>
+            <type name="Album" c:type="GFBGraphAlbum*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_cover_photo_id"
+              c:identifier="gfbgraph_album_get_cover_photo_id">
+        <source-position filename="gfbgraph-album.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="album" transfer-ownership="none">
+            <type name="Album" c:type="GFBGraphAlbum*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_description"
+              c:identifier="gfbgraph_album_get_description">
+        <source-position filename="gfbgraph-album.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfbgraph-album.c"
+               line="279">the @album description, or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="album" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-album.c"
+                 line="277">a #GFBGraphAlbum.</doc>
+            <type name="Album" c:type="GFBGraphAlbum*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="gfbgraph_album_get_name">
+        <source-position filename="gfbgraph-album.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfbgraph-album.c"
+               line="265">the @album name, or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="album" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-album.c"
+                 line="263">a #GFBGraphAlbum.</doc>
+            <type name="Album" c:type="GFBGraphAlbum*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_description"
+              c:identifier="gfbgraph_album_set_description">
+        <doc xml:space="preserve"
+             filename="gfbgraph-album.c"
+             line="335">Sets the description for the @album.</doc>
+        <source-position filename="gfbgraph-album.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="album" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-album.c"
+                 line="337">a #GFBGraphAlbum.</doc>
+            <type name="Album" c:type="GFBGraphAlbum*"/>
+          </instance-parameter>
+          <parameter name="description" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-album.c"
+                 line="338">a const pointer to a #gchar.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_name" c:identifier="gfbgraph_album_set_name">
+        <doc xml:space="preserve"
+             filename="gfbgraph-album.c"
+             line="317">Sets the name for the @album.</doc>
+        <source-position filename="gfbgraph-album.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="album" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-album.c"
+                 line="319">a #GFBGraphAlbum.</doc>
+            <type name="Album" c:type="GFBGraphAlbum*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-album.c"
+                 line="320">a const pointer to a #gchar.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="count" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gfbgraph-album.c"
+             line="124">The number of photos in the album.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="cover-photo" writable="1" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="description" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gfbgraph-album.c"
+             line="100">The album description given by the owner.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="name" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gfbgraph-album.c"
+             line="88">The album name.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="Node" c:type="GFBGraphNode"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="AlbumPrivate" c:type="GFBGraphAlbumPrivate*"/>
+      </field>
+    </class>
+    <record name="AlbumClass"
+            c:type="GFBGraphAlbumClass"
+            glib:is-gtype-struct-for="Album">
+      <source-position filename="gfbgraph-album.h" line="50"/>
+      <field name="parent_class">
+        <type name="NodeClass" c:type="GFBGraphNodeClass"/>
+      </field>
+    </record>
+    <record name="AlbumPrivate" c:type="GFBGraphAlbumPrivate" disguised="1">
+      <source-position filename="gfbgraph-album.h" line="37"/>
+    </record>
+    <interface name="Authorizer"
+               c:symbol-prefix="authorizer"
+               c:type="GFBGraphAuthorizer"
+               glib:type-name="GFBGraphAuthorizer"
+               glib:get-type="gfbgraph_authorizer_get_type"
+               glib:type-struct="AuthorizerInterface">
+      <source-position filename="gfbgraph-authorizer.h" line="58"/>
+      <virtual-method name="process_call" invoker="process_call">
+        <doc xml:space="preserve"
+             filename="gfbgraph-authorizer.c"
+             line="39">Adds the necessary authorization to @call.
+
+This method modifies @call in place and is thread safe.</doc>
+        <source-position filename="gfbgraph-authorizer.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iface" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-authorizer.c"
+                 line="41">A #GFBGraphAuthorizer.</doc>
+            <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+          </instance-parameter>
+          <parameter name="call" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-authorizer.c"
+                 line="42">A #RestProxyCall.</doc>
+            <type name="Rest.ProxyCall" c:type="RestProxyCall*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="process_message" invoker="process_message">
+        <doc xml:space="preserve"
+             filename="gfbgraph-authorizer.c"
+             line="55">Adds the necessary authorization to @message. The type of @message
+can be DELETE, GET and POST.
+
+This method modifies @message in place and is thread safe.</doc>
+        <source-position filename="gfbgraph-authorizer.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iface" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-authorizer.c"
+                 line="57">A #GFBGraphAuthorizer.</doc>
+            <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+          </instance-parameter>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-authorizer.c"
+                 line="58">A #SoupMessage.</doc>
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="refresh_authorization"
+                      invoker="refresh_authorization"
+                      throws="1">
+        <doc xml:space="preserve"
+             filename="gfbgraph-authorizer.c"
+             line="72">Synchronously forces @iface to refresh any authorization tokens
+held by it.
+
+This method is thread safe.</doc>
+        <source-position filename="gfbgraph-authorizer.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfbgraph-authorizer.c"
+               line="83">%TRUE if the authorizer now has a valid token.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iface" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-authorizer.c"
+                 line="74">A #GFBGraphAuthorizer.</doc>
+            <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-authorizer.c"
+                 line="75">An optional #GCancellable object, or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="process_call"
+              c:identifier="gfbgraph_authorizer_process_call">
+        <doc xml:space="preserve"
+             filename="gfbgraph-authorizer.c"
+             line="39">Adds the necessary authorization to @call.
+
+This method modifies @call in place and is thread safe.</doc>
+        <source-position filename="gfbgraph-authorizer.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iface" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-authorizer.c"
+                 line="41">A #GFBGraphAuthorizer.</doc>
+            <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+          </instance-parameter>
+          <parameter name="call" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-authorizer.c"
+                 line="42">A #RestProxyCall.</doc>
+            <type name="Rest.ProxyCall" c:type="RestProxyCall*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="process_message"
+              c:identifier="gfbgraph_authorizer_process_message">
+        <doc xml:space="preserve"
+             filename="gfbgraph-authorizer.c"
+             line="55">Adds the necessary authorization to @message. The type of @message
+can be DELETE, GET and POST.
+
+This method modifies @message in place and is thread safe.</doc>
+        <source-position filename="gfbgraph-authorizer.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iface" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-authorizer.c"
+                 line="57">A #GFBGraphAuthorizer.</doc>
+            <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+          </instance-parameter>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-authorizer.c"
+                 line="58">A #SoupMessage.</doc>
+            <type name="Soup.Message" c:type="SoupMessage*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="refresh_authorization"
+              c:identifier="gfbgraph_authorizer_refresh_authorization"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gfbgraph-authorizer.c"
+             line="72">Synchronously forces @iface to refresh any authorization tokens
+held by it.
+
+This method is thread safe.</doc>
+        <source-position filename="gfbgraph-authorizer.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfbgraph-authorizer.c"
+               line="83">%TRUE if the authorizer now has a valid token.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iface" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-authorizer.c"
+                 line="74">A #GFBGraphAuthorizer.</doc>
+            <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-authorizer.c"
+                 line="75">An optional #GCancellable object, or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="AuthorizerInterface"
+            c:type="GFBGraphAuthorizerInterface"
+            glib:is-gtype-struct-for="Authorizer">
+      <doc xml:space="preserve"
+           filename="gfbgraph-authorizer.h"
+           line="38">Interface structure for #GFBGraphAuthorizer. All methos should be thread safe.</doc>
+      <source-position filename="gfbgraph-authorizer.h" line="58"/>
+      <field name="parent">
+        <doc xml:space="preserve"
+             filename="gfbgraph-authorizer.h"
+             line="40">The parent interface.</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="process_call">
+        <callback name="process_call">
+          <source-position filename="gfbgraph-authorizer.h" line="51"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="iface" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="gfbgraph-authorizer.c"
+                   line="41">A #GFBGraphAuthorizer.</doc>
+              <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+            </parameter>
+            <parameter name="call" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="gfbgraph-authorizer.c"
+                   line="42">A #RestProxyCall.</doc>
+              <type name="Rest.ProxyCall" c:type="RestProxyCall*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="process_message">
+        <callback name="process_message">
+          <source-position filename="gfbgraph-authorizer.h" line="53"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="iface" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="gfbgraph-authorizer.c"
+                   line="57">A #GFBGraphAuthorizer.</doc>
+              <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+            </parameter>
+            <parameter name="message" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="gfbgraph-authorizer.c"
+                   line="58">A #SoupMessage.</doc>
+              <type name="Soup.Message" c:type="SoupMessage*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="refresh_authorization">
+        <callback name="refresh_authorization" throws="1">
+          <source-position filename="gfbgraph-authorizer.h" line="55"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-authorizer.c"
+                 line="83">%TRUE if the authorizer now has a valid token.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="iface" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="gfbgraph-authorizer.c"
+                   line="74">A #GFBGraphAuthorizer.</doc>
+              <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+            </parameter>
+            <parameter name="cancellable"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <doc xml:space="preserve"
+                   filename="gfbgraph-authorizer.c"
+                   line="75">An optional #GCancellable object, or %NULL.</doc>
+              <type name="Gio.Cancellable" c:type="GCancellable*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <function-macro name="CONNECTABLE"
+                    c:identifier="GFBGRAPH_CONNECTABLE"
+                    introspectable="0">
+      <source-position filename="gfbgraph-connectable.h" line="28"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CONNECTABLE_CLASS"
+                    c:identifier="GFBGRAPH_CONNECTABLE_CLASS"
+                    introspectable="0">
+      <source-position filename="gfbgraph-connectable.h" line="29"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CONNECTABLE_GET_IFACE"
+                    c:identifier="GFBGRAPH_CONNECTABLE_GET_IFACE"
+                    introspectable="0">
+      <source-position filename="gfbgraph-connectable.h" line="31"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <interface name="Connectable"
+               c:symbol-prefix="connectable"
+               c:type="GFBGraphConnectable"
+               glib:type-name="GFBGraphConnectable"
+               glib:get-type="gfbgraph_connectable_get_type"
+               glib:type-struct="ConnectableInterface">
+      <source-position filename="gfbgraph-connectable.h" line="43"/>
+      <prerequisite name="Node"/>
+      <virtual-method name="get_connection_post_params"
+                      invoker="get_connection_post_params">
+        <doc xml:space="preserve"
+             filename="gfbgraph-connectable.c"
+             line="65">Get the params to be inserted in a request to the Facebook Graph API
+in order to append the node @self to a node of type @node_type.</doc>
+        <source-position filename="gfbgraph-connectable.h" line="41"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-connectable.c"
+               line="73">A string based #GHashTable with the params and his values or %NULL.</doc>
+          <type name="GLib.HashTable" c:type="GHashTable*">
+            <type name="gpointer" c:type="gpointer"/>
+            <type name="gpointer" c:type="gpointer"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-connectable.c"
+                 line="67">a #GFBGraphConnectable.</doc>
+            <type name="Connectable" c:type="GFBGraphConnectable*"/>
+          </instance-parameter>
+          <parameter name="node_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-connectable.c"
+                 line="68">a #GType, required a #GFBGRAPH_TYPE_NODE or children.</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="parse_connected_data"
+                      invoker="parse_connected_data"
+                      throws="1">
+        <doc xml:space="preserve"
+             filename="gfbgraph-connectable.c"
+             line="90">Parse the response contained in @payload when a gfbgraph_node_get_connection_nodes() was
+executed.</doc>
+        <source-position filename="gfbgraph-connectable.h" line="42"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-connectable.c"
+               line="99">a newly-allocated #GList of #GFBGraphNode created from the @payload or %NULL.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Node"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-connectable.c"
+                 line="92">a #GFBGraphConnectable.</doc>
+            <type name="Connectable" c:type="GFBGraphConnectable*"/>
+          </instance-parameter>
+          <parameter name="payload" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-connectable.c"
+                 line="93">a const #gchar with the response string from the Facebook Graph API.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="default_parse_connected_data"
+              c:identifier="gfbgraph_connectable_default_parse_connected_data"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gfbgraph-connectable.c"
+             line="167">In most cases, #GFBGraphConnectable implementers can use this function in order to parse
+the response when a gfbgraph_node_get_connection_nodes() is executed and the
+gfbgraph_connectable_parse_connected_data() was called.
+
+Normally, Facebook Graph API returns the connections in the same way, using JSON objects,
+with a root object called "data".</doc>
+        <source-position filename="gfbgraph-connectable.h" line="52"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-connectable.c"
+               line="180">a newly-allocated #GList of #GFBGraphNode with the same #GType as @self.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Node"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-connectable.c"
+                 line="169">a #GFBGraphConnectable.</doc>
+            <type name="Connectable" c:type="GFBGraphConnectable*"/>
+          </instance-parameter>
+          <parameter name="payload" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-connectable.c"
+                 line="170">a const #gchar with the response string from the Facebook Graph API.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_connection_path"
+              c:identifier="gfbgraph_connectable_get_connection_path">
+        <doc xml:space="preserve"
+             filename="gfbgraph-connectable.c"
+             line="141">Get the Facebook Graph API function path to retrieve the nodes connected with @node_type
+managed by the #GFBGraphConnectable object.</doc>
+        <source-position filename="gfbgraph-connectable.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfbgraph-connectable.c"
+               line="149">a const #gchar with the function path or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-connectable.c"
+                 line="143">a #GFBGraphConnectable.</doc>
+            <type name="Connectable" c:type="GFBGraphConnectable*"/>
+          </instance-parameter>
+          <parameter name="node_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-connectable.c"
+                 line="144">a #GType, required a #GFBGRAPH_TYPE_NODE or children.</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_connection_post_params"
+              c:identifier="gfbgraph_connectable_get_connection_post_params">
+        <doc xml:space="preserve"
+             filename="gfbgraph-connectable.c"
+             line="65">Get the params to be inserted in a request to the Facebook Graph API
+in order to append the node @self to a node of type @node_type.</doc>
+        <source-position filename="gfbgraph-connectable.h" line="47"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-connectable.c"
+               line="73">A string based #GHashTable with the params and his values or %NULL.</doc>
+          <type name="GLib.HashTable" c:type="GHashTable*">
+            <type name="gpointer" c:type="gpointer"/>
+            <type name="gpointer" c:type="gpointer"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-connectable.c"
+                 line="67">a #GFBGraphConnectable.</doc>
+            <type name="Connectable" c:type="GFBGraphConnectable*"/>
+          </instance-parameter>
+          <parameter name="node_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-connectable.c"
+                 line="68">a #GType, required a #GFBGRAPH_TYPE_NODE or children.</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_connectable_to"
+              c:identifier="gfbgraph_connectable_is_connectable_to">
+        <doc xml:space="preserve"
+             filename="gfbgraph-connectable.c"
+             line="115">Check if @self object, normally a #GFBGraphNode implementing the #GFBGraphConnectable interface,
+has the possibility to be connected to another node of type @node_type.</doc>
+        <source-position filename="gfbgraph-connectable.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfbgraph-connectable.c"
+               line="123">%TRUE in case that the @self object can be connected to a node of type @node_type,
+%FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-connectable.c"
+                 line="117">a #GFBGraphConnectable.</doc>
+            <type name="Connectable" c:type="GFBGraphConnectable*"/>
+          </instance-parameter>
+          <parameter name="node_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-connectable.c"
+                 line="118">a #GType, required a #GFBGRAPH_TYPE_NODE or children.</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="parse_connected_data"
+              c:identifier="gfbgraph_connectable_parse_connected_data"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gfbgraph-connectable.c"
+             line="90">Parse the response contained in @payload when a gfbgraph_node_get_connection_nodes() was
+executed.</doc>
+        <source-position filename="gfbgraph-connectable.h" line="48"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-connectable.c"
+               line="99">a newly-allocated #GList of #GFBGraphNode created from the @payload or %NULL.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Node"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-connectable.c"
+                 line="92">a #GFBGraphConnectable.</doc>
+            <type name="Connectable" c:type="GFBGraphConnectable*"/>
+          </instance-parameter>
+          <parameter name="payload" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-connectable.c"
+                 line="93">a const #gchar with the response string from the Facebook Graph API.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="ConnectableInterface"
+            c:type="GFBGraphConnectableInterface"
+            glib:is-gtype-struct-for="Connectable">
+      <source-position filename="gfbgraph-connectable.h" line="43"/>
+      <field name="parent">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="connections">
+        <type name="GLib.HashTable" c:type="GHashTable*">
+          <type name="gpointer" c:type="gpointer"/>
+          <type name="gpointer" c:type="gpointer"/>
+        </type>
+      </field>
+      <field name="get_connection_post_params">
+        <callback name="get_connection_post_params">
+          <source-position filename="gfbgraph-connectable.h" line="41"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-connectable.c"
+                 line="73">A string based #GHashTable with the params and his values or %NULL.</doc>
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="gpointer" c:type="gpointer"/>
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="gfbgraph-connectable.c"
+                   line="67">a #GFBGraphConnectable.</doc>
+              <type name="Connectable" c:type="GFBGraphConnectable*"/>
+            </parameter>
+            <parameter name="node_type" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="gfbgraph-connectable.c"
+                   line="68">a #GType, required a #GFBGRAPH_TYPE_NODE or children.</doc>
+              <type name="GType" c:type="GType"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="parse_connected_data">
+        <callback name="parse_connected_data" throws="1">
+          <source-position filename="gfbgraph-connectable.h" line="42"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-connectable.c"
+                 line="99">a newly-allocated #GList of #GFBGraphNode created from the @payload or %NULL.</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Node"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="gfbgraph-connectable.c"
+                   line="92">a #GFBGraphConnectable.</doc>
+              <type name="Connectable" c:type="GFBGraphConnectable*"/>
+            </parameter>
+            <parameter name="payload" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="gfbgraph-connectable.c"
+                   line="93">a const #gchar with the response string from the Facebook Graph API.</doc>
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <function-macro name="GOA_AUTHORIZER"
+                    c:identifier="GFBGRAPH_GOA_AUTHORIZER"
+                    introspectable="0">
+      <source-position filename="gfbgraph-goa-authorizer.h" line="29"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GOA_AUTHORIZER_CLASS"
+                    c:identifier="GFBGRAPH_GOA_AUTHORIZER_CLASS"
+                    introspectable="0">
+      <source-position filename="gfbgraph-goa-authorizer.h" line="30"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GOA_AUTHORIZER_GET_CLASS"
+                    c:identifier="GFBGRAPH_GOA_AUTHORIZER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gfbgraph-goa-authorizer.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="GoaAuthorizer"
+           c:symbol-prefix="goa_authorizer"
+           c:type="GFBGraphGoaAuthorizer"
+           parent="GObject.Object"
+           glib:type-name="GFBGraphGoaAuthorizer"
+           glib:get-type="gfbgraph_goa_authorizer_get_type"
+           glib:type-struct="GoaAuthorizerClass">
+      <source-position filename="gfbgraph-goa-authorizer.h" line="48"/>
+      <implements name="Authorizer"/>
+      <constructor name="new"
+                   c:identifier="gfbgraph_goa_authorizer_new"
+                   introspectable="0">
+        <doc xml:space="preserve"
+             filename="gfbgraph-goa-authorizer.c"
+             line="239">Creates a new #GFBGraphGoaAuthorizer using @goa_object as account.</doc>
+        <source-position filename="gfbgraph-goa-authorizer.h" line="51"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-goa-authorizer.c"
+               line="245">A new #GFBGraphGoaAuthorizer. Use g_object_unref() to free it.</doc>
+          <type name="GoaAuthorizer" c:type="GFBGraphGoaAuthorizer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="goa_object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-goa-authorizer.c"
+                 line="241">A #GoaObject representing a Facebook account.</doc>
+            <type c:type="GoaObject*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="goa-object"
+                introspectable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gfbgraph-goa-authorizer.c"
+             line="78">The GOA account providing authentication.</doc>
+        <type/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="GoaAuthorizerPrivate"
+              c:type="GFBGraphGoaAuthorizerPrivate*"/>
+      </field>
+    </class>
+    <record name="GoaAuthorizerClass"
+            c:type="GFBGraphGoaAuthorizerClass"
+            glib:is-gtype-struct-for="GoaAuthorizer">
+      <source-position filename="gfbgraph-goa-authorizer.h" line="48"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="GoaAuthorizerPrivate"
+            c:type="GFBGraphGoaAuthorizerPrivate"
+            disguised="1">
+      <source-position filename="gfbgraph-goa-authorizer.h" line="37"/>
+    </record>
+    <function-macro name="IS_ALBUM"
+                    c:identifier="GFBGRAPH_IS_ALBUM"
+                    introspectable="0">
+      <source-position filename="gfbgraph-album.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_ALBUM_CLASS"
+                    c:identifier="GFBGRAPH_IS_ALBUM_CLASS"
+                    introspectable="0">
+      <source-position filename="gfbgraph-album.h" line="32"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_AUTHORIZER"
+                    c:identifier="GFBGRAPH_IS_AUTHORIZER"
+                    introspectable="0">
+      <source-position filename="gfbgraph-authorizer.h" line="32"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CONNECTABLE"
+                    c:identifier="GFBGRAPH_IS_CONNECTABLE"
+                    introspectable="0">
+      <source-position filename="gfbgraph-connectable.h" line="30"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GOA_AUTHORIZER"
+                    c:identifier="GFBGRAPH_IS_GOA_AUTHORIZER"
+                    introspectable="0">
+      <source-position filename="gfbgraph-goa-authorizer.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GOA_AUTHORIZER_CLASS"
+                    c:identifier="GFBGRAPH_IS_GOA_AUTHORIZER_CLASS"
+                    introspectable="0">
+      <source-position filename="gfbgraph-goa-authorizer.h" line="32"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_NODE"
+                    c:identifier="GFBGRAPH_IS_NODE"
+                    introspectable="0">
+      <source-position filename="gfbgraph-node.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_NODE_CLASS"
+                    c:identifier="GFBGRAPH_IS_NODE_CLASS"
+                    introspectable="0">
+      <source-position filename="gfbgraph-node.h" line="32"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PHOTO"
+                    c:identifier="GFBGRAPH_IS_PHOTO"
+                    introspectable="0">
+      <source-position filename="gfbgraph-photo.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PHOTO_CLASS"
+                    c:identifier="GFBGRAPH_IS_PHOTO_CLASS"
+                    introspectable="0">
+      <source-position filename="gfbgraph-photo.h" line="32"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SIMPLE_AUTHORIZER"
+                    c:identifier="GFBGRAPH_IS_SIMPLE_AUTHORIZER"
+                    introspectable="0">
+      <source-position filename="gfbgraph-simple-authorizer.h" line="30"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SIMPLE_AUTHORIZER_CLASS"
+                    c:identifier="GFBGRAPH_IS_SIMPLE_AUTHORIZER_CLASS"
+                    introspectable="0">
+      <source-position filename="gfbgraph-simple-authorizer.h" line="31"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_USER"
+                    c:identifier="GFBGRAPH_IS_USER"
+                    introspectable="0">
+      <source-position filename="gfbgraph-user.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_USER_CLASS"
+                    c:identifier="GFBGRAPH_IS_USER_CLASS"
+                    introspectable="0">
+      <source-position filename="gfbgraph-user.h" line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="NODE"
+                    c:identifier="GFBGRAPH_NODE"
+                    introspectable="0">
+      <source-position filename="gfbgraph-node.h" line="29"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="NODE_CLASS"
+                    c:identifier="GFBGRAPH_NODE_CLASS"
+                    introspectable="0">
+      <source-position filename="gfbgraph-node.h" line="30"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="NODE_GET_CLASS"
+                    c:identifier="GFBGRAPH_NODE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gfbgraph-node.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Node"
+           c:symbol-prefix="node"
+           c:type="GFBGraphNode"
+           parent="GObject.Object"
+           glib:type-name="GFBGraphNode"
+           glib:get-type="gfbgraph_node_get_type"
+           glib:type-struct="NodeClass">
+      <source-position filename="gfbgraph-node.h" line="52"/>
+      <constructor name="new" c:identifier="gfbgraph_node_new">
+        <doc xml:space="preserve"
+             filename="gfbgraph-node.c"
+             line="255">Creates a new #GFBGraphNode.</doc>
+        <source-position filename="gfbgraph-node.h" line="61"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-node.c"
+               line="260">a new #GFBGraphNode; unref with g_object_unref()</doc>
+          <type name="Node" c:type="GFBGraphNode*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_id"
+                   c:identifier="gfbgraph_node_new_from_id"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="gfbgraph-node.c"
+             line="268">Retrieve a node object as a #GFBgraphNode of #node_type type, with the given @id from the Facebook Graph.</doc>
+        <source-position filename="gfbgraph-node.h" line="63"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-node.c"
+               line="277">a #GFBGraphNode or %NULL.</doc>
+          <type name="Node" c:type="GFBGraphNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="authorizer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="272">a #GFBGraphAuthorizer.</doc>
+            <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+          </parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="270">a const #gchar with the node ID.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="node_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="271">a #GFBGraphNode type #GType.</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="error_quark" c:identifier="gfbgraph_node_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+      <method name="append_connection"
+              c:identifier="gfbgraph_node_append_connection"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gfbgraph-node.c"
+             line="533">Appends @connect_node to @node. @connect_node must implement the #GFBGraphConnectable interface
+and be connectable to @node GType.</doc>
+        <source-position filename="gfbgraph-node.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfbgraph-node.c"
+               line="543">TRUE on sucess, FALSE if an error ocurred.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="535">A #GFBGraphNode.</doc>
+            <type name="Node" c:type="GFBGraphNode*"/>
+          </instance-parameter>
+          <parameter name="connect_node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="536">A #GFBGraphNode.</doc>
+            <type name="Node" c:type="GFBGraphNode*"/>
+          </parameter>
+          <parameter name="authorizer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="537">A #GFBGraphAuthorizer.</doc>
+            <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_connection_nodes"
+              c:identifier="gfbgraph_node_get_connection_nodes"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gfbgraph-node.c"
+             line="396">Retrieve the nodes of type @node_type connected to the @node object. The @node_type object must
+implement the #GFBGraphConnectionable interface and be connectable to @node type object.
+See gfbgraph_node_get_connection_nodes_async() for the asynchronous version of this call.</doc>
+        <source-position filename="gfbgraph-node.h" line="72"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-node.c"
+               line="407">a newly-allocated #GList of type @node_type objects with the found nodes.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Node"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="398">a #GFBGraphNode object which retrieve the connected nodes.</doc>
+            <type name="Node" c:type="GFBGraphNode*"/>
+          </instance-parameter>
+          <parameter name="node_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="399">a #GFBGraphNode type #GType that determines the kind of nodes to retrieve.</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+          <parameter name="authorizer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="400">a #GFBGraphAuthorizer.</doc>
+            <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_connection_nodes_async"
+              c:identifier="gfbgraph_node_get_connection_nodes_async">
+        <doc xml:space="preserve"
+             filename="gfbgraph-node.c"
+             line="464">Asynchronously retrieve the list of nodes of type @node_type connected to the @node object. See
+gfbgraph_node_get_connection_nodes() for the synchronous version of this call.
+
+When the operation is finished, @callback will be called. You can then call gfbgraph_node_get_connection_nodes_finish()
+to get the list of connected nodes.</doc>
+        <source-position filename="gfbgraph-node.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="466">A #GFBGraphNode object which retrieve the connected nodes.</doc>
+            <type name="Node" c:type="GFBGraphNode*"/>
+          </instance-parameter>
+          <parameter name="node_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="467">a #GFBGraphNode type #GType that must implement the #GFBGraphConnectionable interface.</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+          <parameter name="authorizer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="468">a #GFBGraphAuthorizer.</doc>
+            <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="469">An optional #GCancellable object, or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="470">A #GAsyncReadyCallback to call when the request is completed.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="471">The data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_connection_nodes_async_finish"
+              c:identifier="gfbgraph_node_get_connection_nodes_async_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gfbgraph-node.c"
+             line="504">Finishes an asynchronous operation started with
+gfbgraph_node_get_connection_nodes_async().</doc>
+        <source-position filename="gfbgraph-node.h" line="82"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-node.c"
+               line="513">a newly-allocated #GList of type #node_type objects with the found nodes.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Node"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="506">A #GFBGraphNode.</doc>
+            <type name="Node" c:type="GFBGraphNode*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="507">A #GAsyncResult.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_created_time"
+              c:identifier="gfbgraph_node_get_created_time">
+        <doc xml:space="preserve"
+             filename="gfbgraph-node.c"
+             line="345">Gets a node created time.</doc>
+        <source-position filename="gfbgraph-node.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfbgraph-node.c"
+               line="351">an ISO 8601 encoded date when the node was initially published.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="347">a #GFBGraphNode.</doc>
+            <type name="Node" c:type="GFBGraphNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_id" c:identifier="gfbgraph_node_get_id">
+        <doc xml:space="preserve"
+             filename="gfbgraph-node.c"
+             line="313">Gets the Facebook Graph unique node ID.</doc>
+        <source-position filename="gfbgraph-node.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfbgraph-node.c"
+               line="319">the node ID.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="315">a #GFBGraphNode.</doc>
+            <type name="Node" c:type="GFBGraphNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_link" c:identifier="gfbgraph_node_get_link">
+        <source-position filename="gfbgraph-node.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="Node" c:type="GFBGraphNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_updated_time"
+              c:identifier="gfbgraph_node_get_updated_time">
+        <doc xml:space="preserve"
+             filename="gfbgraph-node.c"
+             line="361">Gets a node updated time.</doc>
+        <source-position filename="gfbgraph-node.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfbgraph-node.c"
+               line="367">an ISO 8601 encoded date when the node was updated.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="363">a #GFBGraphNode.</doc>
+            <type name="Node" c:type="GFBGraphNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_id" c:identifier="gfbgraph_node_set_id">
+        <doc xml:space="preserve"
+             filename="gfbgraph-node.c"
+             line="377">Sets the ID for a node. Just useful when a new node is created
+and the Graph API returns the ID of the new created node.</doc>
+        <source-position filename="gfbgraph-node.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="379">a #GFBGraphNode.</doc>
+            <type name="Node" c:type="GFBGraphNode*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-node.c"
+                 line="380">a const pointer to a #gchar.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="created-time" writable="1" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="id" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gfbgraph-node.c"
+             line="100">The node ID. All nodes have one of this.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="link" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gfbgraph-node.c"
+             line="112">The node link. An URL to the node on Facebook.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="updated-time" writable="1" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="NodePrivate" c:type="GFBGraphNodePrivate*"/>
+      </field>
+    </class>
+    <record name="NodeClass"
+            c:type="GFBGraphNodeClass"
+            glib:is-gtype-struct-for="Node">
+      <source-position filename="gfbgraph-node.h" line="52"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="NodeError" c:type="GFBGraphNodeError">
+      <source-position filename="gfbgraph-node.h" line="57"/>
+      <member name="connectionable"
+              value="1"
+              c:identifier="GFBGRAPH_NODE_ERROR_NO_CONNECTIONABLE">
+      </member>
+      <member name="connectable"
+              value="2"
+              c:identifier="GFBGRAPH_NODE_ERROR_NO_CONNECTABLE">
+      </member>
+    </enumeration>
+    <record name="NodePrivate" c:type="GFBGraphNodePrivate" disguised="1">
+      <source-position filename="gfbgraph-node.h" line="39"/>
+    </record>
+    <function-macro name="PHOTO"
+                    c:identifier="GFBGRAPH_PHOTO"
+                    introspectable="0">
+      <source-position filename="gfbgraph-photo.h" line="29"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PHOTO_CLASS"
+                    c:identifier="GFBGRAPH_PHOTO_CLASS"
+                    introspectable="0">
+      <source-position filename="gfbgraph-photo.h" line="30"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PHOTO_GET_CLASS"
+                    c:identifier="GFBGRAPH_PHOTO_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gfbgraph-photo.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Photo"
+           c:symbol-prefix="photo"
+           c:type="GFBGraphPhoto"
+           parent="Node"
+           glib:type-name="GFBGraphPhoto"
+           glib:get-type="gfbgraph_photo_get_type"
+           glib:type-struct="PhotoClass">
+      <source-position filename="gfbgraph-photo.h" line="50"/>
+      <implements name="Connectable"/>
+      <implements name="Json.Serializable"/>
+      <constructor name="new" c:identifier="gfbgraph_photo_new">
+        <doc xml:space="preserve"
+             filename="gfbgraph-photo.c"
+             line="367">Creates a new #GFBGraphPhoto.</doc>
+        <source-position filename="gfbgraph-photo.h" line="66"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-photo.c"
+               line="372">a new #GFBGraphPhoto; unref with g_object_unref()</doc>
+          <type name="Photo" c:type="GFBGraphPhoto*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_id"
+                   c:identifier="gfbgraph_photo_new_from_id"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="gfbgraph-photo.c"
+             line="380">Retrieves an photo node from the Facebook Graph with the give ID.</doc>
+        <source-position filename="gfbgraph-photo.h" line="67"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-photo.c"
+               line="388">a new #GFBGraphPhoto; unref with g_object_unref()</doc>
+          <type name="Photo" c:type="GFBGraphPhoto*"/>
+        </return-value>
+        <parameters>
+          <parameter name="authorizer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-photo.c"
+                 line="382">a #GFBGraphAuthorizer.</doc>
+            <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+          </parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-photo.c"
+                 line="383">a const #gchar with the photo ID.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="download_default_size"
+              c:identifier="gfbgraph_photo_download_default_size"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gfbgraph-photo.c"
+             line="397">Download the default sized photo pointed by @photo, with a maximum width or height of 720px.
+The photo always is a JPEG.</doc>
+        <source-position filename="gfbgraph-photo.h" line="68"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-photo.c"
+               line="406">a #GInputStream with the photo content or %NULL in case of error.</doc>
+          <type name="Gio.InputStream" c:type="GInputStream*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="photo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-photo.c"
+                 line="399">a #GFBGraphPhoto.</doc>
+            <type name="Photo" c:type="GFBGraphPhoto*"/>
+          </instance-parameter>
+          <parameter name="authorizer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-photo.c"
+                 line="400">a #GFBGraphAuthorizer.</doc>
+            <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_default_height"
+              c:identifier="gfbgraph_photo_get_default_height">
+        <source-position filename="gfbgraph-photo.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="photo" transfer-ownership="none">
+            <type name="Photo" c:type="GFBGraphPhoto*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_default_source_uri"
+              c:identifier="gfbgraph_photo_get_default_source_uri">
+        <source-position filename="gfbgraph-photo.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="photo" transfer-ownership="none">
+            <type name="Photo" c:type="GFBGraphPhoto*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_default_width"
+              c:identifier="gfbgraph_photo_get_default_width">
+        <source-position filename="gfbgraph-photo.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="photo" transfer-ownership="none">
+            <type name="Photo" c:type="GFBGraphPhoto*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_image_hires"
+              c:identifier="gfbgraph_photo_get_image_hires">
+        <source-position filename="gfbgraph-photo.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfbgraph-photo.c"
+               line="519">a #GFBGraphPhotoImage with the higher resolution available of the photo</doc>
+          <type name="PhotoImage" c:type="const GFBGraphPhotoImage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="photo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-photo.c"
+                 line="517">a #GFBGraphPhoto.</doc>
+            <type name="Photo" c:type="GFBGraphPhoto*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_image_near_height"
+              c:identifier="gfbgraph_photo_get_image_near_height">
+        <source-position filename="gfbgraph-photo.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <type name="PhotoImage" c:type="const GFBGraphPhotoImage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="photo" transfer-ownership="none">
+            <type name="Photo" c:type="GFBGraphPhoto*"/>
+          </instance-parameter>
+          <parameter name="height" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_image_near_width"
+              c:identifier="gfbgraph_photo_get_image_near_width">
+        <source-position filename="gfbgraph-photo.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="PhotoImage" c:type="const GFBGraphPhotoImage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="photo" transfer-ownership="none">
+            <type name="Photo" c:type="GFBGraphPhoto*"/>
+          </instance-parameter>
+          <parameter name="width" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_images" c:identifier="gfbgraph_photo_get_images">
+        <source-position filename="gfbgraph-photo.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfbgraph-photo.c"
+               line="505">a #GList of #GFBGraphPhotoImage with the available photo sizes</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="PhotoImage"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="photo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-photo.c"
+                 line="503">a #GFBGraphPhoto.</doc>
+            <type name="Photo" c:type="GFBGraphPhoto*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="gfbgraph_photo_get_name">
+        <source-position filename="gfbgraph-photo.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfbgraph-photo.c"
+               line="449">the @photo name, which is the comment given by the user so it would by larger, or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="photo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-photo.c"
+                 line="447">a #GFBGraphPhoto.</doc>
+            <type name="Photo" c:type="GFBGraphPhoto*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="height" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gfbgraph-photo.c"
+             line="139">The default photo height, up to 720px.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="images" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gfbgraph-photo.c"
+             line="151">A list with the available representations of the photo, in differents sizes</doc>
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <property name="name" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gfbgraph-photo.c"
+             line="103">The name of the photo given by his owner.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="source" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gfbgraph-photo.c"
+             line="115">An URI for the photo, with a maximum width or height of 720px.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="width" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gfbgraph-photo.c"
+             line="127">The default photo width, up to 720px.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <field name="parent">
+        <type name="Node" c:type="GFBGraphNode"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="PhotoPrivate" c:type="GFBGraphPhotoPrivate*"/>
+      </field>
+    </class>
+    <record name="PhotoClass"
+            c:type="GFBGraphPhotoClass"
+            glib:is-gtype-struct-for="Photo">
+      <source-position filename="gfbgraph-photo.h" line="50"/>
+      <field name="parent_class">
+        <type name="NodeClass" c:type="GFBGraphNodeClass"/>
+      </field>
+    </record>
+    <record name="PhotoImage" c:type="GFBGraphPhotoImage">
+      <doc xml:space="preserve"
+           filename="gfbgraph-photo.h"
+           line="54">An struct with the information of a image.</doc>
+      <source-position filename="gfbgraph-photo.h" line="63"/>
+      <field name="width" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="height" writable="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="source" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+    </record>
+    <record name="PhotoPrivate" c:type="GFBGraphPhotoPrivate" disguised="1">
+      <source-position filename="gfbgraph-photo.h" line="37"/>
+    </record>
+    <function-macro name="SIMPLE_AUTHORIZER"
+                    c:identifier="GFBGRAPH_SIMPLE_AUTHORIZER"
+                    introspectable="0">
+      <source-position filename="gfbgraph-simple-authorizer.h" line="28"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SIMPLE_AUTHORIZER_CLASS"
+                    c:identifier="GFBGRAPH_SIMPLE_AUTHORIZER_CLASS"
+                    introspectable="0">
+      <source-position filename="gfbgraph-simple-authorizer.h" line="29"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SIMPLE_AUTHORIZER_GET_CLASS"
+                    c:identifier="GFBGRAPH_SIMPLE_AUTHORIZER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gfbgraph-simple-authorizer.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="SimpleAuthorizer"
+           c:symbol-prefix="simple_authorizer"
+           c:type="GFBGraphSimpleAuthorizer"
+           parent="GObject.Object"
+           glib:type-name="GFBGraphSimpleAuthorizer"
+           glib:get-type="gfbgraph_simple_authorizer_get_type"
+           glib:type-struct="SimpleAuthorizerClass">
+      <source-position filename="gfbgraph-simple-authorizer.h" line="47"/>
+      <implements name="Authorizer"/>
+      <constructor name="new" c:identifier="gfbgraph_simple_authorizer_new">
+        <doc xml:space="preserve"
+             filename="gfbgraph-simple-authorizer.c"
+             line="194">Creates a new #GFBGraphAuthorizer to use with the GFBGraph library using the @access_token as access token.
+It's only a test authorizer, don't use in final code.</doc>
+        <source-position filename="gfbgraph-simple-authorizer.h" line="50"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-simple-authorizer.c"
+               line="201">a #GFBGraphSimpleAuthorizer.</doc>
+          <type name="SimpleAuthorizer" c:type="GFBGraphSimpleAuthorizer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="access_token" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-simple-authorizer.c"
+                 line="196">a const @gchar.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="access-token" writable="1" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="SimpleAuthorizerPrivate"
+              c:type="GFBGraphSimpleAuthorizerPrivate*"/>
+      </field>
+    </class>
+    <record name="SimpleAuthorizerClass"
+            c:type="GFBGraphSimpleAuthorizerClass"
+            glib:is-gtype-struct-for="SimpleAuthorizer">
+      <source-position filename="gfbgraph-simple-authorizer.h" line="47"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="SimpleAuthorizerPrivate"
+            c:type="GFBGraphSimpleAuthorizerPrivate"
+            disguised="1">
+      <source-position filename="gfbgraph-simple-authorizer.h" line="36"/>
+    </record>
+    <function-macro name="USER"
+                    c:identifier="GFBGRAPH_USER"
+                    introspectable="0">
+      <source-position filename="gfbgraph-user.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="USER_CLASS"
+                    c:identifier="GFBGRAPH_USER_CLASS"
+                    introspectable="0">
+      <source-position filename="gfbgraph-user.h" line="32"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="USER_GET_CLASS"
+                    c:identifier="GFBGRAPH_USER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gfbgraph-user.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="User"
+           c:symbol-prefix="user"
+           c:type="GFBGraphUser"
+           parent="Node"
+           glib:type-name="GFBGraphUser"
+           glib:get-type="gfbgraph_user_get_type"
+           glib:type-struct="UserClass">
+      <source-position filename="gfbgraph-user.h" line="52"/>
+      <constructor name="new" c:identifier="gfbgraph_user_new">
+        <doc xml:space="preserve"
+             filename="gfbgraph-user.c"
+             line="213">Creates a new #GFBGraphUser.</doc>
+        <source-position filename="gfbgraph-user.h" line="55"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-user.c"
+               line="218">a new #GFBGraphUser; unref with g_object_unref()</doc>
+          <type name="User" c:type="GFBGraphUser*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_id"
+                   c:identifier="gfbgraph_user_new_from_id"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="gfbgraph-user.c"
+             line="226">Retrieves a user from the Facebook Graph with the give ID.</doc>
+        <source-position filename="gfbgraph-user.h" line="56"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-user.c"
+               line="234">a new #GFBGraphUser; unref with g_object_unref()</doc>
+          <type name="User" c:type="GFBGraphUser*"/>
+        </return-value>
+        <parameters>
+          <parameter name="authorizer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="228">a #GFBGraphAuthorizer.</doc>
+            <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+          </parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="229">a const #gchar with the user ID.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="get_me" c:identifier="gfbgraph_user_get_me" throws="1">
+        <doc xml:space="preserve"
+             filename="gfbgraph-user.c"
+             line="242">Retrieve the current user logged using the https://graph.facebook.com/me Graph API function.
+See gfbgraph_user_get_my_async() for the asynchronous version of this call.</doc>
+        <source-position filename="gfbgraph-user.h" line="58"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-user.c"
+               line="250">a #GFBGraphUser with the current user information.</doc>
+          <type name="User" c:type="GFBGraphUser*"/>
+        </return-value>
+        <parameters>
+          <parameter name="authorizer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="244">a #GFBGraphAuthorizer.</doc>
+            <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_me_async" c:identifier="gfbgraph_user_get_me_async">
+        <doc xml:space="preserve"
+             filename="gfbgraph-user.c"
+             line="286">Asynchronously retrieve the current user logged. See gfbgraph_user_get_me() for the
+synchronous version of this call.
+
+When the operation is finished, @callback will be called. You can then call gfbgraph_user_get_me_finish()
+to get the #GFBGraphUser for to the current user logged.</doc>
+        <source-position filename="gfbgraph-user.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="authorizer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="288">a #GFBGraphAuthorizer.</doc>
+            <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="289">An optional #GCancellable object, or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="290">A #GAsyncReadyCallback to call when the request is completed.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="291">The data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_me_async_finish"
+                c:identifier="gfbgraph_user_get_me_async_finish"
+                throws="1">
+        <doc xml:space="preserve"
+             filename="gfbgraph-user.c"
+             line="321">Finishes an asynchronous operation started with
+gfbgraph_user_get_me_async().</doc>
+        <source-position filename="gfbgraph-user.h" line="60"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-user.c"
+               line="330">a #GFBGraphUser for to the current user logged.</doc>
+          <type name="User" c:type="GFBGraphUser*"/>
+        </return-value>
+        <parameters>
+          <parameter name="authorizer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="323">a #GFBGraphAuthorizer.</doc>
+            <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+          </parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="324">A #GAsyncResult.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="get_albums"
+              c:identifier="gfbgraph_user_get_albums"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gfbgraph-user.c"
+             line="350">Retrieve the albums nodes owned by the @user. This functions call the function ID/albums.</doc>
+        <source-position filename="gfbgraph-user.h" line="62"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-user.c"
+               line="358">a newly-allocated #GList with the albums nodes owned by the given user.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Album"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="352">a #GFBGraphUser.</doc>
+            <type name="User" c:type="GFBGraphUser*"/>
+          </instance-parameter>
+          <parameter name="authorizer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="353">a #GFBGraphAuthorizer.</doc>
+            <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_albums_async"
+              c:identifier="gfbgraph_user_get_albums_async">
+        <doc xml:space="preserve"
+             filename="gfbgraph-user.c"
+             line="369">Asynchronously retrieve the albums nodes owned by the @user. See gfbgraph_user_get_albums() for the
+synchronous version of this call.
+
+When the operation is finished, @callback will be called. You can then call gfbgraph_user_get_albums_async_finish()
+to get the #GList of #GFBGraphAlbum owned by the @user.</doc>
+        <source-position filename="gfbgraph-user.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="371">a #GFBGraphUser.</doc>
+            <type name="User" c:type="GFBGraphUser*"/>
+          </instance-parameter>
+          <parameter name="authorizer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="372">a #GFBGraphAuthorizer.</doc>
+            <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="373">An optional #GCancellable object, or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="374">A #GAsyncReadyCallback to call when the request is completed.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="375">The data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_albums_async_finish"
+              c:identifier="gfbgraph_user_get_albums_async_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="gfbgraph-user.c"
+             line="408">Finishes an asynchronous operation started with
+gfbgraph_user_get_albums_async().</doc>
+        <source-position filename="gfbgraph-user.h" line="64"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gfbgraph-user.c"
+               line="417">a newly-allocated #GList of albums owned by the @user.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Album"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="410">a #GFBGraphUser.</doc>
+            <type name="User" c:type="GFBGraphUser*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="411">A #GAsyncResult.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_email" c:identifier="gfbgraph_user_get_email">
+        <doc xml:space="preserve"
+             filename="gfbgraph-user.c"
+             line="454">Get the user email. To retrieve this propertie, you need 'email' extended
+permission.</doc>
+        <source-position filename="gfbgraph-user.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfbgraph-user.c"
+               line="461">a const #gchar with the user email, or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="456">a #GFBGraphUser.</doc>
+            <type name="User" c:type="GFBGraphUser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="gfbgraph_user_get_name">
+        <doc xml:space="preserve"
+             filename="gfbgraph-user.c"
+             line="438">Get the user full name.</doc>
+        <source-position filename="gfbgraph-user.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfbgraph-user.c"
+               line="444">a const #gchar with the user full name, or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="user" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gfbgraph-user.c"
+                 line="440">a #GFBGraphUser.</doc>
+            <type name="User" c:type="GFBGraphUser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="email" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gfbgraph-user.c"
+             line="107">The email of the user if available</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="name" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gfbgraph-user.c"
+             line="95">The full name of the user</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="Node" c:type="GFBGraphNode"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="UserPrivate" c:type="GFBGraphUserPrivate*"/>
+      </field>
+    </class>
+    <record name="UserClass"
+            c:type="GFBGraphUserClass"
+            glib:is-gtype-struct-for="User">
+      <source-position filename="gfbgraph-user.h" line="52"/>
+      <field name="parent_class">
+        <type name="NodeClass" c:type="GFBGraphNodeClass"/>
+      </field>
+    </record>
+    <record name="UserPrivate" c:type="GFBGraphUserPrivate" disguised="1">
+      <source-position filename="gfbgraph-user.h" line="39"/>
+    </record>
+    <function name="new_rest_call" c:identifier="gfbgraph_new_rest_call">
+      <doc xml:space="preserve"
+           filename="gfbgraph-common.c"
+           line="26">Create a new #RestProxyCall pointing to the Facebook Graph API url (https://graph.facebook.com)
+and processed by the authorizer to allow queries.</doc>
+      <source-position filename="gfbgraph-common.h" line="26"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="gfbgraph-common.c"
+             line="33">a new #RestProxyCall or %NULL in case of error.</doc>
+        <type name="Rest.ProxyCall" c:type="RestProxyCall*"/>
+      </return-value>
+      <parameters>
+        <parameter name="authorizer" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gfbgraph-common.c"
+               line="28">a #GFBGraphAuthorizer.</doc>
+          <type name="Authorizer" c:type="GFBGraphAuthorizer*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

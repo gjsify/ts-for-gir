@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <namespace name="GjsDBus"
+             version="1.0"
+             shared-library="libgjs-gdbus.so.0"
+             c:identifier-prefixes="GjsDBus"
+             c:symbol-prefixes="gjs_dbus">
+    <class name="Implementation"
+           c:symbol-prefix="implementation"
+           c:type="GjsDBusImplementation"
+           parent="Gio.DBusInterfaceSkeleton"
+           glib:type-name="GjsDBusImplementation"
+           glib:get-type="gjs_dbus_implementation_get_type"
+           glib:type-struct="ImplementationClass">
+      <implements name="Gio.DBusInterface"/>
+      <method name="emit_property_changed"
+              c:identifier="gjs_dbus_implementation_emit_property_changed">
+        <doc xml:whitespace="preserve">Queue a PropertyChanged signal for emission, or update the one queued
+adding @property</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:whitespace="preserve">the name of the property that changed</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="newvalue" transfer-ownership="none" allow-none="1">
+            <doc xml:whitespace="preserve">the new value, or %NULL to just invalidate it</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="emit_signal"
+              c:identifier="gjs_dbus_implementation_emit_signal">
+        <doc xml:whitespace="preserve">Emits a signal named @signal_name from the object and interface represented
+by @self. This signal has no destination.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="signal_name" transfer-ownership="none">
+            <doc xml:whitespace="preserve">the name of the signal</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="parameters"
+                     transfer-ownership="none"
+                     allow-none="1">
+            <doc xml:whitespace="preserve">signal parameters, or %NULL for none</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="g-interface-info"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Gio.DBusInterfaceInfo"/>
+      </property>
+      <field name="parent">
+        <type name="Gio.DBusInterfaceSkeleton"
+              c:type="GDBusInterfaceSkeleton"/>
+      </field>
+      <field name="priv">
+        <type name="ImplementationPrivate"
+              c:type="GjsDBusImplementationPrivate*"/>
+      </field>
+      <glib:signal name="handle-method-call">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="GLib.Variant"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="Gio.DBusMethodInvocation"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="handle-property-get">
+        <return-value transfer-ownership="full">
+          <type name="GLib.Variant"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="handle-property-set">
+        <return-value transfer-ownership="none">
+          <type name="none"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="GLib.Variant"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ImplementationClass"
+            c:type="GjsDBusImplementationClass"
+            glib:is-gtype-struct-for="Implementation">
+      <field name="parent_class">
+        <type name="Gio.DBusInterfaceSkeletonClass"
+              c:type="GDBusInterfaceSkeletonClass"/>
+      </field>
+    </record>
+    <record name="ImplementationPrivate"
+            c:type="GjsDBusImplementationPrivate"
+            disguised="1">
+    </record>
+  </namespace>
+</repository>

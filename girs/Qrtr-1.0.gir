@@ -1,0 +1,1451 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <package name="qrtr-glib"/>
+  <c:include name="libqrtr-glib.h"/>
+  <namespace name="Qrtr"
+             version="1.0"
+             shared-library="libqrtr-glib.so.0"
+             c:identifier-prefixes="QRTR,Qrtr"
+             c:symbol-prefixes="qrtr_">
+    <function-macro name="BUS" c:identifier="QRTR_BUS" introspectable="0">
+      <source-position filename="src/libqrtr-glib/qrtr-bus.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="BUS_CLASS"
+                    c:identifier="QRTR_BUS_CLASS"
+                    introspectable="0">
+      <source-position filename="src/libqrtr-glib/qrtr-bus.h" line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="BUS_GET_CLASS"
+                    c:identifier="QRTR_BUS_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="src/libqrtr-glib/qrtr-bus.h" line="40"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="BUS_LOOKUP_TIMEOUT"
+              value="lookup-timeout"
+              c:type="QRTR_BUS_LOOKUP_TIMEOUT"
+              version="1.0">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-bus.h"
+           line="66">Symbol defining the #QrtrBus:lookup-timeout property.</doc>
+      <source-position filename="src/libqrtr-glib/qrtr-bus.h" line="73"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="BUS_SIGNAL_NODE_ADDED"
+              value="node-added"
+              c:type="QRTR_BUS_SIGNAL_NODE_ADDED"
+              version="1.0">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-bus.h"
+           line="75">Symbol defining the #QrtrBus::node-added signal.</doc>
+      <source-position filename="src/libqrtr-glib/qrtr-bus.h" line="82"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="BUS_SIGNAL_NODE_REMOVED"
+              value="node-removed"
+              c:type="QRTR_BUS_SIGNAL_NODE_REMOVED"
+              version="1.0">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-bus.h"
+           line="84">Symbol defining the #QrtrBus::node-removed signal.</doc>
+      <source-position filename="src/libqrtr-glib/qrtr-bus.h" line="91"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <class name="Bus"
+           c:symbol-prefix="bus"
+           c:type="QrtrBus"
+           version="1.0"
+           parent="GObject.Object"
+           glib:type-name="QrtrBus"
+           glib:get-type="qrtr_bus_get_type"
+           glib:type-struct="BusClass">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-bus.h"
+           line="45">The #QrtrBus structure contains private data and should only be accessed
+using the provided API.</doc>
+      <source-position filename="src/libqrtr-glib/qrtr-bus.h" line="61"/>
+      <implements name="Gio.AsyncInitable"/>
+      <constructor name="new_finish"
+                   c:identifier="qrtr_bus_new_finish"
+                   version="1.0"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-bus.h"
+             line="121">Finishes an operation started with qrtr_bus_new().</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-bus.h" line="132"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-bus.h"
+               line="128">A newly created #QrtrBus, or %NULL if @error is set.</doc>
+          <type name="Bus" c:type="QrtrBus*"/>
+        </return-value>
+        <parameters>
+          <parameter name="res" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.h"
+                 line="123">a #GAsyncResult.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="new" c:identifier="qrtr_bus_new" version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-bus.h"
+             line="93">Asynchronously creates a #QrtrBus object.
+
+This method will fail if the access to the QRTR bus is not possible, or if
+the initial lookup doesn't finish on time.
+
+When @lookup_timeout_ms is 0, this method does not guarantee that the
+initial bus lookup has already finished, the user should wait for the required
+#QrtrBus::node-added and #QrtrNode::service-added signals before assuming the
+nodes are accessible.
+
+When the operation is finished, @callback will be invoked. You can then call
+qrtr_bus_new_finish() to get the result of the operation.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-bus.h" line="116"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="lookup_timeout_ms" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.h"
+                 line="95">the timeout, in milliseconds, to wait for the initial bus
+  lookup to complete. A zero timeout disables the lookup.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.h"
+                 line="97">optional #GCancellable object, %NULL to ignore.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.h"
+                 line="98">a #GAsyncReadyCallback to call when the initialization is finished.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.h"
+                 line="99">the data to pass to callback function.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="get_node" c:identifier="qrtr_bus_get_node" version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-bus.h"
+             line="153">Get the #QrtrNode with node ID @node_id.
+
+This method will fail if there is no node with the given @node_id in the QRTR bus.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-bus.h" line="167"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-bus.h"
+               line="162">a #QrtrNode that must be freed with g_object_unref(),
+ or %NULL if none available</doc>
+          <type name="Node" c:type="QrtrNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.h"
+                 line="155">a #QrtrBus.</doc>
+            <type name="Bus" c:type="QrtrBus*"/>
+          </instance-parameter>
+          <parameter name="node_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.h"
+                 line="156">the QRTR bus node ID to get</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_nodes" c:identifier="qrtr_bus_get_nodes" version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-bus.h"
+             line="185">Gets a list of all the #QrtrNode objects in the bus.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-bus.h" line="197"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-bus.h"
+               line="191">a list of
+ #QrtrNode elements. The caller should free the result by using
+ g_list_free_full() with g_object_unref() as #GDestroyNotify.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Node"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.h"
+                 line="187">a #QrtrBus.</doc>
+            <type name="Bus" c:type="QrtrBus*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="peek_node" c:identifier="qrtr_bus_peek_node" version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-bus.h"
+             line="135">Get the #QrtrNode with node ID @node_id, without increasing the reference count
+on the returned object.
+
+This method will fail if there is no node with the given @node_id in the QRTR bus.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-bus.h" line="150"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-bus.h"
+               line="145">a #QrtrNode, or %NULL if none available.
+ Do not free the returned object, it is owned by @self.</doc>
+          <type name="Node" c:type="QrtrNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.h"
+                 line="137">a #QrtrBus.</doc>
+            <type name="Bus" c:type="QrtrBus*"/>
+          </instance-parameter>
+          <parameter name="node_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.h"
+                 line="138">the QRTR bus node ID to get</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_nodes"
+              c:identifier="qrtr_bus_peek_nodes"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-bus.h"
+             line="170">Gets a list of all the #QrtrNode objects in the bus, without increasing
+the reference count on the returned object or the list.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-bus.h" line="183"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-bus.h"
+               line="177">a list of
+ #QrtrNode elements. The caller should not free the result, it is
+ owned by @self.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Node"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.h"
+                 line="172">a #QrtrBus.</doc>
+            <type name="Bus" c:type="QrtrBus*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="wait_for_node"
+              c:identifier="qrtr_bus_wait_for_node"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-bus.h"
+             line="199">Asynchronously waits for the node with ID @node_id.
+
+When the operation is finished @callback will be called. You can then call
+qrtr_bus_wait_for_node_finish() to get the result of the
+operation.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-bus.h" line="217"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.h"
+                 line="201">a #QrtrBus.</doc>
+            <type name="Bus" c:type="QrtrBus*"/>
+          </instance-parameter>
+          <parameter name="node_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.h"
+                 line="202">the QRTR bus node ID to lookup.</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="timeout_ms" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.h"
+                 line="203">the timeout, in milliseconds, to wait for the node to appear in
+ the bus.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.h"
+                 line="205">a #GCancellable, or #NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.h"
+                 line="206">a #GAsyncReadyCallback to call when the request is satisfied.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.h"
+                 line="207">user data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="wait_for_node_finish"
+              c:identifier="qrtr_bus_wait_for_node_finish"
+              version="1.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-bus.h"
+             line="224">Finishes an operation started with qrtr_bus_wait_for_node().</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-bus.h" line="236"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-bus.h"
+               line="232">A #QrtrNode, or %NULL if @error is set.</doc>
+          <type name="Node" c:type="QrtrNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.h"
+                 line="226">a #QrtrBus.</doc>
+            <type name="Bus" c:type="QrtrBus*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.h"
+                 line="227">a #GAsyncResult.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="lookup-timeout"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="BusPrivate" c:type="QrtrBusPrivate*"/>
+      </field>
+      <glib:signal name="node-added" when="last" version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-bus.c"
+             line="665">The ::node-added signal is emitted when a new node registers a service on
+the QRTR bus.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.c"
+                 line="668">the node ID of the node that has been added</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="node-removed" when="last" version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-bus.c"
+             line="687">The ::node-removed signal is emitted when a node deregisters all services
+from the QRTR bus.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-bus.c"
+                 line="690">the node ID of the node that was removed</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="BusClass"
+            c:type="QrtrBusClass"
+            glib:is-gtype-struct-for="Bus">
+      <source-position filename="src/libqrtr-glib/qrtr-bus.h" line="61"/>
+      <field name="parent">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="BusPrivate" c:type="QrtrBusPrivate" disguised="1" opaque="1">
+      <source-position filename="src/libqrtr-glib/qrtr-bus.h" line="43"/>
+    </record>
+    <function-macro name="CLIENT"
+                    c:identifier="QRTR_CLIENT"
+                    introspectable="0">
+      <source-position filename="src/libqrtr-glib/qrtr-client.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLIENT_CLASS"
+                    c:identifier="QRTR_CLIENT_CLASS"
+                    introspectable="0">
+      <source-position filename="src/libqrtr-glib/qrtr-client.h" line="33"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLIENT_GET_CLASS"
+                    c:identifier="QRTR_CLIENT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="src/libqrtr-glib/qrtr-client.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="CLIENT_NODE"
+              value="client-node"
+              c:type="QRTR_CLIENT_NODE"
+              version="1.0">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-client.h"
+           line="41">The QRTR node this client refers to.</doc>
+      <source-position filename="src/libqrtr-glib/qrtr-client.h" line="48"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="CLIENT_PORT"
+              value="client-port"
+              c:type="QRTR_CLIENT_PORT"
+              version="1.0">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-client.h"
+           line="50">The QRTR node port this client refers to.</doc>
+      <source-position filename="src/libqrtr-glib/qrtr-client.h" line="57"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="CLIENT_SIGNAL_MESSAGE"
+              value="client-message"
+              c:type="QRTR_CLIENT_SIGNAL_MESSAGE"
+              version="1.0">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-client.h"
+           line="59">Symbol defining the #QrtrClient::client-message signal.</doc>
+      <source-position filename="src/libqrtr-glib/qrtr-client.h" line="66"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <class name="Client"
+           c:symbol-prefix="client"
+           c:type="QrtrClient"
+           version="1.0"
+           parent="GObject.Object"
+           glib:type-name="QrtrClient"
+           glib:get-type="qrtr_client_get_type"
+           glib:type-struct="ClientClass">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-client.h"
+           line="68">The #QrtrClient structure contains private data and should only be accessed
+using the provided API.</doc>
+      <source-position filename="src/libqrtr-glib/qrtr-client.h" line="85"/>
+      <implements name="Gio.Initable"/>
+      <constructor name="new"
+                   c:identifier="qrtr_client_new"
+                   version="1.0"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-client.h"
+             line="91">Creates a new #QrtrClient to communicate with @port at #QrtrNode.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-client.h" line="104"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-client.h"
+               line="100">a newly allocated #QrtrClient, or %NULL if @error is set.</doc>
+          <type name="Client" c:type="QrtrClient*"/>
+        </return-value>
+        <parameters>
+          <parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-client.h"
+                 line="93">a #QrtrNode.</doc>
+            <type name="Node" c:type="QrtrNode*"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-client.h"
+                 line="94">a node port.</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-client.h"
+                 line="95">optional #GCancellable object, %NULL to ignore.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_node"
+              c:identifier="qrtr_client_get_node"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-client.h"
+             line="123">Get the #QrtrNode that this client refers to.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-client.h" line="133"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-client.h"
+               line="129">a #QrtrNode that must be freed with g_object_unref().</doc>
+          <type name="Node" c:type="QrtrNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-client.h"
+                 line="125">a #QrtrClient.</doc>
+            <type name="Client" c:type="QrtrClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_port"
+              c:identifier="qrtr_client_get_port"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-client.h"
+             line="135">Gets the node port where this client communicates.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-client.h" line="145"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-client.h"
+               line="141">the node port.</doc>
+          <type name="guint32" c:type="guint32"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-client.h"
+                 line="137">a #QrtrClient.</doc>
+            <type name="Client" c:type="QrtrClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="peek_node"
+              c:identifier="qrtr_client_peek_node"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-client.h"
+             line="109">Get the #QrtrNode that this client refers to, without increasing the
+reference count on the returned object.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-client.h" line="121"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-client.h"
+               line="116">a #QrtrNode. Do not free the returned object, it is
+ owned by @self.</doc>
+          <type name="Node" c:type="QrtrNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-client.h"
+                 line="111">a #QrtrClient.</doc>
+            <type name="Client" c:type="QrtrClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="send"
+              c:identifier="qrtr_client_send"
+              version="1.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-client.h"
+             line="148">Sends a message to the port at the node.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-client.h" line="161"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-client.h"
+               line="157">%TRUE if the message is sent, or %FALSE if @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-client.h"
+                 line="150">a #QrtrClient.</doc>
+            <type name="Client" c:type="QrtrClient*"/>
+          </instance-parameter>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-client.h"
+                 line="151">the message.</doc>
+            <array name="GLib.ByteArray" c:type="GByteArray*">
+              <type name="guint8" c:type="guint8"/>
+            </array>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-client.h"
+                 line="152">a #GCancellable.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="client-node"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Node"/>
+      </property>
+      <property name="client-port"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ClientPrivate" c:type="QrtrClientPrivate*"/>
+      </field>
+      <glib:signal name="client-message" when="last" version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-client.c"
+             line="353">The ::client-message signal is emitted when a message is received
+from the port in the node.
+
+There must be one single user connected to this signal, because it is
+not guaranteed that the contents of the @message byte array aren't
+modified by multiple users. In other words, the user connected to this
+signal may modify the contents of the @message byte array if needed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-client.c"
+                 line="356">the message data.</doc>
+            <array name="GLib.ByteArray">
+              <type name="guint8" c:type="guint8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ClientClass"
+            c:type="QrtrClientClass"
+            glib:is-gtype-struct-for="Client">
+      <source-position filename="src/libqrtr-glib/qrtr-client.h" line="85"/>
+      <field name="parent" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="ClientPrivate"
+            c:type="QrtrClientPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="src/libqrtr-glib/qrtr-client.h" line="39"/>
+    </record>
+    <function-macro name="IS_BUS"
+                    c:identifier="QRTR_IS_BUS"
+                    introspectable="0">
+      <source-position filename="src/libqrtr-glib/qrtr-bus.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_BUS_CLASS"
+                    c:identifier="QRTR_IS_BUS_CLASS"
+                    introspectable="0">
+      <source-position filename="src/libqrtr-glib/qrtr-bus.h" line="39"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLIENT"
+                    c:identifier="QRTR_IS_CLIENT"
+                    introspectable="0">
+      <source-position filename="src/libqrtr-glib/qrtr-client.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLIENT_CLASS"
+                    c:identifier="QRTR_IS_CLIENT_CLASS"
+                    introspectable="0">
+      <source-position filename="src/libqrtr-glib/qrtr-client.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_NODE"
+                    c:identifier="QRTR_IS_NODE"
+                    introspectable="0">
+      <source-position filename="src/libqrtr-glib/qrtr-node.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_NODE_CLASS"
+                    c:identifier="QRTR_IS_NODE_CLASS"
+                    introspectable="0">
+      <source-position filename="src/libqrtr-glib/qrtr-node.h" line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="NODE" c:identifier="QRTR_NODE" introspectable="0">
+      <source-position filename="src/libqrtr-glib/qrtr-node.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="NODE_BUS" value="bus" c:type="QRTR_NODE_BUS" version="1.0">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-node.h"
+           line="42">The QRTR bus.</doc>
+      <source-position filename="src/libqrtr-glib/qrtr-node.h" line="49"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function-macro name="NODE_CLASS"
+                    c:identifier="QRTR_NODE_CLASS"
+                    introspectable="0">
+      <source-position filename="src/libqrtr-glib/qrtr-node.h" line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="NODE_GET_CLASS"
+                    c:identifier="QRTR_NODE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="src/libqrtr-glib/qrtr-node.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="NODE_ID"
+              value="node-id"
+              c:type="QRTR_NODE_ID"
+              version="1.0">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-node.h"
+           line="51">The node id.</doc>
+      <source-position filename="src/libqrtr-glib/qrtr-node.h" line="58"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="NODE_SIGNAL_REMOVED"
+              value="node-removed"
+              c:type="QRTR_NODE_SIGNAL_REMOVED"
+              version="1.0">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-node.h"
+           line="100">Symbol defining the #QrtrNode::node-removed signal.</doc>
+      <source-position filename="src/libqrtr-glib/qrtr-node.h" line="107"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="NODE_SIGNAL_SERVICE_ADDED"
+              value="service-added"
+              c:type="QRTR_NODE_SIGNAL_SERVICE_ADDED"
+              version="1.0">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-node.h"
+           line="82">Symbol defining the #QrtrNode::service-added signal.</doc>
+      <source-position filename="src/libqrtr-glib/qrtr-node.h" line="89"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="NODE_SIGNAL_SERVICE_REMOVED"
+              value="service-removed"
+              c:type="QRTR_NODE_SIGNAL_SERVICE_REMOVED"
+              version="1.0">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-node.h"
+           line="91">Symbol defining the #QrtrNode::service-removed signal.</doc>
+      <source-position filename="src/libqrtr-glib/qrtr-node.h" line="98"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <class name="Node"
+           c:symbol-prefix="node"
+           c:type="QrtrNode"
+           version="1.0"
+           parent="GObject.Object"
+           glib:type-name="QrtrNode"
+           glib:get-type="qrtr_node_get_type"
+           glib:type-struct="NodeClass">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-node.h"
+           line="60">The #QrtrNode structure contains private data and should only be accessed
+using the provided API.</doc>
+      <source-position filename="src/libqrtr-glib/qrtr-node.h" line="77"/>
+      <method name="add_service_info"
+              c:identifier="qrtr_node_add_service_info">
+        <source-position filename="src/libqrtr-glib/qrtr-node.h" line="331"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="Node" c:type="QrtrNode*"/>
+          </instance-parameter>
+          <parameter name="service" transfer-ownership="none">
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="version" transfer-ownership="none">
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="instance" transfer-ownership="none">
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_bus"
+              c:identifier="qrtr_node_get_bus"
+              glib:get-property="bus"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-node.h"
+             line="135">Get the #QrtrBus where this node is available.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-node.h" line="145"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-node.h"
+               line="141">a #QrtrBus that must be freed with g_object_unref().</doc>
+          <type name="Bus" c:type="QrtrBus*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="137">a #QrtrNode.</doc>
+            <type name="Node" c:type="QrtrNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_id" c:identifier="qrtr_node_get_id" version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-node.h"
+             line="109">Gets the node ID in the QRTR bus.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-node.h" line="119"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-node.h"
+               line="115">the node id.</doc>
+          <type name="guint32" c:type="guint32"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="111">a #QrtrNode.</doc>
+            <type name="Node" c:type="QrtrNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_service_info_list"
+              c:identifier="qrtr_node_get_service_info_list"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-node.h"
+             line="231">Get the list of services currently supported by the #QrtrNode.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-node.h" line="243"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-node.h"
+               line="237">a #GList of #QrtrNodeServiceInfo elements, that
+ must be freed with g_list_free_full() using qrtr_node_service_info_free()
+ as #GDestroyNotify.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="NodeServiceInfo"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="233">a #QrtrNode.</doc>
+            <type name="Node" c:type="QrtrNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="lookup_port"
+              c:identifier="qrtr_node_lookup_port"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-node.h"
+             line="245">If a server has announced itself for the given node and service number,
+return the port number of that service.
+
+If multiple instances are registered, this method returns the port number
+for the service with the highest version number.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-node.h" line="260"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-node.h"
+               line="256">the port number of the service in the node, or -1 if not found.</doc>
+          <type name="gint32" c:type="gint32"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="247">a #QrtrNode.</doc>
+            <type name="Node" c:type="QrtrNode*"/>
+          </instance-parameter>
+          <parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="248">a service number.</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lookup_service"
+              c:identifier="qrtr_node_lookup_service"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-node.h"
+             line="263">If a server has announced itself for the given node and port number,
+return the service it serves.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-node.h" line="275"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-node.h"
+               line="271">the service number, or -1 if not found.</doc>
+          <type name="gint32" c:type="gint32"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="265">a #QrtrNode.</doc>
+            <type name="Node" c:type="QrtrNode*"/>
+          </instance-parameter>
+          <parameter name="port" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="266">a port number.</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_bus" c:identifier="qrtr_node_peek_bus" version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-node.h"
+             line="121">Get the #QrtrBus where this node is available, without increasing the
+reference count on the returned object.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-node.h" line="133"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-node.h"
+               line="128">a #QrtrBus. Do not free the returned object, it is
+ owned by @self.</doc>
+          <type name="Bus" c:type="QrtrBus*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="123">a #QrtrNode.</doc>
+            <type name="Node" c:type="QrtrNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="peek_service_info_list"
+              c:identifier="qrtr_node_peek_service_info_list"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-node.h"
+             line="218">Get the list of services currently supported by the #QrtrNode.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-node.h" line="229"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-node.h"
+               line="224">a #GList of #QrtrNodeServiceInfo elements. Do not
+ free the returned object, it is owned by @self.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="NodeServiceInfo"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="220">a #QrtrNode.</doc>
+            <type name="Node" c:type="QrtrNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="remove_service_info"
+              c:identifier="qrtr_node_remove_service_info">
+        <source-position filename="src/libqrtr-glib/qrtr-node.h" line="338"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="Node" c:type="QrtrNode*"/>
+          </instance-parameter>
+          <parameter name="service" transfer-ownership="none">
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="version" transfer-ownership="none">
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="instance" transfer-ownership="none">
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="wait_for_services"
+              c:identifier="qrtr_node_wait_for_services"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-node.h"
+             line="278">Asynchronously waits until all the services listed in @services are present
+on the node.
+
+The operation may fail if any of the requested services isn't notified, or
+if the node is removed from the bus while waiting.
+
+When the operation is finished @callback will be called. You can then call
+qrtr_node_wait_for_services_finish() to get the result of the
+operation.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-node.h" line="300"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="280">a #QrtrNode.</doc>
+            <type name="Node" c:type="QrtrNode*"/>
+          </instance-parameter>
+          <parameter name="services" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="281">a #GArray of service types</doc>
+            <array name="GLib.Array" c:type="GArray*">
+              <type name="guint32"/>
+            </array>
+          </parameter>
+          <parameter name="timeout_ms" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="282">the timeout, in milliseconds, to wait for the the services to
+ be exposed in the node.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="284">a #GCancellable, or #NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="285">a #GAsyncReadyCallback to call when the request is satisfied.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="286">user data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="wait_for_services_finish"
+              c:identifier="qrtr_node_wait_for_services_finish"
+              version="1.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-node.h"
+             line="307">Finishes an operation started with qrtr_node_wait_for_services().</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-node.h" line="320"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-node.h"
+               line="315">%TRUE if all requested services are present on this node,
+or %FALSE if @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="309">a #QrtrNode.</doc>
+            <type name="Node" c:type="QrtrNode*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="310">a #GAsyncResult.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="bus"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_bus">
+        <type name="Bus"/>
+      </property>
+      <property name="node-id"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="NodePrivate" c:type="QrtrNodePrivate*"/>
+      </field>
+      <glib:signal name="node-removed" when="last" version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-node.c"
+             line="626">The ::node-removed signal is emitted when the node fully disappears from
+the QRTR bus.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="service-added" when="last" version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-node.c"
+             line="582">The ::service-added signal is emitted when a new service registers
+on the QRTR node.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.c"
+                 line="585">the service ID of the service that has been added</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="service-removed" when="last" version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-node.c"
+             line="604">The ::service-removed signal is emitted when a service deregisters
+from the QRTR node.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.c"
+                 line="607">the service ID of the service that was removed</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="NodeClass"
+            c:type="QrtrNodeClass"
+            glib:is-gtype-struct-for="Node">
+      <source-position filename="src/libqrtr-glib/qrtr-node.h" line="77"/>
+      <field name="parent" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="NodePrivate"
+            c:type="QrtrNodePrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="src/libqrtr-glib/qrtr-node.h" line="40"/>
+    </record>
+    <record name="NodeServiceInfo"
+            c:type="QrtrNodeServiceInfo"
+            opaque="1"
+            version="1.0"
+            glib:type-name="QrtrNodeServiceInfo"
+            glib:get-type="qrtr_node_service_info_get_type"
+            c:symbol-prefix="node_service_info">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-node.h"
+           line="147">Information for a service instance in the #QrtrNode.</doc>
+      <source-position filename="src/libqrtr-glib/qrtr-node.h" line="154"/>
+      <method name="free"
+              c:identifier="qrtr_node_service_info_free"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-node.h"
+             line="207">Frees a single #QrtrNodeServiceInfo, as returned by qrtr_node_get_service_info_list().</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-node.h" line="215"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="209">a #QrtrNodeServiceInfo.</doc>
+            <type name="NodeServiceInfo" c:type="QrtrNodeServiceInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_instance"
+              c:identifier="qrtr_node_service_info_get_instance"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-node.h"
+             line="195">Get the instance number from the #QrtrNodeServiceInfo.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-node.h" line="205"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-node.h"
+               line="201">the instance number.</doc>
+          <type name="guint32" c:type="guint32"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="197">a #QrtrNodeServiceInfo.</doc>
+            <type name="NodeServiceInfo" c:type="QrtrNodeServiceInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_port"
+              c:identifier="qrtr_node_service_info_get_port"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-node.h"
+             line="171">Get the port number from the #QrtrNodeServiceInfo.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-node.h" line="181"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-node.h"
+               line="177">the port number.</doc>
+          <type name="guint32" c:type="guint32"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="173">a #QrtrNodeServiceInfo.</doc>
+            <type name="NodeServiceInfo" c:type="QrtrNodeServiceInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_service"
+              c:identifier="qrtr_node_service_info_get_service"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-node.h"
+             line="159">Get the service number from the #QrtrNodeServiceInfo.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-node.h" line="169"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-node.h"
+               line="165">the service number.</doc>
+          <type name="guint32" c:type="guint32"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="161">a #QrtrNodeServiceInfo.</doc>
+            <type name="NodeServiceInfo" c:type="QrtrNodeServiceInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_version"
+              c:identifier="qrtr_node_service_info_get_version"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-node.h"
+             line="183">Get the version number from the #QrtrNodeServiceInfo.</doc>
+        <source-position filename="src/libqrtr-glib/qrtr-node.h" line="193"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-node.h"
+               line="189">the version number.</doc>
+          <type name="guint32" c:type="guint32"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libqrtr-glib/qrtr-node.h"
+                 line="185">a #QrtrNodeServiceInfo.</doc>
+            <type name="NodeServiceInfo" c:type="QrtrNodeServiceInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <function name="get_node_for_uri"
+              c:identifier="qrtr_get_node_for_uri"
+              version="1.0">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-utils.h"
+           line="39">Get the QRTR node id from the specified URI.</doc>
+      <source-position filename="src/libqrtr-glib/qrtr-utils.h" line="50"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-utils.h"
+             line="46">%TRUE if @node_id is set, %FALSE otherwise.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="uri" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-utils.h"
+               line="41">a URI.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="node_id" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-utils.h"
+               line="42">return location for the node id.</doc>
+          <type name="guint32" c:type="guint32*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_uri_for_node"
+              c:identifier="qrtr_get_uri_for_node"
+              version="1.0">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-utils.h"
+           line="26">Build a URI for the given QRTR node.</doc>
+      <source-position filename="src/libqrtr-glib/qrtr-utils.h" line="37"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="src/libqrtr-glib/qrtr-utils.h"
+             line="32">a string with the URI, or %NULL if none given. The returned value
+ should be freed with g_free().</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="node_id" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libqrtr-glib/qrtr-utils.h"
+               line="28">node id.</doc>
+          <type name="guint32" c:type="guint32"/>
+        </parameter>
+      </parameters>
+    </function>
+    <docsection name="qrtr-bus">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-bus.h"
+           line="24">#QrtrBus sets up a socket that uses the QRTR IPC protocol and
+can call back into a client to tell them when new devices have appeared on
+the QRTR bus. It holds QrtrNodes that can be used to look up service and
+port information.</doc>
+    </docsection>
+    <docsection name="qrtr-client">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-client.h"
+           line="22">The #QrtrClient object represents a channel that can be used to
+communicate with a #QrtrNode in a given port.</doc>
+    </docsection>
+    <docsection name="qrtr-node">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-node.h"
+           line="23">#QrtrNode represents a device on the QRTR bus and can be used to look up
+services published by that device.</doc>
+    </docsection>
+    <docsection name="qrtr-utils">
+      <doc xml:space="preserve"
+           filename="src/libqrtr-glib/qrtr-utils.h"
+           line="18">Common utilities in the libqrtr-glib library.</doc>
+    </docsection>
+  </namespace>
+</repository>

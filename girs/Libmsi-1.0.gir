@@ -1,0 +1,1881 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <package name="libmsi-1.0"/>
+  <c:include name="libmsi.h"/>
+  <namespace name="Libmsi"
+             version="1.0"
+             shared-library="libmsi.so.0"
+             c:identifier-prefixes="Libmsi"
+             c:symbol-prefixes="libmsi">
+    <enumeration name="ColInfo"
+                 glib:type-name="LibmsiColInfo"
+                 glib:get-type="libmsi_col_info_get_type"
+                 c:type="LibmsiColInfo">
+      <member name="names"
+              value="0"
+              c:identifier="LIBMSI_COL_INFO_NAMES"
+              glib:nick="names"
+              glib:name="LIBMSI_COL_INFO_NAMES">
+      </member>
+      <member name="types"
+              value="1"
+              c:identifier="LIBMSI_COL_INFO_TYPES"
+              glib:nick="types"
+              glib:name="LIBMSI_COL_INFO_TYPES">
+      </member>
+    </enumeration>
+    <function-macro name="DATABASE"
+                    c:identifier="LIBMSI_DATABASE"
+                    introspectable="0">
+      <source-position filename="include/libmsi-database.h" line="29"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DATABASE_CLASS"
+                    c:identifier="LIBMSI_DATABASE_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libmsi-database.h" line="30"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DATABASE_GET_CLASS"
+                    c:identifier="LIBMSI_DATABASE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libmsi-database.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <enumeration name="DBError"
+                 glib:type-name="LibmsiDBError"
+                 glib:get-type="libmsi_db_error_get_type"
+                 c:type="LibmsiDBError"
+                 glib:error-domain="libmsi-db-error-quark">
+      <member name="success"
+              value="0"
+              c:identifier="LIBMSI_DB_ERROR_SUCCESS"
+              glib:nick="success"
+              glib:name="LIBMSI_DB_ERROR_SUCCESS">
+      </member>
+      <member name="invalidarg"
+              value="1"
+              c:identifier="LIBMSI_DB_ERROR_INVALIDARG"
+              glib:nick="invalidarg"
+              glib:name="LIBMSI_DB_ERROR_INVALIDARG">
+      </member>
+      <member name="moredata"
+              value="2"
+              c:identifier="LIBMSI_DB_ERROR_MOREDATA"
+              glib:nick="moredata"
+              glib:name="LIBMSI_DB_ERROR_MOREDATA">
+      </member>
+      <member name="functionerror"
+              value="3"
+              c:identifier="LIBMSI_DB_ERROR_FUNCTIONERROR"
+              glib:nick="functionerror"
+              glib:name="LIBMSI_DB_ERROR_FUNCTIONERROR">
+      </member>
+      <member name="duplicatekey"
+              value="4"
+              c:identifier="LIBMSI_DB_ERROR_DUPLICATEKEY"
+              glib:nick="duplicatekey"
+              glib:name="LIBMSI_DB_ERROR_DUPLICATEKEY">
+      </member>
+      <member name="required"
+              value="5"
+              c:identifier="LIBMSI_DB_ERROR_REQUIRED"
+              glib:nick="required"
+              glib:name="LIBMSI_DB_ERROR_REQUIRED">
+      </member>
+      <member name="badlink"
+              value="6"
+              c:identifier="LIBMSI_DB_ERROR_BADLINK"
+              glib:nick="badlink"
+              glib:name="LIBMSI_DB_ERROR_BADLINK">
+      </member>
+      <member name="overflow"
+              value="7"
+              c:identifier="LIBMSI_DB_ERROR_OVERFLOW"
+              glib:nick="overflow"
+              glib:name="LIBMSI_DB_ERROR_OVERFLOW">
+      </member>
+      <member name="underflow"
+              value="8"
+              c:identifier="LIBMSI_DB_ERROR_UNDERFLOW"
+              glib:nick="underflow"
+              glib:name="LIBMSI_DB_ERROR_UNDERFLOW">
+      </member>
+      <member name="notinset"
+              value="9"
+              c:identifier="LIBMSI_DB_ERROR_NOTINSET"
+              glib:nick="notinset"
+              glib:name="LIBMSI_DB_ERROR_NOTINSET">
+      </member>
+      <member name="badversion"
+              value="10"
+              c:identifier="LIBMSI_DB_ERROR_BADVERSION"
+              glib:nick="badversion"
+              glib:name="LIBMSI_DB_ERROR_BADVERSION">
+      </member>
+      <member name="badcase"
+              value="11"
+              c:identifier="LIBMSI_DB_ERROR_BADCASE"
+              glib:nick="badcase"
+              glib:name="LIBMSI_DB_ERROR_BADCASE">
+      </member>
+      <member name="badguid"
+              value="12"
+              c:identifier="LIBMSI_DB_ERROR_BADGUID"
+              glib:nick="badguid"
+              glib:name="LIBMSI_DB_ERROR_BADGUID">
+      </member>
+      <member name="badwildcard"
+              value="13"
+              c:identifier="LIBMSI_DB_ERROR_BADWILDCARD"
+              glib:nick="badwildcard"
+              glib:name="LIBMSI_DB_ERROR_BADWILDCARD">
+      </member>
+      <member name="badidentifier"
+              value="14"
+              c:identifier="LIBMSI_DB_ERROR_BADIDENTIFIER"
+              glib:nick="badidentifier"
+              glib:name="LIBMSI_DB_ERROR_BADIDENTIFIER">
+      </member>
+      <member name="badlanguage"
+              value="15"
+              c:identifier="LIBMSI_DB_ERROR_BADLANGUAGE"
+              glib:nick="badlanguage"
+              glib:name="LIBMSI_DB_ERROR_BADLANGUAGE">
+      </member>
+      <member name="badfilename"
+              value="16"
+              c:identifier="LIBMSI_DB_ERROR_BADFILENAME"
+              glib:nick="badfilename"
+              glib:name="LIBMSI_DB_ERROR_BADFILENAME">
+      </member>
+      <member name="badpath"
+              value="17"
+              c:identifier="LIBMSI_DB_ERROR_BADPATH"
+              glib:nick="badpath"
+              glib:name="LIBMSI_DB_ERROR_BADPATH">
+      </member>
+      <member name="badcondition"
+              value="18"
+              c:identifier="LIBMSI_DB_ERROR_BADCONDITION"
+              glib:nick="badcondition"
+              glib:name="LIBMSI_DB_ERROR_BADCONDITION">
+      </member>
+      <member name="badformatted"
+              value="19"
+              c:identifier="LIBMSI_DB_ERROR_BADFORMATTED"
+              glib:nick="badformatted"
+              glib:name="LIBMSI_DB_ERROR_BADFORMATTED">
+      </member>
+      <member name="badtemplate"
+              value="20"
+              c:identifier="LIBMSI_DB_ERROR_BADTEMPLATE"
+              glib:nick="badtemplate"
+              glib:name="LIBMSI_DB_ERROR_BADTEMPLATE">
+      </member>
+      <member name="baddefaultdir"
+              value="21"
+              c:identifier="LIBMSI_DB_ERROR_BADDEFAULTDIR"
+              glib:nick="baddefaultdir"
+              glib:name="LIBMSI_DB_ERROR_BADDEFAULTDIR">
+      </member>
+      <member name="badregpath"
+              value="22"
+              c:identifier="LIBMSI_DB_ERROR_BADREGPATH"
+              glib:nick="badregpath"
+              glib:name="LIBMSI_DB_ERROR_BADREGPATH">
+      </member>
+      <member name="badcustomsource"
+              value="23"
+              c:identifier="LIBMSI_DB_ERROR_BADCUSTOMSOURCE"
+              glib:nick="badcustomsource"
+              glib:name="LIBMSI_DB_ERROR_BADCUSTOMSOURCE">
+      </member>
+      <member name="badproperty"
+              value="24"
+              c:identifier="LIBMSI_DB_ERROR_BADPROPERTY"
+              glib:nick="badproperty"
+              glib:name="LIBMSI_DB_ERROR_BADPROPERTY">
+      </member>
+      <member name="missingdata"
+              value="25"
+              c:identifier="LIBMSI_DB_ERROR_MISSINGDATA"
+              glib:nick="missingdata"
+              glib:name="LIBMSI_DB_ERROR_MISSINGDATA">
+      </member>
+      <member name="badcategory"
+              value="26"
+              c:identifier="LIBMSI_DB_ERROR_BADCATEGORY"
+              glib:nick="badcategory"
+              glib:name="LIBMSI_DB_ERROR_BADCATEGORY">
+      </member>
+      <member name="badkeytable"
+              value="27"
+              c:identifier="LIBMSI_DB_ERROR_BADKEYTABLE"
+              glib:nick="badkeytable"
+              glib:name="LIBMSI_DB_ERROR_BADKEYTABLE">
+      </member>
+      <member name="badmaxminvalues"
+              value="28"
+              c:identifier="LIBMSI_DB_ERROR_BADMAXMINVALUES"
+              glib:nick="badmaxminvalues"
+              glib:name="LIBMSI_DB_ERROR_BADMAXMINVALUES">
+      </member>
+      <member name="badcabinet"
+              value="29"
+              c:identifier="LIBMSI_DB_ERROR_BADCABINET"
+              glib:nick="badcabinet"
+              glib:name="LIBMSI_DB_ERROR_BADCABINET">
+      </member>
+      <member name="badshortcut"
+              value="30"
+              c:identifier="LIBMSI_DB_ERROR_BADSHORTCUT"
+              glib:nick="badshortcut"
+              glib:name="LIBMSI_DB_ERROR_BADSHORTCUT">
+      </member>
+      <member name="stringoverflow"
+              value="31"
+              c:identifier="LIBMSI_DB_ERROR_STRINGOVERFLOW"
+              glib:nick="stringoverflow"
+              glib:name="LIBMSI_DB_ERROR_STRINGOVERFLOW">
+      </member>
+      <member name="badlocalizeattrib"
+              value="32"
+              c:identifier="LIBMSI_DB_ERROR_BADLOCALIZEATTRIB"
+              glib:nick="badlocalizeattrib"
+              glib:name="LIBMSI_DB_ERROR_BADLOCALIZEATTRIB">
+      </member>
+      <function name="quark" c:identifier="libmsi_db_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <class name="Database"
+           c:symbol-prefix="database"
+           c:type="LibmsiDatabase"
+           parent="GObject.Object"
+           glib:type-name="LibmsiDatabase"
+           glib:get-type="libmsi_database_get_type"
+           glib:type-struct="DatabaseClass">
+      <source-position filename="include/libmsi-database.h" line="40"/>
+      <constructor name="new" c:identifier="libmsi_database_new" throws="1">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-database.c"
+             line="2595">Create a MSI database or open from @path.</doc>
+        <source-position filename="include/libmsi-database.h" line="45"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-database.c"
+               line="2604">a new #LibmsiDatabase on success, %NULL if fail.</doc>
+          <type name="Database" c:type="LibmsiDatabase*"/>
+        </return-value>
+        <parameters>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="2597">path to a MSI file</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="2598">#LibmsiDbFlags opening flags</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="persist"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="2599">path to output MSI file</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="apply_transform"
+              c:identifier="libmsi_database_apply_transform"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-database.c"
+             line="2259">FIXME</doc>
+        <source-position filename="include/libmsi-database.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-database.c"
+               line="2267">%TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="2261">a %LibmsiDatabase</doc>
+            <type name="Database" c:type="LibmsiDatabase*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="2262">an MST transform file path</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="commit" c:identifier="libmsi_database_commit" throws="1">
+        <source-position filename="include/libmsi-database.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-database.c"
+               line="2371">%TRUE on success.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="2368">a #LibmsiDatabase</doc>
+            <type name="Database" c:type="LibmsiDatabase*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="export" c:identifier="libmsi_database_export" throws="1">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-database.c"
+             line="1397">Writes a file containing the table data as tab separated ASCII.
+The format is as follows:
+
+row1 : colname1 &lt;tab&gt; colname2 &lt;tab&gt; .... colnameN &lt;cr&gt; &lt;lf&gt;
+row2 : coltype1 &lt;tab&gt; coltype2 &lt;tab&gt; .... coltypeN &lt;cr&gt; &lt;lf&gt;
+row3 : tablename &lt;tab&gt; key1 &lt;tab&gt; key2 &lt;tab&gt; ... keyM &lt;cr&gt; &lt;lf&gt;
+
+Followed by the data, starting at row 1 with one row per line
+
+row4 : data &lt;tab&gt; data &lt;tab&gt; data &lt;tab&gt; ... data &lt;cr&gt; &lt;lf&gt;</doc>
+        <source-position filename="include/libmsi-database.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-database.c"
+               line="1415">%TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="1399">a %LibmsiDatabase</doc>
+            <type name="Database" c:type="LibmsiDatabase*"/>
+          </instance-parameter>
+          <parameter name="table" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="1400">a table name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="fd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="1401">a file descriptor</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_primary_keys"
+              c:identifier="libmsi_database_get_primary_keys"
+              throws="1">
+        <source-position filename="include/libmsi-database.h" line="51"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-database.c"
+               line="2510">a %LibmsiRecord containing the names of all the primary
+key columns.</doc>
+          <type name="Record" c:type="LibmsiRecord*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="2506">a %LibmsiDatabase</doc>
+            <type name="Database" c:type="LibmsiDatabase*"/>
+          </instance-parameter>
+          <parameter name="table" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="2507">an exisiting table name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="import" c:identifier="libmsi_database_import" throws="1">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-database.c"
+             line="1153">Import a table to the database from file @path.</doc>
+        <source-position filename="include/libmsi-database.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-database.c"
+               line="1161">%TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="1155">a %LibmsiDatabase</doc>
+            <type name="Database" c:type="LibmsiDatabase*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="1156">path to a table file</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_readonly" c:identifier="libmsi_database_is_readonly">
+        <source-position filename="include/libmsi-database.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-database.c"
+               line="2098">%TRUE if the database is read-only.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="2096">a %LibmsiDatabase</doc>
+            <type name="Database" c:type="LibmsiDatabase*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_table_persistent"
+              c:identifier="libmsi_database_is_table_persistent"
+              throws="1">
+        <source-position filename="include/libmsi-database.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-database.c"
+               line="2543">%TRUE if the @table is persistent, %FALSE if it's temporary</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="2539">a %LibmsiDatabase</doc>
+            <type name="Database" c:type="LibmsiDatabase*"/>
+          </instance-parameter>
+          <parameter name="table" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="2540">an exisiting table name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="merge" c:identifier="libmsi_database_merge" throws="1">
+        <source-position filename="include/libmsi-database.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-database.c"
+               line="2028">%TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="2023">a %LibmsiDatabase to merge into</doc>
+            <type name="Database" c:type="LibmsiDatabase*"/>
+          </instance-parameter>
+          <parameter name="merge" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="2024">a %LibmsiDatabase to merge</doc>
+            <type name="Database" c:type="LibmsiDatabase*"/>
+          </parameter>
+          <parameter name="table"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="2025">an optionnal table name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="flags"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="DbFlags"/>
+      </property>
+      <property name="outpath"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="path"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="DatabaseClass"
+            c:type="LibmsiDatabaseClass"
+            glib:is-gtype-struct-for="Database">
+      <source-position filename="include/libmsi-database.h" line="40"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <bitfield name="DbFlags"
+              glib:type-name="LibmsiDbFlags"
+              glib:get-type="libmsi_db_flags_get_type"
+              c:type="LibmsiDbFlags">
+      <member name="readonly"
+              value="1"
+              c:identifier="LIBMSI_DB_FLAGS_READONLY"
+              glib:nick="readonly"
+              glib:name="LIBMSI_DB_FLAGS_READONLY">
+      </member>
+      <member name="create"
+              value="2"
+              c:identifier="LIBMSI_DB_FLAGS_CREATE"
+              glib:nick="create"
+              glib:name="LIBMSI_DB_FLAGS_CREATE">
+      </member>
+      <member name="transact"
+              value="4"
+              c:identifier="LIBMSI_DB_FLAGS_TRANSACT"
+              glib:nick="transact"
+              glib:name="LIBMSI_DB_FLAGS_TRANSACT">
+      </member>
+      <member name="patch"
+              value="8"
+              c:identifier="LIBMSI_DB_FLAGS_PATCH"
+              glib:nick="patch"
+              glib:name="LIBMSI_DB_FLAGS_PATCH">
+      </member>
+    </bitfield>
+    <function-macro name="IS_DATABASE"
+                    c:identifier="LIBMSI_IS_DATABASE"
+                    introspectable="0">
+      <source-position filename="include/libmsi-database.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DATABASE_CLASS"
+                    c:identifier="LIBMSI_IS_DATABASE_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libmsi-database.h" line="32"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_QUERY"
+                    c:identifier="LIBMSI_IS_QUERY"
+                    introspectable="0">
+      <source-position filename="include/libmsi-query.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_QUERY_CLASS"
+                    c:identifier="LIBMSI_IS_QUERY_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libmsi-query.h" line="32"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_RECORD"
+                    c:identifier="LIBMSI_IS_RECORD"
+                    introspectable="0">
+      <source-position filename="include/libmsi-record.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_RECORD_CLASS"
+                    c:identifier="LIBMSI_IS_RECORD_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libmsi-record.h" line="33"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SUMMARY_INFO"
+                    c:identifier="LIBMSI_IS_SUMMARY_INFO"
+                    introspectable="0">
+      <source-position filename="include/libmsi-summary-info.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SUMMARY_INFO_CLASS"
+                    c:identifier="LIBMSI_IS_SUMMARY_INFO_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libmsi-summary-info.h" line="32"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="NULL_INT" value="2147483648" c:type="LIBMSI_NULL_INT">
+      <source-position filename="include/libmsi-types.h" line="68"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <enumeration name="Property"
+                 glib:type-name="LibmsiProperty"
+                 glib:get-type="libmsi_property_get_type"
+                 c:type="LibmsiProperty">
+      <member name="dictionary"
+              value="0"
+              c:identifier="LIBMSI_PROPERTY_DICTIONARY"
+              glib:nick="dictionary"
+              glib:name="LIBMSI_PROPERTY_DICTIONARY">
+      </member>
+      <member name="codepage"
+              value="1"
+              c:identifier="LIBMSI_PROPERTY_CODEPAGE"
+              glib:nick="codepage"
+              glib:name="LIBMSI_PROPERTY_CODEPAGE">
+      </member>
+      <member name="title"
+              value="2"
+              c:identifier="LIBMSI_PROPERTY_TITLE"
+              glib:nick="title"
+              glib:name="LIBMSI_PROPERTY_TITLE">
+      </member>
+      <member name="subject"
+              value="3"
+              c:identifier="LIBMSI_PROPERTY_SUBJECT"
+              glib:nick="subject"
+              glib:name="LIBMSI_PROPERTY_SUBJECT">
+      </member>
+      <member name="author"
+              value="4"
+              c:identifier="LIBMSI_PROPERTY_AUTHOR"
+              glib:nick="author"
+              glib:name="LIBMSI_PROPERTY_AUTHOR">
+      </member>
+      <member name="keywords"
+              value="5"
+              c:identifier="LIBMSI_PROPERTY_KEYWORDS"
+              glib:nick="keywords"
+              glib:name="LIBMSI_PROPERTY_KEYWORDS">
+      </member>
+      <member name="comments"
+              value="6"
+              c:identifier="LIBMSI_PROPERTY_COMMENTS"
+              glib:nick="comments"
+              glib:name="LIBMSI_PROPERTY_COMMENTS">
+      </member>
+      <member name="template"
+              value="7"
+              c:identifier="LIBMSI_PROPERTY_TEMPLATE"
+              glib:nick="template"
+              glib:name="LIBMSI_PROPERTY_TEMPLATE">
+      </member>
+      <member name="lastauthor"
+              value="8"
+              c:identifier="LIBMSI_PROPERTY_LASTAUTHOR"
+              glib:nick="lastauthor"
+              glib:name="LIBMSI_PROPERTY_LASTAUTHOR">
+      </member>
+      <member name="uuid"
+              value="9"
+              c:identifier="LIBMSI_PROPERTY_UUID"
+              glib:nick="uuid"
+              glib:name="LIBMSI_PROPERTY_UUID">
+      </member>
+      <member name="edittime"
+              value="10"
+              c:identifier="LIBMSI_PROPERTY_EDITTIME"
+              glib:nick="edittime"
+              glib:name="LIBMSI_PROPERTY_EDITTIME">
+      </member>
+      <member name="lastprinted"
+              value="11"
+              c:identifier="LIBMSI_PROPERTY_LASTPRINTED"
+              glib:nick="lastprinted"
+              glib:name="LIBMSI_PROPERTY_LASTPRINTED">
+      </member>
+      <member name="created_tm"
+              value="12"
+              c:identifier="LIBMSI_PROPERTY_CREATED_TM"
+              glib:nick="created-tm"
+              glib:name="LIBMSI_PROPERTY_CREATED_TM">
+      </member>
+      <member name="lastsaved_tm"
+              value="13"
+              c:identifier="LIBMSI_PROPERTY_LASTSAVED_TM"
+              glib:nick="lastsaved-tm"
+              glib:name="LIBMSI_PROPERTY_LASTSAVED_TM">
+      </member>
+      <member name="version"
+              value="14"
+              c:identifier="LIBMSI_PROPERTY_VERSION"
+              glib:nick="version"
+              glib:name="LIBMSI_PROPERTY_VERSION">
+      </member>
+      <member name="source"
+              value="15"
+              c:identifier="LIBMSI_PROPERTY_SOURCE"
+              glib:nick="source"
+              glib:name="LIBMSI_PROPERTY_SOURCE">
+      </member>
+      <member name="restrict"
+              value="16"
+              c:identifier="LIBMSI_PROPERTY_RESTRICT"
+              glib:nick="restrict"
+              glib:name="LIBMSI_PROPERTY_RESTRICT">
+      </member>
+      <member name="thumbnail"
+              value="17"
+              c:identifier="LIBMSI_PROPERTY_THUMBNAIL"
+              glib:nick="thumbnail"
+              glib:name="LIBMSI_PROPERTY_THUMBNAIL">
+      </member>
+      <member name="appname"
+              value="18"
+              c:identifier="LIBMSI_PROPERTY_APPNAME"
+              glib:nick="appname"
+              glib:name="LIBMSI_PROPERTY_APPNAME">
+      </member>
+      <member name="security"
+              value="19"
+              c:identifier="LIBMSI_PROPERTY_SECURITY"
+              glib:nick="security"
+              glib:name="LIBMSI_PROPERTY_SECURITY">
+      </member>
+    </enumeration>
+    <enumeration name="PropertyType"
+                 glib:type-name="LibmsiPropertyType"
+                 glib:get-type="libmsi_property_type_get_type"
+                 c:type="LibmsiPropertyType">
+      <member name="empty"
+              value="0"
+              c:identifier="LIBMSI_PROPERTY_TYPE_EMPTY"
+              glib:nick="empty"
+              glib:name="LIBMSI_PROPERTY_TYPE_EMPTY">
+      </member>
+      <member name="int"
+              value="1"
+              c:identifier="LIBMSI_PROPERTY_TYPE_INT"
+              glib:nick="int"
+              glib:name="LIBMSI_PROPERTY_TYPE_INT">
+      </member>
+      <member name="string"
+              value="2"
+              c:identifier="LIBMSI_PROPERTY_TYPE_STRING"
+              glib:nick="string"
+              glib:name="LIBMSI_PROPERTY_TYPE_STRING">
+      </member>
+      <member name="filetime"
+              value="3"
+              c:identifier="LIBMSI_PROPERTY_TYPE_FILETIME"
+              glib:nick="filetime"
+              glib:name="LIBMSI_PROPERTY_TYPE_FILETIME">
+      </member>
+    </enumeration>
+    <function-macro name="QUERY"
+                    c:identifier="LIBMSI_QUERY"
+                    introspectable="0">
+      <source-position filename="include/libmsi-query.h" line="29"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="QUERY_CLASS"
+                    c:identifier="LIBMSI_QUERY_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libmsi-query.h" line="30"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="QUERY_GET_CLASS"
+                    c:identifier="LIBMSI_QUERY_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libmsi-query.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Query"
+           c:symbol-prefix="query"
+           c:type="LibmsiQuery"
+           parent="GObject.Object"
+           glib:type-name="LibmsiQuery"
+           glib:get-type="libmsi_query_get_type"
+           glib:type-struct="QueryClass">
+      <source-position filename="include/libmsi-query.h" line="40"/>
+      <constructor name="new" c:identifier="libmsi_query_new" throws="1">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-query.c"
+             line="646">Create a SQL query for @database.</doc>
+        <source-position filename="include/libmsi-query.h" line="45"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-query.c"
+               line="654">a new %LibmsiQuery on success, %NULL on failure</doc>
+          <type name="Query" c:type="LibmsiQuery*"/>
+        </return-value>
+        <parameters>
+          <parameter name="database" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-query.c"
+                 line="648">a #LibmsiDatabase</doc>
+            <type name="Database" c:type="LibmsiDatabase*"/>
+          </parameter>
+          <parameter name="query" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-query.c"
+                 line="649">a SQL query</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="close" c:identifier="libmsi_query_close" throws="1">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-query.c"
+             line="415">Release the current result set.</doc>
+        <source-position filename="include/libmsi-query.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-query.c"
+               line="422">%TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="query" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-query.c"
+                 line="417">a #LibmsiQuery</doc>
+            <type name="Query" c:type="LibmsiQuery*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="execute" c:identifier="libmsi_query_execute" throws="1">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-query.c"
+             line="468">Execute the @query with the arguments from @rec.</doc>
+        <source-position filename="include/libmsi-query.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-query.c"
+               line="477">%TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="query" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-query.c"
+                 line="470">a #LibmsiQuery</doc>
+            <type name="Query" c:type="LibmsiQuery*"/>
+          </instance-parameter>
+          <parameter name="rec"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-query.c"
+                 line="471">a #LibmsiRecord containing query arguments, or
+    %NULL if no arguments needed</doc>
+            <type name="Record" c:type="LibmsiRecord*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="fetch" c:identifier="libmsi_query_fetch" throws="1">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-query.c"
+             line="381">Return the next query result. %NULL is returned when there
+is no more results.</doc>
+        <source-position filename="include/libmsi-query.h" line="48"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-query.c"
+               line="389">a newly allocated
+    #LibmsiRecord or %NULL when no results or failure.</doc>
+          <type name="Record" c:type="LibmsiRecord*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="query" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-query.c"
+                 line="383">a #LibmsiQuery</doc>
+            <type name="Query" c:type="LibmsiQuery*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_column_info"
+              c:identifier="libmsi_query_get_column_info"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-query.c"
+             line="586">Get column informations, returned as record string fields.</doc>
+        <source-position filename="include/libmsi-query.h" line="58"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-query.c"
+               line="594">a newly allocated #LibmsiRecord
+containing informations or %NULL on error.</doc>
+          <type name="Record" c:type="LibmsiRecord*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="query" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-query.c"
+                 line="588">a #LibmsiQuery</doc>
+            <type name="Query" c:type="LibmsiQuery*"/>
+          </instance-parameter>
+          <parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-query.c"
+                 line="589">a #LibmsiColInfo specifying the type of information to return</doc>
+            <type name="ColInfo" c:type="LibmsiColInfo"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_error"
+              c:identifier="libmsi_query_get_error"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-query.c"
+             line="620">Call this to get more information on the last query error.</doc>
+        <source-position filename="include/libmsi-query.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="query" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-query.c"
+                 line="622">a #LibmsiQuery</doc>
+            <type name="Query" c:type="LibmsiQuery*"/>
+          </instance-parameter>
+          <parameter name="column"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-query.c"
+                 line="623">location to store the allocated column name</doc>
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="database"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Database"/>
+      </property>
+      <property name="query"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="QueryClass"
+            c:type="LibmsiQueryClass"
+            glib:is-gtype-struct-for="Query">
+      <source-position filename="include/libmsi-query.h" line="40"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <function-macro name="RECORD"
+                    c:identifier="LIBMSI_RECORD"
+                    introspectable="0">
+      <source-position filename="include/libmsi-record.h" line="30"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="RECORD_CLASS"
+                    c:identifier="LIBMSI_RECORD_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libmsi-record.h" line="31"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="RECORD_GET_CLASS"
+                    c:identifier="LIBMSI_RECORD_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libmsi-record.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Record"
+           c:symbol-prefix="record"
+           c:type="LibmsiRecord"
+           parent="GObject.Object"
+           glib:type-name="LibmsiRecord"
+           glib:get-type="libmsi_record_get_type"
+           glib:type-struct="RecordClass">
+      <source-position filename="include/libmsi-record.h" line="41"/>
+      <constructor name="new" c:identifier="libmsi_record_new">
+        <source-position filename="include/libmsi-record.h" line="45"/>
+        <return-value transfer-ownership="full">
+          <type name="Record" c:type="LibmsiRecord*"/>
+        </return-value>
+        <parameters>
+          <parameter name="count" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="clear" c:identifier="libmsi_record_clear">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-record.c"
+             line="266">Clear record fields.</doc>
+        <source-position filename="include/libmsi-record.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-record.c"
+               line="272">%TRUE on success.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="268">a %LibmsiRecord</doc>
+            <type name="Record" c:type="LibmsiRecord*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_field_count"
+              c:identifier="libmsi_record_get_field_count">
+        <source-position filename="include/libmsi-record.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-record.c"
+               line="150">the number of record fields.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="148">a %LibmsiRecord</doc>
+            <type name="Record" c:type="const LibmsiRecord*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_int" c:identifier="libmsi_record_get_int">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-record.c"
+             line="226">Get the integer value of %field. If the field is a string
+representing an integer, it will be converted to an integer value.
+Other values and types will return %LIBMSI_NULL_INT.</doc>
+        <source-position filename="include/libmsi-record.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-record.c"
+               line="235">The integer value, or %LIBMSI_NULL_INT if the field is
+not an integer.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="228">a %LibmsiRecord</doc>
+            <type name="Record" c:type="const LibmsiRecord*"/>
+          </instance-parameter>
+          <parameter name="field" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="229">a field identifier</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_stream" c:identifier="libmsi_record_get_stream">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-record.c"
+             line="661">Get the stream associated with the given record @field.</doc>
+        <source-position filename="include/libmsi-record.h" line="69"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-record.c"
+               line="668">a new #GInputStream</doc>
+          <type name="Gio.InputStream" c:type="GInputStream*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="663">a #LibmsiRecord</doc>
+            <type name="Record" c:type="LibmsiRecord*"/>
+          </instance-parameter>
+          <parameter name="field" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="664">a field identifier</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_string" c:identifier="libmsi_record_get_string">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-record.c"
+             line="344">Get a string representation of %field.</doc>
+        <source-position filename="include/libmsi-record.h" line="58"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-record.c"
+               line="351">a string, or %NULL on error.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="346">a %LibmsiRecord</doc>
+            <type name="Record" c:type="const LibmsiRecord*"/>
+          </instance-parameter>
+          <parameter name="field" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="347">a field identifier</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_null" c:identifier="libmsi_record_is_null">
+        <source-position filename="include/libmsi-record.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-record.c"
+               line="327">%TRUE if the field is null (or %field &gt; record field count)</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="324">a %LibmsiRecord</doc>
+            <type name="Record" c:type="const LibmsiRecord*"/>
+          </instance-parameter>
+          <parameter name="field" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="325">a field identifier</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_stream" c:identifier="libmsi_record_load_stream">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-record.c"
+             line="561">Load the file content as a stream in @field.</doc>
+        <source-position filename="include/libmsi-record.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-record.c"
+               line="569">%TRUE on success.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="563">a #LibmsiRecord</doc>
+            <type name="Record" c:type="LibmsiRecord*"/>
+          </instance-parameter>
+          <parameter name="field" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="564">a field identifier</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="565">a filename or %NULL</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_int" c:identifier="libmsi_record_set_int">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-record.c"
+             line="295">Set the %field to the integer value %val.</doc>
+        <source-position filename="include/libmsi-record.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-record.c"
+               line="303">%TRUE on success.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="297">a %LibmsiRecord</doc>
+            <type name="Record" c:type="LibmsiRecord*"/>
+          </instance-parameter>
+          <parameter name="field" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="298">a field identifier</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="val" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="299">value to set field to</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_stream"
+              c:identifier="libmsi_record_set_stream"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-record.c"
+             line="587">Set the stream content from @input stream.</doc>
+        <source-position filename="include/libmsi-record.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-record.c"
+               line="598">%TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="589">a #LibmsiRecord</doc>
+            <type name="Record" c:type="LibmsiRecord*"/>
+          </instance-parameter>
+          <parameter name="field" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="590">a field identifier</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="input" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="591">a #GInputStream</doc>
+            <type name="Gio.InputStream" c:type="GInputStream*"/>
+          </parameter>
+          <parameter name="count" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="592">the number of bytes to read from @input</doc>
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="593">optional GCancellable object, %NULL to ignore</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_string" c:identifier="libmsi_record_set_string">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-record.c"
+             line="436">Set the %field value to %val string.</doc>
+        <source-position filename="include/libmsi-record.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-record.c"
+               line="444">%TRUE on success.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="record" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="438">a %LibmsiRecord</doc>
+            <type name="Record" c:type="LibmsiRecord*"/>
+          </instance-parameter>
+          <parameter name="field" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="439">a field identifier</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="val" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-record.c"
+                 line="440">a string or %NULL</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="count"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+    </class>
+    <record name="RecordClass"
+            c:type="LibmsiRecordClass"
+            glib:is-gtype-struct-for="Record">
+      <source-position filename="include/libmsi-record.h" line="41"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="ResultError"
+                 glib:type-name="LibmsiResultError"
+                 glib:get-type="libmsi_result_error_get_type"
+                 c:type="LibmsiResultError"
+                 glib:error-domain="libmsi-result-error-quark">
+      <member name="success"
+              value="0"
+              c:identifier="LIBMSI_RESULT_SUCCESS"
+              glib:nick="success"
+              glib:name="LIBMSI_RESULT_SUCCESS">
+      </member>
+      <member name="access_denied"
+              value="1"
+              c:identifier="LIBMSI_RESULT_ACCESS_DENIED"
+              glib:nick="access-denied"
+              glib:name="LIBMSI_RESULT_ACCESS_DENIED">
+      </member>
+      <member name="invalid_handle"
+              value="2"
+              c:identifier="LIBMSI_RESULT_INVALID_HANDLE"
+              glib:nick="invalid-handle"
+              glib:name="LIBMSI_RESULT_INVALID_HANDLE">
+      </member>
+      <member name="not_enough_memory"
+              value="3"
+              c:identifier="LIBMSI_RESULT_NOT_ENOUGH_MEMORY"
+              glib:nick="not-enough-memory"
+              glib:name="LIBMSI_RESULT_NOT_ENOUGH_MEMORY">
+      </member>
+      <member name="invalid_data"
+              value="4"
+              c:identifier="LIBMSI_RESULT_INVALID_DATA"
+              glib:nick="invalid-data"
+              glib:name="LIBMSI_RESULT_INVALID_DATA">
+      </member>
+      <member name="outofmemory"
+              value="5"
+              c:identifier="LIBMSI_RESULT_OUTOFMEMORY"
+              glib:nick="outofmemory"
+              glib:name="LIBMSI_RESULT_OUTOFMEMORY">
+      </member>
+      <member name="invalid_parameter"
+              value="6"
+              c:identifier="LIBMSI_RESULT_INVALID_PARAMETER"
+              glib:nick="invalid-parameter"
+              glib:name="LIBMSI_RESULT_INVALID_PARAMETER">
+      </member>
+      <member name="open_failed"
+              value="7"
+              c:identifier="LIBMSI_RESULT_OPEN_FAILED"
+              glib:nick="open-failed"
+              glib:name="LIBMSI_RESULT_OPEN_FAILED">
+      </member>
+      <member name="call_not_implemented"
+              value="8"
+              c:identifier="LIBMSI_RESULT_CALL_NOT_IMPLEMENTED"
+              glib:nick="call-not-implemented"
+              glib:name="LIBMSI_RESULT_CALL_NOT_IMPLEMENTED">
+      </member>
+      <member name="more_data"
+              value="9"
+              c:identifier="LIBMSI_RESULT_MORE_DATA"
+              glib:nick="more-data"
+              glib:name="LIBMSI_RESULT_MORE_DATA">
+      </member>
+      <member name="not_found"
+              value="10"
+              c:identifier="LIBMSI_RESULT_NOT_FOUND"
+              glib:nick="not-found"
+              glib:name="LIBMSI_RESULT_NOT_FOUND">
+      </member>
+      <member name="continue"
+              value="11"
+              c:identifier="LIBMSI_RESULT_CONTINUE"
+              glib:nick="continue"
+              glib:name="LIBMSI_RESULT_CONTINUE">
+      </member>
+      <member name="unknown_property"
+              value="12"
+              c:identifier="LIBMSI_RESULT_UNKNOWN_PROPERTY"
+              glib:nick="unknown-property"
+              glib:name="LIBMSI_RESULT_UNKNOWN_PROPERTY">
+      </member>
+      <member name="bad_query_syntax"
+              value="13"
+              c:identifier="LIBMSI_RESULT_BAD_QUERY_SYNTAX"
+              glib:nick="bad-query-syntax"
+              glib:name="LIBMSI_RESULT_BAD_QUERY_SYNTAX">
+      </member>
+      <member name="invalid_field"
+              value="14"
+              c:identifier="LIBMSI_RESULT_INVALID_FIELD"
+              glib:nick="invalid-field"
+              glib:name="LIBMSI_RESULT_INVALID_FIELD">
+      </member>
+      <member name="function_failed"
+              value="15"
+              c:identifier="LIBMSI_RESULT_FUNCTION_FAILED"
+              glib:nick="function-failed"
+              glib:name="LIBMSI_RESULT_FUNCTION_FAILED">
+      </member>
+      <member name="invalid_table"
+              value="16"
+              c:identifier="LIBMSI_RESULT_INVALID_TABLE"
+              glib:nick="invalid-table"
+              glib:name="LIBMSI_RESULT_INVALID_TABLE">
+      </member>
+      <member name="datatype_mismatch"
+              value="17"
+              c:identifier="LIBMSI_RESULT_DATATYPE_MISMATCH"
+              glib:nick="datatype-mismatch"
+              glib:name="LIBMSI_RESULT_DATATYPE_MISMATCH">
+      </member>
+      <member name="invalid_datatype"
+              value="18"
+              c:identifier="LIBMSI_RESULT_INVALID_DATATYPE"
+              glib:nick="invalid-datatype"
+              glib:name="LIBMSI_RESULT_INVALID_DATATYPE">
+      </member>
+      <function name="quark" c:identifier="libmsi_result_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <function-macro name="SUMMARY_INFO"
+                    c:identifier="LIBMSI_SUMMARY_INFO"
+                    introspectable="0">
+      <source-position filename="include/libmsi-summary-info.h" line="29"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SUMMARY_INFO_CLASS"
+                    c:identifier="LIBMSI_SUMMARY_INFO_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libmsi-summary-info.h" line="30"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SUMMARY_INFO_GET_CLASS"
+                    c:identifier="LIBMSI_SUMMARY_INFO_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libmsi-summary-info.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="SummaryInfo"
+           c:symbol-prefix="summary_info"
+           c:type="LibmsiSummaryInfo"
+           parent="GObject.Object"
+           glib:type-name="LibmsiSummaryInfo"
+           glib:get-type="libmsi_summary_info_get_type"
+           glib:type-struct="SummaryInfoClass">
+      <source-position filename="include/libmsi-summary-info.h" line="40"/>
+      <constructor name="new"
+                   c:identifier="libmsi_summary_info_new"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-summary-info.c"
+             line="1116">If @database is provided, the summary informations will be
+populated during creation, and the libmsi_summary_info_persist()
+function will save the properties to it. If @database is %NULL, you
+may still populate properties and then save them to a particular
+database with the libmsi_summary_info_save() function.</doc>
+        <source-position filename="include/libmsi-summary-info.h" line="44"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-summary-info.c"
+               line="1128">a #LibmsiSummaryInfo or %NULL on failure</doc>
+          <type name="SummaryInfo" c:type="LibmsiSummaryInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="database"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="1118">an optionnal associated #LibmsiDatabase</doc>
+            <type name="Database" c:type="LibmsiDatabase*"/>
+          </parameter>
+          <parameter name="update_count" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="1119">number of changes allowed</doc>
+            <type name="guint" c:type="unsigned"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_filetime"
+              c:identifier="libmsi_summary_info_get_filetime"
+              throws="1">
+        <source-position filename="include/libmsi-summary-info.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-summary-info.c"
+               line="764">the property value or 0 on failure</doc>
+          <type name="guint64" c:type="guint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="si" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="760">a #LibmsiSummaryInfo</doc>
+            <type name="SummaryInfo" c:type="LibmsiSummaryInfo*"/>
+          </instance-parameter>
+          <parameter name="prop" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="761">a #LibmsiProperty to get</doc>
+            <type name="Property" c:type="LibmsiProperty"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_int"
+              c:identifier="libmsi_summary_info_get_int"
+              throws="1">
+        <source-position filename="include/libmsi-summary-info.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-summary-info.c"
+               line="739">the property value or -1 on failure</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="si" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="735">a #LibmsiSummaryInfo</doc>
+            <type name="SummaryInfo" c:type="LibmsiSummaryInfo*"/>
+          </instance-parameter>
+          <parameter name="prop" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="736">a #LibmsiProperty to get</doc>
+            <type name="Property" c:type="LibmsiProperty"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_properties"
+              c:identifier="libmsi_summary_info_get_properties">
+        <source-position filename="include/libmsi-summary-info.h" line="76"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-summary-info.c"
+               line="214">a new #GArray with the list of set properties</doc>
+          <array zero-terminated="0" name="GLib.Array" c:type="GArray*">
+            <type name="Property"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="si" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="212">a #LibmsiSummaryInfo</doc>
+            <type name="SummaryInfo" c:type="LibmsiSummaryInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_property_type"
+              c:identifier="libmsi_summary_info_get_property_type"
+              throws="1">
+        <source-position filename="include/libmsi-summary-info.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-summary-info.c"
+               line="617">the property type associated for @prop.</doc>
+          <type name="PropertyType" c:type="LibmsiPropertyType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="si" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="613">a #LibmsiSummaryInfo</doc>
+            <type name="SummaryInfo" c:type="LibmsiSummaryInfo*"/>
+          </instance-parameter>
+          <parameter name="prop" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="614">a #LibmsiProperty to get</doc>
+            <type name="Property" c:type="LibmsiProperty"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_string"
+              c:identifier="libmsi_summary_info_get_string"
+              throws="1">
+        <source-position filename="include/libmsi-summary-info.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-summary-info.c"
+               line="789">the property value or %NULL on failure</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="si" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="785">a #LibmsiSummaryInfo</doc>
+            <type name="SummaryInfo" c:type="LibmsiSummaryInfo*"/>
+          </instance-parameter>
+          <parameter name="prop" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="786">a #LibmsiProperty to get</doc>
+            <type name="Property" c:type="LibmsiProperty"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="persist"
+              c:identifier="libmsi_summary_info_persist"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-summary-info.c"
+             line="1055">Save summary informations to the associated database.</doc>
+        <source-position filename="include/libmsi-summary-info.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-summary-info.c"
+               line="1062">%TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="si" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="1057">a #LibmsiSummaryInfo</doc>
+            <type name="SummaryInfo" c:type="LibmsiSummaryInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="save" c:identifier="libmsi_summary_info_save" throws="1">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-summary-info.c"
+             line="1090">Save summary informations to the associated database.</doc>
+        <source-position filename="include/libmsi-summary-info.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-summary-info.c"
+               line="1098">%TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="si" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="1092">a #LibmsiSummaryInfo</doc>
+            <type name="SummaryInfo" c:type="LibmsiSummaryInfo*"/>
+          </instance-parameter>
+          <parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="1093">a #LibmsiDatabase to save to</doc>
+            <type name="Database" c:type="LibmsiDatabase*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_filetime"
+              c:identifier="libmsi_summary_info_set_filetime"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-summary-info.c"
+             line="935">Set file time property @prop.</doc>
+        <source-position filename="include/libmsi-summary-info.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-summary-info.c"
+               line="944">%TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="si" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="937">a #LibmsiSummaryInfo</doc>
+            <type name="SummaryInfo" c:type="LibmsiSummaryInfo*"/>
+          </instance-parameter>
+          <parameter name="prop" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="938">a #LibmsiProperty to set</doc>
+            <type name="Property" c:type="LibmsiProperty"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="939">a value</doc>
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_int"
+              c:identifier="libmsi_summary_info_set_int"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-summary-info.c"
+             line="899">Set integer property @prop.</doc>
+        <source-position filename="include/libmsi-summary-info.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-summary-info.c"
+               line="908">%TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="si" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="901">a #LibmsiSummaryInfo</doc>
+            <type name="SummaryInfo" c:type="LibmsiSummaryInfo*"/>
+          </instance-parameter>
+          <parameter name="prop" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="902">a #LibmsiProperty to set</doc>
+            <type name="Property" c:type="LibmsiProperty"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="903">a value</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_string"
+              c:identifier="libmsi_summary_info_set_string"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-summary-info.c"
+             line="865">Set string property @prop.</doc>
+        <source-position filename="include/libmsi-summary-info.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-summary-info.c"
+               line="874">%TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="si" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="867">a #LibmsiSummaryInfo</doc>
+            <type name="SummaryInfo" c:type="LibmsiSummaryInfo*"/>
+          </instance-parameter>
+          <parameter name="prop" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="868">a #LibmsiProperty to set</doc>
+            <type name="Property" c:type="LibmsiProperty"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-summary-info.c"
+                 line="869">a string value</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="database"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Database"/>
+      </property>
+      <property name="update-count"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+    </class>
+    <record name="SummaryInfoClass"
+            c:type="LibmsiSummaryInfoClass"
+            glib:is-gtype-struct-for="SummaryInfo">
+      <source-position filename="include/libmsi-summary-info.h" line="40"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <function name="db_error_quark"
+              c:identifier="libmsi_db_error_quark"
+              moved-to="DBError.quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="result_error_quark"
+              c:identifier="libmsi_result_error_quark"
+              moved-to="ResultError.quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

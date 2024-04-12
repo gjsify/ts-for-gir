@@ -1,0 +1,547 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Cogl" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gst" version="1.0"/>
+  <include name="GstBase" version="1.0"/>
+  <package name="cogl-gst-2.0-experimental"/>
+  <c:include name="cogl-gst/cogl-gst.h"/>
+  <c:include name="gst/gst.h"/>
+  <namespace name="CoglGst"
+             version="2.0"
+             shared-library="libcogl.so.20,libcogl-gst.so.20"
+             c:identifier-prefixes="CoglGst"
+             c:symbol-prefixes="cogl_gst">
+    <record name="Rectangle"
+            c:type="CoglGstRectangle"
+            glib:type-name="CoglGstRectangle"
+            glib:get-type="cogl_gst_rectangle_get_gtype"
+            c:symbol-prefix="rectangle">
+      <doc xml:space="preserve">Describes a rectangle that can be used for video output.</doc>
+      <field name="x" writable="1">
+        <doc xml:space="preserve">The X coordinate of the top left of the rectangle</doc>
+        <type name="gfloat" c:type="float"/>
+      </field>
+      <field name="y" writable="1">
+        <doc xml:space="preserve">The Y coordinate of the top left of the rectangle</doc>
+        <type name="gfloat" c:type="float"/>
+      </field>
+      <field name="width" writable="1">
+        <doc xml:space="preserve">The width of the rectangle</doc>
+        <type name="gfloat" c:type="float"/>
+      </field>
+      <field name="height" writable="1">
+        <doc xml:space="preserve">The height of the rectangle</doc>
+        <type name="gfloat" c:type="float"/>
+      </field>
+    </record>
+    <class name="VideoSink"
+           c:symbol-prefix="video_sink"
+           c:type="CoglGstVideoSink"
+           version="1.16"
+           parent="GstBase.BaseSink"
+           glib:type-name="CoglGstVideoSink"
+           glib:get-type="cogl_gst_video_sink_get_type"
+           glib:type-struct="VideoSinkClass">
+      <doc xml:space="preserve">The #CoglGstVideoSink structure contains only private data and
+should be accessed using the provided API.</doc>
+      <constructor name="new"
+                   c:identifier="cogl_gst_video_sink_new"
+                   version="1.16">
+        <doc xml:space="preserve">Creates a new #CoglGstVideoSink which will create resources for use
+with the given context.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #CoglGstVideoSink</doc>
+          <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+        </return-value>
+        <parameters>
+          <parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve">The #CoglContext</doc>
+            <type name="Cogl.Context" c:type="CoglContext*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="new_frame">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sink" transfer-ownership="none">
+            <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="pipeline_ready">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sink" transfer-ownership="none">
+            <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="attach_frame"
+              c:identifier="cogl_gst_video_sink_attach_frame"
+              version="1.16">
+        <doc xml:space="preserve">Updates the given pipeline with the textures for the current frame.
+This can be used if the application wants to customize the
+rendering using its own pipeline. Typically this would be called in
+response to the #CoglGstVideoSink::new-frame signal which is
+emitted whenever the new textures are available. The application
+would then make a copy of its template pipeline and call this to
+set the textures.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sink" transfer-ownership="none">
+            <doc xml:space="preserve">The #CoglGstVideoSink</doc>
+            <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+          </instance-parameter>
+          <parameter name="pln" transfer-ownership="none">
+            <doc xml:space="preserve">A #CoglPipeline</doc>
+            <type name="Cogl.Pipeline" c:type="CoglPipeline*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="fit_size"
+              c:identifier="cogl_gst_video_sink_fit_size"
+              version="1.16"
+              stability="Unstable">
+        <doc xml:space="preserve">Calculates a suitable @output rectangle that can fit inside the
+@available space while maintaining the aspect ratio of the current
+video.
+
+Applications would typically use this api for "letterboxing" by
+using this api to position a video inside a fixed screen space and
+filling the remaining space with black borders.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sink" transfer-ownership="none">
+            <doc xml:space="preserve">A #CoglGstVideoSink</doc>
+            <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+          </instance-parameter>
+          <parameter name="available" transfer-ownership="none">
+            <doc xml:space="preserve">The space available for video output</doc>
+            <type name="Rectangle" c:type="const CoglGstRectangle*"/>
+          </parameter>
+          <parameter name="output"
+                     direction="inout"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve">The return location for the calculated output position</doc>
+            <type name="Rectangle" c:type="CoglGstRectangle*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_aspect"
+              c:identifier="cogl_gst_video_sink_get_aspect"
+              version="1.16"
+              stability="Unstable">
+        <doc xml:space="preserve">Returns a width-for-height aspect ratio that lets you calculate a
+suitable width for displaying your video based on a given height by
+multiplying your chosen height by the returned aspect ratio.
+
+This aspect ratio is calculated based on the underlying size of the
+video buffers and the current pixel-aspect-ratio.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a width-for-height aspect ratio</doc>
+          <type name="gfloat" c:type="float"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sink" transfer-ownership="none">
+            <doc xml:space="preserve">A #CoglGstVideoSink</doc>
+            <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_free_layer"
+              c:identifier="cogl_gst_video_sink_get_free_layer"
+              version="1.16">
+        <doc xml:space="preserve">This can be used when doing specialised rendering of the video by
+customizing the pipeline. #CoglGstVideoSink may use up to three
+private layers on the pipeline in order to attach the textures of
+the video frame. This function will return the index of the next
+available unused layer after the sink's internal layers. This can
+be used by the application to add additional layers, for example to
+blend in another color in the fragment processing.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the index of the next available layer after the
+  sink's internal layers.</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sink" transfer-ownership="none">
+            <doc xml:space="preserve">The #CoglGstVideoSink</doc>
+            <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_height_for_width"
+              c:identifier="cogl_gst_video_sink_get_height_for_width"
+              version="1.16"
+              stability="Unstable">
+        <doc xml:space="preserve">Calculates a suitable output height for a specific output @width
+that will maintain the video's aspect ratio.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">An output height for the given output @width.</doc>
+          <type name="gfloat" c:type="float"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sink" transfer-ownership="none">
+            <doc xml:space="preserve">A #CoglGstVideoSink</doc>
+            <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+          </instance-parameter>
+          <parameter name="width" transfer-ownership="none">
+            <doc xml:space="preserve">A specific output @width</doc>
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_natural_height"
+              c:identifier="cogl_gst_video_sink_get_natural_height"
+              version="1.18"
+              stability="Unstable">
+        <doc xml:space="preserve">Considering the real resolution of the video as well as the aspect
+ratio of pixel data that may need to be stretched when being displayed;
+this function calculates what the natural size of the underlying
+video source is, and returns its height.
+
+The natural size has the correct aspect ratio for displaying the
+video and is the minimum size where downscaling is not required.
+
+&lt;note&gt;This natural size is calculated assuming that the video will
+be displayed on square pixels.&lt;/note&gt;</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The video's natural height</doc>
+          <type name="gfloat" c:type="float"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sink" transfer-ownership="none">
+            <doc xml:space="preserve">A #CoglGstVideoSink</doc>
+            <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_natural_size"
+              c:identifier="cogl_gst_video_sink_get_natural_size"
+              version="1.18"
+              stability="Unstable">
+        <doc xml:space="preserve">Considering the real resolution of the video as well as the aspect
+ratio of pixel data that may need to be stretched when being displayed;
+this function calculates what the natural size of the underlying
+video source is.
+
+The natural size has the correct aspect ratio for displaying the
+video and is the minimum size where downscaling is not required.
+
+&lt;note&gt;This natural size is calculated assuming that the video will
+be displayed on square pixels.&lt;/note&gt;</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sink" transfer-ownership="none">
+            <doc xml:space="preserve">A #CoglGstVideoSink</doc>
+            <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+          </instance-parameter>
+          <parameter name="width"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve">return location for the video's natural width</doc>
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+          <parameter name="height"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve">return location for the video's natural height</doc>
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_natural_width"
+              c:identifier="cogl_gst_video_sink_get_natural_width"
+              version="1.18"
+              stability="Unstable">
+        <doc xml:space="preserve">Considering the real resolution of the video as well as the aspect
+ratio of pixel data that may need to be stretched when being displayed;
+this function calculates what the natural size of the underlying
+video source is, and returns its width.
+
+The natural size has the correct aspect ratio for displaying the
+video and is the minimum size where downscaling is not required.
+
+&lt;note&gt;This natural size is calculated assuming that the video will
+be displayed on square pixels.&lt;/note&gt;</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The video's natural width</doc>
+          <type name="gfloat" c:type="float"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sink" transfer-ownership="none">
+            <doc xml:space="preserve">A #CoglGstVideoSink</doc>
+            <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_pipeline"
+              c:identifier="cogl_gst_video_sink_get_pipeline"
+              version="1.16">
+        <doc xml:space="preserve">Returns a pipeline suitable for rendering the current frame of the
+given video sink. The pipeline will already have the textures for
+the frame attached. For simple rendering, an application will
+typically call this function immediately before it paints the
+video. It can then just paint a rectangle using the returned
+pipeline.
+
+An application is free to make a copy of this
+pipeline and modify it for custom rendering.
+
+Note: it is considered an error to call this function before the
+#CoglGstVideoSink::pipeline-ready signal is emitted.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the pipeline for rendering the
+  current frame</doc>
+          <type name="Cogl.Pipeline" c:type="CoglPipeline*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="vt" transfer-ownership="none">
+            <doc xml:space="preserve">The #CoglGstVideoSink</doc>
+            <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_width_for_height"
+              c:identifier="cogl_gst_video_sink_get_width_for_height"
+              version="1.16"
+              stability="Unstable">
+        <doc xml:space="preserve">Calculates a suitable output width for a specific output @height
+that will maintain the video's aspect ratio.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">An output width for the given output @height.</doc>
+          <type name="gfloat" c:type="float"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sink" transfer-ownership="none">
+            <doc xml:space="preserve">A #CoglGstVideoSink</doc>
+            <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+          </instance-parameter>
+          <parameter name="height" transfer-ownership="none">
+            <doc xml:space="preserve">A specific output @height</doc>
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_ready"
+              c:identifier="cogl_gst_video_sink_is_ready"
+              version="1.16">
+        <doc xml:space="preserve">Returns whether the pipeline is ready and so
+cogl_gst_video_sink_get_pipeline() and
+cogl_gst_video_sink_setup_pipeline() can be called without causing error.
+
+Note: Normally an application will wait until the
+#CoglGstVideoSink::pipeline-ready signal is emitted instead of
+polling the ready status with this api, but sometimes when a sink
+is passed between components that didn't have an opportunity to
+connect a signal handler this can be useful.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if the sink is ready, else %FALSE</doc>
+          <type name="Cogl.Bool" c:type="CoglBool"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sink" transfer-ownership="none">
+            <doc xml:space="preserve">The #CoglGstVideoSink</doc>
+            <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_context"
+              c:identifier="cogl_gst_video_sink_set_context"
+              version="1.16">
+        <doc xml:space="preserve">Sets the #CoglContext that the video sink should use for creating
+any resources. This function would normally only be used if the
+sink was constructed via gst_element_factory_make() instead of
+cogl_gst_video_sink_new().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="vt" transfer-ownership="none">
+            <doc xml:space="preserve">The #CoglGstVideoSink</doc>
+            <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+          </instance-parameter>
+          <parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve">The #CoglContext for the sink to use</doc>
+            <type name="Cogl.Context" c:type="CoglContext*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_default_sample"
+              c:identifier="cogl_gst_video_sink_set_default_sample"
+              version="1.16">
+        <doc xml:space="preserve">By default the pipeline generated by
+cogl_gst_video_sink_setup_pipeline() and
+cogl_gst_video_sink_get_pipeline() will have a layer with a shader
+snippet that automatically samples the video. If the application
+wants to sample the video in a completely custom way using its own
+shader snippet it can set @default_sample to %FALSE to avoid this
+default snippet being added. In that case the application's snippet
+can call cogl_gst_sample_video0 to sample the texture itself.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sink" transfer-ownership="none">
+            <doc xml:space="preserve">The #CoglGstVideoSink</doc>
+            <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+          </instance-parameter>
+          <parameter name="default_sample" transfer-ownership="none">
+            <doc xml:space="preserve">Whether to add the default sampling</doc>
+            <type name="Cogl.Bool" c:type="CoglBool"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_first_layer"
+              c:identifier="cogl_gst_video_sink_set_first_layer"
+              version="1.16">
+        <doc xml:space="preserve">Sets the index of the first layer that the sink will use for its
+rendering. This is useful if the application wants to have custom
+layers that appear before the layers added by the sink. In that
+case by default the sink's layers will be modulated with the result
+of the application's layers that come before @first_layer.
+
+Note that if this function is called then the name of the function
+to call in the shader snippets to sample the video will also
+change. For example, if @first_layer is three then the function
+will be cogl_gst_sample_video3.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sink" transfer-ownership="none">
+            <doc xml:space="preserve">The #CoglGstVideoSink</doc>
+            <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+          </instance-parameter>
+          <parameter name="first_layer" transfer-ownership="none">
+            <doc xml:space="preserve">The new first layer</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="setup_pipeline"
+              c:identifier="cogl_gst_video_sink_setup_pipeline"
+              version="1.16">
+        <doc xml:space="preserve">Configures the given pipeline so that will be able to render the
+video for the @sink. This should only be used if the application
+wants to perform some custom rendering using its own pipeline.
+Typically an application will call this in response to the
+#CoglGstVideoSink::pipeline-ready signal.
+
+Note: it is considered an error to call this function before the
+#CoglGstVideoSink::pipeline-ready signal is emitted.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sink" transfer-ownership="none">
+            <doc xml:space="preserve">The #CoglGstVideoSink</doc>
+            <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+          </instance-parameter>
+          <parameter name="pipeline" transfer-ownership="none">
+            <doc xml:space="preserve">A #CoglPipeline</doc>
+            <type name="Cogl.Pipeline" c:type="CoglPipeline*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="update-priority" writable="1" transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="GstBase.BaseSink" c:type="GstBaseSink"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="VideoSinkPrivate" c:type="CoglGstVideoSinkPrivate*"/>
+      </field>
+      <glib:signal name="new-frame" when="last" version="1.16">
+        <doc xml:space="preserve">The sink will emit this signal whenever there are new textures
+available for a new frame of the video. After this signal is
+emitted, an application can call cogl_gst_video_sink_get_pipeline()
+to get a pipeline suitable for rendering the frame. If the
+application is using a custom pipeline it can alternatively call
+cogl_gst_video_sink_attach_frame() to attach the textures.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="pipeline-ready" when="last" version="1.16">
+        <doc xml:space="preserve">The sink will emit this signal as soon as it has gathered enough
+information from the video to configure a pipeline. If the
+application wants to do some customized rendering, it can setup its
+pipeline after this signal is emitted. The application's pipeline
+will typically either be a copy of the one returned by
+cogl_gst_video_sink_get_pipeline() or it can be a completely custom
+pipeline which is setup using cogl_gst_video_sink_setup_pipeline().
+
+Note that it is an error to call either of those functions before
+this signal is emitted. The #CoglGstVideoSink::new-frame signal
+will only be emitted after the pipeline is ready so the application
+could also create its pipeline in the handler for that.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="VideoSinkClass"
+            c:type="CoglGstVideoSinkClass"
+            glib:is-gtype-struct-for="VideoSink"
+            version="1.16">
+      <field name="parent_class" readable="0" private="1">
+        <type name="GstBase.BaseSinkClass" c:type="GstBaseSinkClass"/>
+      </field>
+      <field name="new_frame">
+        <callback name="new_frame">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="sink" transfer-ownership="none">
+              <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="pipeline_ready">
+        <callback name="pipeline_ready">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="sink" transfer-ownership="none">
+              <type name="VideoSink" c:type="CoglGstVideoSink*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_padding_dummy" readable="0" private="1">
+        <array zero-terminated="0" c:type="void" fixed-size="8">
+          <type name="gpointer" c:type="void*"/>
+        </array>
+      </field>
+    </record>
+    <record name="VideoSinkPrivate"
+            c:type="CoglGstVideoSinkPrivate"
+            disguised="1">
+    </record>
+  </namespace>
+</repository>

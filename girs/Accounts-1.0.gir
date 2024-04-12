@@ -1,0 +1,3057 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <c:include name="libaccounts-glib/accounts-glib.h"/>
+  <namespace name="Accounts"
+             version="1.0"
+             shared-library="libaccounts-glib.so.0"
+             c:identifier-prefixes="Ag"
+             c:symbol-prefixes="ag">
+    <alias name="AccountId" c:type="AgAccountId">
+      <doc xml:space="preserve">ID of an account. Often used when retrieving lists of accounts from
+#AgManager.</doc>
+      <type name="guint" c:type="guint"/>
+    </alias>
+    <class name="Account"
+           c:symbol-prefix="account"
+           c:type="AgAccount"
+           parent="GObject.Object"
+           glib:type-name="AgAccount"
+           glib:get-type="ag_account_get_type"
+           glib:type-struct="AccountClass">
+      <doc xml:space="preserve">Opaque structure. Use related accessor functions.</doc>
+      <implements name="Gio.Initable"/>
+      <method name="delete" c:identifier="ag_account_delete">
+        <doc xml:space="preserve">Deletes the account. Call ag_account_store() in order to record the change
+in the storage.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_display_name"
+              c:identifier="ag_account_get_display_name">
+        <doc xml:space="preserve">Get the display name of @account.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the display name.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_enabled" c:identifier="ag_account_get_enabled">
+        <doc xml:space="preserve">Gets whether the selected service is enabled for @account.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if the selected service for @account is enabled, %FALSE
+otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_manager" c:identifier="ag_account_get_manager">
+        <doc xml:space="preserve">Get the #AgManager for @account.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #AgManager.</doc>
+          <type name="Manager" c:type="AgManager*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_provider_name"
+              c:identifier="ag_account_get_provider_name">
+        <doc xml:space="preserve">Get the name of the provider of @account.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the name of the provider.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_selected_service"
+              c:identifier="ag_account_get_selected_service">
+        <doc xml:space="preserve">Gets the selected #AgService for @account.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the selected service, or %NULL if no service is selected.</doc>
+          <type name="Service" c:type="AgService*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_settings_iter"
+              c:identifier="ag_account_get_settings_iter">
+        <doc xml:space="preserve">Creates a new iterator. This method is useful for language bindings only.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">an #AgAccountSettingIter.</doc>
+          <type name="AccountSettingIter" c:type="AgAccountSettingIter*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="key_prefix"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">enumerate only the settings whose key starts with
+@key_prefix.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_value"
+              c:identifier="ag_account_get_value"
+              deprecated="1"
+              deprecated-version="1.4">
+        <doc xml:space="preserve">Gets the value of the configuration setting @key: @value must be a
+#GValue initialized to the type of the setting.</doc>
+        <doc-deprecated xml:space="preserve">Use ag_account_get_variant() instead.</doc-deprecated>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">one of #AgSettingSource: %AG_SETTING_SOURCE_NONE if the setting is
+not present, %AG_SETTING_SOURCE_ACCOUNT if the setting comes from the
+account configuration, or %AG_SETTING_SOURCE_PROFILE if the value comes as
+predefined in the profile.</doc>
+          <type name="SettingSource" c:type="AgSettingSource"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the setting to retrieve.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value"
+                     direction="inout"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve">an initialized #GValue to receive the setting's value.</doc>
+            <type name="GObject.Value" c:type="GValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_variant"
+              c:identifier="ag_account_get_variant"
+              version="1.4">
+        <doc xml:space="preserve">Gets the value of the configuration setting @key.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a #GVariant holding the setting value, or
+%NULL. The returned #GVariant is owned by the account, and no guarantees
+are made about its lifetime. If the client wishes to keep it, it should
+call g_variant_ref() on it.</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the setting to retrieve.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="source"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a pointer to an
+#AgSettingSource variable which will tell whether the setting was
+retrieved from the accounts DB or from a service template.</doc>
+            <type name="SettingSource" c:type="AgSettingSource*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="list_enabled_services"
+              c:identifier="ag_account_list_enabled_services">
+        <doc xml:space="preserve">Gets a list of services that are enabled for @account.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a #GList of #AgService
+items representing all the services which are enabled. Must be free'd with
+ag_service_list_free().</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Service"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="list_services" c:identifier="ag_account_list_services">
+        <doc xml:space="preserve">Get the list of services for @account. If the #AgManager was created with
+specified service_type this will return only services with this service_type.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a #GList of #AgService
+items representing all the services supported by this account. Must be
+free'd with ag_service_list_free().</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Service"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="list_services_by_type"
+              c:identifier="ag_account_list_services_by_type">
+        <doc xml:space="preserve">Get the list of services supported by @account, filtered by @service_type.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a #GList of #AgService
+items representing all the services supported by this account which provide
+@service_type. Must be free'd with ag_service_list_free().</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Service"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="service_type" transfer-ownership="none">
+            <doc xml:space="preserve">the service type which all the returned services should
+provide.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_watch" c:identifier="ag_account_remove_watch">
+        <doc xml:space="preserve">Removes the notification callback identified by @watch.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="watch" transfer-ownership="none">
+            <doc xml:space="preserve">the watch to remove.</doc>
+            <type name="AccountWatch" c:type="AgAccountWatch"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="select_service" c:identifier="ag_account_select_service">
+        <doc xml:space="preserve">Selects the configuration of service @service: from now on, all the
+subsequent calls on the #AgAccount configuration will act on the @service.
+If @service is %NULL, the global account configuration is selected.
+
+Note that if @account is being shared with other code one must take special
+care to make sure the desired service is always selected.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="service"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">the #AgService to select.</doc>
+            <type name="Service" c:type="AgService*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_display_name"
+              c:identifier="ag_account_set_display_name">
+        <doc xml:space="preserve">Changes the display name for @account to @display_name.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="display_name" transfer-ownership="none">
+            <doc xml:space="preserve">the display name to set.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_enabled" c:identifier="ag_account_set_enabled">
+        <doc xml:space="preserve">Sets the "enabled" flag on the selected service for @account.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="enabled" transfer-ownership="none">
+            <doc xml:space="preserve">whether @account should be enabled.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_value"
+              c:identifier="ag_account_set_value"
+              deprecated="1"
+              deprecated-version="1.4">
+        <doc xml:space="preserve">Sets the value of the configuration setting @key to the value @value.
+If @value is %NULL, then the setting is unset.</doc>
+        <doc-deprecated xml:space="preserve">Use ag_account_set_variant() instead.</doc-deprecated>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the setting to change.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a #GValue holding the new setting's value.</doc>
+            <type name="GObject.Value" c:type="const GValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_variant"
+              c:identifier="ag_account_set_variant"
+              version="1.4">
+        <doc xml:space="preserve">Sets the value of the configuration setting @key to the value @value.
+If @value has a floating reference, the @account will take ownership
+of it.
+If @value is %NULL, then the setting is unset.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the setting to change.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a #GVariant holding the new setting's value.</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="settings_iter_init"
+              c:identifier="ag_account_settings_iter_init">
+        <doc xml:space="preserve">Initializes @iter to iterate over the account settings. If @key_prefix is
+not %NULL, only keys whose names start with @key_prefix will be iterated
+over.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve">an uninitialized #AgAccountSettingIter structure.</doc>
+            <type name="AccountSettingIter" c:type="AgAccountSettingIter*"/>
+          </parameter>
+          <parameter name="key_prefix"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">enumerate only the settings whose key starts with
+@key_prefix.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="sign" c:identifier="ag_account_sign">
+        <doc xml:space="preserve">Creates signature of the @key with given @token. The account must be
+stored prior to calling this function.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the key or prefix of the keys to be signed.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="token" transfer-ownership="none">
+            <doc xml:space="preserve">a signing token (%NULL-terminated string) for creating the
+signature. The application must possess (request) the token.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="store"
+              c:identifier="ag_account_store"
+              deprecated="1"
+              deprecated-version="1.4">
+        <doc xml:space="preserve">Commit the changed account settings to the account database, and invoke
+@callback when the operation has been completed.</doc>
+        <doc-deprecated xml:space="preserve">Use ag_account_store_async() instead.</doc-deprecated>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     scope="async"
+                     closure="1">
+            <doc xml:space="preserve">function to be called when the settings have been
+written.</doc>
+            <type name="AccountStoreCb" c:type="AgAccountStoreCb"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <doc xml:space="preserve">pointer to user data, to be passed to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="store_async"
+              c:identifier="ag_account_store_async"
+              version="1.4">
+        <doc xml:space="preserve">Commit the changed account settings to the account database, and invoke
+@callback when the operation has been completed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">optional #GCancellable object, %NULL to ignore.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve">function to be called when the settings have been
+written.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <doc xml:space="preserve">pointer to user data, to be passed to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="store_blocking"
+              c:identifier="ag_account_store_blocking"
+              throws="1">
+        <doc xml:space="preserve">Commit the changed account settings to the account database, and invoke
+@callback when the operation has been completed.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE on success, %FALSE on failure.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="store_finish"
+              c:identifier="ag_account_store_finish"
+              version="1.4"
+              throws="1">
+        <doc xml:space="preserve">Finishes the store operation started by ag_account_store_async().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE on success, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <doc xml:space="preserve">A #GAsyncResult obtained from the #GAsyncReadyCallback passed to
+ag_account_store_async().</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="supports_service"
+              c:identifier="ag_account_supports_service">
+        <doc xml:space="preserve">Get whether @service_type is supported on @account.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if @account supports the service type @service_type, %FALSE
+otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="service_type" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the service type to check for</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="verify" c:identifier="ag_account_verify">
+        <doc xml:space="preserve">Verify if the key is signed and the signature matches the value
+and provides the aegis token which was used for signing the @key.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if the key is signed and the signature matches the value,
+%FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the key or prefix of the keys to be verified.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="token" transfer-ownership="none">
+            <doc xml:space="preserve">location to receive the pointer to aegis token.</doc>
+            <type name="utf8" c:type="const gchar**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="verify_with_tokens"
+              c:identifier="ag_account_verify_with_tokens">
+        <doc xml:space="preserve">Verify if the @key is signed with any of the tokens from the @tokens
+and the signature is valid.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if the key is signed with any of the given tokens and the
+signature is valid, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the key or prefix of the keys to be verified.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="tokens" transfer-ownership="none">
+            <doc xml:space="preserve">array of aegis tokens.</doc>
+            <type name="utf8" c:type="const gchar**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="watch_dir" c:identifier="ag_account_watch_dir">
+        <doc xml:space="preserve">Installs a watch on all the keys under @key_prefix: @callback will be
+invoked whenever the value of any of these keys changes (or a key is
+removed).</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a #AgAccountWatch, which can then be used to
+remove this watch.</doc>
+          <type name="AccountWatch" c:type="AgAccountWatch"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="key_prefix" transfer-ownership="none">
+            <doc xml:space="preserve">the prefix of the keys to watch.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve">a #AgAccountNotifyCb callback to be called.</doc>
+            <type name="AccountNotifyCb" c:type="AgAccountNotifyCb"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <doc xml:space="preserve">pointer to user data, to be passed to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="watch_key" c:identifier="ag_account_watch_key">
+        <doc xml:space="preserve">Installs a watch on @key: @callback will be invoked whenever the value of
+@key changes (or the key is removed).</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a #AgAccountWatch, which can then be used to
+remove this watch.</doc>
+          <type name="AccountWatch" c:type="AgAccountWatch"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="account" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the key to watch.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve">a #AgAccountNotifyCb callback to be called.</doc>
+            <type name="AccountNotifyCb" c:type="AgAccountNotifyCb"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <doc xml:space="preserve">pointer to user data, to be passed to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="display-name" version="1.4" transfer-ownership="none">
+        <doc xml:space="preserve">The display name of the account.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="enabled" version="1.4" transfer-ownership="none">
+        <doc xml:space="preserve">Whether the account is currently enabled.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="foreign"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="id"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The AgAccountId for the account.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="manager"
+                version="1.4"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The #AgManager from which the account was instantiated.</doc>
+        <type name="Manager"/>
+      </property>
+      <property name="provider"
+                version="1.4"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The ID of the provider for the account.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="id">
+        <type name="AccountId" c:type="AgAccountId"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="AccountPrivate" c:type="AgAccountPrivate*"/>
+      </field>
+      <glib:signal name="deleted" when="last">
+        <doc xml:space="preserve">Emitted when the account has been deleted.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="display-name-changed" when="last">
+        <doc xml:space="preserve">Emitted when the account display name has changed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="enabled" when="last">
+        <doc xml:space="preserve">Emitted when the account "enabled" status was changed for one of its
+services, or for the account globally.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve">the service which was enabled/disabled, or %NULL if the global
+enabledness of the account changed.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="enabled" transfer-ownership="none">
+            <doc xml:space="preserve">the new state of the @account.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="AccountClass"
+            c:type="AgAccountClass"
+            glib:is-gtype-struct-for="Account">
+      <doc xml:space="preserve">Use the accessor functions below.</doc>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="_ag_reserved1" introspectable="0">
+        <callback name="_ag_reserved1">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ag_reserved2" introspectable="0">
+        <callback name="_ag_reserved2">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ag_reserved3" introspectable="0">
+        <callback name="_ag_reserved3">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ag_reserved4" introspectable="0">
+        <callback name="_ag_reserved4">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ag_reserved5" introspectable="0">
+        <callback name="_ag_reserved5">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ag_reserved6" introspectable="0">
+        <callback name="_ag_reserved6">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ag_reserved7" introspectable="0">
+        <callback name="_ag_reserved7">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <callback name="AccountNotifyCb" c:type="AgAccountNotifyCb">
+      <doc xml:space="preserve">This callback is invoked when the value of an account configuration setting
+changes. If the callback was installed with ag_account_watch_key() then @key
+is the name of the configuration setting which changed; if it was installed
+with ag_account_watch_dir() then @key is the same key prefix that was used
+when installing this callback.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="account" transfer-ownership="none">
+          <doc xml:space="preserve">the #AgAccount.</doc>
+          <type name="Account" c:type="AgAccount*"/>
+        </parameter>
+        <parameter name="key" transfer-ownership="none">
+          <doc xml:space="preserve">the name of the key whose value has changed.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" closure="2">
+          <doc xml:space="preserve">the user data that was passed when installing this callback.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <record name="AccountPrivate" c:type="AgAccountPrivate" disguised="1">
+    </record>
+    <class name="AccountService"
+           c:symbol-prefix="account_service"
+           c:type="AgAccountService"
+           parent="GObject.Object"
+           glib:type-name="AgAccountService"
+           glib:get-type="ag_account_service_get_type"
+           glib:type-struct="AccountServiceClass">
+      <doc xml:space="preserve">Opaque structure. Use related accessor functions.</doc>
+      <constructor name="new" c:identifier="ag_account_service_new">
+        <doc xml:space="preserve">Constructor. If @service is %NULL, the returned object will operate on the
+global account settings.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #AgAccountService; call g_object_unref() when you don't need
+this object anymore.</doc>
+          <type name="AccountService" c:type="AgAccountService*"/>
+        </return-value>
+        <parameters>
+          <parameter name="account" transfer-ownership="full">
+            <doc xml:space="preserve">an #AgAccount.</doc>
+            <type name="Account" c:type="AgAccount*"/>
+          </parameter>
+          <parameter name="service"
+                     transfer-ownership="full"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">an #AgService supported by @account.</doc>
+            <type name="Service" c:type="AgService*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="settings_iter_next"
+                c:identifier="ag_account_service_settings_iter_next"
+                deprecated="1"
+                deprecated-version="1.4">
+        <doc xml:space="preserve">Iterates over the account keys. @iter must be an iterator previously
+initialized with ag_account_service_settings_iter_init().</doc>
+        <doc-deprecated xml:space="preserve">Use ag_account_settings_iter_get_next() instead.</doc-deprecated>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if @key and @value have been set, %FALSE if we there are no
+more account settings to iterate over.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve">an initialized #AgAccountSettingIter structure.</doc>
+            <type name="AccountSettingIter" c:type="AgAccountSettingIter*"/>
+          </parameter>
+          <parameter name="key"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <doc xml:space="preserve">a pointer to a string
+receiving the key name.</doc>
+            <type name="utf8" c:type="const gchar**"/>
+          </parameter>
+          <parameter name="value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <doc xml:space="preserve">a pointer to a pointer to a
+#GValue, to receive the key value.</doc>
+            <type name="GObject.Value" c:type="const GValue**"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="get_account" c:identifier="ag_account_service_get_account">
+        <doc xml:space="preserve">Get the #AgAccount associated with @self.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the underlying #AgAccount. The reference count on
+it is not incremented, so if you need to use it beyond the lifetime of
+@self, you need to call g_object_ref() on it yourself.</doc>
+          <type name="Account" c:type="AgAccount*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccountService.</doc>
+            <type name="AccountService" c:type="AgAccountService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_auth_data"
+              c:identifier="ag_account_service_get_auth_data">
+        <doc xml:space="preserve">Reads the authentication data stored in the account (merging the
+service-specific settings with the global account settings) and returns an
+#AgAuthData structure.
+The method and mechanism are read from the "auth/method" and
+"auth/mechanism" keys, respectively. The authentication parameters are
+found under the "auth/&amp;lt;method&amp;gt;/&amp;lt;mechanism&amp;gt;/" group.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a newly allocated #AgAuthData structure.</doc>
+          <type name="AuthData" c:type="AgAuthData*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccountService.</doc>
+            <type name="AccountService" c:type="AgAccountService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_changed_fields"
+              c:identifier="ag_account_service_get_changed_fields">
+        <doc xml:space="preserve">This method should be called only in the context of a handler of the
+#AgAccountService::changed signal, and can be used to retrieve the set of
+changes.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a newly allocated array of strings describing the
+keys of the fields which have been altered. It must be free'd with
+g_strfreev().</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccountService.</doc>
+            <type name="AccountService" c:type="AgAccountService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_enabled" c:identifier="ag_account_service_get_enabled">
+        <doc xml:space="preserve">Checks whether the underlying #AgAccount is enabled and the selected
+#AgService is enabled on it. If this method returns %FALSE, applications
+should not try to use this object.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if the service is enabled, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccountService.</doc>
+            <type name="AccountService" c:type="AgAccountService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_service" c:identifier="ag_account_service_get_service">
+        <doc xml:space="preserve">Get the #AgService associated with @self.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the underlying #AgService. The reference count on
+it is not incremented, so if you need to use it beyond the lifetime of
+@self, you need to call ag_service_ref() on it yourself.</doc>
+          <type name="Service" c:type="AgService*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccountService.</doc>
+            <type name="AccountService" c:type="AgAccountService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_settings_iter"
+              c:identifier="ag_account_service_get_settings_iter">
+        <doc xml:space="preserve">Creates a new iterator. This method is useful for language bindings only.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">an #AgAccountSettingIter.</doc>
+          <type name="AccountSettingIter" c:type="AgAccountSettingIter*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccountService.</doc>
+            <type name="AccountService" c:type="AgAccountService*"/>
+          </instance-parameter>
+          <parameter name="key_prefix"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">enumerate only the settings whose key starts with
+@key_prefix.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_value"
+              c:identifier="ag_account_service_get_value"
+              deprecated="1"
+              deprecated-version="1.4">
+        <doc xml:space="preserve">Gets the value of the configuration setting @key: @value must be a
+#GValue initialized to the type of the setting.</doc>
+        <doc-deprecated xml:space="preserve">Use ag_account_service_get_variant() instead.</doc-deprecated>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">one of &lt;type&gt;#AgSettingSource&lt;/type&gt;: %AG_SETTING_SOURCE_NONE if
+the setting is not present, %AG_SETTING_SOURCE_ACCOUNT if the setting comes
+from the account configuration, or %AG_SETTING_SOURCE_PROFILE if the value
+comes as predefined in the profile.</doc>
+          <type name="SettingSource" c:type="AgSettingSource"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccountService.</doc>
+            <type name="AccountService" c:type="AgAccountService*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the setting to retrieve.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value"
+                     direction="inout"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve">an initialized #GValue to receive the setting's value.</doc>
+            <type name="GObject.Value" c:type="GValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_variant"
+              c:identifier="ag_account_service_get_variant"
+              version="1.4">
+        <doc xml:space="preserve">Gets the value of the configuration setting @key.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a #GVariant holding the setting value, or
+%NULL. The returned #GVariant is owned by the account, and no guarantees
+are made about its lifetime. If the client wishes to keep it, it should
+call g_variant_ref() on it.</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccountService.</doc>
+            <type name="AccountService" c:type="AgAccountService*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the setting to retrieve.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="source"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a pointer to an
+#AgSettingSource variable which will tell whether the setting was
+retrieved from the accounts DB or from a service template.</doc>
+            <type name="SettingSource" c:type="AgSettingSource*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_value"
+              c:identifier="ag_account_service_set_value"
+              deprecated="1"
+              deprecated-version="1.4">
+        <doc xml:space="preserve">Sets the value of the configuration setting @key to the value @value.
+If @value is %NULL, then the setting is unset.</doc>
+        <doc-deprecated xml:space="preserve">Use ag_account_service_set_variant() instead.</doc-deprecated>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccountService.</doc>
+            <type name="AccountService" c:type="AgAccountService*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the setting to change.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a #GValue holding the new setting's value.</doc>
+            <type name="GObject.Value" c:type="const GValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_variant"
+              c:identifier="ag_account_service_set_variant"
+              version="1.4">
+        <doc xml:space="preserve">Sets the value of the configuration setting @key to the value @value.
+If @value has a floating reference, the @account will take ownership
+of it.
+If @value is %NULL, then the setting is unset.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccountService.</doc>
+            <type name="AccountService" c:type="AgAccountService*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the setting to change.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a #GVariant holding the new setting's value.</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="settings_iter_init"
+              c:identifier="ag_account_service_settings_iter_init">
+        <doc xml:space="preserve">Initializes @iter to iterate over the account settings. If @key_prefix is
+not %NULL, only keys whose names start with @key_prefix will be iterated
+over.
+After calling this method, one would typically call
+ag_account_settings_iter_get_next() to read the settings one by one.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccountService.</doc>
+            <type name="AccountService" c:type="AgAccountService*"/>
+          </instance-parameter>
+          <parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve">an uninitialized #AgAccountSettingIter structure.</doc>
+            <type name="AccountSettingIter" c:type="AgAccountSettingIter*"/>
+          </parameter>
+          <parameter name="key_prefix"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">enumerate only the settings whose key starts with
+@key_prefix.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="account"
+                version="1.4"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The #AgAccount used by the account service.</doc>
+        <type name="Account"/>
+      </property>
+      <property name="enabled" version="1.4" transfer-ownership="none">
+        <doc xml:space="preserve">Whether the account service is currently enabled. The value of
+this property is %TRUE if and only if the underlying #AgAccount
+is enabled and the selected #AgService is enabled on it. If this
+property is %FALSE, applications should not try to use this
+object.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="service"
+                version="1.4"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The #AgService used by the account service.</doc>
+        <type name="Service"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="AccountServicePrivate" c:type="AgAccountServicePrivate*"/>
+      </field>
+      <glib:signal name="changed" when="last">
+        <doc xml:space="preserve">Emitted when some setting has changed on the account service. You can
+use the ag_account_service_get_changed_fields() method to retrieve the
+list of the settings which have changed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="enabled" when="last">
+        <doc xml:space="preserve">Emitted when the service enabled state changes.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="enabled" transfer-ownership="none">
+            <doc xml:space="preserve">whether the service is enabled.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="AccountServiceClass"
+            c:type="AgAccountServiceClass"
+            glib:is-gtype-struct-for="AccountService">
+      <doc xml:space="preserve">Use the accessor functions below.</doc>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="_ag_reserved1" introspectable="0">
+        <callback name="_ag_reserved1">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ag_reserved2" introspectable="0">
+        <callback name="_ag_reserved2">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ag_reserved3" introspectable="0">
+        <callback name="_ag_reserved3">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ag_reserved4" introspectable="0">
+        <callback name="_ag_reserved4">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ag_reserved5" introspectable="0">
+        <callback name="_ag_reserved5">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ag_reserved6" introspectable="0">
+        <callback name="_ag_reserved6">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ag_reserved7" introspectable="0">
+        <callback name="_ag_reserved7">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <record name="AccountServicePrivate"
+            c:type="AgAccountServicePrivate"
+            disguised="1">
+    </record>
+    <record name="AccountSettingIter"
+            c:type="AgAccountSettingIter"
+            glib:type-name="AgAccountSettingIter"
+            glib:get-type="ag_account_settings_iter_get_type"
+            c:symbol-prefix="account_settings_iter">
+      <doc xml:space="preserve">Iterator for account settings.</doc>
+      <field name="account" writable="1">
+        <doc xml:space="preserve">the AgAccount to iterate over</doc>
+        <type name="Account" c:type="AgAccount*"/>
+      </field>
+      <field name="iter1" readable="0" private="1">
+        <type name="GLib.HashTableIter" c:type="GHashTableIter"/>
+      </field>
+      <field name="ptr1" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="ptr2" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="idx1" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="idx2" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <method name="free" c:identifier="ag_account_settings_iter_free">
+        <doc xml:space="preserve">Frees the memory associated with an #AgAccountSettingIter.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve">a #AgAccountSettingIter.</doc>
+            <type name="AccountSettingIter" c:type="AgAccountSettingIter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_next"
+              c:identifier="ag_account_settings_iter_get_next"
+              version="1.4">
+        <doc xml:space="preserve">Iterates over the account keys. @iter must be an iterator previously
+initialized with ag_account_settings_iter_init().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if @key and @value have been set, %FALSE if we there are no
+more account settings to iterate over.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve">an initialized #AgAccountSettingIter structure.</doc>
+            <type name="AccountSettingIter" c:type="AgAccountSettingIter*"/>
+          </instance-parameter>
+          <parameter name="key"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <doc xml:space="preserve">a pointer to a string
+receiving the key name.</doc>
+            <type name="utf8" c:type="const gchar**"/>
+          </parameter>
+          <parameter name="value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <doc xml:space="preserve">a pointer to a pointer to a
+#GVariant, to receive the key value.</doc>
+            <type name="GLib.Variant" c:type="GVariant**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="next"
+              c:identifier="ag_account_settings_iter_next"
+              deprecated="1"
+              deprecated-version="1.4">
+        <doc xml:space="preserve">Iterates over the account keys. @iter must be an iterator previously
+initialized with ag_account_settings_iter_init().</doc>
+        <doc-deprecated xml:space="preserve">Use ag_account_settings_iter_get_next() instead.</doc-deprecated>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if @key and @value have been set, %FALSE if we there are no
+more account settings to iterate over.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve">an initialized #AgAccountSettingIter structure.</doc>
+            <type name="AccountSettingIter" c:type="AgAccountSettingIter*"/>
+          </instance-parameter>
+          <parameter name="key"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <doc xml:space="preserve">a pointer to a string
+receiving the key name.</doc>
+            <type name="utf8" c:type="const gchar**"/>
+          </parameter>
+          <parameter name="value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <doc xml:space="preserve">a pointer to a pointer to a
+#GValue, to receive the key value.</doc>
+            <type name="GObject.Value" c:type="const GValue**"/>
+          </parameter>
+        </parameters>
+      </method>
+    </record>
+    <callback name="AccountStoreCb" c:type="AgAccountStoreCb">
+      <doc xml:space="preserve">This callback is invoked when storing the account settings is completed. If
+@error is not %NULL, then some error occurred and the data has most likely
+not been written.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="account" transfer-ownership="none">
+          <doc xml:space="preserve">the #AgAccount.</doc>
+          <type name="Account" c:type="AgAccount*"/>
+        </parameter>
+        <parameter name="error" transfer-ownership="none">
+          <doc xml:space="preserve">a #GError, or %NULL.</doc>
+          <type name="GLib.Error" c:type="const GError*"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" closure="2">
+          <doc xml:space="preserve">the user data that was passed to ag_account_store().</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <record name="AccountWatch" c:type="AgAccountWatch" disguised="1">
+      <doc xml:space="preserve">An opaque struct returned from ag_account_watch_dir() and
+ag_account_watch_key().</doc>
+    </record>
+    <enumeration name="AccountsError"
+                 c:type="AgAccountsError"
+                 glib:error-domain="ag_errors">
+      <doc xml:space="preserve">These identify the various errors that can occur with methods in
+libaccounts-glib that return a #GError.</doc>
+      <member name="db" value="0" c:identifier="AG_ACCOUNTS_ERROR_DB">
+        <doc xml:space="preserve">there was an error accessing the accounts database</doc>
+      </member>
+      <member name="disposed"
+              value="1"
+              c:identifier="AG_ACCOUNTS_ERROR_DISPOSED">
+        <doc xml:space="preserve">the account was in the process of being
+disposed</doc>
+      </member>
+      <member name="deleted"
+              value="2"
+              c:identifier="AG_ACCOUNTS_ERROR_DELETED">
+        <doc xml:space="preserve">the account was in the process of being deleted</doc>
+      </member>
+      <member name="db_locked"
+              value="3"
+              c:identifier="AG_ACCOUNTS_ERROR_DB_LOCKED">
+        <doc xml:space="preserve">the database was locked</doc>
+      </member>
+      <member name="account_not_found"
+              value="4"
+              c:identifier="AG_ACCOUNTS_ERROR_ACCOUNT_NOT_FOUND">
+        <doc xml:space="preserve">the requested account was not found</doc>
+      </member>
+      <member name="store_in_progress"
+              value="5"
+              c:identifier="AG_ACCOUNTS_ERROR_STORE_IN_PROGRESS">
+        <doc xml:space="preserve">an asynchronous store operation is
+already in progress. Since 1.4</doc>
+      </member>
+      <member name="readonly"
+              value="6"
+              c:identifier="AG_ACCOUNTS_ERROR_READONLY">
+        <doc xml:space="preserve">the accounts DB is in read-only mode. Since 1.4</doc>
+      </member>
+    </enumeration>
+    <record name="Application"
+            c:type="AgApplication"
+            glib:type-name="AgApplication"
+            glib:get-type="ag_application_get_type"
+            c:symbol-prefix="application">
+      <doc xml:space="preserve">Opaque structure. Use related accessor functions.</doc>
+      <method name="get_description"
+              c:identifier="ag_application_get_description">
+        <doc xml:space="preserve">Get the description of the #AgApplication.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the description of @self.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgApplication.</doc>
+            <type name="Application" c:type="AgApplication*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_desktop_app_info"
+              c:identifier="ag_application_get_desktop_app_info">
+        <doc xml:space="preserve">Get the #GDesktopAppInfo of the application.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the #GDesktopAppInfo for @self, or %NULL if
+failed.</doc>
+          <type name="Gio.DesktopAppInfo" c:type="GDesktopAppInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgApplication.</doc>
+            <type name="Application" c:type="AgApplication*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_i18n_domain"
+              c:identifier="ag_application_get_i18n_domain">
+        <doc xml:space="preserve">Get the translation domain of the #AgApplication.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the translation domain.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgApplication.</doc>
+            <type name="Application" c:type="AgApplication*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="ag_application_get_name">
+        <doc xml:space="preserve">Get the name of the #AgApplication.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the name of @self.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgApplication.</doc>
+            <type name="Application" c:type="AgApplication*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_service_usage"
+              c:identifier="ag_application_get_service_usage">
+        <doc xml:space="preserve">Get the description from the application XML file, for the specified
+service; if not found, get the service-type description instead.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">usage description of the service.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgApplication.</doc>
+            <type name="Application" c:type="AgApplication*"/>
+          </instance-parameter>
+          <parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve">an #AgService.</doc>
+            <type name="Service" c:type="AgService*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="ag_application_ref">
+        <doc xml:space="preserve">Increment the reference count of @self.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">@self.</doc>
+          <type name="Application" c:type="AgApplication*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgApplication.</doc>
+            <type name="Application" c:type="AgApplication*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="ag_application_unref">
+        <doc xml:space="preserve">Decrements the reference count of @self. The item is destroyed when the
+count gets to 0.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgApplication.</doc>
+            <type name="Application" c:type="AgApplication*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="AuthData"
+            c:type="AgAuthData"
+            glib:type-name="AgAuthData"
+            glib:get-type="ag_auth_data_get_type"
+            c:symbol-prefix="auth_data">
+      <doc xml:space="preserve">Opaque structure. Use related accessor functions.</doc>
+      <method name="get_credentials_id"
+              c:identifier="ag_auth_data_get_credentials_id"
+              version="1.1">
+        <doc xml:space="preserve">Gets the ID of the credentials associated with this account.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the credentials ID.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAuthData.</doc>
+            <type name="AuthData" c:type="AgAuthData*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_login_parameters"
+              c:identifier="ag_auth_data_get_login_parameters"
+              version="1.4">
+        <doc xml:space="preserve">Gets the authentication parameters.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a floating #GVariant of type
+%G_VARIANT_TYPE_VARDICT containing all the authentication parameters.</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAuthData.</doc>
+            <type name="AuthData" c:type="AgAuthData*"/>
+          </instance-parameter>
+          <parameter name="extra_parameters"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a #GVariant containing
+client-specific authentication parameters to be added to the returned
+dictionary.</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_mechanism" c:identifier="ag_auth_data_get_mechanism">
+        <doc xml:space="preserve">Gets the authentication mechanism.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the authentication mechanism.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAuthData.</doc>
+            <type name="AuthData" c:type="AgAuthData*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_method" c:identifier="ag_auth_data_get_method">
+        <doc xml:space="preserve">Gets the authentication method.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the authentication method.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAuthData.</doc>
+            <type name="AuthData" c:type="AgAuthData*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parameters"
+              c:identifier="ag_auth_data_get_parameters"
+              deprecated="1"
+              deprecated-version="1.4">
+        <doc xml:space="preserve">Gets the authentication parameters.</doc>
+        <doc-deprecated xml:space="preserve">use ag_auth_data_get_login_parameters() instead.</doc-deprecated>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a #GHashTable
+containing all the authentication parameters.</doc>
+          <type name="GLib.HashTable" c:type="GHashTable*">
+            <type name="utf8"/>
+            <type name="GObject.Value"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAuthData.</doc>
+            <type name="AuthData" c:type="AgAuthData*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="insert_parameters"
+              c:identifier="ag_auth_data_insert_parameters"
+              deprecated="1"
+              deprecated-version="1.4">
+        <doc xml:space="preserve">Insert the given authentication parameters into the authentication data. If
+some parameters were already present, the parameters passed with this method
+take precedence.</doc>
+        <doc-deprecated xml:space="preserve">use ag_auth_data_get_login_parameters() instead.</doc-deprecated>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAuthData.</doc>
+            <type name="AuthData" c:type="AgAuthData*"/>
+          </instance-parameter>
+          <parameter name="parameters" transfer-ownership="none">
+            <doc xml:space="preserve">a #GHashTable
+containing the authentication parameters to be added.</doc>
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="utf8"/>
+              <type name="GObject.Value"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="ag_auth_data_ref">
+        <doc xml:space="preserve">Increment the reference count of @self.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">@self.</doc>
+          <type name="AuthData" c:type="AgAuthData*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAuthData.</doc>
+            <type name="AuthData" c:type="AgAuthData*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="ag_auth_data_unref">
+        <doc xml:space="preserve">Decrements the reference count of @self. The item is destroyed when the
+count gets to 0.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAuthData.</doc>
+            <type name="AuthData" c:type="AgAuthData*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <enumeration name="Error" c:type="AgError">
+      <member name="db" value="0" c:identifier="AG_ERROR_DB">
+      </member>
+      <member name="disposed" value="1" c:identifier="AG_ERROR_DISPOSED">
+      </member>
+      <member name="deleted" value="2" c:identifier="AG_ERROR_DELETED">
+      </member>
+      <member name="db_locked" value="3" c:identifier="AG_ERROR_DB_LOCKED">
+      </member>
+      <member name="account_not_found"
+              value="4"
+              c:identifier="AG_ERROR_ACCOUNT_NOT_FOUND">
+      </member>
+    </enumeration>
+    <constant name="MANAGER_INTERFACE"
+              value="com.google.code.AccountsSSO.Accounts.Manager"
+              c:type="AG_MANAGER_INTERFACE">
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="MANAGER_OBJECT_PATH"
+              value="/com/google/code/AccountsSSO/Accounts/Manager"
+              c:type="AG_MANAGER_OBJECT_PATH">
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="MANAGER_SERVICE_NAME"
+              value="com.google.code.AccountsSSO.Accounts.Manager"
+              c:type="AG_MANAGER_SERVICE_NAME">
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <class name="Manager"
+           c:symbol-prefix="manager"
+           c:type="AgManager"
+           parent="GObject.Object"
+           glib:type-name="AgManager"
+           glib:get-type="ag_manager_get_type"
+           glib:type-struct="ManagerClass">
+      <doc xml:space="preserve">Opaque structure. Use related accessor functions.</doc>
+      <implements name="Gio.Initable"/>
+      <constructor name="new" c:identifier="ag_manager_new">
+        <doc xml:space="preserve">Create a new #AgManager.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">an instance of an #AgManager.</doc>
+          <type name="Manager" c:type="AgManager*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_for_service_type"
+                   c:identifier="ag_manager_new_for_service_type">
+        <doc xml:space="preserve">Create a new #AgManager with the service type with the name @service_type.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">an #AgManager instance with the specified service type.</doc>
+          <type name="Manager" c:type="AgManager*"/>
+        </return-value>
+        <parameters>
+          <parameter name="service_type" transfer-ownership="none">
+            <doc xml:space="preserve">the name of a service type</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="list_free" c:identifier="ag_manager_list_free">
+        <doc xml:space="preserve">Frees the memory taken by a #GList of #AgAccountId allocated by #AgManager,
+such as by ag_manager_list(), ag_manager_list_enabled() or
+ag_manager_list_enabled_by_service_type().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="list" transfer-ownership="none">
+            <doc xml:space="preserve">a #GList returned from a #AgManager
+method which returns account IDs.</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="AccountId"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="account_deleted">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <type name="AccountId" c:type="AgAccountId"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="create_account" c:identifier="ag_manager_create_account">
+        <doc xml:space="preserve">Create a new account. The account is not stored in the database until
+ag_account_store() has successfully returned; the @id field in the
+#AgAccount structure is also not meant to be valid until the account has
+been stored.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #AgAccount, or %NULL.</doc>
+          <type name="Account" c:type="AgAccount*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+          <parameter name="provider_name" transfer-ownership="none">
+            <doc xml:space="preserve">name of the provider of the account.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_abort_on_db_timeout"
+              c:identifier="ag_manager_get_abort_on_db_timeout">
+        <doc xml:space="preserve">Get whether the library will abort when a timeout error occurs.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE is the library will abort when a timeout error occurs, %FALSE
+otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_account" c:identifier="ag_manager_get_account">
+        <doc xml:space="preserve">Instantiates the object representing the account identified by
+@account_id.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">an #AgAccount, on which the client must call
+g_object_unref() when it is no longer required, or %NULL if an error occurs.</doc>
+          <type name="Account" c:type="AgAccount*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+          <parameter name="account_id" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccountId of the account.</doc>
+            <type name="AccountId" c:type="AgAccountId"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_account_services"
+              c:identifier="ag_manager_get_account_services">
+        <doc xml:space="preserve">Gets all the account services. If the @manager was created for a
+specific service type, only services with that type will be returned.
+&lt;note&gt;
+  &lt;para&gt;
+  This method causes the loading of all the service settings for all the
+  returned accounts (unless they have been loaded previously). If you are
+  interested in a specific account/service, consider using
+  ag_manager_load_account() to first load the the account, and then create
+  the AgAccountService for that account only.
+  &lt;/para&gt;
+&lt;/note&gt;</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a list of
+#AgAccountService objects. When done with it, call g_object_unref() on the
+list elements, and g_list_free() on the container.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="AccountService"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_application" c:identifier="ag_manager_get_application">
+        <doc xml:space="preserve">Search for @application_name in the list of applications, and return a new
+#AgApplication if a matching application was found.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #AgApplication if one was found, %NULL otherwise</doc>
+          <type name="Application" c:type="AgApplication*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">an #AgManager</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+          <parameter name="application_name" transfer-ownership="none">
+            <doc xml:space="preserve">the name of an application to search for</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_db_timeout" c:identifier="ag_manager_get_db_timeout">
+        <doc xml:space="preserve">Get the timeout of database operations for @manager, in milliseconds.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the timeout (in milliseconds) for database operations.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_enabled_account_services"
+              c:identifier="ag_manager_get_enabled_account_services">
+        <doc xml:space="preserve">Gets all the enabled account services. If the @manager was created for a
+specific service type, only services with that type will be returned.
+&lt;note&gt;
+  &lt;para&gt;
+  This method causes the loading of all the service settings for all the
+  returned accounts (unless they have been loaded previously). If you are
+  interested in a specific account/service, consider using
+  ag_manager_load_account() to first load the the account, and then create
+  the AgAccountService for that account only.
+  &lt;/para&gt;
+&lt;/note&gt;</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a list of
+#AgAccountService objects. When done with it, call g_object_unref() on the
+list elements, and g_list_free() on the container.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="AccountService"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_provider" c:identifier="ag_manager_get_provider">
+        <doc xml:space="preserve">Loads the provider identified by @provider_name.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">an #AgProvider, which must be free'd with ag_provider_unref() when
+no longer required.</doc>
+          <type name="Provider" c:type="AgProvider*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+          <parameter name="provider_name" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the provider.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_service" c:identifier="ag_manager_get_service">
+        <doc xml:space="preserve">Loads the service identified by @service_name.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">an #AgService, which must be free'd with ag_service_unref() when no
+longer required.</doc>
+          <type name="Service" c:type="AgService*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+          <parameter name="service_name" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the service.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_service_type"
+              c:identifier="ag_manager_get_service_type">
+        <doc xml:space="preserve">Get the service type for @manager.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the name of the service type for the supplied @manager.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="list" c:identifier="ag_manager_list">
+        <doc xml:space="preserve">Lists the accounts. If the #AgManager is created with a specified
+#AgManager:service-type, it will return only the accounts supporting this
+service type.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a #GList of
+#AgAccountId representing the accounts. Must be free'd with
+ag_manager_list_free() when no longer required.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="AccountId"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="list_applications_by_service"
+              c:identifier="ag_manager_list_applications_by_service">
+        <doc xml:space="preserve">Lists the registered applications which support the given service.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a #GList of all the
+applications which have declared support for the given service or for its
+service type.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Application"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+          <parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgService for which we want to get the applications list.</doc>
+            <type name="Service" c:type="AgService*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="list_by_service_type"
+              c:identifier="ag_manager_list_by_service_type">
+        <doc xml:space="preserve">Lists the accounts supporting the given service type.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a #GList of
+#AgAccountId representing the accounts. Must be free'd with
+ag_manager_list_free() when no longer required.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="AccountId"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+          <parameter name="service_type" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the service type to check for.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="list_enabled" c:identifier="ag_manager_list_enabled">
+        <doc xml:space="preserve">Lists the enabled accounts.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a #GList of the enabled
+#AgAccountId representing the accounts. Must be free'd with
+ag_manager_list_free() when no longer required.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="AccountId"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="list_enabled_by_service_type"
+              c:identifier="ag_manager_list_enabled_by_service_type">
+        <doc xml:space="preserve">Lists the enabled accounts supporting the given service type.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a #GList of the enabled
+#AgAccountId representing the accounts. Must be free'd with
+ag_manager_list_free() when no longer required.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="AccountId"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+          <parameter name="service_type" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the service type to check for.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="list_providers" c:identifier="ag_manager_list_providers">
+        <doc xml:space="preserve">Gets a list of all the installed providers.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a list of #AgProvider,
+which must be then free'd with ag_provider_list_free().</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Provider"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="list_service_types"
+              c:identifier="ag_manager_list_service_types">
+        <doc xml:space="preserve">Gets a list of all the installed service types.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a list of
+#AgServiceType, which must be free'd with ag_service_type_list_free() when
+no longer required.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="ServiceType"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="list_services" c:identifier="ag_manager_list_services">
+        <doc xml:space="preserve">Gets a list of all the installed services.
+If the #AgManager was created with a specified #AgManager:service_type
+it will return only the installed services supporting that service type.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a list of #AgService,
+which must be free'd with ag_service_list_free() when no longer required.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Service"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="list_services_by_type"
+              c:identifier="ag_manager_list_services_by_type">
+        <doc xml:space="preserve">Gets a list of all the installed services where the service type name is
+@service_type.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a list of #AgService,
+which must be free'd with ag_service_list_free() when no longer required.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Service"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+          <parameter name="service_type" transfer-ownership="none">
+            <doc xml:space="preserve">the type of the service.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_account"
+              c:identifier="ag_manager_load_account"
+              throws="1">
+        <doc xml:space="preserve">Instantiates the object representing the account identified by
+@account_id.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">an #AgAccount, on which the client must call
+g_object_unref() when it is no longer required, or %NULL if an error occurs.</doc>
+          <type name="Account" c:type="AgAccount*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+          <parameter name="account_id" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccountId of the account.</doc>
+            <type name="AccountId" c:type="AgAccountId"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_service_type"
+              c:identifier="ag_manager_load_service_type">
+        <doc xml:space="preserve">Instantiate the service type with the name @service_type.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">an #AgServiceType, which must be free'd with
+ag_service_type_unref() when no longer required.</doc>
+          <type name="ServiceType" c:type="AgServiceType*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+          <parameter name="service_type" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the service type.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_abort_on_db_timeout"
+              c:identifier="ag_manager_set_abort_on_db_timeout">
+        <doc xml:space="preserve">Tells libaccounts whether it should make the client application abort when
+a timeout error occurs. The default is %FALSE.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+          <parameter name="abort" transfer-ownership="none">
+            <doc xml:space="preserve">whether to abort when a DB timeout occurs.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_db_timeout" c:identifier="ag_manager_set_db_timeout">
+        <doc xml:space="preserve">Sets the timeout for database operations. This tells the library how long
+it is allowed to block while waiting for a locked DB to become accessible.
+Higher values mean a higher chance of successful reads, but also mean that
+the execution might be blocked for a longer time.
+The default is 5 seconds.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgManager.</doc>
+            <type name="Manager" c:type="AgManager*"/>
+          </instance-parameter>
+          <parameter name="timeout_ms" transfer-ownership="none">
+            <doc xml:space="preserve">the new timeout, in milliseconds.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="abort-on-db-timeout"
+                writable="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">Whether to abort the application when a database timeout occurs.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="db-timeout" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve">Timeout for database operations, in milliseconds.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="service-type"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">If the service type is set, certain operations on the #AgManager, such
+as ag_manager_list() and ag_manager_list_services(), will be restricted
+to only affect accounts or services with that service type.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="use-dbus"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">Whether to use D-Bus for inter-process change notification. Setting this
+property to %FALSE causes libaccounts not to emit the change
+notification signals, and also not react to changes made by other
+processes. Disabling D-Bus is only meant to be used for specific cases,
+such as maintenance programs.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ManagerPrivate" c:type="AgManagerPrivate*"/>
+      </field>
+      <glib:signal name="account-created" when="last">
+        <doc xml:space="preserve">Emitted when a new account has been created; note that the account must
+have been stored in the database: the signal is not emitted just in
+response to ag_manager_create_account().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="account_id" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccountId of the account that has been created.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="account-deleted" when="last">
+        <doc xml:space="preserve">Emitted when an account has been deleted.
+This signal is redundant with #AgAccount::deleted, but it is convenient
+to provide full change notification with #AgManager.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="account_id" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccountId of the account that has been deleted.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="account-updated" when="last">
+        <doc xml:space="preserve">Emitted when particular service of an account has been updated.
+This signal is redundant with #AgAccount::deleted, but it is convenient
+to provide full change notification with #AgManager.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="account_id" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccountId of the account that has been update.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="enabled-event" when="last">
+        <doc xml:space="preserve">If the manager has been created with ag_manager_new_for_service_type(),
+this signal will be emitted when an account (identified by @account_id)
+has been modified in such a way that the application might be interested
+to start or stop using it: the "enabled" flag on the account or in some
+service supported by the account and matching the
+#AgManager:service-type have changed.
+In practice, this signal might be emitted more often than when strictly
+needed; applications must call ag_account_list_enabled_services() or
+ag_manager_list_enabled() to get the current state.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="account_id" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgAccountId of the account that has been enabled.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ManagerClass"
+            c:type="AgManagerClass"
+            glib:is-gtype-struct-for="Manager">
+      <doc xml:space="preserve">Use the accessor functions below.</doc>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="account_deleted">
+        <callback name="account_deleted">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="manager" transfer-ownership="none">
+              <type name="Manager" c:type="AgManager*"/>
+            </parameter>
+            <parameter name="id" transfer-ownership="none">
+              <type name="AccountId" c:type="AgAccountId"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_ag_reserved2" introspectable="0">
+        <callback name="_ag_reserved2">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ag_reserved3" introspectable="0">
+        <callback name="_ag_reserved3">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ag_reserved4" introspectable="0">
+        <callback name="_ag_reserved4">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ag_reserved5" introspectable="0">
+        <callback name="_ag_reserved5">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ag_reserved6" introspectable="0">
+        <callback name="_ag_reserved6">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ag_reserved7" introspectable="0">
+        <callback name="_ag_reserved7">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <record name="ManagerPrivate" c:type="AgManagerPrivate" disguised="1">
+    </record>
+    <record name="Provider"
+            c:type="AgProvider"
+            glib:type-name="AgProvider"
+            glib:get-type="ag_provider_get_type"
+            c:symbol-prefix="provider">
+      <doc xml:space="preserve">Opaque structure. Use related accessor functions.</doc>
+      <method name="get_description"
+              c:identifier="ag_provider_get_description"
+              version="1.2">
+        <doc xml:space="preserve">Get the description of the #AgProvider.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the description of @provider, or %NULL upon failure.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgProvider.</doc>
+            <type name="Provider" c:type="AgProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_display_name"
+              c:identifier="ag_provider_get_display_name">
+        <doc xml:space="preserve">Get the display name of the #AgProvider.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the display name of @provider.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgProvider.</doc>
+            <type name="Provider" c:type="AgProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_domains_regex"
+              c:identifier="ag_provider_get_domains_regex"
+              version="1.1">
+        <doc xml:space="preserve">Get a regular expression matching all domains where this provider's accounts
+can be used.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a regular expression matching the domain names.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgProvider.</doc>
+            <type name="Provider" c:type="AgProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_file_contents"
+              c:identifier="ag_provider_get_file_contents">
+        <doc xml:space="preserve">Gets the contents of the XML provider file.  The buffer returned in @contents
+should not be modified or freed, and is guaranteed to be valid as long as
+@provider is referenced.
+If some error occurs, @contents is set to %NULL.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgProvider.</doc>
+            <type name="Provider" c:type="AgProvider*"/>
+          </instance-parameter>
+          <parameter name="contents" transfer-ownership="none">
+            <doc xml:space="preserve">location to receive the pointer to the file contents.</doc>
+            <type name="utf8" c:type="const gchar**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_i18n_domain"
+              c:identifier="ag_provider_get_i18n_domain">
+        <doc xml:space="preserve">Get the translation domain of the #AgProvider.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the translation domain.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgProvider.</doc>
+            <type name="Provider" c:type="AgProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_name" c:identifier="ag_provider_get_icon_name">
+        <doc xml:space="preserve">Get the icon name of the #AgProvider.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the icon_name.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgProvider.</doc>
+            <type name="Provider" c:type="AgProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="ag_provider_get_name">
+        <doc xml:space="preserve">Get the name of the #AgProvider.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the name of @provider.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgProvider.</doc>
+            <type name="Provider" c:type="AgProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_plugin_name"
+              c:identifier="ag_provider_get_plugin_name"
+              version="1.5">
+        <doc xml:space="preserve">Get the name of the account plugin which manages all accounts created from
+this #AgProvider.
+Some platforms might find it useful to store plugin names in the provider
+XML files, especially when the same plugin can work for different providers.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the plugin name for @provider, or %NULL if a plugin name is not
+defined.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgProvider.</doc>
+            <type name="Provider" c:type="AgProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_single_account"
+              c:identifier="ag_provider_get_single_account"
+              version="1.14">
+        <doc xml:space="preserve">Tell whether the provider doesn't support creating more than one account.
+Note that libaccounts itself does not enforce preventing the creation of
+multiple accounts when this flag is set: the flag is only informative, and
+its implementation is left to the client.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%FALSE if multiple accounts can be created from this provider,
+%TRUE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgProvider.</doc>
+            <type name="Provider" c:type="AgProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="match_domain"
+              c:identifier="ag_provider_match_domain"
+              version="1.2">
+        <doc xml:space="preserve">Check whether @domain is supported by this provider, by matching it with the
+regex returned by ag_provider_get_domains_regex().
+If the provider does not define a regular expression to match the supported
+domains, this function will return %FALSE.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if the given domain is supported, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgProvider.</doc>
+            <type name="Provider" c:type="AgProvider*"/>
+          </instance-parameter>
+          <parameter name="domain" transfer-ownership="none">
+            <doc xml:space="preserve">a domain name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="ag_provider_ref">
+        <doc xml:space="preserve">Adds a reference to @provider.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">@provider.</doc>
+          <type name="Provider" c:type="AgProvider*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgProvider.</doc>
+            <type name="Provider" c:type="AgProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="ag_provider_unref">
+        <doc xml:space="preserve">Used to unreference the #AgProvider structure.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgProvider.</doc>
+            <type name="Provider" c:type="AgProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <function name="list_free" c:identifier="ag_provider_list_free">
+        <doc xml:space="preserve">Frees the list @list.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="list" transfer-ownership="none">
+            <doc xml:space="preserve">a #GList of providers returned by some
+function of this library.</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Provider"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+    </record>
+    <record name="Service"
+            c:type="AgService"
+            glib:type-name="AgService"
+            glib:get-type="ag_service_get_type"
+            c:symbol-prefix="service">
+      <doc xml:space="preserve">Opaque structure. Use related accessor functions.</doc>
+      <method name="get_description"
+              c:identifier="ag_service_get_description"
+              version="1.2">
+        <doc xml:space="preserve">Gets the description of the #AgService.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the description of @service, or %NULL upon failure.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgService.</doc>
+            <type name="Service" c:type="AgService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_display_name"
+              c:identifier="ag_service_get_display_name">
+        <doc xml:space="preserve">Gets the display name of the #AgService.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the display name of @service.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgService.</doc>
+            <type name="Service" c:type="AgService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_file_contents"
+              c:identifier="ag_service_get_file_contents">
+        <doc xml:space="preserve">Gets the contents of the XML service file.  The buffer returned in @contents
+should not be modified or freed, and is guaranteed to be valid as long as
+@service is referenced. If @data_offset is not %NULL, it is set to the
+offset where the &amp;lt;type_data&amp;gt; element can be found.
+If some error occurs, @contents is set to %NULL.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgService.</doc>
+            <type name="Service" c:type="AgService*"/>
+          </instance-parameter>
+          <parameter name="contents" transfer-ownership="none">
+            <doc xml:space="preserve">location to receive the pointer to the file contents.</doc>
+            <type name="utf8" c:type="const gchar**"/>
+          </parameter>
+          <parameter name="data_offset" transfer-ownership="none">
+            <doc xml:space="preserve">pointer to receive the offset of the type data.</doc>
+            <type name="gsize" c:type="gsize*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_i18n_domain" c:identifier="ag_service_get_i18n_domain">
+        <doc xml:space="preserve">Gets the translation domain of the #AgService.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the name of the translation catalog.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgService.</doc>
+            <type name="Service" c:type="AgService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_name" c:identifier="ag_service_get_icon_name">
+        <doc xml:space="preserve">Gets the icon name of the #AgService.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the name of the icon of @service.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgService.</doc>
+            <type name="Service" c:type="AgService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="ag_service_get_name">
+        <doc xml:space="preserve">Gets the name of the #AgService.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the name of @service.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgService.</doc>
+            <type name="Service" c:type="AgService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_provider" c:identifier="ag_service_get_provider">
+        <doc xml:space="preserve">Gets the provider name of the #AgService.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the name of the provider of @service.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgService.</doc>
+            <type name="Service" c:type="AgService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_service_type"
+              c:identifier="ag_service_get_service_type">
+        <doc xml:space="preserve">Gets the service type of the #AgService.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the type of @service.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgService.</doc>
+            <type name="Service" c:type="AgService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tags" c:identifier="ag_service_get_tags">
+        <doc xml:space="preserve">Get list of tags specified for the #AgService. If the service has not
+defined tags, tags from the service type will be returned.</doc>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve">#GList of tags for
+@service. The list must be freed with g_list_free(). Entries are owned by
+the #AgService type and must not be free'd.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgService.</doc>
+            <type name="Service" c:type="AgService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_tag" c:identifier="ag_service_has_tag">
+        <doc xml:space="preserve">Checks if the #AgService has the requested tag.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE if #AgService has the tag, FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgService.</doc>
+            <type name="Service" c:type="AgService*"/>
+          </instance-parameter>
+          <parameter name="tag" transfer-ownership="none">
+            <doc xml:space="preserve">tag to check for.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="ag_service_ref">
+        <doc xml:space="preserve">Adds a reference to @service.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">@service.</doc>
+          <type name="Service" c:type="AgService*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgService.</doc>
+            <type name="Service" c:type="AgService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="ag_service_unref">
+        <doc xml:space="preserve">Used to unreference the #AgService structure.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgService.</doc>
+            <type name="Service" c:type="AgService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <function name="list_free" c:identifier="ag_service_list_free">
+        <doc xml:space="preserve">Frees the list @list.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="list" transfer-ownership="none">
+            <doc xml:space="preserve">a #GList of services returned by some
+function of this library.</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Service"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+    </record>
+    <record name="ServiceType"
+            c:type="AgServiceType"
+            glib:type-name="AgServiceType"
+            glib:get-type="ag_service_type_get_type"
+            c:symbol-prefix="service_type">
+      <doc xml:space="preserve">Opaque structure. Use related accessor functions.</doc>
+      <method name="get_description"
+              c:identifier="ag_service_type_get_description"
+              version="1.2">
+        <doc xml:space="preserve">Get the description of the #AgServiceType.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the description of @service_type, or %NULL upon failure.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service_type" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgServiceType.</doc>
+            <type name="ServiceType" c:type="AgServiceType*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_display_name"
+              c:identifier="ag_service_type_get_display_name">
+        <doc xml:space="preserve">Get the display name of the #AgServiceType.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the display name of @service_type.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service_type" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgServiceType.</doc>
+            <type name="ServiceType" c:type="AgServiceType*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_file_contents"
+              c:identifier="ag_service_type_get_file_contents">
+        <doc xml:space="preserve">Gets the contents of the XML service type file.  The buffer returned in
+@contents should not be modified or freed, and is guaranteed to be valid as
+long as @service_type is referenced.
+If some error occurs, @contents is set to %NULL.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service_type" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgServiceType.</doc>
+            <type name="ServiceType" c:type="AgServiceType*"/>
+          </instance-parameter>
+          <parameter name="contents" transfer-ownership="none">
+            <doc xml:space="preserve">location to receive the pointer to the file contents.</doc>
+            <type name="utf8" c:type="const gchar**"/>
+          </parameter>
+          <parameter name="len" transfer-ownership="none">
+            <doc xml:space="preserve">location to receive the length of the file, in bytes.</doc>
+            <type name="gsize" c:type="gsize*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_i18n_domain"
+              c:identifier="ag_service_type_get_i18n_domain">
+        <doc xml:space="preserve">Get the translation domain of the #AgServiceType.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the translation domain.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service_type" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgServiceType.</doc>
+            <type name="ServiceType" c:type="AgServiceType*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_name"
+              c:identifier="ag_service_type_get_icon_name">
+        <doc xml:space="preserve">Get the icon name of the #AgServiceType.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the name of the icon of @service_type.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service_type" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgServiceType.</doc>
+            <type name="ServiceType" c:type="AgServiceType*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="ag_service_type_get_name">
+        <doc xml:space="preserve">Get the name of the #AgServiceType.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the name of @service_type.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service_type" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgServiceType.</doc>
+            <type name="ServiceType" c:type="AgServiceType*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tags" c:identifier="ag_service_type_get_tags">
+        <doc xml:space="preserve">Get list of tags specified for the #AgServiceType.</doc>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve">#GList of tags for
+@service_type.
+The list must be freed with g_list_free(). Entries are owned by the
+#AgServiceType type and must not be free'd.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service_type" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgServiceType.</doc>
+            <type name="ServiceType" c:type="AgServiceType*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_tag" c:identifier="ag_service_type_has_tag">
+        <doc xml:space="preserve">Check if the #AgServiceType has the requested tag.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE if the #AgServiceType has the tag, FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service_type" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgServiceType.</doc>
+            <type name="ServiceType" c:type="AgServiceType*"/>
+          </instance-parameter>
+          <parameter name="tag" transfer-ownership="none">
+            <doc xml:space="preserve">the tag to check for.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="ag_service_type_ref">
+        <doc xml:space="preserve">Adds a reference to @service_type.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">@service_type.</doc>
+          <type name="ServiceType" c:type="AgServiceType*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service_type" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgServiceType.</doc>
+            <type name="ServiceType" c:type="AgServiceType*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="ag_service_type_unref">
+        <doc xml:space="preserve">Used to unreference the #AgServiceType structure.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service_type" transfer-ownership="none">
+            <doc xml:space="preserve">the #AgServiceType.</doc>
+            <type name="ServiceType" c:type="AgServiceType*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <function name="list_free" c:identifier="ag_service_type_list_free">
+        <doc xml:space="preserve">Frees the list @list.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="list" transfer-ownership="none">
+            <doc xml:space="preserve">a #GList of service types returned by
+some function of this library, such as ag_manager_list_service_types().</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="ServiceType"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+    </record>
+    <enumeration name="SettingSource" c:type="AgSettingSource">
+      <doc xml:space="preserve">The source of a setting on a #AgAccount.</doc>
+      <member name="none" value="0" c:identifier="AG_SETTING_SOURCE_NONE">
+        <doc xml:space="preserve">the setting is not present</doc>
+      </member>
+      <member name="account"
+              value="1"
+              c:identifier="AG_SETTING_SOURCE_ACCOUNT">
+        <doc xml:space="preserve">the setting comes from the current account
+configuration</doc>
+      </member>
+      <member name="profile"
+              value="2"
+              c:identifier="AG_SETTING_SOURCE_PROFILE">
+        <doc xml:space="preserve">the setting comes from the predefined profile</doc>
+      </member>
+    </enumeration>
+    <function name="accounts_error_quark"
+              c:identifier="ag_accounts_error_quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="errors_quark" c:identifier="ag_errors_quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="provider_list_free"
+              c:identifier="ag_provider_list_free"
+              moved-to="Provider.list_free">
+      <doc xml:space="preserve">Frees the list @list.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="list" transfer-ownership="none">
+          <doc xml:space="preserve">a #GList of providers returned by some
+function of this library.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Provider"/>
+          </type>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="service_list_free"
+              c:identifier="ag_service_list_free"
+              moved-to="Service.list_free">
+      <doc xml:space="preserve">Frees the list @list.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="list" transfer-ownership="none">
+          <doc xml:space="preserve">a #GList of services returned by some
+function of this library.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Service"/>
+          </type>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="service_type_list_free"
+              c:identifier="ag_service_type_list_free"
+              moved-to="ServiceType.list_free">
+      <doc xml:space="preserve">Frees the list @list.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="list" transfer-ownership="none">
+          <doc xml:space="preserve">a #GList of service types returned by
+some function of this library, such as ag_manager_list_service_types().</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="ServiceType"/>
+          </type>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

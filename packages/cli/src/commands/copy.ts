@@ -9,7 +9,7 @@ import { ModuleLoader } from '../module-loader.js'
 import { Config } from '../config.js'
 import { Logger, ERROR_NO_MODULES_FOUND, ResolveType } from '@ts-for-gir/lib'
 
-import type { ConfigFlags, GirModuleResolvedBy } from '@ts-for-gir/lib'
+import type { ConfigFlags, UserConfig, GirModuleResolvedBy } from '@ts-for-gir/lib'
 
 const command = 'copy [modules..]'
 
@@ -24,18 +24,18 @@ const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
     return yargs.example(examples) as Argv<ConfigFlags>
 }
 
-const copyGirFile = async (args: ConfigFlags, depModule: GirModuleResolvedBy) => {
+const copyGirFile = async (config: UserConfig, depModule: GirModuleResolvedBy) => {
     if (!depModule.path) {
         Logger.danger(`- ${depModule.packageName} not found`)
         return
     }
-    if (!args.outdir) {
+    if (!config.outdir) {
         Logger.error(`outdir not found`)
         return
     }
     const filename = basename(depModule.path)
-    const dest = join(args.outdir, filename)
-    Logger.success(`Copy ${depModule.path} to ${dest}`)
+    const dest = join(config.outdir, filename)
+    Logger.success(`Copy ${depModule.path} -> ${dest}`)
     await copyFile(depModule.path, dest)
 }
 
@@ -50,7 +50,7 @@ const handler = async (args: ConfigFlags) => {
         return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))
     }
 
-    if (!args.outdir) {
+    if (!config.outdir) {
         Logger.error(`outdir not found`)
         return
     }
@@ -65,14 +65,20 @@ const handler = async (args: ConfigFlags) => {
         (moduleGroup) => moduleGroup.modules[0].resolvedBy === ResolveType.DEPENDENCE,
     )
 
-    await mkdir(args.outdir, { recursive: true }).catch((err) => {
-        Logger.error(`Failed to copy gir files to ${args.outdir}: ${err}`)
+    await mkdir(config.outdir, { recursive: true }).catch((err) => {
+        Logger.error(`Failed to copy gir files to ${config.outdir}: ${err}`)
     })
+
+    Logger.info('\nSearch for gir files in:')
+    for (const dir of config.girDirectories) {
+        Logger.white(`- ${dir}`)
+    }
 
     Logger.info('\nSelected Modules:')
     for (const moduleGroup of byHandModules) {
         for (const depModule of moduleGroup.modules) {
-            await copyGirFile(args, depModule)
+            Logger.white(`- ${depModule.packageName}`)
+            Logger.gray(`  - ${depModule.path}`)
         }
     }
 
@@ -80,7 +86,8 @@ const handler = async (args: ConfigFlags) => {
         Logger.yellow('\nDependencies:')
         for (const moduleGroup of depModules) {
             for (const depModule of moduleGroup.modules) {
-                await copyGirFile(args, depModule)
+                Logger.white(`- ${depModule.packageName}`)
+                Logger.gray(`- ${depModule.path}`)
             }
         }
     }
@@ -91,7 +98,14 @@ const handler = async (args: ConfigFlags) => {
             Logger.white(`- ${moduleGroup.namespace}`)
             for (const conflictModule of moduleGroup.modules) {
                 Logger.white(`  - ${conflictModule.packageName}`)
+                Logger.gray(`  - ${conflictModule.path}`)
             }
+        }
+    }
+
+    for (const module of moduleGroups) {
+        for (const mod of module.modules) {
+            await copyGirFile(config, mod)
         }
     }
 

@@ -1,0 +1,2369 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <c:include name="libgsignon-glib/signon-glib.h"/>
+  <namespace name="gSignon"
+             version="1.0"
+             shared-library="libgsignon-glib.so.1"
+             c:identifier-prefixes="Signon"
+             c:symbol-prefixes="signon">
+    <alias name="AuthSessionQueryAvailableMethodsCb"
+           c:type="SignonAuthSessionQueryAvailableMethodsCb">
+      <type name="AuthSessionQueryAvailableMechanismsCb"
+            c:type="SignonAuthSessionQueryAvailableMechanismsCb"/>
+    </alias>
+    <alias name="IdentityCredentialsUpdatedCb"
+           c:type="SignonIdentityCredentialsUpdatedCb">
+      <doc xml:space="preserve">Callback to be passed to signon_identity_request_credentials_update().</doc>
+      <type name="IdentityVoidCb" c:type="SignonIdentityVoidCb"/>
+    </alias>
+    <alias name="IdentityReferenceAddedCb"
+           c:type="SignonIdentityReferenceAddedCb">
+      <doc xml:space="preserve">Callback to be passed to signon_identity_add_reference().</doc>
+      <type name="IdentityVoidCb" c:type="SignonIdentityVoidCb"/>
+    </alias>
+    <alias name="IdentityReferenceRemovedCb"
+           c:type="SignonIdentityReferenceRemovedCb">
+      <doc xml:space="preserve">Callback to be passed to signon_identity_remove_reference().</doc>
+      <type name="IdentityVoidCb" c:type="SignonIdentityVoidCb"/>
+    </alias>
+    <alias name="IdentityRemovedCb" c:type="SignonIdentityRemovedCb">
+      <doc xml:space="preserve">Callback to be passed to signon_identity_remove().</doc>
+      <type name="IdentityVoidCb" c:type="SignonIdentityVoidCb"/>
+    </alias>
+    <alias name="IdentitySignedOutCb" c:type="SignonIdentitySignedOutCb">
+      <doc xml:space="preserve">Callback to be passed to signon_identity_signout().</doc>
+      <type name="IdentityVoidCb" c:type="SignonIdentityVoidCb"/>
+    </alias>
+    <class name="AuthService"
+           c:symbol-prefix="auth_service"
+           c:type="SignonAuthService"
+           parent="GObject.Object"
+           glib:type-name="SignonAuthService"
+           glib:get-type="signon_auth_service_get_type"
+           glib:type-struct="AuthServiceClass">
+      <doc xml:space="preserve">Opaque struct. Use the accessor functions below.</doc>
+      <constructor name="new" c:identifier="signon_auth_service_new">
+        <doc xml:space="preserve">Create a new #SignonAuthService.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">an instance of an #SignonAuthService.</doc>
+          <type name="AuthService" c:type="SignonAuthService*"/>
+        </return-value>
+      </constructor>
+      <method name="clear" c:identifier="signon_auth_service_clear">
+        <doc xml:space="preserve">Clears / wipes out all stored data.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="auth_service" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonAuthService.</doc>
+            <type name="AuthService" c:type="SignonAuthService*"/>
+          </instance-parameter>
+          <parameter name="cb"
+                     transfer-ownership="none"
+                     scope="async"
+                     closure="1">
+            <doc xml:space="preserve">callback to be invoked.</doc>
+            <type name="ClearCb" c:type="SignonClearCb"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">user data.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="query_identities"
+              c:identifier="signon_auth_service_query_identities">
+        <doc xml:space="preserve">Query available identities, possibly applying a filter.
+
+@filter is a #GHashTable that contains filter conditions in the form of
+string keys and #GVariant values. Currently the following keys are supported:
+
+- "Owner". The value should be a #SignonSecurityContext (use
+signon_security_context_build_variant() to create a #GVariant).
+Identites whose owner doesn't match will be filtered out. This key has
+effect only if the requesting application is a keychain application as determined
+by #GSignondAccessControlManager.
+- "Type". The value should be a #SignonIdentityType.
+- "Caption". The value is a string, and only those identites whose caption
+begins with the supplied value will be returned.
+
+The meaning of @application_context is explained in #SignonSecurityContext.
+It is used by #GSignondAccessControlManager to determine if the requesting
+application is a keychain application. If it is, then all identites will be
+returned (subject to "Owner" key in @filter). If it's not, then only the
+identites which the application owns will be returned (but "Type" and "Caption"
+can still be set in the @filter).</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="auth_service" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonAuthService.</doc>
+            <type name="AuthService" c:type="SignonAuthService*"/>
+          </instance-parameter>
+          <parameter name="filter" transfer-ownership="none">
+            <doc xml:space="preserve">filter variant dictionary based on #GHashTable.</doc>
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="utf8"/>
+              <type name="GLib.Variant"/>
+            </type>
+          </parameter>
+          <parameter name="application_context" transfer-ownership="none">
+            <doc xml:space="preserve">application security context, can be %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cb"
+                     transfer-ownership="none"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve">callback to be invoked.</doc>
+            <type name="QueryIdentitiesCb" c:type="SignonQueryIdentitiesCb"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">user data.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="query_mechanisms"
+              c:identifier="signon_auth_service_query_mechanisms">
+        <doc xml:space="preserve">Lists all the available mechanisms for an authentication method.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="auth_service" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonAuthService.</doc>
+            <type name="AuthService" c:type="SignonAuthService*"/>
+          </instance-parameter>
+          <parameter name="method" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the method whose mechanisms must be
+retrieved.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cb"
+                     transfer-ownership="none"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve">callback to be invoked.</doc>
+            <type name="QueryMechanismCb" c:type="SignonQueryMechanismCb"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">user data.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="query_methods"
+              c:identifier="signon_auth_service_query_methods">
+        <doc xml:space="preserve">Lists all the available authentication methods.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="auth_service" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonAuthService.</doc>
+            <type name="AuthService" c:type="SignonAuthService*"/>
+          </instance-parameter>
+          <parameter name="cb"
+                     transfer-ownership="none"
+                     scope="async"
+                     closure="1">
+            <doc xml:space="preserve">callback to be invoked.</doc>
+            <type name="QueryMethodsCb" c:type="SignonQueryMethodsCb"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">user data.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="AuthServicePrivate" c:type="SignonAuthServicePrivate*"/>
+      </field>
+    </class>
+    <record name="AuthServiceClass"
+            c:type="SignonAuthServiceClass"
+            glib:is-gtype-struct-for="AuthService">
+      <doc xml:space="preserve">Opaque struct. Use the accessor functions below.</doc>
+      <field name="parent_class">
+        <doc xml:space="preserve">a reference to the parent class</doc>
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="AuthServicePrivate"
+            c:type="SignonAuthServicePrivate"
+            disguised="1">
+    </record>
+    <class name="AuthSession"
+           c:symbol-prefix="auth_session"
+           parent="GObject.Object"
+           glib:type-name="SignonAuthSession"
+           glib:get-type="signon_auth_session_get_type"
+           glib:type-struct="AuthSessionClass">
+      <doc xml:space="preserve">Opaque struct. Use the accessor functions below.</doc>
+      <constructor name="new"
+                   c:identifier="signon_auth_session_new"
+                   throws="1">
+        <doc xml:space="preserve">Creates a new #SignonAuthSession, which can be used to authenticate using
+the specified method.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #SignonAuthSession.</doc>
+          <type name="AuthSession" c:type="SignonAuthSession*"/>
+        </return-value>
+        <parameters>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve">the id of the #SignonIdentity to be used. Can be 0, if this session is
+not bound to any stored identity.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="method_name" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the authentication method to be used.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_for_identity"
+                   c:identifier="signon_auth_session_new_for_identity"
+                   throws="1">
+        <doc xml:space="preserve">Creates a new #SignonAuthSession, which can be used to authenticate using
+the specified method.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #SignonAuthSession.</doc>
+          <type name="AuthSession" c:type="SignonAuthSession*"/>
+        </return-value>
+        <parameters>
+          <parameter name="identity" transfer-ownership="none">
+            <doc xml:space="preserve">#SignonIdentity parent object.</doc>
+            <type name="Identity" c:type="SignonIdentity*"/>
+          </parameter>
+          <parameter name="method_name" transfer-ownership="none">
+            <doc xml:space="preserve">the name of the authentication method to be used.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="cancel" c:identifier="signon_auth_session_cancel">
+        <doc xml:space="preserve">Cancel the authentication session.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonAuthSession.</doc>
+            <type name="AuthSession" c:type="SignonAuthSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_method" c:identifier="signon_auth_session_get_method">
+        <doc xml:space="preserve">Get the current authentication method.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the authentication method being used, or %NULL on failure.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonAuthSession.</doc>
+            <type name="AuthSession" c:type="SignonAuthSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="process"
+              c:identifier="signon_auth_session_process"
+              deprecated="1"
+              deprecated-version="1.8">
+        <doc xml:space="preserve">Performs one step of the authentication process. If the #SignonIdentity that
+this session belongs to contains a username and a password, they will be also
+passed to the authentication plugin, otherwise they should be set directly in
+@session_data.
+@session_data should be used to add additional authentication parameters to the
+session, or to override the parameters otherwise taken from the identity.</doc>
+        <doc-deprecated xml:space="preserve">Use signon_auth_session_process_async() instead.</doc-deprecated>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonAuthSession.</doc>
+            <type name="AuthSession" c:type="SignonAuthSession*"/>
+          </instance-parameter>
+          <parameter name="session_data" transfer-ownership="none">
+            <doc xml:space="preserve">a dictionary of parameters.</doc>
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="utf8"/>
+              <type name="GObject.Value"/>
+            </type>
+          </parameter>
+          <parameter name="mechanism" transfer-ownership="none">
+            <doc xml:space="preserve">the authentication mechanism to be used.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cb"
+                     transfer-ownership="none"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve">a callback which will be called with the result.</doc>
+            <type name="AuthSessionProcessCb"
+                  c:type="SignonAuthSessionProcessCb"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">user data to be passed to the callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="process_async"
+              c:identifier="signon_auth_session_process_async"
+              version="1.8">
+        <doc xml:space="preserve">Performs one step of the authentication process.
+@session_data should be used to add additional authentication parameters to the
+session.
+
+What specific parameters should be used can be found from authentication plugins'
+documentation (look for parameters that are expected in gsignond_plugin_request_initial()
+for the first step, and parameters that are expected in gsignond_plugin_request() for
+the subsequent steps). See, for example, #GSignondPasswordPlugin and #GSignondDigestPlugin.
+
+If the #SignonIdentity that this session belongs to contains a username and a password,
+the daemon will pass them to the authentication plugin, otherwise they should be set directly in
+@session_data. The daemon also passes a list of identity's allowed realms to the plugin,
+and they cannot be overriden.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonAuthSession.</doc>
+            <type name="AuthSession" c:type="SignonAuthSession*"/>
+          </instance-parameter>
+          <parameter name="session_data" transfer-ownership="full">
+            <doc xml:space="preserve">a dictionary of parameters.</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="mechanism" transfer-ownership="none">
+            <doc xml:space="preserve">the authentication mechanism to be used.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">optional #GCancellable object, %NULL to ignore.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <doc xml:space="preserve">a callback which will be called when the
+authentication reply is available.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">user data to be passed to the callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="process_finish"
+              c:identifier="signon_auth_session_process_finish"
+              version="1.8"
+              throws="1">
+        <doc xml:space="preserve">Collect the result of the signon_auth_session_process_async() operation.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a #GVariant of type %G_VARIANT_TYPE_VARDICT containing the
+authentication reply. As with signon_auth_session_process_async(), specific
+parameters contained in the #GVariant can be found from plugins' documentation:
+#GSignondPlugin::response-final for the final response, and #GSignondPlugin::response
+for the intermediate responses. See, for example, #GSignondPasswordPlugin
+and #GSignondDigestPlugin.</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonAuthSession.</doc>
+            <type name="AuthSession" c:type="SignonAuthSession*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <doc xml:space="preserve">A #GAsyncResult obtained from the #GAsyncReadyCallback passed to
+signon_auth_session_process_async().</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="query_available_mechanisms"
+              c:identifier="signon_auth_session_query_available_mechanisms">
+        <doc xml:space="preserve">Queries the mechanisms available for this authentication session. The result
+will be the intersection between @wanted_mechanisms and the mechanisms
+supported by the authentication plugin (and allowed by the #SignonIdentity that this
+session belongs to).</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonAuthSession.</doc>
+            <type name="AuthSession" c:type="SignonAuthSession*"/>
+          </instance-parameter>
+          <parameter name="wanted_mechanisms" transfer-ownership="none">
+            <doc xml:space="preserve">a %NULL-terminated list of mechanisms supported by the client.</doc>
+            <type name="utf8" c:type="const gchar**"/>
+          </parameter>
+          <parameter name="cb"
+                     transfer-ownership="none"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve">a callback which will be called with the result.</doc>
+            <type name="AuthSessionQueryAvailableMechanismsCb"
+                  c:type="SignonAuthSessionQueryAvailableMechanismsCb"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">user data to be passed to the callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="identity"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Identity"/>
+      </property>
+      <glib:signal name="state-changed" when="last" action="1">
+        <doc xml:space="preserve">Emitted when the state of the #SignonAuthSession changes. The state change
+is initiated by #GSignondPlugin via #GSignondPlugin::status-changed signal.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="state" transfer-ownership="none">
+            <doc xml:space="preserve">the current state of the #SignonAuthSession</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve">the message associated with the state change</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="AuthSessionClass"
+            c:type="SignonAuthSessionClass"
+            glib:is-gtype-struct-for="AuthSession">
+      <doc xml:space="preserve">Opaque struct. Use the accessor functions below.</doc>
+      <field name="parent">
+        <doc xml:space="preserve">reference to the parent class</doc>
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="AuthSessionPrivate"
+            c:type="SignonAuthSessionPrivate"
+            disguised="1">
+    </record>
+    <callback name="AuthSessionProcessCb" c:type="SignonAuthSessionProcessCb">
+      <doc xml:space="preserve">This callback is invoked when the authentication plugin delivers the result
+of the signon_auth_session_process() operation.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <doc xml:space="preserve">the #SignonAuthSession.</doc>
+          <type name="AuthSession" c:type="SignonAuthSession*"/>
+        </parameter>
+        <parameter name="session_data" transfer-ownership="full">
+          <doc xml:space="preserve">a dictionary with
+the response.</doc>
+          <type name="GLib.HashTable" c:type="GHashTable*">
+            <type name="utf8"/>
+            <type name="GObject.Value"/>
+          </type>
+        </parameter>
+        <parameter name="error" transfer-ownership="none">
+          <doc xml:space="preserve">a #GError if an error occurred, %NULL otherwise.</doc>
+          <type name="GLib.Error" c:type="const GError*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="3">
+          <doc xml:space="preserve">the user data that was passed when installing this callback.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="AuthSessionQueryAvailableMechanismsCb"
+              c:type="SignonAuthSessionQueryAvailableMechanismsCb">
+      <doc xml:space="preserve">Callback to be passed to signon_auth_session_query_available_mechanisms().</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <doc xml:space="preserve">the #SignonAuthSession.</doc>
+          <type name="AuthSession" c:type="SignonAuthSession*"/>
+        </parameter>
+        <parameter name="mechanisms" transfer-ownership="full">
+          <doc xml:space="preserve">list of available mechanisms.</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+        <parameter name="error" transfer-ownership="none">
+          <doc xml:space="preserve">a #GError if an error occurred, %NULL otherwise.</doc>
+          <type name="GLib.Error" c:type="const GError*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="3">
+          <doc xml:space="preserve">the user data that was passed when installing this callback.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="ClearCb" c:type="SignonClearCb">
+      <doc xml:space="preserve">Callback to be passed to signon_auth_service_clear().</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="auth_service" transfer-ownership="none">
+          <doc xml:space="preserve">the #SignonAuthService.</doc>
+          <type name="AuthService" c:type="SignonAuthService*"/>
+        </parameter>
+        <parameter name="success" transfer-ownership="none">
+          <doc xml:space="preserve">TRUE if clear succeeded.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="error" transfer-ownership="none">
+          <doc xml:space="preserve">a #GError if an error occurred, %NULL otherwise.</doc>
+          <type name="GLib.Error" c:type="const GError*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="3">
+          <doc xml:space="preserve">the user data that was passed when installing this callback.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <enumeration name="Error"
+                 glib:type-name="SignonError"
+                 glib:get-type="signon_error_get_type"
+                 c:type="SignonError"
+                 glib:error-domain="gsignond">
+      <doc xml:space="preserve">Possible Signon errors.</doc>
+      <member name="unknown"
+              value="1"
+              c:identifier="SIGNON_ERROR_UNKNOWN"
+              glib:nick="unknown">
+        <doc xml:space="preserve">Catch-all for errors not distinguished by another code.</doc>
+      </member>
+      <member name="internal_server"
+              value="2"
+              c:identifier="SIGNON_ERROR_INTERNAL_SERVER"
+              glib:nick="internal-server">
+        <doc xml:space="preserve">Signon daemon internal error.</doc>
+      </member>
+      <member name="internal_communication"
+              value="3"
+              c:identifier="SIGNON_ERROR_INTERNAL_COMMUNICATION"
+              glib:nick="internal-communication">
+        <doc xml:space="preserve">Error communicating with Signon daemon.</doc>
+      </member>
+      <member name="permission_denied"
+              value="4"
+              c:identifier="SIGNON_ERROR_PERMISSION_DENIED"
+              glib:nick="permission-denied">
+        <doc xml:space="preserve">The operation cannot be performed due to
+insufficient client permissions.</doc>
+      </member>
+      <member name="method_not_known"
+              value="101"
+              c:identifier="SIGNON_ERROR_METHOD_NOT_KNOWN"
+              glib:nick="method-not-known">
+        <doc xml:space="preserve">The method with this name was not found.</doc>
+      </member>
+      <member name="service_not_available"
+              value="102"
+              c:identifier="SIGNON_ERROR_SERVICE_NOT_AVAILABLE"
+              glib:nick="service-not-available">
+        <doc xml:space="preserve">The service is temporarily unavailable.</doc>
+      </member>
+      <member name="invalid_query"
+              value="103"
+              c:identifier="SIGNON_ERROR_INVALID_QUERY"
+              glib:nick="invalid-query">
+        <doc xml:space="preserve">Parameters for the query are invalid.</doc>
+      </member>
+      <member name="method_not_available"
+              value="201"
+              c:identifier="SIGNON_ERROR_METHOD_NOT_AVAILABLE"
+              glib:nick="method-not-available">
+        <doc xml:space="preserve">The requested method is not available.</doc>
+      </member>
+      <member name="identity_not_found"
+              value="202"
+              c:identifier="SIGNON_ERROR_IDENTITY_NOT_FOUND"
+              glib:nick="identity-not-found">
+        <doc xml:space="preserve">The identity mathching the #SignonIdentity
+was not found on the service.</doc>
+      </member>
+      <member name="store_failed"
+              value="203"
+              c:identifier="SIGNON_ERROR_STORE_FAILED"
+              glib:nick="store-failed">
+        <doc xml:space="preserve">Storing credentials failed.</doc>
+      </member>
+      <member name="remove_failed"
+              value="204"
+              c:identifier="SIGNON_ERROR_REMOVE_FAILED"
+              glib:nick="remove-failed">
+        <doc xml:space="preserve">Removing credentials failed.</doc>
+      </member>
+      <member name="signout_failed"
+              value="205"
+              c:identifier="SIGNON_ERROR_SIGNOUT_FAILED"
+              glib:nick="signout-failed">
+        <doc xml:space="preserve">Signing out failed.</doc>
+      </member>
+      <member name="identity_operation_canceled"
+              value="206"
+              c:identifier="SIGNON_ERROR_IDENTITY_OPERATION_CANCELED"
+              glib:nick="identity-operation-canceled">
+        <doc xml:space="preserve">Identity operation was canceled
+by the user.</doc>
+      </member>
+      <member name="credentials_not_available"
+              value="207"
+              c:identifier="SIGNON_ERROR_CREDENTIALS_NOT_AVAILABLE"
+              glib:nick="credentials-not-available">
+        <doc xml:space="preserve">Query failed.</doc>
+      </member>
+      <member name="reference_not_found"
+              value="208"
+              c:identifier="SIGNON_ERROR_REFERENCE_NOT_FOUND"
+              glib:nick="reference-not-found">
+        <doc xml:space="preserve">Trying to remove non-existent reference.</doc>
+      </member>
+      <member name="mechanism_not_available"
+              value="301"
+              c:identifier="SIGNON_ERROR_MECHANISM_NOT_AVAILABLE"
+              glib:nick="mechanism-not-available">
+        <doc xml:space="preserve">The requested mechanism in not
+available.</doc>
+      </member>
+      <member name="missing_data"
+              value="302"
+              c:identifier="SIGNON_ERROR_MISSING_DATA"
+              glib:nick="missing-data">
+        <doc xml:space="preserve">The SessionData does not contain the necessary
+information.</doc>
+      </member>
+      <member name="invalid_credentials"
+              value="303"
+              c:identifier="SIGNON_ERROR_INVALID_CREDENTIALS"
+              glib:nick="invalid-credentials">
+        <doc xml:space="preserve">The supplied credentials are invalid for
+the mechanism implementation.</doc>
+      </member>
+      <member name="not_authorized"
+              value="304"
+              c:identifier="SIGNON_ERROR_NOT_AUTHORIZED"
+              glib:nick="not-authorized">
+        <doc xml:space="preserve">Authorization failed.</doc>
+      </member>
+      <member name="wrong_state"
+              value="305"
+              c:identifier="SIGNON_ERROR_WRONG_STATE"
+              glib:nick="wrong-state">
+        <doc xml:space="preserve">An operation method has been called in an
+incorrect state.</doc>
+      </member>
+      <member name="operation_not_supported"
+              value="306"
+              c:identifier="SIGNON_ERROR_OPERATION_NOT_SUPPORTED"
+              glib:nick="operation-not-supported">
+        <doc xml:space="preserve">The operation is not supported by the
+mechanism implementation.</doc>
+      </member>
+      <member name="no_connection"
+              value="307"
+              c:identifier="SIGNON_ERROR_NO_CONNECTION"
+              glib:nick="no-connection">
+        <doc xml:space="preserve">No network connection.</doc>
+      </member>
+      <member name="network"
+              value="308"
+              c:identifier="SIGNON_ERROR_NETWORK"
+              glib:nick="network">
+        <doc xml:space="preserve">Network connection failed.</doc>
+      </member>
+      <member name="ssl"
+              value="309"
+              c:identifier="SIGNON_ERROR_SSL"
+              glib:nick="ssl">
+        <doc xml:space="preserve">SSL connection failed.</doc>
+      </member>
+      <member name="runtime"
+              value="310"
+              c:identifier="SIGNON_ERROR_RUNTIME"
+              glib:nick="runtime">
+        <doc xml:space="preserve">Casting SessionData into subclass failed.</doc>
+      </member>
+      <member name="session_canceled"
+              value="311"
+              c:identifier="SIGNON_ERROR_SESSION_CANCELED"
+              glib:nick="session-canceled">
+        <doc xml:space="preserve">Challenge was canceled.</doc>
+      </member>
+      <member name="timed_out"
+              value="312"
+              c:identifier="SIGNON_ERROR_TIMED_OUT"
+              glib:nick="timed-out">
+        <doc xml:space="preserve">Challenge timed out.</doc>
+      </member>
+      <member name="user_interaction"
+              value="313"
+              c:identifier="SIGNON_ERROR_USER_INTERACTION"
+              glib:nick="user-interaction">
+        <doc xml:space="preserve">User interaction dialog failed.</doc>
+      </member>
+      <member name="operation_failed"
+              value="314"
+              c:identifier="SIGNON_ERROR_OPERATION_FAILED"
+              glib:nick="operation-failed">
+        <doc xml:space="preserve">Temporary failure in authentication.</doc>
+      </member>
+      <member name="encryption_failed"
+              value="315"
+              c:identifier="SIGNON_ERROR_ENCRYPTION_FAILED"
+              glib:nick="encryption-failed">
+        <doc xml:space="preserve">@deprecated: Failure during data
+encryption/decryption.</doc>
+      </member>
+      <member name="tos_not_accepted"
+              value="316"
+              c:identifier="SIGNON_ERROR_TOS_NOT_ACCEPTED"
+              glib:nick="tos-not-accepted">
+        <doc xml:space="preserve">User declined Terms of Service.</doc>
+      </member>
+      <member name="forgot_password"
+              value="317"
+              c:identifier="SIGNON_ERROR_FORGOT_PASSWORD"
+              glib:nick="forgot-password">
+        <doc xml:space="preserve">User requested password reset sequence.</doc>
+      </member>
+      <member name="method_or_mechanism_not_allowed"
+              value="318"
+              c:identifier="SIGNON_ERROR_METHOD_OR_MECHANISM_NOT_ALLOWED"
+              glib:nick="method-or-mechanism-not-allowed">
+        <doc xml:space="preserve">Method or mechanism not
+allowed for this identity.</doc>
+      </member>
+      <member name="incorrect_date"
+              value="319"
+              c:identifier="SIGNON_ERROR_INCORRECT_DATE"
+              glib:nick="incorrect-date">
+        <doc xml:space="preserve">Date/time incorrect on device.</doc>
+      </member>
+      <member name="user_error"
+              value="400"
+              c:identifier="SIGNON_ERROR_USER_ERROR"
+              glib:nick="user-error">
+        <doc xml:space="preserve">Placeholder to rearrange enumeration - userspace
+specific.</doc>
+      </member>
+      <function name="quark" c:identifier="signon_error_quark">
+        <doc xml:space="preserve">Creates and returns a domain for gSSO errors.</doc>
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <class name="Identity"
+           c:symbol-prefix="identity"
+           parent="GObject.Object"
+           glib:type-name="SignonIdentity"
+           glib:get-type="signon_identity_get_type"
+           glib:type-struct="IdentityClass">
+      <constructor name="new" c:identifier="signon_identity_new">
+        <doc xml:space="preserve">Construct a new, empty, identity object.
+This is essentially equivalent to calling signon_identity_new_with_context()
+and passing %NULL as the application context.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">an instance of an #SignonIdentity.</doc>
+          <type name="Identity" c:type="SignonIdentity*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_db"
+                   c:identifier="signon_identity_new_from_db">
+        <doc xml:space="preserve">Construct an identity object associated with an existing identity
+record.
+This is essentially equivalent to calling
+signon_identity_new_with_context_from_db() and passing %NULL as the
+application context.
+
+Applications can determine the @id either by enumerating the identities with
+signon_auth_service_query_identities() (if they're the owner of the identity)
+or via other means (such as the system's accounts service, or an application
+configuration).</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">an instance of a #SignonIdentity.</doc>
+          <type name="Identity" c:type="SignonIdentity*"/>
+        </return-value>
+        <parameters>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve">identity ID.</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_with_context"
+                   c:identifier="signon_identity_new_with_context">
+        <doc xml:space="preserve">Construct a new, empty, identity object. See #SignonSecurityContext for a
+discussion of @application_context contents. @application_context is used to set the identity's owner
+if the identity is stored to the database with signon_identity_store_credentials_with_args()
+or signon_identity_store_credentials_with_info().</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">an instance of an #SignonIdentity.</doc>
+          <type name="Identity" c:type="SignonIdentity*"/>
+        </return-value>
+        <parameters>
+          <parameter name="application_context" transfer-ownership="none">
+            <doc xml:space="preserve">application security context, can be %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_with_context_from_db"
+                   c:identifier="signon_identity_new_with_context_from_db">
+        <doc xml:space="preserve">Construct an identity object associated with an existing identity
+record. See #SignonSecurityContext for a discussion of @application_context contents.
+Together with the system context it is used to determine by the gSSO daemon
+if the application can access the identity (the application needs to be either the
+identity's owner or to be present on the ACL).
+
+Applications can determine the @id either by enumerating the identities with
+signon_auth_service_query_identities() (if they're the owner of the identity)
+or via other means (such as the system's accounts service, or an application
+configuration).</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">an instance of a #SignonIdentity.</doc>
+          <type name="Identity" c:type="SignonIdentity*"/>
+        </return-value>
+        <parameters>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve">identity ID.</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="application_context" transfer-ownership="none">
+            <doc xml:space="preserve">application security context, can be %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="add_reference"
+              c:identifier="signon_identity_add_reference">
+        <doc xml:space="preserve">Adds named reference to identity. Not currently supported by gSSO.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentity.</doc>
+            <type name="Identity" c:type="SignonIdentity*"/>
+          </instance-parameter>
+          <parameter name="reference" transfer-ownership="none">
+            <doc xml:space="preserve">reference to be added</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cb" transfer-ownership="none" scope="async">
+            <doc xml:space="preserve">callback</doc>
+            <type name="IdentityReferenceAddedCb"
+                  c:type="SignonIdentityReferenceAddedCb"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="2">
+            <doc xml:space="preserve">user_data.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="create_session"
+              c:identifier="signon_identity_create_session"
+              throws="1">
+        <doc xml:space="preserve">Creates an authentication session for this identity. If the identity has been
+retrieved from the database, the authentication method must be one of those
+listed in signon_identity_info_get_methods(), otherwise it can be any method
+supported by gSSO.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #SignonAuthSession.</doc>
+          <type name="AuthSession" c:type="SignonAuthSession*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentity.</doc>
+            <type name="Identity" c:type="SignonIdentity*"/>
+          </instance-parameter>
+          <parameter name="method" transfer-ownership="none">
+            <doc xml:space="preserve">authentication method.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_auth_session"
+              c:identifier="signon_identity_get_auth_session">
+        <doc xml:space="preserve">Obtain a remote object for a local session object. Should not be used by
+applications.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentity.</doc>
+            <type name="Identity" c:type="SignonIdentity*"/>
+          </instance-parameter>
+          <parameter name="session" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonAuthSession object to get the remote object for.</doc>
+            <type name="AuthSession" c:type="SignonAuthSession*"/>
+          </parameter>
+          <parameter name="method" transfer-ownership="none">
+            <doc xml:space="preserve">method name for the session.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cb" transfer-ownership="none" scope="async">
+            <doc xml:space="preserve">completion callback.</doc>
+            <type name="IdentitySessionReadyCb"
+                  c:type="SignonIdentitySessionReadyCb"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_last_error"
+              c:identifier="signon_identity_get_last_error">
+        <doc xml:space="preserve">Get the most recent error that occurred on @identity.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a #GError containing the most recent error, or %NULL on failure.</doc>
+          <type name="GLib.Error" c:type="const GError*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="identity" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentity.</doc>
+            <type name="Identity" c:type="SignonIdentity*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="query_info" c:identifier="signon_identity_query_info">
+        <doc xml:space="preserve">Fetches the #SignonIdentityInfo data associated with this
+identity.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentity.</doc>
+            <type name="Identity" c:type="SignonIdentity*"/>
+          </instance-parameter>
+          <parameter name="cb"
+                     transfer-ownership="none"
+                     scope="async"
+                     closure="1">
+            <doc xml:space="preserve">callback.</doc>
+            <type name="IdentityInfoCb" c:type="SignonIdentityInfoCb"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="1">
+            <doc xml:space="preserve">user_data.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove" c:identifier="signon_identity_remove">
+        <doc xml:space="preserve">Removes the corresponding credentials record from the database.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentity.</doc>
+            <type name="Identity" c:type="SignonIdentity*"/>
+          </instance-parameter>
+          <parameter name="cb" transfer-ownership="none" scope="async">
+            <doc xml:space="preserve">callback to be called when the operation has completed.</doc>
+            <type name="IdentityRemovedCb" c:type="SignonIdentityRemovedCb"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="1">
+            <doc xml:space="preserve">user_data to pass to the callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_reference"
+              c:identifier="signon_identity_remove_reference">
+        <doc xml:space="preserve">Removes named reference from identity. Not currently supported by gSSO.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentity.</doc>
+            <type name="Identity" c:type="SignonIdentity*"/>
+          </instance-parameter>
+          <parameter name="reference" transfer-ownership="none">
+            <doc xml:space="preserve">reference to be removed</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cb" transfer-ownership="none" scope="async">
+            <doc xml:space="preserve">callback</doc>
+            <type name="IdentityReferenceRemovedCb"
+                  c:type="SignonIdentityReferenceRemovedCb"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="2">
+            <doc xml:space="preserve">user_data.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="request_credentials_update"
+              c:identifier="signon_identity_request_credentials_update">
+        <doc xml:space="preserve">Requests user to re-enter his credentials.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentity.</doc>
+            <type name="Identity" c:type="SignonIdentity*"/>
+          </instance-parameter>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve">message to be displayed to the user.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cb" transfer-ownership="none" scope="async">
+            <doc xml:space="preserve">callback to be called when the operation has completed.</doc>
+            <type name="IdentityCredentialsUpdatedCb"
+                  c:type="SignonIdentityCredentialsUpdatedCb"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="2">
+            <doc xml:space="preserve">user_data to pass to the callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="signout" c:identifier="signon_identity_signout">
+        <doc xml:space="preserve">Asks signond to close all authentication sessions for this
+identity, and to remove any stored secrets associated with it (password and
+authentication tokens).</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentity.</doc>
+            <type name="Identity" c:type="SignonIdentity*"/>
+          </instance-parameter>
+          <parameter name="cb" transfer-ownership="none" scope="async">
+            <doc xml:space="preserve">callback.</doc>
+            <type name="IdentitySignedOutCb"
+                  c:type="SignonIdentitySignedOutCb"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="1">
+            <doc xml:space="preserve">user_data.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="store_credentials_with_args"
+              c:identifier="signon_identity_store_credentials_with_args">
+        <doc xml:space="preserve">Stores the given data into the identity. See above for the meaning
+of the specific fields.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentity.</doc>
+            <type name="Identity" c:type="SignonIdentity*"/>
+          </instance-parameter>
+          <parameter name="username"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">username.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="secret"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">secret.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="store_secret" transfer-ownership="none">
+            <doc xml:space="preserve">whether gSSO should save the password in secret storage.</doc>
+            <type name="gboolean" c:type="const gboolean"/>
+          </parameter>
+          <parameter name="methods" transfer-ownership="none">
+            <doc xml:space="preserve">allowed methods.</doc>
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="utf8"/>
+              <array>
+                <type name="utf8"/>
+              </array>
+            </type>
+          </parameter>
+          <parameter name="caption"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">caption.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="realms"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">allowed realms.</doc>
+            <type name="utf8" c:type="const gchar* const*"/>
+          </parameter>
+          <parameter name="owner"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">owner.</doc>
+            <type name="SecurityContext"
+                  c:type="const SignonSecurityContext*"/>
+          </parameter>
+          <parameter name="access_control_list"
+                     transfer-ownership="container"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">access control list.</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="SecurityContext"/>
+            </type>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve">the type of the identity.</doc>
+            <type name="IdentityType" c:type="SignonIdentityType"/>
+          </parameter>
+          <parameter name="cb"
+                     transfer-ownership="none"
+                     scope="async"
+                     closure="10">
+            <doc xml:space="preserve">callback.</doc>
+            <type name="IdentityStoreCredentialsCb"
+                  c:type="SignonIdentityStoreCredentialsCb"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">user_data.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="store_credentials_with_info"
+              c:identifier="signon_identity_store_credentials_with_info">
+        <doc xml:space="preserve">Stores the data contained in @info into the identity record in the database.
+See above for the detailed discussion of the meaning of various fields and
+their defaults.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentity.</doc>
+            <type name="Identity" c:type="SignonIdentity*"/>
+          </instance-parameter>
+          <parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo data to store.</doc>
+            <type name="IdentityInfo" c:type="const SignonIdentityInfo*"/>
+          </parameter>
+          <parameter name="cb"
+                     transfer-ownership="none"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve">callback.</doc>
+            <type name="IdentityStoreCredentialsCb"
+                  c:type="SignonIdentityStoreCredentialsCb"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">user_data.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="verify_user" c:identifier="signon_identity_verify_user">
+        <doc xml:space="preserve">Asks user to enter his credentials to verify the current user.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentity.</doc>
+            <type name="Identity" c:type="SignonIdentity*"/>
+          </instance-parameter>
+          <parameter name="args" transfer-ownership="none">
+            <doc xml:space="preserve">optional extra arguments (vardict) controlling SignOn UI.</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="cb"
+                     transfer-ownership="none"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve">callback.</doc>
+            <type name="IdentityVerifyCb" c:type="SignonIdentityVerifyCb"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">user_data.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="app-ctx" writable="1" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="id" writable="1" transfer-ownership="none">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <glib:signal name="removed" when="last" no-recurse="1" no-hooks="1">
+        <doc xml:space="preserve">Emitted when the identity was removed (deleted).</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="signout" when="last" no-recurse="1" no-hooks="1">
+        <doc xml:space="preserve">Emitted when the identity was signed out.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="IdentityClass"
+            c:type="SignonIdentityClass"
+            glib:is-gtype-struct-for="Identity">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="IdentityInfo"
+            c:type="SignonIdentityInfo"
+            glib:type-name="SignonIdentityInfo"
+            glib:get-type="signon_identity_info_get_type"
+            c:symbol-prefix="identity_info">
+      <doc xml:space="preserve">Opaque struct. Use the accessor functions below.</doc>
+      <constructor name="new" c:identifier="signon_identity_info_new">
+        <doc xml:space="preserve">Creates a new #SignonIdentityInfo item.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a new #SignonIdentityInfo item.</doc>
+          <type name="IdentityInfo" c:type="SignonIdentityInfo*"/>
+        </return-value>
+      </constructor>
+      <method name="access_control_list_append"
+              c:identifier="signon_identity_info_access_control_list_append">
+        <doc xml:space="preserve">Appends a new #SignonSecurityContext item to the access control list.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="SignonIdentityInfo*"/>
+          </instance-parameter>
+          <parameter name="security_context" transfer-ownership="full">
+            <doc xml:space="preserve">a security context to be appended.</doc>
+            <type name="SecurityContext" c:type="SignonSecurityContext*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="copy" c:identifier="signon_identity_info_copy">
+        <doc xml:space="preserve">Get a newly-allocated copy of @info.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a copy of the given #SignonIdentityInfo, or %NULL on failure.</doc>
+          <type name="IdentityInfo" c:type="SignonIdentityInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="other" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="const SignonIdentityInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="signon_identity_info_free">
+        <doc xml:space="preserve">Destroys the given #SignonIdentityInfo item.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="SignonIdentityInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_access_control_list"
+              c:identifier="signon_identity_info_get_access_control_list">
+        <doc xml:space="preserve">Get an access control list associated with an identity.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a list of ACL security contexts.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="SecurityContext"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="const SignonIdentityInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_caption"
+              c:identifier="signon_identity_info_get_caption">
+        <doc xml:space="preserve">Get the display name of @info.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the display name for the identity.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="const SignonIdentityInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_id" c:identifier="signon_identity_info_get_id">
+        <doc xml:space="preserve">Get the numeric identity ID of @info.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the numeric ID of the identity.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="const SignonIdentityInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_identity_type"
+              c:identifier="signon_identity_info_get_identity_type">
+        <doc xml:space="preserve">Get the type of the identity.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the type of the identity.</doc>
+          <type name="IdentityType" c:type="SignonIdentityType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="const SignonIdentityInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_methods"
+              c:identifier="signon_identity_info_get_methods">
+        <doc xml:space="preserve">Get a hash table of the methods and mechanisms of @info. See
+signon_identity_info_set_methods().</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the table of allowed
+methods and mechanisms.</doc>
+          <type name="GLib.HashTable" c:type="GHashTable*">
+            <type name="utf8"/>
+            <array>
+              <type name="utf8"/>
+            </array>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="const SignonIdentityInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_owner" c:identifier="signon_identity_info_get_owner">
+        <doc xml:space="preserve">Get identity owner's security context.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a security context.</doc>
+          <type name="SecurityContext" c:type="const SignonSecurityContext*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="const SignonIdentityInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_realms" c:identifier="signon_identity_info_get_realms">
+        <doc xml:space="preserve">Get an array of the allowed realms of @info.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a %NULL terminated array of realms.</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="const SignonIdentityInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_storing_secret"
+              c:identifier="signon_identity_info_get_storing_secret">
+        <doc xml:space="preserve">Get whether the secret of @info should be stored by gSSO in the secret database.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if gSSO must store the secret, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="const SignonIdentityInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_username"
+              c:identifier="signon_identity_info_get_username">
+        <doc xml:space="preserve">Get the username associated with an identity.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the username, or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="const SignonIdentityInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="own_methods"
+              c:identifier="signon_identity_info_own_methods">
+        <doc xml:space="preserve">Set authentication methods that are allowed to be used with this identity.
+
+This function will just increment reference count of hash table, so
+it should be constructed with #g_hash_table_new_full.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="SignonIdentityInfo*"/>
+          </instance-parameter>
+          <parameter name="methods" transfer-ownership="none">
+            <doc xml:space="preserve">methods.</doc>
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="utf8"/>
+              <array>
+                <type name="utf8"/>
+              </array>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_method"
+              c:identifier="signon_identity_info_remove_method">
+        <doc xml:space="preserve">Remove @method from the list of allowed authentication methods.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="SignonIdentityInfo*"/>
+          </instance-parameter>
+          <parameter name="method" transfer-ownership="none">
+            <doc xml:space="preserve">an authentication method.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_access_control_list"
+              c:identifier="signon_identity_info_set_access_control_list">
+        <doc xml:space="preserve">Set an access control list associated with an identity.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="SignonIdentityInfo*"/>
+          </instance-parameter>
+          <parameter name="access_control_list" transfer-ownership="none">
+            <doc xml:space="preserve">a list of ACL security contexts.</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="SecurityContext"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_caption"
+              c:identifier="signon_identity_info_set_caption">
+        <doc xml:space="preserve">Sets the caption (display name) for the identity.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="SignonIdentityInfo*"/>
+          </instance-parameter>
+          <parameter name="caption" transfer-ownership="none">
+            <doc xml:space="preserve">the caption.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_identity_type"
+              c:identifier="signon_identity_info_set_identity_type">
+        <doc xml:space="preserve">Specifies the type of this identity.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="SignonIdentityInfo*"/>
+          </instance-parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve">the type of the identity.</doc>
+            <type name="IdentityType" c:type="SignonIdentityType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_method" c:identifier="signon_identity_info_set_method">
+        <doc xml:space="preserve">Adds a method to the list of allowed authentication methods.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="SignonIdentityInfo*"/>
+          </instance-parameter>
+          <parameter name="method" transfer-ownership="none">
+            <doc xml:space="preserve">an authentication method.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="mechanisms" transfer-ownership="none">
+            <doc xml:space="preserve">a %NULL-terminated list of mechanisms.</doc>
+            <array c:type="gchar**">
+              <type name="utf8" c:type="gchar*"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_methods"
+              c:identifier="signon_identity_info_set_methods">
+        <doc xml:space="preserve">Set authentication methods that are allowed to be used with this identity.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="SignonIdentityInfo*"/>
+          </instance-parameter>
+          <parameter name="methods" transfer-ownership="none">
+            <doc xml:space="preserve">methods.</doc>
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="utf8"/>
+              <array>
+                <type name="utf8"/>
+              </array>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_owner" c:identifier="signon_identity_info_set_owner">
+        <doc xml:space="preserve">Set identity owner's security context.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="SignonIdentityInfo*"/>
+          </instance-parameter>
+          <parameter name="owner" transfer-ownership="none">
+            <doc xml:space="preserve">a security context of owner.</doc>
+            <type name="SecurityContext"
+                  c:type="const SignonSecurityContext*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_owner_from_values"
+              c:identifier="signon_identity_info_set_owner_from_values">
+        <doc xml:space="preserve">Set identity owner's security context.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="SignonIdentityInfo*"/>
+          </instance-parameter>
+          <parameter name="system_context" transfer-ownership="none">
+            <doc xml:space="preserve">owner's system context.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="application_context" transfer-ownership="none">
+            <doc xml:space="preserve">owner's application context.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_realms" c:identifier="signon_identity_info_set_realms">
+        <doc xml:space="preserve">Specify what realms this identity can be used in.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="SignonIdentityInfo*"/>
+          </instance-parameter>
+          <parameter name="realms" transfer-ownership="none">
+            <doc xml:space="preserve">a %NULL-terminated list of realms.</doc>
+            <array c:type="gchar**">
+              <type name="utf8" c:type="gchar*"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_secret" c:identifier="signon_identity_info_set_secret">
+        <doc xml:space="preserve">Sets the secret (password) for the identity, and whether the gSSO daemon
+should remember it.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="SignonIdentityInfo*"/>
+          </instance-parameter>
+          <parameter name="secret" transfer-ownership="none">
+            <doc xml:space="preserve">the secret.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="store_secret" transfer-ownership="none">
+            <doc xml:space="preserve">whether signond should store the secret in its DB.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_username"
+              c:identifier="signon_identity_info_set_username">
+        <doc xml:space="preserve">Sets the username for the identity.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve">the #SignonIdentityInfo.</doc>
+            <type name="IdentityInfo" c:type="SignonIdentityInfo*"/>
+          </instance-parameter>
+          <parameter name="username" transfer-ownership="none">
+            <doc xml:space="preserve">the username.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </record>
+    <callback name="IdentityInfoCb" c:type="SignonIdentityInfoCb">
+      <doc xml:space="preserve">Callback to be passed to signon_identity_query_info().</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <doc xml:space="preserve">the #SignonIdentity.</doc>
+          <type name="Identity" c:type="SignonIdentity*"/>
+        </parameter>
+        <parameter name="info" transfer-ownership="none">
+          <doc xml:space="preserve">the #SignonIdentityInfo for @self.</doc>
+          <type name="IdentityInfo" c:type="SignonIdentityInfo*"/>
+        </parameter>
+        <parameter name="error" transfer-ownership="none">
+          <doc xml:space="preserve">a #GError if an error occurred, or %NULL otherwise.</doc>
+          <type name="GLib.Error" c:type="const GError*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="3">
+          <doc xml:space="preserve">the user data that was passed when installing this callback.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <record name="IdentityPrivate"
+            c:type="SignonIdentityPrivate"
+            disguised="1">
+    </record>
+    <callback name="IdentitySessionReadyCb"
+              c:type="SignonIdentitySessionReadyCb">
+      <doc xml:space="preserve">Callback to be passed to signon_identity_get_auth_session().</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <doc xml:space="preserve">the #SignonAuthSession.</doc>
+          <type name="AuthSession" c:type="SignonAuthSession*"/>
+        </parameter>
+        <parameter name="error" transfer-ownership="none">
+          <doc xml:space="preserve">a #GError if an error occurred, or %NULL otherwise.</doc>
+          <type name="GLib.Error" c:type="GError*"/>
+        </parameter>
+        <parameter name="connection" transfer-ownership="none">
+          <doc xml:space="preserve">a #GDBusConnection for the session.</doc>
+          <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
+        </parameter>
+        <parameter name="bus_name" transfer-ownership="none">
+          <doc xml:space="preserve">a D-Bus bus name for the session.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="object_path" transfer-ownership="none">
+          <doc xml:space="preserve">a D-Bus object path for the session.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="IdentityStoreCredentialsCb"
+              c:type="SignonIdentityStoreCredentialsCb">
+      <doc xml:space="preserve">Callback to be passed to signon_identity_store_credentials_with_args() or
+signon_identity_store_credentials_with_info().</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <doc xml:space="preserve">the #SignonIdentity.</doc>
+          <type name="Identity" c:type="SignonIdentity*"/>
+        </parameter>
+        <parameter name="id" transfer-ownership="none">
+          <doc xml:space="preserve">the numeric ID of the identity in the database.</doc>
+          <type name="guint32" c:type="guint32"/>
+        </parameter>
+        <parameter name="error" transfer-ownership="none">
+          <doc xml:space="preserve">a #GError if an error occurred, or %NULL otherwise.</doc>
+          <type name="GLib.Error" c:type="const GError*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="3">
+          <doc xml:space="preserve">the user data that was passed when installing this callback.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <bitfield name="IdentityType"
+              glib:type-name="SignonIdentityType"
+              glib:get-type="signon_identity_type_get_type"
+              c:type="SignonIdentityType">
+      <doc xml:space="preserve">Identity types used in #SignonIdentityInfo.</doc>
+      <member name="other"
+              value="0"
+              c:identifier="SIGNON_IDENTITY_TYPE_OTHER"
+              glib:nick="other">
+        <doc xml:space="preserve">an identity that is not an app, web or network</doc>
+      </member>
+      <member name="app"
+              value="1"
+              c:identifier="SIGNON_IDENTITY_TYPE_APP"
+              glib:nick="app">
+        <doc xml:space="preserve">an application identity</doc>
+      </member>
+      <member name="web"
+              value="2"
+              c:identifier="SIGNON_IDENTITY_TYPE_WEB"
+              glib:nick="web">
+        <doc xml:space="preserve">a web identity</doc>
+      </member>
+      <member name="network"
+              value="4"
+              c:identifier="SIGNON_IDENTITY_TYPE_NETWORK"
+              glib:nick="network">
+        <doc xml:space="preserve">a network server identity</doc>
+      </member>
+    </bitfield>
+    <callback name="IdentityVerifyCb" c:type="SignonIdentityVerifyCb">
+      <doc xml:space="preserve">Callback to be passed to signon_identity_verify_user().</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <doc xml:space="preserve">the #SignonIdentity.</doc>
+          <type name="Identity" c:type="SignonIdentity*"/>
+        </parameter>
+        <parameter name="valid" transfer-ownership="none">
+          <doc xml:space="preserve">whether the verification succeeded.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="error" transfer-ownership="none">
+          <doc xml:space="preserve">a #GError if an error occurred, or %NULL otherwise.</doc>
+          <type name="GLib.Error" c:type="const GError*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="3">
+          <doc xml:space="preserve">the user data that was passed when installing this callback.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="IdentityVoidCb" c:type="SignonIdentityVoidCb">
+      <doc xml:space="preserve">Generic callback to be passed to several #SignonIdentity methods.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <doc xml:space="preserve">the #SignonIdentity.</doc>
+          <type name="Identity" c:type="SignonIdentity*"/>
+        </parameter>
+        <parameter name="error" transfer-ownership="none">
+          <doc xml:space="preserve">a #GError if an error occurred, or %NULL otherwise.</doc>
+          <type name="GLib.Error" c:type="const GError*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="2">
+          <doc xml:space="preserve">the user data that was passed when installing this callback.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="QueryIdentitiesCb" c:type="SignonQueryIdentitiesCb">
+      <doc xml:space="preserve">Callback to be passed to signon_auth_service_query_identities().</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="auth_service" transfer-ownership="none">
+          <doc xml:space="preserve">the #SignonAuthService.</doc>
+          <type name="AuthService" c:type="SignonAuthService*"/>
+        </parameter>
+        <parameter name="identities" transfer-ownership="none">
+          <doc xml:space="preserve">#GList based list of #SignonIdentityInfo.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Identity"/>
+          </type>
+        </parameter>
+        <parameter name="error" transfer-ownership="none">
+          <doc xml:space="preserve">a #GError if an error occurred, %NULL otherwise.</doc>
+          <type name="GLib.Error" c:type="const GError*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="3">
+          <doc xml:space="preserve">the user data that was passed when installing this callback.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="QueryMechanismCb" c:type="SignonQueryMechanismCb">
+      <doc xml:space="preserve">Callback to be passed to signon_auth_service_query_mechanisms().</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="auth_service" transfer-ownership="none">
+          <doc xml:space="preserve">the #SignonAuthService.</doc>
+          <type name="AuthService" c:type="SignonAuthService*"/>
+        </parameter>
+        <parameter name="method" transfer-ownership="none">
+          <doc xml:space="preserve">the authentication method being inspected.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="mechanisms" transfer-ownership="full">
+          <doc xml:space="preserve">list of available mechanisms.</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+        <parameter name="error" transfer-ownership="none">
+          <doc xml:space="preserve">a #GError if an error occurred, %NULL otherwise.</doc>
+          <type name="GLib.Error" c:type="const GError*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="4">
+          <doc xml:space="preserve">the user data that was passed when installing this callback.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="QueryMethodsCb" c:type="SignonQueryMethodsCb">
+      <doc xml:space="preserve">Callback to be passed to signon_auth_service_query_methods().</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="auth_service" transfer-ownership="none">
+          <doc xml:space="preserve">the #SignonAuthService.</doc>
+          <type name="AuthService" c:type="SignonAuthService*"/>
+        </parameter>
+        <parameter name="methods" transfer-ownership="full">
+          <doc xml:space="preserve">list of available methods.</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+        <parameter name="error" transfer-ownership="none">
+          <doc xml:space="preserve">a #GError if an error occurred, %NULL otherwise.</doc>
+          <type name="GLib.Error" c:type="const GError*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="3">
+          <doc xml:space="preserve">the user data that was passed when installing this callback.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <constant name="SESSION_DATA_CAPTION"
+              value="Caption"
+              c:type="SIGNON_SESSION_DATA_CAPTION">
+      <doc xml:space="preserve">Caption for the UI dialog.</doc>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="SESSION_DATA_PROXY"
+              value="NetworkProxy"
+              c:type="SIGNON_SESSION_DATA_PROXY">
+      <doc xml:space="preserve">Proxy.</doc>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="SESSION_DATA_REALM"
+              value="Realm"
+              c:type="SIGNON_SESSION_DATA_REALM">
+      <doc xml:space="preserve">Realm.</doc>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="SESSION_DATA_RENEW_TOKEN"
+              value="RenewToken"
+              c:type="SIGNON_SESSION_DATA_RENEW_TOKEN">
+      <doc xml:space="preserve">Requests the signon plugin to obtain a new token (boolean).</doc>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="SESSION_DATA_SECRET"
+              value="Secret"
+              c:type="SIGNON_SESSION_DATA_SECRET">
+      <doc xml:space="preserve">Secret.</doc>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="SESSION_DATA_TIMEOUT"
+              value="NetworkTimeout"
+              c:type="SIGNON_SESSION_DATA_TIMEOUT">
+      <doc xml:space="preserve">Network timeout, in milliseconds (uint32).</doc>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="SESSION_DATA_UI_POLICY"
+              value="UiPolicy"
+              c:type="SIGNON_SESSION_DATA_UI_POLICY">
+      <doc xml:space="preserve">Policy for the signon process.</doc>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="SESSION_DATA_USERNAME"
+              value="UserName"
+              c:type="SIGNON_SESSION_DATA_USERNAME">
+      <doc xml:space="preserve">Username.</doc>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="SESSION_DATA_WINDOW_ID"
+              value="WindowId"
+              c:type="SIGNON_SESSION_DATA_WINDOW_ID">
+      <doc xml:space="preserve">Platform-specific window id (for dialog transiency) - uint32.</doc>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <record name="SecurityContext"
+            c:type="SignonSecurityContext"
+            glib:type-name="SignonSecurityContext"
+            glib:get-type="signon_security_context_get_type"
+            c:symbol-prefix="security_context">
+      <doc xml:space="preserve">Security context descriptor used for access control checks.</doc>
+      <field name="sys_ctx" writable="1">
+        <doc xml:space="preserve">system context, such as SMACK-label, MSSF token or just a
+          binary path.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="app_ctx" writable="1">
+        <doc xml:space="preserve">application context, such as a script or a web page.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <constructor name="new" c:identifier="signon_security_context_new">
+        <doc xml:space="preserve">Allocates a new security context item.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">allocated #SignonSecurityContext.</doc>
+          <type name="SecurityContext" c:type="SignonSecurityContext*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_values"
+                   c:identifier="signon_security_context_new_from_values">
+        <doc xml:space="preserve">Allocates and initializes a new security context item.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">allocated #SignonSecurityContext.</doc>
+          <type name="SecurityContext" c:type="SignonSecurityContext*"/>
+        </return-value>
+        <parameters>
+          <parameter name="system_context" transfer-ownership="none">
+            <doc xml:space="preserve">system security context (such as SMACK/MSSF label/token).</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="application_context" transfer-ownership="none">
+            <doc xml:space="preserve">application security context (such as a script name).</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="build_variant"
+              c:identifier="signon_security_context_build_variant">
+        <doc xml:space="preserve">Build a GVariant of type "(ss)" from a #SignonSecurityContext item.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">GVariant construct of a #SignonSecurityContext.</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve">#SignonSecurityContext item.</doc>
+            <type name="SecurityContext"
+                  c:type="const SignonSecurityContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="copy" c:identifier="signon_security_context_copy">
+        <doc xml:space="preserve">Copy a security context item.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a copy of the #SignonSecurityContext item.</doc>
+          <type name="SecurityContext" c:type="SignonSecurityContext*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="src_ctx" transfer-ownership="none">
+            <doc xml:space="preserve">source security context to copy.</doc>
+            <type name="SecurityContext"
+                  c:type="const SignonSecurityContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="signon_security_context_free">
+        <doc xml:space="preserve">Frees a security context item.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve">#SignonSecurityContext to be freed.</doc>
+            <type name="SecurityContext" c:type="SignonSecurityContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_application_context"
+              c:identifier="signon_security_context_get_application_context">
+        <doc xml:space="preserve">Get the application context part (such as script name or a web page) of
+the #SignonSecurityContext.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">application context.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve">#SignonSecurityContext item.</doc>
+            <type name="SecurityContext"
+                  c:type="const SignonSecurityContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_system_context"
+              c:identifier="signon_security_context_get_system_context">
+        <doc xml:space="preserve">Get the system context part (such as SMACK label or MSSF token) of the
+#SignonSecurityContext.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">system context.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve">#SignonSecurityContext item.</doc>
+            <type name="SecurityContext"
+                  c:type="const SignonSecurityContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_application_context"
+              c:identifier="signon_security_context_set_application_context">
+        <doc xml:space="preserve">Sets the application context part (such as a script name or a web page) of
+the #SignonSecurityContext.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve">#SignonSecurityContext item.</doc>
+            <type name="SecurityContext" c:type="SignonSecurityContext*"/>
+          </instance-parameter>
+          <parameter name="application_context" transfer-ownership="none">
+            <doc xml:space="preserve">application security context.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_system_context"
+              c:identifier="signon_security_context_set_system_context">
+        <doc xml:space="preserve">Sets the system context part (such as SMACK label or MSSF token) of the
+#SignonSecurityContext.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve">#SignonSecurityContext item.</doc>
+            <type name="SecurityContext" c:type="SignonSecurityContext*"/>
+          </instance-parameter>
+          <parameter name="system_context" transfer-ownership="none">
+            <doc xml:space="preserve">system security context.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <function name="deconstruct_variant"
+                c:identifier="signon_security_context_deconstruct_variant">
+        <doc xml:space="preserve">Builds a #SignonSecurityContext item from a GVariant of type "(ss)".</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">#SignonSecurityContext item.</doc>
+          <type name="SecurityContext" c:type="SignonSecurityContext*"/>
+        </return-value>
+        <parameters>
+          <parameter name="variant" transfer-ownership="none">
+            <doc xml:space="preserve">GVariant item with a #SignonSecurityContext construct.</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="list_build_variant"
+                c:identifier="signon_security_context_list_build_variant">
+        <doc xml:space="preserve">Builds a GVariant of type "a(ss)" from a GList of #SignonSecurityContext
+items.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">GVariant construct of a #GList.</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </return-value>
+        <parameters>
+          <parameter name="list" transfer-ownership="none">
+            <doc xml:space="preserve">#GList item of #SignonSecurityContext.</doc>
+            <type name="GLib.List" c:type="const GList*">
+              <type name="SecurityContext"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="list_deconstruct_variant"
+                c:identifier="signon_security_context_list_deconstruct_variant">
+        <doc xml:space="preserve">Builds a GList of #SignonSecurityContext items from a GVariant of type
+"a(ss)".</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">#GList item.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="SecurityContext"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="variant" transfer-ownership="none">
+            <doc xml:space="preserve">GVariant item with a list of security context tuples.</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+        </parameters>
+      </function>
+    </record>
+    <enumeration name="SessionDataUiPolicy"
+                 glib:type-name="SignonSessionDataUiPolicy"
+                 glib:get-type="signon_session_data_ui_policy_get_type"
+                 c:type="SignonSessionDataUiPolicy">
+      <doc xml:space="preserve">UI policy for the signon process, passed to the UI plugin.</doc>
+      <member name="default"
+              value="0"
+              c:identifier="SIGNON_POLICY_DEFAULT"
+              glib:nick="default">
+        <doc xml:space="preserve">The plugin can decide when to show UI.</doc>
+      </member>
+      <member name="request_password"
+              value="1"
+              c:identifier="SIGNON_POLICY_REQUEST_PASSWORD"
+              glib:nick="request-password">
+        <doc xml:space="preserve">Force the user to enter the password.</doc>
+      </member>
+      <member name="no_user_interaction"
+              value="2"
+              c:identifier="SIGNON_POLICY_NO_USER_INTERACTION"
+              glib:nick="no-user-interaction">
+        <doc xml:space="preserve">No UI elements will be shown to the user.</doc>
+      </member>
+      <member name="validation"
+              value="3"
+              c:identifier="SIGNON_POLICY_VALIDATION"
+              glib:nick="validation">
+        <doc xml:space="preserve">UI elements can be shown to the user only when
+CAPTCHA-like security measures are required.</doc>
+      </member>
+    </enumeration>
+    <record name="_AuthSession" c:type="_SignonAuthSession">
+      <field name="parent" writable="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" writable="1">
+        <type name="AuthSessionPrivate" c:type="SignonAuthSessionPrivate*"/>
+      </field>
+    </record>
+    <record name="_Identity" c:type="_SignonIdentity" introspectable="0">
+      <doc xml:space="preserve">Opaque struct. Use the accessor functions below.</doc>
+      <field name="parent_instance" writable="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" writable="1">
+        <type name="IdentityPrivate" c:type="SignonIdentityPrivate*"/>
+      </field>
+    </record>
+    <function name="error_quark"
+              c:identifier="signon_error_quark"
+              moved-to="Error.quark">
+      <doc xml:space="preserve">Creates and returns a domain for gSSO errors.</doc>
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="security_context_deconstruct_variant"
+              c:identifier="signon_security_context_deconstruct_variant"
+              moved-to="SecurityContext.deconstruct_variant">
+      <doc xml:space="preserve">Builds a #SignonSecurityContext item from a GVariant of type "(ss)".</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve">#SignonSecurityContext item.</doc>
+        <type name="SecurityContext" c:type="SignonSecurityContext*"/>
+      </return-value>
+      <parameters>
+        <parameter name="variant" transfer-ownership="none">
+          <doc xml:space="preserve">GVariant item with a #SignonSecurityContext construct.</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="security_context_list_build_variant"
+              c:identifier="signon_security_context_list_build_variant"
+              moved-to="SecurityContext.list_build_variant">
+      <doc xml:space="preserve">Builds a GVariant of type "a(ss)" from a GList of #SignonSecurityContext
+items.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve">GVariant construct of a #GList.</doc>
+        <type name="GLib.Variant" c:type="GVariant*"/>
+      </return-value>
+      <parameters>
+        <parameter name="list" transfer-ownership="none">
+          <doc xml:space="preserve">#GList item of #SignonSecurityContext.</doc>
+          <type name="GLib.List" c:type="const GList*">
+            <type name="SecurityContext"/>
+          </type>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="security_context_list_deconstruct_variant"
+              c:identifier="signon_security_context_list_deconstruct_variant"
+              moved-to="SecurityContext.list_deconstruct_variant">
+      <doc xml:space="preserve">Builds a GList of #SignonSecurityContext items from a GVariant of type
+"a(ss)".</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve">#GList item.</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="SecurityContext"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="variant" transfer-ownership="none">
+          <doc xml:space="preserve">GVariant item with a list of security context tuples.</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

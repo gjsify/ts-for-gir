@@ -1,0 +1,3303 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <include name="GtkSource" version="3.0"/>
+  <include name="Ide" version="1.0"/>
+  <include name="Peas" version="1.0"/>
+  <c:include name="gnome-builder.h"/>
+  <namespace name="Builder"
+             version="1.0"
+             shared-library="libgnome-builder.so.0,libegg-private.so.0,libide-1.0.so"
+             c:identifier-prefixes="Gb"
+             c:symbol-prefixes="gb">
+    <class name="Application"
+           c:symbol-prefix="application"
+           c:type="GbApplication"
+           parent="Gtk.Application"
+           glib:type-name="GbApplication"
+           glib:get-type="gb_application_get_type"
+           glib:type-struct="ApplicationClass">
+      <implements name="Gio.ActionGroup"/>
+      <implements name="Gio.ActionMap"/>
+      <method name="get_argv0" c:identifier="gb_application_get_argv0">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Application" c:type="GbApplication*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_keybindings_mode"
+              c:identifier="gb_application_get_keybindings_mode">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Application" c:type="GbApplication*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_started_at"
+              c:identifier="gb_application_get_started_at">
+        <return-value transfer-ownership="full">
+          <type name="GLib.DateTime" c:type="GDateTime*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Application" c:type="GbApplication*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_worker_async"
+              c:identifier="gb_application_get_worker_async">
+        <doc xml:space="preserve">Asynchronously requests a #GDBusProxy to a service provided in a worker
+process. The worker should be an #IdeWorker implemented by the plugin named
+@plugin_name. The #IdeWorker is responsible for created both the service
+registered on the bus and the proxy to it.
+
+The #GbApplication is responsible for spawning a subprocess for the worker.
+
+@callback should call gb_application_get_worker_finish() with the result
+provided to retrieve the result.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbApplication</doc>
+            <type name="Application" c:type="GbApplication*"/>
+          </instance-parameter>
+          <parameter name="plugin_name" transfer-ownership="none">
+            <doc xml:space="preserve">The name of the plugin.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">A #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve">A #GAsyncReadyCallback or %NULL.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">user data for @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_worker_finish"
+              c:identifier="gb_application_get_worker_finish"
+              throws="1">
+        <doc xml:space="preserve">Completes an asynchronous request to get a proxy to a worker process.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">A #GDBusProxy or %NULL.</doc>
+          <type name="Gio.DBusProxy" c:type="GDBusProxy*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbApplication.</doc>
+            <type name="Application" c:type="GbApplication*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve">A #GAsyncResult</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="open_project_async"
+              c:identifier="gb_application_open_project_async">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbApplication.</doc>
+            <type name="Application" c:type="GbApplication*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">A #GFile.</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+          <parameter name="additional_files"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">A #GPtrArray of #GFile or %NULL.</doc>
+            <array name="GLib.PtrArray" c:type="GPtrArray*">
+              <type name="Gio.File"/>
+            </array>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="open_project_finish"
+              c:identifier="gb_application_open_project_finish"
+              throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Application" c:type="GbApplication*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="show_projects_window"
+              c:identifier="gb_application_show_projects_window">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Application" c:type="GbApplication*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <interface name="ApplicationAddin"
+               c:symbol-prefix="application_addin"
+               c:type="GbApplicationAddin"
+               glib:type-name="GbApplicationAddin"
+               glib:get-type="gb_application_addin_get_type"
+               glib:type-struct="ApplicationAddinInterface">
+      <virtual-method name="load" invoker="load">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ApplicationAddin" c:type="GbApplicationAddin*"/>
+          </instance-parameter>
+          <parameter name="application" transfer-ownership="none">
+            <type name="Application" c:type="GbApplication*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="unload" invoker="unload">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ApplicationAddin" c:type="GbApplicationAddin*"/>
+          </instance-parameter>
+          <parameter name="application" transfer-ownership="none">
+            <type name="Application" c:type="GbApplication*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="load" c:identifier="gb_application_addin_load">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ApplicationAddin" c:type="GbApplicationAddin*"/>
+          </instance-parameter>
+          <parameter name="application" transfer-ownership="none">
+            <type name="Application" c:type="GbApplication*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unload" c:identifier="gb_application_addin_unload">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ApplicationAddin" c:type="GbApplicationAddin*"/>
+          </instance-parameter>
+          <parameter name="application" transfer-ownership="none">
+            <type name="Application" c:type="GbApplication*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="ApplicationAddinInterface"
+            c:type="GbApplicationAddinInterface"
+            glib:is-gtype-struct-for="ApplicationAddin">
+      <field name="parent">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="load">
+        <callback name="load">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="ApplicationAddin" c:type="GbApplicationAddin*"/>
+            </parameter>
+            <parameter name="application" transfer-ownership="none">
+              <type name="Application" c:type="GbApplication*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="unload">
+        <callback name="unload">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="ApplicationAddin" c:type="GbApplicationAddin*"/>
+            </parameter>
+            <parameter name="application" transfer-ownership="none">
+              <type name="Application" c:type="GbApplication*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="ApplicationClass"
+            c:type="GbApplicationClass"
+            glib:is-gtype-struct-for="Application">
+      <field name="parent_class">
+        <type name="Gtk.ApplicationClass" c:type="GtkApplicationClass"/>
+      </field>
+    </record>
+    <interface name="Document"
+               c:symbol-prefix="document"
+               c:type="GbDocument"
+               glib:type-name="GbDocument"
+               glib:get-type="gb_document_get_type"
+               glib:type-struct="DocumentInterface">
+      <virtual-method name="create_view" invoker="create_view">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">A newly created #GbView.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_modified" invoker="get_modified">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_mtime" invoker="get_mtime">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+          <parameter name="mtime" transfer-ownership="none">
+            <type name="GLib.TimeVal" c:type="GTimeVal*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_read_only" invoker="get_read_only">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_title" invoker="get_title">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="is_untitled" invoker="is_untitled">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="save_as_async" invoker="save_as_async">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+          <parameter name="toplevel" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="3">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="save_as_finish"
+                      invoker="save_as_finish"
+                      throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="save_async" invoker="save_async">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+          <parameter name="toplevel" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="3">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="save_finish" invoker="save_finish" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="create_view" c:identifier="gb_document_create_view">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">A newly created #GbView.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_modified" c:identifier="gb_document_get_modified">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_mtime" c:identifier="gb_document_get_mtime">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+          <parameter name="mtime" transfer-ownership="none">
+            <type name="GLib.TimeVal" c:type="GTimeVal*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_read_only" c:identifier="gb_document_get_read_only">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_title" c:identifier="gb_document_get_title">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_untitled" c:identifier="gb_document_is_untitled">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="save_as_async" c:identifier="gb_document_save_as_async">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+          <parameter name="toplevel" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="save_as_finish"
+              c:identifier="gb_document_save_as_finish"
+              throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="save_async" c:identifier="gb_document_save_async">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+          <parameter name="toplevel" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="save_finish"
+              c:identifier="gb_document_save_finish"
+              throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="modified" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="read-only" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="title" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <glib:signal name="create-view" when="last">
+        <doc xml:space="preserve">Creates a new view for the document.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">A #GbView.</doc>
+          <type name="View"/>
+        </return-value>
+      </glib:signal>
+    </interface>
+    <record name="DocumentInterface"
+            c:type="GbDocumentInterface"
+            glib:is-gtype-struct-for="Document">
+      <field name="parent">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="create_view">
+        <callback name="create_view">
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve">A newly created #GbView.</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </return-value>
+          <parameters>
+            <parameter name="document" transfer-ownership="none">
+              <type name="Document" c:type="GbDocument*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_modified">
+        <callback name="get_modified">
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="document" transfer-ownership="none">
+              <type name="Document" c:type="GbDocument*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_mtime">
+        <callback name="get_mtime">
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="document" transfer-ownership="none">
+              <type name="Document" c:type="GbDocument*"/>
+            </parameter>
+            <parameter name="mtime" transfer-ownership="none">
+              <type name="GLib.TimeVal" c:type="GTimeVal*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_read_only">
+        <callback name="get_read_only">
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="document" transfer-ownership="none">
+              <type name="Document" c:type="GbDocument*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_title">
+        <callback name="get_title">
+          <return-value transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </return-value>
+          <parameters>
+            <parameter name="document" transfer-ownership="none">
+              <type name="Document" c:type="GbDocument*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="is_untitled">
+        <callback name="is_untitled">
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="document" transfer-ownership="none">
+              <type name="Document" c:type="GbDocument*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="save_async">
+        <callback name="save_async">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="document" transfer-ownership="none">
+              <type name="Document" c:type="GbDocument*"/>
+            </parameter>
+            <parameter name="toplevel" transfer-ownership="none">
+              <type name="Gtk.Widget" c:type="GtkWidget*"/>
+            </parameter>
+            <parameter name="cancellable"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <type name="Gio.Cancellable" c:type="GCancellable*"/>
+            </parameter>
+            <parameter name="callback"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1"
+                       scope="async"
+                       closure="4">
+              <type name="Gio.AsyncReadyCallback"
+                    c:type="GAsyncReadyCallback"/>
+            </parameter>
+            <parameter name="user_data"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1"
+                       closure="4">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="save_finish">
+        <callback name="save_finish" throws="1">
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="document" transfer-ownership="none">
+              <type name="Document" c:type="GbDocument*"/>
+            </parameter>
+            <parameter name="result" transfer-ownership="none">
+              <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="save_as_async">
+        <callback name="save_as_async">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="document" transfer-ownership="none">
+              <type name="Document" c:type="GbDocument*"/>
+            </parameter>
+            <parameter name="toplevel" transfer-ownership="none">
+              <type name="Gtk.Widget" c:type="GtkWidget*"/>
+            </parameter>
+            <parameter name="cancellable"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <type name="Gio.Cancellable" c:type="GCancellable*"/>
+            </parameter>
+            <parameter name="callback"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1"
+                       scope="async"
+                       closure="4">
+              <type name="Gio.AsyncReadyCallback"
+                    c:type="GAsyncReadyCallback"/>
+            </parameter>
+            <parameter name="user_data"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1"
+                       closure="4">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="save_as_finish">
+        <callback name="save_as_finish" throws="1">
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="document" transfer-ownership="none">
+              <type name="Document" c:type="GbDocument*"/>
+            </parameter>
+            <parameter name="result" transfer-ownership="none">
+              <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="EditorView"
+           c:symbol-prefix="editor_view"
+           c:type="GbEditorView"
+           parent="View"
+           glib:type-name="GbEditorView"
+           glib:get-type="gb_editor_view_get_type"
+           glib:type-struct="EditorViewClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Orientable"/>
+      <property name="document"
+                introspectable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type/>
+      </property>
+      <glib:signal name="request-documentation" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <interface name="EditorViewAddin"
+               c:symbol-prefix="editor_view_addin"
+               c:type="GbEditorViewAddin"
+               glib:type-name="GbEditorViewAddin"
+               glib:get-type="gb_editor_view_addin_get_type"
+               glib:type-struct="EditorViewAddinInterface">
+      <virtual-method name="language_changed">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="EditorViewAddin" c:type="GbEditorViewAddin*"/>
+          </instance-parameter>
+          <parameter name="language_id" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="load">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="EditorViewAddin" c:type="GbEditorViewAddin*"/>
+          </instance-parameter>
+          <parameter name="view" transfer-ownership="none">
+            <type name="EditorView" c:type="GbEditorView*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="unload">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="EditorViewAddin" c:type="GbEditorViewAddin*"/>
+          </instance-parameter>
+          <parameter name="view" transfer-ownership="none">
+            <type name="EditorView" c:type="GbEditorView*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+    </interface>
+    <record name="EditorViewAddinInterface"
+            c:type="GbEditorViewAddinInterface"
+            glib:is-gtype-struct-for="EditorViewAddin">
+      <field name="parent">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="load">
+        <callback name="load">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="EditorViewAddin" c:type="GbEditorViewAddin*"/>
+            </parameter>
+            <parameter name="view" transfer-ownership="none">
+              <type name="EditorView" c:type="GbEditorView*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="unload">
+        <callback name="unload">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="EditorViewAddin" c:type="GbEditorViewAddin*"/>
+            </parameter>
+            <parameter name="view" transfer-ownership="none">
+              <type name="EditorView" c:type="GbEditorView*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="language_changed">
+        <callback name="language_changed">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="EditorViewAddin" c:type="GbEditorViewAddin*"/>
+            </parameter>
+            <parameter name="language_id" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="EditorViewClass"
+            c:type="GbEditorViewClass"
+            glib:is-gtype-struct-for="EditorView">
+      <field name="parent_class">
+        <type name="ViewClass" c:type="GbViewClass"/>
+      </field>
+    </record>
+    <class name="MenuExtension"
+           c:symbol-prefix="menu_extension"
+           c:type="GbMenuExtension"
+           parent="GObject.Object"
+           glib:type-name="GbMenuExtension"
+           glib:get-type="gb_menu_extension_get_type"
+           glib:type-struct="MenuExtensionClass">
+      <constructor name="new" c:identifier="gb_menu_extension_new">
+        <return-value transfer-ownership="full">
+          <type name="MenuExtension" c:type="GbMenuExtension*"/>
+        </return-value>
+        <parameters>
+          <parameter name="menu" transfer-ownership="none">
+            <type name="Gio.Menu" c:type="GMenu*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_for_section"
+                   c:identifier="gb_menu_extension_new_for_section">
+        <return-value transfer-ownership="full">
+          <type name="MenuExtension" c:type="GbMenuExtension*"/>
+        </return-value>
+        <parameters>
+          <parameter name="menu" transfer-ownership="none">
+            <type name="Gio.Menu" c:type="GMenu*"/>
+          </parameter>
+          <parameter name="section" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="append_menu_item"
+              c:identifier="gb_menu_extension_append_menu_item">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <type name="MenuExtension" c:type="GbMenuExtension*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <type name="Gio.MenuItem" c:type="GMenuItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="prepend_menu_item"
+              c:identifier="gb_menu_extension_prepend_menu_item">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <type name="MenuExtension" c:type="GbMenuExtension*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <type name="Gio.MenuItem" c:type="GMenuItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_items"
+              c:identifier="gb_menu_extension_remove_items">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <type name="MenuExtension" c:type="GbMenuExtension*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="menu"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Gio.Menu"/>
+      </property>
+    </class>
+    <record name="MenuExtensionClass"
+            c:type="GbMenuExtensionClass"
+            glib:is-gtype-struct-for="MenuExtension">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="Tree"
+           c:symbol-prefix="tree"
+           c:type="GbTree"
+           parent="Gtk.TreeView"
+           glib:type-name="GbTree"
+           glib:get-type="gb_tree_get_type"
+           glib:type-struct="TreeClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Scrollable"/>
+      <virtual-method name="action">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Tree" c:type="GbTree*"/>
+          </instance-parameter>
+          <parameter name="action_group" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="param" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="populate_popup">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Tree" c:type="GbTree*"/>
+          </instance-parameter>
+          <parameter name="widget" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="add_builder" c:identifier="gb_tree_add_builder">
+        <doc xml:space="preserve">Removes a builder from the tree.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTree.</doc>
+            <type name="Tree" c:type="GbTree*"/>
+          </instance-parameter>
+          <parameter name="builder" transfer-ownership="full">
+            <doc xml:space="preserve">A #GbTreeBuilder to add.</doc>
+            <type name="TreeBuilder" c:type="GbTreeBuilder*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="expand_to_node" c:identifier="gb_tree_expand_to_node">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Tree" c:type="GbTree*"/>
+          </instance-parameter>
+          <parameter name="node" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_child_node" c:identifier="gb_tree_find_child_node">
+        <doc xml:space="preserve">Searches through the direct children of @node for a matching child.
+@find_func should return %TRUE if the child matches, otherwise %FALSE.</doc>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">A #GbTreeNode or %NULL.</doc>
+          <type name="TreeNode" c:type="GbTreeNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTree</doc>
+            <type name="Tree" c:type="GbTree*"/>
+          </instance-parameter>
+          <parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeNode</doc>
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </parameter>
+          <parameter name="find_func"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="2">
+            <doc xml:space="preserve">A callback to locate the child</doc>
+            <type name="TreeFindFunc" c:type="GbTreeFindFunc"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">user data for @find_func</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_custom" c:identifier="gb_tree_find_custom">
+        <doc xml:space="preserve">Walks the entire tree looking for the first item that matches given
+@equal_func and @key.
+
+The first parameter to @equal_func will always be @key.
+The second parameter will be the nodes #GbTreeNode:item property.</doc>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">A #GbTreeNode or %NULL.</doc>
+          <type name="TreeNode" c:type="GbTreeNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTree</doc>
+            <type name="Tree" c:type="GbTree*"/>
+          </instance-parameter>
+          <parameter name="equal_func" transfer-ownership="none" scope="call">
+            <doc xml:space="preserve">A #GEqualFunc</doc>
+            <type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+          </parameter>
+          <parameter name="key"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">the key for @equal_func</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_item" c:identifier="gb_tree_find_item">
+        <doc xml:space="preserve">Finds a #GbTreeNode with an item property matching @item.</doc>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">A #GbTreeNode or %NULL.</doc>
+          <type name="TreeNode" c:type="GbTreeNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTree.</doc>
+            <type name="Tree" c:type="GbTree*"/>
+          </instance-parameter>
+          <parameter name="item"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">A #GObject or %NULL.</doc>
+            <type name="GObject.Object" c:type="GObject*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_root" c:identifier="gb_tree_get_root">
+        <doc xml:space="preserve">Retrieves the root node of the tree. The root node is not a visible node
+in the self, but a placeholder for all other builders to build upon.</doc>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">A #GbTreeNode or %NULL.</doc>
+          <type name="TreeNode" c:type="GbTreeNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Tree" c:type="GbTree*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_selected" c:identifier="gb_tree_get_selected">
+        <doc xml:space="preserve">Gets the currently selected node in the tree.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">A #GbTreeNode.</doc>
+          <type name="TreeNode" c:type="GbTreeNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTree.</doc>
+            <type name="Tree" c:type="GbTree*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_icons" c:identifier="gb_tree_get_show_icons">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Tree" c:type="GbTree*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="rebuild" c:identifier="gb_tree_rebuild">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Tree" c:type="GbTree*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="remove_builder" c:identifier="gb_tree_remove_builder">
+        <doc xml:space="preserve">Removes a builder from the tree.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTree.</doc>
+            <type name="Tree" c:type="GbTree*"/>
+          </instance-parameter>
+          <parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeBuilder to remove.</doc>
+            <type name="TreeBuilder" c:type="GbTreeBuilder*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="scroll_to_node" c:identifier="gb_tree_scroll_to_node">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Tree" c:type="GbTree*"/>
+          </instance-parameter>
+          <parameter name="node" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_filter" c:identifier="gb_tree_set_filter">
+        <doc xml:space="preserve">Sets the filter function to be used to determine visability of a tree node.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTree</doc>
+            <type name="Tree" c:type="GbTree*"/>
+          </instance-parameter>
+          <parameter name="filter_func"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="1"
+                     destroy="2">
+            <doc xml:space="preserve">A callback to determien visibility.</doc>
+            <type name="TreeFilterFunc" c:type="GbTreeFilterFunc"/>
+          </parameter>
+          <parameter name="filter_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">User data for @filter_func.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="filter_data_destroy"
+                     transfer-ownership="none"
+                     scope="async">
+            <doc xml:space="preserve">Destroy notify for @filter_data.</doc>
+            <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_root" c:identifier="gb_tree_set_root">
+        <doc xml:space="preserve">Sets the root node of the #GbTree widget. This is used to build
+the items within the treeview. The item itself will not be added
+to the self, but the direct children will be.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTree.</doc>
+            <type name="Tree" c:type="GbTree*"/>
+          </instance-parameter>
+          <parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeNode.</doc>
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_show_icons" c:identifier="gb_tree_set_show_icons">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Tree" c:type="GbTree*"/>
+          </instance-parameter>
+          <parameter name="show_icons" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="root" writable="1" transfer-ownership="none">
+        <type name="TreeNode"/>
+      </property>
+      <property name="selection" writable="1" transfer-ownership="none">
+        <type name="TreeNode"/>
+      </property>
+      <property name="show-icons" writable="1" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Gtk.TreeView" c:type="GtkTreeView"/>
+      </field>
+      <glib:signal name="action" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="populate-popup" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Gtk.Widget"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <class name="TreeBuilder"
+           c:symbol-prefix="tree_builder"
+           c:type="GbTreeBuilder"
+           parent="GObject.InitiallyUnowned"
+           glib:type-name="GbTreeBuilder"
+           glib:get-type="gb_tree_builder_get_type"
+           glib:type-struct="TreeBuilderClass">
+      <virtual-method name="added">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <type name="TreeBuilder" c:type="GbTreeBuilder*"/>
+          </instance-parameter>
+          <parameter name="tree" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="build_node">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <type name="TreeBuilder" c:type="GbTreeBuilder*"/>
+          </instance-parameter>
+          <parameter name="node" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="node_activated">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <type name="TreeBuilder" c:type="GbTreeBuilder*"/>
+          </instance-parameter>
+          <parameter name="node" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="node_popup">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <type name="TreeBuilder" c:type="GbTreeBuilder*"/>
+          </instance-parameter>
+          <parameter name="node" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </parameter>
+          <parameter name="menu" transfer-ownership="none">
+            <type name="Gio.Menu" c:type="GMenu*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="node_selected">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <type name="TreeBuilder" c:type="GbTreeBuilder*"/>
+          </instance-parameter>
+          <parameter name="node" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="node_unselected">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <type name="TreeBuilder" c:type="GbTreeBuilder*"/>
+          </instance-parameter>
+          <parameter name="node" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="removed">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <type name="TreeBuilder" c:type="GbTreeBuilder*"/>
+          </instance-parameter>
+          <parameter name="tree" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_tree" c:identifier="gb_tree_builder_get_tree">
+        <doc xml:space="preserve">Gets the tree that owns the builder.</doc>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">A #GbTree or %NULL.</doc>
+          <type name="Tree" c:type="GbTree*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeBuilder.</doc>
+            <type name="TreeBuilder" c:type="GbTreeBuilder*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="tree" transfer-ownership="none">
+        <type name="Tree"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.InitiallyUnowned" c:type="GInitiallyUnowned"/>
+      </field>
+      <glib:signal name="added" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Tree"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="build-node" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="TreeNode"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="node-activated" when="last">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="TreeNode"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="node-popup" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="TreeNode"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="Gio.Menu"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="node-selected" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="TreeNode"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="node-unselected" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="TreeNode"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="removed" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Tree"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="TreeBuilderClass"
+            c:type="GbTreeBuilderClass"
+            glib:is-gtype-struct-for="TreeBuilder">
+      <field name="parent_class">
+        <type name="GObject.InitiallyUnownedClass"
+              c:type="GInitiallyUnownedClass"/>
+      </field>
+      <field name="added">
+        <callback name="added">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="builder" transfer-ownership="none">
+              <type name="TreeBuilder" c:type="GbTreeBuilder*"/>
+            </parameter>
+            <parameter name="tree" transfer-ownership="none">
+              <type name="Gtk.Widget" c:type="GtkWidget*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="removed">
+        <callback name="removed">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="builder" transfer-ownership="none">
+              <type name="TreeBuilder" c:type="GbTreeBuilder*"/>
+            </parameter>
+            <parameter name="tree" transfer-ownership="none">
+              <type name="Gtk.Widget" c:type="GtkWidget*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="build_node">
+        <callback name="build_node">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="builder" transfer-ownership="none">
+              <type name="TreeBuilder" c:type="GbTreeBuilder*"/>
+            </parameter>
+            <parameter name="node" transfer-ownership="none">
+              <type name="TreeNode" c:type="GbTreeNode*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="node_activated">
+        <callback name="node_activated">
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="builder" transfer-ownership="none">
+              <type name="TreeBuilder" c:type="GbTreeBuilder*"/>
+            </parameter>
+            <parameter name="node" transfer-ownership="none">
+              <type name="TreeNode" c:type="GbTreeNode*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="node_selected">
+        <callback name="node_selected">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="builder" transfer-ownership="none">
+              <type name="TreeBuilder" c:type="GbTreeBuilder*"/>
+            </parameter>
+            <parameter name="node" transfer-ownership="none">
+              <type name="TreeNode" c:type="GbTreeNode*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="node_unselected">
+        <callback name="node_unselected">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="builder" transfer-ownership="none">
+              <type name="TreeBuilder" c:type="GbTreeBuilder*"/>
+            </parameter>
+            <parameter name="node" transfer-ownership="none">
+              <type name="TreeNode" c:type="GbTreeNode*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="node_popup">
+        <callback name="node_popup">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="builder" transfer-ownership="none">
+              <type name="TreeBuilder" c:type="GbTreeBuilder*"/>
+            </parameter>
+            <parameter name="node" transfer-ownership="none">
+              <type name="TreeNode" c:type="GbTreeNode*"/>
+            </parameter>
+            <parameter name="menu" transfer-ownership="none">
+              <type name="Gio.Menu" c:type="GMenu*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="TreeClass"
+            c:type="GbTreeClass"
+            glib:is-gtype-struct-for="Tree">
+      <field name="parent_class">
+        <type name="Gtk.TreeViewClass" c:type="GtkTreeViewClass"/>
+      </field>
+      <field name="action">
+        <callback name="action">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Tree" c:type="GbTree*"/>
+            </parameter>
+            <parameter name="action_group" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="action_name" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="param" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="populate_popup">
+        <callback name="populate_popup">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Tree" c:type="GbTree*"/>
+            </parameter>
+            <parameter name="widget" transfer-ownership="none">
+              <type name="Gtk.Widget" c:type="GtkWidget*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <callback name="TreeFilterFunc" c:type="GbTreeFilterFunc">
+      <doc xml:space="preserve">Callback to check if @node should be visible.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">%TRUE if @node should be visible.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="tree" transfer-ownership="none">
+          <type name="Tree" c:type="GbTree*"/>
+        </parameter>
+        <parameter name="node" transfer-ownership="none">
+          <type name="TreeNode" c:type="GbTreeNode*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="2">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="TreeFindFunc" c:type="GbTreeFindFunc">
+      <doc xml:space="preserve">Callback to check @child, a child of @node, matches a lookup
+request. Returns %TRUE if @child matches, %FALSE if not.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">%TRUE if @child matched</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="tree" transfer-ownership="none">
+          <type name="Tree" c:type="GbTree*"/>
+        </parameter>
+        <parameter name="node" transfer-ownership="none">
+          <type name="TreeNode" c:type="GbTreeNode*"/>
+        </parameter>
+        <parameter name="child" transfer-ownership="none">
+          <type name="TreeNode" c:type="GbTreeNode*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="3">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <class name="TreeNode"
+           c:symbol-prefix="tree_node"
+           c:type="GbTreeNode"
+           parent="GObject.InitiallyUnowned"
+           glib:type-name="GbTreeNode"
+           glib:get-type="gb_tree_node_get_type"
+           glib:type-struct="TreeNodeClass">
+      <constructor name="new" c:identifier="gb_tree_node_new">
+        <doc xml:space="preserve">Creates a new #GbTreeNode instance. This is handy for situations where you
+do not want to subclass #GbTreeNode.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">A #GbTreeNode</doc>
+          <type name="TreeNode" c:type="GbTreeNode*"/>
+        </return-value>
+      </constructor>
+      <method name="append" c:identifier="gb_tree_node_append">
+        <doc xml:space="preserve">Appends @child to the list of children owned by @node.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeNode.</doc>
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+          <parameter name="child" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeNode.</doc>
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="collapse" c:identifier="gb_tree_node_collapse">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="expand" c:identifier="gb_tree_node_expand">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+          <parameter name="expand_ancestors" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_area" c:identifier="gb_tree_node_get_area">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+          <parameter name="area" transfer-ownership="none">
+            <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_children_possible"
+              c:identifier="gb_tree_node_get_children_possible">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_expanded" c:identifier="gb_tree_node_get_expanded">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_name" c:identifier="gb_tree_node_get_icon_name">
+        <doc xml:space="preserve">Fetches the icon-name of the icon to display, or NULL for no icon.</doc>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_item" c:identifier="gb_tree_node_get_item">
+        <doc xml:space="preserve">Gets a #GObject for the node, if one was set.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">A #GObject or %NULL.</doc>
+          <type name="GObject.Object" c:type="GObject*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeNode.</doc>
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_iter" c:identifier="gb_tree_node_get_iter">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+          <parameter name="iter" transfer-ownership="none">
+            <type name="Gtk.TreeIter" c:type="GtkTreeIter*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_parent" c:identifier="gb_tree_node_get_parent">
+        <doc xml:space="preserve">Retrieves the parent #GbTreeNode for @node.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">A #GbTreeNode.</doc>
+          <type name="TreeNode" c:type="GbTreeNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeNode.</doc>
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_path" c:identifier="gb_tree_node_get_path">
+        <doc xml:space="preserve">Gets a #GtkTreePath for @node.</doc>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve">A #GtkTreePath if successful; otherwise %NULL.</doc>
+          <type name="Gtk.TreePath" c:type="GtkTreePath*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeNode.</doc>
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_text" c:identifier="gb_tree_node_get_text">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tree" c:identifier="gb_tree_node_get_tree">
+        <doc xml:space="preserve">Fetches the #GbTree instance that owns the node.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">A #GbTree.</doc>
+          <type name="Tree" c:type="GbTree*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeNode.</doc>
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_use_dim_label"
+              c:identifier="gb_tree_node_get_use_dim_label">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_use_markup" c:identifier="gb_tree_node_get_use_markup">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="insert_sorted" c:identifier="gb_tree_node_insert_sorted">
+        <doc xml:space="preserve">Inserts a @child as a child of @node, sorting it among the other children.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeNode.</doc>
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+          <parameter name="child" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeNode.</doc>
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </parameter>
+          <parameter name="compare_func"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="2">
+            <doc xml:space="preserve">A compare func to compare nodes.</doc>
+            <type name="TreeNodeCompareFunc" c:type="GbTreeNodeCompareFunc"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">user data for @compare_func.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="invalidate" c:identifier="gb_tree_node_invalidate">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="prepend" c:identifier="gb_tree_node_prepend">
+        <doc xml:space="preserve">Prepends @child to the list of children owned by @node.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeNode.</doc>
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+          <parameter name="child" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeNode.</doc>
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove" c:identifier="gb_tree_node_remove">
+        <doc xml:space="preserve">Removes @child from the list of children owned by @node.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeNode.</doc>
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+          <parameter name="child" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeNode.</doc>
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="select" c:identifier="gb_tree_node_select">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_children_possible"
+              c:identifier="gb_tree_node_set_children_possible">
+        <doc xml:space="preserve">If the node has not yet been built, setting this to %TRUE will add a
+dummy child node. This dummy node will be removed when when the node
+is built by the registered #GbTreeBuilder instances.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeNode.</doc>
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+          <parameter name="children_possible" transfer-ownership="none">
+            <doc xml:space="preserve">If the node has children.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_icon_name" c:identifier="gb_tree_node_set_icon_name">
+        <doc xml:space="preserve">Sets the icon name of the node. This is displayed in the pixbuf
+cell of the GbTree.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeNode.</doc>
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+          <parameter name="icon_name" transfer-ownership="none">
+            <doc xml:space="preserve">The icon name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_item" c:identifier="gb_tree_node_set_item">
+        <doc xml:space="preserve">An optional object to associate with the node. This is handy to save needing
+to subclass the #GbTreeNode class.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeNode.</doc>
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve">A #GObject.</doc>
+            <type name="GObject.Object" c:type="GObject*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_text" c:identifier="gb_tree_node_set_text">
+        <doc xml:space="preserve">Sets the text of the node. This is displayed in the text
+cell of the GbTree.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbTreeNode.</doc>
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+          <parameter name="text" transfer-ownership="none">
+            <doc xml:space="preserve">The node text.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_use_dim_label"
+              c:identifier="gb_tree_node_set_use_dim_label">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+          <parameter name="use_dim_label" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_use_markup" c:identifier="gb_tree_node_set_use_markup">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+          <parameter name="use_markup" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="show_popover" c:identifier="gb_tree_node_show_popover">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <type name="TreeNode" c:type="GbTreeNode*"/>
+          </instance-parameter>
+          <parameter name="popover" transfer-ownership="none">
+            <type name="Gtk.Popover" c:type="GtkPopover*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="children-possible"
+                writable="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">This property allows for more lazy loading of nodes.
+
+When a node becomes visible, we normally build it's children nodes
+so that we know if we need an expansion arrow. However, that can
+be expensive when rendering directories with lots of subdirectories.
+
+Using this, you can always show an arrow without building the children
+and simply hide the arrow if there were in fact no children (upon
+expansion).</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="icon-name" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve">An icon-name to display on the row.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="item" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve">An optional #GObject to associate with the node.</doc>
+        <type name="GObject.Object"/>
+      </property>
+      <property name="parent" transfer-ownership="none">
+        <doc xml:space="preserve">The parent of the node.</doc>
+        <type name="TreeNode"/>
+      </property>
+      <property name="text" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve">Text to display on the tree node.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="tree" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve">The tree the node belongs to.</doc>
+        <type name="Tree"/>
+      </property>
+      <property name="use-dim-label" writable="1" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="use-markup" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve">If the "text" property includes #GMarkup.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+    </class>
+    <record name="TreeNodeClass"
+            c:type="GbTreeNodeClass"
+            glib:is-gtype-struct-for="TreeNode">
+      <field name="parent_class">
+        <type name="GObject.InitiallyUnownedClass"
+              c:type="GInitiallyUnownedClass"/>
+      </field>
+    </record>
+    <callback name="TreeNodeCompareFunc" c:type="GbTreeNodeCompareFunc">
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </return-value>
+      <parameters>
+        <parameter name="a" transfer-ownership="none">
+          <type name="TreeNode" c:type="GbTreeNode*"/>
+        </parameter>
+        <parameter name="b" transfer-ownership="none">
+          <type name="TreeNode" c:type="GbTreeNode*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="2">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <class name="View"
+           c:symbol-prefix="view"
+           c:type="GbView"
+           parent="Gtk.Box"
+           glib:type-name="GbView"
+           glib:get-type="gb_view_get_type"
+           glib:type-struct="ViewClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Orientable"/>
+      <virtual-method name="create_split" invoker="create_split">
+        <doc xml:space="preserve">Creates a new view similar to @self that can be displayed in a split.
+If the view does not support splits, %NULL will be returned.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">A #GbView.</doc>
+          <type name="View" c:type="GbView*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbView.</doc>
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_can_preview" invoker="get_can_preview">
+        <doc xml:space="preserve">Checks if @self can create a preview view (such as html, markdown, etc).</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if @self can create a preview view.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbView.</doc>
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_can_split" invoker="get_can_split">
+        <doc xml:space="preserve">Checks if @self can create a split view. If so, %TRUE is returned. Otherwise, %FALSE.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if @self can create a split.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbView.</doc>
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_document" invoker="get_document">
+        <doc xml:space="preserve">Gets the document for the view.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">A #GbDocument.</doc>
+          <type name="Document" c:type="GbDocument*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbView.</doc>
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_modified" invoker="get_modified">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_special_title" invoker="get_special_title">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_title" invoker="get_title">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="navigate_to" invoker="navigate_to">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+          <parameter name="location" transfer-ownership="none">
+            <type name="Ide.SourceLocation" c:type="IdeSourceLocation*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_back_forward_list"
+                      invoker="set_back_forward_list">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+          <parameter name="back_forward_list" transfer-ownership="none">
+            <type name="Ide.BackForwardList" c:type="IdeBackForwardList*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_split_view" invoker="set_split_view">
+        <doc xml:space="preserve">Set a split view using GtkPaned style split with %GTK_ORIENTATION_VERTICAL.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbView.</doc>
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+          <parameter name="split_view" transfer-ownership="none">
+            <doc xml:space="preserve">if the split should be enabled.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="create_split" c:identifier="gb_view_create_split">
+        <doc xml:space="preserve">Creates a new view similar to @self that can be displayed in a split.
+If the view does not support splits, %NULL will be returned.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">A #GbView.</doc>
+          <type name="View" c:type="GbView*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbView.</doc>
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_can_preview" c:identifier="gb_view_get_can_preview">
+        <doc xml:space="preserve">Checks if @self can create a preview view (such as html, markdown, etc).</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if @self can create a preview view.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbView.</doc>
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_can_split" c:identifier="gb_view_get_can_split">
+        <doc xml:space="preserve">Checks if @self can create a split view. If so, %TRUE is returned. Otherwise, %FALSE.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if @self can create a split.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbView.</doc>
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_controls" c:identifier="gb_view_get_controls">
+        <doc xml:space="preserve">Gets the controls for the view.</doc>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">A #GtkWidget.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbView.</doc>
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_document" c:identifier="gb_view_get_document">
+        <doc xml:space="preserve">Gets the document for the view.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">A #GbDocument.</doc>
+          <type name="Document" c:type="GbDocument*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbView.</doc>
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_menu" c:identifier="gb_view_get_menu">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">A #GMenu that may be modified.</doc>
+          <type name="Gio.Menu" c:type="GMenu*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_modified" c:identifier="gb_view_get_modified">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_special_title"
+              c:identifier="gb_view_get_special_title">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_title" c:identifier="gb_view_get_title">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="navigate_to" c:identifier="gb_view_navigate_to">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+          <parameter name="location" transfer-ownership="none">
+            <type name="Ide.SourceLocation" c:type="IdeSourceLocation*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_back_forward_list"
+              c:identifier="gb_view_set_back_forward_list">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+          <parameter name="back_forward_list" transfer-ownership="none">
+            <type name="Ide.BackForwardList" c:type="IdeBackForwardList*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_split_view" c:identifier="gb_view_set_split_view">
+        <doc xml:space="preserve">Set a split view using GtkPaned style split with %GTK_ORIENTATION_VERTICAL.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbView.</doc>
+            <type name="View" c:type="GbView*"/>
+          </instance-parameter>
+          <parameter name="split_view" transfer-ownership="none">
+            <doc xml:space="preserve">if the split should be enabled.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="can-split" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="document" transfer-ownership="none">
+        <type name="Document"/>
+      </property>
+      <property name="modified" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="special-title" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="title" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Gtk.Box" c:type="GtkBox"/>
+      </field>
+    </class>
+    <record name="ViewClass"
+            c:type="GbViewClass"
+            glib:is-gtype-struct-for="View">
+      <field name="parent">
+        <type name="Gtk.BinClass" c:type="GtkBinClass"/>
+      </field>
+      <field name="get_can_preview">
+        <callback name="get_can_preview">
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve">%TRUE if @self can create a preview view.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve">A #GbView.</doc>
+              <type name="View" c:type="GbView*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_can_split">
+        <callback name="get_can_split">
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve">%TRUE if @self can create a split.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve">A #GbView.</doc>
+              <type name="View" c:type="GbView*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_document">
+        <callback name="get_document">
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve">A #GbDocument.</doc>
+            <type name="Document" c:type="GbDocument*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve">A #GbView.</doc>
+              <type name="View" c:type="GbView*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_modified">
+        <callback name="get_modified">
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="View" c:type="GbView*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_title">
+        <callback name="get_title">
+          <return-value transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="View" c:type="GbView*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_special_title">
+        <callback name="get_special_title">
+          <return-value transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="View" c:type="GbView*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="create_split">
+        <callback name="create_split">
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve">A #GbView.</doc>
+            <type name="View" c:type="GbView*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve">A #GbView.</doc>
+              <type name="View" c:type="GbView*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_split_view">
+        <callback name="set_split_view">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve">A #GbView.</doc>
+              <type name="View" c:type="GbView*"/>
+            </parameter>
+            <parameter name="split_view" transfer-ownership="none">
+              <doc xml:space="preserve">if the split should be enabled.</doc>
+              <type name="gboolean" c:type="gboolean"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_back_forward_list">
+        <callback name="set_back_forward_list">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="View" c:type="GbView*"/>
+            </parameter>
+            <parameter name="back_forward_list" transfer-ownership="none">
+              <type name="Ide.BackForwardList" c:type="IdeBackForwardList*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="navigate_to">
+        <callback name="navigate_to">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="View" c:type="GbView*"/>
+            </parameter>
+            <parameter name="location" transfer-ownership="none">
+              <type name="Ide.SourceLocation" c:type="IdeSourceLocation*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="ViewGrid"
+           c:symbol-prefix="view_grid"
+           c:type="GbViewGrid"
+           parent="Gtk.Bin"
+           glib:type-name="GbViewGrid"
+           glib:get-type="gb_view_grid_get_type"
+           glib:type-struct="ViewGridClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="gb_view_grid_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="add_stack_after"
+              c:identifier="gb_view_grid_add_stack_after">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The new view stack.</doc>
+          <type name="ViewStack" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="grid" transfer-ownership="none">
+            <type name="ViewGrid" c:type="GbViewGrid*"/>
+          </instance-parameter>
+          <parameter name="stack" transfer-ownership="none">
+            <type name="ViewStack" c:type="GbViewStack*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_stack_before"
+              c:identifier="gb_view_grid_add_stack_before">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The new view stack.</doc>
+          <type name="ViewStack" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="grid" transfer-ownership="none">
+            <type name="ViewGrid" c:type="GbViewGrid*"/>
+          </instance-parameter>
+          <parameter name="stack" transfer-ownership="none">
+            <type name="ViewStack" c:type="GbViewStack*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_document_typed"
+              c:identifier="gb_view_grid_find_document_typed">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">The first document
+  matching @document_type or %NULL.</doc>
+          <type name="Document" c:type="GbDocument*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ViewGrid" c:type="GbViewGrid*"/>
+          </instance-parameter>
+          <parameter name="document_type" transfer-ownership="none">
+            <type name="GType" c:type="GType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="focus_document" c:identifier="gb_view_grid_focus_document">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="grid" transfer-ownership="none">
+            <type name="ViewGrid" c:type="GbViewGrid*"/>
+          </instance-parameter>
+          <parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_last_focus" c:identifier="gb_view_grid_get_last_focus">
+        <doc xml:space="preserve">Gets the last focused #GbViewStack.</doc>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">A #GbViewStack or %NULL.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbViewGrid.</doc>
+            <type name="ViewGrid" c:type="GbViewGrid*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_stack_after"
+              c:identifier="gb_view_grid_get_stack_after">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">The view stack.</doc>
+          <type name="ViewStack" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="grid" transfer-ownership="none">
+            <type name="ViewGrid" c:type="GbViewGrid*"/>
+          </instance-parameter>
+          <parameter name="stack" transfer-ownership="none">
+            <type name="ViewStack" c:type="GbViewStack*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_stack_before"
+              c:identifier="gb_view_grid_get_stack_before">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">The view stack.</doc>
+          <type name="ViewStack" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="grid" transfer-ownership="none">
+            <type name="ViewGrid" c:type="GbViewGrid*"/>
+          </instance-parameter>
+          <parameter name="stack" transfer-ownership="none">
+            <type name="ViewStack" c:type="GbViewStack*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_stacks" c:identifier="gb_view_grid_get_stacks">
+        <doc xml:space="preserve">Fetches all of the stacks in the grid. The resulting #GList should be
+freed with g_list_free().</doc>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve">A #GList.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="ViewStack"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="grid" transfer-ownership="none">
+            <type name="ViewGrid" c:type="GbViewGrid*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="raise_document" c:identifier="gb_view_grid_raise_document">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ViewGrid" c:type="GbViewGrid*"/>
+          </instance-parameter>
+          <parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </parameter>
+          <parameter name="focus" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="ViewGridClass"
+            c:type="GbViewGridClass"
+            glib:is-gtype-struct-for="ViewGrid">
+      <field name="parent_class">
+        <type name="Gtk.BinClass" c:type="GtkBinClass"/>
+      </field>
+    </record>
+    <enumeration name="ViewGridSplit"
+                 glib:type-name="GbViewGridSplit"
+                 glib:get-type="gb_view_grid_split_get_type"
+                 c:type="GbViewGridSplit">
+      <doc xml:space="preserve">%GB_VIEW_GRID_SPLIT_LEFT:
+%GB_VIEW_GRID_SPLIT_RIGHT:
+%GB_VIEW_GRID_SPLIT_MOVE_LEFT:
+%GB_VIEW_GRID_SPLIT_MOVE_RIGHT:</doc>
+      <member name="left"
+              value="1"
+              c:identifier="GB_VIEW_GRID_SPLIT_LEFT"
+              glib:nick="left">
+      </member>
+      <member name="right"
+              value="2"
+              c:identifier="GB_VIEW_GRID_SPLIT_RIGHT"
+              glib:nick="right">
+      </member>
+      <member name="move_left"
+              value="3"
+              c:identifier="GB_VIEW_GRID_SPLIT_MOVE_LEFT"
+              glib:nick="move-left">
+      </member>
+      <member name="move_right"
+              value="4"
+              c:identifier="GB_VIEW_GRID_SPLIT_MOVE_RIGHT"
+              glib:nick="move-right">
+      </member>
+    </enumeration>
+    <class name="ViewStack"
+           c:symbol-prefix="view_stack"
+           c:type="GbViewStack"
+           parent="Gtk.Bin"
+           glib:type-name="GbViewStack"
+           glib:get-type="gb_view_stack_get_type"
+           glib:type-struct="ViewStackClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="gb_view_stack_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="find_document_typed"
+              c:identifier="gb_view_stack_find_document_typed">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">A #GbDocument or %NULL.</doc>
+          <type name="Document" c:type="GbDocument*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ViewStack" c:type="GbViewStack*"/>
+          </instance-parameter>
+          <parameter name="document_type" transfer-ownership="none">
+            <type name="GType" c:type="GType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_with_document"
+              c:identifier="gb_view_stack_find_with_document">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">A #GtkWidget or %NULL.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ViewStack" c:type="GbViewStack*"/>
+          </instance-parameter>
+          <parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="focus_document"
+              c:identifier="gb_view_stack_focus_document">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ViewStack" c:type="GbViewStack*"/>
+          </instance-parameter>
+          <parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="focus_location"
+              c:identifier="gb_view_stack_focus_location">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ViewStack" c:type="GbViewStack*"/>
+          </instance-parameter>
+          <parameter name="location" transfer-ownership="none">
+            <type name="Ide.SourceLocation" c:type="IdeSourceLocation*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_active_view"
+              c:identifier="gb_view_stack_get_active_view">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">A #GtkWidget or %NULL.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ViewStack" c:type="GbViewStack*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_views" c:identifier="gb_view_stack_get_views">
+        <doc xml:space="preserve">Gets the views belonging to this #GbViewStack.</doc>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve">A #GList of #GbView.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="View"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ViewStack" c:type="GbViewStack*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="raise_document"
+              c:identifier="gb_view_stack_raise_document">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ViewStack" c:type="GbViewStack*"/>
+          </instance-parameter>
+          <parameter name="document" transfer-ownership="none">
+            <type name="Document" c:type="GbDocument*"/>
+          </parameter>
+          <parameter name="focus" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove" c:identifier="gb_view_stack_remove">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ViewStack" c:type="GbViewStack*"/>
+          </instance-parameter>
+          <parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="GbView*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_active_view"
+              c:identifier="gb_view_stack_set_active_view">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ViewStack" c:type="GbViewStack*"/>
+          </instance-parameter>
+          <parameter name="active_view" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="active-view" writable="1" transfer-ownership="none">
+        <type name="View"/>
+      </property>
+      <glib:signal name="empty" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="split" when="last">
+        <doc xml:space="preserve">Requests a split to be performed on the view.
+
+This should only be used by #GbViewGrid.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve">The #GbView to split.</doc>
+            <type name="View"/>
+          </parameter>
+          <parameter name="split_type" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbViewGridSplit.</doc>
+            <type name="gint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ViewStackClass"
+            c:type="GbViewStackClass"
+            glib:is-gtype-struct-for="ViewStack">
+      <field name="parent_class">
+        <type name="Gtk.BinClass" c:type="GtkBinClass"/>
+      </field>
+    </record>
+    <class name="Workbench"
+           c:symbol-prefix="workbench"
+           c:type="GbWorkbench"
+           parent="Gtk.ApplicationWindow"
+           glib:type-name="GbWorkbench"
+           glib:get-type="gb_workbench_get_type"
+           glib:type-struct="WorkbenchClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gio.ActionGroup"/>
+      <implements name="Gio.ActionMap"/>
+      <implements name="Gtk.Buildable"/>
+      <method name="add_temporary_buffer"
+              c:identifier="gb_workbench_add_temporary_buffer">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workbench" c:type="GbWorkbench*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="build_async" c:identifier="gb_workbench_build_async">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workbench" c:type="GbWorkbench*"/>
+          </instance-parameter>
+          <parameter name="force_rebuild" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="build_finish"
+              c:identifier="gb_workbench_build_finish"
+              throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workbench" c:type="GbWorkbench*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_active_view"
+              c:identifier="gb_workbench_get_active_view">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The last focused view.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workbench" c:type="GbWorkbench*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_closing" c:identifier="gb_workbench_get_closing">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workbench" c:type="GbWorkbench*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_context" c:identifier="gb_workbench_get_context">
+        <doc xml:space="preserve">Gets the #IdeContext for the workbench.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">An #IdeContext.</doc>
+          <type name="Ide.Context" c:type="IdeContext*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbWorkbench.</doc>
+            <type name="Workbench" c:type="GbWorkbench*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_slider" c:identifier="gb_workbench_get_slider">
+        <doc xml:space="preserve">The slider can be used to to hide things behind the workbench and then
+reveal them efficiently.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the toplevel slider</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workbench" c:type="GbWorkbench*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_view_grid" c:identifier="gb_workbench_get_view_grid">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The view grid for documents and such.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workbench" c:type="GbWorkbench*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_workspace" c:identifier="gb_workbench_get_workspace">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The workspace widget.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workbench" c:type="GbWorkbench*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="open" c:identifier="gb_workbench_open">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workbench" c:type="GbWorkbench*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="open_uri_list" c:identifier="gb_workbench_open_uri_list">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workbench" c:type="GbWorkbench*"/>
+          </instance-parameter>
+          <parameter name="uri_list" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar* const*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="open_with_editor"
+              c:identifier="gb_workbench_open_with_editor">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workbench" c:type="GbWorkbench*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="reveal_file" c:identifier="gb_workbench_reveal_file">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Workbench" c:type="GbWorkbench*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="views_foreach" c:identifier="gb_workbench_views_foreach">
+        <doc xml:space="preserve">Invoke @callback for each view in the workbench.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #GbWorkbench.</doc>
+            <type name="Workbench" c:type="GbWorkbench*"/>
+          </instance-parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="1">
+            <doc xml:space="preserve">A callback to call for each view.</doc>
+            <type name="Gtk.Callback" c:type="GtkCallback"/>
+          </parameter>
+          <parameter name="callback_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">User data for @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="active-view" transfer-ownership="none">
+        <type name="View"/>
+      </property>
+      <property name="building" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="context"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The "context" property is the #IdeContext that shall be worked upon in
+the #GbWorkbench. This must be set during workbench creation. Use
+another window or dialog to choose the project information before
+creating a workbench window.</doc>
+        <type name="Ide.Context"/>
+      </property>
+      <glib:signal name="unload" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Ide.Context"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="WorkbenchClass"
+            c:type="GbWorkbenchClass"
+            glib:is-gtype-struct-for="Workbench">
+      <field name="parent_class">
+        <type name="Gtk.ApplicationWindowClass"
+              c:type="GtkApplicationWindowClass"/>
+      </field>
+    </record>
+  </namespace>
+</repository>

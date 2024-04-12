@@ -3,6 +3,7 @@ import lodash from 'lodash'
 import { join, dirname } from 'path'
 import { existsSync } from 'fs'
 import { readFile } from 'fs/promises'
+import { globSync } from 'glob'
 
 import { fileURLToPath } from 'url'
 import { FileInfo } from './types/index.js'
@@ -317,8 +318,18 @@ export const findFileInDirs = (dirs: string[], filename: string): FileInfo => {
         filename,
         exists: false,
     }
-    for (const dir of dirs) {
-        const filePath = join(dir, filename)
+
+    const pattern = dirs.map((dir) => join(dir, filename))
+    const files = globSync(pattern)
+
+    if (files.length > 1) {
+        Logger.warn(`Multiple paths found for ${filename}`)
+        for (const filePath of files) {
+            Logger.gray(` - ${filePath}`)
+        }
+    }
+
+    for (const filePath of files) {
         FileInfo.exists = existsSync(filePath)
         if (FileInfo.exists) {
             FileInfo.path = filePath

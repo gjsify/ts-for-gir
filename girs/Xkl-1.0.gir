@@ -1,0 +1,2050 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="xlib" version="2.0"/>
+  <package name="libxklavier"/>
+  <c:include name="libxklavier/xklavier.h"/>
+  <namespace name="Xkl"
+             version="1.0"
+             shared-library="libxklavier.so.16"
+             c:identifier-prefixes="Xkl"
+             c:symbol-prefixes="xkl">
+    <class name="ConfigItem"
+           c:symbol-prefix="config_item"
+           c:type="XklConfigItem"
+           parent="GObject.Object"
+           glib:type-name="XklConfigItem"
+           glib:get-type="xkl_config_item_get_type"
+           glib:type-struct="ConfigItemClass">
+      <constructor name="new" c:identifier="xkl_config_item_new">
+        <doc xml:space="preserve">Create new XklConfigItem</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">new instance</doc>
+          <type name="ConfigItem" c:type="XklConfigItem*"/>
+        </return-value>
+      </constructor>
+      <method name="get_description"
+              c:identifier="xkl_config_item_get_description">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The @description field of a XklConfigItem. This is mostly useful for
+language bindings, in C you can manipulate the member directly.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve">the XklConfigItem object</doc>
+            <type name="ConfigItem" c:type="XklConfigItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="xkl_config_item_get_name">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The @name field of a XklConfigItem. This is mostly useful for
+language bindings, in C you can manipulate the member directly.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve">the XklConfigItem object</doc>
+            <type name="ConfigItem" c:type="XklConfigItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_short_description"
+              c:identifier="xkl_config_item_get_short_description">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The @short_description field of a XklConfigItem. This is mostly useful for
+language bindings, in C you can manipulate the member directly.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve">the XklConfigItem object</doc>
+            <type name="ConfigItem" c:type="XklConfigItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_description"
+              c:identifier="xkl_config_item_set_description">
+        <doc xml:space="preserve">Change the @description field of a XklConfigItem. This is mostly useful for
+language bindings, in C you can manipulate the member directly.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve">the XklConfigItem object to be changed</doc>
+            <type name="ConfigItem" c:type="XklConfigItem*"/>
+          </instance-parameter>
+          <parameter name="description"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">Description (max. 192
+       characters); can be NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_name" c:identifier="xkl_config_item_set_name">
+        <doc xml:space="preserve">Change the @name field of a XklConfigItem. This is mostly useful for
+language bindings, in C you can manipulate the member directly.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve">the XklConfigItem object to be changed</doc>
+            <type name="ConfigItem" c:type="XklConfigItem*"/>
+          </instance-parameter>
+          <parameter name="name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">Name (max. 32 characters); can be NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_short_description"
+              c:identifier="xkl_config_item_set_short_description">
+        <doc xml:space="preserve">Change the @short_description field of a XklConfigItem. This is mostly useful for
+language bindings, in C you can manipulate the member directly.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve">the XklConfigItem object to be changed</doc>
+            <type name="ConfigItem" c:type="XklConfigItem*"/>
+          </instance-parameter>
+          <parameter name="short_description"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">Short Description (max. 10
+       characters); can be NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="name">
+        <array zero-terminated="0" c:type="gchar" fixed-size="32">
+          <type name="gchar" c:type="gchar"/>
+        </array>
+      </field>
+      <field name="short_description">
+        <array zero-terminated="0" c:type="gchar" fixed-size="192">
+          <type name="gchar" c:type="gchar"/>
+        </array>
+      </field>
+      <field name="description">
+        <array zero-terminated="0" c:type="gchar" fixed-size="192">
+          <type name="gchar" c:type="gchar"/>
+        </array>
+      </field>
+    </class>
+    <record name="ConfigItemClass"
+            c:type="XklConfigItemClass"
+            glib:is-gtype-struct-for="ConfigItem">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <callback name="ConfigItemProcessFunc" c:type="XklConfigItemProcessFunc">
+      <doc xml:space="preserve">Callback type used for enumerating keyboard models, layouts, variants, options</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="config" transfer-ownership="none">
+          <doc xml:space="preserve">the config registry</doc>
+          <type name="ConfigRegistry" c:type="XklConfigRegistry*"/>
+        </parameter>
+        <parameter name="item" transfer-ownership="none">
+          <doc xml:space="preserve">the item from registry</doc>
+          <type name="ConfigItem" c:type="const XklConfigItem*"/>
+        </parameter>
+        <parameter name="data" transfer-ownership="none">
+          <doc xml:space="preserve">anything which can be stored into the pointer</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <class name="ConfigRec"
+           c:symbol-prefix="config_rec"
+           c:type="XklConfigRec"
+           parent="GObject.Object"
+           glib:type-name="XklConfigRec"
+           glib:get-type="xkl_config_rec_get_type"
+           glib:type-struct="ConfigRecClass">
+      <constructor name="new" c:identifier="xkl_config_rec_new">
+        <doc xml:space="preserve">Create new XklConfigRec</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">new instance</doc>
+          <type name="ConfigRec" c:type="XklConfigRec*"/>
+        </return-value>
+      </constructor>
+      <function name="write_to_file"
+                c:identifier="xkl_config_rec_write_to_file">
+        <doc xml:space="preserve">Writes some XKB configuration into XKM/XKB/... file</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </parameter>
+          <parameter name="file_name" transfer-ownership="none">
+            <doc xml:space="preserve">name of the file to create</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">valid XKB configuration
+description. Can be NULL</doc>
+            <type name="ConfigRec" c:type="const XklConfigRec*"/>
+          </parameter>
+          <parameter name="binary" transfer-ownership="none">
+            <doc xml:space="preserve">flag indicating whether the output file should be binary</doc>
+            <type name="gboolean" c:type="const gboolean"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="activate" c:identifier="xkl_config_rec_activate">
+        <doc xml:space="preserve">Activates some XKB configuration
+description. Can be NULL</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">valid XKB configuration</doc>
+            <type name="ConfigRec" c:type="const XklConfigRec*"/>
+          </instance-parameter>
+          <parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="equals" c:identifier="xkl_config_rec_equals">
+        <doc xml:space="preserve">Compares two records</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE if records are same</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="data1" transfer-ownership="none">
+            <doc xml:space="preserve">record to compare</doc>
+            <type name="ConfigRec" c:type="XklConfigRec*"/>
+          </instance-parameter>
+          <parameter name="data2" transfer-ownership="none">
+            <doc xml:space="preserve">another record</doc>
+            <type name="ConfigRec" c:type="XklConfigRec*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_from_backup"
+              c:identifier="xkl_config_rec_get_from_backup">
+        <doc xml:space="preserve">Loads the current XKB configuration (from backup)</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">buffer for XKB configuration</doc>
+            <type name="ConfigRec" c:type="XklConfigRec*"/>
+          </instance-parameter>
+          <parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_from_root_window_property"
+              c:identifier="xkl_config_rec_get_from_root_window_property">
+        <doc xml:space="preserve">Gets the XKB configuration from any root window property</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config_out" transfer-ownership="none">
+            <doc xml:space="preserve">buffer to hold the result</doc>
+            <type name="ConfigRec" c:type="XklConfigRec*"/>
+          </instance-parameter>
+          <parameter name="rules_atom_name" transfer-ownership="none">
+            <doc xml:space="preserve">atom name of the root window property to read</doc>
+            <type name="xlib.Atom" c:type="Atom"/>
+          </parameter>
+          <parameter name="rules_file_out" transfer-ownership="none">
+            <doc xml:space="preserve">pointer to hold the file name</doc>
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_from_server"
+              c:identifier="xkl_config_rec_get_from_server">
+        <doc xml:space="preserve">Loads the current XKB configuration (from X server)</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">buffer for XKB configuration</doc>
+            <type name="ConfigRec" c:type="XklConfigRec*"/>
+          </instance-parameter>
+          <parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="reset" c:identifier="xkl_config_rec_reset">
+        <doc xml:space="preserve">Resets the record (equal to Destroy and Init)</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">record to reset</doc>
+            <type name="ConfigRec" c:type="XklConfigRec*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_layouts" c:identifier="xkl_config_rec_set_layouts">
+        <doc xml:space="preserve">Sets a new layout list.
+
+Frees the previous layout list. This is primarily useful for bindings, in C
+you can manipulate the @layouts record member directly.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">record to change</doc>
+            <type name="ConfigRec" c:type="XklConfigRec*"/>
+          </instance-parameter>
+          <parameter name="new_layouts" transfer-ownership="none">
+            <doc xml:space="preserve">zero terminated
+list of new layout names.</doc>
+            <array c:type="gchar**">
+              <type name="utf8" c:type="gchar*"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_model" c:identifier="xkl_config_rec_set_model">
+        <doc xml:space="preserve">Sets a new model.
+
+Frees the previous model. This is primarily useful for bindings, in C
+you can manipulate the @model record member directly.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">record to change</doc>
+            <type name="ConfigRec" c:type="XklConfigRec*"/>
+          </instance-parameter>
+          <parameter name="new_model" transfer-ownership="none">
+            <doc xml:space="preserve">new keyboard name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_options" c:identifier="xkl_config_rec_set_options">
+        <doc xml:space="preserve">Sets a new option list.
+
+Frees the previous option list. This is primarily useful for bindings, in C
+you can manipulate the @options record member directly.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">record to change</doc>
+            <type name="ConfigRec" c:type="XklConfigRec*"/>
+          </instance-parameter>
+          <parameter name="new_options" transfer-ownership="none">
+            <doc xml:space="preserve">zero terminated
+list of new option names.</doc>
+            <array c:type="gchar**">
+              <type name="utf8" c:type="gchar*"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_to_root_window_property"
+              c:identifier="xkl_config_rec_set_to_root_window_property">
+        <doc xml:space="preserve">Saves the XKB configuration into any root window property</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve">configuration to save</doc>
+            <type name="ConfigRec" c:type="const XklConfigRec*"/>
+          </instance-parameter>
+          <parameter name="rules_atom_name" transfer-ownership="none">
+            <doc xml:space="preserve">atom name of the root window property to write</doc>
+            <type name="xlib.Atom" c:type="Atom"/>
+          </parameter>
+          <parameter name="rules_file" transfer-ownership="none">
+            <doc xml:space="preserve">rules file name</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_variants" c:identifier="xkl_config_rec_set_variants">
+        <doc xml:space="preserve">Sets a new variant list.
+
+Frees the previous variant list. This is primarily useful for bindings, in C
+you can manipulate the @variants record member directly.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">record to change</doc>
+            <type name="ConfigRec" c:type="XklConfigRec*"/>
+          </instance-parameter>
+          <parameter name="new_variants" transfer-ownership="none">
+            <doc xml:space="preserve">zero terminated
+list of new variant names.</doc>
+            <array c:type="gchar**">
+              <type name="utf8" c:type="gchar*"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="model">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="layouts">
+        <array c:type="gchar**">
+          <type name="utf8" c:type="gchar*"/>
+        </array>
+      </field>
+      <field name="variants">
+        <array c:type="gchar**">
+          <type name="utf8" c:type="gchar*"/>
+        </array>
+      </field>
+      <field name="options">
+        <array c:type="gchar**">
+          <type name="utf8" c:type="gchar*"/>
+        </array>
+      </field>
+    </class>
+    <record name="ConfigRecClass"
+            c:type="XklConfigRecClass"
+            glib:is-gtype-struct-for="ConfigRec">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="ConfigRegistry"
+           c:symbol-prefix="config_registry"
+           c:type="XklConfigRegistry"
+           parent="GObject.Object"
+           glib:type-name="XklConfigRegistry"
+           glib:get-type="xkl_config_registry_get_type"
+           glib:type-struct="ConfigRegistryClass">
+      <function name="get_instance"
+                c:identifier="xkl_config_registry_get_instance">
+        <doc xml:space="preserve">Create new XklConfig</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">new instance</doc>
+          <type name="ConfigRegistry" c:type="XklConfigRegistry*"/>
+        </return-value>
+        <parameters>
+          <parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine to use for accessing X in all the operations
+(like accessing root window properties etc)</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="find_layout"
+              c:identifier="xkl_config_registry_find_layout">
+        <doc xml:space="preserve">Loads a keyboard layout information from the XML configuration registry.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE if appropriate element was found and loaded</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve">the config registry</doc>
+            <type name="ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve">pointer to a XklConfigItem containing the name of the
+keyboard layout. On successfull return, the descriptions are filled.</doc>
+            <type name="ConfigItem" c:type="XklConfigItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_model" c:identifier="xkl_config_registry_find_model">
+        <doc xml:space="preserve">Loads a keyboard model information from the XML configuration registry.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE if appropriate element was found and loaded</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve">the config registry</doc>
+            <type name="ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve">pointer to a XklConfigItem containing the name of the
+keyboard model. On successfull return, the descriptions are filled.</doc>
+            <type name="ConfigItem" c:type="XklConfigItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_option"
+              c:identifier="xkl_config_registry_find_option">
+        <doc xml:space="preserve">Loads a keyboard option information from the XML configuration
+registry.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE if appropriate element was found and loaded</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve">the config registry</doc>
+            <type name="ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </instance-parameter>
+          <parameter name="option_group_name" transfer-ownership="none">
+            <doc xml:space="preserve">name of the option group</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve">pointer to a XklConfigItem containing the name of the
+keyboard option. On successfull return, the descriptions are filled.</doc>
+            <type name="ConfigItem" c:type="XklConfigItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_option_group"
+              c:identifier="xkl_config_registry_find_option_group">
+        <doc xml:space="preserve">Loads a keyboard option group information from the XML configuration
+registry.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE if appropriate element was found and loaded</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve">the config registry</doc>
+            <type name="ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve">pointer to a XklConfigItem containing the name of the
+keyboard option group. On successfull return, the descriptions are filled.</doc>
+            <type name="ConfigItem" c:type="XklConfigItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_variant"
+              c:identifier="xkl_config_registry_find_variant">
+        <doc xml:space="preserve">Loads a keyboard layout variant information from the XML configuration
+registry.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE if appropriate element was found and loaded</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve">the config registry</doc>
+            <type name="ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </instance-parameter>
+          <parameter name="layout_name" transfer-ownership="none">
+            <doc xml:space="preserve">name of the parent layout</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve">pointer to a XklConfigItem containing the name of the
+keyboard layout variant. On successfull return, the descriptions are filled.</doc>
+            <type name="ConfigItem" c:type="XklConfigItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="foreach_country"
+              c:identifier="xkl_config_registry_foreach_country">
+        <doc xml:space="preserve">Enumerates countries for which layouts are available,
+from the XML configuration registry</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve">the config registry</doc>
+            <type name="ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </instance-parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="1">
+            <doc xml:space="preserve">callback to call for every ISO 3166 country code</doc>
+            <type name="ConfigItemProcessFunc"
+                  c:type="XklConfigItemProcessFunc"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">anything which can be stored into the pointer</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="foreach_country_variant"
+              c:identifier="xkl_config_registry_foreach_country_variant">
+        <doc xml:space="preserve">Enumerates keyboard layout variants for the country,
+from the XML configuration registry</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve">the config registry</doc>
+            <type name="ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </instance-parameter>
+          <parameter name="country_code" transfer-ownership="none">
+            <doc xml:space="preserve">country ISO code for which variants will be listed</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="2">
+            <doc xml:space="preserve">callback to call for every country variant</doc>
+            <type name="TwoConfigItemsProcessFunc"
+                  c:type="XklTwoConfigItemsProcessFunc"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">anything which can be stored into the pointer</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="foreach_language"
+              c:identifier="xkl_config_registry_foreach_language">
+        <doc xml:space="preserve">Enumerates languages for which layouts are available,
+from the XML configuration registry</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve">the config registry</doc>
+            <type name="ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </instance-parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="1">
+            <doc xml:space="preserve">callback to call for every ISO 639-2 country code</doc>
+            <type name="ConfigItemProcessFunc"
+                  c:type="XklConfigItemProcessFunc"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">anything which can be stored into the pointer</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="foreach_language_variant"
+              c:identifier="xkl_config_registry_foreach_language_variant">
+        <doc xml:space="preserve">Enumerates keyboard layout variants for the language,
+from the XML configuration registry</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve">the config registry</doc>
+            <type name="ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </instance-parameter>
+          <parameter name="language_code" transfer-ownership="none">
+            <doc xml:space="preserve">language ISO code for which variants will be listed</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="2">
+            <doc xml:space="preserve">callback to call for every country variant</doc>
+            <type name="TwoConfigItemsProcessFunc"
+                  c:type="XklTwoConfigItemsProcessFunc"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">anything which can be stored into the pointer</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="foreach_layout"
+              c:identifier="xkl_config_registry_foreach_layout">
+        <doc xml:space="preserve">Enumerates keyboard layouts from the XML configuration registry</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve">the config registry</doc>
+            <type name="ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </instance-parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="1">
+            <doc xml:space="preserve">callback to call for every layout</doc>
+            <type name="ConfigItemProcessFunc"
+                  c:type="XklConfigItemProcessFunc"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">anything which can be stored into the pointer</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="foreach_layout_variant"
+              c:identifier="xkl_config_registry_foreach_layout_variant">
+        <doc xml:space="preserve">Enumerates keyboard layout variants from the XML configuration registry</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve">the config registry</doc>
+            <type name="ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </instance-parameter>
+          <parameter name="layout_name" transfer-ownership="none">
+            <doc xml:space="preserve">layout name for which variants will be listed</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="2">
+            <doc xml:space="preserve">callback to call for every layout variant</doc>
+            <type name="ConfigItemProcessFunc"
+                  c:type="XklConfigItemProcessFunc"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">anything which can be stored into the pointer</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="foreach_model"
+              c:identifier="xkl_config_registry_foreach_model">
+        <doc xml:space="preserve">Enumerates keyboard models from the XML configuration registry</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve">the config registry</doc>
+            <type name="ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </instance-parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="1">
+            <doc xml:space="preserve">callback to call for every model</doc>
+            <type name="ConfigItemProcessFunc"
+                  c:type="XklConfigItemProcessFunc"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">anything which can be stored into the pointer</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="foreach_option"
+              c:identifier="xkl_config_registry_foreach_option">
+        <doc xml:space="preserve">Enumerates keyboard options from the XML configuration registry</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve">the config registry</doc>
+            <type name="ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </instance-parameter>
+          <parameter name="option_group_name" transfer-ownership="none">
+            <doc xml:space="preserve">option group name for which variants
+will be listed</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="2">
+            <doc xml:space="preserve">callback to call for every option</doc>
+            <type name="ConfigItemProcessFunc"
+                  c:type="XklConfigItemProcessFunc"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">anything which can be stored into the pointer</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="foreach_option_group"
+              c:identifier="xkl_config_registry_foreach_option_group">
+        <doc xml:space="preserve">Enumerates keyboard option groups from the XML configuration registry</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve">the config registry</doc>
+            <type name="ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </instance-parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="1">
+            <doc xml:space="preserve">callback to call for every option group</doc>
+            <type name="ConfigItemProcessFunc"
+                  c:type="XklConfigItemProcessFunc"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">anything which can be stored into the pointer</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load" c:identifier="xkl_config_registry_load">
+        <doc xml:space="preserve">Loads XML configuration registry. The name is taken from X server
+(for XKB/libxkbfile, from the root window property)</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve">the config registry</doc>
+            <type name="ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </instance-parameter>
+          <parameter name="if_extras_needed" transfer-ownership="none">
+            <doc xml:space="preserve">whether exotic materials (layouts, options)
+should be loaded as well</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="search_by_pattern"
+              c:identifier="xkl_config_registry_search_by_pattern">
+        <doc xml:space="preserve">Enumerates keyboard layout/variants that match the pattern.
+The layout/variant is considered as matching if one of the following
+is true:
+1. Country description (from the country list or name) contains pattern as substring
+2. Language description (from the language list or name) contains pattern as substring</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve">the config registry</doc>
+            <type name="ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </instance-parameter>
+          <parameter name="pattern" transfer-ownership="none">
+            <doc xml:space="preserve">pattern to search for (NULL means "all")</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="2">
+            <doc xml:space="preserve">callback to call for every matching layout/variant</doc>
+            <type name="TwoConfigItemsProcessFunc"
+                  c:type="XklTwoConfigItemsProcessFunc"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve">anything which can be stored into the pointer</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="engine"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Engine"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ConfigRegistryPrivate" c:type="XklConfigRegistryPrivate*"/>
+      </field>
+    </class>
+    <record name="ConfigRegistryClass"
+            c:type="XklConfigRegistryClass"
+            glib:is-gtype-struct-for="ConfigRegistry">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="ConfigRegistryPrivate"
+            c:type="XklConfigRegistryPrivate"
+            disguised="1">
+    </record>
+    <class name="Engine"
+           c:symbol-prefix="engine"
+           c:type="XklEngine"
+           parent="GObject.Object"
+           glib:type-name="XklEngine"
+           glib:get-type="xkl_engine_get_type"
+           glib:type-struct="EngineClass">
+      <function name="INT__LONG_LONG" c:identifier="xkl_engine_INT__LONG_LONG">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="closure" transfer-ownership="none">
+            <type name="GObject.Closure" c:type="GClosure*"/>
+          </parameter>
+          <parameter name="return_value" transfer-ownership="none">
+            <type name="GObject.Value" c:type="GValue*"/>
+          </parameter>
+          <parameter name="n_param_values" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="param_values" transfer-ownership="none">
+            <type name="GObject.Value" c:type="const GValue*"/>
+          </parameter>
+          <parameter name="invocation_hint" transfer-ownership="none">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="marshal_data" transfer-ownership="none">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="VOID__ENUM_INT_BOOLEAN"
+                c:identifier="xkl_engine_VOID__ENUM_INT_BOOLEAN">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="closure" transfer-ownership="none">
+            <type name="GObject.Closure" c:type="GClosure*"/>
+          </parameter>
+          <parameter name="return_value" transfer-ownership="none">
+            <type name="GObject.Value" c:type="GValue*"/>
+          </parameter>
+          <parameter name="n_param_values" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="param_values" transfer-ownership="none">
+            <type name="GObject.Value" c:type="const GValue*"/>
+          </parameter>
+          <parameter name="invocation_hint" transfer-ownership="none">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="marshal_data" transfer-ownership="none">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_instance" c:identifier="xkl_engine_get_instance">
+        <doc xml:space="preserve">Get the instance of the XklEngine. Within a process, there is always once instance.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the singleton instance</doc>
+          <type name="Engine" c:type="XklEngine*"/>
+        </return-value>
+        <parameters>
+          <parameter name="display" transfer-ownership="none">
+            <doc xml:space="preserve">the X display used by the application</doc>
+            <type name="xlib.Display" c:type="Display*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="config_notify">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="new_device_notify">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="new_window_notify">
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+          <parameter name="win" transfer-ownership="none">
+            <type name="xlib.Window" c:type="Window"/>
+          </parameter>
+          <parameter name="parent" transfer-ownership="none">
+            <type name="xlib.Window" c:type="Window"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="state_notify">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+          <parameter name="change_type" transfer-ownership="none">
+            <type name="EngineStateChange" c:type="XklEngineStateChange"/>
+          </parameter>
+          <parameter name="group" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="restore" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="allow_one_switch_to_secondary_group"
+              c:identifier="xkl_engine_allow_one_switch_to_secondary_group">
+        <doc xml:space="preserve">Allows to switch (once) to the secondary group</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="backup_names_prop"
+              c:identifier="xkl_engine_backup_names_prop">
+        <doc xml:space="preserve">Backups current XKB configuration into some property -
+if this property is not defined yet.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="delete_state" c:identifier="xkl_engine_delete_state">
+        <doc xml:space="preserve">Drops the state of a given window (of its "App window").</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+          <parameter name="win" transfer-ownership="none">
+            <doc xml:space="preserve">target window</doc>
+            <type name="xlib.Window" c:type="Window"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="filter_events" c:identifier="xkl_engine_filter_events">
+        <doc xml:space="preserve">Processes X events. Should be included into the main event cycle of an
+application. One of the most important functions.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">0 if the event it processed - 1 otherwise</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+          <parameter name="evt" transfer-ownership="none" skip="1">
+            <doc xml:space="preserve">delivered X event</doc>
+            <type name="xlib.XEvent" c:type="XEvent*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_backend_name"
+              c:identifier="xkl_engine_get_backend_name">
+        <doc xml:space="preserve">What kind of backend is used</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">some string id of the backend</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_state"
+              c:identifier="xkl_engine_get_current_state">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">current state of the keyboard.
+Returned value is a statically allocated buffer, should not be freed.</doc>
+          <type name="State" c:type="XklState*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_window"
+              c:identifier="xkl_engine_get_current_window">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">currently focused window</doc>
+          <type name="xlib.Window" c:type="Window"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_window_group"
+              c:identifier="xkl_engine_get_current_window_group">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">saved group id of the current window.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_default_group"
+              c:identifier="xkl_engine_get_default_group">
+        <doc xml:space="preserve">Returns the default group set on window creation
+If -1, no default group is used</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the default group</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_features" c:identifier="xkl_engine_get_features">
+        <doc xml:space="preserve">Provides information regarding available backend features
+(combination of XKLF_* constants)</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">ORed XKLF_* constants</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_groups_names"
+              c:identifier="xkl_engine_get_groups_names">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the array of group names for the current XKB
+configuration (keyboard).
+This array is static, should not be freed</doc>
+          <array c:type="const gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_indicators_handling"
+              c:identifier="xkl_engine_get_indicators_handling">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the value of the parameter: perform indicator handling</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_indicators_names"
+              c:identifier="xkl_engine_get_indicators_names">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the array of indicator names for the current XKB
+configuration (keyboard).
+This array is static, should not be freed</doc>
+          <array c:type="const gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_max_num_groups"
+              c:identifier="xkl_engine_get_max_num_groups">
+        <doc xml:space="preserve">Provides the information on maximum number of simultaneously supported
+groups (layouts)</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">maximum number of the groups in configuration,
+        0 if no restrictions.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_next_group" c:identifier="xkl_engine_get_next_group">
+        <doc xml:space="preserve">Calculates next group id. Does not change the state of anything.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">next group id</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_num_groups" c:identifier="xkl_engine_get_num_groups">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the total number of groups in the current configuration
+(keyboard)</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_prev_group" c:identifier="xkl_engine_get_prev_group">
+        <doc xml:space="preserve">Calculates prev group id. Does not change the state of anything.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">prev group id</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_secondary_groups_mask"
+              c:identifier="xkl_engine_get_secondary_groups_mask">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the secondary group mask</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_state" c:identifier="xkl_engine_get_state">
+        <doc xml:space="preserve">Finds the state for a given window (for its "App window").</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE on success, otherwise FALSE
+(the error message can be obtained using xkl_GetLastError).</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+          <parameter name="win" transfer-ownership="none">
+            <doc xml:space="preserve">window to query</doc>
+            <type name="xlib.Window" c:type="Window"/>
+          </parameter>
+          <parameter name="state_out" transfer-ownership="none">
+            <doc xml:space="preserve">structure to store the state</doc>
+            <type name="State" c:type="XklState*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_window_title"
+              c:identifier="xkl_engine_get_window_title">
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">the window title of some window or NULL.
+If not NULL, it should be freed with XFree</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+          <parameter name="win" transfer-ownership="none">
+            <doc xml:space="preserve">X window</doc>
+            <type name="xlib.Window" c:type="Window"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="grab_key" c:identifier="xkl_engine_grab_key">
+        <doc xml:space="preserve">Grabs some key</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+          <parameter name="keycode" transfer-ownership="none">
+            <doc xml:space="preserve">keycode</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="modifiers" transfer-ownership="none">
+            <doc xml:space="preserve">bitmask of modifiers</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_group_per_toplevel_window"
+              c:identifier="xkl_engine_is_group_per_toplevel_window">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the value of the parameter: group per application</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_window_from_same_toplevel_window"
+              c:identifier="xkl_engine_is_window_from_same_toplevel_window">
+        <doc xml:space="preserve">Checks whether 2 windows have the same topmost window</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE is windows are in the same application</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+          <parameter name="win1" transfer-ownership="none">
+            <doc xml:space="preserve">first window</doc>
+            <type name="xlib.Window" c:type="Window"/>
+          </parameter>
+          <parameter name="win2" transfer-ownership="none">
+            <doc xml:space="preserve">second window</doc>
+            <type name="xlib.Window" c:type="Window"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_window_transparent"
+              c:identifier="xkl_engine_is_window_transparent">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE if the window is "transparent"</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+          <parameter name="win" transfer-ownership="none">
+            <doc xml:space="preserve">window to get the transparent flag from.</doc>
+            <type name="xlib.Window" c:type="Window"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lock_group" c:identifier="xkl_engine_lock_group">
+        <doc xml:space="preserve">Locks the group. Can be used after xkl_GetXXXGroup functions</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+          <parameter name="group" transfer-ownership="none">
+            <doc xml:space="preserve">group number for locking</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="pause_listen" c:identifier="xkl_engine_pause_listen">
+        <doc xml:space="preserve">Temporary pauses listening for XKB-related events</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">0</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="resume_listen" c:identifier="xkl_engine_resume_listen">
+        <doc xml:space="preserve">Resumes listening for XKB-related events</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">0</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="save_state" c:identifier="xkl_engine_save_state">
+        <doc xml:space="preserve">Stores ths state for a given window</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+          <parameter name="win" transfer-ownership="none">
+            <doc xml:space="preserve">target window</doc>
+            <type name="xlib.Window" c:type="Window"/>
+          </parameter>
+          <parameter name="state" transfer-ownership="none">
+            <doc xml:space="preserve">new state of the window</doc>
+            <type name="State" c:type="XklState*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_default_group"
+              c:identifier="xkl_engine_set_default_group">
+        <doc xml:space="preserve">Configures the default group set on window creation.
+If -1, no default group is used</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+          <parameter name="group" transfer-ownership="none">
+            <doc xml:space="preserve">default group</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_group_per_toplevel_window"
+              c:identifier="xkl_engine_set_group_per_toplevel_window">
+        <doc xml:space="preserve">Sets the configuration parameter: group per application</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+          <parameter name="is_global" transfer-ownership="none">
+            <doc xml:space="preserve">new parameter value</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_indicators_handling"
+              c:identifier="xkl_engine_set_indicators_handling">
+        <doc xml:space="preserve">Sets the configuration parameter: perform indicators handling</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+          <parameter name="whether_handle" transfer-ownership="none">
+            <doc xml:space="preserve">new parameter value</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_secondary_groups_mask"
+              c:identifier="xkl_engine_set_secondary_groups_mask">
+        <doc xml:space="preserve">Sets the secondary groups (one bit per group).
+Secondary groups require explicit "allowance" for switching</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+          <parameter name="mask" transfer-ownership="none">
+            <doc xml:space="preserve">new group mask</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_window_transparent"
+              c:identifier="xkl_engine_set_window_transparent">
+        <doc xml:space="preserve">Sets the "transparent" flag. It means focus switching onto
+this window will never change the state.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+          <parameter name="win" transfer-ownership="none">
+            <doc xml:space="preserve">window do set the flag for.</doc>
+            <type name="xlib.Window" c:type="Window"/>
+          </parameter>
+          <parameter name="transparent" transfer-ownership="none">
+            <doc xml:space="preserve">if true, the windows is transparent.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="start_listen" c:identifier="xkl_engine_start_listen">
+        <doc xml:space="preserve">Starts listening for XKB-related events</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">0</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve">any combination of XKLL_* constants</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="stop_listen" c:identifier="xkl_engine_stop_listen">
+        <doc xml:space="preserve">Stops listening for XKB-related events</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">0</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve">any combination of XKLL_* constants</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ungrab_key" c:identifier="xkl_engine_ungrab_key">
+        <doc xml:space="preserve">Ungrabs some key</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <doc xml:space="preserve">the engine</doc>
+            <type name="Engine" c:type="XklEngine*"/>
+          </instance-parameter>
+          <parameter name="keycode" transfer-ownership="none">
+            <doc xml:space="preserve">keycode</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="modifiers" transfer-ownership="none">
+            <doc xml:space="preserve">bitmask of modifiers</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="backendName" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="default-group" transfer-ownership="none">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="display"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <property name="features" transfer-ownership="none">
+        <type name="EngineFeatures"/>
+      </property>
+      <property name="indicators-handling" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="max-num-groups" transfer-ownership="none">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="num-groups" transfer-ownership="none">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="secondary-groups-mask" transfer-ownership="none">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="EnginePrivate" c:type="XklEnginePrivate*"/>
+      </field>
+      <glib:signal name="X-config-changed" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="X-new-device" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="X-state-changed" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="EngineStateChange"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="new-toplevel-window" when="last">
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="glong" c:type="glong"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="glong" c:type="glong"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="EngineClass"
+            c:type="XklEngineClass"
+            glib:is-gtype-struct-for="Engine">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="config_notify">
+        <callback name="config_notify">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="engine" transfer-ownership="none">
+              <type name="Engine" c:type="XklEngine*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="new_window_notify">
+        <callback name="new_window_notify">
+          <return-value transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </return-value>
+          <parameters>
+            <parameter name="engine" transfer-ownership="none">
+              <type name="Engine" c:type="XklEngine*"/>
+            </parameter>
+            <parameter name="win" transfer-ownership="none">
+              <type name="xlib.Window" c:type="Window"/>
+            </parameter>
+            <parameter name="parent" transfer-ownership="none">
+              <type name="xlib.Window" c:type="Window"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="state_notify">
+        <callback name="state_notify">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="engine" transfer-ownership="none">
+              <type name="Engine" c:type="XklEngine*"/>
+            </parameter>
+            <parameter name="change_type" transfer-ownership="none">
+              <type name="EngineStateChange" c:type="XklEngineStateChange"/>
+            </parameter>
+            <parameter name="group" transfer-ownership="none">
+              <type name="gint" c:type="gint"/>
+            </parameter>
+            <parameter name="restore" transfer-ownership="none">
+              <type name="gboolean" c:type="gboolean"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="new_device_notify">
+        <callback name="new_device_notify">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="engine" transfer-ownership="none">
+              <type name="Engine" c:type="XklEngine*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <bitfield name="EngineFeatures"
+              glib:type-name="XklEngineFeatures"
+              glib:get-type="xkl_engine_features_get_type"
+              c:type="XklEngineFeatures">
+      <doc xml:space="preserve">A set of flags used to indicate the capabilities of the active backend</doc>
+      <member name="can_toggle_indicators"
+              value="1"
+              c:identifier="XKLF_CAN_TOGGLE_INDICATORS"
+              glib:nick="can-toggle-indicators">
+        <doc xml:space="preserve">Backend allows to toggls indicators on/off</doc>
+      </member>
+      <member name="can_output_config_as_ascii"
+              value="2"
+              c:identifier="XKLF_CAN_OUTPUT_CONFIG_AS_ASCII"
+              glib:nick="can-output-config-as-ascii">
+        <doc xml:space="preserve">Backend allows writing ASCII representation of the configuration</doc>
+      </member>
+      <member name="can_output_config_as_binary"
+              value="4"
+              c:identifier="XKLF_CAN_OUTPUT_CONFIG_AS_BINARY"
+              glib:nick="can-output-config-as-binary">
+        <doc xml:space="preserve">Backend allows writing binary representation of the configuration</doc>
+      </member>
+      <member name="multiple_layouts_supported"
+              value="8"
+              c:identifier="XKLF_MULTIPLE_LAYOUTS_SUPPORTED"
+              glib:nick="multiple-layouts-supported">
+        <doc xml:space="preserve">Backend supports multiple layouts</doc>
+      </member>
+      <member name="requires_manual_layout_management"
+              value="16"
+              c:identifier="XKLF_REQUIRES_MANUAL_LAYOUT_MANAGEMENT"
+              glib:nick="requires-manual-layout-management">
+        <doc xml:space="preserve">Backend requires manual configuration, some daemon should do
+                                  xkl_start_listen(engine,XKLL_MANAGE_LAYOUTS);</doc>
+      </member>
+      <member name="device_discovery"
+              value="32"
+              c:identifier="XKLF_DEVICE_DISCOVERY"
+              glib:nick="device-discovery">
+        <doc xml:space="preserve">Backend supports device discovery, can notify</doc>
+      </member>
+    </bitfield>
+    <enumeration name="EngineListenModes"
+                 glib:type-name="XklEngineListenModes"
+                 glib:get-type="xkl_engine_listen_modes_get_type"
+                 c:type="XklEngineListenModes">
+      <doc xml:space="preserve">The listener action modes:</doc>
+      <member name="manage_window_states"
+              value="1"
+              c:identifier="XKLL_MANAGE_WINDOW_STATES"
+              glib:nick="manage-window-states">
+        <doc xml:space="preserve">The listener process should handle the per-window states
+                      and all the related activity</doc>
+      </member>
+      <member name="track_keyboard_state"
+              value="2"
+              c:identifier="XKLL_TRACK_KEYBOARD_STATE"
+              glib:nick="track-keyboard-state">
+        <doc xml:space="preserve">Just track the state and pass it to the application above.</doc>
+      </member>
+      <member name="manage_layouts"
+              value="4"
+              c:identifier="XKLL_MANAGE_LAYOUTS"
+              glib:nick="manage-layouts">
+        <doc xml:space="preserve">The listener process should help backend to maintain the configuration
+                 (manually switch layouts etc).</doc>
+      </member>
+    </enumeration>
+    <record name="EnginePrivate" c:type="XklEnginePrivate" disguised="1">
+    </record>
+    <enumeration name="EngineStateChange"
+                 glib:type-name="XklEngineStateChange"
+                 glib:get-type="xkl_engine_state_change_get_type"
+                 c:type="XklEngineStateChange">
+      <doc xml:space="preserve">The type of the keyboard state change</doc>
+      <member name="group_changed"
+              value="0"
+              c:identifier="GROUP_CHANGED"
+              glib:nick="group-changed">
+        <doc xml:space="preserve">Group was changed</doc>
+      </member>
+      <member name="indicators_changed"
+              value="1"
+              c:identifier="INDICATORS_CHANGED"
+              glib:nick="indicators-changed">
+        <doc xml:space="preserve">Indicators were changed</doc>
+      </member>
+    </enumeration>
+    <callback name="LogAppender" c:type="XklLogAppender" introspectable="0">
+      <doc xml:space="preserve">Custom log output method for _xkl_debug. This appender is NOT called if the
+level of the message is greater than currently set debug level.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="file" transfer-ownership="none">
+          <doc xml:space="preserve">name of the source file.
+Preprocessor symbol__FILE__ should be used here</doc>
+          <type name="gchar" c:type="const gchar"/>
+        </parameter>
+        <parameter name="function" transfer-ownership="none">
+          <doc xml:space="preserve">name of the function
+Preprocessor symbol__func__ should be used here</doc>
+          <type name="gchar" c:type="const gchar"/>
+        </parameter>
+        <parameter name="level" transfer-ownership="none">
+          <doc xml:space="preserve">level of the message</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="format" transfer-ownership="none">
+          <doc xml:space="preserve">format (like in printf)</doc>
+          <type name="gchar" c:type="const gchar"/>
+        </parameter>
+        <parameter name="args" transfer-ownership="none">
+          <doc xml:space="preserve">list of parameters</doc>
+          <type name="va_list" c:type="va_list"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <constant name="MAX_CI_DESC_LENGTH"
+              value="192"
+              c:type="XKL_MAX_CI_DESC_LENGTH">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MAX_CI_NAME_LENGTH"
+              value="32"
+              c:type="XKL_MAX_CI_NAME_LENGTH">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MAX_CI_SHORT_DESC_LENGTH"
+              value="10"
+              c:type="XKL_MAX_CI_SHORT_DESC_LENGTH">
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <record name="State"
+            c:type="XklState"
+            glib:type-name="XklState"
+            glib:get-type="xkl_state_get_type"
+            c:symbol-prefix="state">
+      <field name="group" writable="1">
+        <type name="gint32" c:type="gint32"/>
+      </field>
+      <field name="indicators" writable="1">
+        <type name="guint32" c:type="guint32"/>
+      </field>
+    </record>
+    <callback name="TwoConfigItemsProcessFunc"
+              c:type="XklTwoConfigItemsProcessFunc">
+      <doc xml:space="preserve">Callback type used for enumerating layouts/variants for countries/languages</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="config" transfer-ownership="none">
+          <doc xml:space="preserve">the config registry</doc>
+          <type name="ConfigRegistry" c:type="XklConfigRegistry*"/>
+        </parameter>
+        <parameter name="item" transfer-ownership="none">
+          <doc xml:space="preserve">the item from registry</doc>
+          <type name="ConfigItem" c:type="const XklConfigItem*"/>
+        </parameter>
+        <parameter name="subitem" transfer-ownership="none">
+          <doc xml:space="preserve">the item from registry</doc>
+          <type name="ConfigItem" c:type="const XklConfigItem*"/>
+        </parameter>
+        <parameter name="data" transfer-ownership="none">
+          <doc xml:space="preserve">anything which can be stored into the pointer</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <function name="default_log_appender"
+              c:identifier="xkl_default_log_appender"
+              introspectable="0">
+      <doc xml:space="preserve">Default log output method. Sends everything to stdout.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="file" transfer-ownership="none">
+          <doc xml:space="preserve">name of the source file.
+Preprocessor symbol__FILE__ should be used here</doc>
+          <type name="gchar" c:type="const gchar"/>
+        </parameter>
+        <parameter name="function" transfer-ownership="none">
+          <doc xml:space="preserve">name of the function
+Preprocessor symbol__func__ should be used here</doc>
+          <type name="gchar" c:type="const gchar"/>
+        </parameter>
+        <parameter name="level" transfer-ownership="none">
+          <doc xml:space="preserve">level of the message</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="format" transfer-ownership="none">
+          <doc xml:space="preserve">format (like in printf)</doc>
+          <type name="gchar" c:type="const gchar"/>
+        </parameter>
+        <parameter name="args" transfer-ownership="none">
+          <doc xml:space="preserve">list of parameters</doc>
+          <type name="va_list" c:type="va_list"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_country_name" c:identifier="xkl_get_country_name">
+      <doc xml:space="preserve">Get localized country name, from ISO code</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">localized country name (USA, Russia, France, ... translated)</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="code" transfer-ownership="none">
+          <doc xml:space="preserve">ISO 3166 Alpha 2 code: 2 chars, uppercase (US, RU, FR, ...)</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_language_name" c:identifier="xkl_get_language_name">
+      <doc xml:space="preserve">Get localized language name, from ISO code</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">localized country name (English, Russiam, French, ... translated)</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="code" transfer-ownership="none">
+          <doc xml:space="preserve">ISO 639 2B or 2T code: 3 chars, lowercase (eng, rus, fra, ...)</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_last_error" c:identifier="xkl_get_last_error">
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">the text message (statically allocated) of the last error</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+    </function>
+    <function name="restore_names_prop" c:identifier="xkl_restore_names_prop">
+      <doc xml:space="preserve">Restores XKB from the property saved by xkl_backup_names_prop</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">TRUE on success</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="engine" transfer-ownership="none">
+          <doc xml:space="preserve">the engine</doc>
+          <type name="Engine" c:type="XklEngine*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="set_debug_level" c:identifier="xkl_set_debug_level">
+      <doc xml:space="preserve">Sets maximum debug level.
+Message of the level more than the one set here - will be ignored</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="level" transfer-ownership="none">
+          <doc xml:space="preserve">new debug level</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="set_log_appender"
+              c:identifier="xkl_set_log_appender"
+              introspectable="0">
+      <doc xml:space="preserve">Installs the custom log appender.function</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="fun" transfer-ownership="none">
+          <doc xml:space="preserve">new log appender</doc>
+          <type name="LogAppender" c:type="XklLogAppender"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

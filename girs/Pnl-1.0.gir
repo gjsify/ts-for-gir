@@ -1,0 +1,2586 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gdk" version="3.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <c:include name="pnl.h"/>
+  <namespace name="Pnl"
+             version="1.0"
+             shared-library="libpanel-gtk.so.0"
+             c:identifier-prefixes="Pnl"
+             c:symbol-prefixes="pnl">
+    <class name="Animation"
+           c:symbol-prefix="animation"
+           c:type="PnlAnimation"
+           parent="GObject.InitiallyUnowned"
+           glib:type-name="PnlAnimation"
+           glib:get-type="pnl_animation_get_type"
+           glib:type-struct="AnimationClass">
+      <function name="calculate_duration"
+                c:identifier="pnl_animation_calculate_duration">
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <parameter name="monitor" transfer-ownership="none">
+            <type name="Gdk.Monitor" c:type="GdkMonitor*"/>
+          </parameter>
+          <parameter name="from_value" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="to_value" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="add_property" c:identifier="pnl_animation_add_property">
+        <doc xml:space="preserve">Adds a new property to the set of properties to be animated during the
+lifetime of the animation.
+
+Side effects: None.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="animation" transfer-ownership="none">
+            <doc xml:space="preserve">A #PnlAnimation.</doc>
+            <type name="Animation" c:type="PnlAnimation*"/>
+          </instance-parameter>
+          <parameter name="pspec" transfer-ownership="none">
+            <doc xml:space="preserve">A #ParamSpec of @target or a #GtkWidget&lt;!-- --&gt;'s parent.</doc>
+            <type name="GObject.ParamSpec" c:type="GParamSpec*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve">The new value for the property at the end of the animation.</doc>
+            <type name="GObject.Value" c:type="const GValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="start" c:identifier="pnl_animation_start">
+        <doc xml:space="preserve">Start the animation. When the animation stops, the internal reference will
+be dropped and the animation may be finalized.
+
+Side effects: None.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="animation" transfer-ownership="none">
+            <doc xml:space="preserve">A #PnlAnimation.</doc>
+            <type name="Animation" c:type="PnlAnimation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="stop" c:identifier="pnl_animation_stop">
+        <doc xml:space="preserve">Stops a running animation. The internal reference to the animation is
+dropped and therefore may cause the object to finalize.
+
+Side effects: None.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="animation" transfer-ownership="none">
+            <doc xml:space="preserve">A #PnlAnimation.</doc>
+            <type name="Animation" c:type="PnlAnimation*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="duration"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The "duration" property is the total number of milliseconds that the
+animation should run before being completed.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="frame-clock"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Gdk.FrameClock"/>
+      </property>
+      <property name="mode"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The "mode" property is the Alpha function that should be used to
+determine the offset within the animation based on the current
+offset in the animations duration.</doc>
+        <type name="AnimationMode"/>
+      </property>
+      <property name="target"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve">The "target" property is the #GObject that should have its properties
+animated.</doc>
+        <type name="GObject.Object"/>
+      </property>
+      <glib:signal name="tick" when="first">
+        <doc xml:space="preserve">The "tick" signal is emitted on each frame in the animation.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="AnimationClass"
+            c:type="PnlAnimationClass"
+            glib:is-gtype-struct-for="Animation">
+      <field name="parent_class">
+        <type name="GObject.InitiallyUnownedClass"
+              c:type="GInitiallyUnownedClass"/>
+      </field>
+    </record>
+    <enumeration name="AnimationMode"
+                 glib:type-name="PnlAnimationMode"
+                 glib:get-type="pnl_animation_mode_get_type"
+                 c:type="PnlAnimationMode">
+      <member name="linear"
+              value="0"
+              c:identifier="PNL_ANIMATION_LINEAR"
+              glib:nick="linear">
+      </member>
+      <member name="ease_in_quad"
+              value="1"
+              c:identifier="PNL_ANIMATION_EASE_IN_QUAD"
+              glib:nick="ease-in-quad">
+      </member>
+      <member name="ease_in_out_quad"
+              value="3"
+              c:identifier="PNL_ANIMATION_EASE_IN_OUT_QUAD"
+              glib:nick="ease-in-out-quad">
+      </member>
+      <member name="ease_out_quad"
+              value="2"
+              c:identifier="PNL_ANIMATION_EASE_OUT_QUAD"
+              glib:nick="ease-out-quad">
+      </member>
+      <member name="ease_in_cubic"
+              value="4"
+              c:identifier="PNL_ANIMATION_EASE_IN_CUBIC"
+              glib:nick="ease-in-cubic">
+      </member>
+      <member name="ease_out_cubic"
+              value="5"
+              c:identifier="PNL_ANIMATION_EASE_OUT_CUBIC"
+              glib:nick="ease-out-cubic">
+      </member>
+      <member name="ease_in_out_cubic"
+              value="6"
+              c:identifier="PNL_ANIMATION_EASE_IN_OUT_CUBIC"
+              glib:nick="ease-in-out-cubic">
+      </member>
+    </enumeration>
+    <interface name="Dock"
+               c:symbol-prefix="dock"
+               c:type="PnlDock"
+               glib:type-name="PnlDock"
+               glib:get-type="pnl_dock_get_type"
+               glib:type-struct="DockInterface">
+      <prerequisite name="Gtk.Container"/>
+      <property name="manager" writable="1" transfer-ownership="none">
+        <type name="DockManager"/>
+      </property>
+    </interface>
+    <class name="DockBin"
+           c:symbol-prefix="dock_bin"
+           c:type="PnlDockBin"
+           parent="Gtk.Container"
+           glib:type-name="PnlDockBin"
+           glib:get-type="pnl_dock_bin_get_type"
+           glib:type-struct="DockBinClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Dock"/>
+      <implements name="DockItem"/>
+      <constructor name="new" c:identifier="pnl_dock_bin_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="create_edge" introspectable="0">
+        <return-value>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockBin" c:type="PnlDockBin*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_bottom_edge"
+              c:identifier="pnl_dock_bin_get_bottom_edge">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">A #GtkWidget</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockBin" c:type="PnlDockBin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_center_widget"
+              c:identifier="pnl_dock_bin_get_center_widget">
+        <doc xml:space="preserve">Gets the center widget for the dock.</doc>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">A #GtkWidget or %NULL.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #PnlDockBin</doc>
+            <type name="DockBin" c:type="PnlDockBin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_left_edge" c:identifier="pnl_dock_bin_get_left_edge">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">A #GtkWidget</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockBin" c:type="PnlDockBin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_right_edge" c:identifier="pnl_dock_bin_get_right_edge">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">A #GtkWidget</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockBin" c:type="PnlDockBin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_top_edge" c:identifier="pnl_dock_bin_get_top_edge">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">A #GtkWidget</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockBin" c:type="PnlDockBin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="Gtk.Container" c:type="GtkContainer"/>
+      </field>
+    </class>
+    <record name="DockBinClass"
+            c:type="PnlDockBinClass"
+            glib:is-gtype-struct-for="DockBin">
+      <field name="parent">
+        <type name="Gtk.ContainerClass" c:type="GtkContainerClass"/>
+      </field>
+      <field name="create_edge" introspectable="0">
+        <callback name="create_edge" introspectable="0">
+          <return-value>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="DockBin" c:type="PnlDockBin*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="padding1">
+        <callback name="padding1">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding2">
+        <callback name="padding2">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding3">
+        <callback name="padding3">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding4">
+        <callback name="padding4">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding5">
+        <callback name="padding5">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding6">
+        <callback name="padding6">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding7">
+        <callback name="padding7">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding8">
+        <callback name="padding8">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <class name="DockBinEdge"
+           c:symbol-prefix="dock_bin_edge"
+           c:type="PnlDockBinEdge"
+           parent="DockRevealer"
+           glib:type-name="PnlDockBinEdge"
+           glib:get-type="pnl_dock_bin_edge_get_type"
+           glib:type-struct="DockBinEdgeClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="DockItem"/>
+      <virtual-method name="move_to_bin_child">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockBinEdge" c:type="PnlDockBinEdge*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_edge" c:identifier="pnl_dock_bin_edge_get_edge">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.PositionType" c:type="GtkPositionType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockBinEdge" c:type="PnlDockBinEdge*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_edge" c:identifier="pnl_dock_bin_edge_set_edge">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockBinEdge" c:type="PnlDockBinEdge*"/>
+          </instance-parameter>
+          <parameter name="bin_edge" transfer-ownership="none">
+            <type name="Gtk.PositionType" c:type="GtkPositionType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="edge" writable="1" transfer-ownership="none">
+        <type name="Gtk.PositionType"/>
+      </property>
+      <field name="parent_instance">
+        <type name="DockRevealer" c:type="PnlDockRevealer"/>
+      </field>
+      <glib:signal name="move-to-bin-child" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="DockBinEdgeClass"
+            c:type="PnlDockBinEdgeClass"
+            glib:is-gtype-struct-for="DockBinEdge">
+      <field name="parent">
+        <type name="DockRevealerClass" c:type="PnlDockRevealerClass"/>
+      </field>
+      <field name="move_to_bin_child">
+        <callback name="move_to_bin_child">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="DockBinEdge" c:type="PnlDockBinEdge*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="padding1">
+        <callback name="padding1">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding2">
+        <callback name="padding2">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding3">
+        <callback name="padding3">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding4">
+        <callback name="padding4">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding5">
+        <callback name="padding5">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding6">
+        <callback name="padding6">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding7">
+        <callback name="padding7">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding8">
+        <callback name="padding8">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <record name="DockInterface"
+            c:type="PnlDockInterface"
+            glib:is-gtype-struct-for="Dock">
+      <field name="parent">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+    </record>
+    <interface name="DockItem"
+               c:symbol-prefix="dock_item"
+               c:type="PnlDockItem"
+               glib:type-name="PnlDockItem"
+               glib:get-type="pnl_dock_item_get_type"
+               glib:type-struct="DockItemInterface">
+      <prerequisite name="Gtk.Widget"/>
+      <virtual-method name="get_child_visible" invoker="get_child_visible">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </instance-parameter>
+          <parameter name="child" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_manager" invoker="get_manager">
+        <doc xml:space="preserve">Gets the dock manager for this dock item.</doc>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">A #PnlDockmanager.</doc>
+          <type name="DockManager" c:type="PnlDockManager*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #PnlDockItem</doc>
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="manager_set">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </instance-parameter>
+          <parameter name="old_manager" transfer-ownership="none">
+            <type name="DockManager" c:type="PnlDockManager*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="present_child" invoker="present_child">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </instance-parameter>
+          <parameter name="child" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_child_visible" invoker="set_child_visible">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </instance-parameter>
+          <parameter name="child" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </parameter>
+          <parameter name="child_visible" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_manager" invoker="set_manager">
+        <doc xml:space="preserve">Sets the dock manager for this #PnlDockItem.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #PnlDockItem</doc>
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </instance-parameter>
+          <parameter name="manager"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">A #PnlDockManager</doc>
+            <type name="DockManager" c:type="PnlDockManager*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="update_visibility" invoker="update_visibility">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="adopt" c:identifier="pnl_dock_item_adopt">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </instance-parameter>
+          <parameter name="child" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_child_visible"
+              c:identifier="pnl_dock_item_get_child_visible">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </instance-parameter>
+          <parameter name="child" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_manager" c:identifier="pnl_dock_item_get_manager">
+        <doc xml:space="preserve">Gets the dock manager for this dock item.</doc>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">A #PnlDockmanager.</doc>
+          <type name="DockManager" c:type="PnlDockManager*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #PnlDockItem</doc>
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parent" c:identifier="pnl_dock_item_get_parent">
+        <doc xml:space="preserve">Gets the parent #PnlDockItem, or %NULL.</doc>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">A #PnlDockItem or %NULL.</doc>
+          <type name="DockItem" c:type="PnlDockItem*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_widgets" c:identifier="pnl_dock_item_has_widgets">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="present" c:identifier="pnl_dock_item_present">
+        <doc xml:space="preserve">This widget will walk the widget hierarchy to ensure that the
+dock item is visible to the user.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #PnlDockItem</doc>
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="present_child" c:identifier="pnl_dock_item_present_child">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </instance-parameter>
+          <parameter name="child" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_child_visible"
+              c:identifier="pnl_dock_item_set_child_visible">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </instance-parameter>
+          <parameter name="child" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </parameter>
+          <parameter name="child_visible" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_manager" c:identifier="pnl_dock_item_set_manager">
+        <doc xml:space="preserve">Sets the dock manager for this #PnlDockItem.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">A #PnlDockItem</doc>
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </instance-parameter>
+          <parameter name="manager"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">A #PnlDockManager</doc>
+            <type name="DockManager" c:type="PnlDockManager*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="update_visibility"
+              c:identifier="pnl_dock_item_update_visibility">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <glib:signal name="manager-set" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="DockManager"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </interface>
+    <record name="DockItemInterface"
+            c:type="PnlDockItemInterface"
+            glib:is-gtype-struct-for="DockItem">
+      <field name="parent">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="set_manager">
+        <callback name="set_manager">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve">A #PnlDockItem</doc>
+              <type name="DockItem" c:type="PnlDockItem*"/>
+            </parameter>
+            <parameter name="manager"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <doc xml:space="preserve">A #PnlDockManager</doc>
+              <type name="DockManager" c:type="PnlDockManager*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_manager">
+        <callback name="get_manager">
+          <return-value transfer-ownership="none" nullable="1">
+            <doc xml:space="preserve">A #PnlDockmanager.</doc>
+            <type name="DockManager" c:type="PnlDockManager*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve">A #PnlDockItem</doc>
+              <type name="DockItem" c:type="PnlDockItem*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="manager_set">
+        <callback name="manager_set">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="DockItem" c:type="PnlDockItem*"/>
+            </parameter>
+            <parameter name="old_manager" transfer-ownership="none">
+              <type name="DockManager" c:type="PnlDockManager*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="present_child">
+        <callback name="present_child">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="DockItem" c:type="PnlDockItem*"/>
+            </parameter>
+            <parameter name="child" transfer-ownership="none">
+              <type name="DockItem" c:type="PnlDockItem*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="update_visibility">
+        <callback name="update_visibility">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="DockItem" c:type="PnlDockItem*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_child_visible">
+        <callback name="get_child_visible">
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="DockItem" c:type="PnlDockItem*"/>
+            </parameter>
+            <parameter name="child" transfer-ownership="none">
+              <type name="DockItem" c:type="PnlDockItem*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_child_visible">
+        <callback name="set_child_visible">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="DockItem" c:type="PnlDockItem*"/>
+            </parameter>
+            <parameter name="child" transfer-ownership="none">
+              <type name="DockItem" c:type="PnlDockItem*"/>
+            </parameter>
+            <parameter name="child_visible" transfer-ownership="none">
+              <type name="gboolean" c:type="gboolean"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="DockManager"
+           c:symbol-prefix="dock_manager"
+           c:type="PnlDockManager"
+           parent="GObject.Object"
+           glib:type-name="PnlDockManager"
+           glib:get-type="pnl_dock_manager_get_type"
+           glib:type-struct="DockManagerClass">
+      <constructor name="new" c:identifier="pnl_dock_manager_new">
+        <return-value transfer-ownership="full">
+          <type name="DockManager" c:type="PnlDockManager*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="register_dock" invoker="register_dock">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockManager" c:type="PnlDockManager*"/>
+          </instance-parameter>
+          <parameter name="dock" transfer-ownership="none">
+            <type name="Dock" c:type="PnlDock*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="unregister_dock" invoker="unregister_dock">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockManager" c:type="PnlDockManager*"/>
+          </instance-parameter>
+          <parameter name="dock" transfer-ownership="none">
+            <type name="Dock" c:type="PnlDock*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="register_dock"
+              c:identifier="pnl_dock_manager_register_dock">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockManager" c:type="PnlDockManager*"/>
+          </instance-parameter>
+          <parameter name="dock" transfer-ownership="none">
+            <type name="Dock" c:type="PnlDock*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unregister_dock"
+              c:identifier="pnl_dock_manager_unregister_dock">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockManager" c:type="PnlDockManager*"/>
+          </instance-parameter>
+          <parameter name="dock" transfer-ownership="none">
+            <type name="Dock" c:type="PnlDock*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="register-dock" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Dock"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="unregister-dock" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Dock"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="DockManagerClass"
+            c:type="PnlDockManagerClass"
+            glib:is-gtype-struct-for="DockManager">
+      <field name="parent">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="register_dock">
+        <callback name="register_dock">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="DockManager" c:type="PnlDockManager*"/>
+            </parameter>
+            <parameter name="dock" transfer-ownership="none">
+              <type name="Dock" c:type="PnlDock*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="unregister_dock">
+        <callback name="unregister_dock">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="DockManager" c:type="PnlDockManager*"/>
+            </parameter>
+            <parameter name="dock" transfer-ownership="none">
+              <type name="Dock" c:type="PnlDock*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="padding1">
+        <callback name="padding1">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding2">
+        <callback name="padding2">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding3">
+        <callback name="padding3">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding4">
+        <callback name="padding4">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding5">
+        <callback name="padding5">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding6">
+        <callback name="padding6">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding7">
+        <callback name="padding7">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding8">
+        <callback name="padding8">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <class name="DockOverlay"
+           c:symbol-prefix="dock_overlay"
+           c:type="PnlDockOverlay"
+           parent="Gtk.EventBox"
+           glib:type-name="PnlDockOverlay"
+           glib:get-type="pnl_dock_overlay_get_type"
+           glib:type-struct="DockOverlayClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Dock"/>
+      <implements name="DockItem"/>
+      <constructor name="new" c:identifier="pnl_dock_overlay_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="hide_edges">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockOverlay" c:type="PnlDockOverlay*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_edge" c:identifier="pnl_dock_overlay_get_edge">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The corresponding #PnlDockOverlayEdge.</doc>
+          <type name="DockOverlayEdge" c:type="PnlDockOverlayEdge*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">An #PnlDockOverlay.</doc>
+            <type name="DockOverlay" c:type="PnlDockOverlay*"/>
+          </instance-parameter>
+          <parameter name="position" transfer-ownership="none">
+            <doc xml:space="preserve">the edge position.</doc>
+            <type name="Gtk.PositionType" c:type="GtkPositionType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_edge_adjustment"
+              c:identifier="pnl_dock_overlay_get_edge_adjustment">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">The corresponding #GtkAdjustment.</doc>
+          <type name="Gtk.Adjustment" c:type="GtkAdjustment*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve">An #PnlDockOverlay.</doc>
+            <type name="DockOverlay" c:type="PnlDockOverlay*"/>
+          </instance-parameter>
+          <parameter name="position" transfer-ownership="none">
+            <doc xml:space="preserve">the edge position.</doc>
+            <type name="Gtk.PositionType" c:type="GtkPositionType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="Gtk.EventBox" c:type="GtkEventBox"/>
+      </field>
+      <glib:signal name="hide-edges" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="DockOverlayClass"
+            c:type="PnlDockOverlayClass"
+            glib:is-gtype-struct-for="DockOverlay">
+      <field name="parent">
+        <type name="Gtk.EventBoxClass" c:type="GtkEventBoxClass"/>
+      </field>
+      <field name="hide_edges">
+        <callback name="hide_edges">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="DockOverlay" c:type="PnlDockOverlay*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="padding1">
+        <callback name="padding1">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding2">
+        <callback name="padding2">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding3">
+        <callback name="padding3">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding4">
+        <callback name="padding4">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding5">
+        <callback name="padding5">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding6">
+        <callback name="padding6">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding7">
+        <callback name="padding7">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding8">
+        <callback name="padding8">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <class name="DockOverlayEdge"
+           c:symbol-prefix="dock_overlay_edge"
+           c:type="PnlDockOverlayEdge"
+           parent="Gtk.Bin"
+           glib:type-name="PnlDockOverlayEdge"
+           glib:get-type="pnl_dock_overlay_edge_get_type"
+           glib:type-struct="DockOverlayEdgeClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="DockItem"/>
+      <method name="get_edge" c:identifier="pnl_dock_overlay_edge_get_edge">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.PositionType" c:type="GtkPositionType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockOverlayEdge" c:type="PnlDockOverlayEdge*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_position"
+              c:identifier="pnl_dock_overlay_edge_get_position">
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockOverlayEdge" c:type="PnlDockOverlayEdge*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_edge" c:identifier="pnl_dock_overlay_edge_set_edge">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockOverlayEdge" c:type="PnlDockOverlayEdge*"/>
+          </instance-parameter>
+          <parameter name="edge" transfer-ownership="none">
+            <type name="Gtk.PositionType" c:type="GtkPositionType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_position"
+              c:identifier="pnl_dock_overlay_edge_set_position">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockOverlayEdge" c:type="PnlDockOverlayEdge*"/>
+          </instance-parameter>
+          <parameter name="position" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="edge" writable="1" transfer-ownership="none">
+        <type name="Gtk.PositionType"/>
+      </property>
+      <property name="position" writable="1" transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </property>
+    </class>
+    <record name="DockOverlayEdgeClass"
+            c:type="PnlDockOverlayEdgeClass"
+            glib:is-gtype-struct-for="DockOverlayEdge">
+      <field name="parent_class">
+        <type name="Gtk.BinClass" c:type="GtkBinClass"/>
+      </field>
+    </record>
+    <class name="DockPaned"
+           c:symbol-prefix="dock_paned"
+           c:type="PnlDockPaned"
+           parent="MultiPaned"
+           glib:type-name="PnlDockPaned"
+           glib:get-type="pnl_dock_paned_get_type"
+           glib:type-struct="DockPanedClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Orientable"/>
+      <implements name="DockItem"/>
+      <constructor name="new" c:identifier="pnl_dock_paned_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="set_child_edge"
+              c:identifier="pnl_dock_paned_set_child_edge">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockPaned" c:type="PnlDockPaned*"/>
+          </instance-parameter>
+          <parameter name="child_edge" transfer-ownership="none">
+            <type name="Gtk.PositionType" c:type="GtkPositionType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="MultiPaned" c:type="PnlMultiPaned"/>
+      </field>
+    </class>
+    <record name="DockPanedClass"
+            c:type="PnlDockPanedClass"
+            glib:is-gtype-struct-for="DockPaned">
+      <field name="parent">
+        <type name="MultiPanedClass" c:type="PnlMultiPanedClass"/>
+      </field>
+      <field name="padding1">
+        <callback name="padding1">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding2">
+        <callback name="padding2">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding3">
+        <callback name="padding3">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding4">
+        <callback name="padding4">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding5">
+        <callback name="padding5">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding6">
+        <callback name="padding6">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding7">
+        <callback name="padding7">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding8">
+        <callback name="padding8">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <class name="DockRevealer"
+           c:symbol-prefix="dock_revealer"
+           c:type="PnlDockRevealer"
+           parent="Gtk.Bin"
+           glib:type-name="PnlDockRevealer"
+           glib:get-type="pnl_dock_revealer_get_type"
+           glib:type-struct="DockRevealerClass">
+      <doc xml:space="preserve">This widget is a bit like #GtkRevealer with a couple of important
+differences. First, it only supports a couple transition types
+(the direction to slide reveal). Additionally, the size of the
+child allocation will not change during the animation. This is not
+as generally useful as an upstream GTK+ widget, but is extremely
+important for the panel case to avoid things looking strange while
+animating into and out of view.</doc>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="pnl_dock_revealer_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="animate_to_position"
+              c:identifier="pnl_dock_revealer_animate_to_position">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockRevealer" c:type="PnlDockRevealer*"/>
+          </instance-parameter>
+          <parameter name="position" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="transition_duration" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_child_revealed"
+              c:identifier="pnl_dock_revealer_get_child_revealed">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockRevealer" c:type="PnlDockRevealer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_position"
+              c:identifier="pnl_dock_revealer_get_position">
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockRevealer" c:type="PnlDockRevealer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_position_set"
+              c:identifier="pnl_dock_revealer_get_position_set">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockRevealer" c:type="PnlDockRevealer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_reveal_child"
+              c:identifier="pnl_dock_revealer_get_reveal_child">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockRevealer" c:type="PnlDockRevealer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_transition_duration"
+              c:identifier="pnl_dock_revealer_get_transition_duration">
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockRevealer" c:type="PnlDockRevealer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_transition_type"
+              c:identifier="pnl_dock_revealer_get_transition_type">
+        <return-value transfer-ownership="none">
+          <type name="DockRevealerTransitionType"
+                c:type="PnlDockRevealerTransitionType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockRevealer" c:type="PnlDockRevealer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_position"
+              c:identifier="pnl_dock_revealer_set_position">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockRevealer" c:type="PnlDockRevealer*"/>
+          </instance-parameter>
+          <parameter name="position" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_position_set"
+              c:identifier="pnl_dock_revealer_set_position_set">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockRevealer" c:type="PnlDockRevealer*"/>
+          </instance-parameter>
+          <parameter name="position_set" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_reveal_child"
+              c:identifier="pnl_dock_revealer_set_reveal_child">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockRevealer" c:type="PnlDockRevealer*"/>
+          </instance-parameter>
+          <parameter name="reveal_child" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_transition_duration"
+              c:identifier="pnl_dock_revealer_set_transition_duration">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockRevealer" c:type="PnlDockRevealer*"/>
+          </instance-parameter>
+          <parameter name="transition_duration" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_transition_type"
+              c:identifier="pnl_dock_revealer_set_transition_type">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockRevealer" c:type="PnlDockRevealer*"/>
+          </instance-parameter>
+          <parameter name="transition_type" transfer-ownership="none">
+            <type name="DockRevealerTransitionType"
+                  c:type="PnlDockRevealerTransitionType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="child-revealed" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="position" writable="1" transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="position-set" writable="1" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="reveal-child" writable="1" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="transition-duration"
+                writable="1"
+                transfer-ownership="none">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="transition-type" writable="1" transfer-ownership="none">
+        <type name="DockRevealerTransitionType"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Gtk.Bin" c:type="GtkBin"/>
+      </field>
+    </class>
+    <record name="DockRevealerClass"
+            c:type="PnlDockRevealerClass"
+            glib:is-gtype-struct-for="DockRevealer">
+      <field name="parent">
+        <type name="Gtk.BinClass" c:type="GtkBinClass"/>
+      </field>
+      <field name="padding1">
+        <callback name="padding1">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding2">
+        <callback name="padding2">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding3">
+        <callback name="padding3">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding4">
+        <callback name="padding4">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding5">
+        <callback name="padding5">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding6">
+        <callback name="padding6">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding7">
+        <callback name="padding7">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding8">
+        <callback name="padding8">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="DockRevealerTransitionType"
+                 glib:type-name="PnlDockRevealerTransitionType"
+                 glib:get-type="pnl_dock_revealer_transition_type_get_type"
+                 c:type="PnlDockRevealerTransitionType">
+      <member name="none"
+              value="0"
+              c:identifier="PNL_DOCK_REVEALER_TRANSITION_TYPE_NONE"
+              glib:nick="none">
+      </member>
+      <member name="slide_right"
+              value="1"
+              c:identifier="PNL_DOCK_REVEALER_TRANSITION_TYPE_SLIDE_RIGHT"
+              glib:nick="slide-right">
+      </member>
+      <member name="slide_left"
+              value="2"
+              c:identifier="PNL_DOCK_REVEALER_TRANSITION_TYPE_SLIDE_LEFT"
+              glib:nick="slide-left">
+      </member>
+      <member name="slide_up"
+              value="3"
+              c:identifier="PNL_DOCK_REVEALER_TRANSITION_TYPE_SLIDE_UP"
+              glib:nick="slide-up">
+      </member>
+      <member name="slide_down"
+              value="4"
+              c:identifier="PNL_DOCK_REVEALER_TRANSITION_TYPE_SLIDE_DOWN"
+              glib:nick="slide-down">
+      </member>
+    </enumeration>
+    <class name="DockStack"
+           c:symbol-prefix="dock_stack"
+           c:type="PnlDockStack"
+           parent="Gtk.Box"
+           glib:type-name="PnlDockStack"
+           glib:get-type="pnl_dock_stack_get_type"
+           glib:type-struct="DockStackClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Orientable"/>
+      <implements name="DockItem"/>
+      <constructor name="new" c:identifier="pnl_dock_stack_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="get_edge" c:identifier="pnl_dock_stack_get_edge">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.PositionType" c:type="GtkPositionType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockStack" c:type="PnlDockStack*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_edge" c:identifier="pnl_dock_stack_set_edge">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockStack" c:type="PnlDockStack*"/>
+          </instance-parameter>
+          <parameter name="edge" transfer-ownership="none">
+            <type name="Gtk.PositionType" c:type="GtkPositionType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="edge" writable="1" transfer-ownership="none">
+        <type name="Gtk.PositionType"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Gtk.Box" c:type="GtkBox"/>
+      </field>
+    </class>
+    <record name="DockStackClass"
+            c:type="PnlDockStackClass"
+            glib:is-gtype-struct-for="DockStack">
+      <field name="parent">
+        <type name="Gtk.BoxClass" c:type="GtkBoxClass"/>
+      </field>
+    </record>
+    <class name="DockTabStrip"
+           c:symbol-prefix="dock_tab_strip"
+           c:type="PnlDockTabStrip"
+           parent="TabStrip"
+           glib:type-name="PnlDockTabStrip"
+           glib:get-type="pnl_dock_tab_strip_get_type"
+           glib:type-struct="DockTabStripClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Orientable"/>
+      <constructor name="new" c:identifier="pnl_dock_tab_strip_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+    </class>
+    <record name="DockTabStripClass"
+            c:type="PnlDockTabStripClass"
+            glib:is-gtype-struct-for="DockTabStrip">
+      <field name="parent_class">
+        <type name="TabStripClass" c:type="PnlTabStripClass"/>
+      </field>
+    </record>
+    <class name="DockTransientGrab"
+           c:symbol-prefix="dock_transient_grab"
+           c:type="PnlDockTransientGrab"
+           parent="GObject.Object"
+           glib:type-name="PnlDockTransientGrab"
+           glib:get-type="pnl_dock_transient_grab_get_type"
+           glib:type-struct="DockTransientGrabClass">
+      <constructor name="new" c:identifier="pnl_dock_transient_grab_new">
+        <return-value transfer-ownership="full">
+          <type name="DockTransientGrab" c:type="PnlDockTransientGrab*"/>
+        </return-value>
+      </constructor>
+      <method name="acquire" c:identifier="pnl_dock_transient_grab_acquire">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockTransientGrab" c:type="PnlDockTransientGrab*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="add_item" c:identifier="pnl_dock_transient_grab_add_item">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockTransientGrab" c:type="PnlDockTransientGrab*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="contains" c:identifier="pnl_dock_transient_grab_contains">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockTransientGrab" c:type="PnlDockTransientGrab*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_timeout"
+              c:identifier="pnl_dock_transient_grab_get_timeout">
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockTransientGrab" c:type="PnlDockTransientGrab*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_descendant"
+              c:identifier="pnl_dock_transient_grab_is_descendant">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockTransientGrab" c:type="PnlDockTransientGrab*"/>
+          </instance-parameter>
+          <parameter name="widget" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="release" c:identifier="pnl_dock_transient_grab_release">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockTransientGrab" c:type="PnlDockTransientGrab*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="remove_item"
+              c:identifier="pnl_dock_transient_grab_remove_item">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockTransientGrab" c:type="PnlDockTransientGrab*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <type name="DockItem" c:type="PnlDockItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_timeout"
+              c:identifier="pnl_dock_transient_grab_set_timeout">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockTransientGrab" c:type="PnlDockTransientGrab*"/>
+          </instance-parameter>
+          <parameter name="timeout" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="steal_common_ancestors"
+              c:identifier="pnl_dock_transient_grab_steal_common_ancestors">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockTransientGrab" c:type="PnlDockTransientGrab*"/>
+          </instance-parameter>
+          <parameter name="other" transfer-ownership="none">
+            <type name="DockTransientGrab" c:type="PnlDockTransientGrab*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="timeout" writable="1" transfer-ownership="none">
+        <type name="guint" c:type="guint"/>
+      </property>
+    </class>
+    <record name="DockTransientGrabClass"
+            c:type="PnlDockTransientGrabClass"
+            glib:is-gtype-struct-for="DockTransientGrab">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="DockWidget"
+           c:symbol-prefix="dock_widget"
+           c:type="PnlDockWidget"
+           parent="Gtk.Bin"
+           glib:type-name="PnlDockWidget"
+           glib:get-type="pnl_dock_widget_get_type"
+           glib:type-struct="DockWidgetClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="DockItem"/>
+      <constructor name="new" c:identifier="pnl_dock_widget_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="get_title" c:identifier="pnl_dock_widget_get_title">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockWidget" c:type="PnlDockWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_title" c:identifier="pnl_dock_widget_set_title">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DockWidget" c:type="PnlDockWidget*"/>
+          </instance-parameter>
+          <parameter name="title" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="manager" writable="1" transfer-ownership="none">
+        <type name="DockManager"/>
+      </property>
+      <property name="title" writable="1" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Gtk.Bin" c:type="GtkBin"/>
+      </field>
+    </class>
+    <record name="DockWidgetClass"
+            c:type="PnlDockWidgetClass"
+            glib:is-gtype-struct-for="DockWidget">
+      <field name="parent">
+        <type name="Gtk.BinClass" c:type="GtkBinClass"/>
+      </field>
+      <field name="padding1">
+        <callback name="padding1">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding2">
+        <callback name="padding2">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding3">
+        <callback name="padding3">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding4">
+        <callback name="padding4">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding5">
+        <callback name="padding5">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding6">
+        <callback name="padding6">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding7">
+        <callback name="padding7">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding8">
+        <callback name="padding8">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <class name="DockWindow"
+           c:symbol-prefix="dock_window"
+           c:type="PnlDockWindow"
+           parent="Gtk.Window"
+           glib:type-name="PnlDockWindow"
+           glib:get-type="pnl_dock_window_get_type"
+           glib:type-struct="DockWindowClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Dock"/>
+      <implements name="DockItem"/>
+      <constructor name="new" c:identifier="pnl_dock_window_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <field name="parent_instance">
+        <type name="Gtk.Window" c:type="GtkWindow"/>
+      </field>
+    </class>
+    <record name="DockWindowClass"
+            c:type="PnlDockWindowClass"
+            glib:is-gtype-struct-for="DockWindow">
+      <field name="parent">
+        <type name="Gtk.WindowClass" c:type="GtkWindowClass"/>
+      </field>
+    </record>
+    <constant name="MAJOR_VERSION" value="3" c:type="PNL_MAJOR_VERSION">
+      <doc xml:space="preserve">pnl major version component (e.g. 1 if %PNL_VERSION is 1.2.3)</doc>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MICRO_VERSION" value="1" c:type="PNL_MICRO_VERSION">
+      <doc xml:space="preserve">pnl micro version component (e.g. 3 if %PNL_VERSION is 1.2.3)</doc>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MINOR_VERSION" value="25" c:type="PNL_MINOR_VERSION">
+      <doc xml:space="preserve">pnl minor version component (e.g. 2 if %PNL_VERSION is 1.2.3)</doc>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <class name="MultiPaned"
+           c:symbol-prefix="multi_paned"
+           c:type="PnlMultiPaned"
+           parent="Gtk.Container"
+           glib:type-name="PnlMultiPaned"
+           glib:get-type="pnl_multi_paned_get_type"
+           glib:type-struct="MultiPanedClass">
+      <doc xml:space="preserve">This widget is similar to #GtkPaned except that it allows adding more than
+two children to the widget. For each additional child added to the
+#PnlMultiPaned, an additional resize grip is added.</doc>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Orientable"/>
+      <constructor name="new" c:identifier="pnl_multi_paned_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="resize_drag_begin">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="MultiPaned" c:type="PnlMultiPaned*"/>
+          </instance-parameter>
+          <parameter name="child" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="resize_drag_end">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="MultiPaned" c:type="PnlMultiPaned*"/>
+          </instance-parameter>
+          <parameter name="child" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_n_children"
+              c:identifier="pnl_multi_paned_get_n_children">
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="MultiPaned" c:type="PnlMultiPaned*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="orientation"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="Gtk.Orientation"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Gtk.Container" c:type="GtkContainer"/>
+      </field>
+      <glib:signal name="resize-drag-begin" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Gtk.Widget"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="resize-drag-end" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Gtk.Widget"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="MultiPanedClass"
+            c:type="PnlMultiPanedClass"
+            glib:is-gtype-struct-for="MultiPaned">
+      <field name="parent">
+        <type name="Gtk.ContainerClass" c:type="GtkContainerClass"/>
+      </field>
+      <field name="resize_drag_begin">
+        <callback name="resize_drag_begin">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="MultiPaned" c:type="PnlMultiPaned*"/>
+            </parameter>
+            <parameter name="child" transfer-ownership="none">
+              <type name="Gtk.Widget" c:type="GtkWidget*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="resize_drag_end">
+        <callback name="resize_drag_end">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="MultiPaned" c:type="PnlMultiPaned*"/>
+            </parameter>
+            <parameter name="child" transfer-ownership="none">
+              <type name="Gtk.Widget" c:type="GtkWidget*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="padding1">
+        <callback name="padding1">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding2">
+        <callback name="padding2">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding3">
+        <callback name="padding3">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding4">
+        <callback name="padding4">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding5">
+        <callback name="padding5">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding6">
+        <callback name="padding6">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding7">
+        <callback name="padding7">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="padding8">
+        <callback name="padding8">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <class name="Tab"
+           c:symbol-prefix="tab"
+           c:type="PnlTab"
+           parent="Gtk.ToggleButton"
+           glib:type-name="PnlTab"
+           glib:get-type="pnl_tab_get_type"
+           glib:type-struct="TabClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Actionable"/>
+      <implements name="Gtk.Activatable"/>
+      <implements name="Gtk.Buildable"/>
+      <method name="get_edge" c:identifier="pnl_tab_get_edge">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.PositionType" c:type="GtkPositionType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Tab" c:type="PnlTab*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_title" c:identifier="pnl_tab_get_title">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Tab" c:type="PnlTab*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_widget" c:identifier="pnl_tab_get_widget">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">A #GtkWidget or %NULL.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Tab" c:type="PnlTab*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_edge" c:identifier="pnl_tab_set_edge">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Tab" c:type="PnlTab*"/>
+          </instance-parameter>
+          <parameter name="edge" transfer-ownership="none">
+            <type name="Gtk.PositionType" c:type="GtkPositionType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_title" c:identifier="pnl_tab_set_title">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Tab" c:type="PnlTab*"/>
+          </instance-parameter>
+          <parameter name="title" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_widget" c:identifier="pnl_tab_set_widget">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Tab" c:type="PnlTab*"/>
+          </instance-parameter>
+          <parameter name="widget" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="edge" writable="1" transfer-ownership="none">
+        <type name="Gtk.PositionType"/>
+      </property>
+      <property name="title" writable="1" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="widget" writable="1" transfer-ownership="none">
+        <type name="Gtk.Widget"/>
+      </property>
+    </class>
+    <record name="TabClass"
+            c:type="PnlTabClass"
+            glib:is-gtype-struct-for="Tab">
+      <field name="parent_class">
+        <type name="Gtk.ToggleButtonClass" c:type="GtkToggleButtonClass"/>
+      </field>
+    </record>
+    <class name="TabStrip"
+           c:symbol-prefix="tab_strip"
+           c:type="PnlTabStrip"
+           parent="Gtk.Box"
+           glib:type-name="PnlTabStrip"
+           glib:get-type="pnl_tab_strip_get_type"
+           glib:type-struct="TabStripClass">
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Orientable"/>
+      <constructor name="new" c:identifier="pnl_tab_strip_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="get_edge" c:identifier="pnl_tab_strip_get_edge">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.PositionType" c:type="GtkPositionType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TabStrip" c:type="PnlTabStrip*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_labels"
+              c:identifier="pnl_tab_strip_get_show_labels">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TabStrip" c:type="PnlTabStrip*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_stack" c:identifier="pnl_tab_strip_get_stack">
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">A #GtkStack or %NULL.</doc>
+          <type name="Gtk.Stack" c:type="GtkStack*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TabStrip" c:type="PnlTabStrip*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_edge" c:identifier="pnl_tab_strip_set_edge">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TabStrip" c:type="PnlTabStrip*"/>
+          </instance-parameter>
+          <parameter name="edge" transfer-ownership="none">
+            <type name="Gtk.PositionType" c:type="GtkPositionType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_show_labels"
+              c:identifier="pnl_tab_strip_set_show_labels">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TabStrip" c:type="PnlTabStrip*"/>
+          </instance-parameter>
+          <parameter name="show_labels" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_stack" c:identifier="pnl_tab_strip_set_stack">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TabStrip" c:type="PnlTabStrip*"/>
+          </instance-parameter>
+          <parameter name="stack" transfer-ownership="none">
+            <type name="Gtk.Stack" c:type="GtkStack*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="edge" writable="1" transfer-ownership="none">
+        <type name="Gtk.PositionType"/>
+      </property>
+      <property name="stack" writable="1" transfer-ownership="none">
+        <type name="Gtk.Stack"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Gtk.Box" c:type="GtkBox"/>
+      </field>
+    </class>
+    <record name="TabStripClass"
+            c:type="PnlTabStripClass"
+            glib:is-gtype-struct-for="TabStrip">
+      <field name="parent">
+        <type name="Gtk.BoxClass" c:type="GtkBoxClass"/>
+      </field>
+    </record>
+    <constant name="VERSION_S" value="3.25.1" c:type="PNL_VERSION_S">
+      <doc xml:space="preserve">pnl version, encoded as a string, useful for printing and
+concatenation.</doc>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function name="frame_source_add" c:identifier="pnl_frame_source_add">
+      <doc xml:space="preserve">Creates a new frame source that will execute when the timeout interval
+for the source has elapsed. The timing will try to synchronize based
+on the end time of the animation.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">A source id that can be removed with g_source_remove().</doc>
+        <type name="guint" c:type="guint"/>
+      </return-value>
+      <parameters>
+        <parameter name="frames_per_sec" transfer-ownership="none">
+          <doc xml:space="preserve">Target frames per second.</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="callback"
+                   transfer-ownership="none"
+                   scope="notified"
+                   closure="2">
+          <doc xml:space="preserve">A #GSourceFunc to execute.</doc>
+          <type name="GLib.SourceFunc" c:type="GSourceFunc"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">User data for @callback.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_bin_draw" c:identifier="pnl_gtk_bin_draw">
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="widget" transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </parameter>
+        <parameter name="cr" transfer-ownership="none">
+          <type name="cairo.Context" c:type="cairo_t*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_bin_size_allocate"
+              c:identifier="pnl_gtk_bin_size_allocate">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="widget" transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </parameter>
+        <parameter name="allocation" transfer-ownership="none">
+          <type name="Gtk.Allocation" c:type="GtkAllocation*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="object_animate"
+              c:identifier="pnl_object_animate"
+              introspectable="0">
+      <doc xml:space="preserve">Animates the properties of @object. The can be set in a similar manner to g_object_set(). They
+will be animated from their current value to the target value over the time period.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">A #PnlAnimation.
+Side effects: None.</doc>
+        <type name="Animation" c:type="PnlAnimation*"/>
+      </return-value>
+      <parameters>
+        <parameter name="object"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">A #GObject.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+        <parameter name="mode" transfer-ownership="none">
+          <doc xml:space="preserve">The animation mode.</doc>
+          <type name="AnimationMode" c:type="PnlAnimationMode"/>
+        </parameter>
+        <parameter name="duration_msec" transfer-ownership="none">
+          <doc xml:space="preserve">The duration in milliseconds.</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="frame_clock" transfer-ownership="none">
+          <type name="Gdk.FrameClock" c:type="GdkFrameClock*"/>
+        </parameter>
+        <parameter name="first_property" transfer-ownership="none">
+          <doc xml:space="preserve">The first property to animate.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="object_animate_full"
+              c:identifier="pnl_object_animate_full"
+              introspectable="0">
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">A #PnlAnimation.</doc>
+        <type name="Animation" c:type="PnlAnimation*"/>
+      </return-value>
+      <parameters>
+        <parameter name="object"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+        <parameter name="mode" transfer-ownership="none">
+          <type name="AnimationMode" c:type="PnlAnimationMode"/>
+        </parameter>
+        <parameter name="duration_msec" transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="frame_clock" transfer-ownership="none">
+          <type name="Gdk.FrameClock" c:type="GdkFrameClock*"/>
+        </parameter>
+        <parameter name="notify" transfer-ownership="none" scope="async">
+          <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+        </parameter>
+        <parameter name="notify_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+        <parameter name="first_property" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="object_animatev"
+              c:identifier="pnl_object_animatev"
+              introspectable="0">
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">A #PnlAnimation.</doc>
+        <type name="Animation" c:type="PnlAnimation*"/>
+      </return-value>
+      <parameters>
+        <parameter name="object"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">A #GObject.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+        <parameter name="mode" transfer-ownership="none">
+          <doc xml:space="preserve">The animation mode.</doc>
+          <type name="AnimationMode" c:type="PnlAnimationMode"/>
+        </parameter>
+        <parameter name="duration_msec" transfer-ownership="none">
+          <doc xml:space="preserve">The duration in milliseconds.</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="frame_clock" transfer-ownership="none">
+          <doc xml:space="preserve">The target frame rate.</doc>
+          <type name="Gdk.FrameClock" c:type="GdkFrameClock*"/>
+        </parameter>
+        <parameter name="first_property" transfer-ownership="none">
+          <doc xml:space="preserve">The first property to animate.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="args" transfer-ownership="none">
+          <doc xml:space="preserve">A variadac list of arguments</doc>
+          <type name="va_list" c:type="va_list"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="overlay_add_child" c:identifier="pnl_overlay_add_child">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <type name="DockOverlay" c:type="PnlDockOverlay*"/>
+        </parameter>
+        <parameter name="child" transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </parameter>
+        <parameter name="type" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

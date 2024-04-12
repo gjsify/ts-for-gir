@@ -4,7 +4,6 @@ export default {
     girDirectories: [
         // General gir files in this repository
         './girs',
-        './vala-girs/gir-1.0',
     ],
     ignore: [
         'Colorhug-1.0', // Duplicate of ColorHug-1.0

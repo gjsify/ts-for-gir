@@ -1,0 +1,1801 @@
+<?xml version="1.0"?>
+<repository version="1.2" xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+<include name="GObject" version="2.0"/>
+<include name="Gio" version="2.0"/>
+<include name="GLib" version="2.0"/>
+<package name="tracker-sparql-1.0"/>
+<c:include name="libtracker-sparql/tracker-generated-no-checks.h"/>
+<namespace name="Tracker" version="1.0" c:prefix="Tracker">
+	<attribute name="ccode.gir-version" value="1.0"/>
+	<attribute name="ccode.lower-case-cprefix" value="tracker_"/>
+	<attribute name="ccode.cprefix" value="Tracker"/>
+	<attribute name="ccode.gir-namespace" value="Tracker"/>
+	<enumeration name="SparqlValueType" c:type="TrackerSparqlValueType" glib:type-name="TrackerSparqlValueType" glib:get-type="tracker_sparql_value_type_get_type">
+		<member name="unbound" c:identifier="TRACKER_SPARQL_VALUE_TYPE_UNBOUND" value="0"/>
+		<member name="uri" c:identifier="TRACKER_SPARQL_VALUE_TYPE_URI" value="1"/>
+		<member name="string" c:identifier="TRACKER_SPARQL_VALUE_TYPE_STRING" value="2"/>
+		<member name="integer" c:identifier="TRACKER_SPARQL_VALUE_TYPE_INTEGER" value="3"/>
+		<member name="double" c:identifier="TRACKER_SPARQL_VALUE_TYPE_DOUBLE" value="4"/>
+		<member name="datetime" c:identifier="TRACKER_SPARQL_VALUE_TYPE_DATETIME" value="5"/>
+		<member name="blank_node" c:identifier="TRACKER_SPARQL_VALUE_TYPE_BLANK_NODE" value="6"/>
+		<member name="boolean" c:identifier="TRACKER_SPARQL_VALUE_TYPE_BOOLEAN" value="7"/>
+	</enumeration>
+	<enumeration name="Error" c:type="TrackerSparqlError" glib:error-domain="tracker_sparql_error-quark">
+		<member name="parse" c:identifier="TRACKER_SPARQL_ERROR_PARSE" value="0"/>
+		<member name="unknown_class" c:identifier="TRACKER_SPARQL_ERROR_UNKNOWN_CLASS" value="1"/>
+		<member name="unknown_property" c:identifier="TRACKER_SPARQL_ERROR_UNKNOWN_PROPERTY" value="2"/>
+		<member name="type" c:identifier="TRACKER_SPARQL_ERROR_TYPE" value="3"/>
+		<member name="constraint" c:identifier="TRACKER_SPARQL_ERROR_CONSTRAINT" value="4"/>
+		<member name="no_space" c:identifier="TRACKER_SPARQL_ERROR_NO_SPACE" value="5"/>
+		<member name="internal" c:identifier="TRACKER_SPARQL_ERROR_INTERNAL" value="6"/>
+		<member name="unsupported" c:identifier="TRACKER_SPARQL_ERROR_UNSUPPORTED" value="7"/>
+	</enumeration>
+	<class name="SparqlBuilder" c:type="TrackerSparqlBuilder" glib:type-name="TrackerSparqlBuilder" glib:get-type="tracker_sparql_builder_get_type" glib:type-struct="SparqlBuilderClass" parent="GObject.Object">
+		<field name="parent_instance">
+			<type name="GObject.Object" c:type="GObject"/>
+		</field>
+		<field name="priv">
+			<type name="SparqlBuilderPrivate" c:type="TrackerSparqlBuilderPrivate*"/>
+		</field>
+		<constructor name="update" c:identifier="tracker_sparql_builder_new_update">
+			<return-value transfer-ownership="full">
+				<type name="Tracker.SparqlBuilder" c:type="TrackerSparqlBuilder*"/>
+			</return-value>
+		</constructor>
+		<constructor name="embedded_insert" c:identifier="tracker_sparql_builder_new_embedded_insert">
+			<return-value transfer-ownership="full">
+				<type name="Tracker.SparqlBuilder" c:type="TrackerSparqlBuilder*"/>
+			</return-value>
+		</constructor>
+		<method name="insert_open" c:identifier="tracker_sparql_builder_insert_open">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="graph" transfer-ownership="none" allow-none="1">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="insert_silent_open" c:identifier="tracker_sparql_builder_insert_silent_open">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="graph" transfer-ownership="none" allow-none="1">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="insert_close" c:identifier="tracker_sparql_builder_insert_close">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</method>
+		<method name="delete_open" c:identifier="tracker_sparql_builder_delete_open">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="graph" transfer-ownership="none" allow-none="1">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="delete_close" c:identifier="tracker_sparql_builder_delete_close">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</method>
+		<method name="graph_open" c:identifier="tracker_sparql_builder_graph_open">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="graph" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="graph_close" c:identifier="tracker_sparql_builder_graph_close">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</method>
+		<method name="where_open" c:identifier="tracker_sparql_builder_where_open">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</method>
+		<method name="where_close" c:identifier="tracker_sparql_builder_where_close">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</method>
+		<method name="subject_variable" c:identifier="tracker_sparql_builder_subject_variable">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="var_name" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="object_variable" c:identifier="tracker_sparql_builder_object_variable">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="var_name" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="subject_iri" c:identifier="tracker_sparql_builder_subject_iri">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="iri" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="subject" c:identifier="tracker_sparql_builder_subject">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="s" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="predicate_iri" c:identifier="tracker_sparql_builder_predicate_iri">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="iri" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="predicate" c:identifier="tracker_sparql_builder_predicate">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="s" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="object_iri" c:identifier="tracker_sparql_builder_object_iri">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="iri" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="object" c:identifier="tracker_sparql_builder_object">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="s" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="object_string" c:identifier="tracker_sparql_builder_object_string">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="literal" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="object_unvalidated" c:identifier="tracker_sparql_builder_object_unvalidated">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="value" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="object_boolean" c:identifier="tracker_sparql_builder_object_boolean">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="literal" transfer-ownership="none">
+					<type name="gboolean" c:type="gboolean"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="object_int64" c:identifier="tracker_sparql_builder_object_int64">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="literal" transfer-ownership="none">
+					<type name="gint64" c:type="gint64"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="object_date" c:identifier="tracker_sparql_builder_object_date">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="literal" direction="inout" transfer-ownership="full">
+					<type name="glong" c:type="time_t*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="object_double" c:identifier="tracker_sparql_builder_object_double">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="literal" transfer-ownership="none">
+					<type name="gdouble" c:type="gdouble"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="object_blank_open" c:identifier="tracker_sparql_builder_object_blank_open">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</method>
+		<method name="object_blank_close" c:identifier="tracker_sparql_builder_object_blank_close">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</method>
+		<method name="prepend" c:identifier="tracker_sparql_builder_prepend">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="raw" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="append" c:identifier="tracker_sparql_builder_append">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="raw" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<constructor name="new" c:identifier="tracker_sparql_builder_new">
+			<return-value transfer-ownership="full">
+				<type name="Tracker.SparqlBuilder" c:type="TrackerSparqlBuilder*"/>
+			</return-value>
+		</constructor>
+		<property name="result">
+			<type name="utf8" c:type="gchar*"/>
+		</property>
+		<method name="get_result" c:identifier="tracker_sparql_builder_get_result">
+			<return-value transfer-ownership="none">
+				<type name="utf8" c:type="const gchar*"/>
+			</return-value>
+		</method>
+		<property name="length" writable="1">
+			<type name="gint" c:type="gint"/>
+		</property>
+		<method name="get_length" c:identifier="tracker_sparql_builder_get_length">
+			<return-value transfer-ownership="none">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+		</method>
+		<property name="state">
+			<type name="Tracker.SparqlBuilderState" c:type="TrackerSparqlBuilderState"/>
+		</property>
+		<method name="get_state" c:identifier="tracker_sparql_builder_get_state">
+			<return-value transfer-ownership="none">
+				<type name="Tracker.SparqlBuilderState" c:type="TrackerSparqlBuilderState"/>
+			</return-value>
+		</method>
+	</class>
+	<record name="SparqlBuilderClass" c:type="TrackerSparqlBuilderClass" glib:is-gtype-struct-for="Builder">
+		<field name="parent_class">
+			<type name="GObject.ObjectClass" c:type="GObjectClass"/>
+		</field>
+	</record>
+	<record name="SparqlBuilderPrivate" c:type="TrackerSparqlBuilderPrivate" disguised="1"/>
+	<enumeration name="SparqlBuilderState" c:type="TrackerSparqlBuilderState" glib:type-name="TrackerSparqlBuilderState" glib:get-type="tracker_sparql_builder_state_get_type">
+		<member name="update" c:identifier="TRACKER_SPARQL_BUILDER_STATE_UPDATE" value="0"/>
+		<member name="insert" c:identifier="TRACKER_SPARQL_BUILDER_STATE_INSERT" value="1"/>
+		<member name="delete" c:identifier="TRACKER_SPARQL_BUILDER_STATE_DELETE" value="2"/>
+		<member name="subject" c:identifier="TRACKER_SPARQL_BUILDER_STATE_SUBJECT" value="3"/>
+		<member name="predicate" c:identifier="TRACKER_SPARQL_BUILDER_STATE_PREDICATE" value="4"/>
+		<member name="object" c:identifier="TRACKER_SPARQL_BUILDER_STATE_OBJECT" value="5"/>
+		<member name="blank" c:identifier="TRACKER_SPARQL_BUILDER_STATE_BLANK" value="6"/>
+		<member name="where" c:identifier="TRACKER_SPARQL_BUILDER_STATE_WHERE" value="7"/>
+		<member name="embedded_insert" c:identifier="TRACKER_SPARQL_BUILDER_STATE_EMBEDDED_INSERT" value="8"/>
+		<member name="graph" c:identifier="TRACKER_SPARQL_BUILDER_STATE_GRAPH" value="9"/>
+	</enumeration>
+	<class name="SparqlConnection" c:type="TrackerSparqlConnection" glib:type-name="TrackerSparqlConnection" glib:get-type="tracker_sparql_connection_get_type" glib:type-struct="SparqlConnectionClass" parent="GObject.Object" abstract="1">
+		<field name="parent_instance">
+			<type name="GObject.Object" c:type="GObject"/>
+		</field>
+		<field name="priv">
+			<type name="SparqlConnectionPrivate" c:type="TrackerSparqlConnectionPrivate*"/>
+		</field>
+		<function name="get_async" c:identifier="tracker_sparql_connection_get_async">
+			<return-value transfer-ownership="none">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+				<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="2" scope="async">
+					<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+				</parameter>
+				<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="void*"/>
+				</parameter>
+			</parameters>
+		</function>
+		<function name="get_finish" c:identifier="tracker_sparql_connection_get_finish" throws="1">
+			<return-value transfer-ownership="full">
+				<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+			</return-value>
+			<parameters>
+				<parameter name="_res_" transfer-ownership="none">
+					<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+				</parameter>
+			</parameters>
+		</function>
+		<function name="get" c:identifier="tracker_sparql_connection_get" throws="1">
+			<return-value transfer-ownership="full">
+				<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+			</return-value>
+			<parameters>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+			</parameters>
+		</function>
+		<function name="get_direct_async" c:identifier="tracker_sparql_connection_get_direct_async" deprecated="">
+			<attribute name="version.deprecated" value="true"/>
+			<return-value transfer-ownership="none">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+				<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="2" scope="async">
+					<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+				</parameter>
+				<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="void*"/>
+				</parameter>
+			</parameters>
+		</function>
+		<function name="get_direct_finish" c:identifier="tracker_sparql_connection_get_direct_finish" throws="1" deprecated="">
+			<attribute name="version.deprecated" value="true"/>
+			<return-value transfer-ownership="full">
+				<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+			</return-value>
+			<parameters>
+				<parameter name="_res_" transfer-ownership="none">
+					<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+				</parameter>
+			</parameters>
+		</function>
+		<function name="get_direct" c:identifier="tracker_sparql_connection_get_direct" throws="1" deprecated="">
+			<attribute name="version.deprecated" value="true"/>
+			<return-value transfer-ownership="full">
+				<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+			</return-value>
+			<parameters>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+			</parameters>
+		</function>
+		<function name="remote_new" c:identifier="tracker_sparql_connection_remote_new">
+			<return-value transfer-ownership="full">
+				<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+			</return-value>
+			<parameters>
+				<parameter name="uri_base" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+			</parameters>
+		</function>
+		<method name="query" c:identifier="tracker_sparql_connection_query" throws="1">
+			<return-value transfer-ownership="full">
+				<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+			</return-value>
+			<parameters>
+				<parameter name="sparql" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="query" invoker="query" throws="1">
+			<return-value transfer-ownership="full">
+				<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+			</return-value>
+			<parameters>
+				<parameter name="sparql" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="query_async" c:identifier="tracker_sparql_connection_query_async">
+			<return-value transfer-ownership="none">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="sparql" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+				<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="3" scope="async">
+					<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+				</parameter>
+				<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="void*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="query_finish" c:identifier="tracker_sparql_connection_query_finish" throws="1">
+			<return-value transfer-ownership="full">
+				<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+			</return-value>
+			<parameters>
+				<parameter name="_res_" transfer-ownership="none">
+					<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="query_async" invoker="query_async">
+			<return-value transfer-ownership="none">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="sparql" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+				<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="3" scope="async">
+					<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+				</parameter>
+				<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="void*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<virtual-method name="query_finish" invoker="query_finish" throws="1">
+			<return-value transfer-ownership="full">
+				<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+			</return-value>
+			<parameters>
+				<parameter name="_res_" transfer-ownership="none">
+					<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="update" c:identifier="tracker_sparql_connection_update" throws="1">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="sparql" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+				<parameter name="priority" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="update" invoker="update" throws="1">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="sparql" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+				<parameter name="priority" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="update_async" c:identifier="tracker_sparql_connection_update_async">
+			<return-value transfer-ownership="none">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="sparql" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+				<parameter name="priority" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+				<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="4" scope="async">
+					<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+				</parameter>
+				<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="void*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="update_finish" c:identifier="tracker_sparql_connection_update_finish" throws="1">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="_res_" transfer-ownership="none">
+					<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="update_async" invoker="update_async">
+			<return-value transfer-ownership="none">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="sparql" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+				<parameter name="priority" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+				<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="4" scope="async">
+					<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+				</parameter>
+				<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="void*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<virtual-method name="update_finish" invoker="update_finish" throws="1">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="_res_" transfer-ownership="none">
+					<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="update_array_async" c:identifier="tracker_sparql_connection_update_array_async">
+			<return-value transfer-ownership="none">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="sparql" transfer-ownership="none">
+					<array length="1">
+						<type name="utf8" c:type="gchar*"/>
+					</array>
+				</parameter>
+				<parameter name="sparql_length1" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="priority" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+				<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="5" scope="async">
+					<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+				</parameter>
+				<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="void*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="update_array_finish" c:identifier="tracker_sparql_connection_update_array_finish" throws="1">
+			<return-value transfer-ownership="full" allow-none="1">
+				<array name="GLib.PtrArray" c:type="GPtrArray*">
+					<type name="Tracker.SparqlError" c:type="GError*"/>
+				</array>
+			</return-value>
+			<parameters>
+				<parameter name="_res_" transfer-ownership="none">
+					<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="update_array_async" invoker="update_array_async">
+			<return-value transfer-ownership="none">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="sparql" transfer-ownership="none">
+					<array length="1">
+						<type name="utf8" c:type="gchar*"/>
+					</array>
+				</parameter>
+				<parameter name="sparql_length1" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="priority" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+				<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="5" scope="async">
+					<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+				</parameter>
+				<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="void*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<virtual-method name="update_array_finish" invoker="update_array_finish" throws="1">
+			<return-value transfer-ownership="full" allow-none="1">
+				<array name="GLib.PtrArray" c:type="GPtrArray*">
+					<type name="Tracker.SparqlError" c:type="GError*"/>
+				</array>
+			</return-value>
+			<parameters>
+				<parameter name="_res_" transfer-ownership="none">
+					<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="update_blank" c:identifier="tracker_sparql_connection_update_blank" throws="1">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="GLib.Variant" c:type="GVariant*"/>
+			</return-value>
+			<parameters>
+				<parameter name="sparql" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+				<parameter name="priority" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="update_blank" invoker="update_blank" throws="1">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="GLib.Variant" c:type="GVariant*"/>
+			</return-value>
+			<parameters>
+				<parameter name="sparql" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+				<parameter name="priority" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="update_blank_async" c:identifier="tracker_sparql_connection_update_blank_async">
+			<return-value transfer-ownership="none">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="sparql" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+				<parameter name="priority" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+				<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="4" scope="async">
+					<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+				</parameter>
+				<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="void*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="update_blank_finish" c:identifier="tracker_sparql_connection_update_blank_finish" throws="1">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="GLib.Variant" c:type="GVariant*"/>
+			</return-value>
+			<parameters>
+				<parameter name="_res_" transfer-ownership="none">
+					<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="update_blank_async" invoker="update_blank_async">
+			<return-value transfer-ownership="none">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="sparql" transfer-ownership="none">
+					<type name="utf8" c:type="const gchar*"/>
+				</parameter>
+				<parameter name="priority" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+				<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="4" scope="async">
+					<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+				</parameter>
+				<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="void*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<virtual-method name="update_blank_finish" invoker="update_blank_finish" throws="1">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="GLib.Variant" c:type="GVariant*"/>
+			</return-value>
+			<parameters>
+				<parameter name="_res_" transfer-ownership="none">
+					<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="load" c:identifier="tracker_sparql_connection_load" throws="1">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="file" transfer-ownership="none">
+					<type name="Gio.File" c:type="GFile*"/>
+				</parameter>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="load" invoker="load" throws="1">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="file" transfer-ownership="none">
+					<type name="Gio.File" c:type="GFile*"/>
+				</parameter>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="load_async" c:identifier="tracker_sparql_connection_load_async">
+			<return-value transfer-ownership="none">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="file" transfer-ownership="none">
+					<type name="Gio.File" c:type="GFile*"/>
+				</parameter>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+				<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="3" scope="async">
+					<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+				</parameter>
+				<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="void*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="load_finish" c:identifier="tracker_sparql_connection_load_finish" throws="1">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="_res_" transfer-ownership="none">
+					<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="load_async" invoker="load_async">
+			<return-value transfer-ownership="none">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="file" transfer-ownership="none">
+					<type name="Gio.File" c:type="GFile*"/>
+				</parameter>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+				<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="3" scope="async">
+					<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+				</parameter>
+				<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="void*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<virtual-method name="load_finish" invoker="load_finish" throws="1">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="_res_" transfer-ownership="none">
+					<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="statistics" c:identifier="tracker_sparql_connection_statistics" throws="1">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+			</return-value>
+			<parameters>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="statistics" invoker="statistics" throws="1">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+			</return-value>
+			<parameters>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="statistics_async" c:identifier="tracker_sparql_connection_statistics_async">
+			<return-value transfer-ownership="none">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+				<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="2" scope="async">
+					<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+				</parameter>
+				<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="void*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="statistics_finish" c:identifier="tracker_sparql_connection_statistics_finish" throws="1">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+			</return-value>
+			<parameters>
+				<parameter name="_res_" transfer-ownership="none">
+					<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="statistics_async" invoker="statistics_async">
+			<return-value transfer-ownership="none">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+				<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="2" scope="async">
+					<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+				</parameter>
+				<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="void*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<virtual-method name="statistics_finish" invoker="statistics_finish" throws="1">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+			</return-value>
+			<parameters>
+				<parameter name="_res_" transfer-ownership="none">
+					<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+	</class>
+	<record name="SparqlConnectionClass" c:type="TrackerSparqlConnectionClass" glib:is-gtype-struct-for="Connection">
+		<field name="parent_class">
+			<type name="GObject.ObjectClass" c:type="GObjectClass"/>
+		</field>
+				<field name="query">
+			<callback name="query" c:type="query" throws="1">
+				<return-value transfer-ownership="full">
+					<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+					</parameter>
+					<parameter name="sparql" transfer-ownership="none">
+						<type name="utf8" c:type="const gchar*"/>
+					</parameter>
+					<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+						<type name="Gio.Cancellable" c:type="GCancellable*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="query_async">
+			<callback name="query_async" c:type="query_async">
+				<return-value transfer-ownership="none">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+					</parameter>
+					<parameter name="sparql" transfer-ownership="none">
+						<type name="utf8" c:type="const gchar*"/>
+					</parameter>
+					<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+						<type name="Gio.Cancellable" c:type="GCancellable*"/>
+					</parameter>
+					<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="4" scope="async">
+						<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+					</parameter>
+					<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="void*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="query_finish">
+			<callback name="query_finish" c:type="query_finish" throws="1">
+				<return-value transfer-ownership="full">
+					<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+					</parameter>
+					<parameter name="_res_" transfer-ownership="none">
+						<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="update">
+			<callback name="update" c:type="update" throws="1">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+					</parameter>
+					<parameter name="sparql" transfer-ownership="none">
+						<type name="utf8" c:type="const gchar*"/>
+					</parameter>
+					<parameter name="priority" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+					<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+						<type name="Gio.Cancellable" c:type="GCancellable*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="update_async">
+			<callback name="update_async" c:type="update_async">
+				<return-value transfer-ownership="none">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+					</parameter>
+					<parameter name="sparql" transfer-ownership="none">
+						<type name="utf8" c:type="const gchar*"/>
+					</parameter>
+					<parameter name="priority" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+					<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+						<type name="Gio.Cancellable" c:type="GCancellable*"/>
+					</parameter>
+					<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="5" scope="async">
+						<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+					</parameter>
+					<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="void*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="update_finish">
+			<callback name="update_finish" c:type="update_finish" throws="1">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+					</parameter>
+					<parameter name="_res_" transfer-ownership="none">
+						<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="update_array_async">
+			<callback name="update_array_async" c:type="update_array_async">
+				<return-value transfer-ownership="none">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+					</parameter>
+					<parameter name="sparql" transfer-ownership="none">
+						<array length="2">
+							<type name="utf8" c:type="gchar*"/>
+						</array>
+					</parameter>
+					<parameter name="sparql_length1" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+					<parameter name="priority" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+					<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+						<type name="Gio.Cancellable" c:type="GCancellable*"/>
+					</parameter>
+					<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="6" scope="async">
+						<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+					</parameter>
+					<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="void*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="update_array_finish">
+			<callback name="update_array_finish" c:type="update_array_finish" throws="1">
+				<return-value transfer-ownership="full" allow-none="1">
+					<array name="GLib.PtrArray" c:type="GPtrArray*">
+						<type name="Tracker.SparqlError" c:type="GError*"/>
+					</array>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+					</parameter>
+					<parameter name="_res_" transfer-ownership="none">
+						<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="update_blank">
+			<callback name="update_blank" c:type="update_blank" throws="1">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="GLib.Variant" c:type="GVariant*"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+					</parameter>
+					<parameter name="sparql" transfer-ownership="none">
+						<type name="utf8" c:type="const gchar*"/>
+					</parameter>
+					<parameter name="priority" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+					<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+						<type name="Gio.Cancellable" c:type="GCancellable*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="update_blank_async">
+			<callback name="update_blank_async" c:type="update_blank_async">
+				<return-value transfer-ownership="none">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+					</parameter>
+					<parameter name="sparql" transfer-ownership="none">
+						<type name="utf8" c:type="const gchar*"/>
+					</parameter>
+					<parameter name="priority" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+					<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+						<type name="Gio.Cancellable" c:type="GCancellable*"/>
+					</parameter>
+					<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="5" scope="async">
+						<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+					</parameter>
+					<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="void*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="update_blank_finish">
+			<callback name="update_blank_finish" c:type="update_blank_finish" throws="1">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="GLib.Variant" c:type="GVariant*"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+					</parameter>
+					<parameter name="_res_" transfer-ownership="none">
+						<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="load">
+			<callback name="load" c:type="load" throws="1">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+					</parameter>
+					<parameter name="file" transfer-ownership="none">
+						<type name="Gio.File" c:type="GFile*"/>
+					</parameter>
+					<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+						<type name="Gio.Cancellable" c:type="GCancellable*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="load_async">
+			<callback name="load_async" c:type="load_async">
+				<return-value transfer-ownership="none">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+					</parameter>
+					<parameter name="file" transfer-ownership="none">
+						<type name="Gio.File" c:type="GFile*"/>
+					</parameter>
+					<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+						<type name="Gio.Cancellable" c:type="GCancellable*"/>
+					</parameter>
+					<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="4" scope="async">
+						<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+					</parameter>
+					<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="void*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="load_finish">
+			<callback name="load_finish" c:type="load_finish" throws="1">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+					</parameter>
+					<parameter name="_res_" transfer-ownership="none">
+						<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="statistics">
+			<callback name="statistics" c:type="statistics" throws="1">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+					</parameter>
+					<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+						<type name="Gio.Cancellable" c:type="GCancellable*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="statistics_async">
+			<callback name="statistics_async" c:type="statistics_async">
+				<return-value transfer-ownership="none">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+					</parameter>
+					<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+						<type name="Gio.Cancellable" c:type="GCancellable*"/>
+					</parameter>
+					<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="3" scope="async">
+						<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+					</parameter>
+					<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="void*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="statistics_finish">
+			<callback name="statistics_finish" c:type="statistics_finish" throws="1">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+					</parameter>
+					<parameter name="_res_" transfer-ownership="none">
+						<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<record name="SparqlConnectionPrivate" c:type="TrackerSparqlConnectionPrivate" disguised="1"/>
+	<class name="SparqlCursor" c:type="TrackerSparqlCursor" glib:type-name="TrackerSparqlCursor" glib:get-type="tracker_sparql_cursor_get_type" glib:type-struct="SparqlCursorClass" parent="GObject.Object" abstract="1">
+		<field name="parent_instance">
+			<type name="GObject.Object" c:type="GObject"/>
+		</field>
+		<field name="priv">
+			<type name="SparqlCursorPrivate" c:type="TrackerSparqlCursorPrivate*"/>
+		</field>
+		<method name="get_value_type" c:identifier="tracker_sparql_cursor_get_value_type">
+			<return-value transfer-ownership="full">
+				<type name="Tracker.SparqlValueType" c:type="TrackerSparqlValueType"/>
+			</return-value>
+			<parameters>
+				<parameter name="column" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="get_value_type" invoker="get_value_type">
+			<return-value transfer-ownership="full">
+				<type name="Tracker.SparqlValueType" c:type="TrackerSparqlValueType"/>
+			</return-value>
+			<parameters>
+				<parameter name="column" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="get_variable_name" c:identifier="tracker_sparql_cursor_get_variable_name">
+			<return-value transfer-ownership="none" allow-none="1">
+				<type name="utf8" c:type="const gchar*"/>
+			</return-value>
+			<parameters>
+				<parameter name="column" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="get_variable_name" invoker="get_variable_name">
+			<return-value transfer-ownership="none" allow-none="1">
+				<type name="utf8" c:type="const gchar*"/>
+			</return-value>
+			<parameters>
+				<parameter name="column" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="get_string" c:identifier="tracker_sparql_cursor_get_string">
+			<return-value transfer-ownership="none" allow-none="1">
+				<type name="utf8" c:type="const gchar*"/>
+			</return-value>
+			<parameters>
+				<parameter name="column" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="length" direction="out" transfer-ownership="full">
+					<type name="glong" c:type="glong*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="get_string" invoker="get_string">
+			<return-value transfer-ownership="none" allow-none="1">
+				<type name="utf8" c:type="const gchar*"/>
+			</return-value>
+			<parameters>
+				<parameter name="column" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="length" direction="out" transfer-ownership="full">
+					<type name="glong" c:type="glong*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="next" c:identifier="tracker_sparql_cursor_next" throws="1">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="next" invoker="next" throws="1">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="next_async" c:identifier="tracker_sparql_cursor_next_async">
+			<return-value transfer-ownership="none">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+				<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="2" scope="async">
+					<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+				</parameter>
+				<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="void*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<method name="next_finish" c:identifier="tracker_sparql_cursor_next_finish" throws="1">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="_res_" transfer-ownership="none">
+					<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="next_async" invoker="next_async">
+			<return-value transfer-ownership="none">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+					<type name="Gio.Cancellable" c:type="GCancellable*"/>
+				</parameter>
+				<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="2" scope="async">
+					<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+				</parameter>
+				<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="void*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<virtual-method name="next_finish" invoker="next_finish" throws="1">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="_res_" transfer-ownership="none">
+					<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="rewind" c:identifier="tracker_sparql_cursor_rewind">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</method>
+		<virtual-method name="rewind" invoker="rewind">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</virtual-method>
+		<method name="close" c:identifier="tracker_sparql_cursor_close">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</method>
+		<virtual-method name="close" invoker="close">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</virtual-method>
+		<method name="get_integer" c:identifier="tracker_sparql_cursor_get_integer">
+			<return-value transfer-ownership="full">
+				<type name="gint64" c:type="gint64"/>
+			</return-value>
+			<parameters>
+				<parameter name="column" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="get_integer" invoker="get_integer">
+			<return-value transfer-ownership="full">
+				<type name="gint64" c:type="gint64"/>
+			</return-value>
+			<parameters>
+				<parameter name="column" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="get_double" c:identifier="tracker_sparql_cursor_get_double">
+			<return-value transfer-ownership="full">
+				<type name="gdouble" c:type="gdouble"/>
+			</return-value>
+			<parameters>
+				<parameter name="column" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="get_double" invoker="get_double">
+			<return-value transfer-ownership="full">
+				<type name="gdouble" c:type="gdouble"/>
+			</return-value>
+			<parameters>
+				<parameter name="column" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="get_boolean" c:identifier="tracker_sparql_cursor_get_boolean">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="column" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="get_boolean" invoker="get_boolean">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="column" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="is_bound" c:identifier="tracker_sparql_cursor_is_bound">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="column" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="is_bound" invoker="is_bound">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="column" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<property name="connection" writable="1">
+			<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+		</property>
+		<method name="get_connection" c:identifier="tracker_sparql_cursor_get_connection">
+			<return-value transfer-ownership="none">
+				<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+			</return-value>
+		</method>
+		<method name="set_connection" c:identifier="tracker_sparql_cursor_set_connection">
+			<return-value transfer-ownership="none">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="value" transfer-ownership="none">
+					<type name="Tracker.SparqlConnection" c:type="TrackerSparqlConnection*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<property name="n-columns">
+			<type name="gint" c:type="gint"/>
+		</property>
+		<method name="get_n_columns" c:identifier="tracker_sparql_cursor_get_n_columns">
+			<return-value transfer-ownership="none">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+		</method>
+		<virtual-method name="get_n_columns" invoker="get_n_columns">
+			<return-value transfer-ownership="none">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+		</virtual-method>
+	</class>
+	<record name="SparqlCursorClass" c:type="TrackerSparqlCursorClass" glib:is-gtype-struct-for="Cursor">
+		<field name="parent_class">
+			<type name="GObject.ObjectClass" c:type="GObjectClass"/>
+		</field>
+				<field name="get_value_type">
+			<callback name="get_value_type" c:type="get_value_type">
+				<return-value transfer-ownership="full">
+					<type name="Tracker.SparqlValueType" c:type="TrackerSparqlValueType"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+					</parameter>
+					<parameter name="column" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="get_variable_name">
+			<callback name="get_variable_name" c:type="get_variable_name">
+				<return-value transfer-ownership="none" allow-none="1">
+					<type name="utf8" c:type="const gchar*"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+					</parameter>
+					<parameter name="column" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="get_string">
+			<callback name="get_string" c:type="get_string">
+				<return-value transfer-ownership="none" allow-none="1">
+					<type name="utf8" c:type="const gchar*"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+					</parameter>
+					<parameter name="column" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+					<parameter name="length" direction="out" transfer-ownership="full">
+						<type name="glong" c:type="glong*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="next">
+			<callback name="next" c:type="next" throws="1">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+					</parameter>
+					<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+						<type name="Gio.Cancellable" c:type="GCancellable*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="next_async">
+			<callback name="next_async" c:type="next_async">
+				<return-value transfer-ownership="none">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+					</parameter>
+					<parameter name="cancellable" transfer-ownership="none" allow-none="1">
+						<type name="Gio.Cancellable" c:type="GCancellable*"/>
+					</parameter>
+					<parameter name="_callback_" transfer-ownership="none" allow-none="1" closure="3" scope="async">
+						<type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+					</parameter>
+					<parameter name="_callback__target" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="void*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="next_finish">
+			<callback name="next_finish" c:type="next_finish" throws="1">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+					</parameter>
+					<parameter name="_res_" transfer-ownership="none">
+						<type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="rewind">
+			<callback name="rewind" c:type="rewind">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="close">
+			<callback name="close" c:type="close">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="get_integer">
+			<callback name="get_integer" c:type="get_integer">
+				<return-value transfer-ownership="full">
+					<type name="gint64" c:type="gint64"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+					</parameter>
+					<parameter name="column" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="get_double">
+			<callback name="get_double" c:type="get_double">
+				<return-value transfer-ownership="full">
+					<type name="gdouble" c:type="gdouble"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+					</parameter>
+					<parameter name="column" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="get_boolean">
+			<callback name="get_boolean" c:type="get_boolean">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+					</parameter>
+					<parameter name="column" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="is_bound">
+			<callback name="is_bound" c:type="is_bound">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Tracker.SparqlCursor" c:type="TrackerSparqlCursor*"/>
+					</parameter>
+					<parameter name="column" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<record name="SparqlCursorPrivate" c:type="TrackerSparqlCursorPrivate" disguised="1"/>
+	<function name="sparql_escape_uri" c:identifier="tracker_sparql_escape_uri">
+		<return-value transfer-ownership="full">
+			<type name="utf8" c:type="gchar*"/>
+		</return-value>
+		<parameters>
+			<parameter name="uri" transfer-ownership="none">
+				<type name="utf8" c:type="const gchar*"/>
+			</parameter>
+		</parameters>
+	</function>
+	<function name="sparql_escape_string" c:identifier="tracker_sparql_escape_string">
+		<return-value transfer-ownership="full">
+			<type name="utf8" c:type="gchar*"/>
+		</return-value>
+		<parameters>
+			<parameter name="literal" transfer-ownership="none">
+				<type name="utf8" c:type="const gchar*"/>
+			</parameter>
+		</parameters>
+	</function>
+	<function name="sparql_get_uuid_urn" c:identifier="tracker_sparql_get_uuid_urn">
+		<return-value transfer-ownership="full">
+			<type name="utf8" c:type="gchar*"/>
+		</return-value>
+	</function>
+	<constant name="DBUS_SERVICE" c:identifier="TRACKER_DBUS_SERVICE" value="org.freedesktop.Tracker1">
+		<type name="utf8" c:type="const gchar*"/>
+	</constant>
+	<constant name="DBUS_INTERFACE_RESOURCES" c:identifier="TRACKER_DBUS_INTERFACE_RESOURCES" value="(null)">
+		<type name="utf8" c:type="const gchar*"/>
+	</constant>
+	<constant name="DBUS_OBJECT_RESOURCES" c:identifier="TRACKER_DBUS_OBJECT_RESOURCES" value="/org/freedesktop/Tracker1/Resources">
+		<type name="utf8" c:type="const gchar*"/>
+	</constant>
+	<constant name="DBUS_INTERFACE_STATISTICS" c:identifier="TRACKER_DBUS_INTERFACE_STATISTICS" value="(null)">
+		<type name="utf8" c:type="const gchar*"/>
+	</constant>
+	<constant name="DBUS_OBJECT_STATISTICS" c:identifier="TRACKER_DBUS_OBJECT_STATISTICS" value="/org/freedesktop/Tracker1/Statistics">
+		<type name="utf8" c:type="const gchar*"/>
+	</constant>
+	<constant name="DBUS_INTERFACE_STATUS" c:identifier="TRACKER_DBUS_INTERFACE_STATUS" value="(null)">
+		<type name="utf8" c:type="const gchar*"/>
+	</constant>
+	<constant name="DBUS_OBJECT_STATUS" c:identifier="TRACKER_DBUS_OBJECT_STATUS" value="/org/freedesktop/Tracker1/Status">
+		<type name="utf8" c:type="const gchar*"/>
+	</constant>
+	<constant name="DBUS_INTERFACE_STEROIDS" c:identifier="TRACKER_DBUS_INTERFACE_STEROIDS" value="(null)">
+		<type name="utf8" c:type="const gchar*"/>
+	</constant>
+	<constant name="DBUS_OBJECT_STEROIDS" c:identifier="TRACKER_DBUS_OBJECT_STEROIDS" value="/org/freedesktop/Tracker1/Steroids">
+		<type name="utf8" c:type="const gchar*"/>
+	</constant>
+</namespace>
+</repository>

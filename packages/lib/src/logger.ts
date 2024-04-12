@@ -3,7 +3,7 @@
  * In addition, the environment or the module currently being processed is also included as prepended to the logging string
  */
 
-import { blue, yellow, yellowBright, green, red, white } from 'colorette'
+import { blue, yellow, yellowBright, green, red, white, gray } from 'colorette'
 
 export class Logger {
     constructor(
@@ -125,5 +125,8 @@ export class Logger {
     }
     public static yellow(txt: string | number, ...args: unknown[]): void {
         this.log(yellow(txt), ...args)
+    }
+    public static gray(txt: string | number, ...args: unknown[]): void {
+        this.log(gray(txt), ...args)
     }
 }

@@ -1,0 +1,273 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Grl" version="0.2"/>
+  <namespace name="GrlPls"
+             version="0.2"
+             shared-library="libgrlpls-0.2.so.0,libgrilo-0.2.so.1"
+             c:identifier-prefixes="GrlPls"
+             c:symbol-prefixes="grl_pls">
+    <callback name="FilterFunc" c:type="GrlPlsFilterFunc">
+      <doc xml:space="preserve">Callback type to filter, or modify #GrlMedia created
+when parsing a playlist using one of grl_pls_browse(),
+grl_pls_browse_sync() or grl_pls_browse_by_spec().
+
+The callback is responsible for unreffing @media when returning %NULL or
+another #GrlMedia.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve">%NULL to not add this entry to the results,
+  or a new #GrlMedia populated with metadata of your choice.</doc>
+        <type name="Grl.Media" c:type="GrlMedia*"/>
+      </return-value>
+      <parameters>
+        <parameter name="source" transfer-ownership="none">
+          <doc xml:space="preserve">the #GrlSource the browse call came from</doc>
+          <type name="Grl.Source" c:type="GrlSource*"/>
+        </parameter>
+        <parameter name="media" transfer-ownership="full">
+          <doc xml:space="preserve">a #GrlMedia to operate on</doc>
+          <type name="Grl.Media" c:type="GrlMedia*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="2">
+          <doc xml:space="preserve">user data passed to the browse call</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <function name="browse" c:identifier="grl_pls_browse" version="0.2.0">
+      <doc xml:space="preserve">Browse into a playlist. The playlist entries are
+returned via the @callback function as GrlMedia objects.
+This function imitates the API and way of working of
+#grl_source_browse.
+
+The @playlist provided could be of any GrlMedia class,
+as long as its URI points to a valid playlist file.
+
+This function is asynchronous.
+
+See #grl_source_browse() function for additional information
+and sample code.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">the operation identifier</doc>
+        <type name="guint" c:type="guint"/>
+      </return-value>
+      <parameters>
+        <parameter name="source" transfer-ownership="none">
+          <doc xml:space="preserve">a source</doc>
+          <type name="Grl.Source" c:type="GrlSource*"/>
+        </parameter>
+        <parameter name="playlist" transfer-ownership="none">
+          <doc xml:space="preserve">a playlist</doc>
+          <type name="Grl.Media" c:type="GrlMedia*"/>
+        </parameter>
+        <parameter name="keys" transfer-ownership="none">
+          <doc xml:space="preserve">the #GList of
+#GrlKeyID&lt;!-- --&gt;s to request</doc>
+          <type name="GLib.List" c:type="const GList*">
+            <type name="Grl.KeyID"/>
+          </type>
+        </parameter>
+        <parameter name="options" transfer-ownership="none">
+          <doc xml:space="preserve">options wanted for that operation</doc>
+          <type name="Grl.OperationOptions" c:type="GrlOperationOptions*"/>
+        </parameter>
+        <parameter name="filter_func"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   scope="async">
+          <doc xml:space="preserve">A filter function, or %NULL</doc>
+          <type name="FilterFunc" c:type="GrlPlsFilterFunc"/>
+        </parameter>
+        <parameter name="callback"
+                   transfer-ownership="none"
+                   scope="notified"
+                   closure="6">
+          <doc xml:space="preserve">the user defined callback</doc>
+          <type name="Grl.SourceResultCb" c:type="GrlSourceResultCb"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">the user data to pass in the callback</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="browse_by_spec"
+              c:identifier="grl_pls_browse_by_spec"
+              version="0.2.0">
+      <doc xml:space="preserve">Browse into a playlist. The playlist entries are
+returned via the bs-&gt;callback function as GrlMedia objects.
+This function is more suitable to be called from plugins, which by
+design get the GrlSourceBrowseSpec already filled in.
+
+The bs-&gt;playlist provided could be of any GrlMedia class,
+as long as its URI points to a valid playlist file.
+
+This function is asynchronous.
+
+See #grl_pls_browse() and #grl_source_browse() function for additional
+information and sample code.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="source" transfer-ownership="none">
+          <doc xml:space="preserve">a source</doc>
+          <type name="Grl.Source" c:type="GrlSource*"/>
+        </parameter>
+        <parameter name="filter_func"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   scope="async">
+          <doc xml:space="preserve">A filter function, or %NULL</doc>
+          <type name="FilterFunc" c:type="GrlPlsFilterFunc"/>
+        </parameter>
+        <parameter name="bs" transfer-ownership="none">
+          <doc xml:space="preserve">a GrlSourceBrowseSpec structure with details of the browsing operation</doc>
+          <type name="Grl.SourceBrowseSpec" c:type="GrlSourceBrowseSpec*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="browse_sync"
+              c:identifier="grl_pls_browse_sync"
+              version="0.2.0"
+              throws="1">
+      <doc xml:space="preserve">Browse into a playlist. The playlist entries are
+returned via the @callback function as GrlMedia objects.
+This function imitates the API and way of working of
+#grl_source_browse_sync.
+
+The filter function @filter_func will be used for plugins
+or applications to be able to refuse particular entries from
+being listed.
+
+If a %NULL filter function is passed, the media will be added
+with only the metadata coming from the playlist included.
+
+This function is synchronous.
+
+See #grl_source_browse_sync() function for additional information
+and sample code.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve">a #GList with #GrlMedia
+elements. After use g_object_unref() every element and g_list_free() the
+list.</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="Grl.Media"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="source" transfer-ownership="none">
+          <doc xml:space="preserve">a source</doc>
+          <type name="Grl.Source" c:type="GrlSource*"/>
+        </parameter>
+        <parameter name="playlist" transfer-ownership="none">
+          <doc xml:space="preserve">a playlist</doc>
+          <type name="Grl.Media" c:type="GrlMedia*"/>
+        </parameter>
+        <parameter name="keys" transfer-ownership="none">
+          <doc xml:space="preserve">the #GList of
+#GrlKeyID&lt;!-- --&gt;s to request</doc>
+          <type name="GLib.List" c:type="const GList*">
+            <type name="Grl.KeyID"/>
+          </type>
+        </parameter>
+        <parameter name="options" transfer-ownership="none">
+          <doc xml:space="preserve">options wanted for that operation</doc>
+          <type name="Grl.OperationOptions" c:type="GrlOperationOptions*"/>
+        </parameter>
+        <parameter name="filter_func"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   scope="async">
+          <doc xml:space="preserve">A filter function, or %NULL</doc>
+          <type name="FilterFunc" c:type="GrlPlsFilterFunc"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_to_media"
+              c:identifier="grl_pls_file_to_media"
+              version="0.2.0">
+      <doc xml:space="preserve">This function will update (if @content is non-%NULL) or create a
+GrlMedia and populate it with information from @info.
+
+If @info is %NULL, a call to g_file_query_info() will be made.
+
+This function is useful for plugins that browse the local filesystem
+and want to easily create GrlMedia from filesystem information.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve">a new #GrlMedia.</doc>
+        <type name="Grl.Media" c:type="GrlMedia*"/>
+      </return-value>
+      <parameters>
+        <parameter name="content" transfer-ownership="none">
+          <doc xml:space="preserve">an existing #GrlMedia for the file, or %NULL</doc>
+          <type name="Grl.Media" c:type="GrlMedia*"/>
+        </parameter>
+        <parameter name="file" transfer-ownership="none">
+          <doc xml:space="preserve">a #GFile pointing to the file or directory in question</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="info" transfer-ownership="none">
+          <doc xml:space="preserve">an existing #GFileInfo, or %NULL</doc>
+          <type name="Gio.FileInfo" c:type="GFileInfo*"/>
+        </parameter>
+        <parameter name="handle_pls" transfer-ownership="none">
+          <doc xml:space="preserve">Whether playlists should be handled as containers</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="options" transfer-ownership="none">
+          <doc xml:space="preserve">a #GrlOperationOptions representing the options to apply
+  to this operation.</doc>
+          <type name="Grl.OperationOptions" c:type="GrlOperationOptions*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_file_attributes"
+              c:identifier="grl_pls_get_file_attributes"
+              version="0.2.0">
+      <doc xml:space="preserve">Returns the list of attributes to pass to
+g_file_query_info() to make it possible to
+populate a GrlMedia using grl_pls_file_to_media().
+
+Do not free the result of this function.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">a string containing the
+list of attributes.</doc>
+        <type name="utf8" c:type="const char*"/>
+      </return-value>
+    </function>
+    <function name="media_is_playlist"
+              c:identifier="grl_pls_media_is_playlist"
+              version="0.2.0">
+      <doc xml:space="preserve">Check if a file identified by GrlMedia object is a playlist or not.
+This function does blocking I/O.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">%TRUE if a GrlMedia is recognized as a playlist.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="media" transfer-ownership="none">
+          <doc xml:space="preserve">GrlMedia</doc>
+          <type name="Grl.Media" c:type="GrlMedia*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

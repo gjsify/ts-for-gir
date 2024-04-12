@@ -1,0 +1,874 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Arrow" version="1.0"/>
+  <package name="parquet-glib"/>
+  <namespace name="Parquet"
+             version="1.0"
+             shared-library="libparquet-glib.so.300"
+             c:identifier-prefixes="GParquet"
+             c:symbol-prefixes="gparquet">
+    <class name="ArrowFileReader"
+           c:symbol-prefix="arrow_file_reader"
+           c:type="GParquetArrowFileReader"
+           parent="GObject.Object"
+           glib:type-name="GParquetArrowFileReader"
+           glib:get-type="gparquet_arrow_file_reader_get_type"
+           glib:type-struct="ArrowFileReaderClass">
+      <source-position filename="../parquet-glib/arrow-file-reader.h"
+                       line="37"/>
+      <constructor name="new_arrow"
+                   c:identifier="gparquet_arrow_file_reader_new_arrow"
+                   version="0.11.0"
+                   throws="1">
+        <source-position filename="../parquet-glib/arrow-file-reader.h"
+                         line="40"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/arrow-file-reader.cpp"
+               line="131">A newly created #GParquetArrowFileReader.</doc>
+          <type name="ArrowFileReader" c:type="GParquetArrowFileReader*"/>
+        </return-value>
+        <parameters>
+          <parameter name="source" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="128">Arrow source to be read.</doc>
+            <type name="Arrow.SeekableInputStream"
+                  c:type="GArrowSeekableInputStream*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_path"
+                   c:identifier="gparquet_arrow_file_reader_new_path"
+                   version="0.11.0"
+                   throws="1">
+        <source-position filename="../parquet-glib/arrow-file-reader.h"
+                         line="43"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/arrow-file-reader.cpp"
+               line="160">A newly created #GParquetArrowFileReader.</doc>
+          <type name="ArrowFileReader" c:type="GParquetArrowFileReader*"/>
+        </return-value>
+        <parameters>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="157">Path to be read.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_n_row_groups"
+              c:identifier="gparquet_arrow_file_reader_get_n_row_groups"
+              version="0.11.0">
+        <source-position filename="../parquet-glib/arrow-file-reader.h"
+                         line="68"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/arrow-file-reader.cpp"
+               line="347">The number of row groups.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="reader" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="345">A #GParquetArrowFileReader.</doc>
+            <type name="ArrowFileReader" c:type="GParquetArrowFileReader*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_schema"
+              c:identifier="gparquet_arrow_file_reader_get_schema"
+              version="0.12.0"
+              throws="1">
+        <source-position filename="../parquet-glib/arrow-file-reader.h"
+                         line="59"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/arrow-file-reader.cpp"
+               line="281">A got #GArrowSchema.</doc>
+          <type name="Arrow.Schema" c:type="GArrowSchema*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="reader" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="278">A #GParquetArrowFileReader.</doc>
+            <type name="ArrowFileReader" c:type="GParquetArrowFileReader*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="read_column_data"
+              c:identifier="gparquet_arrow_file_reader_read_column_data"
+              version="0.15.0"
+              throws="1">
+        <source-position filename="../parquet-glib/arrow-file-reader.h"
+                         line="63"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/arrow-file-reader.cpp"
+               line="310">A read #GArrowChunkedArray.</doc>
+          <type name="Arrow.ChunkedArray" c:type="GArrowChunkedArray*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="reader" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="304">A #GParquetArrowFileReader.</doc>
+            <type name="ArrowFileReader" c:type="GParquetArrowFileReader*"/>
+          </instance-parameter>
+          <parameter name="i" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="305">The index of the column to be read.
+  If an index is negative, the index is counted backward from the
+  end of the columns. `-1` means the last column.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="read_row_group"
+              c:identifier="gparquet_arrow_file_reader_read_row_group"
+              version="1.0.0"
+              throws="1">
+        <source-position filename="../parquet-glib/arrow-file-reader.h"
+                         line="52"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/arrow-file-reader.cpp"
+               line="228">A read #GArrowTable.</doc>
+          <type name="Arrow.Table" c:type="GArrowTable*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="reader" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="219">A #GParquetArrowFileReader.</doc>
+            <type name="ArrowFileReader" c:type="GParquetArrowFileReader*"/>
+          </instance-parameter>
+          <parameter name="row_group_index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="220">A row group index to be read.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="column_indices"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="221">
+  Column indices to be read. %NULL means that all columns are read.
+  If an index is negative, the index is counted backward from the
+  end of the columns. `-1` means the last column.</doc>
+            <array length="2" zero-terminated="0" c:type="gint*">
+              <type name="gint" c:type="gint"/>
+            </array>
+          </parameter>
+          <parameter name="n_column_indices" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="225">The number of elements of @column_indices.</doc>
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="read_table"
+              c:identifier="gparquet_arrow_file_reader_read_table"
+              version="0.11.0"
+              throws="1">
+        <source-position filename="../parquet-glib/arrow-file-reader.h"
+                         line="47"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/arrow-file-reader.cpp"
+               line="197">A read #GArrowTable.</doc>
+          <type name="Arrow.Table" c:type="GArrowTable*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="reader" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-reader.cpp"
+                 line="194">A #GParquetArrowFileReader.</doc>
+            <type name="ArrowFileReader" c:type="GParquetArrowFileReader*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_use_threads"
+              c:identifier="gparquet_arrow_file_reader_set_use_threads">
+        <source-position filename="../parquet-glib/arrow-file-reader.h"
+                         line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="reader" transfer-ownership="none">
+            <type name="ArrowFileReader" c:type="GParquetArrowFileReader*"/>
+          </instance-parameter>
+          <parameter name="use_threads" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="arrow-file-reader"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ArrowFileReaderClass"
+            c:type="GParquetArrowFileReaderClass"
+            glib:is-gtype-struct-for="ArrowFileReader">
+      <source-position filename="../parquet-glib/arrow-file-reader.h"
+                       line="37"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="ArrowFileWriter"
+           c:symbol-prefix="arrow_file_writer"
+           c:type="GParquetArrowFileWriter"
+           parent="GObject.Object"
+           glib:type-name="GParquetArrowFileWriter"
+           glib:get-type="gparquet_arrow_file_writer_get_type"
+           glib:type-struct="ArrowFileWriterClass">
+      <source-position filename="../parquet-glib/arrow-file-writer.h"
+                       line="102"/>
+      <constructor name="new_arrow"
+                   c:identifier="gparquet_arrow_file_writer_new_arrow"
+                   version="0.11.0"
+                   throws="1">
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="105"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="415">A newly created #GParquetArrowFileWriter.</doc>
+          <type name="ArrowFileWriter" c:type="GParquetArrowFileWriter*"/>
+        </return-value>
+        <parameters>
+          <parameter name="schema" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="410">Arrow schema for written data.</doc>
+            <type name="Arrow.Schema" c:type="GArrowSchema*"/>
+          </parameter>
+          <parameter name="sink" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="411">Arrow output stream to be written.</doc>
+            <type name="Arrow.OutputStream" c:type="GArrowOutputStream*"/>
+          </parameter>
+          <parameter name="writer_properties"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="412">A #GParquetWriterProperties.</doc>
+            <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_path"
+                   c:identifier="gparquet_arrow_file_writer_new_path"
+                   version="0.11.0"
+                   throws="1">
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="110"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="461">A newly created #GParquetArrowFileWriter.</doc>
+          <type name="ArrowFileWriter" c:type="GParquetArrowFileWriter*"/>
+        </return-value>
+        <parameters>
+          <parameter name="schema" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="456">Arrow schema for written data.</doc>
+            <type name="Arrow.Schema" c:type="GArrowSchema*"/>
+          </parameter>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="457">Path to be read.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="writer_properties"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="458">A #GParquetWriterProperties.</doc>
+            <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="close"
+              c:identifier="gparquet_arrow_file_writer_close"
+              version="0.11.0"
+              throws="1">
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="122"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="539">%TRUE on success, %FALSE if there was an error.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="writer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="536">A #GParquetArrowFileWriter.</doc>
+            <type name="ArrowFileWriter" c:type="GParquetArrowFileWriter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="write_table"
+              c:identifier="gparquet_arrow_file_writer_write_table"
+              version="0.11.0"
+              throws="1">
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="116"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="516">%TRUE on success, %FALSE if there was an error.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="writer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="511">A #GParquetArrowFileWriter.</doc>
+            <type name="ArrowFileWriter" c:type="GParquetArrowFileWriter*"/>
+          </instance-parameter>
+          <parameter name="table" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="512">A table to be written.</doc>
+            <type name="Arrow.Table" c:type="GArrowTable*"/>
+          </parameter>
+          <parameter name="chunk_size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="513">The max number of rows in a row group.</doc>
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="arrow-file-writer"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ArrowFileWriterClass"
+            c:type="GParquetArrowFileWriterClass"
+            glib:is-gtype-struct-for="ArrowFileWriter">
+      <source-position filename="../parquet-glib/arrow-file-writer.h"
+                       line="102"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <function-macro name="DEPRECATED_FOR"
+                    c:identifier="GPARQUET_DEPRECATED_FOR"
+                    introspectable="0">
+      <source-position filename="../parquet-glib/version.h" line="105"/>
+      <parameters>
+        <parameter name="function">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_0_16_FOR"
+                    c:identifier="GPARQUET_DEPRECATED_IN_0_16_FOR"
+                    introspectable="0">
+      <source-position filename="../parquet-glib/version.h" line="206"/>
+      <parameters>
+        <parameter name="function">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_0_17_FOR"
+                    c:identifier="GPARQUET_DEPRECATED_IN_0_17_FOR"
+                    introspectable="0">
+      <source-position filename="../parquet-glib/version.h" line="192"/>
+      <parameters>
+        <parameter name="function">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_1_0_FOR"
+                    c:identifier="GPARQUET_DEPRECATED_IN_1_0_FOR"
+                    introspectable="0">
+      <source-position filename="../parquet-glib/version.h" line="178"/>
+      <parameters>
+        <parameter name="function">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="UNAVAILABLE"
+                    c:identifier="GPARQUET_UNAVAILABLE"
+                    introspectable="0">
+      <source-position filename="../parquet-glib/version.h" line="106"/>
+      <parameters>
+        <parameter name="major">
+        </parameter>
+        <parameter name="minor">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VERSION_CHECK"
+                    c:identifier="GPARQUET_VERSION_CHECK"
+                    version="0.16.0"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="../parquet-glib/version.h"
+           line="71">You can use this macro in C pre-processor.</doc>
+      <source-position filename="../parquet-glib/version.h" line="84"/>
+      <parameters>
+        <parameter name="major">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/version.h"
+               line="73">A major version to check for.</doc>
+        </parameter>
+        <parameter name="minor">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/version.h"
+               line="74">A minor version to check for.</doc>
+        </parameter>
+        <parameter name="micro">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/version.h"
+               line="75">A micro version to check for.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="VERSION_MAJOR"
+              value="3"
+              c:type="GPARQUET_VERSION_MAJOR"
+              version="0.16.0">
+      <doc xml:space="preserve"
+           filename="../parquet-glib/version.h"
+           line="34">The major version.</doc>
+      <source-position filename="../parquet-glib/version.h" line="41"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="VERSION_MICRO"
+              value="0"
+              c:type="GPARQUET_VERSION_MICRO"
+              version="0.16.0">
+      <doc xml:space="preserve"
+           filename="../parquet-glib/version.h"
+           line="52">The micro version.</doc>
+      <source-position filename="../parquet-glib/version.h" line="59"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="VERSION_MINOR"
+              value="0"
+              c:type="GPARQUET_VERSION_MINOR"
+              version="0.16.0">
+      <doc xml:space="preserve"
+           filename="../parquet-glib/version.h"
+           line="43">The minor version.</doc>
+      <source-position filename="../parquet-glib/version.h" line="50"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="VERSION_TAG"
+              value=""
+              c:type="GPARQUET_VERSION_TAG"
+              version="0.16.0">
+      <doc xml:space="preserve"
+           filename="../parquet-glib/version.h"
+           line="61">The version tag. Normally, it's an empty string. It's "SNAPSHOT"
+for snapshot version.</doc>
+      <source-position filename="../parquet-glib/version.h" line="69"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <class name="WriterProperties"
+           c:symbol-prefix="writer_properties"
+           c:type="GParquetWriterProperties"
+           parent="GObject.Object"
+           glib:type-name="GParquetWriterProperties"
+           glib:get-type="gparquet_writer_properties_get_type"
+           glib:type-struct="WriterPropertiesClass">
+      <source-position filename="../parquet-glib/arrow-file-writer.h"
+                       line="38"/>
+      <constructor name="new"
+                   c:identifier="gparquet_writer_properties_new"
+                   version="0.17.0">
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="41"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="87">A newly created #GParquetWriterProperties.</doc>
+          <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
+        </return-value>
+      </constructor>
+      <method name="disable_dictionary"
+              c:identifier="gparquet_writer_properties_disable_dictionary"
+              version="0.17.0">
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="properties" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="163">A #GParquetWriterProperties.</doc>
+            <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
+          </instance-parameter>
+          <parameter name="path"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="164">The column path as dot string.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="enable_dictionary"
+              c:identifier="gparquet_writer_properties_enable_dictionary"
+              version="0.17.0">
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="properties" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="143">A #GParquetWriterProperties.</doc>
+            <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
+          </instance-parameter>
+          <parameter name="path"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="144">The column path as dot string.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_batch_size"
+              c:identifier="gparquet_writer_properties_get_batch_size"
+              version="0.17.0">
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="76"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="250">The batch size.</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="properties" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="248">A #GParquetWriterProperties.</doc>
+            <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_compression_path"
+              c:identifier="gparquet_writer_properties_get_compression_path"
+              version="0.17.0">
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="49"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="127">The compression type of #GParquetWriterProperties.</doc>
+          <type name="Arrow.CompressionType" c:type="GArrowCompressionType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="properties" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="124">A #GParquetWriterProperties.</doc>
+            <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="125">The path as dot string.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_data_page_size"
+              c:identifier="gparquet_writer_properties_get_data_page_size"
+              version="0.17.0">
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="90"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="312">The data page size.</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="properties" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="310">A #GParquetWriterProperties.</doc>
+            <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_dictionary_page_size_limit"
+              c:identifier="gparquet_writer_properties_get_dictionary_page_size_limit"
+              version="0.17.0">
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="69"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="219">The dictionary page size limit.</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="properties" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="217">A #GParquetWriterProperties.</doc>
+            <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_max_row_group_length"
+              c:identifier="gparquet_writer_properties_get_max_row_group_length"
+              version="0.17.0">
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="83"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="281">The max row group length.</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="properties" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="279">A #GParquetWriterProperties.</doc>
+            <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_dictionary_enabled"
+              c:identifier="gparquet_writer_properties_is_dictionary_enabled"
+              version="0.17.0">
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="61"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../parquet-glib/arrow-file-writer.cpp"
+               line="186">%TRUE on dictionary enabled, %FALSE on dictionary disabled.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="properties" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="183">A #GParquetWriterProperties.</doc>
+            <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="184">The path as dot string.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_batch_size"
+              c:identifier="gparquet_writer_properties_set_batch_size"
+              version="0.17.0">
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="properties" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="232">A #GParquetWriterProperties.</doc>
+            <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
+          </instance-parameter>
+          <parameter name="batch_size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="233">The batch size.</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_compression"
+              c:identifier="gparquet_writer_properties_set_compression"
+              version="0.17.0">
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="properties" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="101">A #GParquetWriterProperties.</doc>
+            <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
+          </instance-parameter>
+          <parameter name="compression_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="102">A #GArrowCompressionType.</doc>
+            <type name="Arrow.CompressionType" c:type="GArrowCompressionType"/>
+          </parameter>
+          <parameter name="path"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="103">The column path as dot string.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_data_page_size"
+              c:identifier="gparquet_writer_properties_set_data_page_size"
+              version="0.17.0">
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="86"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="properties" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="294">A #GParquetWriterProperties.</doc>
+            <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
+          </instance-parameter>
+          <parameter name="data_page_size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="295">The data page size.</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_dictionary_page_size_limit"
+              c:identifier="gparquet_writer_properties_set_dictionary_page_size_limit"
+              version="0.17.0">
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="properties" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="201">A #GParquetWriterProperties.</doc>
+            <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
+          </instance-parameter>
+          <parameter name="limit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="202">The dictionary page size limit.</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_max_row_group_length"
+              c:identifier="gparquet_writer_properties_set_max_row_group_length"
+              version="0.17.0">
+        <source-position filename="../parquet-glib/arrow-file-writer.h"
+                         line="79"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="properties" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="263">A #GParquetWriterProperties.</doc>
+            <type name="WriterProperties" c:type="GParquetWriterProperties*"/>
+          </instance-parameter>
+          <parameter name="length" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../parquet-glib/arrow-file-writer.cpp"
+                 line="264">The max row group length.</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="WriterPropertiesClass"
+            c:type="GParquetWriterPropertiesClass"
+            glib:is-gtype-struct-for="WriterProperties">
+      <source-position filename="../parquet-glib/arrow-file-writer.h"
+                       line="38"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <docsection name="arrow-file-reader">
+      <doc xml:space="preserve"
+           filename="../parquet-glib/arrow-file-reader.cpp"
+           line="33">#GParquetArrowFileReader is a class for reading Apache Parquet data
+from file and returns them as Apache Arrow data.</doc>
+    </docsection>
+    <docsection name="arrow-file-writer">
+      <doc xml:space="preserve"
+           filename="../parquet-glib/arrow-file-writer.cpp"
+           line="30">#GParquetWriterProperties is a class for the writer properties.
+
+#GParquetArrowFileWriter is a class for writer Apache Arrow data to
+file as Apache Parquet format.</doc>
+    </docsection>
+    <docsection name="version">
+      <doc xml:space="preserve"
+           filename="../parquet-glib/version.h"
+           line="24">Apache Parquet GLib provides macros that can be used by C pre-processor.
+They are useful to check version related things at compile time.</doc>
+    </docsection>
+  </namespace>
+</repository>

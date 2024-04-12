@@ -1,0 +1,292 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Atk" version="1.0"/>
+  <include name="Epc" version="1.0"/>
+  <include name="GLib" version="2.0"/>
+  <include name="GModule" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gdk" version="3.0"/>
+  <include name="GdkPixbuf" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <include name="Pango" version="1.0"/>
+  <include name="cairo" version="1.0"/>
+  <include name="xlib" version="2.0"/>
+  <package name="libepc-ui-1.0"/>
+  <c:include name="libepc-ui/password-dialog.h,libepc-ui/progress-window.h"/>
+  <namespace name="EpcUi"
+             version="1.0"
+             shared-library="libepc-ui-1.0.so.3"
+             c:identifier-prefixes="Epc"
+             c:symbol-prefixes="epc">
+    <class name="PasswordDialog"
+           c:symbol-prefix="password_dialog"
+           c:type="EpcPasswordDialog"
+           parent="Gtk.Dialog"
+           glib:type-name="EpcPasswordDialog"
+           glib:get-type="epc_password_dialog_get_type"
+           glib:type-struct="PasswordDialogClass">
+      <doc xml:whitespace="preserve">Public fields of the #EpcPasswordDialog class.</doc>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new"
+                   c:identifier="epc_password_dialog_new"
+                   introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="title" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="parent" transfer-ownership="none">
+            <type name="Gtk.Window" c:type="GtkWindow*"/>
+          </parameter>
+          <parameter name="realm" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="first_button_text" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter transfer-ownership="none">
+            <varargs>
+            </varargs>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="attach" c:identifier="epc_password_dialog_attach">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="consumer" transfer-ownership="none">
+            <type name="Epc.Consumer" c:type="EpcConsumer*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_anonymous_allowed"
+              c:identifier="epc_password_dialog_get_anonymous_allowed">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_password"
+              c:identifier="epc_password_dialog_get_password">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_realm" c:identifier="epc_password_dialog_get_realm">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="get_username"
+              c:identifier="epc_password_dialog_get_username">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+      </method>
+      <method name="is_anonymous"
+              c:identifier="epc_password_dialog_is_anonymous">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_anonymous"
+              c:identifier="epc_password_dialog_set_anonymous">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="anonymous" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_anonymous_allowed"
+              c:identifier="epc_password_dialog_set_anonymous_allowed">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="allowed" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_password"
+              c:identifier="epc_password_dialog_set_password">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="password" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_realm" c:identifier="epc_password_dialog_set_realm">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="realm" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_username"
+              c:identifier="epc_password_dialog_set_username">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="username" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="anonymous"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="anonymous-allowed"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="gboolean"/>
+      </property>
+      <property name="password"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="realm"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="username"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <field name="parent_instance" readable="0" private="1">
+        <type name="Gtk.Dialog" c:type="GtkDialog"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="PasswordDialogPrivate" c:type="EpcPasswordDialogPrivate*"/>
+      </field>
+    </class>
+    <record name="PasswordDialogClass"
+            c:type="EpcPasswordDialogClass"
+            glib:is-gtype-struct-for="PasswordDialog">
+      <doc xml:whitespace="preserve">Virtual methods of the #EpcPasswordDialog class.</doc>
+      <field name="parent_class" readable="0" private="1">
+        <type name="Gtk.DialogClass" c:type="GtkDialogClass"/>
+      </field>
+    </record>
+    <record name="PasswordDialogPrivate"
+            c:type="EpcPasswordDialogPrivate"
+            disguised="1">
+    </record>
+    <class name="ProgressWindow"
+           c:symbol-prefix="progress_window"
+           c:type="EpcProgressWindow"
+           parent="Gtk.Window"
+           glib:type-name="EpcProgressWindow"
+           glib:get-type="epc_progress_window_get_type"
+           glib:type-struct="ProgressWindowClass">
+      <doc xml:whitespace="preserve">Public fields of the #EpcProgressWindow class.</doc>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="epc_progress_window_new">
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="title" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="parent" transfer-ownership="none">
+            <type name="Gtk.Window" c:type="GtkWindow*"/>
+          </parameter>
+          <parameter name="message" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="install" c:identifier="epc_progress_window_install">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="parent" transfer-ownership="none">
+            <type name="Gtk.Window" c:type="GtkWindow*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="update" c:identifier="epc_progress_window_update">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="progress" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="message" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="message"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <property name="progress"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="gdouble"/>
+      </property>
+      <property name="title"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="utf8"/>
+      </property>
+      <field name="parent_instance" readable="0" private="1">
+        <type name="Gtk.Window" c:type="GtkWindow"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ProgressWindowPrivate" c:type="EpcProgressWindowPrivate*"/>
+      </field>
+    </class>
+    <record name="ProgressWindowClass"
+            c:type="EpcProgressWindowClass"
+            glib:is-gtype-struct-for="ProgressWindow">
+      <doc xml:whitespace="preserve">Virtual methods of the #EpcProgressWindow class.</doc>
+      <field name="parent_class" readable="0" private="1">
+        <type name="Gtk.WindowClass" c:type="GtkWindowClass"/>
+      </field>
+    </record>
+    <record name="ProgressWindowPrivate"
+            c:type="EpcProgressWindowPrivate"
+            disguised="1">
+    </record>
+  </namespace>
+</repository>

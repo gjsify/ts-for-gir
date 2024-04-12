@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Champlain" version="0.12"/>
+  <include name="Clutter" version="1.0"/>
+  <include name="Gtk" version="3.0"/>
+  <package name="champlain-gtk-0.12"/>
+  <c:include name="champlain-gtk/champlain-gtk.h"/>
+  <namespace name="GtkChamplain"
+             version="0.12"
+             shared-library="libchamplain-gtk-0.12.so.0"
+             c:identifier-prefixes="GtkChamplain"
+             c:symbol-prefixes="gtk_champlain">
+    <function-macro name="EMBED"
+                    c:identifier="GTK_CHAMPLAIN_EMBED"
+                    introspectable="0">
+      <source-position filename="champlain-gtk/gtk-champlain-embed.h"
+                       line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="EMBED_CLASS"
+                    c:identifier="GTK_CHAMPLAIN_EMBED_CLASS"
+                    introspectable="0">
+      <source-position filename="champlain-gtk/gtk-champlain-embed.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="EMBED_GET_CLASS"
+                    c:identifier="GTK_CHAMPLAIN_EMBED_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="champlain-gtk/gtk-champlain-embed.h"
+                       line="45"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Embed"
+           c:symbol-prefix="embed"
+           c:type="GtkChamplainEmbed"
+           version="0.4"
+           parent="Gtk.Alignment"
+           glib:type-name="GtkChamplainEmbed"
+           glib:get-type="gtk_champlain_embed_get_type"
+           glib:type-struct="EmbedClass">
+      <doc xml:space="preserve"
+           filename="champlain-gtk/gtk-champlain-embed.h"
+           line="55">The #GtkChamplainEmbed structure contains only private data
+and should be accessed using the provided API</doc>
+      <source-position filename="champlain-gtk/gtk-champlain-embed.h"
+                       line="73"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new"
+                   c:identifier="gtk_champlain_embed_new"
+                   version="0.4">
+        <doc xml:space="preserve"
+             filename="champlain-gtk/gtk-champlain-embed.c"
+             line="427">Creates an instance of #GtkChamplainEmbed.</doc>
+        <source-position filename="champlain-gtk/gtk-champlain-embed.h"
+                         line="77"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="champlain-gtk/gtk-champlain-embed.c"
+               line="432">a new #GtkChamplainEmbed ready to be used as a #GtkWidget.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="get_view"
+              c:identifier="gtk_champlain_embed_get_view"
+              version="0.4">
+        <doc xml:space="preserve"
+             filename="champlain-gtk/gtk-champlain-embed.c"
+             line="443">Gets a #ChamplainView from the #GtkChamplainEmbed object.</doc>
+        <source-position filename="champlain-gtk/gtk-champlain-embed.h"
+                         line="78"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="champlain-gtk/gtk-champlain-embed.c"
+               line="449">a #ChamplainView ready to be used</doc>
+          <type name="Champlain.View" c:type="ChamplainView*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="embed" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="champlain-gtk/gtk-champlain-embed.c"
+                 line="445">a #ChamplainView, the map view to embed</doc>
+            <type name="Embed" c:type="GtkChamplainEmbed*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="champlain-view" version="0.4" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="champlain-gtk/gtk-champlain-embed.c"
+             line="181">The #ChamplainView to embed in the Gtk+ widget.</doc>
+        <type name="Champlain.View"/>
+      </property>
+      <field name="bin">
+        <type name="Gtk.Alignment" c:type="GtkAlignment"/>
+      </field>
+      <field name="priv">
+        <type name="EmbedPrivate" c:type="GtkChamplainEmbedPrivate*"/>
+      </field>
+    </class>
+    <record name="EmbedClass"
+            c:type="GtkChamplainEmbedClass"
+            glib:is-gtype-struct-for="Embed">
+      <source-position filename="champlain-gtk/gtk-champlain-embed.h"
+                       line="73"/>
+      <field name="parent_class">
+        <type name="Gtk.AlignmentClass" c:type="GtkAlignmentClass"/>
+      </field>
+    </record>
+    <record name="EmbedPrivate"
+            c:type="GtkChamplainEmbedPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="champlain-gtk/gtk-champlain-embed.h"
+                       line="49"/>
+    </record>
+    <function-macro name="IS_EMBED"
+                    c:identifier="GTK_CHAMPLAIN_IS_EMBED"
+                    introspectable="0">
+      <source-position filename="champlain-gtk/gtk-champlain-embed.h"
+                       line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_EMBED_CLASS"
+                    c:identifier="GTK_CHAMPLAIN_IS_EMBED_CLASS"
+                    introspectable="0">
+      <source-position filename="champlain-gtk/gtk-champlain-embed.h"
+                       line="42"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <docsection name="gtk-champlain-embed">
+      <doc xml:space="preserve"
+           filename="champlain-gtk/gtk-champlain-embed.c"
+           line="19">Since #ChamplainView is a #ClutterActor, you cannot embed it directly
+into a Gtk+ application.  This widget solves this problem.  It creates
+the #ChamplainView for you, you can get it with
+#gtk_champlain_embed_get_view.</doc>
+    </docsection>
+  </namespace>
+</repository>

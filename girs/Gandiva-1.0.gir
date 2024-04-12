@@ -1,0 +1,2093 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Arrow" version="1.0"/>
+  <package name="gandiva-glib"/>
+  <namespace name="Gandiva"
+             version="1.0"
+             shared-library="libgandiva-glib.so.300"
+             c:identifier-prefixes="GGandiva"
+             c:symbol-prefixes="ggandiva">
+    <class name="AndNode"
+           c:symbol-prefix="and_node"
+           c:type="GGandivaAndNode"
+           parent="BooleanNode"
+           glib:type-name="GGandivaAndNode"
+           glib:get-type="ggandiva_and_node_get_type"
+           glib:type-struct="AndNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="373"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_and_node_new"
+                   version="0.17.0">
+        <source-position filename="../gandiva-glib/node.h" line="377"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="1475">A newly created #GGandivaAndNode for the AND expression.</doc>
+          <type name="AndNode" c:type="GGandivaAndNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="children" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="1473">The children of the AND node.</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Node"/>
+            </type>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="parent_instance">
+        <type name="BooleanNode" c:type="GGandivaBooleanNode"/>
+      </field>
+    </class>
+    <record name="AndNodeClass"
+            c:type="GGandivaAndNodeClass"
+            glib:is-gtype-struct-for="AndNode">
+      <source-position filename="../gandiva-glib/node.h" line="373"/>
+      <field name="parent_class">
+        <type name="BooleanNodeClass" c:type="GGandivaBooleanNodeClass"/>
+      </field>
+    </record>
+    <class name="BinaryLiteralNode"
+           c:symbol-prefix="binary_literal_node"
+           c:type="GGandivaBinaryLiteralNode"
+           parent="LiteralNode"
+           glib:type-name="GGandivaBinaryLiteralNode"
+           glib:get-type="ggandiva_binary_literal_node_get_type"
+           glib:type-struct="BinaryLiteralNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="300"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_binary_literal_node_new"
+                   version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="303"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="1104">A newly created #GGandivaBinaryLiteralNode.</doc>
+          <type name="BinaryLiteralNode" c:type="GGandivaBinaryLiteralNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="1101">The value of the binary literal.</doc>
+            <array length="1" zero-terminated="0" c:type="const guint8*">
+              <type name="guint8" c:type="guint8"/>
+            </array>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="1102">The number of bytes of the value.</doc>
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_bytes"
+                   c:identifier="ggandiva_binary_literal_node_new_bytes"
+                   version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="306"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="1123">A newly created #GGandivaBinaryLiteralNode.</doc>
+          <type name="BinaryLiteralNode" c:type="GGandivaBinaryLiteralNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="1121">The value of the binary literal.</doc>
+            <type name="GLib.Bytes" c:type="GBytes*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_value"
+              c:identifier="ggandiva_binary_literal_node_get_value"
+              version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="308"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="1148">The value of the binary literal.</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="1146">A #GGandivaBinaryLiteralNode.</doc>
+            <type name="BinaryLiteralNode"
+                  c:type="GGandivaBinaryLiteralNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="LiteralNode" c:type="GGandivaLiteralNode"/>
+      </field>
+    </class>
+    <record name="BinaryLiteralNodeClass"
+            c:type="GGandivaBinaryLiteralNodeClass"
+            glib:is-gtype-struct-for="BinaryLiteralNode">
+      <source-position filename="../gandiva-glib/node.h" line="300"/>
+      <field name="parent_class">
+        <type name="LiteralNodeClass" c:type="GGandivaLiteralNodeClass"/>
+      </field>
+    </record>
+    <class name="BooleanLiteralNode"
+           c:symbol-prefix="boolean_literal_node"
+           c:type="GGandivaBooleanLiteralNode"
+           parent="LiteralNode"
+           glib:type-name="GGandivaBooleanLiteralNode"
+           glib:get-type="ggandiva_boolean_literal_node_get_type"
+           glib:type-struct="BooleanLiteralNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="113"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_boolean_literal_node_new"
+                   version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="116"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="582">A newly created #GGandivaBooleanLiteralNode.</doc>
+          <type name="BooleanLiteralNode"
+                c:type="GGandivaBooleanLiteralNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="580">The value of the boolean literal.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_value"
+              c:identifier="ggandiva_boolean_literal_node_get_value"
+              version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="118"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="598">The value of the boolean literal.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="596">A #GGandivaBooleanLiteralNode.</doc>
+            <type name="BooleanLiteralNode"
+                  c:type="GGandivaBooleanLiteralNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="LiteralNode" c:type="GGandivaLiteralNode"/>
+      </field>
+    </class>
+    <record name="BooleanLiteralNodeClass"
+            c:type="GGandivaBooleanLiteralNodeClass"
+            glib:is-gtype-struct-for="BooleanLiteralNode">
+      <source-position filename="../gandiva-glib/node.h" line="113"/>
+      <field name="parent_class">
+        <type name="LiteralNodeClass" c:type="GGandivaLiteralNodeClass"/>
+      </field>
+    </record>
+    <class name="BooleanNode"
+           c:symbol-prefix="boolean_node"
+           c:type="GGandivaBooleanNode"
+           parent="Node"
+           glib:type-name="GGandivaBooleanNode"
+           glib:get-type="ggandiva_boolean_node_get_type"
+           glib:type-struct="BooleanNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="357"/>
+      <method name="get_children"
+              c:identifier="ggandiva_boolean_node_get_children"
+              version="0.17.0">
+        <source-position filename="../gandiva-glib/node.h" line="361"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="1444">
+  The children of the boolean node.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Node"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="1442">A #GGandivaBooleanNode.</doc>
+            <type name="BooleanNode" c:type="GGandivaBooleanNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="Node" c:type="GGandivaNode"/>
+      </field>
+    </class>
+    <record name="BooleanNodeClass"
+            c:type="GGandivaBooleanNodeClass"
+            glib:is-gtype-struct-for="BooleanNode">
+      <source-position filename="../gandiva-glib/node.h" line="357"/>
+      <field name="parent_class">
+        <type name="NodeClass" c:type="GGandivaNodeClass"/>
+      </field>
+    </record>
+    <function-macro name="DEPRECATED_FOR"
+                    c:identifier="GGANDIVA_DEPRECATED_FOR"
+                    introspectable="0">
+      <source-position filename="../gandiva-glib/version.h" line="105"/>
+      <parameters>
+        <parameter name="function">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_0_17_FOR"
+                    c:identifier="GGANDIVA_DEPRECATED_IN_0_17_FOR"
+                    introspectable="0">
+      <source-position filename="../gandiva-glib/version.h" line="183"/>
+      <parameters>
+        <parameter name="function">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_1_0_FOR"
+                    c:identifier="GGANDIVA_DEPRECATED_IN_1_0_FOR"
+                    introspectable="0">
+      <source-position filename="../gandiva-glib/version.h" line="169"/>
+      <parameters>
+        <parameter name="function">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="DoubleLiteralNode"
+           c:symbol-prefix="double_literal_node"
+           c:type="GGandivaDoubleLiteralNode"
+           parent="LiteralNode"
+           glib:type-name="GGandivaDoubleLiteralNode"
+           glib:get-type="ggandiva_double_literal_node_get_type"
+           glib:type-struct="DoubleLiteralNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="283"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_double_literal_node_new"
+                   version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="286"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="1033">A newly created #GGandivaDoubleLiteralNode.</doc>
+          <type name="DoubleLiteralNode" c:type="GGandivaDoubleLiteralNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="1031">The value of the 64-bit floating point literal.</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_value"
+              c:identifier="ggandiva_double_literal_node_get_value"
+              version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="288"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="1049">The value of the 64-bit floating point literal.</doc>
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="1047">A #GGandivaDoubleLiteralNode.</doc>
+            <type name="DoubleLiteralNode"
+                  c:type="GGandivaDoubleLiteralNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="LiteralNode" c:type="GGandivaLiteralNode"/>
+      </field>
+    </class>
+    <record name="DoubleLiteralNodeClass"
+            c:type="GGandivaDoubleLiteralNodeClass"
+            glib:is-gtype-struct-for="DoubleLiteralNode">
+      <source-position filename="../gandiva-glib/node.h" line="283"/>
+      <field name="parent_class">
+        <type name="LiteralNodeClass" c:type="GGandivaLiteralNodeClass"/>
+      </field>
+    </record>
+    <class name="Expression"
+           c:symbol-prefix="expression"
+           c:type="GGandivaExpression"
+           parent="GObject.Object"
+           glib:type-name="GGandivaExpression"
+           glib:get-type="ggandiva_expression_get_type"
+           glib:type-struct="ExpressionClass">
+      <source-position filename="../gandiva-glib/expression.h" line="38"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_expression_new"
+                   version="0.12.0">
+        <source-position filename="../gandiva-glib/expression.h" line="40"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/expression.cpp"
+               line="184">A newly created #GGandivaExpression.</doc>
+          <type name="Expression" c:type="GGandivaExpression*"/>
+        </return-value>
+        <parameters>
+          <parameter name="root_node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/expression.cpp"
+                 line="181">The root node for the expression.</doc>
+            <type name="Node" c:type="GGandivaNode*"/>
+          </parameter>
+          <parameter name="result_field" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/expression.cpp"
+                 line="182">The name and type of returned value as #GArrowField.</doc>
+            <type name="Arrow.Field" c:type="GArrowField*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="to_string"
+              c:identifier="ggandiva_expression_to_string"
+              version="0.12.0">
+        <source-position filename="../gandiva-glib/expression.h" line="42"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/expression.cpp"
+               line="206">The string representation of the node in the expression tree.
+
+  It should be freed with g_free() when no longer needed.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="expression" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/expression.cpp"
+                 line="204">A #GGandivaExpression.</doc>
+            <type name="Expression" c:type="GGandivaExpression*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="expression"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <property name="result-field"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Arrow.Field"/>
+      </property>
+      <property name="root-node"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Node"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ExpressionClass"
+            c:type="GGandivaExpressionClass"
+            glib:is-gtype-struct-for="Expression">
+      <source-position filename="../gandiva-glib/expression.h" line="38"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="FieldNode"
+           c:symbol-prefix="field_node"
+           c:type="GGandivaFieldNode"
+           parent="Node"
+           glib:type-name="GGandivaFieldNode"
+           glib:get-type="ggandiva_field_node_get_type"
+           glib:type-struct="FieldNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="52"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_field_node_new"
+                   version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="54"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="337">A newly created #GGandivaFieldNode for the given field.</doc>
+          <type name="FieldNode" c:type="GGandivaFieldNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="field" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="335">A #GArrowField.</doc>
+            <type name="Arrow.Field" c:type="GArrowField*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="field"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Arrow.Field"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Node" c:type="GGandivaNode"/>
+      </field>
+    </class>
+    <record name="FieldNodeClass"
+            c:type="GGandivaFieldNodeClass"
+            glib:is-gtype-struct-for="FieldNode">
+      <source-position filename="../gandiva-glib/node.h" line="52"/>
+      <field name="parent_class">
+        <type name="NodeClass" c:type="GGandivaNodeClass"/>
+      </field>
+    </record>
+    <class name="FloatLiteralNode"
+           c:symbol-prefix="float_literal_node"
+           c:type="GGandivaFloatLiteralNode"
+           parent="LiteralNode"
+           glib:type-name="GGandivaFloatLiteralNode"
+           glib:get-type="ggandiva_float_literal_node_get_type"
+           glib:type-struct="FloatLiteralNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="266"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_float_literal_node_new"
+                   version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="269"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="988">A newly created #GGandivaFloatLiteralNode.</doc>
+          <type name="FloatLiteralNode" c:type="GGandivaFloatLiteralNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="986">The value of the 32-bit floating point literal.</doc>
+            <type name="gfloat" c:type="gfloat"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_value"
+              c:identifier="ggandiva_float_literal_node_get_value"
+              version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="271"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="1004">The value of the 32-bit floating point literal.</doc>
+          <type name="gfloat" c:type="gfloat"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="1002">A #GGandivaFloatLiteralNode.</doc>
+            <type name="FloatLiteralNode" c:type="GGandivaFloatLiteralNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="LiteralNode" c:type="GGandivaLiteralNode"/>
+      </field>
+    </class>
+    <record name="FloatLiteralNodeClass"
+            c:type="GGandivaFloatLiteralNodeClass"
+            glib:is-gtype-struct-for="FloatLiteralNode">
+      <source-position filename="../gandiva-glib/node.h" line="266"/>
+      <field name="parent_class">
+        <type name="LiteralNodeClass" c:type="GGandivaLiteralNodeClass"/>
+      </field>
+    </record>
+    <class name="FunctionNode"
+           c:symbol-prefix="function_node"
+           c:type="GGandivaFunctionNode"
+           parent="Node"
+           glib:type-name="GGandivaFunctionNode"
+           glib:get-type="ggandiva_function_node_get_type"
+           glib:type-struct="FunctionNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="66"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_function_node_new"
+                   version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="69"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="464">A newly created #GGandivaFunctionNode for the function call.</doc>
+          <type name="FunctionNode" c:type="GGandivaFunctionNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="460">The name of the function to be called.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="parameters" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="461">The parameters of the function call.</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Node"/>
+            </type>
+          </parameter>
+          <parameter name="return_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="462">The return type of the function call.</doc>
+            <type name="Arrow.DataType" c:type="GArrowDataType*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_parameters"
+              c:identifier="ggandiva_function_node_get_parameters"
+              version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="492">
+  The parameters of the function node.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Node"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="490">A #GGandivaFunctionNode.</doc>
+            <type name="FunctionNode" c:type="GGandivaFunctionNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Node" c:type="GGandivaNode"/>
+      </field>
+    </class>
+    <record name="FunctionNodeClass"
+            c:type="GGandivaFunctionNodeClass"
+            glib:is-gtype-struct-for="FunctionNode">
+      <source-position filename="../gandiva-glib/node.h" line="66"/>
+      <field name="parent_class">
+        <type name="NodeClass" c:type="GGandivaNodeClass"/>
+      </field>
+    </record>
+    <class name="FunctionRegistry"
+           c:symbol-prefix="function_registry"
+           c:type="GGandivaFunctionRegistry"
+           parent="GObject.Object"
+           glib:type-name="GGandivaFunctionRegistry"
+           glib:get-type="ggandiva_function_registry_get_type"
+           glib:type-struct="FunctionRegistryClass">
+      <source-position filename="../gandiva-glib/function-registry.h"
+                       line="36"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_function_registry_new"
+                   version="0.14.0">
+        <source-position filename="../gandiva-glib/function-registry.h"
+                         line="38"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/function-registry.cpp"
+               line="58">A newly created #GGandivaFunctionRegistry.</doc>
+          <type name="FunctionRegistry" c:type="GGandivaFunctionRegistry*"/>
+        </return-value>
+      </constructor>
+      <method name="get_native_functions"
+              c:identifier="ggandiva_function_registry_get_native_functions"
+              version="0.14.0">
+        <source-position filename="../gandiva-glib/function-registry.h"
+                         line="42"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/function-registry.cpp"
+               line="98">
+  The native functions in the function registry.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="NativeFunction"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="function_registry"
+                              transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/function-registry.cpp"
+                 line="96">A #GGandivaFunctionRegistry.</doc>
+            <type name="FunctionRegistry" c:type="GGandivaFunctionRegistry*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="lookup"
+              c:identifier="ggandiva_function_registry_lookup"
+              version="0.14.0">
+        <source-position filename="../gandiva-glib/function-registry.h"
+                         line="40"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/function-registry.cpp"
+               line="73">
+  The native functions associated to the given #GGandivaFunctionSignature.</doc>
+          <type name="NativeFunction" c:type="GGandivaNativeFunction*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="function_registry"
+                              transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/function-registry.cpp"
+                 line="70">A #GGandivaFunctionRegistry.</doc>
+            <type name="FunctionRegistry" c:type="GGandivaFunctionRegistry*"/>
+          </instance-parameter>
+          <parameter name="function_signature" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/function-registry.cpp"
+                 line="71">A #GGandivaFunctionSignature to be looked up.</doc>
+            <type name="FunctionSignature"
+                  c:type="GGandivaFunctionSignature*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="FunctionRegistryClass"
+            c:type="GGandivaFunctionRegistryClass"
+            glib:is-gtype-struct-for="FunctionRegistry">
+      <source-position filename="../gandiva-glib/function-registry.h"
+                       line="36"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="FunctionSignature"
+           c:symbol-prefix="function_signature"
+           c:type="GGandivaFunctionSignature"
+           parent="GObject.Object"
+           glib:type-name="GGandivaFunctionSignature"
+           glib:get-type="ggandiva_function_signature_get_type"
+           glib:type-struct="FunctionSignatureClass">
+      <source-position filename="../gandiva-glib/function-signature.h"
+                       line="36"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_function_signature_new"
+                   version="0.14.0">
+        <source-position filename="../gandiva-glib/function-signature.h"
+                         line="38"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/function-signature.cpp"
+               line="102">A #GGandivaFunctionSignature.</doc>
+          <type name="FunctionSignature" c:type="GGandivaFunctionSignature*"/>
+        </return-value>
+        <parameters>
+          <parameter name="base_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/function-signature.cpp"
+                 line="97">A base name of a function.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="parameter_types" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/function-signature.cpp"
+                 line="98">
+  A list of parameter data types.</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Arrow.DataType"/>
+            </type>
+          </parameter>
+          <parameter name="return_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/function-signature.cpp"
+                 line="100">A return data type.</doc>
+            <type name="Arrow.DataType" c:type="GArrowDataType*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="equal"
+              c:identifier="ggandiva_function_signature_equal"
+              version="0.14.0">
+        <source-position filename="../gandiva-glib/function-signature.h"
+                         line="41"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/function-signature.cpp"
+               line="132">%TRUE if both of them have the same data, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="function_signature"
+                              transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/function-signature.cpp"
+                 line="129">A #GGandivaFunctionSignature.</doc>
+            <type name="FunctionSignature"
+                  c:type="GGandivaFunctionSignature*"/>
+          </instance-parameter>
+          <parameter name="other_function_signature" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/function-signature.cpp"
+                 line="130">A #GGandivaFunctionSignature to be compared.</doc>
+            <type name="FunctionSignature"
+                  c:type="GGandivaFunctionSignature*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_base_name"
+              c:identifier="ggandiva_function_signature_get_base_name"
+              version="0.14.0">
+        <source-position filename="../gandiva-glib/function-signature.h"
+                         line="45"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/function-signature.cpp"
+               line="189">A base name of the function signature.
+
+  It should be freed with g_free() when no longer needed.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="function_signature"
+                              transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/function-signature.cpp"
+                 line="187">A #GGandivaFunctionSignature</doc>
+            <type name="FunctionSignature"
+                  c:type="GGandivaFunctionSignature*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_param_types"
+              c:identifier="ggandiva_function_signature_get_param_types"
+              version="0.14.0">
+        <source-position filename="../gandiva-glib/function-signature.h"
+                         line="46"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/function-signature.cpp"
+               line="207">
+  A list of parameter data types of the function signature.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Arrow.DataType"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="function_signature"
+                              transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/function-signature.cpp"
+                 line="205">A #GGandivaFunctionSignature</doc>
+            <type name="FunctionSignature"
+                  c:type="GGandivaFunctionSignature*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_return_type"
+              c:identifier="ggandiva_function_signature_get_return_type"
+              version="0.14.0">
+        <source-position filename="../gandiva-glib/function-signature.h"
+                         line="44"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/function-signature.cpp"
+               line="170">
+  A #GArrowDataType of the return value of the function signature.</doc>
+          <type name="Arrow.DataType" c:type="GArrowDataType*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="function_signature"
+                              transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/function-signature.cpp"
+                 line="168">A #GGandivaFunctionSignature</doc>
+            <type name="FunctionSignature"
+                  c:type="GGandivaFunctionSignature*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="to_string"
+              c:identifier="ggandiva_function_signature_to_string"
+              version="0.14.0">
+        <source-position filename="../gandiva-glib/function-signature.h"
+                         line="43"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/function-signature.cpp"
+               line="152">The string representation of the function signature.
+
+  It should be freed with g_free() when no longer needed.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="function_signature"
+                              transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/function-signature.cpp"
+                 line="150">A #GGandivaFunctionSignature</doc>
+            <type name="FunctionSignature"
+                  c:type="GGandivaFunctionSignature*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="function-signature"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="FunctionSignatureClass"
+            c:type="GGandivaFunctionSignatureClass"
+            glib:is-gtype-struct-for="FunctionSignature">
+      <source-position filename="../gandiva-glib/function-signature.h"
+                       line="36"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="IfNode"
+           c:symbol-prefix="if_node"
+           c:type="GGandivaIfNode"
+           parent="Node"
+           glib:type-name="GGandivaIfNode"
+           glib:get-type="ggandiva_if_node_get_type"
+           glib:type-struct="IfNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="337"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_if_node_new"
+                   version="0.12.0"
+                   throws="1">
+        <source-position filename="../gandiva-glib/node.h" line="340"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="1351">A newly created #GGandivaIfNode or %NULL on error.</doc>
+          <type name="IfNode" c:type="GGandivaIfNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="condition_node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="1345">the node with the condition for if-else expression.</doc>
+            <type name="Node" c:type="GGandivaNode*"/>
+          </parameter>
+          <parameter name="then_node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="1346">the node in case the condition node is true.</doc>
+            <type name="Node" c:type="GGandivaNode*"/>
+          </parameter>
+          <parameter name="else_node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="1347">the node in case the condition node is false.</doc>
+            <type name="Node" c:type="GGandivaNode*"/>
+          </parameter>
+          <parameter name="return_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="1348">A #GArrowDataType.</doc>
+            <type name="Arrow.DataType" c:type="GArrowDataType*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="condition-node"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Node"/>
+      </property>
+      <property name="else-node"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Node"/>
+      </property>
+      <property name="then-node"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Node"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Node" c:type="GGandivaNode"/>
+      </field>
+    </class>
+    <record name="IfNodeClass"
+            c:type="GGandivaIfNodeClass"
+            glib:is-gtype-struct-for="IfNode">
+      <source-position filename="../gandiva-glib/node.h" line="337"/>
+      <field name="parent_class">
+        <type name="NodeClass" c:type="GGandivaNodeClass"/>
+      </field>
+    </record>
+    <class name="Int16LiteralNode"
+           c:symbol-prefix="int16_literal_node"
+           c:type="GGandivaInt16LiteralNode"
+           parent="LiteralNode"
+           glib:type-name="GGandivaInt16LiteralNode"
+           glib:get-type="ggandiva_int16_literal_node_get_type"
+           glib:type-struct="Int16LiteralNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="164"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_int16_literal_node_new"
+                   version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="167"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="718">A newly created #GGandivaInt16LiteralNode.</doc>
+          <type name="Int16LiteralNode" c:type="GGandivaInt16LiteralNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="716">The value of the 16-bit integer literal.</doc>
+            <type name="gint16" c:type="gint16"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_value"
+              c:identifier="ggandiva_int16_literal_node_get_value"
+              version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="169"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="734">The value of the 16-bit integer literal.</doc>
+          <type name="gint16" c:type="gint16"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="732">A #GGandivaInt16LiteralNode.</doc>
+            <type name="Int16LiteralNode" c:type="GGandivaInt16LiteralNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="LiteralNode" c:type="GGandivaLiteralNode"/>
+      </field>
+    </class>
+    <record name="Int16LiteralNodeClass"
+            c:type="GGandivaInt16LiteralNodeClass"
+            glib:is-gtype-struct-for="Int16LiteralNode">
+      <source-position filename="../gandiva-glib/node.h" line="164"/>
+      <field name="parent_class">
+        <type name="LiteralNodeClass" c:type="GGandivaLiteralNodeClass"/>
+      </field>
+    </record>
+    <class name="Int32LiteralNode"
+           c:symbol-prefix="int32_literal_node"
+           c:type="GGandivaInt32LiteralNode"
+           parent="LiteralNode"
+           glib:type-name="GGandivaInt32LiteralNode"
+           glib:get-type="ggandiva_int32_literal_node_get_type"
+           glib:type-struct="Int32LiteralNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="198"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_int32_literal_node_new"
+                   version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="201"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="808">A newly created #GGandivaInt32LiteralNode.</doc>
+          <type name="Int32LiteralNode" c:type="GGandivaInt32LiteralNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="806">The value of the 32-bit integer literal.</doc>
+            <type name="gint32" c:type="gint32"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_value"
+              c:identifier="ggandiva_int32_literal_node_get_value"
+              version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="203"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="824">The value of the 32-bit integer literal.</doc>
+          <type name="gint32" c:type="gint32"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="822">A #GGandivaInt32LiteralNode.</doc>
+            <type name="Int32LiteralNode" c:type="GGandivaInt32LiteralNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="LiteralNode" c:type="GGandivaLiteralNode"/>
+      </field>
+    </class>
+    <record name="Int32LiteralNodeClass"
+            c:type="GGandivaInt32LiteralNodeClass"
+            glib:is-gtype-struct-for="Int32LiteralNode">
+      <source-position filename="../gandiva-glib/node.h" line="198"/>
+      <field name="parent_class">
+        <type name="LiteralNodeClass" c:type="GGandivaLiteralNodeClass"/>
+      </field>
+    </record>
+    <class name="Int64LiteralNode"
+           c:symbol-prefix="int64_literal_node"
+           c:type="GGandivaInt64LiteralNode"
+           parent="LiteralNode"
+           glib:type-name="GGandivaInt64LiteralNode"
+           glib:get-type="ggandiva_int64_literal_node_get_type"
+           glib:type-struct="Int64LiteralNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="232"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_int64_literal_node_new"
+                   version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="235"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="898">A newly created #GGandivaInt64LiteralNode.</doc>
+          <type name="Int64LiteralNode" c:type="GGandivaInt64LiteralNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="896">The value of the 64-bit integer literal.</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_value"
+              c:identifier="ggandiva_int64_literal_node_get_value"
+              version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="237"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="914">The value of the 64-bit integer literal.</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="912">A #GGandivaInt64LiteralNode.</doc>
+            <type name="Int64LiteralNode" c:type="GGandivaInt64LiteralNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="LiteralNode" c:type="GGandivaLiteralNode"/>
+      </field>
+    </class>
+    <record name="Int64LiteralNodeClass"
+            c:type="GGandivaInt64LiteralNodeClass"
+            glib:is-gtype-struct-for="Int64LiteralNode">
+      <source-position filename="../gandiva-glib/node.h" line="232"/>
+      <field name="parent_class">
+        <type name="LiteralNodeClass" c:type="GGandivaLiteralNodeClass"/>
+      </field>
+    </record>
+    <class name="Int8LiteralNode"
+           c:symbol-prefix="int8_literal_node"
+           c:type="GGandivaInt8LiteralNode"
+           parent="LiteralNode"
+           glib:type-name="GGandivaInt8LiteralNode"
+           glib:get-type="ggandiva_int8_literal_node_get_type"
+           glib:type-struct="Int8LiteralNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="130"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_int8_literal_node_new"
+                   version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="133"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="628">A newly created #GGandivaInt8LiteralNode.</doc>
+          <type name="Int8LiteralNode" c:type="GGandivaInt8LiteralNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="626">The value of the 8-bit integer literal.</doc>
+            <type name="gint8" c:type="gint8"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_value"
+              c:identifier="ggandiva_int8_literal_node_get_value"
+              version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="135"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="644">The value of the 8-bit integer literal.</doc>
+          <type name="gint8" c:type="gint8"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="642">A #GGandivaInt8LiteralNode.</doc>
+            <type name="Int8LiteralNode" c:type="GGandivaInt8LiteralNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="LiteralNode" c:type="GGandivaLiteralNode"/>
+      </field>
+    </class>
+    <record name="Int8LiteralNodeClass"
+            c:type="GGandivaInt8LiteralNodeClass"
+            glib:is-gtype-struct-for="Int8LiteralNode">
+      <source-position filename="../gandiva-glib/node.h" line="130"/>
+      <field name="parent_class">
+        <type name="LiteralNodeClass" c:type="GGandivaLiteralNodeClass"/>
+      </field>
+    </record>
+    <class name="LiteralNode"
+           c:symbol-prefix="literal_node"
+           c:type="GGandivaLiteralNode"
+           parent="Node"
+           glib:type-name="GGandivaLiteralNode"
+           glib:get-type="ggandiva_literal_node_get_type"
+           glib:type-struct="LiteralNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="85"/>
+      <field name="parent_instance">
+        <type name="Node" c:type="GGandivaNode"/>
+      </field>
+    </class>
+    <record name="LiteralNodeClass"
+            c:type="GGandivaLiteralNodeClass"
+            glib:is-gtype-struct-for="LiteralNode">
+      <source-position filename="../gandiva-glib/node.h" line="85"/>
+      <field name="parent_class">
+        <type name="NodeClass" c:type="GGandivaNodeClass"/>
+      </field>
+    </record>
+    <class name="NativeFunction"
+           c:symbol-prefix="native_function"
+           c:type="GGandivaNativeFunction"
+           parent="GObject.Object"
+           glib:type-name="GGandivaNativeFunction"
+           glib:get-type="ggandiva_native_function_get_type"
+           glib:type-struct="NativeFunctionClass">
+      <source-position filename="../gandiva-glib/native-function.h" line="52"/>
+      <method name="can_return_errors"
+              c:identifier="ggandiva_native_function_can_return_errors"
+              version="0.14.0">
+        <source-position filename="../gandiva-glib/native-function.h"
+                         line="63"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/native-function.cpp"
+               line="224">%TRUE if the native function has the possibility of returning errors,
+  %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="native_function" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/native-function.cpp"
+                 line="222">A #GGandivaNativeFunction.</doc>
+            <type name="NativeFunction" c:type="GGandivaNativeFunction*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="equal"
+              c:identifier="ggandiva_native_function_equal"
+              version="0.14.0">
+        <source-position filename="../gandiva-glib/native-function.h"
+                         line="57"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/native-function.cpp"
+               line="122">%TRUE if both of them have the same data, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="native_function" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/native-function.cpp"
+                 line="119">A #GGandivaNativeFunction.</doc>
+            <type name="NativeFunction" c:type="GGandivaNativeFunction*"/>
+          </instance-parameter>
+          <parameter name="other_native_function" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/native-function.cpp"
+                 line="120">A #GGandivaNativeFunction to be compared.</doc>
+            <type name="NativeFunction" c:type="GGandivaNativeFunction*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_result_nullable_type"
+              c:identifier="ggandiva_native_function_get_result_nullable_type"
+              version="0.14.0">
+        <source-position filename="../gandiva-glib/native-function.h"
+                         line="60"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/native-function.cpp"
+               line="169">A value of #GGandivaResultNullableType.</doc>
+          <type name="ResultNullableType" c:type="GGandivaResultNullableType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="native_function" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/native-function.cpp"
+                 line="167">A #GGandivaNativeFunction.</doc>
+            <type name="NativeFunction" c:type="GGandivaNativeFunction*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_signatures"
+              c:identifier="ggandiva_native_function_get_signatures"
+              version="0.15.0">
+        <source-position filename="../gandiva-glib/native-function.h"
+                         line="55"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/native-function.cpp"
+               line="99">
+  A list of #GGandivaFunctionSignature supported by the native function.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="FunctionSignature"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="native_function" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/native-function.cpp"
+                 line="97">A #GGandivaNativeFunction.</doc>
+            <type name="NativeFunction" c:type="GGandivaNativeFunction*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="need_context"
+              c:identifier="ggandiva_native_function_need_context"
+              version="0.14.0">
+        <source-position filename="../gandiva-glib/native-function.h"
+                         line="61"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/native-function.cpp"
+               line="188">%TRUE if the native function needs a context for evaluation,
+  %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="native_function" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/native-function.cpp"
+                 line="186">A #GGandivaNativeFunction.</doc>
+            <type name="NativeFunction" c:type="GGandivaNativeFunction*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="need_function_holder"
+              c:identifier="ggandiva_native_function_need_function_holder"
+              version="0.14.0">
+        <source-position filename="../gandiva-glib/native-function.h"
+                         line="62"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/native-function.cpp"
+               line="206">%TRUE if the native function needs a function holder for evaluation,
+  %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="native_function" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/native-function.cpp"
+                 line="204">A #GGandivaNativeFunction.</doc>
+            <type name="NativeFunction" c:type="GGandivaNativeFunction*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="to_string"
+              c:identifier="ggandiva_native_function_to_string"
+              version="0.14.0">
+        <source-position filename="../gandiva-glib/native-function.h"
+                         line="59"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/native-function.cpp"
+               line="141">
+  The string representation of the signatures of the native function.
+  It should be freed with g_free() when no longer needed.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="native_function" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/native-function.cpp"
+                 line="139">A #GGandivaNativeFunction.</doc>
+            <type name="NativeFunction" c:type="GGandivaNativeFunction*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="native-function"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="NativeFunctionClass"
+            c:type="GGandivaNativeFunctionClass"
+            glib:is-gtype-struct-for="NativeFunction">
+      <source-position filename="../gandiva-glib/native-function.h" line="52"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="Node"
+           c:symbol-prefix="node"
+           c:type="GGandivaNode"
+           parent="GObject.Object"
+           glib:type-name="GGandivaNode"
+           glib:get-type="ggandiva_node_get_type"
+           glib:type-struct="NodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="38"/>
+      <method name="to_string"
+              c:identifier="ggandiva_node_to_string"
+              version="1.0.0">
+        <source-position filename="../gandiva-glib/node.h" line="40"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="229">The string representation of the node.
+
+  It should be freed with g_free() when no longer needed.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="227">A #GGandivaNode.</doc>
+            <type name="Node" c:type="GGandivaNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="node"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <property name="return-type"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Arrow.DataType"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="NodeClass"
+            c:type="GGandivaNodeClass"
+            glib:is-gtype-struct-for="Node">
+      <source-position filename="../gandiva-glib/node.h" line="38"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="NullLiteralNode"
+           c:symbol-prefix="null_literal_node"
+           c:type="GGandivaNullLiteralNode"
+           parent="LiteralNode"
+           glib:type-name="GGandivaNullLiteralNode"
+           glib:get-type="ggandiva_null_literal_node_get_type"
+           glib:type-struct="NullLiteralNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="97"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_null_literal_node_new"
+                   version="0.12.0"
+                   throws="1">
+        <source-position filename="../gandiva-glib/node.h" line="100"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="539">A newly created #GGandivaNullLiteralNode for
+  the type or %NULL on error.</doc>
+          <type name="NullLiteralNode" c:type="GGandivaNullLiteralNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="return_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="536">A #GArrowDataType.</doc>
+            <type name="Arrow.DataType" c:type="GArrowDataType*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="parent_instance">
+        <type name="LiteralNode" c:type="GGandivaLiteralNode"/>
+      </field>
+    </class>
+    <record name="NullLiteralNodeClass"
+            c:type="GGandivaNullLiteralNodeClass"
+            glib:is-gtype-struct-for="NullLiteralNode">
+      <source-position filename="../gandiva-glib/node.h" line="97"/>
+      <field name="parent_class">
+        <type name="LiteralNodeClass" c:type="GGandivaLiteralNodeClass"/>
+      </field>
+    </record>
+    <class name="OrNode"
+           c:symbol-prefix="or_node"
+           c:type="GGandivaOrNode"
+           parent="BooleanNode"
+           glib:type-name="GGandivaOrNode"
+           glib:get-type="ggandiva_or_node_get_type"
+           glib:type-struct="OrNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="389"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_or_node_new"
+                   version="0.17.0">
+        <source-position filename="../gandiva-glib/node.h" line="393"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="1511">A newly created #GGandivaOrNode for the OR expression.</doc>
+          <type name="OrNode" c:type="GGandivaOrNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="children" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="1509">The children of the OR node.</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Node"/>
+            </type>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="parent_instance">
+        <type name="BooleanNode" c:type="GGandivaBooleanNode"/>
+      </field>
+    </class>
+    <record name="OrNodeClass"
+            c:type="GGandivaOrNodeClass"
+            glib:is-gtype-struct-for="OrNode">
+      <source-position filename="../gandiva-glib/node.h" line="389"/>
+      <field name="parent_class">
+        <type name="BooleanNodeClass" c:type="GGandivaBooleanNodeClass"/>
+      </field>
+    </record>
+    <class name="Projector"
+           c:symbol-prefix="projector"
+           c:type="GGandivaProjector"
+           parent="GObject.Object"
+           glib:type-name="GGandivaProjector"
+           glib:get-type="ggandiva_projector_get_type"
+           glib:type-struct="ProjectorClass">
+      <source-position filename="../gandiva-glib/projector.h" line="36"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_projector_new"
+                   version="0.12.0"
+                   throws="1">
+        <source-position filename="../gandiva-glib/projector.h" line="38"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/projector.cpp"
+               line="123">A newly created #GGandivaProjector on success,
+  %NULL on error.</doc>
+          <type name="Projector" c:type="GGandivaProjector*"/>
+        </return-value>
+        <parameters>
+          <parameter name="schema" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/projector.cpp"
+                 line="119">A #GArrowSchema.</doc>
+            <type name="Arrow.Schema" c:type="GArrowSchema*"/>
+          </parameter>
+          <parameter name="expressions" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/projector.cpp"
+                 line="120">The built expressions.</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Expression"/>
+            </type>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="evaluate"
+              c:identifier="ggandiva_projector_evaluate"
+              version="0.12.0"
+              throws="1">
+        <source-position filename="../gandiva-glib/projector.h" line="41"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/projector.cpp"
+               line="158">
+  The #GArrowArray as the result evaluated on success, %NULL on error.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Arrow.Array"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="projector" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/projector.cpp"
+                 line="154">A #GGandivaProjector.</doc>
+            <type name="Projector" c:type="GGandivaProjector*"/>
+          </instance-parameter>
+          <parameter name="record_batch" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/projector.cpp"
+                 line="155">A #GArrowRecordBatch.</doc>
+            <type name="Arrow.RecordBatch" c:type="GArrowRecordBatch*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="projector"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ProjectorClass"
+            c:type="GGandivaProjectorClass"
+            glib:is-gtype-struct-for="Projector">
+      <source-position filename="../gandiva-glib/projector.h" line="36"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="ResultNullableType"
+                 glib:type-name="GGandivaResultNullableType"
+                 glib:get-type="ggandiva_result_nullable_type_get_type"
+                 c:type="GGandivaResultNullableType">
+      <doc xml:space="preserve"
+           filename="../gandiva-glib/native-function.h"
+           line="26">They are corresponding to `gandiva::ResultNullableType` values.</doc>
+      <member name="if_null"
+              value="0"
+              c:identifier="GGANDIVA_RESULT_NULL_IF_NULL"
+              glib:nick="if-null">
+        <doc xml:space="preserve"
+             filename="../gandiva-glib/native-function.h"
+             line="28">This means the result validity is an intersection of
+  the validity of the children.</doc>
+      </member>
+      <member name="never"
+              value="1"
+              c:identifier="GGANDIVA_RESULT_NULL_NEVER"
+              glib:nick="never">
+        <doc xml:space="preserve"
+             filename="../gandiva-glib/native-function.h"
+             line="30">This means that the result is always valid.</doc>
+      </member>
+      <member name="internal"
+              value="2"
+              c:identifier="GGANDIVA_RESULT_NULL_INTERNAL"
+              glib:nick="internal">
+        <doc xml:space="preserve"
+             filename="../gandiva-glib/native-function.h"
+             line="31">This means that the result validity depends on some
+  internal logic.</doc>
+      </member>
+    </enumeration>
+    <class name="StringLiteralNode"
+           c:symbol-prefix="string_literal_node"
+           c:type="GGandivaStringLiteralNode"
+           parent="LiteralNode"
+           glib:type-name="GGandivaStringLiteralNode"
+           glib:get-type="ggandiva_string_literal_node_get_type"
+           glib:type-struct="StringLiteralNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="320"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_string_literal_node_new"
+                   version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="323"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="1183">A newly created #GGandivaStringLiteralNode.</doc>
+          <type name="StringLiteralNode" c:type="GGandivaStringLiteralNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="1181">The value of the UTF-8 encoded string literal.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_value"
+              c:identifier="ggandiva_string_literal_node_get_value"
+              version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="325"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="1199">The value of the UTF-8 encoded string literal.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="1197">A #GGandivaStringLiteralNode.</doc>
+            <type name="StringLiteralNode"
+                  c:type="GGandivaStringLiteralNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="LiteralNode" c:type="GGandivaLiteralNode"/>
+      </field>
+    </class>
+    <record name="StringLiteralNodeClass"
+            c:type="GGandivaStringLiteralNodeClass"
+            glib:is-gtype-struct-for="StringLiteralNode">
+      <source-position filename="../gandiva-glib/node.h" line="320"/>
+      <field name="parent_class">
+        <type name="LiteralNodeClass" c:type="GGandivaLiteralNodeClass"/>
+      </field>
+    </record>
+    <class name="UInt16LiteralNode"
+           c:symbol-prefix="uint16_literal_node"
+           c:type="GGandivaUInt16LiteralNode"
+           parent="LiteralNode"
+           glib:type-name="GGandivaUInt16LiteralNode"
+           glib:get-type="ggandiva_uint16_literal_node_get_type"
+           glib:type-struct="UInt16LiteralNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="181"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_uint16_literal_node_new"
+                   version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="184"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="763">A newly created #GGandivaUInt16LiteralNode.</doc>
+          <type name="UInt16LiteralNode" c:type="GGandivaUInt16LiteralNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="761">The value of the 16-bit unsigned integer literal.</doc>
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_value"
+              c:identifier="ggandiva_uint16_literal_node_get_value"
+              version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="186"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="779">The value of the 16-bit unsigned integer literal.</doc>
+          <type name="guint16" c:type="guint16"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="777">A #GGandivaUInt16LiteralNode.</doc>
+            <type name="UInt16LiteralNode"
+                  c:type="GGandivaUInt16LiteralNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="LiteralNode" c:type="GGandivaLiteralNode"/>
+      </field>
+    </class>
+    <record name="UInt16LiteralNodeClass"
+            c:type="GGandivaUInt16LiteralNodeClass"
+            glib:is-gtype-struct-for="UInt16LiteralNode">
+      <source-position filename="../gandiva-glib/node.h" line="181"/>
+      <field name="parent_class">
+        <type name="LiteralNodeClass" c:type="GGandivaLiteralNodeClass"/>
+      </field>
+    </record>
+    <class name="UInt32LiteralNode"
+           c:symbol-prefix="uint32_literal_node"
+           c:type="GGandivaUInt32LiteralNode"
+           parent="LiteralNode"
+           glib:type-name="GGandivaUInt32LiteralNode"
+           glib:get-type="ggandiva_uint32_literal_node_get_type"
+           glib:type-struct="UInt32LiteralNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="215"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_uint32_literal_node_new"
+                   version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="218"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="853">A newly created #GGandivaUInt32LiteralNode.</doc>
+          <type name="UInt32LiteralNode" c:type="GGandivaUInt32LiteralNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="851">The value of the 32-bit unsigned integer literal.</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_value"
+              c:identifier="ggandiva_uint32_literal_node_get_value"
+              version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="220"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="869">The value of the 32-bit unsigned integer literal.</doc>
+          <type name="guint32" c:type="guint32"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="867">A #GGandivaUInt32LiteralNode.</doc>
+            <type name="UInt32LiteralNode"
+                  c:type="GGandivaUInt32LiteralNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="LiteralNode" c:type="GGandivaLiteralNode"/>
+      </field>
+    </class>
+    <record name="UInt32LiteralNodeClass"
+            c:type="GGandivaUInt32LiteralNodeClass"
+            glib:is-gtype-struct-for="UInt32LiteralNode">
+      <source-position filename="../gandiva-glib/node.h" line="215"/>
+      <field name="parent_class">
+        <type name="LiteralNodeClass" c:type="GGandivaLiteralNodeClass"/>
+      </field>
+    </record>
+    <class name="UInt64LiteralNode"
+           c:symbol-prefix="uint64_literal_node"
+           c:type="GGandivaUInt64LiteralNode"
+           parent="LiteralNode"
+           glib:type-name="GGandivaUInt64LiteralNode"
+           glib:get-type="ggandiva_uint64_literal_node_get_type"
+           glib:type-struct="UInt64LiteralNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="249"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_uint64_literal_node_new"
+                   version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="252"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="943">A newly created #GGandivaUInt64LiteralNode.</doc>
+          <type name="UInt64LiteralNode" c:type="GGandivaUInt64LiteralNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="941">The value of the 64-bit unsigned integer literal.</doc>
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_value"
+              c:identifier="ggandiva_uint64_literal_node_get_value"
+              version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="254"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="959">The value of the 64-bit unsigned integer literal.</doc>
+          <type name="guint64" c:type="guint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="957">A #GGandivaUInt64LiteralNode.</doc>
+            <type name="UInt64LiteralNode"
+                  c:type="GGandivaUInt64LiteralNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="LiteralNode" c:type="GGandivaLiteralNode"/>
+      </field>
+    </class>
+    <record name="UInt64LiteralNodeClass"
+            c:type="GGandivaUInt64LiteralNodeClass"
+            glib:is-gtype-struct-for="UInt64LiteralNode">
+      <source-position filename="../gandiva-glib/node.h" line="249"/>
+      <field name="parent_class">
+        <type name="LiteralNodeClass" c:type="GGandivaLiteralNodeClass"/>
+      </field>
+    </record>
+    <class name="UInt8LiteralNode"
+           c:symbol-prefix="uint8_literal_node"
+           c:type="GGandivaUInt8LiteralNode"
+           parent="LiteralNode"
+           glib:type-name="GGandivaUInt8LiteralNode"
+           glib:get-type="ggandiva_uint8_literal_node_get_type"
+           glib:type-struct="UInt8LiteralNodeClass">
+      <source-position filename="../gandiva-glib/node.h" line="147"/>
+      <constructor name="new"
+                   c:identifier="ggandiva_uint8_literal_node_new"
+                   version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="150"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="673">A newly created #GGandivaUInt8LiteralNode.</doc>
+          <type name="UInt8LiteralNode" c:type="GGandivaUInt8LiteralNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="671">The value of the 8-bit unsigned integer literal.</doc>
+            <type name="guint8" c:type="guint8"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_value"
+              c:identifier="ggandiva_uint8_literal_node_get_value"
+              version="0.12.0">
+        <source-position filename="../gandiva-glib/node.h" line="152"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/node.cpp"
+               line="689">The value of the 8-bit unsigned integer literal.</doc>
+          <type name="guint8" c:type="guint8"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gandiva-glib/node.cpp"
+                 line="687">A #GGandivaUInt8LiteralNode.</doc>
+            <type name="UInt8LiteralNode" c:type="GGandivaUInt8LiteralNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="LiteralNode" c:type="GGandivaLiteralNode"/>
+      </field>
+    </class>
+    <record name="UInt8LiteralNodeClass"
+            c:type="GGandivaUInt8LiteralNodeClass"
+            glib:is-gtype-struct-for="UInt8LiteralNode">
+      <source-position filename="../gandiva-glib/node.h" line="147"/>
+      <field name="parent_class">
+        <type name="LiteralNodeClass" c:type="GGandivaLiteralNodeClass"/>
+      </field>
+    </record>
+    <function-macro name="UNAVAILABLE"
+                    c:identifier="GGANDIVA_UNAVAILABLE"
+                    introspectable="0">
+      <source-position filename="../gandiva-glib/version.h" line="106"/>
+      <parameters>
+        <parameter name="major">
+        </parameter>
+        <parameter name="minor">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VERSION_CHECK"
+                    c:identifier="GGANDIVA_VERSION_CHECK"
+                    version="1.0.0"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="../gandiva-glib/version.h"
+           line="71">You can use this macro in C pre-processor.</doc>
+      <source-position filename="../gandiva-glib/version.h" line="84"/>
+      <parameters>
+        <parameter name="major">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/version.h"
+               line="73">A major version to check for.</doc>
+        </parameter>
+        <parameter name="minor">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/version.h"
+               line="74">A minor version to check for.</doc>
+        </parameter>
+        <parameter name="micro">
+          <doc xml:space="preserve"
+               filename="../gandiva-glib/version.h"
+               line="75">A micro version to check for.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="VERSION_MAJOR"
+              value="3"
+              c:type="GGANDIVA_VERSION_MAJOR"
+              version="1.0.0">
+      <doc xml:space="preserve"
+           filename="../gandiva-glib/version.h"
+           line="34">The major version.</doc>
+      <source-position filename="../gandiva-glib/version.h" line="41"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="VERSION_MICRO"
+              value="0"
+              c:type="GGANDIVA_VERSION_MICRO"
+              version="1.0.0">
+      <doc xml:space="preserve"
+           filename="../gandiva-glib/version.h"
+           line="52">The micro version.</doc>
+      <source-position filename="../gandiva-glib/version.h" line="59"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="VERSION_MINOR"
+              value="0"
+              c:type="GGANDIVA_VERSION_MINOR"
+              version="1.0.0">
+      <doc xml:space="preserve"
+           filename="../gandiva-glib/version.h"
+           line="43">The minor version.</doc>
+      <source-position filename="../gandiva-glib/version.h" line="50"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="VERSION_TAG"
+              value=""
+              c:type="GGANDIVA_VERSION_TAG"
+              version="1.0.0">
+      <doc xml:space="preserve"
+           filename="../gandiva-glib/version.h"
+           line="61">The version tag. Normally, it's an empty string. It's "SNAPSHOT"
+for snapshot version.</doc>
+      <source-position filename="../gandiva-glib/version.h" line="69"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <docsection name="expression">
+      <doc xml:space="preserve"
+           filename="../gandiva-glib/expression.cpp"
+           line="31">#GGandivaExpression is a class for an expression tree with a root node,
+and a result field.</doc>
+    </docsection>
+    <docsection name="node">
+      <doc xml:space="preserve"
+           filename="../gandiva-glib/node.cpp"
+           line="41">#GGandivaNode is a base class for a node in the expression tree.
+
+#GGandivaFieldNode is a class for a node in the expression tree, representing an Arrow field.
+
+#GGandivaFunctionNode is a class for a node in the expression tree, representing a function.
+
+#GGandivaLiteralNode is a base class for a node in the expression tree,
+representing a literal.
+
+#GGandivaNullLiteralNode is a class for a node in the expression tree,
+representing a null literal.
+
+#GGandivaBooleanLiteralNode is a class for a node in the expression tree,
+representing a boolean literal.
+
+#GGandivaInt8LiteralNode is a class for a node in the expression tree,
+representing a 8-bit integer literal.
+
+#GGandivaUInt8LiteralNode is a class for a node in the expression tree,
+representing a 8-bit unsigned integer literal.
+
+#GGandivaInt16LiteralNode is a class for a node in the expression tree,
+representing a 16-bit integer literal.
+
+#GGandivaUInt16LiteralNode is a class for a node in the expression tree,
+representing a 16-bit unsigned integer literal.
+
+#GGandivaInt32LiteralNode is a class for a node in the expression tree,
+representing a 32-bit integer literal.
+
+#GGandivaUInt32LiteralNode is a class for a node in the expression tree,
+representing a 32-bit unsigned integer literal.
+
+#GGandivaInt64LiteralNode is a class for a node in the expression tree,
+representing a 64-bit integer literal.
+
+#GGandivaUInt64LiteralNode is a class for a node in the expression tree,
+representing a 64-bit unsigned integer literal.
+
+#GGandivaFloatLiteralNode is a class for a node in the expression tree,
+representing a 32-bit floating point literal.
+
+#GGandivaDoubleLiteralNode is a class for a node in the expression tree,
+representing a 64-bit floating point literal.
+
+#GGandivaBinaryLiteralNode is a class for a node in the expression tree,
+representing a binary literal.
+
+#GGandivaStringLiteralNode is a class for a node in the expression tree,
+representing an UTF-8 encoded string literal.
+
+#GGandivaIfNode is a class for a node in the expression tree, representing an if-else.
+
+#GGandivaBooleanNode is a class for a node in the expression tree, representing a boolean.
+
+#GGandivaAndNode is a class for a node in the expression tree, representing an AND.
+
+#GGandivaOrNode is a class for a node in the expression tree, representing an OR.</doc>
+    </docsection>
+    <docsection name="projector">
+      <doc xml:space="preserve"
+           filename="../gandiva-glib/projector.cpp"
+           line="34">#GGandivaProjector is a class for building a specific schema
+and vector of expressions.</doc>
+    </docsection>
+    <docsection name="version">
+      <doc xml:space="preserve"
+           filename="../gandiva-glib/version.h"
+           line="24">Gandiva GLib provides macros that can be used by C pre-processor.
+They are useful to check version related things at compile time.</doc>
+    </docsection>
+  </namespace>
+</repository>

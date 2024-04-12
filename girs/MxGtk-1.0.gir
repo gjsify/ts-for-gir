@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Atk" version="1.0"/>
+  <include name="GLib" version="2.0"/>
+  <include name="GModule" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gdk" version="2.0"/>
+  <include name="GdkPixbuf" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="2.0"/>
+  <include name="Pango" version="1.0"/>
+  <include name="cairo" version="1.0"/>
+  <package name="mx-gtk-1.0"/>
+  <c:include name="mx-gtk/mx-gtk.h"/>
+  <namespace name="MxGtk"
+             version="1.0"
+             shared-library="libmx-gtk-1.0.so.0"
+             c:identifier-prefixes="MxGtk"
+             c:symbol-prefixes="mx_gtk">
+    <class name="Frame"
+           c:symbol-prefix="frame"
+           c:type="MxGtkFrame"
+           parent="Gtk.Frame"
+           glib:type-name="MxGtkFrame"
+           glib:get-type="mx_gtk_frame_get_type"
+           glib:type-struct="FrameClass">
+      <doc xml:whitespace="preserve">The contents of this structure are private and should only be accessed
+through the public API.</doc>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="mx_gtk_frame_new">
+        <doc xml:whitespace="preserve">Create a new specially styled frame.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">a newly allocated #MxGtkFrame</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <field name="parent" readable="0" private="1">
+        <type name="Gtk.Frame" c:type="GtkFrame"/>
+      </field>
+      <field name="border_color" readable="0" private="1">
+        <type name="Gdk.Color" c:type="GdkColor"/>
+      </field>
+    </class>
+    <record name="FrameClass"
+            c:type="MxGtkFrameClass"
+            glib:is-gtype-struct-for="Frame">
+      <field name="parent_class">
+        <type name="Gtk.FrameClass" c:type="GtkFrameClass"/>
+      </field>
+    </record>
+    <class name="LightSwitch"
+           c:symbol-prefix="light_switch"
+           c:type="MxGtkLightSwitch"
+           parent="Gtk.DrawingArea"
+           glib:type-name="MxGtkLightSwitch"
+           glib:get-type="mx_gtk_light_switch_get_type"
+           glib:type-struct="LightSwitchClass">
+      <doc xml:whitespace="preserve">The contents of this structure are private and should only be accessed
+through the public API.</doc>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="mx_gtk_light_switch_new">
+        <doc xml:whitespace="preserve">Create a #MxGtkLightSwitch</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">a newly allocated #MxGtkLightSwitch</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="switch_flipped">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="lightswitch" transfer-ownership="none">
+            <type name="LightSwitch" c:type="MxGtkLightSwitch*"/>
+          </instance-parameter>
+          <parameter name="state" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_active" c:identifier="mx_gtk_light_switch_get_active">
+        <doc xml:whitespace="preserve">Get the value of the "active" property</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">#TRUE if the switch is "on"</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="lightswitch" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A #MxGtkLightSwitch</doc>
+            <type name="LightSwitch" c:type="MxGtkLightSwitch*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_active" c:identifier="mx_gtk_light_switch_set_active">
+        <doc xml:whitespace="preserve">Set the value of the "active" property</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="lightswitch" transfer-ownership="none">
+            <doc xml:whitespace="preserve">A #MxGtkLightSwitch</doc>
+            <type name="LightSwitch" c:type="MxGtkLightSwitch*"/>
+          </instance-parameter>
+          <parameter name="active" transfer-ownership="none">
+            <doc xml:whitespace="preserve">#TRUE to set the switch to its ON state</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="active" writable="1" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="Gtk.DrawingArea" c:type="GtkDrawingArea"/>
+      </field>
+      <glib:signal name="switch-flipped" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="LightSwitchClass"
+            c:type="MxGtkLightSwitchClass"
+            glib:is-gtype-struct-for="LightSwitch">
+      <field name="parent_class">
+        <type name="Gtk.DrawingAreaClass" c:type="GtkDrawingAreaClass"/>
+      </field>
+      <field name="switch_flipped">
+        <callback name="switch_flipped">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="lightswitch" transfer-ownership="none">
+              <type name="LightSwitch" c:type="MxGtkLightSwitch*"/>
+            </parameter>
+            <parameter name="state" transfer-ownership="none">
+              <type name="gboolean" c:type="gboolean"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+  </namespace>
+</repository>

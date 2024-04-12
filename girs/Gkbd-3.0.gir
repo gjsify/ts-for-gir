@@ -1,0 +1,2144 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <include name="Xkl" version="1.0"/>
+  <include name="xlib" version="2.0"/>
+  <namespace name="Gkbd"
+             version="3.0"
+             shared-library="libgnomekbd.so.8,libgnomekbdui.so.8"
+             c:identifier-prefixes="Gkbd"
+             c:symbol-prefixes="gkbd">
+    <class name="Configuration"
+           c:symbol-prefix="configuration"
+           c:type="GkbdConfiguration"
+           parent="GObject.Object"
+           glib:type-name="GkbdConfiguration"
+           glib:get-type="gkbd_configuration_get_type"
+           glib:type-struct="ConfigurationClass">
+      <source-position filename="gkbd-configuration.h" line="38"/>
+      <function name="create_label_title"
+                c:identifier="gkbd_configuration_create_label_title">
+        <source-position filename="gkbd-configuration.h" line="122"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="group" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="ln2cnt_map" transfer-ownership="none">
+            <type name="GLib.HashTable" c:type="GHashTable**">
+              <type name="gpointer" c:type="gpointer"/>
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+          <parameter name="layout_name" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get" c:identifier="gkbd_configuration_get">
+        <source-position filename="gkbd-configuration.h" line="40"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gkbd-configuration.c"
+               line="329">singleton of GkbdConfiguration</doc>
+          <type name="Configuration" c:type="GkbdConfiguration*"/>
+        </return-value>
+      </function>
+      <method name="append_object"
+              c:identifier="gkbd_configuration_append_object">
+        <source-position filename="gkbd-configuration.h" line="98"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+          <parameter name="obj" transfer-ownership="none">
+            <type name="GObject.Object" c:type="GObject*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="extract_layout_name"
+              c:identifier="gkbd_configuration_extract_layout_name">
+        <source-position filename="gkbd-configuration.h" line="61"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+          <parameter name="group" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="free_images" c:identifier="gkbd_configuration_free_images">
+        <source-position filename="gkbd-configuration.h" line="118"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+          <parameter name="images" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gkbd-configuration.c"
+                 line="631">list of images</doc>
+            <type name="GLib.SList" c:type="GSList*">
+              <type name="GdkPixbuf.Pixbuf"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_all_objects"
+              c:identifier="gkbd_configuration_get_all_objects">
+        <source-position filename="gkbd-configuration.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gkbd-configuration.c"
+               line="552">list of widgets/status icons/...</doc>
+          <type name="GLib.SList" c:type="GSList*">
+            <type name="GObject.Object"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_caps_lock_state"
+              c:identifier="gkbd_configuration_get_caps_lock_state">
+        <source-position filename="gkbd-configuration.h" line="127"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_group"
+              c:identifier="gkbd_configuration_get_current_group">
+        <source-position filename="gkbd-configuration.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_tooltip"
+              c:identifier="gkbd_configuration_get_current_tooltip">
+        <source-position filename="gkbd-configuration.h" line="55"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_group_name"
+              c:identifier="gkbd_configuration_get_group_name">
+        <source-position filename="gkbd-configuration.h" line="74"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="gkbd-configuration.c"
+               line="737">group name</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+          <parameter name="group" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_group_names"
+              c:identifier="gkbd_configuration_get_group_names">
+        <source-position filename="gkbd-configuration.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gkbd-configuration.c"
+               line="364">full group names</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_image_filename"
+              c:identifier="gkbd_configuration_get_image_filename">
+        <source-position filename="gkbd-configuration.h" line="51"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+          <parameter name="group" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_indicator_config"
+              c:identifier="gkbd_configuration_get_indicator_config">
+        <source-position filename="gkbd-configuration.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gkbd-configuration.c"
+               line="522">indicator config</doc>
+          <type name="IndicatorConfig" c:type="GkbdIndicatorConfig*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_keyboard_config"
+              c:identifier="gkbd_configuration_get_keyboard_config">
+        <source-position filename="gkbd-configuration.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gkbd-configuration.c"
+               line="537">keyboard config</doc>
+          <type name="KeyboardConfig" c:type="GkbdKeyboardConfig*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_num_lock_state"
+              c:identifier="gkbd_configuration_get_num_lock_state">
+        <source-position filename="gkbd-configuration.h" line="129"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_scroll_lock_state"
+              c:identifier="gkbd_configuration_get_scroll_lock_state">
+        <source-position filename="gkbd-configuration.h" line="131"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_short_group_names"
+              c:identifier="gkbd_configuration_get_short_group_names">
+        <source-position filename="gkbd-configuration.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gkbd-configuration.c"
+               line="392">short group names</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_xkl_engine"
+              c:identifier="gkbd_configuration_get_xkl_engine">
+        <source-position filename="gkbd-configuration.h" line="42"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gkbd-configuration.c"
+               line="349">The engine used by GkbdConfiguration object</doc>
+          <type name="Xkl.Engine" c:type="XklEngine*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="if_any_object_exists"
+              c:identifier="gkbd_configuration_if_any_object_exists">
+        <source-position filename="gkbd-configuration.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="if_flags_shown"
+              c:identifier="gkbd_configuration_if_flags_shown">
+        <source-position filename="gkbd-configuration.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="load_images" c:identifier="gkbd_configuration_load_images">
+        <source-position filename="gkbd-configuration.h" line="115"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gkbd-configuration.c"
+               line="591">list of images</doc>
+          <type name="GLib.SList" c:type="GSList*">
+            <type name="GdkPixbuf.Pixbuf"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="lock_group" c:identifier="gkbd_configuration_lock_group">
+        <source-position filename="gkbd-configuration.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+          <parameter name="group" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lock_next_group"
+              c:identifier="gkbd_configuration_lock_next_group">
+        <source-position filename="gkbd-configuration.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="remove_object"
+              c:identifier="gkbd_configuration_remove_object">
+        <source-position filename="gkbd-configuration.h" line="102"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+          <parameter name="obj" transfer-ownership="none">
+            <type name="GObject.Object" c:type="GObject*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="start_listen"
+              c:identifier="gkbd_configuration_start_listen">
+        <source-position filename="gkbd-configuration.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="stop_listen" c:identifier="gkbd_configuration_stop_listen">
+        <source-position filename="gkbd-configuration.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="configuration" transfer-ownership="none">
+            <type name="Configuration" c:type="GkbdConfiguration*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="changed" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="group-changed" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="indicators-changed" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="ConfigurationClass"
+            c:type="GkbdConfigurationClass"
+            glib:is-gtype-struct-for="Configuration">
+      <source-position filename="gkbd-configuration.h" line="38"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <constant name="DESKTOP_SCHEMA"
+              value="org.gnome.libgnomekbd.desktop"
+              c:type="GKBD_DESKTOP_SCHEMA">
+      <source-position filename="gkbd-desktop-config.h" line="28"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <record name="DesktopConfig" c:type="GkbdDesktopConfig">
+      <source-position filename="gkbd-desktop-config.h" line="45"/>
+      <field name="default_group" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="group_per_app" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="handle_indicators" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="layout_names_as_group_names" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="load_extra_items" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="settings" writable="1">
+        <type name="Gio.Settings" c:type="GSettings*"/>
+      </field>
+      <field name="config_listener_id" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="engine" writable="1">
+        <type name="Xkl.Engine" c:type="XklEngine*"/>
+      </field>
+      <method name="activate" c:identifier="gkbd_desktop_config_activate">
+        <source-position filename="gkbd-desktop-config.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="GkbdDesktopConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="init" c:identifier="gkbd_desktop_config_init">
+        <source-position filename="gkbd-desktop-config.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="GkbdDesktopConfig*"/>
+          </instance-parameter>
+          <parameter name="engine" transfer-ownership="none">
+            <type name="Xkl.Engine" c:type="XklEngine*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load" c:identifier="gkbd_desktop_config_load">
+        <source-position filename="gkbd-desktop-config.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="GkbdDesktopConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="load_group_descriptions"
+              c:identifier="gkbd_desktop_config_load_group_descriptions">
+        <source-position filename="gkbd-desktop-config.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="GkbdDesktopConfig*"/>
+          </instance-parameter>
+          <parameter name="registry" transfer-ownership="none">
+            <type name="Xkl.ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </parameter>
+          <parameter name="layout_ids" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar**"/>
+          </parameter>
+          <parameter name="variant_ids" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar**"/>
+          </parameter>
+          <parameter name="short_group_names" transfer-ownership="none">
+            <type name="utf8" c:type="gchar***"/>
+          </parameter>
+          <parameter name="full_group_names" transfer-ownership="none">
+            <type name="utf8" c:type="gchar***"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lock_next_group"
+              c:identifier="gkbd_desktop_config_lock_next_group">
+        <source-position filename="gkbd-desktop-config.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="GkbdDesktopConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="lock_prev_group"
+              c:identifier="gkbd_desktop_config_lock_prev_group">
+        <source-position filename="gkbd-desktop-config.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="GkbdDesktopConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="restore_group"
+              c:identifier="gkbd_desktop_config_restore_group">
+        <source-position filename="gkbd-desktop-config.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="GkbdDesktopConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="save" c:identifier="gkbd_desktop_config_save">
+        <source-position filename="gkbd-desktop-config.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="GkbdDesktopConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="start_listen"
+              c:identifier="gkbd_desktop_config_start_listen">
+        <source-position filename="gkbd-desktop-config.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="GkbdDesktopConfig*"/>
+          </instance-parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="1">
+            <doc xml:space="preserve"
+                 filename="gkbd-desktop-config.c"
+                 line="245">a function to call when settings are changed</doc>
+            <type name="GObject.Callback" c:type="GCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="stop_listen"
+              c:identifier="gkbd_desktop_config_stop_listen">
+        <source-position filename="gkbd-desktop-config.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="GkbdDesktopConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="term" c:identifier="gkbd_desktop_config_term">
+        <source-position filename="gkbd-desktop-config.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="DesktopConfig" c:type="GkbdDesktopConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <function-macro name="IS_KEYBOARD_DRAWING"
+                    c:identifier="GKBD_IS_KEYBOARD_DRAWING"
+                    introspectable="0">
+      <source-position filename="gkbd-keyboard-drawing.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_STATUS"
+                    c:identifier="GKBD_IS_STATUS"
+                    introspectable="0">
+      <source-position filename="gkbd-status.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_STATUS_CLASS"
+                    c:identifier="GKBD_IS_STATUS_CLASS"
+                    introspectable="0">
+      <source-position filename="gkbd-status.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Indicator"
+           c:symbol-prefix="indicator"
+           c:type="GkbdIndicator"
+           parent="Gtk.Notebook"
+           glib:type-name="GkbdIndicator"
+           glib:get-type="gkbd_indicator_get_type"
+           glib:type-struct="IndicatorClass">
+      <source-position filename="gkbd-indicator.h" line="36"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="gkbd_indicator_new">
+        <source-position filename="gkbd-indicator.h" line="38"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <function name="get_group_names"
+                c:identifier="gkbd_indicator_get_group_names">
+        <source-position filename="gkbd-indicator.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gkbd-indicator.c"
+               line="547">List of group names</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+      </function>
+      <function name="get_image_filename"
+                c:identifier="gkbd_indicator_get_image_filename">
+        <source-position filename="gkbd-indicator.h" line="48"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="group" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_max_width_height_ratio"
+                c:identifier="gkbd_indicator_get_max_width_height_ratio">
+        <source-position filename="gkbd-indicator.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+      </function>
+      <function name="get_xkl_engine"
+                c:identifier="gkbd_indicator_get_xkl_engine">
+        <source-position filename="gkbd-indicator.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gkbd-indicator.c"
+               line="536">The engine shared by all GkbdIndicator objects</doc>
+          <type name="Xkl.Engine" c:type="XklEngine*"/>
+        </return-value>
+      </function>
+      <virtual-method name="reinit_ui" invoker="reinit_ui">
+        <source-position filename="gkbd-indicator.h" line="35"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gki" transfer-ownership="none">
+            <type name="Indicator" c:type="GkbdIndicator*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="reinit_ui" c:identifier="gkbd_indicator_reinit_ui">
+        <source-position filename="gkbd-indicator.h" line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gki" transfer-ownership="none">
+            <type name="Indicator" c:type="GkbdIndicator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_angle" c:identifier="gkbd_indicator_set_angle">
+        <source-position filename="gkbd-indicator.h" line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gki" transfer-ownership="none">
+            <type name="Indicator" c:type="GkbdIndicator*"/>
+          </instance-parameter>
+          <parameter name="angle" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_parent_tooltips"
+              c:identifier="gkbd_indicator_set_parent_tooltips">
+        <source-position filename="gkbd-indicator.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gki" transfer-ownership="none">
+            <type name="Indicator" c:type="GkbdIndicator*"/>
+          </instance-parameter>
+          <parameter name="ifset" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="Gtk.Notebook" c:type="GtkNotebook"/>
+      </field>
+      <glib:signal name="reinit-ui" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="IndicatorClass"
+            c:type="GkbdIndicatorClass"
+            glib:is-gtype-struct-for="Indicator">
+      <source-position filename="gkbd-indicator.h" line="36"/>
+      <field name="parent_class">
+        <type name="Gtk.NotebookClass" c:type="GtkNotebookClass"/>
+      </field>
+      <field name="reinit_ui">
+        <callback name="reinit_ui">
+          <source-position filename="gkbd-indicator.h" line="35"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="gki" transfer-ownership="none">
+              <type name="Indicator" c:type="GkbdIndicator*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="IndicatorConfig" c:type="GkbdIndicatorConfig">
+      <source-position filename="gkbd-indicator-config.h" line="46"/>
+      <field name="secondary_groups_mask" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="show_flags" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="font_family" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="font_size" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="foreground_color" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="background_color" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="settings" writable="1">
+        <type name="Gio.Settings" c:type="GSettings*"/>
+      </field>
+      <field name="image_filenames" writable="1">
+        <type name="GLib.SList" c:type="GSList*">
+          <type name="gpointer" c:type="gpointer"/>
+        </type>
+      </field>
+      <field name="icon_theme" writable="1">
+        <type name="Gtk.IconTheme" c:type="GtkIconTheme*"/>
+      </field>
+      <field name="config_listener_id" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="engine" writable="1">
+        <type name="Xkl.Engine" c:type="XklEngine*"/>
+      </field>
+      <method name="activate" c:identifier="gkbd_indicator_config_activate">
+        <source-position filename="gkbd-indicator-config.h" line="90"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="GkbdIndicatorConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="free_image_filenames"
+              c:identifier="gkbd_indicator_config_free_image_filenames">
+        <source-position filename="gkbd-indicator-config.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="GkbdIndicatorConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_fg_color_for_widget"
+              c:identifier="gkbd_indicator_config_get_fg_color_for_widget">
+        <source-position filename="gkbd-indicator-config.h" line="70"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ind_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="GkbdIndicatorConfig*"/>
+          </instance-parameter>
+          <parameter name="widget" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_font_for_widget"
+              c:identifier="gkbd_indicator_config_get_font_for_widget">
+        <source-position filename="gkbd-indicator-config.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ind_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="GkbdIndicatorConfig*"/>
+          </instance-parameter>
+          <parameter name="widget" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="font_family" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="font_size" transfer-ownership="none">
+            <type name="gint" c:type="int*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_images_file"
+              c:identifier="gkbd_indicator_config_get_images_file">
+        <source-position filename="gkbd-indicator-config.h" line="77"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="GkbdIndicatorConfig*"/>
+          </instance-parameter>
+          <parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="GkbdKeyboardConfig*"/>
+          </parameter>
+          <parameter name="group" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="init" c:identifier="gkbd_indicator_config_init">
+        <source-position filename="gkbd-indicator-config.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="GkbdIndicatorConfig*"/>
+          </instance-parameter>
+          <parameter name="engine" transfer-ownership="none">
+            <type name="Xkl.Engine" c:type="XklEngine*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load" c:identifier="gkbd_indicator_config_load">
+        <source-position filename="gkbd-indicator-config.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="GkbdIndicatorConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="load_image_filenames"
+              c:identifier="gkbd_indicator_config_load_image_filenames">
+        <source-position filename="gkbd-indicator-config.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="GkbdIndicatorConfig*"/>
+          </instance-parameter>
+          <parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="GkbdKeyboardConfig*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="refresh_style"
+              c:identifier="gkbd_indicator_config_refresh_style">
+        <source-position filename="gkbd-indicator-config.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="GkbdIndicatorConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="save" c:identifier="gkbd_indicator_config_save">
+        <source-position filename="gkbd-indicator-config.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="GkbdIndicatorConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="start_listen"
+              c:identifier="gkbd_indicator_config_start_listen">
+        <source-position filename="gkbd-indicator-config.h" line="93"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="GkbdIndicatorConfig*"/>
+          </instance-parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="1">
+            <doc xml:space="preserve"
+                 filename="gkbd-indicator-config.c"
+                 line="330">a function to call when settings are changed</doc>
+            <type name="GObject.Callback" c:type="GCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="stop_listen"
+              c:identifier="gkbd_indicator_config_stop_listen">
+        <source-position filename="gkbd-indicator-config.h" line="98"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="GkbdIndicatorConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="term" c:identifier="gkbd_indicator_config_term">
+        <source-position filename="gkbd-indicator-config.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet_config" transfer-ownership="none">
+            <type name="IndicatorConfig" c:type="GkbdIndicatorConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <function-macro name="KEYBOARD_DRAWING"
+                    c:identifier="GKBD_KEYBOARD_DRAWING"
+                    introspectable="0">
+      <source-position filename="gkbd-keyboard-drawing.h" line="29"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="KEYBOARD_DRAWING_CLASS"
+                    c:identifier="GKBD_KEYBOARD_DRAWING_CLASS"
+                    introspectable="0">
+      <source-position filename="gkbd-keyboard-drawing.h" line="31"/>
+      <parameters>
+        <parameter name="clazz">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="KEYBOARD_DRAWING_H"
+              value="1"
+              c:type="GKBD_KEYBOARD_DRAWING_H">
+      <source-position filename="gkbd-keyboard-drawing.h" line="21"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="KEYBOARD_SCHEMA"
+              value="org.gnome.libgnomekbd.keyboard"
+              c:type="GKBD_KEYBOARD_SCHEMA">
+      <source-position filename="gkbd-keyboard-config.h" line="28"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <record name="KeyboardConfig" c:type="GkbdKeyboardConfig">
+      <source-position filename="gkbd-keyboard-config.h" line="43"/>
+      <field name="model" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="layouts_variants" writable="1">
+        <type name="utf8" c:type="gchar**"/>
+      </field>
+      <field name="options" writable="1">
+        <type name="utf8" c:type="gchar**"/>
+      </field>
+      <field name="settings" writable="1">
+        <type name="Gio.Settings" c:type="GSettings*"/>
+      </field>
+      <field name="config_listener_id" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="engine" writable="1">
+        <type name="Xkl.Engine" c:type="XklEngine*"/>
+      </field>
+      <method name="activate" c:identifier="gkbd_keyboard_config_activate">
+        <source-position filename="gkbd-keyboard-config.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="GkbdKeyboardConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="equals" c:identifier="gkbd_keyboard_config_equals">
+        <source-position filename="gkbd-keyboard-config.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config1" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="GkbdKeyboardConfig*"/>
+          </instance-parameter>
+          <parameter name="kbd_config2" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="GkbdKeyboardConfig*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="init" c:identifier="gkbd_keyboard_config_init">
+        <source-position filename="gkbd-keyboard-config.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="GkbdKeyboardConfig*"/>
+          </instance-parameter>
+          <parameter name="engine" transfer-ownership="none">
+            <type name="Xkl.Engine" c:type="XklEngine*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load" c:identifier="gkbd_keyboard_config_load">
+        <source-position filename="gkbd-keyboard-config.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="GkbdKeyboardConfig*"/>
+          </instance-parameter>
+          <parameter name="kbd_config_default" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="GkbdKeyboardConfig*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_from_x_current"
+              c:identifier="gkbd_keyboard_config_load_from_x_current">
+        <source-position filename="gkbd-keyboard-config.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="GkbdKeyboardConfig*"/>
+          </instance-parameter>
+          <parameter name="buf" transfer-ownership="none">
+            <type name="Xkl.ConfigRec" c:type="XklConfigRec*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_from_x_initial"
+              c:identifier="gkbd_keyboard_config_load_from_x_initial">
+        <source-position filename="gkbd-keyboard-config.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="GkbdKeyboardConfig*"/>
+          </instance-parameter>
+          <parameter name="buf" transfer-ownership="none">
+            <type name="Xkl.ConfigRec" c:type="XklConfigRec*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="save" c:identifier="gkbd_keyboard_config_save">
+        <source-position filename="gkbd-keyboard-config.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="GkbdKeyboardConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="start_listen"
+              c:identifier="gkbd_keyboard_config_start_listen">
+        <source-position filename="gkbd-keyboard-config.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="GkbdKeyboardConfig*"/>
+          </instance-parameter>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="1">
+            <doc xml:space="preserve"
+                 filename="gkbd-keyboard-config.c"
+                 line="638">a function to call when settings are changed</doc>
+            <type name="GObject.Callback" c:type="GCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="stop_listen"
+              c:identifier="gkbd_keyboard_config_stop_listen">
+        <source-position filename="gkbd-keyboard-config.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="GkbdKeyboardConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="term" c:identifier="gkbd_keyboard_config_term">
+        <source-position filename="gkbd-keyboard-config.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbd_config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="GkbdKeyboardConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="to_string" c:identifier="gkbd_keyboard_config_to_string">
+        <source-position filename="gkbd-keyboard-config.h" line="108"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <type name="KeyboardConfig" c:type="const GkbdKeyboardConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <function name="add_default_switch_option_if_necessary"
+                c:identifier="gkbd_keyboard_config_add_default_switch_option_if_necessary">
+        <source-position filename="gkbd-keyboard-config.h" line="113"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gkbd-keyboard-config.c"
+               line="751">List of options</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <parameter name="layouts_list" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="options_list" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="was_appended" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="format_full_description"
+                c:identifier="gkbd_keyboard_config_format_full_description">
+        <source-position filename="gkbd-keyboard-config.h" line="101"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="layout_descr" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="variant_descr" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_descriptions"
+                c:identifier="gkbd_keyboard_config_get_descriptions">
+        <source-position filename="gkbd-keyboard-config.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="config_registry" transfer-ownership="none">
+            <type name="Xkl.ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="layout_short_descr" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="layout_descr" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="variant_short_descr" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="variant_descr" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="merge_items"
+                c:identifier="gkbd_keyboard_config_merge_items">
+        <source-position filename="gkbd-keyboard-config.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="parent" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="child" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="split_items"
+                c:identifier="gkbd_keyboard_config_split_items">
+        <source-position filename="gkbd-keyboard-config.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="merged" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="parent" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="child" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+        </parameters>
+      </function>
+    </record>
+    <class name="KeyboardDrawing"
+           c:symbol-prefix="keyboard_drawing"
+           c:type="GkbdKeyboardDrawing"
+           parent="Gtk.DrawingArea"
+           glib:type-name="GkbdKeyboardDrawing"
+           glib:get-type="gkbd_keyboard_drawing_get_type"
+           glib:type-struct="KeyboardDrawingClass">
+      <source-position filename="gkbd-keyboard-drawing.h" line="165"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="dialog_new"
+                   c:identifier="gkbd_keyboard_drawing_dialog_new">
+        <source-position filename="gkbd-keyboard-drawing.h" line="210"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new" c:identifier="gkbd_keyboard_drawing_new">
+        <source-position filename="gkbd-keyboard-drawing.h" line="168"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <function name="dialog_set_group"
+                c:identifier="gkbd_keyboard_drawing_dialog_set_group">
+        <source-position filename="gkbd-keyboard-drawing.h" line="212"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="dialog" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="registry" transfer-ownership="none">
+            <type name="Xkl.ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </parameter>
+          <parameter name="group" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="dialog_set_layout"
+                c:identifier="gkbd_keyboard_drawing_dialog_set_layout">
+        <source-position filename="gkbd-keyboard-drawing.h" line="216"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="dialog" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="registry" transfer-ownership="none">
+            <type name="Xkl.ConfigRegistry" c:type="XklConfigRegistry*"/>
+          </parameter>
+          <parameter name="layout" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="bad_keycode">
+        <source-position filename="gkbd-keyboard-drawing.h" line="164"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="drawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="GkbdKeyboardDrawing*"/>
+          </instance-parameter>
+          <parameter name="keycode" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_compat"
+              c:identifier="gkbd_keyboard_drawing_get_compat">
+        <source-position filename="gkbd-keyboard-drawing.h" line="191"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="GkbdKeyboardDrawing*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_geometry"
+              c:identifier="gkbd_keyboard_drawing_get_geometry">
+        <source-position filename="gkbd-keyboard-drawing.h" line="186"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="GkbdKeyboardDrawing*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_keycodes"
+              c:identifier="gkbd_keyboard_drawing_get_keycodes">
+        <source-position filename="gkbd-keyboard-drawing.h" line="184"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="GkbdKeyboardDrawing*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_symbols"
+              c:identifier="gkbd_keyboard_drawing_get_symbols">
+        <source-position filename="gkbd-keyboard-drawing.h" line="188"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="GkbdKeyboardDrawing*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_types" c:identifier="gkbd_keyboard_drawing_get_types">
+        <source-position filename="gkbd-keyboard-drawing.h" line="189"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="GkbdKeyboardDrawing*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="print" c:identifier="gkbd_keyboard_drawing_print">
+        <source-position filename="gkbd-keyboard-drawing.h" line="206"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="drawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="GkbdKeyboardDrawing*"/>
+          </instance-parameter>
+          <parameter name="parent_window" transfer-ownership="none">
+            <type name="Gtk.Window" c:type="GtkWindow*"/>
+          </parameter>
+          <parameter name="description" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="render" c:identifier="gkbd_keyboard_drawing_render">
+        <doc xml:space="preserve"
+             filename="gkbd-keyboard-drawing.c"
+             line="2195">Renders a keyboard layout to a cairo_t context.  @cr and @layout can be got
+from e.g. a GtkWidget or a GtkPrintContext.  @cr and @layout may be modified
+by the function but will not be unreffed.</doc>
+        <source-position filename="gkbd-keyboard-drawing.h" line="170"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gkbd-keyboard-drawing.c"
+               line="2209">%TRUE on success, %FALSE on failure</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gkbd-keyboard-drawing.c"
+                 line="2197">keyboard layout to render</doc>
+            <type name="KeyboardDrawing" c:type="GkbdKeyboardDrawing*"/>
+          </instance-parameter>
+          <parameter name="cr" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gkbd-keyboard-drawing.c"
+                 line="2198">Cairo context to render to</doc>
+            <type name="cairo.Context" c:type="cairo_t*"/>
+          </parameter>
+          <parameter name="layout" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gkbd-keyboard-drawing.c"
+                 line="2199">Pango layout to use to render text</doc>
+            <type name="Pango.Layout" c:type="PangoLayout*"/>
+          </parameter>
+          <parameter name="x" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gkbd-keyboard-drawing.c"
+                 line="2200">left coordinate (pixels) of region to render in</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gkbd-keyboard-drawing.c"
+                 line="2201">top coordinate (pixels) of region to render in</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="width" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gkbd-keyboard-drawing.c"
+                 line="2202">width (pixels) of region to render in</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gkbd-keyboard-drawing.c"
+                 line="2203">height (pixels) of region to render in</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="dpi_x" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="dpi_y" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_groups_levels"
+              c:identifier="gkbd_keyboard_drawing_set_groups_levels">
+        <source-position filename="gkbd-keyboard-drawing.h" line="200"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="GkbdKeyboardDrawing*"/>
+          </instance-parameter>
+          <parameter name="groupLevels" transfer-ownership="none">
+            <type name="KeyboardDrawingGroupLevel"
+                  c:type="GkbdKeyboardDrawingGroupLevel**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_keyboard"
+              c:identifier="gkbd_keyboard_drawing_set_keyboard"
+              introspectable="0">
+        <source-position filename="gkbd-keyboard-drawing.h" line="176"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="GkbdKeyboardDrawing*"/>
+          </instance-parameter>
+          <parameter name="names" transfer-ownership="none">
+            <type c:type="XkbComponentNamesRec*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_layout"
+              c:identifier="gkbd_keyboard_drawing_set_layout">
+        <source-position filename="gkbd-keyboard-drawing.h" line="180"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="GkbdKeyboardDrawing*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_track_config"
+              c:identifier="gkbd_keyboard_drawing_set_track_config">
+        <source-position filename="gkbd-keyboard-drawing.h" line="197"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="GkbdKeyboardDrawing*"/>
+          </instance-parameter>
+          <parameter name="enable" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_track_modifiers"
+              c:identifier="gkbd_keyboard_drawing_set_track_modifiers">
+        <source-position filename="gkbd-keyboard-drawing.h" line="194"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdrawing" transfer-ownership="none">
+            <type name="KeyboardDrawing" c:type="GkbdKeyboardDrawing*"/>
+          </instance-parameter>
+          <parameter name="enable" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent" readable="0" private="1">
+        <type name="Gtk.DrawingArea" c:type="GtkDrawingArea"/>
+      </field>
+      <field name="xkb" introspectable="0" readable="0" private="1">
+        <type c:type="XkbDescRec*"/>
+      </field>
+      <field name="xkbOnDisplay" readable="0" private="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="l3mod" readable="0" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="renderContext" readable="0" private="1">
+        <type name="KeyboardDrawingRenderContext"
+              c:type="GkbdKeyboardDrawingRenderContext*"/>
+      </field>
+      <field name="keys" readable="0" private="1">
+        <type name="KeyboardDrawingKey" c:type="GkbdKeyboardDrawingKey*"/>
+      </field>
+      <field name="keyboard_items" readable="0" private="1">
+        <type name="GLib.List" c:type="GList*">
+          <type name="gpointer" c:type="gpointer"/>
+        </type>
+      </field>
+      <field name="colors" readable="0" private="1">
+        <type name="Gdk.RGBA" c:type="GdkRGBA*"/>
+      </field>
+      <field name="timeout" readable="0" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="groupLevels" readable="0" private="1">
+        <type name="KeyboardDrawingGroupLevel"
+              c:type="GkbdKeyboardDrawingGroupLevel**"/>
+      </field>
+      <field name="mods" readable="0" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="display" readable="0" private="1">
+        <type name="xlib.Display" c:type="Display*"/>
+      </field>
+      <field name="xkb_event_type" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="physical_indicators" readable="0" private="1">
+        <type name="KeyboardDrawingDoodad"
+              c:type="GkbdKeyboardDrawingDoodad**"/>
+      </field>
+      <field name="physical_indicators_size" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="track_config" readable="0" bits="1" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="track_modifiers" readable="0" bits="1" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <glib:signal name="bad-keycode" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="KeyboardDrawingClass"
+            c:type="GkbdKeyboardDrawingClass"
+            glib:is-gtype-struct-for="KeyboardDrawing">
+      <source-position filename="gkbd-keyboard-drawing.h" line="165"/>
+      <field name="parent_class">
+        <type name="Gtk.DrawingAreaClass" c:type="GtkDrawingAreaClass"/>
+      </field>
+      <field name="bad_keycode">
+        <callback name="bad_keycode">
+          <source-position filename="gkbd-keyboard-drawing.h" line="164"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="drawing" transfer-ownership="none">
+              <type name="KeyboardDrawing" c:type="GkbdKeyboardDrawing*"/>
+            </parameter>
+            <parameter name="keycode" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="KeyboardDrawingDoodad" c:type="GkbdKeyboardDrawingDoodad">
+      <source-position filename="gkbd-keyboard-drawing.h" line="102"/>
+      <field name="type" readable="0" private="1">
+        <type name="KeyboardDrawingItemType"
+              c:type="GkbdKeyboardDrawingItemType"/>
+      </field>
+      <field name="origin_x" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="origin_y" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="angle" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="priority" readable="0" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="doodad" introspectable="0" readable="0" private="1">
+        <type c:type="XkbDoodadRec*"/>
+      </field>
+      <field name="on" readable="0" private="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+    </record>
+    <record name="KeyboardDrawingGroupLevel"
+            c:type="GkbdKeyboardDrawingGroupLevel">
+      <source-position filename="gkbd-keyboard-drawing.h" line="107"/>
+      <field name="group" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="level" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+    </record>
+    <enumeration name="KeyboardDrawingGroupLevelPosition"
+                 c:type="GkbdKeyboardDrawingGroupLevelPosition">
+      <source-position filename="gkbd-keyboard-drawing.h" line="62"/>
+      <member name="topleft"
+              value="0"
+              c:identifier="GKBD_KEYBOARD_DRAWING_POS_TOPLEFT">
+      </member>
+      <member name="topright"
+              value="1"
+              c:identifier="GKBD_KEYBOARD_DRAWING_POS_TOPRIGHT">
+      </member>
+      <member name="bottomleft"
+              value="2"
+              c:identifier="GKBD_KEYBOARD_DRAWING_POS_BOTTOMLEFT">
+      </member>
+      <member name="bottomright"
+              value="3"
+              c:identifier="GKBD_KEYBOARD_DRAWING_POS_BOTTOMRIGHT">
+      </member>
+      <member name="total"
+              value="4"
+              c:identifier="GKBD_KEYBOARD_DRAWING_POS_TOTAL">
+      </member>
+      <member name="first"
+              value="0"
+              c:identifier="GKBD_KEYBOARD_DRAWING_POS_FIRST">
+      </member>
+      <member name="last"
+              value="3"
+              c:identifier="GKBD_KEYBOARD_DRAWING_POS_LAST">
+      </member>
+    </enumeration>
+    <record name="KeyboardDrawingItem" c:type="GkbdKeyboardDrawingItem">
+      <source-position filename="gkbd-keyboard-drawing.h" line="73"/>
+      <field name="type" readable="0" private="1">
+        <type name="KeyboardDrawingItemType"
+              c:type="GkbdKeyboardDrawingItemType"/>
+      </field>
+      <field name="origin_x" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="origin_y" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="angle" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="priority" readable="0" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+    </record>
+    <enumeration name="KeyboardDrawingItemType"
+                 c:type="GkbdKeyboardDrawingItemType">
+      <source-position filename="gkbd-keyboard-drawing.h" line="50"/>
+      <member name="invalid"
+              value="0"
+              c:identifier="GKBD_KEYBOARD_DRAWING_ITEM_TYPE_INVALID">
+      </member>
+      <member name="key"
+              value="1"
+              c:identifier="GKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY">
+      </member>
+      <member name="key_extra"
+              value="2"
+              c:identifier="GKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY_EXTRA">
+      </member>
+      <member name="doodad"
+              value="3"
+              c:identifier="GKBD_KEYBOARD_DRAWING_ITEM_TYPE_DOODAD">
+      </member>
+    </enumeration>
+    <record name="KeyboardDrawingKey" c:type="GkbdKeyboardDrawingKey">
+      <source-position filename="gkbd-keyboard-drawing.h" line="88"/>
+      <field name="type" readable="0" private="1">
+        <type name="KeyboardDrawingItemType"
+              c:type="GkbdKeyboardDrawingItemType"/>
+      </field>
+      <field name="origin_x" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="origin_y" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="angle" readable="0" private="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="priority" readable="0" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="xkbkey" introspectable="0" readable="0" private="1">
+        <type c:type="XkbKeyRec*"/>
+      </field>
+      <field name="pressed" readable="0" private="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="keycode" readable="0" private="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+    </record>
+    <record name="KeyboardDrawingRenderContext"
+            c:type="GkbdKeyboardDrawingRenderContext">
+      <source-position filename="gkbd-keyboard-drawing.h" line="120"/>
+      <field name="cr" writable="1">
+        <type name="cairo.Context" c:type="cairo_t*"/>
+      </field>
+      <field name="angle" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="layout" writable="1">
+        <type name="Pango.Layout" c:type="PangoLayout*"/>
+      </field>
+      <field name="font_desc" writable="1">
+        <type name="Pango.FontDescription" c:type="PangoFontDescription*"/>
+      </field>
+      <field name="scale_numerator" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="scale_denominator" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="dark_color" writable="1">
+        <type name="Gdk.RGBA" c:type="GdkRGBA"/>
+      </field>
+    </record>
+    <function-macro name="STATUS"
+                    c:identifier="GKBD_STATUS"
+                    introspectable="0">
+      <source-position filename="gkbd-status.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="STATUS_CLASS"
+                    c:identifier="GKBD_STATUS_CLASS"
+                    introspectable="0">
+      <source-position filename="gkbd-status.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="STATUS_GET_CLASS"
+                    c:identifier="GKBD_STATUS_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gkbd-status.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Status"
+           c:symbol-prefix="status"
+           c:type="GkbdStatus"
+           parent="Gtk.StatusIcon"
+           glib:type-name="GkbdStatus"
+           glib:get-type="gkbd_status_get_type"
+           glib:type-struct="StatusClass">
+      <source-position filename="gkbd-status.h" line="45"/>
+      <constructor name="new" c:identifier="gkbd_status_new">
+        <source-position filename="gkbd-status.h" line="49"/>
+        <return-value transfer-ownership="full">
+          <type name="Gtk.StatusIcon" c:type="GtkStatusIcon*"/>
+        </return-value>
+      </constructor>
+      <function name="get_group_names"
+                c:identifier="gkbd_status_get_group_names">
+        <source-position filename="gkbd-status.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gkbd-status.c"
+               line="679">List of group names</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+      </function>
+      <function name="get_image_filename"
+                c:identifier="gkbd_status_get_image_filename">
+        <source-position filename="gkbd-status.h" line="57"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="group" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_xkl_engine"
+                c:identifier="gkbd_status_get_xkl_engine">
+        <source-position filename="gkbd-status.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gkbd-status.c"
+               line="668">The engine shared by all GkbdStatus objects</doc>
+          <type name="Xkl.Engine" c:type="XklEngine*"/>
+        </return-value>
+      </function>
+      <method name="reinit_ui" c:identifier="gkbd_status_reinit_ui">
+        <source-position filename="gkbd-status.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="gki" transfer-ownership="none">
+            <type name="Status" c:type="GkbdStatus*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="Gtk.StatusIcon" c:type="GtkStatusIcon"/>
+      </field>
+      <field name="priv">
+        <type name="StatusPrivate" c:type="GkbdStatusPrivate*"/>
+      </field>
+    </class>
+    <record name="StatusClass"
+            c:type="GkbdStatusClass"
+            glib:is-gtype-struct-for="Status">
+      <source-position filename="gkbd-status.h" line="45"/>
+      <field name="parent_class">
+        <type name="Gtk.StatusIconClass" c:type="GtkStatusIconClass"/>
+      </field>
+    </record>
+    <record name="StatusPrivate"
+            c:type="GkbdStatusPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="gkbd-status.h" line="28"/>
+    </record>
+    <function name="install_glib_log_appender"
+              c:identifier="gkbd_install_glib_log_appender">
+      <source-position filename="gkbd-util.h" line="26"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="keyboard_config_add_default_switch_option_if_necessary"
+              c:identifier="gkbd_keyboard_config_add_default_switch_option_if_necessary"
+              moved-to="KeyboardConfig.add_default_switch_option_if_necessary">
+      <source-position filename="gkbd-keyboard-config.h" line="113"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="gkbd-keyboard-config.c"
+             line="751">List of options</doc>
+        <array c:type="gchar**">
+          <type name="utf8"/>
+        </array>
+      </return-value>
+      <parameters>
+        <parameter name="layouts_list" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="options_list" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="was_appended" transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="keyboard_config_format_full_description"
+              c:identifier="gkbd_keyboard_config_format_full_description"
+              moved-to="KeyboardConfig.format_full_description">
+      <source-position filename="gkbd-keyboard-config.h" line="101"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="layout_descr" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="variant_descr" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="keyboard_config_get_descriptions"
+              c:identifier="gkbd_keyboard_config_get_descriptions"
+              moved-to="KeyboardConfig.get_descriptions">
+      <source-position filename="gkbd-keyboard-config.h" line="89"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="config_registry" transfer-ownership="none">
+          <type name="Xkl.ConfigRegistry" c:type="XklConfigRegistry*"/>
+        </parameter>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="layout_short_descr" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="layout_descr" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="variant_short_descr" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="variant_descr" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="keyboard_config_merge_items"
+              c:identifier="gkbd_keyboard_config_merge_items"
+              moved-to="KeyboardConfig.merge_items">
+      <source-position filename="gkbd-keyboard-config.h" line="82"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="parent" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="child" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="keyboard_config_split_items"
+              c:identifier="gkbd_keyboard_config_split_items"
+              moved-to="KeyboardConfig.split_items">
+      <source-position filename="gkbd-keyboard-config.h" line="85"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="merged" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="parent" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="child" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="preview_load_position"
+              c:identifier="gkbd_preview_load_position">
+      <source-position filename="gkbd-util.h" line="28"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="gkbd-util.c"
+             line="56">A rectangle to use</doc>
+        <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
+      </return-value>
+    </function>
+    <function name="preview_save_position"
+              c:identifier="gkbd_preview_save_position">
+      <source-position filename="gkbd-util.h" line="30"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="rect" transfer-ownership="none">
+          <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="strv_append" c:identifier="gkbd_strv_append">
+      <source-position filename="gkbd-util.h" line="35"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="gkbd-util.c"
+             line="137">Append string to strv array</doc>
+        <array c:type="gchar**">
+          <type name="utf8"/>
+        </array>
+      </return-value>
+      <parameters>
+        <parameter name="arr" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="element" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="strv_behead" c:identifier="gkbd_strv_behead">
+      <source-position filename="gkbd-util.h" line="37"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="arr" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="strv_remove" c:identifier="gkbd_strv_remove">
+      <source-position filename="gkbd-util.h" line="33"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="arr" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="element" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

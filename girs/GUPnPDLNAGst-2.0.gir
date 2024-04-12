@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="GUPnPDLNA" version="2.0"/>
+  <include name="Gst" version="1.0"/>
+  <include name="GstPbutils" version="1.0"/>
+  <namespace name="GUPnPDLNAGst"
+             version="2.0"
+             shared-library="libgupnp-dlna-gst-2.0.so.4"
+             c:identifier-prefixes="GUPnPDLNAGst"
+             c:symbol-prefixes="gupnp_dlna_gst">
+    <function name="utils_information_from_discoverer_info"
+              c:identifier="gupnp_dlna_gst_utils_information_from_discoverer_info">
+      <doc xml:space="preserve"
+           filename="libgupnp-dlna/metadata-backends/gstreamer/gupnp-dlna-gst-utils.c"
+           line="25">This utility function creates a #GUPnPDLNAInformation from
+#GstDiscovererInfo. Its purpose is mainly to pass its result to
+gupnp_dlna_profile_guesser_guess_profile_from_info() to avoid
+rediscovering of a URI. Created #GUPnPDLNAInformation takes a
+reference on @info.</doc>
+      <source-position filename="libgupnp-dlna/metadata-backends/gstreamer/gupnp-dlna-gst-utils.h"
+                       line="31"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libgupnp-dlna/metadata-backends/gstreamer/gupnp-dlna-gst-utils.c"
+             line="35">A #GUPnPDLNAInformation. Unref it when
+done with it.</doc>
+        <type name="GUPnPDLNA.Information" c:type="GUPnPDLNAInformation*"/>
+      </return-value>
+      <parameters>
+        <parameter name="info" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgupnp-dlna/metadata-backends/gstreamer/gupnp-dlna-gst-utils.c"
+               line="27">A #GstDiscovererInfo object.</doc>
+          <type name="GstPbutils.DiscovererInfo" c:type="GstDiscovererInfo*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

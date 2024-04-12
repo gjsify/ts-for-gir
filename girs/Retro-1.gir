@@ -1,0 +1,4289 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GModule" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <package name="retro-gtk-1"/>
+  <c:include name="retro-gtk.h"/>
+  <namespace name="Retro"
+             version="1"
+             shared-library="libretro-gtk-1.so.0"
+             c:identifier-prefixes="Retro"
+             c:symbol-prefixes="retro">
+    <enumeration name="AnalogId"
+                 glib:type-name="RetroAnalogId"
+                 glib:get-type="retro_analog_id_get_type"
+                 c:type="RetroAnalogId">
+      <doc xml:space="preserve"
+           filename="../shared/retro-controller-codes.h"
+           line="132">Represents the axes of the analog sticks for the Libretro gamepad.</doc>
+      <member name="x"
+              value="0"
+              c:identifier="RETRO_ANALOG_ID_X"
+              glib:nick="x">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="134">the X axis of an analog stick</doc>
+      </member>
+      <member name="y"
+              value="1"
+              c:identifier="RETRO_ANALOG_ID_Y"
+              glib:nick="y">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="135">the Y axis of an analog stick</doc>
+      </member>
+    </enumeration>
+    <enumeration name="AnalogIndex"
+                 glib:type-name="RetroAnalogIndex"
+                 glib:get-type="retro_analog_index_get_type"
+                 c:type="RetroAnalogIndex">
+      <doc xml:space="preserve"
+           filename="../shared/retro-controller-codes.h"
+           line="149">Represents the analog sticks for the Libretro gamepad.</doc>
+      <member name="left"
+              value="0"
+              c:identifier="RETRO_ANALOG_INDEX_LEFT"
+              glib:nick="left">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="151">the left analog stick</doc>
+      </member>
+      <member name="right"
+              value="1"
+              c:identifier="RETRO_ANALOG_INDEX_RIGHT"
+              glib:nick="right">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="152">the right analog stick</doc>
+      </member>
+    </enumeration>
+    <interface name="Controller"
+               c:symbol-prefix="controller"
+               c:type="RetroController"
+               glib:type-name="RetroController"
+               glib:get-type="retro_controller_get_type"
+               glib:type-struct="ControllerInterface">
+      <source-position filename="../retro-gtk/retro-controller.h" line="42"/>
+      <virtual-method name="get_capabilities" invoker="get_capabilities">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-controller.c"
+             line="81">Gets a flag representing the capabilities of @self. Each bit index matches
+the #RetroControllerType of same number.
+
+For example, if @self is an analog gamepad, the value would be: (1 &lt;&lt;
+RETRO_CONTROLLER_TYPE_JOYPAD) | (1 &lt;&lt; RETRO_CONTROLLER_TYPE_ANALOG).</doc>
+        <source-position filename="../retro-gtk/retro-controller.h" line="37"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-controller.c"
+               line="91">the capabilities flag of @self</doc>
+          <type name="guint64" c:type="guint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="83">a #RetroController</doc>
+            <type name="Controller" c:type="RetroController*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_controller_type" invoker="get_controller_type">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-controller.c"
+             line="58">Gets the main type of the controller.</doc>
+        <source-position filename="../retro-gtk/retro-controller.h" line="36"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-controller.c"
+               line="64">the controller type of @self</doc>
+          <type name="ControllerType" c:type="RetroControllerType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="60">a #RetroController</doc>
+            <type name="Controller" c:type="RetroController*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_input_state" invoker="get_input_state">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-controller.c"
+             line="34">Gets the state of an input of @self.</doc>
+        <source-position filename="../retro-gtk/retro-controller.h" line="34"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-controller.c"
+               line="41">the input's state</doc>
+          <type name="gint16" c:type="gint16"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="36">a #RetroController</doc>
+            <type name="Controller" c:type="RetroController*"/>
+          </instance-parameter>
+          <parameter name="input" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="37">a #RetroInput to query @self</doc>
+            <type name="Input" c:type="RetroInput*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_supports_rumble" invoker="get_supports_rumble">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-controller.c"
+             line="131">Gets whether @self supports rumble effects.</doc>
+        <source-position filename="../retro-gtk/retro-controller.h" line="38"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-controller.c"
+               line="137">whether @self supports rumble effects.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="133">a #RetroController</doc>
+            <type name="Controller" c:type="RetroController*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_rumble_state" invoker="set_rumble_state">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-controller.c"
+             line="153">Sets the rumble state of @self.</doc>
+        <source-position filename="../retro-gtk/retro-controller.h" line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="155">a #RetroController</doc>
+            <type name="Controller" c:type="RetroController*"/>
+          </instance-parameter>
+          <parameter name="effect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="156">the rumble effect</doc>
+            <type name="RumbleEffect" c:type="RetroRumbleEffect"/>
+          </parameter>
+          <parameter name="strength" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="157">the rumble effect strength</doc>
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="emit_state_changed"
+              c:identifier="retro_controller_emit_state_changed">
+        <source-position filename="../retro-gtk/retro-controller.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Controller" c:type="RetroController*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_capabilities"
+              c:identifier="retro_controller_get_capabilities">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-controller.c"
+             line="81">Gets a flag representing the capabilities of @self. Each bit index matches
+the #RetroControllerType of same number.
+
+For example, if @self is an analog gamepad, the value would be: (1 &lt;&lt;
+RETRO_CONTROLLER_TYPE_JOYPAD) | (1 &lt;&lt; RETRO_CONTROLLER_TYPE_ANALOG).</doc>
+        <source-position filename="../retro-gtk/retro-controller.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-controller.c"
+               line="91">the capabilities flag of @self</doc>
+          <type name="guint64" c:type="guint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="83">a #RetroController</doc>
+            <type name="Controller" c:type="RetroController*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_controller_type"
+              c:identifier="retro_controller_get_controller_type">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-controller.c"
+             line="58">Gets the main type of the controller.</doc>
+        <source-position filename="../retro-gtk/retro-controller.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-controller.c"
+               line="64">the controller type of @self</doc>
+          <type name="ControllerType" c:type="RetroControllerType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="60">a #RetroController</doc>
+            <type name="Controller" c:type="RetroController*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_input_state"
+              c:identifier="retro_controller_get_input_state">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-controller.c"
+             line="34">Gets the state of an input of @self.</doc>
+        <source-position filename="../retro-gtk/retro-controller.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-controller.c"
+               line="41">the input's state</doc>
+          <type name="gint16" c:type="gint16"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="36">a #RetroController</doc>
+            <type name="Controller" c:type="RetroController*"/>
+          </instance-parameter>
+          <parameter name="input" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="37">a #RetroInput to query @self</doc>
+            <type name="Input" c:type="RetroInput*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_supports_rumble"
+              c:identifier="retro_controller_get_supports_rumble">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-controller.c"
+             line="131">Gets whether @self supports rumble effects.</doc>
+        <source-position filename="../retro-gtk/retro-controller.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-controller.c"
+               line="137">whether @self supports rumble effects.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="133">a #RetroController</doc>
+            <type name="Controller" c:type="RetroController*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_capability"
+              c:identifier="retro_controller_has_capability">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-controller.c"
+             line="107">Gets whether @self has the capability to represent the given controller type.</doc>
+        <source-position filename="../retro-gtk/retro-controller.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-controller.c"
+               line="114">whether @self has the capability</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="109">a #RetroController</doc>
+            <type name="Controller" c:type="RetroController*"/>
+          </instance-parameter>
+          <parameter name="controller_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="110">a #RetroControllerType</doc>
+            <type name="ControllerType" c:type="RetroControllerType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_rumble_state"
+              c:identifier="retro_controller_set_rumble_state">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-controller.c"
+             line="153">Sets the rumble state of @self.</doc>
+        <source-position filename="../retro-gtk/retro-controller.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="155">a #RetroController</doc>
+            <type name="Controller" c:type="RetroController*"/>
+          </instance-parameter>
+          <parameter name="effect" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="156">the rumble effect</doc>
+            <type name="RumbleEffect" c:type="RetroRumbleEffect"/>
+          </parameter>
+          <parameter name="strength" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="157">the rumble effect strength</doc>
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+        </parameters>
+      </method>
+      <glib:signal name="state-changed" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </interface>
+    <record name="ControllerInterface"
+            c:type="RetroControllerInterface"
+            glib:is-gtype-struct-for="Controller">
+      <doc xml:space="preserve"
+           filename="../retro-gtk/retro-controller.h"
+           line="19">An interface for a controller, e.g. a gamepad.</doc>
+      <source-position filename="../retro-gtk/retro-controller.h" line="42"/>
+      <field name="parent_iface">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-controller.h"
+             line="21">The parent interface.</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_input_state">
+        <callback name="get_input_state">
+          <source-position filename="../retro-gtk/retro-controller.h"
+                           line="34"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="41">the input's state</doc>
+            <type name="gint16" c:type="gint16"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="../retro-gtk/retro-controller.c"
+                   line="36">a #RetroController</doc>
+              <type name="Controller" c:type="RetroController*"/>
+            </parameter>
+            <parameter name="input" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="../retro-gtk/retro-controller.c"
+                   line="37">a #RetroInput to query @self</doc>
+              <type name="Input" c:type="RetroInput*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_controller_type">
+        <callback name="get_controller_type">
+          <source-position filename="../retro-gtk/retro-controller.h"
+                           line="36"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="64">the controller type of @self</doc>
+            <type name="ControllerType" c:type="RetroControllerType"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="../retro-gtk/retro-controller.c"
+                   line="60">a #RetroController</doc>
+              <type name="Controller" c:type="RetroController*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_capabilities">
+        <callback name="get_capabilities">
+          <source-position filename="../retro-gtk/retro-controller.h"
+                           line="37"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="91">the capabilities flag of @self</doc>
+            <type name="guint64" c:type="guint64"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="../retro-gtk/retro-controller.c"
+                   line="83">a #RetroController</doc>
+              <type name="Controller" c:type="RetroController*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_supports_rumble">
+        <callback name="get_supports_rumble">
+          <source-position filename="../retro-gtk/retro-controller.h"
+                           line="38"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller.c"
+                 line="137">whether @self supports rumble effects.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="../retro-gtk/retro-controller.c"
+                   line="133">a #RetroController</doc>
+              <type name="Controller" c:type="RetroController*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_rumble_state">
+        <callback name="set_rumble_state">
+          <source-position filename="../retro-gtk/retro-controller.h"
+                           line="39"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="../retro-gtk/retro-controller.c"
+                   line="155">a #RetroController</doc>
+              <type name="Controller" c:type="RetroController*"/>
+            </parameter>
+            <parameter name="effect" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="../retro-gtk/retro-controller.c"
+                   line="156">the rumble effect</doc>
+              <type name="RumbleEffect" c:type="RetroRumbleEffect"/>
+            </parameter>
+            <parameter name="strength" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="../retro-gtk/retro-controller.c"
+                   line="157">the rumble effect strength</doc>
+              <type name="guint16" c:type="guint16"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="ControllerIterator"
+           c:symbol-prefix="controller_iterator"
+           c:type="RetroControllerIterator"
+           parent="GObject.Object"
+           glib:type-name="RetroControllerIterator"
+           glib:get-type="retro_controller_iterator_get_type"
+           glib:type-struct="ControllerIteratorClass">
+      <source-position filename="../retro-gtk/retro-controller-iterator.h"
+                       line="16"/>
+      <method name="next" c:identifier="retro_controller_iterator_next">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-controller-iterator.c"
+             line="44">Fetch the next #RetroController and the port number it is plugged into.</doc>
+        <source-position filename="../retro-gtk/retro-controller-iterator.h"
+                         line="18"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-controller-iterator.c"
+               line="52">%FALSE if it reached the end, %TRUE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller-iterator.c"
+                 line="46">a #RetroControllerIterator</doc>
+            <type name="ControllerIterator" c:type="RetroControllerIterator*"/>
+          </instance-parameter>
+          <parameter name="port"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller-iterator.c"
+                 line="47">return location for the port</doc>
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+          <parameter name="controller"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-controller-iterator.c"
+                 line="48">return location for the controller</doc>
+            <type name="Controller" c:type="RetroController**"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="ControllerIteratorClass"
+            c:type="RetroControllerIteratorClass"
+            glib:is-gtype-struct-for="ControllerIterator">
+      <source-position filename="../retro-gtk/retro-controller-iterator.h"
+                       line="16"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="ControllerType"
+                 glib:type-name="RetroControllerType"
+                 glib:get-type="retro_controller_type_get_type"
+                 c:type="RetroControllerType">
+      <doc xml:space="preserve"
+           filename="../shared/retro-controller-type.h"
+           line="17">Represents the base types for Libretro controllers.</doc>
+      <member name="none"
+              value="0"
+              c:identifier="RETRO_CONTROLLER_TYPE_NONE"
+              glib:nick="none">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-type.h"
+             line="19">no controller</doc>
+      </member>
+      <member name="joypad"
+              value="1"
+              c:identifier="RETRO_CONTROLLER_TYPE_JOYPAD"
+              glib:nick="joypad">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-type.h"
+             line="20">a classic gamepad</doc>
+      </member>
+      <member name="mouse"
+              value="2"
+              c:identifier="RETRO_CONTROLLER_TYPE_MOUSE"
+              glib:nick="mouse">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-type.h"
+             line="21">a simple mouse</doc>
+      </member>
+      <member name="keyboard"
+              value="3"
+              c:identifier="RETRO_CONTROLLER_TYPE_KEYBOARD"
+              glib:nick="keyboard">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-type.h"
+             line="22">a keyboard</doc>
+      </member>
+      <member name="lightgun"
+              value="4"
+              c:identifier="RETRO_CONTROLLER_TYPE_LIGHTGUN"
+              glib:nick="lightgun">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-type.h"
+             line="23">a lightgun</doc>
+      </member>
+      <member name="analog"
+              value="5"
+              c:identifier="RETRO_CONTROLLER_TYPE_ANALOG"
+              glib:nick="analog">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-type.h"
+             line="24">a gamepad with analog sticks</doc>
+      </member>
+      <member name="pointer"
+              value="6"
+              c:identifier="RETRO_CONTROLLER_TYPE_POINTER"
+              glib:nick="pointer">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-type.h"
+             line="25">a screen pointer</doc>
+      </member>
+      <member name="type_mask"
+              value="255"
+              c:identifier="RETRO_CONTROLLER_TYPE_TYPE_MASK"
+              glib:nick="type-mask">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-type.h"
+             line="26">a mask to get the super type of a derived one</doc>
+      </member>
+      <function name="get_id_count"
+                c:identifier="retro_controller_type_get_id_count">
+        <source-position filename="../shared/retro-controller-type.h"
+                         line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="ControllerType" c:type="RetroControllerType"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_index_count"
+                c:identifier="retro_controller_type_get_index_count">
+        <source-position filename="../shared/retro-controller-type.h"
+                         line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="ControllerType" c:type="RetroControllerType"/>
+          </parameter>
+        </parameters>
+      </function>
+    </enumeration>
+    <class name="Core"
+           c:symbol-prefix="core"
+           c:type="RetroCore"
+           parent="GObject.Object"
+           glib:type-name="RetroCore"
+           glib:get-type="retro_core_get_type"
+           glib:type-struct="CoreClass">
+      <source-position filename="../retro-gtk/retro-core.h" line="18"/>
+      <constructor name="new" c:identifier="retro_core_new">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1958">Creates a new #RetroCore.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="20"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core.c"
+               line="1964">a new #RetroCore</doc>
+          <type name="Core" c:type="RetroCore*"/>
+        </return-value>
+        <parameters>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1960">the filename of a Libretro core</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="boot" c:identifier="retro_core_boot" throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1168">This initializes @self, loads its available options and loads the medias. You
+need to boot @self before using some of its methods.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1170">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_api_version" c:identifier="retro_core_get_api_version">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="697">Gets the Libretro API version implement by the core.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="21"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core.c"
+               line="703">the API version</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="699">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_can_access_state"
+              c:identifier="retro_core_get_can_access_state">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1444">Gets whether the state of @self can be accessed.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core.c"
+               line="1450">whether the state of @self can be accessed</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1446">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_content_directory"
+              c:identifier="retro_core_get_content_directory">
+        <source-position filename="../retro-gtk/retro-core.h" line="26"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_filename" c:identifier="retro_core_get_filename">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="720">Gets the filename of the core.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="22"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core.c"
+               line="726">the filename of the core</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="722">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_frames_per_second"
+              c:identifier="retro_core_get_frames_per_second">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="932">Gets the FPS rate for the core's video output.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="38"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core.c"
+               line="938">the FPS rate for the core's video output</doc>
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="934">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_game_loaded" c:identifier="retro_core_get_game_loaded">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="900">Gets whether a game has been loaded.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="36"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core.c"
+               line="906">whether a game has been loaded</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="902">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_is_initiated"
+              c:identifier="retro_core_get_is_initiated">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="884">Gets whether the core has been initiated.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="35"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core.c"
+               line="890">whether the core has been initiated</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="886">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_memory_size" c:identifier="retro_core_get_memory_size">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1519">Gets the size of a memory region of @self.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core.c"
+               line="1526">the size of a memory region</doc>
+          <type name="gsize" c:type="gsize"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1521">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+          <parameter name="memory_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1522">the type of memory</doc>
+            <type name="MemoryType" c:type="RetroMemoryType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_option" c:identifier="retro_core_get_option">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1898">Gets the option for the given key.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core.c"
+               line="1905">the option</doc>
+          <type name="Option" c:type="RetroOption*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1900">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1901">the key of the option</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_runahead" c:identifier="retro_core_get_runahead">
+        <source-position filename="../retro-gtk/retro-core.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_save_directory"
+              c:identifier="retro_core_get_save_directory">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="805">Gets the save directory of the core.
+
+The core will save some data here.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="29"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core.c"
+               line="813">the save directory of the core</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="807">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_speed_rate" c:identifier="retro_core_get_speed_rate">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1842">Gets the speed rate at which to run the core.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core.c"
+               line="1848">the speed rate</doc>
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1844">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_support_no_game"
+              c:identifier="retro_core_get_support_no_game">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="916">Gets whether the core supports running with no game.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="37"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core.c"
+               line="922">whether the core supports running with no game</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="918">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_system_directory"
+              c:identifier="retro_core_get_system_directory">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="736">Gets the system directory of the core.
+
+The core will look here for additional data, such as firmware ROMs or
+configuration files.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="23"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core.c"
+               line="745">the system directory of the core</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="738">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_user_name" c:identifier="retro_core_get_user_name">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="847">Gets the name of the user.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="32"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core.c"
+               line="853">the name of the user</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="849">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_option" c:identifier="retro_core_has_option">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1879">Gets whether the core has an option for the given key.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core.c"
+               line="1886">whether the core has an option for the given key</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1881">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1882">the key of the option</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="iterate_controllers"
+              c:identifier="retro_core_iterate_controllers">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1806">Creates a new #RetroControllerIterator which can be used to iterate through
+the controllers plugged into @self.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="75"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core.c"
+               line="1813">a new #RetroControllerIterator</doc>
+          <type name="ControllerIterator" c:type="RetroControllerIterator*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1808">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="iterate_options" c:identifier="retro_core_iterate_options">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1917">Creates a new #RetroOptionIterator which can be used to iterate through the
+options of @self.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="86"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core.c"
+               line="1924">a new #RetroOptionIterator</doc>
+          <type name="OptionIterator" c:type="RetroOptionIterator*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1919">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="iteration" c:identifier="retro_core_iteration">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1414">Iterate @self for a frame.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1416">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="load_memory"
+              c:identifier="retro_core_load_memory"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1574">Loads a memory region of @self.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1576">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+          <parameter name="memory_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1577">the type of memory</doc>
+            <type name="MemoryType" c:type="RetroMemoryType"/>
+          </parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1578">a file to load the data from</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_state"
+              c:identifier="retro_core_load_state"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1494">Loads the state of the @self.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1496">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1497">the file to load the state from</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="override_option_default"
+              c:identifier="retro_core_override_option_default">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1934">Overrides default value for the option @key. This can be used to set value
+for a startup-only option.
+
+You can use this before booting the core.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="87"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1936">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1937">the key of the option</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1938">the default value</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="reset" c:identifier="retro_core_reset">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1394">Resets @self.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1396">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="run" c:identifier="retro_core_run">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1350">Starts running the core. If the core was stopped, it will restart from this
+moment.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1352">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="save_memory"
+              c:identifier="retro_core_save_memory"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1547">Saves a memory region of @self.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1549">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+          <parameter name="memory_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1550">the type of memory</doc>
+            <type name="MemoryType" c:type="RetroMemoryType"/>
+          </parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1551">a file to save the data to</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="save_state"
+              c:identifier="retro_core_save_state"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1469">Saves the state of @self.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1471">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1472">the file to save the state to</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_content_directory"
+              c:identifier="retro_core_set_content_directory">
+        <source-position filename="../retro-gtk/retro-core.h" line="27"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+          <parameter name="content_directory" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_controller" c:identifier="retro_core_set_controller">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1703">Plugs @controller into the specified port number of @self.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1705">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+          <parameter name="port" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1706">the port number</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="controller"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1707">a #RetroController</doc>
+            <type name="Controller" c:type="RetroController*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_current_media"
+              c:identifier="retro_core_set_current_media"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1319">Sets the current media index.
+
+You can use this after booting the core.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1321">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+          <parameter name="media_index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1322">the media index</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_default_controller"
+              c:identifier="retro_core_set_default_controller">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1657">Uses @controller as the default controller for the given type. When a port
+has no controller plugged plugged into it, the core will use the default
+controllers instead.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1659">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+          <parameter name="controller_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1660">a #RetroControllerType</doc>
+            <type name="ControllerType" c:type="RetroControllerType"/>
+          </parameter>
+          <parameter name="controller"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1661">a #RetroController</doc>
+            <type name="Controller" c:type="RetroController*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_keyboard" c:identifier="retro_core_set_keyboard">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1760">Sets the widget whose key events will be forwarded to @self.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1762">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+          <parameter name="widget"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1763">a #GtkWidget, or %NULL</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_medias" c:identifier="retro_core_set_medias">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1296">Sets the medias to load into the core.
+
+You can use this before booting the core.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1298">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+          <parameter name="uris" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1299">the URIs</doc>
+            <array c:type="const gchar* const*">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_runahead" c:identifier="retro_core_set_runahead">
+        <source-position filename="../retro-gtk/retro-core.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+          <parameter name="runahead" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_save_directory"
+              c:identifier="retro_core_set_save_directory">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="823">Sets the save directory of the core.
+
+The core will save some data here.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="30"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="825">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+          <parameter name="save_directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="826">the save directory</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_speed_rate" c:identifier="retro_core_set_speed_rate">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1858">Sets the speed rate at which to run the core.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1860">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+          <parameter name="speed_rate" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1861">a speed rate</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_system_directory"
+              c:identifier="retro_core_set_system_directory">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="755">Sets the system directory of the core.
+
+The core will look here for additional data, such as firmware ROMs or
+configuration files.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="24"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="757">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+          <parameter name="system_directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="758">the system directory</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_user_name" c:identifier="retro_core_set_user_name">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="863">Sets the name of the user.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="33"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="865">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+          <parameter name="user_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="866">the user name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="stop" c:identifier="retro_core_stop">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="1374">Stops running the core.</doc>
+        <source-position filename="../retro-gtk/retro-core.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="1376">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="api-version" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="317">The Libretro API version implement by the core.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="content-directory"
+                writable="1"
+                transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="filename"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="334">The filename of the core.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="frames-per-second" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="456">The FPS rate for the core's video output.</doc>
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+      <property name="game-loaded" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="426">Whether a game has been loaded.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="is-initiated" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="411">Whether the core has been initiated.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="runahead" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="473">The number of frames to run ahead of time. This allows to know in advance
+what should happen in the given number of frames, allowing to react in
+advance.
+
+Note that this is resource intensive as the core will be iterated over
+multiple times for each perceived iteration. In order to work, this
+requires the cores to properly support serialization, otherwise the
+behavior is undefined.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="save-directory" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="379">The save directory of the core.
+
+The core will save some data here.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="speed-rate" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="497">The speed ratio at wich the core will run.</doc>
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+      <property name="support-no-game" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="441">Whether the core supports running with no game.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="system-directory" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="350">The system directory of the core.
+
+The core will look here for additional data, such as firmware ROMs or
+configuration files.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="user-name" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="396">The name of the user.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <glib:signal name="crashed" when="last">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="587">The ::crash signal is emitted when the core crashes.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="590">the message to show to the user</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="log" when="last">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="535">The ::log signal is emitted each time the core emits a message to log.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="log_domain" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="538">the log domain</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="log_level" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="539">the log level</doc>
+            <type name="GLib.LogLevelFlags" c:type="guint"/>
+          </parameter>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="540">the message</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="message" when="last">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="569">The ::message signal is emitted each time the core emits a message to
+display during a given amount of frames.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="572">the message</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="frames" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="573">the number of frames the message should be displayed</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="shutdown" when="last">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="554">The ::shutdown signal is emitted when the core shut down.
+
+The core must be released or re-started in order to function anew.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="video-output" when="last">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core.c"
+             line="514">The ::video-output signal is emitted each time a new video frame is emitted
+by the core.
+
+@pixdata will be invalid after the signal emission, copy it in some way if
+you want to keep it.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="pixdata" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core.c"
+                 line="517">the #RetroPixdata</doc>
+            <type name="Pixdata" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="CoreClass"
+            c:type="RetroCoreClass"
+            glib:is-gtype-struct-for="Core">
+      <source-position filename="../retro-gtk/retro-core.h" line="18"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="CoreDescriptor"
+           c:symbol-prefix="core_descriptor"
+           c:type="RetroCoreDescriptor"
+           parent="GObject.Object"
+           glib:type-name="RetroCoreDescriptor"
+           glib:get-type="retro_core_descriptor_get_type"
+           glib:type-struct="CoreDescriptorClass">
+      <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                       line="16"/>
+      <constructor name="new"
+                   c:identifier="retro_core_descriptor_new"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="848">Creates a new #RetroCoreDescriptor.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="18"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="855">a new #RetroCoreDescriptor</doc>
+          <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+        </return-value>
+        <parameters>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="850">the file name of the core descriptor</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_firmware_md5"
+              c:identifier="retro_core_descriptor_get_firmware_md5"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="727">Gets the MD5 fingerprint of the firmware file, or %NULL.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="58"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="735">a string or %NULL, free it with g_free()</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="729">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+          <parameter name="firmware" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="730">a firmware name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_firmware_path"
+              c:identifier="retro_core_descriptor_get_firmware_path"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="703">Gets the demanded path to the firmware file, or %NULL.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="55"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="711">a string or %NULL, free it with g_free()</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="705">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+          <parameter name="firmware" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="706">a firmware name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_firmware_sha512"
+              c:identifier="retro_core_descriptor_get_firmware_sha512"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="751">Gets the SHA512 fingerprint of the firmware file, or %NULL.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="61"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="759">a string or %NULL, free it with g_free()</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="753">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+          <parameter name="firmware" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="754">a firmware name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_firmwares"
+              c:identifier="retro_core_descriptor_get_firmwares"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="673">Gets the list of firmwares used by the core for this platform.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="51"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="683">a %NULL-terminated string array or %NULL, the array should
+be freed with g_strfreev()</doc>
+          <array length="1" zero-terminated="1" c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="675">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+          <parameter name="platform" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="676">a platform name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="length"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="677">return location for the number of returned
+strings, or %NULL</doc>
+            <type name="gsize" c:type="gsize*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_icon"
+              c:identifier="retro_core_descriptor_get_icon"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="464">Gets the icon, or %NULL if it doesn't exist.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="30"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="471">a #GIcon or %NULL</doc>
+          <type name="Gio.Icon" c:type="GIcon*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="466">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_id" c:identifier="retro_core_descriptor_get_id">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="367">Gets the ID of @self.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="23"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="373">the ID of @self, free it with g_free()</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="369">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_is_emulator"
+              c:identifier="retro_core_descriptor_get_is_emulator"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="413">Gets whether the core is an emulator, and hence need games to be loaded.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="26"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="420">whether the core is an emulator</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="415">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_is_firmware_mandatory"
+              c:identifier="retro_core_descriptor_get_is_firmware_mandatory"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="775">Gets whether the firmware is mandatory for the core to function.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="64"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="783">whether the firmware is mandatory for the core to function</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="777">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+          <parameter name="firmware" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="778">a firmware name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_is_game"
+              c:identifier="retro_core_descriptor_get_is_game"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="383">Gets whether the core is a game, and hence can't load games.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="24"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="390">whether the core is a game</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="385">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_mime_type"
+              c:identifier="retro_core_descriptor_get_mime_type"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="643">Gets the list of MIME types accepted used by the core for this platform.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="47"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="653">a %NULL-terminated string array or %NULL, the array should
+be freed with g_strfreev()</doc>
+          <array length="1" zero-terminated="1" c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="645">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+          <parameter name="platform" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="646">a platform name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="length"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="647">return location for the number of returned
+strings, or %NULL</doc>
+            <type name="gsize" c:type="gsize*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_module"
+              c:identifier="retro_core_descriptor_get_module"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="494">Gets the module file name, or %NULL if it doesn't exist.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="32"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="501">a string or %NULL, free it with g_free()</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="496">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_module_file"
+              c:identifier="retro_core_descriptor_get_module_file"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="515">Gets the module file, or %NULL if it doesn't exist.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="34"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="522">a #GFile or %NULL</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="517">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="retro_core_descriptor_get_name"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="443">Gets the name, or %NULL if it doesn't exist.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="28"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="450">a string or %NULL, free it with g_free()</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="445">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_platform_supports_mime_types"
+              c:identifier="retro_core_descriptor_get_platform_supports_mime_types"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="808">Gets whether the platform supports all of the given MIME types.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="67"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="817">whether the platform supports all of the given MIME types</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="810">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+          <parameter name="platform" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="811">a platform name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="mime_types" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="812">the MIME types</doc>
+            <array c:type="const gchar* const*">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_uri" c:identifier="retro_core_descriptor_get_uri">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="345">Gets the URI of the file of @self.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="22"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="351">the URI of the file of @self, free it with g_free()</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="347">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_firmware_md5"
+              c:identifier="retro_core_descriptor_has_firmware_md5"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="595">Gets whether the firmware declares its MD5 fingerprint.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="41"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="603">whether the firmware declares its MD5 fingerprint</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="597">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+          <parameter name="firmware" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="598">a firmware name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="has_firmware_sha512"
+              c:identifier="retro_core_descriptor_has_firmware_sha512"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="619">Gets whether the firmware declares its SHA512 fingerprint.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="44"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="627">whether the firmware declares its SHA512 fingerprint</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="621">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+          <parameter name="firmware" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="622">a firmware name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="has_firmwares"
+              c:identifier="retro_core_descriptor_has_firmwares"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="571">Gets whether the platform has associated firmwares.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="38"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="579">whether the platform has associated firmwares</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="573">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+          <parameter name="platform" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="574">a platform name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="has_icon"
+              c:identifier="retro_core_descriptor_has_icon"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="318">Gets whether the core has an icon.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="20"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="325">whether the core has an icon</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="320">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_platform"
+              c:identifier="retro_core_descriptor_has_platform">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-descriptor.c"
+             line="551">Gets whether the core descriptor declares the given platform.</doc>
+        <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                         line="36"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-descriptor.c"
+               line="558">whether the core descriptor declares the given platform</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="553">a #RetroCoreDescriptor</doc>
+            <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+          </instance-parameter>
+          <parameter name="platform" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-descriptor.c"
+                 line="554">a platform name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="CoreDescriptorClass"
+            c:type="RetroCoreDescriptorClass"
+            glib:is-gtype-struct-for="CoreDescriptor">
+      <source-position filename="../retro-gtk/retro-core-descriptor.h"
+                       line="16"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="CoreView"
+           c:symbol-prefix="core_view"
+           c:type="RetroCoreView"
+           parent="Gtk.EventBox"
+           glib:type-name="RetroCoreView"
+           glib:get-type="retro_core_view_get_type"
+           glib:type-struct="CoreViewClass">
+      <source-position filename="../retro-gtk/retro-core-view.h" line="20"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="retro_core_view_new">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-view.c"
+             line="857">Creates a new #RetroCoreView.</doc>
+        <source-position filename="../retro-gtk/retro-core-view.h" line="22"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-view.c"
+               line="862">a new #RetroCoreView</doc>
+          <type name="CoreView" c:type="RetroCoreView*"/>
+        </return-value>
+      </constructor>
+      <method name="as_controller"
+              c:identifier="retro_core_view_as_controller">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-view.c"
+             line="620">Creates a new #RetroController exposing @self as the specified controller
+type. The valid controller types are RETRO_CONTROLLER_TYPE_JOYPAD,
+RETRO_CONTROLLER_TYPE_MOUSE, RETRO_CONTROLLER_TYPE_KEYBOARD and
+RETRO_CONTROLLER_TYPE_POINTER.</doc>
+        <source-position filename="../retro-gtk/retro-core-view.h" line="34"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-view.c"
+               line="630">a new #RetroController</doc>
+          <type name="Controller" c:type="RetroController*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="622">a #RetroCoreView</doc>
+            <type name="CoreView" c:type="RetroCoreView*"/>
+          </instance-parameter>
+          <parameter name="controller_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="623">the controller type to expose @self as</doc>
+            <type name="ControllerType" c:type="RetroControllerType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_can_grab_pointer"
+              c:identifier="retro_core_view_get_can_grab_pointer">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-view.c"
+             line="770">Gets whether the pointer should be grabbed when clicking on the view. This
+allows @self to work as a RETRO_CONTROLLER_TYPE_MOUSE instead of a
+RETRO_CONTROLLER_TYPE_POINTER.</doc>
+        <source-position filename="../retro-gtk/retro-core-view.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-view.c"
+               line="778">whether the pointer should snap to the borders</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="772">a #RetroCoreView</doc>
+            <type name="CoreView" c:type="RetroCoreView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_controller_capabilities"
+              c:identifier="retro_core_view_get_controller_capabilities">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-view.c"
+             line="746">Gets a flag representing the capabilities of @self when exposed as a
+controller. See retro_controller_get_capabilities() for more information on
+the flag.
+
+See retro_core_view_as_controller() to know the capabilities of
+#RetroCoreView when exposed as a controller.</doc>
+        <source-position filename="../retro-gtk/retro-core-view.h" line="40"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-view.c"
+               line="757">the capabilities flag of @self when exposed as a controller</doc>
+          <type name="guint64" c:type="guint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="748">a #RetroCoreView</doc>
+            <type name="CoreView" c:type="RetroCoreView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_input_state"
+              c:identifier="retro_core_view_get_input_state">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-view.c"
+             line="672">Gets the state of an input of @self.</doc>
+        <source-position filename="../retro-gtk/retro-core-view.h" line="38"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-view.c"
+               line="679">the input's state</doc>
+          <type name="gint16" c:type="gint16"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="674">a #RetroCoreView</doc>
+            <type name="CoreView" c:type="RetroCoreView*"/>
+          </instance-parameter>
+          <parameter name="input" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="675">a #RetroInput to query @self</doc>
+            <type name="Input" c:type="RetroInput*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_key_joypad_mapping"
+              c:identifier="retro_core_view_get_key_joypad_mapping">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-view.c"
+             line="604">Gets the currently set key joypad mapping.</doc>
+        <source-position filename="../retro-gtk/retro-core-view.h" line="33"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-view.c"
+               line="610">a #RetroKeyJoypadMapping</doc>
+          <type name="KeyJoypadMapping" c:type="RetroKeyJoypadMapping*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="606">a #RetroCoreView</doc>
+            <type name="CoreView" c:type="RetroCoreView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_pixbuf" c:identifier="retro_core_view_get_pixbuf">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-view.c"
+             line="552">Gets the currently displayed video frame.</doc>
+        <source-position filename="../retro-gtk/retro-core-view.h" line="28"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-view.c"
+               line="558">a #GdkPixbuf</doc>
+          <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="554">a #RetroCoreView</doc>
+            <type name="CoreView" c:type="RetroCoreView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_snap_pointer_to_borders"
+              c:identifier="retro_core_view_get_snap_pointer_to_borders">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-view.c"
+             line="816">Gets whether the pointer should be considered to be at the border of the
+video display when it is outside of it. This is used when @self is exposed as
+a RETRO_CONTROLLER_TYPE_POINTER.</doc>
+        <source-position filename="../retro-gtk/retro-core-view.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-core-view.c"
+               line="824">whether the pointer should snap to the borders</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="818">a #RetroCoreView</doc>
+            <type name="CoreView" c:type="RetroCoreView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_as_default_controller"
+              c:identifier="retro_core_view_set_as_default_controller">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-view.c"
+             line="641">Sets the @self as the default controllers of @core.</doc>
+        <source-position filename="../retro-gtk/retro-core-view.h" line="36"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="643">a #RetroCoreView</doc>
+            <type name="CoreView" c:type="RetroCoreView*"/>
+          </instance-parameter>
+          <parameter name="core"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="644">a #RetroCore</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_can_grab_pointer"
+              c:identifier="retro_core_view_set_can_grab_pointer">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-view.c"
+             line="788">Sets whether the pointer should be grabbed when clicking on the view. This
+allows @self to work as a RETRO_CONTROLLER_TYPE_MOUSE instead of a
+RETRO_CONTROLLER_TYPE_POINTER.</doc>
+        <source-position filename="../retro-gtk/retro-core-view.h" line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="790">a #RetroCoreView</doc>
+            <type name="CoreView" c:type="RetroCoreView*"/>
+          </instance-parameter>
+          <parameter name="can_grab_pointer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="791">whether the pointer should be grabbed when clicking on
+the view</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_core" c:identifier="retro_core_view_set_core">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-view.c"
+             line="505">Sets @core as the #RetroCore handled by @self.</doc>
+        <source-position filename="../retro-gtk/retro-core-view.h" line="24"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="507">a #RetroCoreView</doc>
+            <type name="CoreView" c:type="RetroCoreView*"/>
+          </instance-parameter>
+          <parameter name="core"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="508">a #RetroCore, or %NULL</doc>
+            <type name="Core" c:type="RetroCore*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_filter" c:identifier="retro_core_view_set_filter">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-view.c"
+             line="568">Sets the video filter to use to render the core's video on @self.</doc>
+        <source-position filename="../retro-gtk/retro-core-view.h" line="29"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="570">a #RetroCoreView</doc>
+            <type name="CoreView" c:type="RetroCoreView*"/>
+          </instance-parameter>
+          <parameter name="filter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="571">a #RetroVideoFilter</doc>
+            <type name="VideoFilter" c:type="RetroVideoFilter"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_key_joypad_mapping"
+              c:identifier="retro_core_view_set_key_joypad_mapping">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-view.c"
+             line="584">Sets the key joypad mapping on @self. If given mapping is %NULL, then set to
+an empty configuration.</doc>
+        <source-position filename="../retro-gtk/retro-core-view.h" line="31"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="586">a #RetroCoreView</doc>
+            <type name="CoreView" c:type="RetroCoreView*"/>
+          </instance-parameter>
+          <parameter name="mapping"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="587">a #RetroKeyJoypadMapping</doc>
+            <type name="KeyJoypadMapping" c:type="RetroKeyJoypadMapping*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_pixbuf" c:identifier="retro_core_view_set_pixbuf">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-view.c"
+             line="532">Sets @pixbuf as the currently displayed video frame.
+
+retro_pixbuf_set_aspect_ratio() can be used to specify the aspect ratio for
+the pixbuf. Otherwise the core's aspect ratio will be used.</doc>
+        <source-position filename="../retro-gtk/retro-core-view.h" line="26"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="534">a #RetroCoreView</doc>
+            <type name="CoreView" c:type="RetroCoreView*"/>
+          </instance-parameter>
+          <parameter name="pixbuf" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="535">a #GdkPixbuf</doc>
+            <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_snap_pointer_to_borders"
+              c:identifier="retro_core_view_set_snap_pointer_to_borders">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-view.c"
+             line="834">Sets whether the pointer should be considered to be at the border of the
+video display when it is outside of it. This is used when @self is exposed as
+a RETRO_CONTROLLER_TYPE_POINTER.</doc>
+        <source-position filename="../retro-gtk/retro-core-view.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="836">a #RetroCoreView</doc>
+            <type name="CoreView" c:type="RetroCoreView*"/>
+          </instance-parameter>
+          <parameter name="snap_pointer_to_borders" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-core-view.c"
+                 line="837">whether the pointer should snap to the borders</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="can-grab-pointer" writable="1" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="snap-pointer-to-borders"
+                writable="1"
+                transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <glib:signal name="controller-state-changed"
+                   when="last"
+                   stability="Private">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-core-view.c"
+             line="445">The ::controller-state-changed signal is emitted when a key is pressed
+or released, mouse pointer is moved, or a mouse button is pressed or
+released.
+
+Applications should not connect to it.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="CoreViewClass"
+            c:type="RetroCoreViewClass"
+            glib:is-gtype-struct-for="CoreView">
+      <source-position filename="../retro-gtk/retro-core-view.h" line="20"/>
+      <field name="parent_class">
+        <type name="Gtk.EventBoxClass" c:type="GtkEventBoxClass"/>
+      </field>
+    </record>
+    <union name="Input"
+           c:type="RetroInput"
+           glib:type-name="RetroInput"
+           glib:get-type="retro_input_get_type"
+           c:symbol-prefix="input">
+      <source-position filename="../shared/retro-input.h" line="19"/>
+      <constructor name="new" c:identifier="retro_input_new">
+        <doc xml:space="preserve"
+             filename="../shared/retro-input.c"
+             line="51">Creates a new #RetroInput.</doc>
+        <source-position filename="../shared/retro-input.h" line="21"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../shared/retro-input.c"
+               line="56">a new #RetroInput, use retro_input_free() to free
+it</doc>
+          <type name="Input" c:type="RetroInput*"/>
+        </return-value>
+      </constructor>
+      <method name="copy" c:identifier="retro_input_copy">
+        <doc xml:space="preserve"
+             filename="../shared/retro-input.c"
+             line="69">Copies @self into a new #RetroInput.</doc>
+        <source-position filename="../shared/retro-input.h" line="22"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../shared/retro-input.c"
+               line="75">a new #RetroInput, use retro_input_free() to free
+it</doc>
+          <type name="Input" c:type="RetroInput*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../shared/retro-input.c"
+                 line="71">a #RetroInput</doc>
+            <type name="Input" c:type="RetroInput*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="retro_input_free">
+        <doc xml:space="preserve"
+             filename="../shared/retro-input.c"
+             line="93">Frees the given #RetroInput.</doc>
+        <source-position filename="../shared/retro-input.h" line="23"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../shared/retro-input.c"
+                 line="95">a #RetroInput</doc>
+            <type name="Input" c:type="RetroInput*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_analog" c:identifier="retro_input_get_analog">
+        <doc xml:space="preserve"
+             filename="../shared/retro-input.c"
+             line="231">Gets the analog id and index of @self, if any.</doc>
+        <source-position filename="../shared/retro-input.h" line="31"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../shared/retro-input.c"
+               line="239">whether the id and the index were retrieved</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../shared/retro-input.c"
+                 line="233">a #RetroInput</doc>
+            <type name="Input" c:type="RetroInput*"/>
+          </instance-parameter>
+          <parameter name="id"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="../shared/retro-input.c"
+                 line="234">return location for the id</doc>
+            <type name="AnalogId" c:type="RetroAnalogId*"/>
+          </parameter>
+          <parameter name="index"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="../shared/retro-input.c"
+                 line="235">return location for the index</doc>
+            <type name="AnalogIndex" c:type="RetroAnalogIndex*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_controller_type"
+              c:identifier="retro_input_get_controller_type">
+        <doc xml:space="preserve"
+             filename="../shared/retro-input.c"
+             line="107">Gets the controller type of @self.</doc>
+        <source-position filename="../shared/retro-input.h" line="24"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../shared/retro-input.c"
+               line="113">the controller type of @self</doc>
+          <type name="ControllerType" c:type="RetroControllerType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../shared/retro-input.c"
+                 line="109">a #RetroInput</doc>
+            <type name="Input" c:type="RetroInput*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_joypad" c:identifier="retro_input_get_joypad">
+        <doc xml:space="preserve"
+             filename="../shared/retro-input.c"
+             line="123">Gets the joypad id of @self, if any.</doc>
+        <source-position filename="../shared/retro-input.h" line="25"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../shared/retro-input.c"
+               line="130">whether the id was retrieved</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../shared/retro-input.c"
+                 line="125">a #RetroInput</doc>
+            <type name="Input" c:type="RetroInput*"/>
+          </instance-parameter>
+          <parameter name="id"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="../shared/retro-input.c"
+                 line="126">return location for the id</doc>
+            <type name="JoypadId" c:type="RetroJoypadId*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_lightgun" c:identifier="retro_input_get_lightgun">
+        <doc xml:space="preserve"
+             filename="../shared/retro-input.c"
+             line="204">Gets the lightgun id of @self, if any.</doc>
+        <source-position filename="../shared/retro-input.h" line="29"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../shared/retro-input.c"
+               line="211">whether the id was retrieved</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../shared/retro-input.c"
+                 line="206">a #RetroInput</doc>
+            <type name="Input" c:type="RetroInput*"/>
+          </instance-parameter>
+          <parameter name="id"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="../shared/retro-input.c"
+                 line="207">return location for the id</doc>
+            <type name="LightgunId" c:type="RetroLightgunId*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_mouse" c:identifier="retro_input_get_mouse">
+        <doc xml:space="preserve"
+             filename="../shared/retro-input.c"
+             line="150">Gets the mouse id of @self, if any.</doc>
+        <source-position filename="../shared/retro-input.h" line="27"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../shared/retro-input.c"
+               line="157">whether the id was retrieved</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../shared/retro-input.c"
+                 line="152">a #RetroInput</doc>
+            <type name="Input" c:type="RetroInput*"/>
+          </instance-parameter>
+          <parameter name="id"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="../shared/retro-input.c"
+                 line="153">return location for the id</doc>
+            <type name="MouseId" c:type="RetroMouseId*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_pointer" c:identifier="retro_input_get_pointer">
+        <doc xml:space="preserve"
+             filename="../shared/retro-input.c"
+             line="265">Gets the pointer id of @self, if any.</doc>
+        <source-position filename="../shared/retro-input.h" line="34"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../shared/retro-input.c"
+               line="272">whether the id was retrieved</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../shared/retro-input.c"
+                 line="267">a #RetroInput</doc>
+            <type name="Input" c:type="RetroInput*"/>
+          </instance-parameter>
+          <parameter name="id"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="../shared/retro-input.c"
+                 line="268">return location for the id</doc>
+            <type name="PointerId" c:type="RetroPointerId*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </union>
+    <enumeration name="JoypadId"
+                 glib:type-name="RetroJoypadId"
+                 glib:get-type="retro_joypad_id_get_type"
+                 c:type="RetroJoypadId">
+      <doc xml:space="preserve"
+           filename="../shared/retro-controller-codes.h"
+           line="17">Represents the buttons for the Libretro gamepad. The available buttons are
+the same as the W3C Standard Gamepad, the SDL GameController and many other
+modern standard gamepads, but the name of the buttons may differ. See the
+&lt;ulink url="https://w3c.github.io/gamepad/"&gt;W3C Gamepad Specification&lt;/ulink&gt;
+and the &lt;ulink url="https://wiki.libsdl.org/CategoryGameController"&gt;SDL
+GamepadController definition&lt;/ulink&gt; for more information.</doc>
+      <member name="b"
+              value="0"
+              c:identifier="RETRO_JOYPAD_ID_B"
+              glib:nick="b">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="19">the bottom action button</doc>
+      </member>
+      <member name="y"
+              value="1"
+              c:identifier="RETRO_JOYPAD_ID_Y"
+              glib:nick="y">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="20">the left action button</doc>
+      </member>
+      <member name="select"
+              value="2"
+              c:identifier="RETRO_JOYPAD_ID_SELECT"
+              glib:nick="select">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="21">the Select button</doc>
+      </member>
+      <member name="start"
+              value="3"
+              c:identifier="RETRO_JOYPAD_ID_START"
+              glib:nick="start">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="22">the Start button</doc>
+      </member>
+      <member name="up"
+              value="4"
+              c:identifier="RETRO_JOYPAD_ID_UP"
+              glib:nick="up">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="23">the up directional button</doc>
+      </member>
+      <member name="down"
+              value="5"
+              c:identifier="RETRO_JOYPAD_ID_DOWN"
+              glib:nick="down">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="24">the down directional button</doc>
+      </member>
+      <member name="left"
+              value="6"
+              c:identifier="RETRO_JOYPAD_ID_LEFT"
+              glib:nick="left">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="25">the left directional button</doc>
+      </member>
+      <member name="right"
+              value="7"
+              c:identifier="RETRO_JOYPAD_ID_RIGHT"
+              glib:nick="right">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="26">the right directional button</doc>
+      </member>
+      <member name="a"
+              value="8"
+              c:identifier="RETRO_JOYPAD_ID_A"
+              glib:nick="a">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="27">the right action button</doc>
+      </member>
+      <member name="x"
+              value="9"
+              c:identifier="RETRO_JOYPAD_ID_X"
+              glib:nick="x">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="28">the top action button</doc>
+      </member>
+      <member name="l"
+              value="10"
+              c:identifier="RETRO_JOYPAD_ID_L"
+              glib:nick="l">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="29">the first left shoulder button</doc>
+      </member>
+      <member name="r"
+              value="11"
+              c:identifier="RETRO_JOYPAD_ID_R"
+              glib:nick="r">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="30">the first right shoulder button</doc>
+      </member>
+      <member name="l2"
+              value="12"
+              c:identifier="RETRO_JOYPAD_ID_L2"
+              glib:nick="l2">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="31">the second left shoulder button</doc>
+      </member>
+      <member name="r2"
+              value="13"
+              c:identifier="RETRO_JOYPAD_ID_R2"
+              glib:nick="r2">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="32">the second right shoulder button</doc>
+      </member>
+      <member name="l3"
+              value="14"
+              c:identifier="RETRO_JOYPAD_ID_L3"
+              glib:nick="l3">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="33">the left thumb button</doc>
+      </member>
+      <member name="r3"
+              value="15"
+              c:identifier="RETRO_JOYPAD_ID_R3"
+              glib:nick="r3">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="34">the right thumb button</doc>
+      </member>
+      <function name="from_button_code"
+                c:identifier="retro_joypad_id_from_button_code">
+        <source-position filename="../shared/retro-controller-codes.h"
+                         line="64"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../shared/retro-controller-codes.c"
+               line="51">the corresponding joypad id</doc>
+          <type name="JoypadId" c:type="RetroJoypadId"/>
+        </return-value>
+        <parameters>
+          <parameter name="button_code" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../shared/retro-controller-codes.c"
+                 line="49">a button code</doc>
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="to_button_code"
+                c:identifier="retro_joypad_id_to_button_code">
+        <source-position filename="../shared/retro-controller-codes.h"
+                         line="63"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../shared/retro-controller-codes.c"
+               line="36">the corresponding button code</doc>
+          <type name="guint16" c:type="guint16"/>
+        </return-value>
+        <parameters>
+          <parameter name="joypad_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../shared/retro-controller-codes.c"
+                 line="34">a #RetroJoypadId</doc>
+            <type name="JoypadId" c:type="RetroJoypadId"/>
+          </parameter>
+        </parameters>
+      </function>
+    </enumeration>
+    <class name="KeyJoypadMapping"
+           c:symbol-prefix="key_joypad_mapping"
+           c:type="RetroKeyJoypadMapping"
+           parent="GObject.Object"
+           glib:type-name="RetroKeyJoypadMapping"
+           glib:get-type="retro_key_joypad_mapping_get_type"
+           glib:type-struct="KeyJoypadMappingClass">
+      <source-position filename="../retro-gtk/retro-key-joypad-mapping.h"
+                       line="16"/>
+      <constructor name="new" c:identifier="retro_key_joypad_mapping_new">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-key-joypad-mapping.c"
+             line="106">Creates a new #RetroKeyJoypadMapping.</doc>
+        <source-position filename="../retro-gtk/retro-key-joypad-mapping.h"
+                         line="18"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-key-joypad-mapping.c"
+               line="111">a new #RetroKeyJoypadMapping</doc>
+          <type name="KeyJoypadMapping" c:type="RetroKeyJoypadMapping*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_default"
+                   c:identifier="retro_key_joypad_mapping_new_default">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-key-joypad-mapping.c"
+             line="123">Creates a new #RetroKeyJoypadMapping with the default mapping.</doc>
+        <source-position filename="../retro-gtk/retro-key-joypad-mapping.h"
+                         line="19"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-key-joypad-mapping.c"
+               line="128">a new #RetroKeyJoypadMapping</doc>
+          <type name="KeyJoypadMapping" c:type="RetroKeyJoypadMapping*"/>
+        </return-value>
+      </constructor>
+      <method name="get_button_key"
+              c:identifier="retro_key_joypad_mapping_get_button_key">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-key-joypad-mapping.c"
+             line="86">Gets the mapping key code for the joypad button id.</doc>
+        <source-position filename="../retro-gtk/retro-key-joypad-mapping.h"
+                         line="23"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-key-joypad-mapping.c"
+               line="93">mapping key code</doc>
+          <type name="guint16" c:type="guint16"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-key-joypad-mapping.c"
+                 line="88">a #RetroKeyJoypadMapping</doc>
+            <type name="KeyJoypadMapping" c:type="RetroKeyJoypadMapping*"/>
+          </instance-parameter>
+          <parameter name="button" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-key-joypad-mapping.c"
+                 line="89">joypad button id</doc>
+            <type name="JoypadId" c:type="RetroJoypadId"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_button_key"
+              c:identifier="retro_key_joypad_mapping_set_button_key">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-key-joypad-mapping.c"
+             line="66">Maps the joypad button id to mapping key code.</doc>
+        <source-position filename="../retro-gtk/retro-key-joypad-mapping.h"
+                         line="20"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-key-joypad-mapping.c"
+                 line="68">a #RetroKeyJoypadMapping</doc>
+            <type name="KeyJoypadMapping" c:type="RetroKeyJoypadMapping*"/>
+          </instance-parameter>
+          <parameter name="button" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-key-joypad-mapping.c"
+                 line="69">joypad button id</doc>
+            <type name="JoypadId" c:type="RetroJoypadId"/>
+          </parameter>
+          <parameter name="hardware_keycode" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-key-joypad-mapping.c"
+                 line="70">mapping key code</doc>
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="KeyJoypadMappingClass"
+            c:type="RetroKeyJoypadMappingClass"
+            glib:is-gtype-struct-for="KeyJoypadMapping">
+      <source-position filename="../retro-gtk/retro-key-joypad-mapping.h"
+                       line="16"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="LightgunId"
+                 glib:type-name="RetroLightgunId"
+                 glib:get-type="retro_lightgun_id_get_type"
+                 c:type="RetroLightgunId">
+      <doc xml:space="preserve"
+           filename="../shared/retro-controller-codes.h"
+           line="105">Represents the inputs for the Libretro lightgun.</doc>
+      <member name="x"
+              value="0"
+              c:identifier="RETRO_LIGHTGUN_ID_X"
+              glib:nick="x">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="107">the X axis of a lightgun</doc>
+      </member>
+      <member name="y"
+              value="1"
+              c:identifier="RETRO_LIGHTGUN_ID_Y"
+              glib:nick="y">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="108">the Y axis of a lightgun</doc>
+      </member>
+      <member name="trigger"
+              value="2"
+              c:identifier="RETRO_LIGHTGUN_ID_TRIGGER"
+              glib:nick="trigger">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="109">the trigger of a lightgun</doc>
+      </member>
+      <member name="cursor"
+              value="3"
+              c:identifier="RETRO_LIGHTGUN_ID_CURSOR"
+              glib:nick="cursor">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="110">the cursor of a lightgun</doc>
+      </member>
+      <member name="turbo"
+              value="4"
+              c:identifier="RETRO_LIGHTGUN_ID_TURBO"
+              glib:nick="turbo">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="111">the turbo button of a lightgun</doc>
+      </member>
+      <member name="pause"
+              value="5"
+              c:identifier="RETRO_LIGHTGUN_ID_PAUSE"
+              glib:nick="pause">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="112">the pause button of a lightgun</doc>
+      </member>
+      <member name="start"
+              value="6"
+              c:identifier="RETRO_LIGHTGUN_ID_START"
+              glib:nick="start">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="113">the start button of a lightgun</doc>
+      </member>
+    </enumeration>
+    <enumeration name="MemoryType" c:type="RetroMemoryType">
+      <doc xml:space="preserve"
+           filename="../shared/retro-memory-type.h"
+           line="13">Represents the memory types for the Libretro core.</doc>
+      <source-position filename="../shared/retro-memory-type.h" line="28"/>
+      <member name="save_ram"
+              value="0"
+              c:identifier="RETRO_MEMORY_TYPE_SAVE_RAM">
+        <doc xml:space="preserve"
+             filename="../shared/retro-memory-type.h"
+             line="15">the save RAM</doc>
+      </member>
+      <member name="rtc" value="1" c:identifier="RETRO_MEMORY_TYPE_RTC">
+        <doc xml:space="preserve"
+             filename="../shared/retro-memory-type.h"
+             line="16">the real time clock</doc>
+      </member>
+      <member name="system_ram"
+              value="2"
+              c:identifier="RETRO_MEMORY_TYPE_SYSTEM_RAM">
+        <doc xml:space="preserve"
+             filename="../shared/retro-memory-type.h"
+             line="17">the system RAM</doc>
+      </member>
+      <member name="video_ram"
+              value="3"
+              c:identifier="RETRO_MEMORY_TYPE_VIDEO_RAM">
+        <doc xml:space="preserve"
+             filename="../shared/retro-memory-type.h"
+             line="18">the video RAM</doc>
+      </member>
+    </enumeration>
+    <class name="ModuleIterator"
+           c:symbol-prefix="module_iterator"
+           c:type="RetroModuleIterator"
+           parent="GObject.Object"
+           glib:type-name="RetroModuleIterator"
+           glib:get-type="retro_module_iterator_get_type"
+           glib:type-struct="ModuleIteratorClass">
+      <source-position filename="../retro-gtk/retro-module-iterator.h"
+                       line="16"/>
+      <constructor name="new" c:identifier="retro_module_iterator_new">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-module-iterator.c"
+             line="282">Creates a new #RetroModuleIterator.</doc>
+        <source-position filename="../retro-gtk/retro-module-iterator.h"
+                         line="18"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-module-iterator.c"
+               line="290">a new #RetroModuleIterator</doc>
+          <type name="ModuleIterator" c:type="RetroModuleIterator*"/>
+        </return-value>
+        <parameters>
+          <parameter name="lookup_paths" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-module-iterator.c"
+                 line="284">paths where to look for Libretro
+cores</doc>
+            <array c:type="const gchar* const*">
+              <type name="utf8" c:type="gchar*"/>
+            </array>
+          </parameter>
+          <parameter name="recursive" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-module-iterator.c"
+                 line="286">whether to run the query in sub-directories</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get" c:identifier="retro_module_iterator_get">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-module-iterator.c"
+             line="223">Gets the last #RetroCoreDescriptor fetched by retro_module_iterator_next(),
+or %NULL if the end was reached.</doc>
+        <source-position filename="../retro-gtk/retro-module-iterator.h"
+                         line="20"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-module-iterator.c"
+               line="230">a #RetroCoreDescriptor, or %NULL</doc>
+          <type name="CoreDescriptor" c:type="RetroCoreDescriptor*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-module-iterator.c"
+                 line="225">a #RetroModuleIterator</doc>
+            <type name="ModuleIterator" c:type="RetroModuleIterator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="next" c:identifier="retro_module_iterator_next">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-module-iterator.c"
+             line="242">Fetch the next #RetroModuleIterator.</doc>
+        <source-position filename="../retro-gtk/retro-module-iterator.h"
+                         line="21"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-module-iterator.c"
+               line="248">%FALSE if it reached the end, %TRUE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-module-iterator.c"
+                 line="244">a #RetroModuleIterator</doc>
+            <type name="ModuleIterator" c:type="RetroModuleIterator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="ModuleIteratorClass"
+            c:type="RetroModuleIteratorClass"
+            glib:is-gtype-struct-for="ModuleIterator">
+      <source-position filename="../retro-gtk/retro-module-iterator.h"
+                       line="16"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="ModuleQuery"
+           c:symbol-prefix="module_query"
+           c:type="RetroModuleQuery"
+           parent="GObject.Object"
+           glib:type-name="RetroModuleQuery"
+           glib:get-type="retro_module_query_get_type"
+           glib:type-struct="ModuleQueryClass">
+      <source-position filename="../retro-gtk/retro-module-query.h" line="16"/>
+      <constructor name="new" c:identifier="retro_module_query_new">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-module-query.c"
+             line="85">Creates a new #RetroModuleQuery.</doc>
+        <source-position filename="../retro-gtk/retro-module-query.h"
+                         line="18"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-module-query.c"
+               line="91">a new #RetroModuleQuery</doc>
+          <type name="ModuleQuery" c:type="RetroModuleQuery*"/>
+        </return-value>
+        <parameters>
+          <parameter name="recursive" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-module-query.c"
+                 line="87">whether to run the query in sub-directories</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="iterator" c:identifier="retro_module_query_iterator">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-module-query.c"
+             line="64">Creates a new #RetroModuleIterator.</doc>
+        <source-position filename="../retro-gtk/retro-module-query.h"
+                         line="19"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-module-query.c"
+               line="70">a new #RetroModuleIterator</doc>
+          <type name="ModuleIterator" c:type="RetroModuleIterator*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-module-query.c"
+                 line="66">a #RetroModuleQuery</doc>
+            <type name="ModuleQuery" c:type="RetroModuleQuery*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="ModuleQueryClass"
+            c:type="RetroModuleQueryClass"
+            glib:is-gtype-struct-for="ModuleQuery">
+      <source-position filename="../retro-gtk/retro-module-query.h" line="16"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="MouseId"
+                 glib:type-name="RetroMouseId"
+                 glib:get-type="retro_mouse_id_get_type"
+                 c:type="RetroMouseId">
+      <doc xml:space="preserve"
+           filename="../shared/retro-controller-codes.h"
+           line="70">Represents the inputs for the Libretro mouse.</doc>
+      <member name="x" value="0" c:identifier="RETRO_MOUSE_ID_X" glib:nick="x">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="72">the X axis of a mouse</doc>
+      </member>
+      <member name="y" value="1" c:identifier="RETRO_MOUSE_ID_Y" glib:nick="y">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="73">the Y axis of a mouse</doc>
+      </member>
+      <member name="left"
+              value="2"
+              c:identifier="RETRO_MOUSE_ID_LEFT"
+              glib:nick="left">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="74">the left button of a mouse</doc>
+      </member>
+      <member name="right"
+              value="3"
+              c:identifier="RETRO_MOUSE_ID_RIGHT"
+              glib:nick="right">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="75">the right button of a mouse</doc>
+      </member>
+      <member name="wheelup"
+              value="4"
+              c:identifier="RETRO_MOUSE_ID_WHEELUP"
+              glib:nick="wheelup">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="76">the up direction of a mouse wheel</doc>
+      </member>
+      <member name="wheeldown"
+              value="5"
+              c:identifier="RETRO_MOUSE_ID_WHEELDOWN"
+              glib:nick="wheeldown">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="77">the down direction of a mouse wheel</doc>
+      </member>
+      <member name="middle"
+              value="6"
+              c:identifier="RETRO_MOUSE_ID_MIDDLE"
+              glib:nick="middle">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="78">the middle button of a mouse</doc>
+      </member>
+      <member name="horiz_wheelup"
+              value="7"
+              c:identifier="RETRO_MOUSE_ID_HORIZ_WHEELUP"
+              glib:nick="horiz-wheelup">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="79">the horizontal up direction of a mouse wheel</doc>
+      </member>
+      <member name="horiz_wheeldown"
+              value="8"
+              c:identifier="RETRO_MOUSE_ID_HORIZ_WHEELDOWN"
+              glib:nick="horiz-wheeldown">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="80">the horizontal down direction of a mouse wheel</doc>
+      </member>
+      <member name="button_4"
+              value="9"
+              c:identifier="RETRO_MOUSE_ID_BUTTON_4"
+              glib:nick="button-4">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="81">the fourth button of a mouse</doc>
+      </member>
+      <member name="button_5"
+              value="10"
+              c:identifier="RETRO_MOUSE_ID_BUTTON_5"
+              glib:nick="button-5">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="82">the fifth button of a mouse</doc>
+      </member>
+    </enumeration>
+    <class name="Option"
+           c:symbol-prefix="option"
+           c:type="RetroOption"
+           parent="GObject.Object"
+           glib:type-name="RetroOption"
+           glib:get-type="retro_option_get_type"
+           glib:type-struct="OptionClass">
+      <source-position filename="../retro-gtk/retro-option.h" line="15"/>
+      <method name="get_description"
+              c:identifier="retro_option_get_description">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-option.c"
+             line="92">Gets the description of @self.</doc>
+        <source-position filename="../retro-gtk/retro-option.h" line="18"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-option.c"
+               line="98">the description of @self</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-option.c"
+                 line="94">a #RetroOption</doc>
+            <type name="Option" c:type="RetroOption*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_key" c:identifier="retro_option_get_key">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-option.c"
+             line="76">Gets the key of @self.</doc>
+        <source-position filename="../retro-gtk/retro-option.h" line="17"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-option.c"
+               line="82">the key of @self</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-option.c"
+                 line="78">a #RetroOption</doc>
+            <type name="Option" c:type="RetroOption*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_value" c:identifier="retro_option_get_value">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-option.c"
+             line="125">Gets the value of @self.</doc>
+        <source-position filename="../retro-gtk/retro-option.h" line="20"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-option.c"
+               line="131">the value of @self</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-option.c"
+                 line="127">a #RetroOption</doc>
+            <type name="Option" c:type="RetroOption*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_values" c:identifier="retro_option_get_values">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-option.c"
+             line="108">Gets the value of @self.</doc>
+        <source-position filename="../retro-gtk/retro-option.h" line="19"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-option.c"
+               line="114">the
+value of @self</doc>
+          <array c:type="const gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-option.c"
+                 line="110">a #RetroOption</doc>
+            <type name="Option" c:type="RetroOption*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_value"
+              c:identifier="retro_option_set_value"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-option.c"
+             line="141">Sets the value for @self. An error will be thrown if the value is invalid for
+@self.</doc>
+        <source-position filename="../retro-gtk/retro-option.h" line="21"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-option.c"
+                 line="143">a #RetroOption</doc>
+            <type name="Option" c:type="RetroOption*"/>
+          </instance-parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-option.c"
+                 line="144">the value</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <glib:signal name="value-changed" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="OptionClass"
+            c:type="RetroOptionClass"
+            glib:is-gtype-struct-for="Option">
+      <source-position filename="../retro-gtk/retro-option.h" line="15"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="OptionIterator"
+           c:symbol-prefix="option_iterator"
+           c:type="RetroOptionIterator"
+           parent="GObject.Object"
+           glib:type-name="RetroOptionIterator"
+           glib:get-type="retro_option_iterator_get_type"
+           glib:type-struct="OptionIteratorClass">
+      <source-position filename="../retro-gtk/retro-option-iterator.h"
+                       line="16"/>
+      <method name="next" c:identifier="retro_option_iterator_next">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-option-iterator.c"
+             line="43">Fetch the next #RetroOption and its key.</doc>
+        <source-position filename="../retro-gtk/retro-option-iterator.h"
+                         line="18"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-option-iterator.c"
+               line="51">%FALSE if it reached the end, %TRUE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-option-iterator.c"
+                 line="45">a #RetroOptionIterator</doc>
+            <type name="OptionIterator" c:type="RetroOptionIterator*"/>
+          </instance-parameter>
+          <parameter name="key"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-option-iterator.c"
+                 line="46">return location for the key</doc>
+            <type name="guint" c:type="guint**"/>
+          </parameter>
+          <parameter name="option"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none"
+                     nullable="1"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-option-iterator.c"
+                 line="47">return location for the option</doc>
+            <type name="Option" c:type="RetroOption**"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="OptionIteratorClass"
+            c:type="RetroOptionIteratorClass"
+            glib:is-gtype-struct-for="OptionIterator">
+      <source-position filename="../retro-gtk/retro-option-iterator.h"
+                       line="16"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="Pixdata"
+            c:type="RetroPixdata"
+            glib:type-name="RetroPixdata"
+            glib:get-type="retro_pixdata_get_type"
+            c:symbol-prefix="pixdata">
+      <source-position filename="../retro-gtk/retro-pixdata.h" line="18"/>
+      <method name="copy" c:identifier="retro_pixdata_copy">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-pixdata.c"
+             line="237">Copies @self into a new #RetroPixdata.</doc>
+        <source-position filename="../retro-gtk/retro-pixdata.h" line="20"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-pixdata.c"
+               line="243">a new #RetroPixdata, use retro_pixdata_free() to
+free it</doc>
+          <type name="Pixdata" c:type="RetroPixdata*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-pixdata.c"
+                 line="239">a #RetroPixdata</doc>
+            <type name="Pixdata" c:type="RetroPixdata*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="retro_pixdata_free">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-pixdata.c"
+             line="256">Frees the given #RetroPixdata object.</doc>
+        <source-position filename="../retro-gtk/retro-pixdata.h" line="21"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-pixdata.c"
+                 line="258">a #RetroPixdata</doc>
+            <type name="Pixdata" c:type="RetroPixdata*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_aspect_ratio"
+              c:identifier="retro_pixdata_get_aspect_ratio">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-pixdata.c"
+             line="304">Gets the aspect ratio the video should be rendered with.</doc>
+        <source-position filename="../retro-gtk/retro-pixdata.h" line="24"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-pixdata.c"
+               line="310">the aspect ratio</doc>
+          <type name="gfloat" c:type="gfloat"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-pixdata.c"
+                 line="306">a #RetroCore</doc>
+            <type name="Pixdata" c:type="RetroPixdata*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_height" c:identifier="retro_pixdata_get_height">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-pixdata.c"
+             line="288">Gets the height of @self.</doc>
+        <source-position filename="../retro-gtk/retro-pixdata.h" line="23"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-pixdata.c"
+               line="294">the height</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-pixdata.c"
+                 line="290">a #RetroCore</doc>
+            <type name="Pixdata" c:type="RetroPixdata*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_width" c:identifier="retro_pixdata_get_width">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-pixdata.c"
+             line="272">Gets the width of @self.</doc>
+        <source-position filename="../retro-gtk/retro-pixdata.h" line="22"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-pixdata.c"
+               line="278">the width</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-pixdata.c"
+                 line="274">a #RetroCore</doc>
+            <type name="Pixdata" c:type="RetroPixdata*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="load_gl_texture"
+              c:identifier="retro_pixdata_load_gl_texture">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-pixdata.c"
+             line="376">Loads an OpenGL texture from @self.</doc>
+        <source-position filename="../retro-gtk/retro-pixdata.h" line="26"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-pixdata.c"
+               line="382">whether the loading was successful</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-pixdata.c"
+                 line="378">the #RetroPixdata</doc>
+            <type name="Pixdata" c:type="RetroPixdata*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="to_pixbuf" c:identifier="retro_pixdata_to_pixbuf">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-pixdata.c"
+             line="320">Creates a new #GdkPixbuf from @self.
+
+The #GdkPixbuf stores the intended aspect-ratio, you can access it via
+retro_pixbuf_get_aspect_ratio().</doc>
+        <source-position filename="../retro-gtk/retro-pixdata.h" line="25"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-pixdata.c"
+               line="329">a new #RetroPixdata</doc>
+          <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-pixdata.c"
+                 line="322">the #RetroPixdata</doc>
+            <type name="Pixdata" c:type="RetroPixdata*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <enumeration name="PointerId"
+                 glib:type-name="RetroPointerId"
+                 glib:get-type="retro_pointer_id_get_type"
+                 c:type="RetroPointerId">
+      <doc xml:space="preserve"
+           filename="../shared/retro-controller-codes.h"
+           line="166">Represents the inputs for the Libretro pointer.</doc>
+      <member name="x"
+              value="0"
+              c:identifier="RETRO_POINTER_ID_X"
+              glib:nick="x">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="168">the X axis of a pointer</doc>
+      </member>
+      <member name="y"
+              value="1"
+              c:identifier="RETRO_POINTER_ID_Y"
+              glib:nick="y">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="169">the Y axis of a pointer</doc>
+      </member>
+      <member name="pressed"
+              value="2"
+              c:identifier="RETRO_POINTER_ID_PRESSED"
+              glib:nick="pressed">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.h"
+             line="170">the pression of a pointer</doc>
+      </member>
+    </enumeration>
+    <enumeration name="RumbleEffect"
+                 glib:type-name="RetroRumbleEffect"
+                 glib:get-type="retro_rumble_effect_get_type"
+                 c:type="RetroRumbleEffect">
+      <doc xml:space="preserve"
+           filename="../shared/retro-rumble-effect.h"
+           line="17">Represents the strength of the rumble effect.</doc>
+      <member name="strong"
+              value="0"
+              c:identifier="RETRO_RUMBLE_EFFECT_STRONG"
+              glib:nick="strong">
+        <doc xml:space="preserve"
+             filename="../shared/retro-rumble-effect.h"
+             line="19">the strong rumble effect</doc>
+      </member>
+      <member name="weak"
+              value="1"
+              c:identifier="RETRO_RUMBLE_EFFECT_WEAK"
+              glib:nick="weak">
+        <doc xml:space="preserve"
+             filename="../shared/retro-rumble-effect.h"
+             line="20">the weak rumble effect</doc>
+      </member>
+    </enumeration>
+    <enumeration name="VideoFilter"
+                 glib:type-name="RetroVideoFilter"
+                 glib:get-type="retro_video_filter_get_type"
+                 c:type="RetroVideoFilter">
+      <doc xml:space="preserve"
+           filename="../retro-gtk/retro-video-filter.h"
+           line="17">Represents the filters that can be applied to the video output.</doc>
+      <member name="smooth"
+              value="0"
+              c:identifier="RETRO_VIDEO_FILTER_SMOOTH"
+              glib:nick="smooth">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-video-filter.h"
+             line="19">a smooth but blurry video filer</doc>
+      </member>
+      <member name="sharp"
+              value="1"
+              c:identifier="RETRO_VIDEO_FILTER_SHARP"
+              glib:nick="sharp">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-video-filter.h"
+             line="20">a sharp video filter showing every pixel</doc>
+      </member>
+      <member name="crt"
+              value="2"
+              c:identifier="RETRO_VIDEO_FILTER_CRT"
+              glib:nick="crt">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-video-filter.h"
+             line="21">a video filter mimicking CRT screens</doc>
+      </member>
+      <function name="from_string"
+                c:identifier="retro_video_filter_from_string">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-video-filter.c"
+             line="12">Gets a #RetroVideoFilter from it's name. It defaults to
+RETRO_VIDEO_FILTER_SMOOTH in case of error.</doc>
+        <source-position filename="../retro-gtk/retro-video-filter.h"
+                         line="32"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-video-filter.c"
+               line="19">a #RetroVideoFilter</doc>
+          <type name="VideoFilter" c:type="RetroVideoFilter"/>
+        </return-value>
+        <parameters>
+          <parameter name="filter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../retro-gtk/retro-video-filter.c"
+                 line="14">a filter name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+    </enumeration>
+    <function name="controller_type_get_id_count"
+              c:identifier="retro_controller_type_get_id_count"
+              moved-to="ControllerType.get_id_count">
+      <source-position filename="../shared/retro-controller-type.h" line="42"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="type" transfer-ownership="none">
+          <type name="ControllerType" c:type="RetroControllerType"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="controller_type_get_index_count"
+              c:identifier="retro_controller_type_get_index_count"
+              moved-to="ControllerType.get_index_count">
+      <source-position filename="../shared/retro-controller-type.h" line="43"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="type" transfer-ownership="none">
+          <type name="ControllerType" c:type="RetroControllerType"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="g_log" c:identifier="retro_g_log">
+      <doc xml:space="preserve"
+           filename="../retro-gtk/retro-log.c"
+           line="16">Logs an error or debugging message.
+
+This is a convenience function to forward the #RetroCore::log signal of
+#RetroCore to g_log(), see it for more information.</doc>
+      <source-position filename="../retro-gtk/retro-log.h" line="14"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="sender" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-log.c"
+               line="18">a #RetroCore</doc>
+          <type name="Core" c:type="RetroCore*"/>
+        </parameter>
+        <parameter name="log_domain"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-log.c"
+               line="19">the log domain, usually #G_LOG_DOMAIN, or %NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="log_level" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-log.c"
+               line="20">the log level, either from #GLogLevelFlags or a user-defined
+level</doc>
+          <type name="GLib.LogLevelFlags" c:type="GLogLevelFlags"/>
+        </parameter>
+        <parameter name="message" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-log.c"
+               line="22">the message to log</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_get_resource" c:identifier="retro_gtk_get_resource">
+      <source-position filename="../retro-gtk/retro_gtk_resources.h" line="6"/>
+      <return-value transfer-ownership="full">
+        <type name="Gio.Resource" c:type="GResource*"/>
+      </return-value>
+    </function>
+    <function name="joypad_id_from_button_code"
+              c:identifier="retro_joypad_id_from_button_code"
+              moved-to="JoypadId.from_button_code">
+      <source-position filename="../shared/retro-controller-codes.h"
+                       line="64"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.c"
+             line="51">the corresponding joypad id</doc>
+        <type name="JoypadId" c:type="RetroJoypadId"/>
+      </return-value>
+      <parameters>
+        <parameter name="button_code" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../shared/retro-controller-codes.c"
+               line="49">a button code</doc>
+          <type name="guint16" c:type="guint16"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="joypad_id_to_button_code"
+              c:identifier="retro_joypad_id_to_button_code"
+              moved-to="JoypadId.to_button_code">
+      <source-position filename="../shared/retro-controller-codes.h"
+                       line="63"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../shared/retro-controller-codes.c"
+             line="36">the corresponding button code</doc>
+        <type name="guint16" c:type="guint16"/>
+      </return-value>
+      <parameters>
+        <parameter name="joypad_id" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../shared/retro-controller-codes.c"
+               line="34">a #RetroJoypadId</doc>
+          <type name="JoypadId" c:type="RetroJoypadId"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="pixbuf_get_aspect_ratio"
+              c:identifier="retro_pixbuf_get_aspect_ratio">
+      <doc xml:space="preserve"
+           filename="../retro-gtk/retro-pixbuf.c"
+           line="15">Gets the aspect ratio of @pixbuf by reading the 'aspect-ratio' pixbuf option.</doc>
+      <source-position filename="../retro-gtk/retro-pixbuf.h" line="14"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-pixbuf.c"
+             line="21">the aspect ratio, or 0 if the option is not set or its value is invalid.</doc>
+        <type name="gfloat" c:type="gfloat"/>
+      </return-value>
+      <parameters>
+        <parameter name="pixbuf" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-pixbuf.c"
+               line="17">a #GdkPixbuf</doc>
+          <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="pixbuf_set_aspect_ratio"
+              c:identifier="retro_pixbuf_set_aspect_ratio">
+      <doc xml:space="preserve"
+           filename="../retro-gtk/retro-pixbuf.c"
+           line="41">Sets the aspect ratio of @pixbuf by setting the 'aspect-ratio' pixbuf option.
+Use retro_pixbuf_get_aspect_ratio() to retrieve it.</doc>
+      <source-position filename="../retro-gtk/retro-pixbuf.h" line="15"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="pixbuf" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-pixbuf.c"
+               line="43">a #GdkPixbuf</doc>
+          <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+        </parameter>
+        <parameter name="aspect_ratio" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-pixbuf.c"
+               line="44">the aspect ratio value</doc>
+          <type name="gfloat" c:type="gfloat"/>
+        </parameter>
+      </parameters>
+    </function>
+    <docsection name="retro-input">
+      <doc xml:space="preserve"
+           filename="../shared/retro-input.c"
+           line="3">The #RetroInput structure represents an input from a controller, like a
+button, an axis, or a key.
+
+To know the represented input type, first check the input's controller type
+via retro_input_get_controller_type(), then use the accessor function
+matching it.
+E.g. if the controller type is %RETRO_CONTROLLER_TYPE_JOYPAD, you can know
+which joypad input type is represented via retro_input_get_joypad().</doc>
+    </docsection>
+    <docsection name="retro-log">
+      <doc xml:space="preserve"
+           filename="../retro-gtk/retro-log.c"
+           line="3">Convenience functions to connect to the #RetroCore::log signal of #RetroCore.</doc>
+    </docsection>
+    <docsection name="retro-pixbuf">
+      <doc xml:space="preserve"
+           filename="../retro-gtk/retro-pixbuf.c"
+           line="3">Convenience functions to handle the options of a #GdkPixbuf.</doc>
+    </docsection>
+    <docsection name="retro-pixdata">
+      <doc xml:space="preserve"
+           filename="../retro-gtk/retro-pixdata.c"
+           line="3">The #RetroPixdata structure holds the internal representation of a
+#RetroCore's video output. To use the image, either convert it to a
+#GdkPixbuf via retro_pixdata_to_pixbuf() or load it as an OpenGL texture via
+retro_pixdata_load_gl_texture().
+
+The generated #GdkPixbuf will store the intended aspect-ratio, you can access
+it via retro_pixbuf_get_aspect_ratio().</doc>
+    </docsection>
+    <function name="video_filter_from_string"
+              c:identifier="retro_video_filter_from_string"
+              moved-to="VideoFilter.from_string">
+      <doc xml:space="preserve"
+           filename="../retro-gtk/retro-video-filter.c"
+           line="12">Gets a #RetroVideoFilter from it's name. It defaults to
+RETRO_VIDEO_FILTER_SMOOTH in case of error.</doc>
+      <source-position filename="../retro-gtk/retro-video-filter.h" line="32"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../retro-gtk/retro-video-filter.c"
+             line="19">a #RetroVideoFilter</doc>
+        <type name="VideoFilter" c:type="RetroVideoFilter"/>
+      </return-value>
+      <parameters>
+        <parameter name="filter" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../retro-gtk/retro-video-filter.c"
+               line="14">a filter name</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

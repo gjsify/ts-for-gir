@@ -1,0 +1,575 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <c:include name="libmediaart/mediaart.h"/>
+  <namespace name="MediaArt"
+             version="1.0"
+             shared-library="libmediaart-1.0.so.0"
+             c:identifier-prefixes="MediaArt"
+             c:symbol-prefixes="media_art">
+    <enumeration name="Error"
+                 version="0.2.0"
+                 c:type="MediaArtError"
+                 glib:error-domain="media-art-error-quark">
+      <doc xml:space="preserve">Enumeration values used in errors returned by the
+#MediaArtError API.</doc>
+      <member name="no_storage"
+              value="0"
+              c:identifier="MEDIA_ART_ERROR_NO_STORAGE">
+        <doc xml:space="preserve">Storage information is unknown, we
+have no knowledge about removable media.</doc>
+      </member>
+      <member name="no_title"
+              value="1"
+              c:identifier="MEDIA_ART_ERROR_NO_TITLE">
+        <doc xml:space="preserve">Title is required, but was not provided,
+or was empty.</doc>
+      </member>
+      <member name="symlink_failed"
+              value="2"
+              c:identifier="MEDIA_ART_ERROR_SYMLINK_FAILED">
+        <doc xml:space="preserve">A call to symlink() failed
+resulting in the incorrect storage of media art.</doc>
+      </member>
+      <member name="rename_failed"
+              value="3"
+              c:identifier="MEDIA_ART_ERROR_RENAME_FAILED">
+        <doc xml:space="preserve">File could not be renamed.</doc>
+      </member>
+    </enumeration>
+    <class name="Process"
+           c:symbol-prefix="process"
+           c:type="MediaArtProcess"
+           parent="GObject.Object"
+           glib:type-name="MediaArtProcess"
+           glib:get-type="media_art_process_get_type"
+           glib:type-struct="ProcessClass">
+      <doc xml:space="preserve">A class implementation for processing and extracting media art.</doc>
+      <implements name="Gio.Initable"/>
+      <constructor name="new"
+                   c:identifier="media_art_process_new"
+                   version="0.5.0"
+                   throws="1">
+        <doc xml:space="preserve">Initialize a GObject for processing and extracting media art.
+
+This function initializes cache hash tables, backend plugins,
+storage modules used for removable devices and a connection to D-Bus.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">A new #MediaArtProcess object on success or %NULL if
+@error is set. This object must be freed using g_object_unref().</doc>
+          <type name="Process" c:type="MediaArtProcess*"/>
+        </return-value>
+      </constructor>
+      <method name="buffer"
+              c:identifier="media_art_process_buffer"
+              version="0.5.0"
+              throws="1">
+        <doc xml:space="preserve">Processes a memory buffer represented by @buffer and @len. If you
+have extracted any embedded media art and passed this in as
+@buffer, the image data will be converted to the correct format and
+saved in the media art cache.
+
+Either @artist OR @title can be %NULL, but they can not both be %NULL.
+
+If @file is on a removable filesystem, the media art file will be saved in a
+cache on the removable file system rather than on the host machine.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if @file could be processed or %FALSE if @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="process" transfer-ownership="none">
+            <doc xml:space="preserve">Media art process object</doc>
+            <type name="Process" c:type="MediaArtProcess*"/>
+          </instance-parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve">The type of media</doc>
+            <type name="Type" c:type="MediaArtType"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve">The options given for how to process the media art</doc>
+            <type name="ProcessFlags" c:type="MediaArtProcessFlags"/>
+          </parameter>
+          <parameter name="related_file" transfer-ownership="none">
+            <doc xml:space="preserve">File related to the media art</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+          <parameter name="buffer"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a buffer containing @file data, or %NULL</doc>
+            <array length="4" zero-terminated="0" c:type="guchar*">
+              <type name="guint8" c:type="guchar"/>
+            </array>
+          </parameter>
+          <parameter name="len" transfer-ownership="none">
+            <doc xml:space="preserve">length of @buffer, or 0</doc>
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+          <parameter name="mime" transfer-ownership="none">
+            <doc xml:space="preserve">MIME type of @buffer, or %NULL</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="artist"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">The artist name @file or %NULL</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="title"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">The title for @file or %NULL</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="file"
+              c:identifier="media_art_process_file"
+              version="0.3.0"
+              throws="1">
+        <doc xml:space="preserve">Process @file and check if media art exists and if it is up to date
+with @artist and @title provided. Either @artist OR @title can be
+%NULL, but they can not both be %NULL.
+
+NOTE: This function MAY retrieve media art for
+@artist and @title combinations. It is not guaranteed and depends
+on download services available over DBus at the time.
+
+In cases where download is unavailable, media_art_process_file()
+will only try to procure a cache for possible media art found in
+directories surrounding the location of @file. If a buffer or
+memory chunk needs to be saved to disk which has been retrieved
+from an MP3 (for example), you should use
+media_art_process_buffer().
+
+The modification time (mtime) of @file is checked against the
+cached stored for @artist and @title. If the cache is old or
+doesn't exist, it will be updated. What this actually does is
+update the mtime of the cache (a symlink) on the disk.
+
+If there is no actual media art stored locally (for example, it's
+stored in a directory on a removable device), it is copied locally
+(usually to an XDG cache directory).
+
+If @file is on a removable filesystem, the media art file will be
+saved in a cache on the removable file system rather than on the
+host machine.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if @file could be processed or %FALSE if @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="process" transfer-ownership="none">
+            <doc xml:space="preserve">Media art process object</doc>
+            <type name="Process" c:type="MediaArtProcess*"/>
+          </instance-parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve">The type of media</doc>
+            <type name="Type" c:type="MediaArtType"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve">The options given for how to process the media art</doc>
+            <type name="ProcessFlags" c:type="MediaArtProcessFlags"/>
+          </parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">File to be processed</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+          <parameter name="artist"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">The artist name @file or %NULL</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="title"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">The title for @file or %NULL</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="uri"
+              c:identifier="media_art_process_uri"
+              version="0.5.0"
+              throws="1">
+        <doc xml:space="preserve">This function calls media_art_process_file(), but takes the @uri as
+a string rather than a #GFile object. Either @artist OR @title can be
+%NULL, but they can not both be %NULL.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if @uri could be processed or %FALSE if @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="process" transfer-ownership="none">
+            <doc xml:space="preserve">Media art process object</doc>
+            <type name="Process" c:type="MediaArtProcess*"/>
+          </instance-parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve">The type of media that contained the image data</doc>
+            <type name="Type" c:type="MediaArtType"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve">How the media art is processed</doc>
+            <type name="ProcessFlags" c:type="MediaArtProcessFlags"/>
+          </parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve">URI of the media file that contained the data</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="artist"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">The artist name @uri or %NULL</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="title"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">The title for @uri or %NULL</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <doc xml:space="preserve">parent object</doc>
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ProcessClass"
+            c:type="MediaArtProcessClass"
+            glib:is-gtype-struct-for="Process">
+      <doc xml:space="preserve">Prototype for the class.</doc>
+      <field name="parent">
+        <doc xml:space="preserve">parent object class</doc>
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <bitfield name="ProcessFlags"
+              version="0.3.0"
+              c:type="MediaArtProcessFlags">
+      <doc xml:space="preserve">This type categorized the flags used when processing media art.</doc>
+      <member name="none"
+              value="0"
+              c:identifier="MEDIA_ART_PROCESS_FLAGS_NONE">
+        <doc xml:space="preserve">Normal operation.</doc>
+      </member>
+      <member name="force"
+              value="1"
+              c:identifier="MEDIA_ART_PROCESS_FLAGS_FORCE">
+        <doc xml:space="preserve">Force media art to be re-saved to disk even if it already exists and the related file or URI has the same modified time (mtime).</doc>
+      </member>
+    </bitfield>
+    <enumeration name="Type" c:type="MediaArtType">
+      <doc xml:space="preserve">This type categorized the type of media art we're dealing with.</doc>
+      <member name="none" value="0" c:identifier="MEDIA_ART_NONE">
+        <doc xml:space="preserve">No media art is available</doc>
+      </member>
+      <member name="album" value="1" c:identifier="MEDIA_ART_ALBUM">
+        <doc xml:space="preserve">Media art is an album</doc>
+      </member>
+      <member name="video" value="2" c:identifier="MEDIA_ART_VIDEO">
+        <doc xml:space="preserve">Media art is a movie or video</doc>
+      </member>
+    </enumeration>
+    <function name="buffer_to_jpeg"
+              c:identifier="media_art_buffer_to_jpeg"
+              version="0.1.0"
+              throws="1">
+      <doc xml:space="preserve">This function performs the same operation as
+media_art_file_to_jpeg() with the exception that a raw @buffer can
+be used instead providing @len and the @buffer_mime too.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">%TRUE if conversion was successful, otherwise %FALSE is
+returned if @error is set.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="buffer" transfer-ownership="none">
+          <doc xml:space="preserve">Raw buffer representing content to save</doc>
+          <type name="guint8" c:type="const unsigned char*"/>
+        </parameter>
+        <parameter name="len" transfer-ownership="none">
+          <doc xml:space="preserve">Length of @buffer to use</doc>
+          <type name="gulong" c:type="size_t"/>
+        </parameter>
+        <parameter name="buffer_mime" transfer-ownership="none">
+          <doc xml:space="preserve">MIME type for @buffer</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="target" transfer-ownership="none">
+          <doc xml:space="preserve">Output file name (not URI) to save converted content to</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="error_quark"
+              c:identifier="media_art_error_quark"
+              version="0.2.0">
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">A #GQuark representing the type of #GError for #MediaArtProcess failures.</doc>
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="file_to_jpeg"
+              c:identifier="media_art_file_to_jpeg"
+              version="0.1.0"
+              throws="1">
+      <doc xml:space="preserve">Save @filename to @target as JPEG format. The @filename may not be
+a JPEG in the first place.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">%TRUE if conversion was successful, otherwise %FALSE is
+returned if @error is set.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="filename" transfer-ownership="none">
+          <doc xml:space="preserve">Original file name (not URI) to convert</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="target" transfer-ownership="none">
+          <doc xml:space="preserve">Output file name (not URI) to save converted content to</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_file"
+              c:identifier="media_art_get_file"
+              version="0.2.0">
+      <doc xml:space="preserve">Gets the files pointing to cache files suitable for storing the media
+art provided by the @artist, @title and @file arguments. @cache_file
+will point to a location in the XDG user cache directory, meanwhile
+@local_file will point to a cache file that resides in the same
+filesystem than @file.
+
+The @file provided is required if @local_file is to be returned.
+The @local_file relates to a location on the media the local file
+system or media storage it is found on, so for example, if you have
+a mounted volume with MP3s on it in
+&lt;filename&gt;file:///media/martyn/pendrive&lt;/filename&gt;, the @local_file
+will point to a URI that looks like
+&lt;filename&gt;file:///media/martyn/pendrive/.mediaartlocal/...&lt;/filename&gt;.
+
+The @cache_file is very different to the @local_file, the
+@cache_file relates to a symlink stored in XDG cache directories
+for the user. A @cache_file would be expected to look like
+&lt;filename&gt;file:///home/martyn/.cache/media-art/...&lt;/filename&gt;. This
+is normally the location that is most useful (assuming the cache
+has been extracted in the first place).
+
+When done, both #GFile&lt;!-- --&gt;s must be freed with g_object_unref() if
+non-%NULL.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">%TRUE if @cache_file or @local_file were returned, otherwise %FALSE.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="artist"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">the artist</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="title"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">the title</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="prefix"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">the prefix for cache files, for example "album"</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="file"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">a #GFile representing the actual media art or %NULL</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="cache_file"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve">a pointer to a
+#GFile which represents the cached file for media art, or %NULL
+a #GFile representing the user&amp;apos;s cache path, or %NULL</doc>
+          <type name="Gio.File" c:type="GFile**"/>
+        </parameter>
+        <parameter name="local_file"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve">a pointer to a
+#GFile representing the location of the local media art</doc>
+          <type name="Gio.File" c:type="GFile**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_path"
+              c:identifier="media_art_get_path"
+              version="0.2.0">
+      <doc xml:space="preserve">This function calls media_art_get_file() by creating a #GFile for
+@uri and passing the same arguments to media_art_get_file(). For more
+details about what this function does, see media_art_get_file().
+
+Get the path to media art for a given resource. Newly allocated
+data returned in @cache_path and @local_uri must be freed with g_free().</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">%TRUE if @cache_path or @local_uri were returned,
+otherwise %FALSE.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="artist"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">the artist</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="title"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">the title</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="prefix"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">the prefix, for example "album"</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="uri"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">the uri of the file or %NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="cache_path"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve">a string
+representing the path to the cache for this media art
+path or %NULL</doc>
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="local_uri"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve">a string
+representing the URI to the local media art or %NULL</doc>
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="plugin_init"
+              c:identifier="media_art_plugin_init"
+              version="0.1.0">
+      <doc xml:space="preserve">This function facilitates a plugin&amp;apos;s need to create any
+internal caches before anything else is done. This function must
+exist in each plugin and is called immediately after the plugin is
+loaded. Conversely, media_art_plugin_shutdown() is called before
+tear down of the plugin system or plugin itself.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="max_width" transfer-ownership="none">
+          <doc xml:space="preserve">The maximum width that an image is allowed to be</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="plugin_shutdown"
+              c:identifier="media_art_plugin_shutdown"
+              version="0.1.0">
+      <doc xml:space="preserve">This function facilitates a plugin&amp;apos;s need to clean up any
+internal caches. This function must exist in each plugin and is
+called immediately after the plugin is loaded. Conversely,
+media_art_plugin_init() is called after the plugin is loaded.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="remove" c:identifier="media_art_remove" version="0.2.0">
+      <doc xml:space="preserve">Removes media art for given album/artist provided.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">#TRUE on success, otherwise #FALSE.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="artist" transfer-ownership="none">
+          <doc xml:space="preserve">artist the media art belongs to</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="album"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve">album the media art belongs or %NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="strip_invalid_entities"
+              c:identifier="media_art_strip_invalid_entities"
+              version="0.2.0">
+      <doc xml:space="preserve">Strip a albumname or artistname string to prepare it for calculating the
+media art path with it. Certain characters and charactersets will be stripped
+and a newly allocated string returned which you must free with g_free().
+
+This functions is used internally by media_art_get_file() and
+media_art_get_path(). You will not normally need to call it yourself.
+
+This function provides the following features:
+1. Invalid characters include: ()[]&lt;&gt;{}_!@#$^&amp;*+=|\/"'?~;
+2. Text inside brackets of (), {}, [] and &lt;&gt; pairs are removed.
+3. Multiples of space characters are removed.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve">@original stripped of invalid characters which must be
+freed. On error or if @original is empty, %NULL is returned.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="original" transfer-ownership="none">
+          <doc xml:space="preserve">original string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

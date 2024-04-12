@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gck" version="2"/>
+  <include name="Gcr" version="4"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <package name="gcr-4-gtk3"/>
+  <c:include name="gcr-gtk3/gcr-gtk3.h"/>
+  <namespace name="GcrGtk3"
+             version="4"
+             shared-library="libgcr-4-gtk3.so.0.0.0"
+             c:identifier-prefixes="Gcr"
+             c:symbol-prefixes="gcr">
+    <class name="CertificateWidget"
+           c:symbol-prefix="certificate_widget"
+           c:type="GcrCertificateWidget"
+           parent="Gtk.Box"
+           glib:type-name="GcrCertificateWidget"
+           glib:get-type="gcr_certificate_widget_get_type"
+           glib:type-struct="CertificateWidgetClass">
+      <source-position filename="../gcr-gtk3/gcr-certificate-widget.h"
+                       line="22"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Orientable"/>
+      <constructor name="new" c:identifier="gcr_certificate_widget_new">
+        <doc xml:space="preserve"
+             filename="../gcr-gtk3/gcr-certificate-widget.c"
+             line="129">Create a new certificate widget which displays a given certificate.</doc>
+        <source-position filename="../gcr-gtk3/gcr-certificate-widget.h"
+                         line="24"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gcr-gtk3/gcr-certificate-widget.c"
+               line="135">a newly allocated #GcrCertificateWidget, which
+         should be freed with g_object_unref()</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="certificate"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../gcr-gtk3/gcr-certificate-widget.c"
+                 line="131">certificate to display, or %NULL</doc>
+            <type name="Gcr.Certificate" c:type="GcrCertificate*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_certificate"
+              c:identifier="gcr_certificate_widget_get_certificate"
+              glib:get-property="certificate">
+        <doc xml:space="preserve"
+             filename="../gcr-gtk3/gcr-certificate-widget.c"
+             line="144">Get the certificate displayed in the widget.</doc>
+        <source-position filename="../gcr-gtk3/gcr-certificate-widget.h"
+                         line="26"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="../gcr-gtk3/gcr-certificate-widget.c"
+               line="150">the certificate</doc>
+          <type name="Gcr.Certificate" c:type="GcrCertificate*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gcr-gtk3/gcr-certificate-widget.c"
+                 line="146">The certificate widget</doc>
+            <type name="CertificateWidget" c:type="GcrCertificateWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_certificate"
+              c:identifier="gcr_certificate_widget_set_certificate"
+              glib:set-property="certificate">
+        <doc xml:space="preserve"
+             filename="../gcr-gtk3/gcr-certificate-widget.c"
+             line="159">Set the certificate displayed in the widget</doc>
+        <source-position filename="../gcr-gtk3/gcr-certificate-widget.h"
+                         line="28"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gcr-gtk3/gcr-certificate-widget.c"
+                 line="161">The certificate widget</doc>
+            <type name="CertificateWidget" c:type="GcrCertificateWidget*"/>
+          </instance-parameter>
+          <parameter name="certificate"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../gcr-gtk3/gcr-certificate-widget.c"
+                 line="162">the certificate to display</doc>
+            <type name="Gcr.Certificate" c:type="GcrCertificate*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="certificate"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_certificate"
+                getter="get_certificate">
+        <type name="Gcr.Certificate"/>
+      </property>
+    </class>
+    <record name="CertificateWidgetClass"
+            c:type="GcrCertificateWidgetClass"
+            glib:is-gtype-struct-for="CertificateWidget">
+      <source-position filename="../gcr-gtk3/gcr-certificate-widget.h"
+                       line="22"/>
+      <field name="parent_class">
+        <type name="Gtk.BoxClass" c:type="GtkBoxClass"/>
+      </field>
+    </record>
+    <function-macro name="IS_SECURE_ENTRY_BUFFER"
+                    c:identifier="GCR_IS_SECURE_ENTRY_BUFFER"
+                    introspectable="0">
+      <source-position filename="../gcr-gtk3/gcr-secure-entry-buffer.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SECURE_ENTRY_BUFFER_CLASS"
+                    c:identifier="GCR_IS_SECURE_ENTRY_BUFFER_CLASS"
+                    introspectable="0">
+      <source-position filename="../gcr-gtk3/gcr-secure-entry-buffer.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SECURE_ENTRY_BUFFER"
+                    c:identifier="GCR_SECURE_ENTRY_BUFFER"
+                    introspectable="0">
+      <source-position filename="../gcr-gtk3/gcr-secure-entry-buffer.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SECURE_ENTRY_BUFFER_CLASS"
+                    c:identifier="GCR_SECURE_ENTRY_BUFFER_CLASS"
+                    introspectable="0">
+      <source-position filename="../gcr-gtk3/gcr-secure-entry-buffer.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SECURE_ENTRY_BUFFER_GET_CLASS"
+                    c:identifier="GCR_SECURE_ENTRY_BUFFER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../gcr-gtk3/gcr-secure-entry-buffer.h"
+                       line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="SecureEntryBuffer"
+           c:symbol-prefix="secure_entry_buffer"
+           c:type="GcrSecureEntryBuffer"
+           parent="Gtk.EntryBuffer"
+           glib:type-name="GcrSecureEntryBuffer"
+           glib:get-type="gcr_secure_entry_buffer_get_type"
+           glib:type-struct="SecureEntryBufferClass">
+      <doc xml:space="preserve"
+           filename="../gcr-gtk3/gcr-secure-entry-buffer.c"
+           line="30">A [class@Gtk.EntryBuffer] that uses non-pageable memory.
+
+It's good practice to try to keep passwords or sensitive secrets out of
+pageable memory whenever possible, so that they don't get written to disk.
+
+A [class@SecureEntryBuffer] is a [class@Gtk.EntryBuffer] to be used with
+[class@Gtk.Entry] which uses non-pageable memory to store a password placed
+in the entry. In order to make any sense at all, the entry must have it's
+visibility turned off, and just be displaying place holder characters for
+the text. That is, a password style entry.
+
+Use [ctor@Gtk.Entry.new_with_buffer] or [method@Gtk.Entry.set_buffer] to set this buffer
+on an entry.</doc>
+      <source-position filename="../gcr-gtk3/gcr-secure-entry-buffer.h"
+                       line="55"/>
+      <constructor name="new" c:identifier="gcr_secure_entry_buffer_new">
+        <doc xml:space="preserve"
+             filename="../gcr-gtk3/gcr-secure-entry-buffer.c"
+             line="204">Create a new secure entry buffer.</doc>
+        <source-position filename="../gcr-gtk3/gcr-secure-entry-buffer.h"
+                         line="59"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gcr-gtk3/gcr-secure-entry-buffer.c"
+               line="209">the new entry buffer</doc>
+          <type name="Gtk.EntryBuffer" c:type="GtkEntryBuffer*"/>
+        </return-value>
+      </constructor>
+      <field name="parent">
+        <type name="Gtk.EntryBuffer" c:type="GtkEntryBuffer"/>
+      </field>
+      <field name="pv" readable="0" private="1">
+        <type name="SecureEntryBufferPrivate"
+              c:type="GcrSecureEntryBufferPrivate*"/>
+      </field>
+    </class>
+    <record name="SecureEntryBufferClass"
+            c:type="GcrSecureEntryBufferClass"
+            glib:is-gtype-struct-for="SecureEntryBuffer">
+      <source-position filename="../gcr-gtk3/gcr-secure-entry-buffer.h"
+                       line="55"/>
+      <field name="parent_class">
+        <type name="Gtk.EntryBufferClass" c:type="GtkEntryBufferClass"/>
+      </field>
+    </record>
+    <record name="SecureEntryBufferPrivate"
+            c:type="GcrSecureEntryBufferPrivate"
+            disguised="1">
+      <source-position filename="../gcr-gtk3/gcr-secure-entry-buffer.h"
+                       line="43"/>
+    </record>
+  </namespace>
+</repository>

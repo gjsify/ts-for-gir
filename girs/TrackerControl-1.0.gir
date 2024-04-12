@@ -1,0 +1,869 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <c:include name="libtracker-control/tracker-control.h"/>
+  <namespace name="TrackerControl"
+             version="1.0"
+             shared-library="libtracker-control-1.0.so.0"
+             c:identifier-prefixes="Tracker"
+             c:symbol-prefixes="tracker">
+    <class name="MinerManager"
+           c:symbol-prefix="miner_manager"
+           c:type="TrackerMinerManager"
+           parent="GObject.Object"
+           glib:type-name="TrackerMinerManager"
+           glib:get-type="tracker_miner_manager_get_type"
+           glib:type-struct="MinerManagerClass">
+      <doc xml:space="preserve">Object to query and control miners.</doc>
+      <implements name="Gio.Initable"/>
+      <constructor name="new"
+                   c:identifier="tracker_miner_manager_new"
+                   version="0.8">
+        <doc xml:space="preserve">Creates a new #TrackerMinerManager instance.
+
+Note: Auto-starting miners when querying status will be enabled.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a #TrackerMinerManager or #NULL if an error happened.</doc>
+          <type name="MinerManager" c:type="TrackerMinerManager*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_full"
+                   c:identifier="tracker_miner_manager_new_full"
+                   version="0.10.5"
+                   throws="1">
+        <doc xml:space="preserve">Creates a new #TrackerMinerManager.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve">a #TrackerMinerManager. On error, #NULL is returned and @error is set
+accordingly.</doc>
+          <type name="MinerManager" c:type="TrackerMinerManager*"/>
+        </return-value>
+        <parameters>
+          <parameter name="auto_start" transfer-ownership="none">
+            <doc xml:space="preserve">Flag to disable auto-starting the miners when querying status</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="error_quark"
+                c:identifier="tracker_miner_manager_error_quark"
+                version="0.8">
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the #GQuark used to identify miner manager errors in
+GError structures.</doc>
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+      <virtual-method name="miner_activated">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="miner_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="miner_deactivated">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="miner_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="miner_paused">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="miner_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="miner_progress">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="miner_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="status" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="progress" transfer-ownership="none">
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="miner_resumed">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="miner_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_available"
+              c:identifier="tracker_miner_manager_get_available"
+              version="0.8">
+        <doc xml:space="preserve">Returns a list of references for all available miners. Available
+miners are miners which may or may not be running in a process at
+the current time.</doc>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve">a #GSList which
+must be freed with g_slist_free() and all contained data with g_free().
+Otherwise %NULL is returned if there are no miners.</doc>
+          <type name="GLib.SList" c:type="GSList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #TrackerMinerManager</doc>
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_description"
+              c:identifier="tracker_miner_manager_get_description"
+              version="0.8">
+        <doc xml:space="preserve">Returns the description for the given @miner.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">A string which should not be freed or %NULL if none is specified.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #TrackerMinerManager</doc>
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="miner" transfer-ownership="none">
+            <doc xml:space="preserve">miner reference</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_display_name"
+              c:identifier="tracker_miner_manager_get_display_name"
+              version="0.8">
+        <doc xml:space="preserve">Returns a translated display name for @miner.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">A string which should not be freed or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #TrackerMinerManager</doc>
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="miner" transfer-ownership="none">
+            <doc xml:space="preserve">miner reference</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_running"
+              c:identifier="tracker_miner_manager_get_running"
+              version="0.8">
+        <doc xml:space="preserve">Returns a list of references for all active miners. Active miners
+are miners which are running within a process.</doc>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve">a #GSList which
+must be freed with g_slist_free() and all contained data with g_free().
+Otherwise %NULL is returned if there are no miners.</doc>
+          <type name="GLib.SList" c:type="GSList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #trackerMinerManager</doc>
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_status"
+              c:identifier="tracker_miner_manager_get_status"
+              version="0.12">
+        <doc xml:space="preserve">Returns the current status, progress and remaining time for @miner.
+@remaining_time will be 0 if not possible to compute it yet,
+and less than zero if it is not applicable.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if the status could be retrieved successfully,
+otherwise %FALSE</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #TrackerMinerManager</doc>
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="miner" transfer-ownership="none">
+            <doc xml:space="preserve">miner reference</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="status"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve">return location for status</doc>
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="progress"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve">return location for progress</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+          <parameter name="remaining_time"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve">return location for remaining time</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ignore_next_update"
+              c:identifier="tracker_miner_manager_ignore_next_update"
+              version="0.8"
+              deprecated="1"
+              deprecated-version="0.12">
+        <doc xml:space="preserve">Tells the @miner to ignore any events for the next @urls. This is
+used for cases where a file is updated by Tracker by the
+tracker-writeback service. This API is used to avoid signalling up
+the stack the changes to @urls.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE on success, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #TrackerMinerManager</doc>
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="miner" transfer-ownership="none">
+            <doc xml:space="preserve">miner reference</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="urls" transfer-ownership="none">
+            <doc xml:space="preserve">the subjects to ignore the next updates of</doc>
+            <type name="utf8" c:type="const gchar**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="index_file"
+              c:identifier="tracker_miner_manager_index_file"
+              version="0.10"
+              throws="1">
+        <doc xml:space="preserve">Tells the filesystem miner to start indexing the @file.
+
+On failure @error will be set.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE on success, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #TrackerMinerManager</doc>
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">a URL valid in GIO of a file to give to the miner for processing</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="index_file_async"
+              c:identifier="tracker_miner_manager_index_file_async"
+              version="0.16">
+        <doc xml:space="preserve">Tells the filesystem miner to start indexing the @file. Once the message has been sent,
+@callback will be called. You can then call tracker_miner_manager_index_file_finish()
+to get the result.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #TrackerMinerManager</doc>
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">a URL valid in GIO of a file to give to the miner for processing</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a #GCancellable, or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve">a #GAsyncReadyCallback to call when the request is satisfied</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">the data to pass to the callback function</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="index_file_finish"
+              c:identifier="tracker_miner_manager_index_file_finish"
+              version="0.16"
+              throws="1">
+        <doc xml:space="preserve">Finishes a request to index a file. See tracker_miner_manager_index_file_async()
+
+On failure @error will be set.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE on success, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #TrackerMinerManager</doc>
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve">a #GAsyncResult</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="index_file_for_process"
+              c:identifier="tracker_miner_manager_index_file_for_process"
+              version="1.10"
+              throws="1">
+        <doc xml:space="preserve">This function operates exactly the same way as
+tracker_miner_manager_index_file() with the exception that if the
+calling process dies, the indexing is cancelled. This API is useful
+for cases where the calling process wants to tie the indexing
+operation closely to its own lifetime.
+
+On failure @error will be set.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE on success, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #TrackerMinerManager</doc>
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">a URL valid in GIO of a file to give to the miner for processing</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a #GCancellable, or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="index_file_for_process_async"
+              c:identifier="tracker_miner_manager_index_file_for_process_async"
+              version="1.10">
+        <doc xml:space="preserve">This function operates exactly the same way as
+tracker_miner_manager_index_file() with the exception that if the
+calling process dies, the indexing is cancelled. This API is useful
+for cases where the calling process wants to tie the indexing
+operation closely to its own lifetime.
+
+When the operation is finished, @callback will be called. You can
+then call tracker_miner_manager_index_file_for_process_finish() to
+get the result of the operation.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #TrackerMinerManager</doc>
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve">a URL valid in GIO of a file to give to the miner for processing</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">a #GCancellable, or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve">a #GAsyncReadyCallback to call when the request is satisfied</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve">the data to pass to the callback function</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="index_file_for_process_finish"
+              c:identifier="tracker_miner_manager_index_file_for_process_finish"
+              version="1.10"
+              throws="1">
+        <doc xml:space="preserve">Finishes a request to index a file. See tracker_miner_manager_index_file_for_process_async()
+
+On failure @error will be set.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE on success, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #TrackerMinerManager</doc>
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve">a #GAsyncResult</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_active"
+              c:identifier="tracker_miner_manager_is_active"
+              version="0.8">
+        <doc xml:space="preserve">Returns the miner's current activity.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if the @miner is active, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #TrackerMinerManager</doc>
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="miner" transfer-ownership="none">
+            <doc xml:space="preserve">miner reference</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_paused"
+              c:identifier="tracker_miner_manager_is_paused"
+              version="0.8">
+        <doc xml:space="preserve">This function either returns %FALSE if the miner is not paused,
+or returns %TRUE and fills in @applications and @reasons with
+the pause reasons and the applications that asked for it. Both
+arrays will have the same lengh, and will be sorted so the
+application/pause reason pairs have the same index.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if @miner is paused, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #TrackerMinerManager</doc>
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="miner" transfer-ownership="none">
+            <doc xml:space="preserve">miner reference</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="applications"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve">
+return location for application names.</doc>
+            <array c:type="GStrv*">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+          <parameter name="reasons"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve">
+return location for pause reasons.</doc>
+            <array c:type="GStrv*">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="pause"
+              c:identifier="tracker_miner_manager_pause"
+              version="0.8">
+        <doc xml:space="preserve">Asks @miner to pause. a miner could be paused by
+several reasons, and its activity won't be resumed
+until all pause requests have been resumed.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if the miner was paused successfully, otherwise
+%FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #TrackerMinerManager.</doc>
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="miner" transfer-ownership="none">
+            <doc xml:space="preserve">miner reference</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="reason" transfer-ownership="none">
+            <doc xml:space="preserve">reason to pause</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cookie"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve">return location for the pause cookie ID</doc>
+            <type name="guint32" c:type="guint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="pause_for_process"
+              c:identifier="tracker_miner_manager_pause_for_process"
+              version="0.10.15">
+        <doc xml:space="preserve">This function operates exactly the same way as
+tracker_miner_manager_pause() with the exception that if the calling
+process dies, the pause is resumed. This API is useful for cases
+where the calling process has a risk of crashing without resuming
+the pause.
+
+NOTE: If you call g_object_unref() on the @manager before you
+intend to resume the pause and it finalizes, it will automatically
+resume.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if the miner was paused successfully, otherwise
+%FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #TrackerMinerManager.</doc>
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="miner" transfer-ownership="none">
+            <doc xml:space="preserve">miner reference</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="reason" transfer-ownership="none">
+            <doc xml:space="preserve">reason to pause</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cookie"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve">return location for the pause cookie ID</doc>
+            <type name="guint32" c:type="guint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="reindex_by_mimetype"
+              c:identifier="tracker_miner_manager_reindex_by_mimetype"
+              version="0.10"
+              throws="1">
+        <doc xml:space="preserve">Tells the filesystem miner to reindex any file with a mimetype in
+the @mimetypes list.
+
+On failure @error will be set.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE on success, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #TrackerMinerManager</doc>
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="mimetypes" transfer-ownership="none">
+            <doc xml:space="preserve">an array of mimetypes (E.G. "text/plain"). All items
+with a mimetype in that list will be reindexed.</doc>
+            <array c:type="const GStrv">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="resume"
+              c:identifier="tracker_miner_manager_resume"
+              version="0.8">
+        <doc xml:space="preserve">Tells @miner to resume activity. The miner won't actually resume
+operations until all pause requests have been resumed.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">%TRUE if the miner was successfully resumed, otherwise
+%FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #TrackerMinerManager</doc>
+            <type name="MinerManager" c:type="TrackerMinerManager*"/>
+          </instance-parameter>
+          <parameter name="miner" transfer-ownership="none">
+            <doc xml:space="preserve">miner reference</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cookie" transfer-ownership="none">
+            <doc xml:space="preserve">pause cookie</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="auto-start"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="miner-activated" when="last" version="0.8">
+        <doc xml:space="preserve">The ::miner-activated signal will be emitted whenever a miner
+(referenced by @miner) is activated (technically, this means
+the miner has appeared in the session bus).</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="miner" transfer-ownership="none">
+            <doc xml:space="preserve">miner reference</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="miner-deactivated" when="last" version="0.8">
+        <doc xml:space="preserve">The ::miner-deactivated signal will be emitted whenever a miner
+(referenced by @miner) is deactivated (technically, this means
+the miner has disappeared from the session bus).</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="miner" transfer-ownership="none">
+            <doc xml:space="preserve">miner reference</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="miner-paused" when="last" version="0.8">
+        <doc xml:space="preserve">The ::miner-paused signal will be emitted whenever a miner
+(referenced by @miner) is paused.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="miner" transfer-ownership="none">
+            <doc xml:space="preserve">miner reference</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="miner-progress" when="last" version="0.12">
+        <doc xml:space="preserve">The ::miner-progress signal is meant to report status/progress changes
+in any tracked miner.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="miner" transfer-ownership="none">
+            <doc xml:space="preserve">miner reference</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="status" transfer-ownership="none">
+            <doc xml:space="preserve">miner status</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="progress" transfer-ownership="none">
+            <doc xml:space="preserve">miner progress, from 0 to 1</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="remaining_time" transfer-ownership="none">
+            <doc xml:space="preserve">remaining processing time</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="miner-resumed" when="last" version="0.8">
+        <doc xml:space="preserve">The ::miner-resumed signal will be emitted whenever a miner
+(referenced by @miner) is resumed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="miner" transfer-ownership="none">
+            <doc xml:space="preserve">miner reference</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="MinerManagerClass"
+            c:type="TrackerMinerManagerClass"
+            glib:is-gtype-struct-for="MinerManager">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="miner_progress">
+        <callback name="miner_progress">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="manager" transfer-ownership="none">
+              <type name="MinerManager" c:type="TrackerMinerManager*"/>
+            </parameter>
+            <parameter name="miner_name" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="status" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="progress" transfer-ownership="none">
+              <type name="gdouble" c:type="gdouble"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="miner_paused">
+        <callback name="miner_paused">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="manager" transfer-ownership="none">
+              <type name="MinerManager" c:type="TrackerMinerManager*"/>
+            </parameter>
+            <parameter name="miner_name" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="miner_resumed">
+        <callback name="miner_resumed">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="manager" transfer-ownership="none">
+              <type name="MinerManager" c:type="TrackerMinerManager*"/>
+            </parameter>
+            <parameter name="miner_name" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="miner_activated">
+        <callback name="miner_activated">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="manager" transfer-ownership="none">
+              <type name="MinerManager" c:type="TrackerMinerManager*"/>
+            </parameter>
+            <parameter name="miner_name" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="miner_deactivated">
+        <callback name="miner_deactivated">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="manager" transfer-ownership="none">
+              <type name="MinerManager" c:type="TrackerMinerManager*"/>
+            </parameter>
+            <parameter name="miner_name" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="MinerManagerError"
+                 version="0.8"
+                 c:type="TrackerMinerManagerError">
+      <doc xml:space="preserve">Enumeration values used in errors returned by the
+#TrackerMinerManager API.</doc>
+      <member name="not_available"
+              value="0"
+              c:identifier="TRACKER_MINER_MANAGER_ERROR_NOT_AVAILABLE">
+        <doc xml:space="preserve">The miner in question
+is not active and can so can not be used.</doc>
+      </member>
+      <member name="noent"
+              value="1"
+              c:identifier="TRACKER_MINER_MANAGER_ERROR_NOENT">
+        <doc xml:space="preserve">The resource that the
+miner is handling (for example a file or URI) does not exist.</doc>
+      </member>
+    </enumeration>
+  </namespace>
+</repository>

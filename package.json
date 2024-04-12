@@ -39,6 +39,7 @@
     "build:types:local": "yarn ts-for-gir generate --configName='.ts-for-gir.all.rc.js'",
     "build:types:local:gtk4": "yarn ts-for-gir generate --configName='.ts-for-gir.gtk4.rc.js'",
     "build:types": "yarn build:types:local",
+    "copy:girs": "yarn start copy --configName='.ts-for-gir.copy-all.rc.js' --verbose",
     "validate": "yarn workspaces foreach -v --all --parallel run validate",
     "validate:types": "yarn workspaces foreach -v --all --parallel run validate:types",
     "validate:examples": "yarn workspaces foreach -v --all --parallel run validate:app",

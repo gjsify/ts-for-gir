@@ -1,0 +1,2542 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <package name="jsonrpc-glib-1.0"/>
+  <c:include name="jsonrpc-glib.h"/>
+  <namespace name="Jsonrpc"
+             version="1.0"
+             shared-library="libjsonrpc-glib-1.0.so.1"
+             c:identifier-prefixes="Jsonrpc"
+             c:symbol-prefixes="jsonrpc">
+    <function-macro name="CHECK_VERSION"
+                    c:identifier="JSONRPC_CHECK_VERSION"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="src/jsonrpc-version.h"
+           line="83">Compile-time version checking. Evaluates to %TRUE if the version
+of jsonrpc-glib is greater than the required one.</doc>
+      <source-position filename="src/jsonrpc-version.h" line="91"/>
+      <parameters>
+        <parameter name="major">
+          <doc xml:space="preserve"
+               filename="src/jsonrpc-version.h"
+               line="85">required major version</doc>
+        </parameter>
+        <parameter name="minor">
+          <doc xml:space="preserve"
+               filename="src/jsonrpc-version.h"
+               line="86">required minor version</doc>
+        </parameter>
+        <parameter name="micro">
+          <doc xml:space="preserve"
+               filename="src/jsonrpc-version.h"
+               line="87">required micro version</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Client"
+           c:symbol-prefix="client"
+           c:type="JsonrpcClient"
+           version="3.26"
+           parent="GObject.Object"
+           glib:type-name="JsonrpcClient"
+           glib:get-type="jsonrpc_client_get_type"
+           glib:type-struct="ClientClass">
+      <doc xml:space="preserve"
+           filename="src/jsonrpc-client.c"
+           line="23">A client for JSON-RPC communication
+
+The #JsonrpcClient class provides a convenient API to coordinate with a
+JSON-RPC server. You can provide the underlying [class@Gio.IOStream] to communicate
+with allowing you to control the negotiation of how you setup your
+communications channel. One such method might be to use a [class@Gio.Subprocess] and
+communicate over stdin and stdout.
+
+Because JSON-RPC allows for out-of-band notifications from the server to
+the client, it is important that the consumer of this API calls
+[method@Client.close] or [method@Client.close_async] when they no longer
+need the client. This is because #JsonrpcClient contains an asynchronous
+read-loop to process incoming messages. Until [method@Client.close] or
+[method@Client.close_async] have been called, this read loop will prevent
+the object from finalizing (being freed).
+
+To make an RPC call, use [method@Client.call] or
+[method@Client.call_async] and provide the method name and the parameters
+as a [struct@GLib.Variant] for call.
+
+It is a programming error to mix synchronous and asynchronous API calls
+of the #JsonrpcClient class.
+
+For synchronous calls, #JsonrpcClient will use the thread-default
+[struct@GLib.MainContext]. If you have special needs here ensure you've set the context
+before calling into any #JsonrpcClient API.</doc>
+      <source-position filename="src/jsonrpc-client.h" line="63"/>
+      <constructor name="new" c:identifier="jsonrpc_client_new" version="3.26">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="590">Creates a new #JsonrpcClient instance.
+
+If you want to communicate with a process using stdin/stdout, consider using
+[class@Gio.Subprocess] to launch the process and create a [class@Gio.SimpleIOStream] using the
+[method@Gio.Subprocess.get_stdin_pipe] and [method@Gio.Subprocess.get_stdout_pipe].</doc>
+        <source-position filename="src/jsonrpc-client.h" line="68"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/jsonrpc-client.c"
+               line="600">A newly created #JsonrpcClient</doc>
+          <type name="Client" c:type="JsonrpcClient*"/>
+        </return-value>
+        <parameters>
+          <parameter name="io_stream" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="592">A [class@Gio.IOStream]</doc>
+            <type name="Gio.IOStream" c:type="GIOStream*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="error_quark" c:identifier="jsonrpc_client_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+      <virtual-method name="failed">
+        <source-position filename="src/jsonrpc-client.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="handle_call">
+        <source-position filename="src/jsonrpc-client.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+          <parameter name="method" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="id" transfer-ownership="none">
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="params" transfer-ownership="none">
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="notification">
+        <source-position filename="src/jsonrpc-client.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+          <parameter name="method_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="params" transfer-ownership="none">
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="call"
+              c:identifier="jsonrpc_client_call"
+              version="3.26"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="893">Synchronously calls @method with @params on the remote peer.
+
+once a reply has been received, or failure, this function will return.
+If successful, @return_value will be set with the reslut field of
+the response.
+
+If @params is floating then this function consumes the reference.</doc>
+        <source-position filename="src/jsonrpc-client.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/jsonrpc-client.c"
+               line="909">%TRUE on success; otherwise %FALSE and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="895">A #JsonrpcClient</doc>
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+          <parameter name="method" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="896">The name of the method to call</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="params"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="897">A [struct@GLib.Variant] of parameters or %NULL</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="898">A #GCancellable or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="return_value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="899">A location for a [struct@GLib.Variant]</doc>
+            <type name="GLib.Variant" c:type="GVariant**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="call_async"
+              c:identifier="jsonrpc_client_call_async"
+              version="3.26">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="1053">Asynchronously calls @method with @params on the remote peer.
+
+Upon completion or failure, @callback is executed and it should
+call [method@Client.call_finish] to complete the request and release
+any memory held.
+
+If @params is floating, the floating reference is consumed.</doc>
+        <source-position filename="src/jsonrpc-client.h" line="103"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1055">A #JsonrpcClient</doc>
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+          <parameter name="method" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1056">The name of the method to call</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="params"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1057">A [struct@GLib.Variant] of parameters or %NULL</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1058">A #GCancellable or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1059">a callback to executed upon completion</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1060">user data for @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="call_finish"
+              c:identifier="jsonrpc_client_call_finish"
+              version="3.26"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="1083">Completes an asynchronous call to [method@Client.call_async].</doc>
+        <source-position filename="src/jsonrpc-client.h" line="110"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/jsonrpc-client.c"
+               line="1092">%TRUE if successful and @return_value is set, otherwise %FALSE and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1085">A #JsonrpcClient.</doc>
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1086">A #GAsyncResult provided to the callback in [method@Client.call_async]</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+          <parameter name="return_value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1087">A location for a [struct@GLib.Variant] or %NULL</doc>
+            <type name="GLib.Variant" c:type="GVariant**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="call_with_id_async"
+              c:identifier="jsonrpc_client_call_with_id_async"
+              version="3.30">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="954">Asynchronously calls @method with @params on the remote peer.
+
+Upon completion or failure, @callback is executed and it should
+call [method@Client.call_finish] to complete the request and release
+any memory held.
+
+This function is similar to [method@Client.call_async] except that
+it allows the caller to get the id of the command which might be useful
+in systems where you can cancel the operation (such as the Language
+Server Protocol).
+
+If @params is floating, the floating reference is consumed.</doc>
+        <source-position filename="src/jsonrpc-client.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="956">A #JsonrpcClient</doc>
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+          <parameter name="method" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="957">The name of the method to call</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="params"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="958">A [struct@GLib.Variant] of parameters or %NULL</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="id"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="959">A location for a [struct@GLib.Variant]
+  describing the identifier used for the method call, or %NULL.</doc>
+            <type name="GLib.Variant" c:type="GVariant**"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="961">A #GCancellable or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="5">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="962">Callback to executed upon completion</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="963">User data for @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="close"
+              c:identifier="jsonrpc_client_close"
+              version="3.26"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="1284">Closes the underlying streams and cancels any inflight operations of the
+#JsonrpcClient.
+
+This is important to call when you are done with the
+client so that any outstanding operations that have caused @self to
+hold additional references are cancelled.
+
+Failure to call this method results in a leak of #JsonrpcClient.</doc>
+        <source-position filename="src/jsonrpc-client.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/jsonrpc-client.c"
+               line="1297">%TRUE if successful; otherwise %FALSE and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1286">A #JsonrpcClient</doc>
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="close_async"
+              c:identifier="jsonrpc_client_close_async"
+              version="3.26">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="1341">Asynchronous version of [method@Client.close].
+
+Currently this operation is implemented synchronously, but in the future may
+be converted to using asynchronous operations.</doc>
+        <source-position filename="src/jsonrpc-client.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1343">A #JsonrpcClient.</doc>
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="close_finish"
+              c:identifier="jsonrpc_client_close_finish"
+              version="3.26"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="1376">Completes an asynchronous request of [method@Client.close_async].</doc>
+        <source-position filename="src/jsonrpc-client.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/jsonrpc-client.c"
+               line="1382">%TRUE if successful; otherwise %FALSE and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1378">A #JsonrpcClient.</doc>
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_use_gvariant"
+              c:identifier="jsonrpc_client_get_use_gvariant"
+              glib:get-property="use-gvariant"
+              version="3.26">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="1699">Gets the [property@Client:use-gvariant] property.
+
+Indicates if [struct@GLib.Variant] is being used to communicate with the peer.</doc>
+        <source-position filename="src/jsonrpc-client.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/jsonrpc-client.c"
+               line="1707">%TRUE if [struct@GLib.Variant] is being used; otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1701">A #JsonrpcClient</doc>
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="reply"
+              c:identifier="jsonrpc_client_reply"
+              version="3.26"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="1497">Synchronous variant of [method@Client.reply_async].
+
+If @id or @result are floating, there floating references are consumed.</doc>
+        <source-position filename="src/jsonrpc-client.h" line="132"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1499">A #JsonrpcClient</doc>
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1500">The id of the message to reply</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="result"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1501">The return value or %NULL</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1502">A #GCancellable, or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="reply_async" c:identifier="jsonrpc_client_reply_async">
+        <source-position filename="src/jsonrpc-client.h" line="138"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="reply_error_async"
+              c:identifier="jsonrpc_client_reply_error_async"
+              version="3.28">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="1416">Asynchronously replies to the peer, sending a JSON-RPC error message.
+
+Call [method@Client.reply_error_finish] to get the result of this operation.
+
+If @id is floating, it's floating reference is consumed.</doc>
+        <source-position filename="src/jsonrpc-client.h" line="149"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1418">A #JsonrpcClient</doc>
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1419">A [struct@GLib.Variant] containing the call id</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="code" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1420">The error code</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="message"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1421">An optional error message</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1422">A #GCancellable, or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="5">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1423">A #GAsyncReadyCallback or %NULL</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1424">Closure data for @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="reply_error_finish"
+              c:identifier="jsonrpc_client_reply_error_finish"
+              throws="1">
+        <source-position filename="src/jsonrpc-client.h" line="157"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="reply_finish"
+              c:identifier="jsonrpc_client_reply_finish"
+              version="3.26"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="1637">Completes an asynchronous request to [method@Client.reply_async].</doc>
+        <source-position filename="src/jsonrpc-client.h" line="145"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/jsonrpc-client.c"
+               line="1645">%TRUE if successful; otherwise %FALSE and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1639">A #JsonrpcClient</doc>
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1640">A #GAsyncResult</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="send_notification"
+              c:identifier="jsonrpc_client_send_notification"
+              version="3.26"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="1142">Synchronously calls @method with @params on the remote peer.
+
+This function will not wait or expect a reply from the peer.
+
+If @params is floating then the reference is consumed.</doc>
+        <source-position filename="src/jsonrpc-client.h" line="115"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/jsonrpc-client.c"
+               line="1155">%TRUE on success; otherwise %FALSE and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1144">A #JsonrpcClient</doc>
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+          <parameter name="method" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1145">The name of the method to call</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="params"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1146">A [struct@GLib.Variant] of parameters or %NULL</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1147">A #GCancellable or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="send_notification_async"
+              c:identifier="jsonrpc_client_send_notification_async"
+              version="3.26">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="1195">Asynchronously calls @method with @params on the remote peer.
+
+This function will not wait or expect a reply from the peer.
+
+This function is useful when the caller wants to be notified that
+the bytes have been delivered to the underlying stream. This does
+not indicate that the peer has received them.
+
+If @params is floating then the reference is consumed.</doc>
+        <source-position filename="src/jsonrpc-client.h" line="121"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1197">A #JsonrpcClient</doc>
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+          <parameter name="method" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1198">The name of the method to call</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="params"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1199">A [struct@GLib.Variant] of parameters or %NULL</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1200">A #GCancellable or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="send_notification_finish"
+              c:identifier="jsonrpc_client_send_notification_finish"
+              version="3.26"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="1258">Completes an asynchronous call to [method@Client.send_notification_async].
+
+Successful completion of this function only indicates that the request
+has been written to the underlying buffer, not that the peer has received
+the notification.</doc>
+        <source-position filename="src/jsonrpc-client.h" line="128"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/jsonrpc-client.c"
+               line="1268">%TRUE if the bytes have been flushed to the [class@Gio.IOStream]; otherwise
+  %FALSE and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1260">A #JsonrpcClient</doc>
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_use_gvariant"
+              c:identifier="jsonrpc_client_set_use_gvariant"
+              glib:set-property="use-gvariant"
+              version="3.26">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="1721">Sets the [property@Client:use-gvariant] property.
+
+This function sets if [struct@GLib.Variant] should be used to communicate with the
+peer. Doing so can allow for more efficient communication by avoiding
+expensive parsing overhead and memory allocations. However, it requires
+that the peer also supports [struct@GLib.Variant] encoding.</doc>
+        <source-position filename="src/jsonrpc-client.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1723">A #JsonrpcClient</doc>
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+          <parameter name="use_gvariant" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1724">If [struct@GLib.Variant] should be used</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="start_listening"
+              c:identifier="jsonrpc_client_start_listening"
+              version="3.26">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="1660">This function requests that client start processing incoming
+messages from the peer.</doc>
+        <source-position filename="src/jsonrpc-client.h" line="161"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="1662">A #JsonrpcClient</doc>
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="io-stream"
+                version="3.26"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="459">The "io-stream" property is the [class@Gio.IOStream] to use for communicating
+with a JSON-RPC peer.</doc>
+        <type name="Gio.IOStream"/>
+      </property>
+      <property name="use-gvariant"
+                version="3.26"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_use_gvariant"
+                getter="get_use_gvariant"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="474">The "use-gvariant" property denotes if [struct@GLib.Variant] should be used to
+communicate with the peer instead of JSON. You should only set this
+if you know the peer is also a Jsonrpc-GLib based client.
+
+Setting this property allows the peers to communicate using GVariant
+instead of JSON. This means that we can access the messages without
+expensive memory allocations and parsing costs associated with JSON.
+[struct@GLib.Variant] is much more optimal for memory-bassed message passing.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="failed" when="last" version="3.28">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="497">The "failed" signal is called when the client has failed communication
+or the connection has been knowingly closed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="handle-call" when="last" detailed="1" version="3.26">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="514">This signal is emitted when an RPC has been received from the peer we
+are connected to. Return %TRUE if you have handled this message, even
+asynchronously. If no handler has returned %TRUE an error will be
+synthesized.
+
+If you handle the message, you are responsible for replying to the peer
+in a timely manner using [method@Client.reply] or [method@Client.reply_async].
+
+Additionally, since 3.28 you may connect to the "detail" of this signal
+to handle a specific method call. Use the method name as the detail of
+the signal.</doc>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="method" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="517">The method name</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="518">The "id" field of the JSONRPC message</doc>
+            <type name="GLib.Variant"/>
+          </parameter>
+          <parameter name="params"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="519">The "params" field of the JSONRPC message</doc>
+            <type name="GLib.Variant"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="notification" when="last" detailed="1" version="3.26">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-client.c"
+             line="551">This signal is emitted when a notification has been received from a
+peer. Unlike [signal@Client::handle-call], this does not have an "id"
+parameter because notifications do not have ids. They do not round
+trip.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="method" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="554">The method name of the notification</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="params"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-client.c"
+                 line="555">Params for the notification</doc>
+            <type name="GLib.Variant"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ClientClass"
+            c:type="JsonrpcClientClass"
+            glib:is-gtype-struct-for="Client">
+      <source-position filename="src/jsonrpc-client.h" line="63"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="notification">
+        <callback name="notification">
+          <source-position filename="src/jsonrpc-client.h" line="47"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Client" c:type="JsonrpcClient*"/>
+            </parameter>
+            <parameter name="method_name" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="params" transfer-ownership="none">
+              <type name="GLib.Variant" c:type="GVariant*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="handle_call">
+        <callback name="handle_call">
+          <source-position filename="src/jsonrpc-client.h" line="50"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Client" c:type="JsonrpcClient*"/>
+            </parameter>
+            <parameter name="method" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="id" transfer-ownership="none">
+              <type name="GLib.Variant" c:type="GVariant*"/>
+            </parameter>
+            <parameter name="params" transfer-ownership="none">
+              <type name="GLib.Variant" c:type="GVariant*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="failed">
+        <callback name="failed">
+          <source-position filename="src/jsonrpc-client.h" line="54"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Client" c:type="JsonrpcClient*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_reserved2">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved3">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved4">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved5">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved6">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved7">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved8">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+    </record>
+    <enumeration name="ClientError" c:type="JsonrpcClientError">
+      <source-position filename="src/jsonrpc-client.h" line="38"/>
+      <member name="parse_error"
+              value="-32700"
+              c:identifier="JSONRPC_CLIENT_ERROR_PARSE_ERROR">
+      </member>
+      <member name="invalid_request"
+              value="-32600"
+              c:identifier="JSONRPC_CLIENT_ERROR_INVALID_REQUEST">
+      </member>
+      <member name="method_not_found"
+              value="-32601"
+              c:identifier="JSONRPC_CLIENT_ERROR_METHOD_NOT_FOUND">
+      </member>
+      <member name="invalid_params"
+              value="-32602"
+              c:identifier="JSONRPC_CLIENT_ERROR_INVALID_PARAMS">
+      </member>
+      <member name="internal_error"
+              value="-32603"
+              c:identifier="JSONRPC_CLIENT_ERROR_INTERNAL_ERROR">
+      </member>
+    </enumeration>
+    <function-macro name="DEPRECATED_FOR"
+                    c:identifier="JSONRPC_DEPRECATED_FOR"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-version-macros.h" line="35"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_3_26_FOR"
+                    c:identifier="JSONRPC_DEPRECATED_IN_3_26_FOR"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-version-macros.h" line="120"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_3_28_FOR"
+                    c:identifier="JSONRPC_DEPRECATED_IN_3_28_FOR"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-version-macros.h" line="134"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_3_30_FOR"
+                    c:identifier="JSONRPC_DEPRECATED_IN_3_30_FOR"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-version-macros.h" line="148"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_3_40_FOR"
+                    c:identifier="JSONRPC_DEPRECATED_IN_3_40_FOR"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-version-macros.h" line="162"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_3_44_FOR"
+                    c:identifier="JSONRPC_DEPRECATED_IN_3_44_FOR"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-version-macros.h" line="176"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ENCODE_VERSION"
+                    c:identifier="JSONRPC_ENCODE_VERSION"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-version.h" line="71"/>
+      <parameters>
+        <parameter name="major">
+        </parameter>
+        <parameter name="minor">
+        </parameter>
+        <parameter name="micro">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="InputStream"
+           c:symbol-prefix="input_stream"
+           c:type="JsonrpcInputStream"
+           parent="Gio.DataInputStream"
+           glib:type-name="JsonrpcInputStream"
+           glib:get-type="jsonrpc_input_stream_get_type"
+           glib:type-struct="InputStreamClass">
+      <source-position filename="src/jsonrpc-input-stream.h" line="45"/>
+      <implements name="Gio.Seekable"/>
+      <constructor name="new" c:identifier="jsonrpc_input_stream_new">
+        <source-position filename="src/jsonrpc-input-stream.h" line="48"/>
+        <return-value transfer-ownership="full">
+          <type name="InputStream" c:type="JsonrpcInputStream*"/>
+        </return-value>
+        <parameters>
+          <parameter name="base_stream" transfer-ownership="none">
+            <type name="Gio.InputStream" c:type="GInputStream*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="read_message"
+              c:identifier="jsonrpc_input_stream_read_message"
+              throws="1">
+        <source-position filename="src/jsonrpc-input-stream.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="InputStream" c:type="JsonrpcInputStream*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="message" transfer-ownership="none">
+            <type name="GLib.Variant" c:type="GVariant**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="read_message_async"
+              c:identifier="jsonrpc_input_stream_read_message_async">
+        <source-position filename="src/jsonrpc-input-stream.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="InputStream" c:type="JsonrpcInputStream*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="read_message_finish"
+              c:identifier="jsonrpc_input_stream_read_message_finish"
+              throws="1">
+        <source-position filename="src/jsonrpc-input-stream.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="InputStream" c:type="JsonrpcInputStream*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+          <parameter name="message" transfer-ownership="none">
+            <type name="GLib.Variant" c:type="GVariant**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="Gio.DataInputStream" c:type="GDataInputStream"/>
+      </field>
+    </class>
+    <record name="InputStreamClass"
+            c:type="JsonrpcInputStreamClass"
+            glib:is-gtype-struct-for="InputStream">
+      <source-position filename="src/jsonrpc-input-stream.h" line="45"/>
+      <field name="parent_class">
+        <type name="Gio.DataInputStreamClass" c:type="GDataInputStreamClass"/>
+      </field>
+      <field name="_reserved1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved2">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved3">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved4">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved5">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved6">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved7">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved8">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+    </record>
+    <constant name="MAJOR_VERSION" value="3" c:type="JSONRPC_MAJOR_VERSION">
+      <doc xml:space="preserve"
+           filename="src/jsonrpc-version.h"
+           line="35">jsonrpc-glib major version component (e.g. 1 if %JSONRPC_VERSION is 1.2.3)</doc>
+      <source-position filename="src/jsonrpc-version.h" line="40"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <function-macro name="MESSAGE_GET_BOOLEAN"
+                    c:identifier="JSONRPC_MESSAGE_GET_BOOLEAN"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="202"/>
+      <parameters>
+        <parameter name="_valptr">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MESSAGE_GET_DICT"
+                    c:identifier="JSONRPC_MESSAGE_GET_DICT"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="213"/>
+      <parameters>
+        <parameter name="_valptr">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MESSAGE_GET_DOUBLE"
+                    c:identifier="JSONRPC_MESSAGE_GET_DOUBLE"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="207"/>
+      <parameters>
+        <parameter name="_valptr">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MESSAGE_GET_INT32"
+                    c:identifier="JSONRPC_MESSAGE_GET_INT32"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="192"/>
+      <parameters>
+        <parameter name="_valptr">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MESSAGE_GET_INT64"
+                    c:identifier="JSONRPC_MESSAGE_GET_INT64"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="197"/>
+      <parameters>
+        <parameter name="_valptr">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MESSAGE_GET_ITER"
+                    c:identifier="JSONRPC_MESSAGE_GET_ITER"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="210"/>
+      <parameters>
+        <parameter name="_valptr">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MESSAGE_GET_STRING"
+                    c:identifier="JSONRPC_MESSAGE_GET_STRING"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="182"/>
+      <parameters>
+        <parameter name="_valptr">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MESSAGE_GET_STRV"
+                    c:identifier="JSONRPC_MESSAGE_GET_STRV"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="187"/>
+      <parameters>
+        <parameter name="_valptr">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MESSAGE_GET_VARIANT"
+                    c:identifier="JSONRPC_MESSAGE_GET_VARIANT"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="218"/>
+      <parameters>
+        <parameter name="_valptr">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MESSAGE_NEW"
+                    c:identifier="JSONRPC_MESSAGE_NEW"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="171"/>
+      <parameters>
+        <parameter name="first_">
+        </parameter>
+        <parameter name="...">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MESSAGE_NEW_ARRAY"
+                    c:identifier="JSONRPC_MESSAGE_NEW_ARRAY"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="173"/>
+      <parameters>
+        <parameter name="first_">
+        </parameter>
+        <parameter name="...">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MESSAGE_PARSE"
+                    c:identifier="JSONRPC_MESSAGE_PARSE"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="175"/>
+      <parameters>
+        <parameter name="message">
+        </parameter>
+        <parameter name="...">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MESSAGE_PARSE_ARRAY"
+                    c:identifier="JSONRPC_MESSAGE_PARSE_ARRAY"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="177"/>
+      <parameters>
+        <parameter name="iter">
+        </parameter>
+        <parameter name="...">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MESSAGE_PUT_BOOLEAN"
+                    c:identifier="JSONRPC_MESSAGE_PUT_BOOLEAN"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="200"/>
+      <parameters>
+        <parameter name="_val">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MESSAGE_PUT_DOUBLE"
+                    c:identifier="JSONRPC_MESSAGE_PUT_DOUBLE"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="205"/>
+      <parameters>
+        <parameter name="_val">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MESSAGE_PUT_INT32"
+                    c:identifier="JSONRPC_MESSAGE_PUT_INT32"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="190"/>
+      <parameters>
+        <parameter name="_val">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MESSAGE_PUT_INT64"
+                    c:identifier="JSONRPC_MESSAGE_PUT_INT64"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="195"/>
+      <parameters>
+        <parameter name="_val">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MESSAGE_PUT_STRING"
+                    c:identifier="JSONRPC_MESSAGE_PUT_STRING"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="180"/>
+      <parameters>
+        <parameter name="_val">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MESSAGE_PUT_STRV"
+                    c:identifier="JSONRPC_MESSAGE_PUT_STRV"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="185"/>
+      <parameters>
+        <parameter name="_val">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MESSAGE_PUT_VARIANT"
+                    c:identifier="JSONRPC_MESSAGE_PUT_VARIANT"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="216"/>
+      <parameters>
+        <parameter name="_val">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="MICRO_VERSION" value="1" c:type="JSONRPC_MICRO_VERSION">
+      <doc xml:space="preserve"
+           filename="src/jsonrpc-version.h"
+           line="49">jsonrpc-glib micro version component (e.g. 3 if %JSONRPC_VERSION is 1.2.3)</doc>
+      <source-position filename="src/jsonrpc-version.h" line="54"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MINOR_VERSION" value="44" c:type="JSONRPC_MINOR_VERSION">
+      <doc xml:space="preserve"
+           filename="src/jsonrpc-version.h"
+           line="42">jsonrpc-glib minor version component (e.g. 2 if %JSONRPC_VERSION is 1.2.3)</doc>
+      <source-position filename="src/jsonrpc-version.h" line="47"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <record name="MessageAny" c:type="JsonrpcMessageAny">
+      <source-position filename="src/jsonrpc-message.h" line="36"/>
+      <field name="magic" writable="1">
+        <type name="MessageMagic" c:type="JsonrpcMessageMagic"/>
+      </field>
+    </record>
+    <record name="MessageGetBoolean" c:type="JsonrpcMessageGetBoolean">
+      <source-position filename="src/jsonrpc-message.h" line="96"/>
+      <field name="magic" writable="1">
+        <type name="MessageMagic" c:type="JsonrpcMessageMagic"/>
+      </field>
+      <field name="valptr" writable="1">
+        <type name="gboolean" c:type="gboolean*"/>
+      </field>
+    </record>
+    <record name="MessageGetDict" c:type="JsonrpcMessageGetDict">
+      <source-position filename="src/jsonrpc-message.h" line="120"/>
+      <field name="magic" writable="1">
+        <type name="MessageMagic" c:type="JsonrpcMessageMagic"/>
+      </field>
+      <field name="dictptr" writable="1">
+        <type name="GLib.VariantDict" c:type="GVariantDict**"/>
+      </field>
+    </record>
+    <record name="MessageGetDouble" c:type="JsonrpcMessageGetDouble">
+      <source-position filename="src/jsonrpc-message.h" line="108"/>
+      <field name="magic" writable="1">
+        <type name="MessageMagic" c:type="JsonrpcMessageMagic"/>
+      </field>
+      <field name="valptr" writable="1">
+        <type name="gdouble" c:type="double*"/>
+      </field>
+    </record>
+    <record name="MessageGetInt32" c:type="JsonrpcMessageGetInt32">
+      <source-position filename="src/jsonrpc-message.h" line="72"/>
+      <field name="magic" writable="1">
+        <type name="MessageMagic" c:type="JsonrpcMessageMagic"/>
+      </field>
+      <field name="valptr" writable="1">
+        <type name="gint32" c:type="gint32*"/>
+      </field>
+    </record>
+    <record name="MessageGetInt64" c:type="JsonrpcMessageGetInt64">
+      <source-position filename="src/jsonrpc-message.h" line="84"/>
+      <field name="magic" writable="1">
+        <type name="MessageMagic" c:type="JsonrpcMessageMagic"/>
+      </field>
+      <field name="valptr" writable="1">
+        <type name="gint64" c:type="gint64*"/>
+      </field>
+    </record>
+    <record name="MessageGetIter" c:type="JsonrpcMessageGetIter">
+      <source-position filename="src/jsonrpc-message.h" line="114"/>
+      <field name="magic" writable="1">
+        <type name="MessageMagic" c:type="JsonrpcMessageMagic"/>
+      </field>
+      <field name="iterptr" introspectable="0" writable="1">
+        <type name="GLib.VariantIter" c:type="GVariantIter**"/>
+      </field>
+    </record>
+    <record name="MessageGetString" c:type="JsonrpcMessageGetString">
+      <source-position filename="src/jsonrpc-message.h" line="54"/>
+      <field name="magic" writable="1">
+        <type name="MessageMagic" c:type="JsonrpcMessageMagic"/>
+      </field>
+      <field name="valptr" writable="1">
+        <type name="utf8" c:type="const char**"/>
+      </field>
+    </record>
+    <record name="MessageGetStrv" c:type="JsonrpcMessageGetStrv">
+      <source-position filename="src/jsonrpc-message.h" line="60"/>
+      <field name="magic" writable="1">
+        <type name="MessageMagic" c:type="JsonrpcMessageMagic"/>
+      </field>
+      <field name="valptr" writable="1">
+        <type name="utf8" c:type="char***"/>
+      </field>
+    </record>
+    <record name="MessageGetVariant" c:type="JsonrpcMessageGetVariant">
+      <source-position filename="src/jsonrpc-message.h" line="132"/>
+      <field name="magic" writable="1">
+        <type name="MessageMagic" c:type="JsonrpcMessageMagic"/>
+      </field>
+      <field name="variantptr" writable="1">
+        <type name="GLib.Variant" c:type="GVariant**"/>
+      </field>
+    </record>
+    <record name="MessageMagic" c:type="JsonrpcMessageMagic">
+      <source-position filename="src/jsonrpc-message.h" line="31"/>
+      <field name="bytes" writable="1">
+        <array zero-terminated="0" fixed-size="8">
+          <type name="gchar" c:type="char"/>
+        </array>
+      </field>
+    </record>
+    <record name="MessagePutBoolean" c:type="JsonrpcMessagePutBoolean">
+      <source-position filename="src/jsonrpc-message.h" line="90"/>
+      <field name="magic" writable="1">
+        <type name="MessageMagic" c:type="JsonrpcMessageMagic"/>
+      </field>
+      <field name="val" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+    </record>
+    <record name="MessagePutDouble" c:type="JsonrpcMessagePutDouble">
+      <source-position filename="src/jsonrpc-message.h" line="102"/>
+      <field name="magic" writable="1">
+        <type name="MessageMagic" c:type="JsonrpcMessageMagic"/>
+      </field>
+      <field name="val" writable="1">
+        <type name="gdouble" c:type="double"/>
+      </field>
+    </record>
+    <record name="MessagePutInt32" c:type="JsonrpcMessagePutInt32">
+      <source-position filename="src/jsonrpc-message.h" line="66"/>
+      <field name="magic" writable="1">
+        <type name="MessageMagic" c:type="JsonrpcMessageMagic"/>
+      </field>
+      <field name="val" writable="1">
+        <type name="gint32" c:type="gint32"/>
+      </field>
+    </record>
+    <record name="MessagePutInt64" c:type="JsonrpcMessagePutInt64">
+      <source-position filename="src/jsonrpc-message.h" line="78"/>
+      <field name="magic" writable="1">
+        <type name="MessageMagic" c:type="JsonrpcMessageMagic"/>
+      </field>
+      <field name="val" writable="1">
+        <type name="gint64" c:type="gint64"/>
+      </field>
+    </record>
+    <record name="MessagePutString" c:type="JsonrpcMessagePutString">
+      <source-position filename="src/jsonrpc-message.h" line="42"/>
+      <field name="magic" writable="1">
+        <type name="MessageMagic" c:type="JsonrpcMessageMagic"/>
+      </field>
+      <field name="val" writable="1">
+        <type name="utf8" c:type="const char*"/>
+      </field>
+    </record>
+    <record name="MessagePutStrv" c:type="JsonrpcMessagePutStrv">
+      <source-position filename="src/jsonrpc-message.h" line="48"/>
+      <field name="magic" writable="1">
+        <type name="MessageMagic" c:type="JsonrpcMessageMagic"/>
+      </field>
+      <field name="val" writable="1">
+        <type name="utf8" c:type="const char* const*"/>
+      </field>
+    </record>
+    <record name="MessagePutVariant" c:type="JsonrpcMessagePutVariant">
+      <source-position filename="src/jsonrpc-message.h" line="126"/>
+      <field name="magic" writable="1">
+        <type name="MessageMagic" c:type="JsonrpcMessageMagic"/>
+      </field>
+      <field name="val" writable="1">
+        <type name="GLib.Variant" c:type="GVariant*"/>
+      </field>
+    </record>
+    <class name="OutputStream"
+           c:symbol-prefix="output_stream"
+           c:type="JsonrpcOutputStream"
+           parent="Gio.DataOutputStream"
+           glib:type-name="JsonrpcOutputStream"
+           glib:get-type="jsonrpc_output_stream_get_type"
+           glib:type-struct="OutputStreamClass">
+      <source-position filename="src/jsonrpc-output-stream.h" line="50"/>
+      <implements name="Gio.Seekable"/>
+      <constructor name="new" c:identifier="jsonrpc_output_stream_new">
+        <source-position filename="src/jsonrpc-output-stream.h" line="53"/>
+        <return-value transfer-ownership="full">
+          <type name="OutputStream" c:type="JsonrpcOutputStream*"/>
+        </return-value>
+        <parameters>
+          <parameter name="base_stream" transfer-ownership="none">
+            <type name="Gio.OutputStream" c:type="GOutputStream*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_use_gvariant"
+              c:identifier="jsonrpc_output_stream_get_use_gvariant"
+              glib:get-property="use-gvariant">
+        <source-position filename="src/jsonrpc-output-stream.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OutputStream" c:type="JsonrpcOutputStream*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_use_gvariant"
+              c:identifier="jsonrpc_output_stream_set_use_gvariant"
+              glib:set-property="use-gvariant">
+        <source-position filename="src/jsonrpc-output-stream.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OutputStream" c:type="JsonrpcOutputStream*"/>
+          </instance-parameter>
+          <parameter name="use_gvariant" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="write_message"
+              c:identifier="jsonrpc_output_stream_write_message"
+              version="3.26"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-output-stream.c"
+             line="409">Synchronously sends a message to the peer.
+
+This operation will complete once the message has been buffered. There
+is no guarantee the peer received it.</doc>
+        <source-position filename="src/jsonrpc-output-stream.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-output-stream.c"
+                 line="411">a #JsonrpcOutputStream</doc>
+            <type name="OutputStream" c:type="JsonrpcOutputStream*"/>
+          </instance-parameter>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-output-stream.c"
+                 line="412">a #GVariant</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-output-stream.c"
+                 line="413">a #GCancellable or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="write_message_async"
+              c:identifier="jsonrpc_output_stream_write_message_async"
+              version="3.26">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-output-stream.c"
+             line="333">Asynchronously sends a message to the peer.
+
+This asynchronous operation will complete once the message has
+been buffered, and there is no guarantee the peer received it.</doc>
+        <source-position filename="src/jsonrpc-output-stream.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-output-stream.c"
+                 line="335">a #JsonrpcOutputStream</doc>
+            <type name="OutputStream" c:type="JsonrpcOutputStream*"/>
+          </instance-parameter>
+          <parameter name="message" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-output-stream.c"
+                 line="336">a #GVariant</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-output-stream.c"
+                 line="337">a #GCancellable or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-output-stream.c"
+                 line="338">a #GAsyncReadyCallback or %NULL</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-output-stream.c"
+                 line="339">closure data for @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="write_message_finish"
+              c:identifier="jsonrpc_output_stream_write_message_finish"
+              throws="1">
+        <source-position filename="src/jsonrpc-output-stream.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OutputStream" c:type="JsonrpcOutputStream*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="use-gvariant"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_use_gvariant"
+                getter="get_use_gvariant"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Gio.DataOutputStream" c:type="GDataOutputStream"/>
+      </field>
+    </class>
+    <record name="OutputStreamClass"
+            c:type="JsonrpcOutputStreamClass"
+            glib:is-gtype-struct-for="OutputStream">
+      <source-position filename="src/jsonrpc-output-stream.h" line="50"/>
+      <field name="parent_class">
+        <type name="Gio.DataOutputStreamClass"
+              c:type="GDataOutputStreamClass"/>
+      </field>
+      <field name="_reserved1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved2">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved3">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved4">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved5">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved6">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved7">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved8">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved9">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved10">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved11">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved12">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+    </record>
+    <class name="Server"
+           c:symbol-prefix="server"
+           c:type="JsonrpcServer"
+           parent="GObject.Object"
+           glib:type-name="JsonrpcServer"
+           glib:get-type="jsonrpc_server_get_type"
+           glib:type-struct="ServerClass">
+      <doc xml:space="preserve"
+           filename="src/jsonrpc-server.c"
+           line="30">A server for JSON-RPC communication
+
+The #JsonrpcServer class can help you implement a JSON-RPC server. You can
+accept connections and then communicate with clients using the
+[class@Client] API.</doc>
+      <source-position filename="src/jsonrpc-server.h" line="59"/>
+      <constructor name="new" c:identifier="jsonrpc_server_new" version="3.26">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-server.c"
+             line="247">Creates a new #JsonrpcServer.</doc>
+        <source-position filename="src/jsonrpc-server.h" line="69"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/jsonrpc-server.c"
+               line="252">A newly created #JsonrpcServer instance.</doc>
+          <type name="Server" c:type="JsonrpcServer*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="client_accepted">
+        <source-position filename="src/jsonrpc-server.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Server" c:type="JsonrpcServer*"/>
+          </instance-parameter>
+          <parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="client_closed">
+        <source-position filename="src/jsonrpc-server.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Server" c:type="JsonrpcServer*"/>
+          </instance-parameter>
+          <parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="handle_call">
+        <source-position filename="src/jsonrpc-server.h" line="38"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Server" c:type="JsonrpcServer*"/>
+          </instance-parameter>
+          <parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </parameter>
+          <parameter name="method" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="id" transfer-ownership="none">
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="params" transfer-ownership="none">
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="notification">
+        <source-position filename="src/jsonrpc-server.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Server" c:type="JsonrpcServer*"/>
+          </instance-parameter>
+          <parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="JsonrpcClient*"/>
+          </parameter>
+          <parameter name="method" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="params" transfer-ownership="none">
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="accept_io_stream"
+              c:identifier="jsonrpc_server_accept_io_stream"
+              version="3.26">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-server.c"
+             line="324">This function accepts @io_stream as a new client to the #JsonrpcServer
+by wrapping it in a #JsonrpcClient and starting the message accept
+loop.</doc>
+        <source-position filename="src/jsonrpc-server.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="326">A #JsonrpcServer</doc>
+            <type name="Server" c:type="JsonrpcServer*"/>
+          </instance-parameter>
+          <parameter name="io_stream" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="327">A #GIOStream</doc>
+            <type name="Gio.IOStream" c:type="GIOStream*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_handler"
+              c:identifier="jsonrpc_server_add_handler"
+              version="3.26">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-server.c"
+             line="382">Adds a new handler that will be dispatched when a matching @method arrives.</doc>
+        <source-position filename="src/jsonrpc-server.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/jsonrpc-server.c"
+               line="393">A handler id that can be used to remove the handler with
+  [method@Server.remove_handler].</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="384">A #JsonrpcServer</doc>
+            <type name="Server" c:type="JsonrpcServer*"/>
+          </instance-parameter>
+          <parameter name="method" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="385">A method to handle</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="handler"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="2"
+                     destroy="3">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="386">A handler to
+  execute when an incoming method matches @methods</doc>
+            <type name="ServerHandler" c:type="JsonrpcServerHandler"/>
+          </parameter>
+          <parameter name="handler_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="388">User data for @handler</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="handler_data_destroy"
+                     transfer-ownership="none"
+                     scope="async">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="389">A destroy callback for @handler_data</doc>
+            <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="foreach"
+              c:identifier="jsonrpc_server_foreach"
+              version="3.28">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-server.c"
+             line="453">Calls @foreach_func for every client connected.</doc>
+        <source-position filename="src/jsonrpc-server.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="455">A #JsonrpcServer</doc>
+            <type name="Server" c:type="JsonrpcServer*"/>
+          </instance-parameter>
+          <parameter name="foreach_func"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="456">A callback for each client</doc>
+            <type name="GLib.Func" c:type="GFunc"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="457">Closure data for @foreach_func</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_handler"
+              c:identifier="jsonrpc_server_remove_handler"
+              version="3.26">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-server.c"
+             line="423">Removes a handler that was previously registered with [method@Server.add_handler].</doc>
+        <source-position filename="src/jsonrpc-server.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="425">A #JsonrpcServer</doc>
+            <type name="Server" c:type="JsonrpcServer*"/>
+          </instance-parameter>
+          <parameter name="handler_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="426">A handler returned from [method@Server.add_handler]</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="client-accepted" when="last" version="3.28">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-server.c"
+             line="195">This signal is emitted when a new client has been accepted.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="198">A #JsonrpcClient</doc>
+            <type name="Client"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="client-closed" when="last" version="3.30">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-server.c"
+             line="215">This signal is emitted when a new client has been lost.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="218">A #JsonrpcClient</doc>
+            <type name="Client"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="handle-call" when="last" version="3.26">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-server.c"
+             line="134">This method is emitted when the client requests a method call.
+
+If you return %TRUE from this function, you should reply to it (even upon
+failure), using [method@Client.reply] or [method@Client.reply_async].</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/jsonrpc-server.c"
+               line="147">%TRUE if the request was handled.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="137">A #JsonrpcClient</doc>
+            <type name="Client"/>
+          </parameter>
+          <parameter name="method" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="138">The method that was called</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="139">The identifier of the method call</doc>
+            <type name="GLib.Variant"/>
+          </parameter>
+          <parameter name="params" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="140">The parameters of the method call</doc>
+            <type name="GLib.Variant"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="notification" when="last" version="3.26">
+        <doc xml:space="preserve"
+             filename="src/jsonrpc-server.c"
+             line="168">This signal is emitted when the client has sent a notification to us.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="171">A #JsonrpcClient</doc>
+            <type name="Client"/>
+          </parameter>
+          <parameter name="method" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="172">The notification name</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/jsonrpc-server.c"
+                 line="173">The params for the notification</doc>
+            <type name="GLib.Variant"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ServerClass"
+            c:type="JsonrpcServerClass"
+            glib:is-gtype-struct-for="Server">
+      <source-position filename="src/jsonrpc-server.h" line="59"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="handle_call">
+        <callback name="handle_call">
+          <source-position filename="src/jsonrpc-server.h" line="38"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Server" c:type="JsonrpcServer*"/>
+            </parameter>
+            <parameter name="client" transfer-ownership="none">
+              <type name="Client" c:type="JsonrpcClient*"/>
+            </parameter>
+            <parameter name="method" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="id" transfer-ownership="none">
+              <type name="GLib.Variant" c:type="GVariant*"/>
+            </parameter>
+            <parameter name="params" transfer-ownership="none">
+              <type name="GLib.Variant" c:type="GVariant*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="notification">
+        <callback name="notification">
+          <source-position filename="src/jsonrpc-server.h" line="43"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Server" c:type="JsonrpcServer*"/>
+            </parameter>
+            <parameter name="client" transfer-ownership="none">
+              <type name="Client" c:type="JsonrpcClient*"/>
+            </parameter>
+            <parameter name="method" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="params" transfer-ownership="none">
+              <type name="GLib.Variant" c:type="GVariant*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="client_accepted">
+        <callback name="client_accepted">
+          <source-position filename="src/jsonrpc-server.h" line="47"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Server" c:type="JsonrpcServer*"/>
+            </parameter>
+            <parameter name="client" transfer-ownership="none">
+              <type name="Client" c:type="JsonrpcClient*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="client_closed">
+        <callback name="client_closed">
+          <source-position filename="src/jsonrpc-server.h" line="49"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Server" c:type="JsonrpcServer*"/>
+            </parameter>
+            <parameter name="client" transfer-ownership="none">
+              <type name="Client" c:type="JsonrpcClient*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_reserved1" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved2" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved3" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved4" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved5" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="_reserved6" readable="0" private="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+    </record>
+    <callback name="ServerHandler" c:type="JsonrpcServerHandler">
+      <source-position filename="src/jsonrpc-server.h" line="61"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <type name="Server" c:type="JsonrpcServer*"/>
+        </parameter>
+        <parameter name="client" transfer-ownership="none">
+          <type name="Client" c:type="JsonrpcClient*"/>
+        </parameter>
+        <parameter name="method" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="id" transfer-ownership="none">
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </parameter>
+        <parameter name="params" transfer-ownership="none">
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="5">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <function-macro name="UNAVAILABLE"
+                    c:identifier="JSONRPC_UNAVAILABLE"
+                    introspectable="0">
+      <source-position filename="src/jsonrpc-version-macros.h" line="36"/>
+      <parameters>
+        <parameter name="maj">
+        </parameter>
+        <parameter name="min">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="VERSION_S" value="3.44.1" c:type="JSONRPC_VERSION_S">
+      <doc xml:space="preserve"
+           filename="src/jsonrpc-version.h"
+           line="63">jsonrpc-glib version, encoded as a string, useful for printing and
+concatenation.</doc>
+      <source-position filename="src/jsonrpc-version.h" line="69"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <docsection name="jsonrpc-output-stream">
+      <doc xml:space="preserve"
+           filename="src/jsonrpc-output-stream.c"
+           line="28">The #JsonrpcOutputStream is resonsible for serializing messages onto
+the underlying stream.
+
+Optionally, if jsonrpc_output_stream_set_use_gvariant() has been called,
+the messages will be encoded directly in the #GVariant format instead of
+JSON along with setting a "Content-Type" header to "application/gvariant".
+This is useful for situations where you control both sides of the RPC server
+using jsonrpc-glib as you can reduce the overhead of parsing JSON nodes due
+to #GVariant not requiring parsing or allocation overhead to the same degree
+as JSON.
+
+For example, if you need a large message, which is encoded in JSON, you need
+to decode the entire message up front which avoids performing lazy operations.
+When using GVariant encoding, you have a single allocation created for the
+#GVariant which means you reduce the memory pressure caused by lots of small
+allocations.</doc>
+    </docsection>
+    <docsection name="jsonrpc-version">
+      <doc xml:space="preserve"
+           filename="src/jsonrpc-version.h"
+           line="27">jsonrpc-glib provides macros to check the version of the library
+at compile-time</doc>
+    </docsection>
+    <function name="message_new"
+              c:identifier="jsonrpc_message_new"
+              introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="222"/>
+      <return-value transfer-ownership="full">
+        <type name="GLib.Variant" c:type="GVariant*"/>
+      </return-value>
+      <parameters>
+        <parameter name="first_param"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="gconstpointer"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="message_new_array"
+              c:identifier="jsonrpc_message_new_array"
+              introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="225"/>
+      <return-value transfer-ownership="full">
+        <type name="GLib.Variant" c:type="GVariant*"/>
+      </return-value>
+      <parameters>
+        <parameter name="first_param"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="gconstpointer"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="message_parse"
+              c:identifier="jsonrpc_message_parse"
+              introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="228"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="message" transfer-ownership="none">
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="message_parse_array"
+              c:identifier="jsonrpc_message_parse_array"
+              introspectable="0">
+      <source-position filename="src/jsonrpc-message.h" line="231"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="iter" transfer-ownership="none">
+          <type name="GLib.VariantIter" c:type="GVariantIter*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

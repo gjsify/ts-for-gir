@@ -1,0 +1,5101 @@
+<?xml version="1.0"?>
+<repository version="1.2" xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+<include name="GLib" version="2.0"/>
+<include name="GObject" version="2.0"/>
+<package name="gee-1.0"/>
+<c:include name="gee.h"/>
+<namespace name="Gee" version="1.0" c:prefix="Gee">
+	<annotation key="ccode.gir-version" value="1.0"/>
+	<annotation key="ccode.gir-namespace" value="Gee"/>
+	<function name="functions_get_equal_func_for" c:identifier="gee_functions_get_equal_func_for">
+		<return-value transfer-ownership="none" scope="call">
+			<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+		</return-value>
+		<parameters>
+			<parameter name="t" transfer-ownership="none">
+				<type name="GObject.Type" c:type="GType"/>
+			</parameter>
+		</parameters>
+	</function>
+	<function name="functions_get_hash_func_for" c:identifier="gee_functions_get_hash_func_for">
+		<return-value transfer-ownership="none" scope="call">
+			<type name="GLib.HashFunc" c:type="GHashFunc"/>
+		</return-value>
+		<parameters>
+			<parameter name="t" transfer-ownership="none">
+				<type name="GObject.Type" c:type="GType"/>
+			</parameter>
+		</parameters>
+	</function>
+	<function name="functions_get_compare_func_for" c:identifier="gee_functions_get_compare_func_for">
+		<return-value transfer-ownership="none" scope="call">
+			<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
+		</return-value>
+		<parameters>
+			<parameter name="t" transfer-ownership="none">
+				<type name="GObject.Type" c:type="GType"/>
+			</parameter>
+		</parameters>
+	</function>
+	<class name="AbstractCollection" c:type="GeeAbstractCollection" glib:type-name="GeeAbstractCollection" glib:get-type="gee_abstract_collection_get_type" glib:type-struct="AbstractCollectionClass" parent="GObject.Object" abstract="1">
+		<implements name="Gee.Iterable"/>
+		<implements name="Gee.Collection"/>
+		<field name="parent_instance">
+			<type name="GObject.Object" c:type="GObject"/>
+		</field>
+		<field name="priv">
+			<type name="AbstractCollectionPrivate" c:type="GeeAbstractCollectionPrivate*"/>
+		</field>
+		<method name="contains" c:identifier="gee_abstract_collection_contains">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="contains" invoker="contains">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="add" c:identifier="gee_abstract_collection_add">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="add" invoker="add">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="remove" c:identifier="gee_abstract_collection_remove">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="remove" invoker="remove">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="clear" c:identifier="gee_abstract_collection_clear">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</method>
+		<virtual-method name="clear" invoker="clear">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</virtual-method>
+		<method name="to_array" c:identifier="gee_abstract_collection_to_array">
+			<return-value transfer-ownership="full">
+				<array length="0">
+					<type name="gpointer" c:type="gpointer"/>
+				</array>
+			</return-value>
+			<parameters>
+				<parameter name="result_length1" direction="out" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="to_array" invoker="to_array">
+			<return-value transfer-ownership="full">
+				<array length="0">
+					<type name="gpointer" c:type="gpointer"/>
+				</array>
+			</return-value>
+			<parameters>
+				<parameter name="result_length1" direction="out" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="add_all" c:identifier="gee_abstract_collection_add_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="add_all" invoker="add_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="contains_all" c:identifier="gee_abstract_collection_contains_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="contains_all" invoker="contains_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="remove_all" c:identifier="gee_abstract_collection_remove_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="remove_all" invoker="remove_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="retain_all" c:identifier="gee_abstract_collection_retain_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="retain_all" invoker="retain_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="iterator" c:identifier="gee_abstract_collection_iterator">
+			<return-value transfer-ownership="full">
+				<type name="Gee.Iterator" c:type="GeeIterator*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</method>
+		<virtual-method name="iterator" invoker="iterator">
+			<return-value transfer-ownership="full">
+				<type name="Gee.Iterator" c:type="GeeIterator*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</virtual-method>
+		<property name="size">
+			<type name="gint" c:type="gint"/>
+		</property>
+		<property name="is-empty">
+			<type name="gboolean" c:type="gboolean"/>
+		</property>
+		<property name="read-only-view">
+			<type name="Gee.Collection" c:type="GeeCollection*">
+				<type name="gpointer" c:type="gpointer"/>
+			</type>
+		</property>
+	</class>
+	<record name="AbstractCollectionClass" c:type="GeeAbstractCollectionClass" glib:is-gtype-struct-for="AbstractCollection">
+		<field name="parent_class">
+			<type name="GObject.ObjectClass" c:type="GObjectClass"/>
+		</field>
+				<field name="contains">
+			<callback name="contains" c:type="contains">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractCollection" c:type="GeeAbstractCollection*"/>
+					</parameter>
+					<parameter name="item" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="add">
+			<callback name="add" c:type="add">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractCollection" c:type="GeeAbstractCollection*"/>
+					</parameter>
+					<parameter name="item" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="remove">
+			<callback name="remove" c:type="remove">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractCollection" c:type="GeeAbstractCollection*"/>
+					</parameter>
+					<parameter name="item" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="clear">
+			<callback name="clear" c:type="clear">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractCollection" c:type="GeeAbstractCollection*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="to_array">
+			<callback name="to_array" c:type="to_array">
+				<return-value transfer-ownership="full">
+					<array length="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</array>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractCollection" c:type="GeeAbstractCollection*"/>
+					</parameter>
+					<parameter name="result_length1" direction="out" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="add_all">
+			<callback name="add_all" c:type="add_all">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractCollection" c:type="GeeAbstractCollection*"/>
+					</parameter>
+					<parameter name="collection" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*">
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="contains_all">
+			<callback name="contains_all" c:type="contains_all">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractCollection" c:type="GeeAbstractCollection*"/>
+					</parameter>
+					<parameter name="collection" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*">
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="remove_all">
+			<callback name="remove_all" c:type="remove_all">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractCollection" c:type="GeeAbstractCollection*"/>
+					</parameter>
+					<parameter name="collection" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*">
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="retain_all">
+			<callback name="retain_all" c:type="retain_all">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractCollection" c:type="GeeAbstractCollection*"/>
+					</parameter>
+					<parameter name="collection" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*">
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="iterator">
+			<callback name="iterator" c:type="iterator">
+				<return-value transfer-ownership="full">
+					<type name="Gee.Iterator" c:type="GeeIterator*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractCollection" c:type="GeeAbstractCollection*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<record name="AbstractCollectionPrivate" c:type="GeeAbstractCollectionPrivate" disguised="1"/>
+	<class name="AbstractList" c:type="GeeAbstractList" glib:type-name="GeeAbstractList" glib:get-type="gee_abstract_list_get_type" glib:type-struct="AbstractListClass" parent="Gee.AbstractCollection" abstract="1">
+		<implements name="Gee.List"/>
+		<field name="parent_instance">
+			<type name="Gee.AbstractCollection" c:type="GeeAbstractCollection"/>
+		</field>
+		<field name="priv">
+			<type name="AbstractListPrivate" c:type="GeeAbstractListPrivate*"/>
+		</field>
+		<method name="list_iterator" c:identifier="gee_abstract_list_list_iterator">
+			<return-value transfer-ownership="full">
+				<type name="Gee.ListIterator" c:type="GeeListIterator*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</method>
+		<virtual-method name="list_iterator" invoker="list_iterator">
+			<return-value transfer-ownership="full">
+				<type name="Gee.ListIterator" c:type="GeeListIterator*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</virtual-method>
+		<method name="get" c:identifier="gee_abstract_list_get">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="get" invoker="get">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="set" c:identifier="gee_abstract_list_set">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="set" invoker="set">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="index_of" c:identifier="gee_abstract_list_index_of">
+			<return-value transfer-ownership="full">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="index_of" invoker="index_of">
+			<return-value transfer-ownership="full">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="insert" c:identifier="gee_abstract_list_insert">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="insert" invoker="insert">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="remove_at" c:identifier="gee_abstract_list_remove_at">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="remove_at" invoker="remove_at">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="slice" c:identifier="gee_abstract_list_slice">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="Gee.List" c:type="GeeList*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+			<parameters>
+				<parameter name="start" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="stop" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="slice" invoker="slice">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="Gee.List" c:type="GeeList*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+			<parameters>
+				<parameter name="start" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="stop" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="first" c:identifier="gee_abstract_list_first">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</method>
+		<virtual-method name="first" invoker="first">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</virtual-method>
+		<method name="last" c:identifier="gee_abstract_list_last">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</method>
+		<virtual-method name="last" invoker="last">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</virtual-method>
+		<method name="insert_all" c:identifier="gee_abstract_list_insert_all">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="insert_all" invoker="insert_all">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<property name="read-only-view">
+			<type name="Gee.List" c:type="GeeList*">
+				<type name="gpointer" c:type="gpointer"/>
+			</type>
+		</property>
+	</class>
+	<record name="AbstractListClass" c:type="GeeAbstractListClass" glib:is-gtype-struct-for="AbstractList">
+		<field name="parent_class">
+			<type name="Gee.AbstractCollectionClass" c:type="GeeAbstractCollectionClass"/>
+		</field>
+				<field name="list_iterator">
+			<callback name="list_iterator" c:type="list_iterator">
+				<return-value transfer-ownership="full">
+					<type name="Gee.ListIterator" c:type="GeeListIterator*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractList" c:type="GeeAbstractList*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="get">
+			<callback name="get" c:type="get">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractList" c:type="GeeAbstractList*"/>
+					</parameter>
+					<parameter name="index" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="set">
+			<callback name="set" c:type="set">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractList" c:type="GeeAbstractList*"/>
+					</parameter>
+					<parameter name="index" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+					<parameter name="item" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="index_of">
+			<callback name="index_of" c:type="index_of">
+				<return-value transfer-ownership="full">
+					<type name="gint" c:type="gint"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractList" c:type="GeeAbstractList*"/>
+					</parameter>
+					<parameter name="item" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="insert">
+			<callback name="insert" c:type="insert">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractList" c:type="GeeAbstractList*"/>
+					</parameter>
+					<parameter name="index" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+					<parameter name="item" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="remove_at">
+			<callback name="remove_at" c:type="remove_at">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractList" c:type="GeeAbstractList*"/>
+					</parameter>
+					<parameter name="index" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="slice">
+			<callback name="slice" c:type="slice">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="Gee.List" c:type="GeeList*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractList" c:type="GeeAbstractList*"/>
+					</parameter>
+					<parameter name="start" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+					<parameter name="stop" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="first">
+			<callback name="first" c:type="first">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractList" c:type="GeeAbstractList*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="last">
+			<callback name="last" c:type="last">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractList" c:type="GeeAbstractList*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="insert_all">
+			<callback name="insert_all" c:type="insert_all">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractList" c:type="GeeAbstractList*"/>
+					</parameter>
+					<parameter name="index" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+					<parameter name="collection" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*">
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<record name="AbstractListPrivate" c:type="GeeAbstractListPrivate" disguised="1"/>
+	<class name="AbstractMap" c:type="GeeAbstractMap" glib:type-name="GeeAbstractMap" glib:get-type="gee_abstract_map_get_type" glib:type-struct="AbstractMapClass" parent="GObject.Object" abstract="1">
+		<implements name="Gee.Iterable"/>
+		<implements name="Gee.Map"/>
+		<field name="parent_instance">
+			<type name="GObject.Object" c:type="GObject"/>
+		</field>
+		<field name="priv">
+			<type name="AbstractMapPrivate" c:type="GeeAbstractMapPrivate*"/>
+		</field>
+		<method name="has_key" c:identifier="gee_abstract_map_has_key">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="has_key" invoker="has_key">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="has" c:identifier="gee_abstract_map_has">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="has" invoker="has">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="get" c:identifier="gee_abstract_map_get">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="get" invoker="get">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="set" c:identifier="gee_abstract_map_set">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="set" invoker="set">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="unset" c:identifier="gee_abstract_map_unset">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="value" direction="out" transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="unset" invoker="unset">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="value" direction="out" transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="map_iterator" c:identifier="gee_abstract_map_map_iterator">
+			<return-value transfer-ownership="full">
+				<type name="Gee.MapIterator" c:type="GeeMapIterator*">
+					<type name="gpointer" c:type="gpointer"/>
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</method>
+		<virtual-method name="map_iterator" invoker="map_iterator">
+			<return-value transfer-ownership="full">
+				<type name="Gee.MapIterator" c:type="GeeMapIterator*">
+					<type name="gpointer" c:type="gpointer"/>
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</virtual-method>
+		<method name="clear" c:identifier="gee_abstract_map_clear">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</method>
+		<virtual-method name="clear" invoker="clear">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</virtual-method>
+		<method name="set_all" c:identifier="gee_abstract_map_set_all">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="map" transfer-ownership="none">
+					<type name="Gee.Map" c:type="GeeMap*">
+						<type name="gpointer" c:type="gpointer"/>
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="set_all" invoker="set_all">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="map" transfer-ownership="none">
+					<type name="Gee.Map" c:type="GeeMap*">
+						<type name="gpointer" c:type="gpointer"/>
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="unset_all" c:identifier="gee_abstract_map_unset_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="map" transfer-ownership="none">
+					<type name="Gee.Map" c:type="GeeMap*">
+						<type name="gpointer" c:type="gpointer"/>
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="unset_all" invoker="unset_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="map" transfer-ownership="none">
+					<type name="Gee.Map" c:type="GeeMap*">
+						<type name="gpointer" c:type="gpointer"/>
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="has_all" c:identifier="gee_abstract_map_has_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="map" transfer-ownership="none">
+					<type name="Gee.Map" c:type="GeeMap*">
+						<type name="gpointer" c:type="gpointer"/>
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="has_all" invoker="has_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="map" transfer-ownership="none">
+					<type name="Gee.Map" c:type="GeeMap*">
+						<type name="gpointer" c:type="gpointer"/>
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<property name="size">
+			<type name="gint" c:type="gint"/>
+		</property>
+		<property name="is-empty">
+			<type name="gboolean" c:type="gboolean"/>
+		</property>
+		<property name="keys">
+			<type name="Gee.Set" c:type="GeeSet*">
+				<type name="gpointer" c:type="gpointer"/>
+			</type>
+		</property>
+		<property name="values">
+			<type name="Gee.Collection" c:type="GeeCollection*">
+				<type name="gpointer" c:type="gpointer"/>
+			</type>
+		</property>
+		<property name="entries">
+			<type name="Gee.Set" c:type="GeeSet*">
+				<type name="Gee.MapEntry" c:type="GeeMapEntry*">
+					<type name="gpointer" c:type="gpointer"/>
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</type>
+		</property>
+		<property name="read-only-view">
+			<type name="Gee.Map" c:type="GeeMap*">
+				<type name="gpointer" c:type="gpointer"/>
+				<type name="gpointer" c:type="gpointer"/>
+			</type>
+		</property>
+	</class>
+	<record name="AbstractMapClass" c:type="GeeAbstractMapClass" glib:is-gtype-struct-for="AbstractMap">
+		<field name="parent_class">
+			<type name="GObject.ObjectClass" c:type="GObjectClass"/>
+		</field>
+				<field name="has_key">
+			<callback name="has_key" c:type="has_key">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractMap" c:type="GeeAbstractMap*"/>
+					</parameter>
+					<parameter name="key" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="has">
+			<callback name="has" c:type="has">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractMap" c:type="GeeAbstractMap*"/>
+					</parameter>
+					<parameter name="key" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+					<parameter name="value" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="get">
+			<callback name="get" c:type="get">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractMap" c:type="GeeAbstractMap*"/>
+					</parameter>
+					<parameter name="key" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="set">
+			<callback name="set" c:type="set">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractMap" c:type="GeeAbstractMap*"/>
+					</parameter>
+					<parameter name="key" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+					<parameter name="value" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="unset">
+			<callback name="unset" c:type="unset">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractMap" c:type="GeeAbstractMap*"/>
+					</parameter>
+					<parameter name="key" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+					<parameter name="value" direction="out" transfer-ownership="full" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="map_iterator">
+			<callback name="map_iterator" c:type="map_iterator">
+				<return-value transfer-ownership="full">
+					<type name="Gee.MapIterator" c:type="GeeMapIterator*">
+						<type name="gpointer" c:type="gpointer"/>
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractMap" c:type="GeeAbstractMap*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="clear">
+			<callback name="clear" c:type="clear">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractMap" c:type="GeeAbstractMap*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="set_all">
+			<callback name="set_all" c:type="set_all">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractMap" c:type="GeeAbstractMap*"/>
+					</parameter>
+					<parameter name="map" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*">
+							<type name="gpointer" c:type="gpointer"/>
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="unset_all">
+			<callback name="unset_all" c:type="unset_all">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractMap" c:type="GeeAbstractMap*"/>
+					</parameter>
+					<parameter name="map" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*">
+							<type name="gpointer" c:type="gpointer"/>
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="has_all">
+			<callback name="has_all" c:type="has_all">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractMap" c:type="GeeAbstractMap*"/>
+					</parameter>
+					<parameter name="map" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*">
+							<type name="gpointer" c:type="gpointer"/>
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<record name="AbstractMapPrivate" c:type="GeeAbstractMapPrivate" disguised="1"/>
+	<class name="AbstractMultiMap" c:type="GeeAbstractMultiMap" glib:type-name="GeeAbstractMultiMap" glib:get-type="gee_abstract_multi_map_get_type" glib:type-struct="AbstractMultiMapClass" parent="GObject.Object" abstract="1">
+		<implements name="Gee.MultiMap"/>
+		<field name="parent_instance">
+			<type name="GObject.Object" c:type="GObject"/>
+		</field>
+		<field name="priv">
+			<type name="AbstractMultiMapPrivate" c:type="GeeAbstractMultiMapPrivate*"/>
+		</field>
+		<field name="_storage_map">
+			<type name="Gee.Map" c:type="GeeMap*">
+				<type name="gpointer" c:type="gpointer"/>
+				<type name="Gee.Collection" c:type="GeeCollection*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</type>
+		</field>
+		<method name="create_value_storage" c:identifier="gee_abstract_multi_map_create_value_storage">
+			<return-value transfer-ownership="full">
+				<type name="Gee.Collection" c:type="GeeCollection*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</method>
+		<virtual-method name="create_value_storage" invoker="create_value_storage">
+			<return-value transfer-ownership="full">
+				<type name="Gee.Collection" c:type="GeeCollection*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</virtual-method>
+		<method name="create_multi_key_set" c:identifier="gee_abstract_multi_map_create_multi_key_set">
+			<return-value transfer-ownership="full">
+				<type name="Gee.MultiSet" c:type="GeeMultiSet*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</method>
+		<virtual-method name="create_multi_key_set" invoker="create_multi_key_set">
+			<return-value transfer-ownership="full">
+				<type name="Gee.MultiSet" c:type="GeeMultiSet*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</virtual-method>
+		<method name="get_value_equal_func" c:identifier="gee_abstract_multi_map_get_value_equal_func">
+			<return-value transfer-ownership="none" scope="call">
+				<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+			</return-value>
+			<parameters>
+			</parameters>
+		</method>
+		<virtual-method name="get_value_equal_func" invoker="get_value_equal_func">
+			<return-value transfer-ownership="none" scope="call">
+				<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+			</return-value>
+			<parameters>
+			</parameters>
+		</virtual-method>
+	</class>
+	<record name="AbstractMultiMapClass" c:type="GeeAbstractMultiMapClass" glib:is-gtype-struct-for="AbstractMultiMap">
+		<field name="parent_class">
+			<type name="GObject.ObjectClass" c:type="GObjectClass"/>
+		</field>
+				<field name="create_value_storage">
+			<callback name="create_value_storage" c:type="create_value_storage">
+				<return-value transfer-ownership="full">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractMultiMap" c:type="GeeAbstractMultiMap*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="create_multi_key_set">
+			<callback name="create_multi_key_set" c:type="create_multi_key_set">
+				<return-value transfer-ownership="full">
+					<type name="Gee.MultiSet" c:type="GeeMultiSet*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractMultiMap" c:type="GeeAbstractMultiMap*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="get_value_equal_func">
+			<callback name="get_value_equal_func" c:type="get_value_equal_func">
+				<return-value transfer-ownership="none" scope="call">
+					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractMultiMap" c:type="GeeAbstractMultiMap*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<record name="AbstractMultiMapPrivate" c:type="GeeAbstractMultiMapPrivate" disguised="1"/>
+	<class name="AbstractMultiSet" c:type="GeeAbstractMultiSet" glib:type-name="GeeAbstractMultiSet" glib:get-type="gee_abstract_multi_set_get_type" glib:type-struct="AbstractMultiSetClass" parent="Gee.AbstractCollection" abstract="1">
+		<implements name="Gee.MultiSet"/>
+		<field name="parent_instance">
+			<type name="Gee.AbstractCollection" c:type="GeeAbstractCollection"/>
+		</field>
+		<field name="priv">
+			<type name="AbstractMultiSetPrivate" c:type="GeeAbstractMultiSetPrivate*"/>
+		</field>
+		<field name="_storage_map">
+			<type name="Gee.Map" c:type="GeeMap*">
+				<type name="gpointer" c:type="gpointer"/>
+				<type name="gint" c:type="gint"/>
+			</type>
+		</field>
+	</class>
+	<record name="AbstractMultiSetClass" c:type="GeeAbstractMultiSetClass" glib:is-gtype-struct-for="AbstractMultiSet">
+		<field name="parent_class">
+			<type name="Gee.AbstractCollectionClass" c:type="GeeAbstractCollectionClass"/>
+		</field>
+	</record>
+	<record name="AbstractMultiSetPrivate" c:type="GeeAbstractMultiSetPrivate" disguised="1"/>
+	<class name="AbstractQueue" c:type="GeeAbstractQueue" glib:type-name="GeeAbstractQueue" glib:get-type="gee_abstract_queue_get_type" glib:type-struct="AbstractQueueClass" parent="Gee.AbstractCollection" abstract="1">
+		<implements name="Gee.Queue"/>
+		<field name="parent_instance">
+			<type name="Gee.AbstractCollection" c:type="GeeAbstractCollection"/>
+		</field>
+		<field name="priv">
+			<type name="AbstractQueuePrivate" c:type="GeeAbstractQueuePrivate*"/>
+		</field>
+		<method name="offer" c:identifier="gee_abstract_queue_offer">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="element" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="offer" invoker="offer">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="element" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="peek" c:identifier="gee_abstract_queue_peek">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</method>
+		<virtual-method name="peek" invoker="peek">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</virtual-method>
+		<method name="poll" c:identifier="gee_abstract_queue_poll">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</method>
+		<virtual-method name="poll" invoker="poll">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</virtual-method>
+		<method name="drain" c:identifier="gee_abstract_queue_drain">
+			<return-value transfer-ownership="full">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+			<parameters>
+				<parameter name="recipient" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+				<parameter name="amount" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="drain" invoker="drain">
+			<return-value transfer-ownership="full">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+			<parameters>
+				<parameter name="recipient" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+				<parameter name="amount" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<property name="capacity">
+			<type name="gint" c:type="gint"/>
+		</property>
+		<property name="remaining-capacity">
+			<type name="gint" c:type="gint"/>
+		</property>
+		<property name="is-full">
+			<type name="gboolean" c:type="gboolean"/>
+		</property>
+	</class>
+	<record name="AbstractQueueClass" c:type="GeeAbstractQueueClass" glib:is-gtype-struct-for="AbstractQueue">
+		<field name="parent_class">
+			<type name="Gee.AbstractCollectionClass" c:type="GeeAbstractCollectionClass"/>
+		</field>
+				<field name="offer">
+			<callback name="offer" c:type="offer">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractQueue" c:type="GeeAbstractQueue*"/>
+					</parameter>
+					<parameter name="element" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="peek">
+			<callback name="peek" c:type="peek">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractQueue" c:type="GeeAbstractQueue*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="poll">
+			<callback name="poll" c:type="poll">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractQueue" c:type="GeeAbstractQueue*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+				<field name="drain">
+			<callback name="drain" c:type="drain">
+				<return-value transfer-ownership="full">
+					<type name="gint" c:type="gint"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.AbstractQueue" c:type="GeeAbstractQueue*"/>
+					</parameter>
+					<parameter name="recipient" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*">
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+					<parameter name="amount" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<record name="AbstractQueuePrivate" c:type="GeeAbstractQueuePrivate" disguised="1"/>
+	<class name="AbstractSet" c:type="GeeAbstractSet" glib:type-name="GeeAbstractSet" glib:get-type="gee_abstract_set_get_type" glib:type-struct="AbstractSetClass" parent="Gee.AbstractCollection" abstract="1">
+		<implements name="Gee.Set"/>
+		<field name="parent_instance">
+			<type name="Gee.AbstractCollection" c:type="GeeAbstractCollection"/>
+		</field>
+		<field name="priv">
+			<type name="AbstractSetPrivate" c:type="GeeAbstractSetPrivate*"/>
+		</field>
+		<property name="read-only-view">
+			<type name="Gee.Set" c:type="GeeSet*">
+				<type name="gpointer" c:type="gpointer"/>
+			</type>
+		</property>
+	</class>
+	<record name="AbstractSetClass" c:type="GeeAbstractSetClass" glib:is-gtype-struct-for="AbstractSet">
+		<field name="parent_class">
+			<type name="Gee.AbstractCollectionClass" c:type="GeeAbstractCollectionClass"/>
+		</field>
+	</record>
+	<record name="AbstractSetPrivate" c:type="GeeAbstractSetPrivate" disguised="1"/>
+	<class name="ArrayList" c:type="GeeArrayList" glib:type-name="GeeArrayList" glib:get-type="gee_array_list_get_type" glib:type-struct="ArrayListClass" parent="Gee.AbstractList">
+		<field name="parent_instance">
+			<type name="Gee.AbstractList" c:type="GeeAbstractList"/>
+		</field>
+		<field name="priv">
+			<type name="ArrayListPrivate" c:type="GeeArrayListPrivate*"/>
+		</field>
+		<constructor name="new" c:identifier="gee_array_list_new">
+			<return-value transfer-ownership="full">
+				<type name="Gee.ArrayList" c:type="GeeArrayList*"/>
+			</return-value>
+			<parameters>
+				<parameter name="equal_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+				</parameter>
+			</parameters>
+		</constructor>
+		<method name="sort_with_data" c:identifier="gee_array_list_sort_with_data">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="compare" transfer-ownership="none" closure="1" scope="call">
+					<type name="GLib.CompareDataFunc" c:type="GCompareDataFunc"/>
+				</parameter>
+				<parameter name="compare_target" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="void*"/>
+				</parameter>
+			</parameters>
+		</method>
+		<property name="equal-func" writable="1">
+			<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+		</property>
+	</class>
+	<record name="ArrayListClass" c:type="GeeArrayListClass" glib:is-gtype-struct-for="ArrayList">
+		<field name="parent_class">
+			<type name="Gee.AbstractListClass" c:type="GeeAbstractListClass"/>
+		</field>
+	</record>
+	<record name="ArrayListPrivate" c:type="GeeArrayListPrivate" disguised="1"/>
+	<class name="HashMap" c:type="GeeHashMap" glib:type-name="GeeHashMap" glib:get-type="gee_hash_map_get_type" glib:type-struct="HashMapClass" parent="Gee.AbstractMap">
+		<field name="parent_instance">
+			<type name="Gee.AbstractMap" c:type="GeeAbstractMap"/>
+		</field>
+		<field name="priv">
+			<type name="HashMapPrivate" c:type="GeeHashMapPrivate*"/>
+		</field>
+		<constructor name="new" c:identifier="gee_hash_map_new">
+			<return-value transfer-ownership="full">
+				<type name="Gee.HashMap" c:type="GeeHashMap*"/>
+			</return-value>
+			<parameters>
+				<parameter name="key_hash_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.HashFunc" c:type="GHashFunc"/>
+				</parameter>
+				<parameter name="key_equal_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+				</parameter>
+				<parameter name="value_equal_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+				</parameter>
+			</parameters>
+		</constructor>
+		<property name="key-hash-func" writable="1">
+			<type name="GLib.HashFunc" c:type="GHashFunc"/>
+		</property>
+		<property name="key-equal-func" writable="1">
+			<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+		</property>
+		<property name="value-equal-func" writable="1">
+			<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+		</property>
+	</class>
+	<record name="HashMapClass" c:type="GeeHashMapClass" glib:is-gtype-struct-for="HashMap">
+		<field name="parent_class">
+			<type name="Gee.AbstractMapClass" c:type="GeeAbstractMapClass"/>
+		</field>
+	</record>
+	<record name="HashMapPrivate" c:type="GeeHashMapPrivate" disguised="1"/>
+	<class name="HashMultiMap" c:type="GeeHashMultiMap" glib:type-name="GeeHashMultiMap" glib:get-type="gee_hash_multi_map_get_type" glib:type-struct="HashMultiMapClass" parent="Gee.AbstractMultiMap">
+		<field name="parent_instance">
+			<type name="Gee.AbstractMultiMap" c:type="GeeAbstractMultiMap"/>
+		</field>
+		<field name="priv">
+			<type name="HashMultiMapPrivate" c:type="GeeHashMultiMapPrivate*"/>
+		</field>
+		<constructor name="new" c:identifier="gee_hash_multi_map_new">
+			<return-value transfer-ownership="full">
+				<type name="Gee.HashMultiMap" c:type="GeeHashMultiMap*"/>
+			</return-value>
+			<parameters>
+				<parameter name="key_hash_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.HashFunc" c:type="GHashFunc"/>
+				</parameter>
+				<parameter name="key_equal_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+				</parameter>
+				<parameter name="value_hash_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.HashFunc" c:type="GHashFunc"/>
+				</parameter>
+				<parameter name="value_equal_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+				</parameter>
+			</parameters>
+		</constructor>
+		<property name="key-hash-func">
+			<type name="GLib.HashFunc" c:type="GHashFunc"/>
+		</property>
+		<property name="key-equal-func">
+			<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+		</property>
+		<property name="value-hash-func" writable="1">
+			<type name="GLib.HashFunc" c:type="GHashFunc"/>
+		</property>
+		<property name="value-equal-func" writable="1">
+			<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+		</property>
+	</class>
+	<record name="HashMultiMapClass" c:type="GeeHashMultiMapClass" glib:is-gtype-struct-for="HashMultiMap">
+		<field name="parent_class">
+			<type name="Gee.AbstractMultiMapClass" c:type="GeeAbstractMultiMapClass"/>
+		</field>
+	</record>
+	<record name="HashMultiMapPrivate" c:type="GeeHashMultiMapPrivate" disguised="1"/>
+	<class name="HashMultiSet" c:type="GeeHashMultiSet" glib:type-name="GeeHashMultiSet" glib:get-type="gee_hash_multi_set_get_type" glib:type-struct="HashMultiSetClass" parent="Gee.AbstractMultiSet">
+		<field name="parent_instance">
+			<type name="Gee.AbstractMultiSet" c:type="GeeAbstractMultiSet"/>
+		</field>
+		<field name="priv">
+			<type name="HashMultiSetPrivate" c:type="GeeHashMultiSetPrivate*"/>
+		</field>
+		<constructor name="new" c:identifier="gee_hash_multi_set_new">
+			<return-value transfer-ownership="full">
+				<type name="Gee.HashMultiSet" c:type="GeeHashMultiSet*"/>
+			</return-value>
+			<parameters>
+				<parameter name="hash_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.HashFunc" c:type="GHashFunc"/>
+				</parameter>
+				<parameter name="equal_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+				</parameter>
+			</parameters>
+		</constructor>
+		<property name="hash-func">
+			<type name="GLib.HashFunc" c:type="GHashFunc"/>
+		</property>
+		<property name="equal-func">
+			<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+		</property>
+	</class>
+	<record name="HashMultiSetClass" c:type="GeeHashMultiSetClass" glib:is-gtype-struct-for="HashMultiSet">
+		<field name="parent_class">
+			<type name="Gee.AbstractMultiSetClass" c:type="GeeAbstractMultiSetClass"/>
+		</field>
+	</record>
+	<record name="HashMultiSetPrivate" c:type="GeeHashMultiSetPrivate" disguised="1"/>
+	<class name="HashSet" c:type="GeeHashSet" glib:type-name="GeeHashSet" glib:get-type="gee_hash_set_get_type" glib:type-struct="HashSetClass" parent="Gee.AbstractSet">
+		<field name="parent_instance">
+			<type name="Gee.AbstractSet" c:type="GeeAbstractSet"/>
+		</field>
+		<field name="priv">
+			<type name="HashSetPrivate" c:type="GeeHashSetPrivate*"/>
+		</field>
+		<constructor name="new" c:identifier="gee_hash_set_new">
+			<return-value transfer-ownership="full">
+				<type name="Gee.HashSet" c:type="GeeHashSet*"/>
+			</return-value>
+			<parameters>
+				<parameter name="hash_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.HashFunc" c:type="GHashFunc"/>
+				</parameter>
+				<parameter name="equal_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+				</parameter>
+			</parameters>
+		</constructor>
+		<property name="hash-func" writable="1">
+			<type name="GLib.HashFunc" c:type="GHashFunc"/>
+		</property>
+		<property name="equal-func" writable="1">
+			<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+		</property>
+	</class>
+	<record name="HashSetClass" c:type="GeeHashSetClass" glib:is-gtype-struct-for="HashSet">
+		<field name="parent_class">
+			<type name="Gee.AbstractSetClass" c:type="GeeAbstractSetClass"/>
+		</field>
+	</record>
+	<record name="HashSetPrivate" c:type="GeeHashSetPrivate" disguised="1"/>
+	<class name="LinkedList" c:type="GeeLinkedList" glib:type-name="GeeLinkedList" glib:get-type="gee_linked_list_get_type" glib:type-struct="LinkedListClass" parent="Gee.AbstractList">
+		<implements name="Gee.Queue"/>
+		<implements name="Gee.Deque"/>
+		<field name="parent_instance">
+			<type name="Gee.AbstractList" c:type="GeeAbstractList"/>
+		</field>
+		<field name="priv">
+			<type name="LinkedListPrivate" c:type="GeeLinkedListPrivate*"/>
+		</field>
+		<constructor name="new" c:identifier="gee_linked_list_new">
+			<return-value transfer-ownership="full">
+				<type name="Gee.LinkedList" c:type="GeeLinkedList*"/>
+			</return-value>
+			<parameters>
+				<parameter name="equal_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+				</parameter>
+			</parameters>
+		</constructor>
+		<property name="equal-func" writable="1">
+			<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+		</property>
+	</class>
+	<record name="LinkedListClass" c:type="GeeLinkedListClass" glib:is-gtype-struct-for="LinkedList">
+		<field name="parent_class">
+			<type name="Gee.AbstractListClass" c:type="GeeAbstractListClass"/>
+		</field>
+	</record>
+	<record name="LinkedListPrivate" c:type="GeeLinkedListPrivate" disguised="1"/>
+	<class name="PriorityQueue" c:type="GeePriorityQueue" glib:type-name="GeePriorityQueue" glib:get-type="gee_priority_queue_get_type" glib:type-struct="PriorityQueueClass" parent="Gee.AbstractQueue">
+		<field name="parent_instance">
+			<type name="Gee.AbstractQueue" c:type="GeeAbstractQueue"/>
+		</field>
+		<field name="priv">
+			<type name="PriorityQueuePrivate" c:type="GeePriorityQueuePrivate*"/>
+		</field>
+		<constructor name="new" c:identifier="gee_priority_queue_new">
+			<return-value transfer-ownership="full">
+				<type name="Gee.PriorityQueue" c:type="GeePriorityQueue*"/>
+			</return-value>
+			<parameters>
+				<parameter name="compare_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
+				</parameter>
+			</parameters>
+		</constructor>
+		<property name="compare-func" writable="1">
+			<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
+		</property>
+	</class>
+	<record name="PriorityQueueClass" c:type="GeePriorityQueueClass" glib:is-gtype-struct-for="PriorityQueue">
+		<field name="parent_class">
+			<type name="Gee.AbstractQueueClass" c:type="GeeAbstractQueueClass"/>
+		</field>
+	</record>
+	<record name="PriorityQueuePrivate" c:type="GeePriorityQueuePrivate" disguised="1"/>
+	<class name="TreeMap" c:type="GeeTreeMap" glib:type-name="GeeTreeMap" glib:get-type="gee_tree_map_get_type" glib:type-struct="TreeMapClass" parent="Gee.AbstractMap">
+		<field name="parent_instance">
+			<type name="Gee.AbstractMap" c:type="GeeAbstractMap"/>
+		</field>
+		<field name="priv">
+			<type name="TreeMapPrivate" c:type="GeeTreeMapPrivate*"/>
+		</field>
+		<constructor name="new" c:identifier="gee_tree_map_new">
+			<return-value transfer-ownership="full">
+				<type name="Gee.TreeMap" c:type="GeeTreeMap*"/>
+			</return-value>
+			<parameters>
+				<parameter name="key_compare_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
+				</parameter>
+				<parameter name="value_equal_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+				</parameter>
+			</parameters>
+		</constructor>
+		<property name="key-compare-func" writable="1">
+			<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
+		</property>
+		<property name="value-equal-func" writable="1">
+			<type name="GLib.EqualFunc" c:type="GEqualFunc"/>
+		</property>
+	</class>
+	<record name="TreeMapClass" c:type="GeeTreeMapClass" glib:is-gtype-struct-for="TreeMap">
+		<field name="parent_class">
+			<type name="Gee.AbstractMapClass" c:type="GeeAbstractMapClass"/>
+		</field>
+	</record>
+	<record name="TreeMapPrivate" c:type="GeeTreeMapPrivate" disguised="1"/>
+	<class name="TreeMultiMap" c:type="GeeTreeMultiMap" glib:type-name="GeeTreeMultiMap" glib:get-type="gee_tree_multi_map_get_type" glib:type-struct="TreeMultiMapClass" parent="Gee.AbstractMultiMap">
+		<field name="parent_instance">
+			<type name="Gee.AbstractMultiMap" c:type="GeeAbstractMultiMap"/>
+		</field>
+		<field name="priv">
+			<type name="TreeMultiMapPrivate" c:type="GeeTreeMultiMapPrivate*"/>
+		</field>
+		<constructor name="new" c:identifier="gee_tree_multi_map_new">
+			<return-value transfer-ownership="full">
+				<type name="Gee.TreeMultiMap" c:type="GeeTreeMultiMap*"/>
+			</return-value>
+			<parameters>
+				<parameter name="key_compare_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
+				</parameter>
+				<parameter name="value_compare_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
+				</parameter>
+			</parameters>
+		</constructor>
+		<property name="key-compare-func">
+			<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
+		</property>
+		<property name="value-compare-func" writable="1">
+			<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
+		</property>
+	</class>
+	<record name="TreeMultiMapClass" c:type="GeeTreeMultiMapClass" glib:is-gtype-struct-for="TreeMultiMap">
+		<field name="parent_class">
+			<type name="Gee.AbstractMultiMapClass" c:type="GeeAbstractMultiMapClass"/>
+		</field>
+	</record>
+	<record name="TreeMultiMapPrivate" c:type="GeeTreeMultiMapPrivate" disguised="1"/>
+	<class name="TreeMultiSet" c:type="GeeTreeMultiSet" glib:type-name="GeeTreeMultiSet" glib:get-type="gee_tree_multi_set_get_type" glib:type-struct="TreeMultiSetClass" parent="Gee.AbstractMultiSet">
+		<field name="parent_instance">
+			<type name="Gee.AbstractMultiSet" c:type="GeeAbstractMultiSet"/>
+		</field>
+		<field name="priv">
+			<type name="TreeMultiSetPrivate" c:type="GeeTreeMultiSetPrivate*"/>
+		</field>
+		<constructor name="new" c:identifier="gee_tree_multi_set_new">
+			<return-value transfer-ownership="full">
+				<type name="Gee.TreeMultiSet" c:type="GeeTreeMultiSet*"/>
+			</return-value>
+			<parameters>
+				<parameter name="compare_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
+				</parameter>
+			</parameters>
+		</constructor>
+		<property name="compare-func">
+			<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
+		</property>
+	</class>
+	<record name="TreeMultiSetClass" c:type="GeeTreeMultiSetClass" glib:is-gtype-struct-for="TreeMultiSet">
+		<field name="parent_class">
+			<type name="Gee.AbstractMultiSetClass" c:type="GeeAbstractMultiSetClass"/>
+		</field>
+	</record>
+	<record name="TreeMultiSetPrivate" c:type="GeeTreeMultiSetPrivate" disguised="1"/>
+	<class name="TreeSet" c:type="GeeTreeSet" glib:type-name="GeeTreeSet" glib:get-type="gee_tree_set_get_type" glib:type-struct="TreeSetClass" parent="Gee.AbstractSet">
+		<implements name="Gee.SortedSet"/>
+		<field name="parent_instance">
+			<type name="Gee.AbstractSet" c:type="GeeAbstractSet"/>
+		</field>
+		<field name="priv">
+			<type name="TreeSetPrivate" c:type="GeeTreeSetPrivate*"/>
+		</field>
+		<constructor name="new" c:identifier="gee_tree_set_new">
+			<return-value transfer-ownership="full">
+				<type name="Gee.TreeSet" c:type="GeeTreeSet*"/>
+			</return-value>
+			<parameters>
+				<parameter name="compare_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
+				</parameter>
+			</parameters>
+		</constructor>
+		<property name="compare-func" writable="1">
+			<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
+		</property>
+	</class>
+	<record name="TreeSetClass" c:type="GeeTreeSetClass" glib:is-gtype-struct-for="TreeSet">
+		<field name="parent_class">
+			<type name="Gee.AbstractSetClass" c:type="GeeAbstractSetClass"/>
+		</field>
+	</record>
+	<record name="TreeSetPrivate" c:type="GeeTreeSetPrivate" disguised="1"/>
+	<interface name="BidirIterator" c:type="GeeBidirIterator" glib:type-name="GeeBidirIterator" glib:get-type="gee_bidir_iterator_get_type" glib:type-struct="BidirIteratorIface">
+		<prerequisite name="Gee.Iterator"/>
+		<method name="previous" c:identifier="gee_bidir_iterator_previous">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+		</method>
+		<virtual-method name="previous" invoker="previous">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+		</virtual-method>
+		<method name="has_previous" c:identifier="gee_bidir_iterator_has_previous">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+		</method>
+		<virtual-method name="has_previous" invoker="has_previous">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+		</virtual-method>
+		<method name="last" c:identifier="gee_bidir_iterator_last">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+		</method>
+		<virtual-method name="last" invoker="last">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+		</virtual-method>
+	</interface>
+	<record name="BidirIteratorIface" c:type="GeeBidirIteratorIface" glib:is-gtype-struct-for="BidirIterator">
+		<field name="parent_iface">
+			<type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+		</field>
+		<field name="previous">
+			<callback name="previous" c:type="previous">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.BidirIterator" c:type="GeeBidirIterator*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="has_previous">
+			<callback name="has_previous" c:type="has_previous">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.BidirIterator" c:type="GeeBidirIterator*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="last">
+			<callback name="last" c:type="last">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.BidirIterator" c:type="GeeBidirIterator*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<interface name="Collection" c:type="GeeCollection" glib:type-name="GeeCollection" glib:get-type="gee_collection_get_type" glib:type-struct="CollectionIface">
+		<prerequisite name="Gee.Iterable"/>
+		<method name="contains" c:identifier="gee_collection_contains">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="contains" invoker="contains">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="add" c:identifier="gee_collection_add">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="add" invoker="add">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="remove" c:identifier="gee_collection_remove">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="remove" invoker="remove">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="clear" c:identifier="gee_collection_clear">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</method>
+		<virtual-method name="clear" invoker="clear">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</virtual-method>
+		<method name="add_all" c:identifier="gee_collection_add_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="add_all" invoker="add_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="contains_all" c:identifier="gee_collection_contains_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="contains_all" invoker="contains_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="remove_all" c:identifier="gee_collection_remove_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="remove_all" invoker="remove_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="retain_all" c:identifier="gee_collection_retain_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="retain_all" invoker="retain_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="to_array" c:identifier="gee_collection_to_array">
+			<return-value transfer-ownership="full">
+				<array length="0">
+					<type name="gpointer" c:type="gpointer"/>
+				</array>
+			</return-value>
+			<parameters>
+				<parameter name="result_length1" direction="out" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="to_array" invoker="to_array">
+			<return-value transfer-ownership="full">
+				<array length="0">
+					<type name="gpointer" c:type="gpointer"/>
+				</array>
+			</return-value>
+			<parameters>
+				<parameter name="result_length1" direction="out" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<function name="empty" c:identifier="gee_collection_empty">
+			<return-value transfer-ownership="full">
+				<type name="Gee.Collection" c:type="GeeCollection*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</function>
+		<property name="size">
+			<type name="gint" c:type="gint"/>
+		</property>
+		<property name="is-empty">
+			<type name="gboolean" c:type="gboolean"/>
+		</property>
+		<property name="read-only-view">
+			<type name="Gee.Collection" c:type="GeeCollection*">
+				<type name="gpointer" c:type="gpointer"/>
+			</type>
+		</property>
+	</interface>
+	<record name="CollectionIface" c:type="GeeCollectionIface" glib:is-gtype-struct-for="Collection">
+		<field name="parent_iface">
+			<type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+		</field>
+		<field name="contains">
+			<callback name="contains" c:type="contains">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*"/>
+					</parameter>
+					<parameter name="item" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="add">
+			<callback name="add" c:type="add">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*"/>
+					</parameter>
+					<parameter name="item" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="remove">
+			<callback name="remove" c:type="remove">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*"/>
+					</parameter>
+					<parameter name="item" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="clear">
+			<callback name="clear" c:type="clear">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="add_all">
+			<callback name="add_all" c:type="add_all">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*"/>
+					</parameter>
+					<parameter name="collection" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*">
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="contains_all">
+			<callback name="contains_all" c:type="contains_all">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*"/>
+					</parameter>
+					<parameter name="collection" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*">
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="remove_all">
+			<callback name="remove_all" c:type="remove_all">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*"/>
+					</parameter>
+					<parameter name="collection" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*">
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="retain_all">
+			<callback name="retain_all" c:type="retain_all">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*"/>
+					</parameter>
+					<parameter name="collection" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*">
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="to_array">
+			<callback name="to_array" c:type="to_array">
+				<return-value transfer-ownership="full">
+					<array length="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</array>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*"/>
+					</parameter>
+					<parameter name="result_length1" direction="out" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<interface name="Comparable" c:type="GeeComparable" glib:type-name="GeeComparable" glib:get-type="gee_comparable_get_type" glib:type-struct="ComparableIface">
+		<prerequisite name="GObject.Object"/>
+		<method name="compare_to" c:identifier="gee_comparable_compare_to">
+			<return-value transfer-ownership="full">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+			<parameters>
+				<parameter name="object" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="compare_to" invoker="compare_to">
+			<return-value transfer-ownership="full">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+			<parameters>
+				<parameter name="object" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+	</interface>
+	<record name="ComparableIface" c:type="GeeComparableIface" glib:is-gtype-struct-for="Comparable">
+		<field name="parent_iface">
+			<type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+		</field>
+		<field name="compare_to">
+			<callback name="compare_to" c:type="compare_to">
+				<return-value transfer-ownership="full">
+					<type name="gint" c:type="gint"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Comparable" c:type="GeeComparable*"/>
+					</parameter>
+					<parameter name="object" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<interface name="Deque" c:type="GeeDeque" glib:type-name="GeeDeque" glib:get-type="gee_deque_get_type" glib:type-struct="DequeIface">
+		<prerequisite name="Gee.Queue"/>
+		<method name="offer_head" c:identifier="gee_deque_offer_head">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="element" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="offer_head" invoker="offer_head">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="element" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="peek_head" c:identifier="gee_deque_peek_head">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</method>
+		<virtual-method name="peek_head" invoker="peek_head">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</virtual-method>
+		<method name="poll_head" c:identifier="gee_deque_poll_head">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</method>
+		<virtual-method name="poll_head" invoker="poll_head">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</virtual-method>
+		<method name="drain_head" c:identifier="gee_deque_drain_head">
+			<return-value transfer-ownership="full">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+			<parameters>
+				<parameter name="recipient" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+				<parameter name="amount" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="drain_head" invoker="drain_head">
+			<return-value transfer-ownership="full">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+			<parameters>
+				<parameter name="recipient" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+				<parameter name="amount" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="offer_tail" c:identifier="gee_deque_offer_tail">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="element" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="offer_tail" invoker="offer_tail">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="element" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="peek_tail" c:identifier="gee_deque_peek_tail">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</method>
+		<virtual-method name="peek_tail" invoker="peek_tail">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</virtual-method>
+		<method name="poll_tail" c:identifier="gee_deque_poll_tail">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</method>
+		<virtual-method name="poll_tail" invoker="poll_tail">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</virtual-method>
+		<method name="drain_tail" c:identifier="gee_deque_drain_tail">
+			<return-value transfer-ownership="full">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+			<parameters>
+				<parameter name="recipient" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+				<parameter name="amount" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="drain_tail" invoker="drain_tail">
+			<return-value transfer-ownership="full">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+			<parameters>
+				<parameter name="recipient" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+				<parameter name="amount" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+	</interface>
+	<record name="DequeIface" c:type="GeeDequeIface" glib:is-gtype-struct-for="Deque">
+		<field name="parent_iface">
+			<type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+		</field>
+		<field name="offer_head">
+			<callback name="offer_head" c:type="offer_head">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Deque" c:type="GeeDeque*"/>
+					</parameter>
+					<parameter name="element" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="peek_head">
+			<callback name="peek_head" c:type="peek_head">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Deque" c:type="GeeDeque*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="poll_head">
+			<callback name="poll_head" c:type="poll_head">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Deque" c:type="GeeDeque*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="drain_head">
+			<callback name="drain_head" c:type="drain_head">
+				<return-value transfer-ownership="full">
+					<type name="gint" c:type="gint"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Deque" c:type="GeeDeque*"/>
+					</parameter>
+					<parameter name="recipient" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*">
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+					<parameter name="amount" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="offer_tail">
+			<callback name="offer_tail" c:type="offer_tail">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Deque" c:type="GeeDeque*"/>
+					</parameter>
+					<parameter name="element" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="peek_tail">
+			<callback name="peek_tail" c:type="peek_tail">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Deque" c:type="GeeDeque*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="poll_tail">
+			<callback name="poll_tail" c:type="poll_tail">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Deque" c:type="GeeDeque*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="drain_tail">
+			<callback name="drain_tail" c:type="drain_tail">
+				<return-value transfer-ownership="full">
+					<type name="gint" c:type="gint"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Deque" c:type="GeeDeque*"/>
+					</parameter>
+					<parameter name="recipient" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*">
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+					<parameter name="amount" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<interface name="Iterable" c:type="GeeIterable" glib:type-name="GeeIterable" glib:get-type="gee_iterable_get_type" glib:type-struct="IterableIface">
+		<prerequisite name="GObject.Object"/>
+		<method name="iterator" c:identifier="gee_iterable_iterator">
+			<return-value transfer-ownership="full">
+				<type name="Gee.Iterator" c:type="GeeIterator*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</method>
+		<virtual-method name="iterator" invoker="iterator">
+			<return-value transfer-ownership="full">
+				<type name="Gee.Iterator" c:type="GeeIterator*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</virtual-method>
+		<property name="element-type">
+			<type name="GObject.Type" c:type="GType"/>
+		</property>
+	</interface>
+	<record name="IterableIface" c:type="GeeIterableIface" glib:is-gtype-struct-for="Iterable">
+		<field name="parent_iface">
+			<type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+		</field>
+		<field name="iterator">
+			<callback name="iterator" c:type="iterator">
+				<return-value transfer-ownership="full">
+					<type name="Gee.Iterator" c:type="GeeIterator*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Iterable" c:type="GeeIterable*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<interface name="Iterator" c:type="GeeIterator" glib:type-name="GeeIterator" glib:get-type="gee_iterator_get_type" glib:type-struct="IteratorIface">
+		<prerequisite name="GObject.Object"/>
+		<method name="next" c:identifier="gee_iterator_next">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+		</method>
+		<virtual-method name="next" invoker="next">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+		</virtual-method>
+		<method name="has_next" c:identifier="gee_iterator_has_next">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+		</method>
+		<virtual-method name="has_next" invoker="has_next">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+		</virtual-method>
+		<method name="first" c:identifier="gee_iterator_first">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+		</method>
+		<virtual-method name="first" invoker="first">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+		</virtual-method>
+		<method name="get" c:identifier="gee_iterator_get">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</method>
+		<virtual-method name="get" invoker="get">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</virtual-method>
+		<method name="remove" c:identifier="gee_iterator_remove">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</method>
+		<virtual-method name="remove" invoker="remove">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</virtual-method>
+	</interface>
+	<record name="IteratorIface" c:type="GeeIteratorIface" glib:is-gtype-struct-for="Iterator">
+		<field name="parent_iface">
+			<type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+		</field>
+		<field name="next">
+			<callback name="next" c:type="next">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Iterator" c:type="GeeIterator*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="has_next">
+			<callback name="has_next" c:type="has_next">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Iterator" c:type="GeeIterator*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="first">
+			<callback name="first" c:type="first">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Iterator" c:type="GeeIterator*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="get">
+			<callback name="get" c:type="get">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Iterator" c:type="GeeIterator*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="remove">
+			<callback name="remove" c:type="remove">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Iterator" c:type="GeeIterator*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<interface name="List" c:type="GeeList" glib:type-name="GeeList" glib:get-type="gee_list_get_type" glib:type-struct="ListIface">
+		<prerequisite name="Gee.Collection"/>
+		<method name="list_iterator" c:identifier="gee_list_list_iterator">
+			<return-value transfer-ownership="full">
+				<type name="Gee.ListIterator" c:type="GeeListIterator*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</method>
+		<virtual-method name="list_iterator" invoker="list_iterator">
+			<return-value transfer-ownership="full">
+				<type name="Gee.ListIterator" c:type="GeeListIterator*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</virtual-method>
+		<method name="get" c:identifier="gee_list_get">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="get" invoker="get">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="set" c:identifier="gee_list_set">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="set" invoker="set">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="index_of" c:identifier="gee_list_index_of">
+			<return-value transfer-ownership="full">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="index_of" invoker="index_of">
+			<return-value transfer-ownership="full">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="insert" c:identifier="gee_list_insert">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="insert" invoker="insert">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="remove_at" c:identifier="gee_list_remove_at">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="remove_at" invoker="remove_at">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="slice" c:identifier="gee_list_slice">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="Gee.List" c:type="GeeList*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+			<parameters>
+				<parameter name="start" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="stop" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="slice" invoker="slice">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="Gee.List" c:type="GeeList*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+			<parameters>
+				<parameter name="start" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="stop" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="first" c:identifier="gee_list_first">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</method>
+		<virtual-method name="first" invoker="first">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</virtual-method>
+		<method name="last" c:identifier="gee_list_last">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</method>
+		<virtual-method name="last" invoker="last">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</virtual-method>
+		<method name="insert_all" c:identifier="gee_list_insert_all">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="insert_all" invoker="insert_all">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="index" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+				<parameter name="collection" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="sort" c:identifier="gee_list_sort">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="compare_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="sort" invoker="sort">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="compare_func" transfer-ownership="none" allow-none="1" scope="call">
+					<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<function name="empty" c:identifier="gee_list_empty">
+			<return-value transfer-ownership="full">
+				<type name="Gee.List" c:type="GeeList*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</function>
+		<property name="read-only-view">
+			<type name="Gee.List" c:type="GeeList*">
+				<type name="gpointer" c:type="gpointer"/>
+			</type>
+		</property>
+	</interface>
+	<record name="ListIface" c:type="GeeListIface" glib:is-gtype-struct-for="List">
+		<field name="parent_iface">
+			<type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+		</field>
+		<field name="list_iterator">
+			<callback name="list_iterator" c:type="list_iterator">
+				<return-value transfer-ownership="full">
+					<type name="Gee.ListIterator" c:type="GeeListIterator*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.List" c:type="GeeList*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="get">
+			<callback name="get" c:type="get">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.List" c:type="GeeList*"/>
+					</parameter>
+					<parameter name="index" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="set">
+			<callback name="set" c:type="set">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.List" c:type="GeeList*"/>
+					</parameter>
+					<parameter name="index" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+					<parameter name="item" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="index_of">
+			<callback name="index_of" c:type="index_of">
+				<return-value transfer-ownership="full">
+					<type name="gint" c:type="gint"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.List" c:type="GeeList*"/>
+					</parameter>
+					<parameter name="item" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="insert">
+			<callback name="insert" c:type="insert">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.List" c:type="GeeList*"/>
+					</parameter>
+					<parameter name="index" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+					<parameter name="item" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="remove_at">
+			<callback name="remove_at" c:type="remove_at">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.List" c:type="GeeList*"/>
+					</parameter>
+					<parameter name="index" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="slice">
+			<callback name="slice" c:type="slice">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="Gee.List" c:type="GeeList*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.List" c:type="GeeList*"/>
+					</parameter>
+					<parameter name="start" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+					<parameter name="stop" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="first">
+			<callback name="first" c:type="first">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.List" c:type="GeeList*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="last">
+			<callback name="last" c:type="last">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.List" c:type="GeeList*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="insert_all">
+			<callback name="insert_all" c:type="insert_all">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.List" c:type="GeeList*"/>
+					</parameter>
+					<parameter name="index" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+					<parameter name="collection" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*">
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="sort">
+			<callback name="sort" c:type="sort">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.List" c:type="GeeList*"/>
+					</parameter>
+					<parameter name="compare_func" transfer-ownership="none" allow-none="1" scope="call">
+						<type name="GLib.CompareFunc" c:type="GCompareFunc"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<interface name="ListIterator" c:type="GeeListIterator" glib:type-name="GeeListIterator" glib:get-type="gee_list_iterator_get_type" glib:type-struct="ListIteratorIface">
+		<prerequisite name="Gee.BidirIterator"/>
+		<method name="set" c:identifier="gee_list_iterator_set">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="set" invoker="set">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="insert" c:identifier="gee_list_iterator_insert">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="insert" invoker="insert">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="add" c:identifier="gee_list_iterator_add">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="add" invoker="add">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="index" c:identifier="gee_list_iterator_index">
+			<return-value transfer-ownership="full">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+		</method>
+		<virtual-method name="index" invoker="index">
+			<return-value transfer-ownership="full">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+		</virtual-method>
+	</interface>
+	<record name="ListIteratorIface" c:type="GeeListIteratorIface" glib:is-gtype-struct-for="ListIterator">
+		<field name="parent_iface">
+			<type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+		</field>
+		<field name="set">
+			<callback name="set" c:type="set">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.ListIterator" c:type="GeeListIterator*"/>
+					</parameter>
+					<parameter name="item" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="insert">
+			<callback name="insert" c:type="insert">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.ListIterator" c:type="GeeListIterator*"/>
+					</parameter>
+					<parameter name="item" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="add">
+			<callback name="add" c:type="add">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.ListIterator" c:type="GeeListIterator*"/>
+					</parameter>
+					<parameter name="item" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="index">
+			<callback name="index" c:type="index">
+				<return-value transfer-ownership="full">
+					<type name="gint" c:type="gint"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.ListIterator" c:type="GeeListIterator*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<interface name="Map" c:type="GeeMap" glib:type-name="GeeMap" glib:get-type="gee_map_get_type" glib:type-struct="MapIface">
+		<prerequisite name="GObject.Object"/>
+		<prerequisite name="Gee.Iterable"/>
+		<method name="has_key" c:identifier="gee_map_has_key">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="has_key" invoker="has_key">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="contains" c:identifier="gee_map_contains" deprecated="">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="contains" invoker="contains" deprecated="">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="has" c:identifier="gee_map_has">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="has" invoker="has">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="get" c:identifier="gee_map_get">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="get" invoker="get">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="set" c:identifier="gee_map_set">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="set" invoker="set">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="unset" c:identifier="gee_map_unset">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="value" direction="out" transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="unset" invoker="unset">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="value" direction="out" transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="remove" c:identifier="gee_map_remove" deprecated="">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="value" direction="out" transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="remove" invoker="remove" deprecated="">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="value" direction="out" transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="clear" c:identifier="gee_map_clear">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</method>
+		<virtual-method name="clear" invoker="clear">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</virtual-method>
+		<method name="map_iterator" c:identifier="gee_map_map_iterator">
+			<return-value transfer-ownership="full">
+				<type name="Gee.MapIterator" c:type="GeeMapIterator*">
+					<type name="gpointer" c:type="gpointer"/>
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</method>
+		<virtual-method name="map_iterator" invoker="map_iterator">
+			<return-value transfer-ownership="full">
+				<type name="Gee.MapIterator" c:type="GeeMapIterator*">
+					<type name="gpointer" c:type="gpointer"/>
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</virtual-method>
+		<method name="set_all" c:identifier="gee_map_set_all">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="map" transfer-ownership="none">
+					<type name="Gee.Map" c:type="GeeMap*">
+						<type name="gpointer" c:type="gpointer"/>
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="set_all" invoker="set_all">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="map" transfer-ownership="none">
+					<type name="Gee.Map" c:type="GeeMap*">
+						<type name="gpointer" c:type="gpointer"/>
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="unset_all" c:identifier="gee_map_unset_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="map" transfer-ownership="none">
+					<type name="Gee.Map" c:type="GeeMap*">
+						<type name="gpointer" c:type="gpointer"/>
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="unset_all" invoker="unset_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="map" transfer-ownership="none">
+					<type name="Gee.Map" c:type="GeeMap*">
+						<type name="gpointer" c:type="gpointer"/>
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="remove_all" c:identifier="gee_map_remove_all" deprecated="">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="map" transfer-ownership="none">
+					<type name="Gee.Map" c:type="GeeMap*">
+						<type name="gpointer" c:type="gpointer"/>
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="remove_all" invoker="remove_all" deprecated="">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="map" transfer-ownership="none">
+					<type name="Gee.Map" c:type="GeeMap*">
+						<type name="gpointer" c:type="gpointer"/>
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="has_all" c:identifier="gee_map_has_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="map" transfer-ownership="none">
+					<type name="Gee.Map" c:type="GeeMap*">
+						<type name="gpointer" c:type="gpointer"/>
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="has_all" invoker="has_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="map" transfer-ownership="none">
+					<type name="Gee.Map" c:type="GeeMap*">
+						<type name="gpointer" c:type="gpointer"/>
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="contains_all" c:identifier="gee_map_contains_all" deprecated="">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="map" transfer-ownership="none">
+					<type name="Gee.Map" c:type="GeeMap*">
+						<type name="gpointer" c:type="gpointer"/>
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="contains_all" invoker="contains_all" deprecated="">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="map" transfer-ownership="none">
+					<type name="Gee.Map" c:type="GeeMap*">
+						<type name="gpointer" c:type="gpointer"/>
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<function name="empty" c:identifier="gee_map_empty">
+			<return-value transfer-ownership="full">
+				<type name="Gee.Map" c:type="GeeMap*">
+					<type name="gpointer" c:type="gpointer"/>
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</function>
+		<property name="size">
+			<type name="gint" c:type="gint"/>
+		</property>
+		<property name="is-empty">
+			<type name="gboolean" c:type="gboolean"/>
+		</property>
+		<property name="keys">
+			<type name="Gee.Set" c:type="GeeSet*">
+				<type name="gpointer" c:type="gpointer"/>
+			</type>
+		</property>
+		<property name="values">
+			<type name="Gee.Collection" c:type="GeeCollection*">
+				<type name="gpointer" c:type="gpointer"/>
+			</type>
+		</property>
+		<property name="entries">
+			<type name="Gee.Set" c:type="GeeSet*">
+				<type name="Gee.MapEntry" c:type="GeeMapEntry*">
+					<type name="gpointer" c:type="gpointer"/>
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</type>
+		</property>
+		<property name="read-only-view">
+			<type name="Gee.Map" c:type="GeeMap*">
+				<type name="gpointer" c:type="gpointer"/>
+				<type name="gpointer" c:type="gpointer"/>
+			</type>
+		</property>
+		<property name="key-type">
+			<type name="GObject.Type" c:type="GType"/>
+		</property>
+		<property name="value-type">
+			<type name="GObject.Type" c:type="GType"/>
+		</property>
+	</interface>
+	<record name="MapIface" c:type="GeeMapIface" glib:is-gtype-struct-for="Map">
+		<field name="parent_iface">
+			<type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+		</field>
+		<field name="has_key">
+			<callback name="has_key" c:type="has_key">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*"/>
+					</parameter>
+					<parameter name="key" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="contains">
+			<callback name="contains" c:type="contains" deprecated="">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*"/>
+					</parameter>
+					<parameter name="key" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="has">
+			<callback name="has" c:type="has">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*"/>
+					</parameter>
+					<parameter name="key" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+					<parameter name="value" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="get">
+			<callback name="get" c:type="get">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*"/>
+					</parameter>
+					<parameter name="key" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="set">
+			<callback name="set" c:type="set">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*"/>
+					</parameter>
+					<parameter name="key" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+					<parameter name="value" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="unset">
+			<callback name="unset" c:type="unset">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*"/>
+					</parameter>
+					<parameter name="key" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+					<parameter name="value" direction="out" transfer-ownership="full" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="remove">
+			<callback name="remove" c:type="remove" deprecated="">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*"/>
+					</parameter>
+					<parameter name="key" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+					<parameter name="value" direction="out" transfer-ownership="full" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="clear">
+			<callback name="clear" c:type="clear">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="map_iterator">
+			<callback name="map_iterator" c:type="map_iterator">
+				<return-value transfer-ownership="full">
+					<type name="Gee.MapIterator" c:type="GeeMapIterator*">
+						<type name="gpointer" c:type="gpointer"/>
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="set_all">
+			<callback name="set_all" c:type="set_all">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*"/>
+					</parameter>
+					<parameter name="map" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*">
+							<type name="gpointer" c:type="gpointer"/>
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="unset_all">
+			<callback name="unset_all" c:type="unset_all">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*"/>
+					</parameter>
+					<parameter name="map" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*">
+							<type name="gpointer" c:type="gpointer"/>
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="remove_all">
+			<callback name="remove_all" c:type="remove_all" deprecated="">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*"/>
+					</parameter>
+					<parameter name="map" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*">
+							<type name="gpointer" c:type="gpointer"/>
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="has_all">
+			<callback name="has_all" c:type="has_all">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*"/>
+					</parameter>
+					<parameter name="map" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*">
+							<type name="gpointer" c:type="gpointer"/>
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="contains_all">
+			<callback name="contains_all" c:type="contains_all" deprecated="">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*"/>
+					</parameter>
+					<parameter name="map" transfer-ownership="none">
+						<type name="Gee.Map" c:type="GeeMap*">
+							<type name="gpointer" c:type="gpointer"/>
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<class name="MapEntry" c:type="GeeMapEntry" glib:type-name="GeeMapEntry" glib:get-type="gee_map_entry_get_type" glib:type-struct="MapEntryClass" parent="GObject.Object" abstract="1">
+		<field name="parent_instance">
+			<type name="GObject.Object" c:type="GObject"/>
+		</field>
+		<field name="priv">
+			<type name="EntryPrivate" c:type="GeeMapEntryPrivate*"/>
+		</field>
+		<property name="key">
+			<type name="gpointer" c:type="gpointer"/>
+		</property>
+		<property name="value" writable="1">
+			<type name="gpointer" c:type="gpointer"/>
+		</property>
+	</class>
+	<record name="MapEntryClass" c:type="GeeMapEntryClass" glib:is-gtype-struct-for="Entry">
+		<field name="parent_class">
+			<type name="GObject.ObjectClass" c:type="GObjectClass"/>
+		</field>
+	</record>
+	<record name="EntryPrivate" c:type="GeeMapEntryPrivate" disguised="1"/>
+	<interface name="MapIterator" c:type="GeeMapIterator" glib:type-name="GeeMapIterator" glib:get-type="gee_map_iterator_get_type" glib:type-struct="MapIteratorIface">
+		<prerequisite name="GObject.Object"/>
+		<method name="next" c:identifier="gee_map_iterator_next">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+		</method>
+		<virtual-method name="next" invoker="next">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+		</virtual-method>
+		<method name="has_next" c:identifier="gee_map_iterator_has_next">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+		</method>
+		<virtual-method name="has_next" invoker="has_next">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+		</virtual-method>
+		<method name="first" c:identifier="gee_map_iterator_first">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+		</method>
+		<virtual-method name="first" invoker="first">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+		</virtual-method>
+		<method name="get_key" c:identifier="gee_map_iterator_get_key">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</method>
+		<virtual-method name="get_key" invoker="get_key">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</virtual-method>
+		<method name="get_value" c:identifier="gee_map_iterator_get_value">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</method>
+		<virtual-method name="get_value" invoker="get_value">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</virtual-method>
+		<method name="set_value" c:identifier="gee_map_iterator_set_value">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="value" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="set_value" invoker="set_value">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="value" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="unset" c:identifier="gee_map_iterator_unset">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</method>
+		<virtual-method name="unset" invoker="unset">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</virtual-method>
+	</interface>
+	<record name="MapIteratorIface" c:type="GeeMapIteratorIface" glib:is-gtype-struct-for="MapIterator">
+		<field name="parent_iface">
+			<type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+		</field>
+		<field name="next">
+			<callback name="next" c:type="next">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.MapIterator" c:type="GeeMapIterator*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="has_next">
+			<callback name="has_next" c:type="has_next">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.MapIterator" c:type="GeeMapIterator*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="first">
+			<callback name="first" c:type="first">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.MapIterator" c:type="GeeMapIterator*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="get_key">
+			<callback name="get_key" c:type="get_key">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.MapIterator" c:type="GeeMapIterator*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="get_value">
+			<callback name="get_value" c:type="get_value">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.MapIterator" c:type="GeeMapIterator*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="set_value">
+			<callback name="set_value" c:type="set_value">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.MapIterator" c:type="GeeMapIterator*"/>
+					</parameter>
+					<parameter name="value" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="unset">
+			<callback name="unset" c:type="unset">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.MapIterator" c:type="GeeMapIterator*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<interface name="MultiMap" c:type="GeeMultiMap" glib:type-name="GeeMultiMap" glib:get-type="gee_multi_map_get_type" glib:type-struct="MultiMapIface">
+		<prerequisite name="GObject.Object"/>
+		<method name="get_keys" c:identifier="gee_multi_map_get_keys">
+			<return-value transfer-ownership="full">
+				<type name="Gee.Set" c:type="GeeSet*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</method>
+		<virtual-method name="get_keys" invoker="get_keys">
+			<return-value transfer-ownership="full">
+				<type name="Gee.Set" c:type="GeeSet*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</virtual-method>
+		<method name="get_all_keys" c:identifier="gee_multi_map_get_all_keys">
+			<return-value transfer-ownership="full">
+				<type name="Gee.MultiSet" c:type="GeeMultiSet*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</method>
+		<virtual-method name="get_all_keys" invoker="get_all_keys">
+			<return-value transfer-ownership="full">
+				<type name="Gee.MultiSet" c:type="GeeMultiSet*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</virtual-method>
+		<method name="get_values" c:identifier="gee_multi_map_get_values">
+			<return-value transfer-ownership="full">
+				<type name="Gee.Collection" c:type="GeeCollection*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</method>
+		<virtual-method name="get_values" invoker="get_values">
+			<return-value transfer-ownership="full">
+				<type name="Gee.Collection" c:type="GeeCollection*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</virtual-method>
+		<method name="contains" c:identifier="gee_multi_map_contains">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="contains" invoker="contains">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="get" c:identifier="gee_multi_map_get">
+			<return-value transfer-ownership="full">
+				<type name="Gee.Collection" c:type="GeeCollection*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="get" invoker="get">
+			<return-value transfer-ownership="full">
+				<type name="Gee.Collection" c:type="GeeCollection*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="set" c:identifier="gee_multi_map_set">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="set" invoker="set">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="remove" c:identifier="gee_multi_map_remove">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="remove" invoker="remove">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="value" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="remove_all" c:identifier="gee_multi_map_remove_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="remove_all" invoker="remove_all">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="key" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="clear" c:identifier="gee_multi_map_clear">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</method>
+		<virtual-method name="clear" invoker="clear">
+			<return-value transfer-ownership="full">
+				<type name="none"/>
+			</return-value>
+		</virtual-method>
+		<property name="size">
+			<type name="gint" c:type="gint"/>
+		</property>
+	</interface>
+	<record name="MultiMapIface" c:type="GeeMultiMapIface" glib:is-gtype-struct-for="MultiMap">
+		<field name="parent_iface">
+			<type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+		</field>
+		<field name="get_keys">
+			<callback name="get_keys" c:type="get_keys">
+				<return-value transfer-ownership="full">
+					<type name="Gee.Set" c:type="GeeSet*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.MultiMap" c:type="GeeMultiMap*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="get_all_keys">
+			<callback name="get_all_keys" c:type="get_all_keys">
+				<return-value transfer-ownership="full">
+					<type name="Gee.MultiSet" c:type="GeeMultiSet*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.MultiMap" c:type="GeeMultiMap*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="get_values">
+			<callback name="get_values" c:type="get_values">
+				<return-value transfer-ownership="full">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.MultiMap" c:type="GeeMultiMap*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="contains">
+			<callback name="contains" c:type="contains">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.MultiMap" c:type="GeeMultiMap*"/>
+					</parameter>
+					<parameter name="key" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="get">
+			<callback name="get" c:type="get">
+				<return-value transfer-ownership="full">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.MultiMap" c:type="GeeMultiMap*"/>
+					</parameter>
+					<parameter name="key" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="set">
+			<callback name="set" c:type="set">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.MultiMap" c:type="GeeMultiMap*"/>
+					</parameter>
+					<parameter name="key" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+					<parameter name="value" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="remove">
+			<callback name="remove" c:type="remove">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.MultiMap" c:type="GeeMultiMap*"/>
+					</parameter>
+					<parameter name="key" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+					<parameter name="value" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="remove_all">
+			<callback name="remove_all" c:type="remove_all">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.MultiMap" c:type="GeeMultiMap*"/>
+					</parameter>
+					<parameter name="key" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="clear">
+			<callback name="clear" c:type="clear">
+				<return-value transfer-ownership="full">
+					<type name="none"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.MultiMap" c:type="GeeMultiMap*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<interface name="MultiSet" c:type="GeeMultiSet" glib:type-name="GeeMultiSet" glib:get-type="gee_multi_set_get_type" glib:type-struct="MultiSetIface">
+		<prerequisite name="Gee.Collection"/>
+		<method name="count" c:identifier="gee_multi_set_count">
+			<return-value transfer-ownership="full">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="count" invoker="count">
+			<return-value transfer-ownership="full">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+			<parameters>
+				<parameter name="item" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+	</interface>
+	<record name="MultiSetIface" c:type="GeeMultiSetIface" glib:is-gtype-struct-for="MultiSet">
+		<field name="parent_iface">
+			<type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+		</field>
+		<field name="count">
+			<callback name="count" c:type="count">
+				<return-value transfer-ownership="full">
+					<type name="gint" c:type="gint"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.MultiSet" c:type="GeeMultiSet*"/>
+					</parameter>
+					<parameter name="item" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<interface name="Queue" c:type="GeeQueue" glib:type-name="GeeQueue" glib:get-type="gee_queue_get_type" glib:type-struct="QueueIface">
+		<prerequisite name="Gee.Collection"/>
+		<method name="offer" c:identifier="gee_queue_offer">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="element" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="offer" invoker="offer">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+			<parameters>
+				<parameter name="element" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="peek" c:identifier="gee_queue_peek">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</method>
+		<virtual-method name="peek" invoker="peek">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</virtual-method>
+		<method name="poll" c:identifier="gee_queue_poll">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</method>
+		<virtual-method name="poll" invoker="poll">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</virtual-method>
+		<method name="drain" c:identifier="gee_queue_drain">
+			<return-value transfer-ownership="full">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+			<parameters>
+				<parameter name="recipient" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+				<parameter name="amount" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="drain" invoker="drain">
+			<return-value transfer-ownership="full">
+				<type name="gint" c:type="gint"/>
+			</return-value>
+			<parameters>
+				<parameter name="recipient" transfer-ownership="none">
+					<type name="Gee.Collection" c:type="GeeCollection*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</parameter>
+				<parameter name="amount" transfer-ownership="none">
+					<type name="gint" c:type="gint"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<constant name="UNBOUNDED_CAPACITY" c:identifier="GEE_QUEUE_UNBOUNDED_CAPACITY" value="-1">
+			<type name="gint" c:type="gint"/>
+		</constant>
+		<property name="capacity">
+			<type name="gint" c:type="gint"/>
+		</property>
+		<property name="remaining-capacity">
+			<type name="gint" c:type="gint"/>
+		</property>
+		<property name="is-full">
+			<type name="gboolean" c:type="gboolean"/>
+		</property>
+	</interface>
+	<record name="QueueIface" c:type="GeeQueueIface" glib:is-gtype-struct-for="Queue">
+		<field name="parent_iface">
+			<type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+		</field>
+		<field name="offer">
+			<callback name="offer" c:type="offer">
+				<return-value transfer-ownership="full">
+					<type name="gboolean" c:type="gboolean"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Queue" c:type="GeeQueue*"/>
+					</parameter>
+					<parameter name="element" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="peek">
+			<callback name="peek" c:type="peek">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Queue" c:type="GeeQueue*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="poll">
+			<callback name="poll" c:type="poll">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Queue" c:type="GeeQueue*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="drain">
+			<callback name="drain" c:type="drain">
+				<return-value transfer-ownership="full">
+					<type name="gint" c:type="gint"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.Queue" c:type="GeeQueue*"/>
+					</parameter>
+					<parameter name="recipient" transfer-ownership="none">
+						<type name="Gee.Collection" c:type="GeeCollection*">
+							<type name="gpointer" c:type="gpointer"/>
+						</type>
+					</parameter>
+					<parameter name="amount" transfer-ownership="none">
+						<type name="gint" c:type="gint"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<interface name="Set" c:type="GeeSet" glib:type-name="GeeSet" glib:get-type="gee_set_get_type" glib:type-struct="SetIface">
+		<prerequisite name="Gee.Collection"/>
+		<function name="empty" c:identifier="gee_set_empty">
+			<return-value transfer-ownership="full">
+				<type name="Gee.Set" c:type="GeeSet*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</function>
+		<property name="read-only-view">
+			<type name="Gee.Set" c:type="GeeSet*">
+				<type name="gpointer" c:type="gpointer"/>
+			</type>
+		</property>
+	</interface>
+	<record name="SetIface" c:type="GeeSetIface" glib:is-gtype-struct-for="Set">
+		<field name="parent_iface">
+			<type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+		</field>
+	</record>
+	<interface name="SortedSet" c:type="GeeSortedSet" glib:type-name="GeeSortedSet" glib:get-type="gee_sorted_set_get_type" glib:type-struct="SortedSetIface">
+		<prerequisite name="Gee.Set"/>
+		<method name="first" c:identifier="gee_sorted_set_first">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</method>
+		<virtual-method name="first" invoker="first">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</virtual-method>
+		<method name="last" c:identifier="gee_sorted_set_last">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</method>
+		<virtual-method name="last" invoker="last">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+		</virtual-method>
+		<method name="bidir_iterator" c:identifier="gee_sorted_set_bidir_iterator">
+			<return-value transfer-ownership="full">
+				<type name="Gee.BidirIterator" c:type="GeeBidirIterator*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</method>
+		<virtual-method name="bidir_iterator" invoker="bidir_iterator">
+			<return-value transfer-ownership="full">
+				<type name="Gee.BidirIterator" c:type="GeeBidirIterator*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+		</virtual-method>
+		<method name="iterator_at" c:identifier="gee_sorted_set_iterator_at">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="Gee.BidirIterator" c:type="GeeBidirIterator*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+			<parameters>
+				<parameter name="element" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="iterator_at" invoker="iterator_at">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="Gee.BidirIterator" c:type="GeeBidirIterator*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+			<parameters>
+				<parameter name="element" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="lower" c:identifier="gee_sorted_set_lower">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="element" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="lower" invoker="lower">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="element" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="higher" c:identifier="gee_sorted_set_higher">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="element" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="higher" invoker="higher">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="element" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="floor" c:identifier="gee_sorted_set_floor">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="element" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="floor" invoker="floor">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="element" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="ceil" c:identifier="gee_sorted_set_ceil">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="element" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="ceil" invoker="ceil">
+			<return-value transfer-ownership="full" allow-none="1">
+				<type name="gpointer" c:type="gpointer"/>
+			</return-value>
+			<parameters>
+				<parameter name="element" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="head_set" c:identifier="gee_sorted_set_head_set">
+			<return-value transfer-ownership="full">
+				<type name="Gee.SortedSet" c:type="GeeSortedSet*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+			<parameters>
+				<parameter name="before" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="head_set" invoker="head_set">
+			<return-value transfer-ownership="full">
+				<type name="Gee.SortedSet" c:type="GeeSortedSet*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+			<parameters>
+				<parameter name="before" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="tail_set" c:identifier="gee_sorted_set_tail_set">
+			<return-value transfer-ownership="full">
+				<type name="Gee.SortedSet" c:type="GeeSortedSet*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+			<parameters>
+				<parameter name="after" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="tail_set" invoker="tail_set">
+			<return-value transfer-ownership="full">
+				<type name="Gee.SortedSet" c:type="GeeSortedSet*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+			<parameters>
+				<parameter name="after" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+		<method name="sub_set" c:identifier="gee_sorted_set_sub_set">
+			<return-value transfer-ownership="full">
+				<type name="Gee.SortedSet" c:type="GeeSortedSet*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+			<parameters>
+				<parameter name="from" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="to" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</method>
+		<virtual-method name="sub_set" invoker="sub_set">
+			<return-value transfer-ownership="full">
+				<type name="Gee.SortedSet" c:type="GeeSortedSet*">
+					<type name="gpointer" c:type="gpointer"/>
+				</type>
+			</return-value>
+			<parameters>
+				<parameter name="from" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+				<parameter name="to" transfer-ownership="none" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</parameter>
+			</parameters>
+		</virtual-method>
+	</interface>
+	<record name="SortedSetIface" c:type="GeeSortedSetIface" glib:is-gtype-struct-for="SortedSet">
+		<field name="parent_iface">
+			<type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+		</field>
+		<field name="first">
+			<callback name="first" c:type="first">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.SortedSet" c:type="GeeSortedSet*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="last">
+			<callback name="last" c:type="last">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.SortedSet" c:type="GeeSortedSet*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="bidir_iterator">
+			<callback name="bidir_iterator" c:type="bidir_iterator">
+				<return-value transfer-ownership="full">
+					<type name="Gee.BidirIterator" c:type="GeeBidirIterator*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.SortedSet" c:type="GeeSortedSet*"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="iterator_at">
+			<callback name="iterator_at" c:type="iterator_at">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="Gee.BidirIterator" c:type="GeeBidirIterator*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.SortedSet" c:type="GeeSortedSet*"/>
+					</parameter>
+					<parameter name="element" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="lower">
+			<callback name="lower" c:type="lower">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.SortedSet" c:type="GeeSortedSet*"/>
+					</parameter>
+					<parameter name="element" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="higher">
+			<callback name="higher" c:type="higher">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.SortedSet" c:type="GeeSortedSet*"/>
+					</parameter>
+					<parameter name="element" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="floor">
+			<callback name="floor" c:type="floor">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.SortedSet" c:type="GeeSortedSet*"/>
+					</parameter>
+					<parameter name="element" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="ceil">
+			<callback name="ceil" c:type="ceil">
+				<return-value transfer-ownership="full" allow-none="1">
+					<type name="gpointer" c:type="gpointer"/>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.SortedSet" c:type="GeeSortedSet*"/>
+					</parameter>
+					<parameter name="element" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="head_set">
+			<callback name="head_set" c:type="head_set">
+				<return-value transfer-ownership="full">
+					<type name="Gee.SortedSet" c:type="GeeSortedSet*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.SortedSet" c:type="GeeSortedSet*"/>
+					</parameter>
+					<parameter name="before" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="tail_set">
+			<callback name="tail_set" c:type="tail_set">
+				<return-value transfer-ownership="full">
+					<type name="Gee.SortedSet" c:type="GeeSortedSet*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.SortedSet" c:type="GeeSortedSet*"/>
+					</parameter>
+					<parameter name="after" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+		<field name="sub_set">
+			<callback name="sub_set" c:type="sub_set">
+				<return-value transfer-ownership="full">
+					<type name="Gee.SortedSet" c:type="GeeSortedSet*">
+						<type name="gpointer" c:type="gpointer"/>
+					</type>
+				</return-value>
+				<parameters>
+					<parameter name="self" transfer-ownership="none">
+						<type name="Gee.SortedSet" c:type="GeeSortedSet*"/>
+					</parameter>
+					<parameter name="from" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+					<parameter name="to" transfer-ownership="none" allow-none="1">
+						<type name="gpointer" c:type="gpointer"/>
+					</parameter>
+				</parameters>
+			</callback>
+		</field>
+	</record>
+	<function name="direct_compare" c:identifier="gee_direct_compare">
+		<return-value transfer-ownership="full">
+			<type name="gint" c:type="gint"/>
+		</return-value>
+		<parameters>
+			<parameter name="_val1" transfer-ownership="none" allow-none="1">
+				<type name="gpointer" c:type="void*"/>
+			</parameter>
+			<parameter name="_val2" transfer-ownership="none" allow-none="1">
+				<type name="gpointer" c:type="void*"/>
+			</parameter>
+		</parameters>
+	</function>
+</namespace>
+</repository>

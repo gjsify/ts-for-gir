@@ -51,7 +51,7 @@
     ],
     "devDependencies": {
         "@types/ejs": "^3.1.5",
-        "@types/eslint": "8.56.8",
+        "@types/eslint": "8.56.9",
         "@types/lodash": "^4.17.0",
         "@types/node": "^20.12.7",
         "@typescript-eslint/eslint-plugin": "^7.6.0",
@@ -66,7 +66,8 @@
     "dependencies": {
         "@gi.ts/parser": "workspace:^",
         "colorette": "^2.0.20",
-        "ejs": "^3.1.9",
+        "ejs": "^3.1.10",
+        "glob": "^10.3.12",
         "lodash": "^4.17.21"
     }
 }

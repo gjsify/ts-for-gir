@@ -1,0 +1,2041 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <include name="TotemPlParser" version="1.0"/>
+  <package name="totem"/>
+  <c:include name="totem.h"/>
+  <namespace name="Totem"
+             version="1.0"
+             shared-library="libtotem.so.0"
+             c:identifier-prefixes="Totem"
+             c:symbol-prefixes="totem">
+    <constant name="GSETTINGS_SCHEMA"
+              value="org.gnome.totem"
+              c:type="TOTEM_GSETTINGS_SCHEMA">
+      <doc xml:space="preserve"
+           filename="../src/totem.h"
+           line="34">The GSettings schema under which all Totem settings are stored.</doc>
+      <source-position filename="../src/totem.h" line="39"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function-macro name="IS_OBJECT"
+                    c:identifier="TOTEM_IS_OBJECT"
+                    introspectable="0">
+      <source-position filename="../src/totem.h" line="130"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_OBJECT_CLASS"
+                    c:identifier="TOTEM_IS_OBJECT_CLASS"
+                    introspectable="0">
+      <source-position filename="../src/totem.h" line="131"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="OBJECT"
+                    c:identifier="TOTEM_OBJECT"
+                    introspectable="0">
+      <source-position filename="../src/totem.h" line="128"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="OBJECT_CLASS"
+                    c:identifier="TOTEM_OBJECT_CLASS"
+                    introspectable="0">
+      <source-position filename="../src/totem.h" line="129"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Object"
+           c:symbol-prefix="object"
+           c:type="TotemObject"
+           parent="Gtk.Application"
+           glib:type-name="TotemObject"
+           glib:get-type="totem_object_get_type"
+           glib:type-struct="ObjectClass">
+      <doc xml:space="preserve"
+           filename="../src/totem.h"
+           line="139">All the fields in the #TotemObject structure are private and should never be accessed directly.</doc>
+      <source-position filename="../src/totem.h" line="162"/>
+      <implements name="Gio.ActionGroup"/>
+      <implements name="Gio.ActionMap"/>
+      <function name="get_supported_content_types"
+                c:identifier="totem_object_get_supported_content_types"
+                version="3.1.5">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="4153">Get the full list of file content types which Totem supports playing.</doc>
+        <source-position filename="../src/totem.h" line="233"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="4158">a %NULL-terminated array of the content types Totem supports</doc>
+          <array c:type="const gchar* const*">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+      </function>
+      <function name="get_supported_uri_schemes"
+                c:identifier="totem_object_get_supported_uri_schemes"
+                version="3.1.5">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="4167">Get the full list of URI schemes which Totem supports accessing.</doc>
+        <source-position filename="../src/totem.h" line="234"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="4172">a %NULL-terminated array of the URI schemes Totem supports</doc>
+          <array c:type="const gchar* const*">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+      </function>
+      <virtual-method name="file_closed">
+        <source-position filename="../src/totem.h" line="151"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="file_has_played">
+        <source-position filename="../src/totem.h" line="152"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+          <parameter name="mrl" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="file_opened">
+        <source-position filename="../src/totem.h" line="150"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+          <parameter name="mrl" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_text_subtitle">
+        <source-position filename="../src/totem.h" line="160"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+          <parameter name="mrl" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_user_agent">
+        <source-position filename="../src/totem.h" line="158"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+          <parameter name="mrl" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="metadata_updated">
+        <source-position filename="../src/totem.h" line="153"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+          <parameter name="artist" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="title" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="album" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="track_num" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="add_to_playlist"
+              c:identifier="totem_object_add_to_playlist">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="807">Add @uri to the playlist and play it immediately.</doc>
+        <source-position filename="../src/totem.h" line="216"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="809">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="810">the URI to add to the playlist</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="display_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="811">the display name of the URI</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="play" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="812">whether to play the added item</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_to_view" c:identifier="totem_object_add_to_view">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="952">Adds a local media file to the main view.</doc>
+        <source-position filename="../src/totem.h" line="202"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="954">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="955">a #GFile representing a media</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+          <parameter name="title" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="956">a title for the media, or %NULL</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_seek_next" c:identifier="totem_object_can_seek_next">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="1995">Returns true if totem_object_seek_next() would have an effect.</doc>
+        <source-position filename="../src/totem.h" line="171"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="1997">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="can_seek_previous"
+              c:identifier="totem_object_can_seek_previous">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="1967">Returns true if totem_object_seek_previous() would have an effect.</doc>
+        <source-position filename="../src/totem.h" line="173"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="1969">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="clear_playlist" c:identifier="totem_object_clear_playlist">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="862">Empties the current playlist.</doc>
+        <source-position filename="../src/totem.h" line="215"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="864">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="empty_menu_section"
+              c:identifier="totem_object_empty_menu_section">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="651">Empty the GMenu section pointed to by @id, and remove any
+related actions. Note that menu items with specific target
+will not have the associated action removed.</doc>
+        <source-position filename="../src/totem.h" line="193"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="653">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="654">the ID for the menu section to empty</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="exit" c:identifier="totem_object_exit">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="1316">Closes Totem.</doc>
+        <source-position filename="../src/totem.h" line="166"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="1318">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_mrl"
+              c:identifier="totem_object_get_current_mrl">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="874">Get the MRL of the current stream, or %NULL if nothing's playing.
+Free with g_free().</doc>
+        <source-position filename="../src/totem.h" line="220"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="881">a newly-allocated string containing the MRL of the current stream</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="876">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_time"
+              c:identifier="totem_object_get_current_time">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="707">Gets the current position's time in the stream as a gint64.</doc>
+        <source-position filename="../src/totem.h" line="208"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="713">the current position in the stream</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="709">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_main_window"
+              c:identifier="totem_object_get_main_window">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="610">Gets Totem's main window and increments its reference count.</doc>
+        <source-position filename="../src/totem.h" line="190"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="616">Totem's main window</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="612">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_menu_section"
+              c:identifier="totem_object_get_menu_section">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="628">Get the #GMenu of the given @id from the main Totem #GtkBuilder file.</doc>
+        <source-position filename="../src/totem.h" line="191"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="635">a #GMenu or %NULL on failure</doc>
+          <type name="Gio.Menu" c:type="GMenu*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="630">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="631">the ID for the menu section to look up</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_playlist_length"
+              c:identifier="totem_object_get_playlist_length">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="889">Returns the length of the current playlist.</doc>
+        <source-position filename="../src/totem.h" line="211"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="895">the playlist length</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="891">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_playlist_pos"
+              c:identifier="totem_object_get_playlist_pos">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="908">Returns the &lt;code class="literal"&gt;0&lt;/code&gt;-based index of the current entry in the playlist. If
+there is no current entry in the playlist, &lt;code class="literal"&gt;-1&lt;/code&gt; is returned.</doc>
+        <source-position filename="../src/totem.h" line="212"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="915">the index of the current playlist entry, or &lt;code class="literal"&gt;-1&lt;/code&gt;</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="910">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_rate" c:identifier="totem_object_get_rate">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="2129">Gets the current playback rate, with `1.0` being the normal playback rate.</doc>
+        <source-position filename="../src/totem.h" line="196"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="2135">the volume level</doc>
+          <type name="gfloat" c:type="float"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2131">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_short_title"
+              c:identifier="totem_object_get_short_title">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="938">Gets the title of the current entry in the playlist.</doc>
+        <source-position filename="../src/totem.h" line="207"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="944">the current entry's title, or %NULL; free with g_free()</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="940">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_title_at_playlist_pos"
+              c:identifier="totem_object_get_title_at_playlist_pos">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="923">Gets the title of the playlist entry at @index.</doc>
+        <source-position filename="../src/totem.h" line="213"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="930">the entry title at @index, or %NULL; free with g_free()</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="925">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+          <parameter name="playlist_index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="926">the &lt;code class="literal"&gt;0&lt;/code&gt;-based entry index</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_video_widget"
+              c:identifier="totem_object_get_video_widget">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="689">Gets Totem's video widget and increments its reference count.</doc>
+        <source-position filename="../src/totem.h" line="199"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="695">Totem's video widget</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="691">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_volume" c:identifier="totem_object_get_volume">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="2099">Gets the current volume level, as a value between &lt;code class="literal"&gt;0.0&lt;/code&gt; and &lt;code class="literal"&gt;1.0&lt;/code&gt;.</doc>
+        <source-position filename="../src/totem.h" line="177"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="2105">the volume level</doc>
+          <type name="gdouble" c:type="double"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2101">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_fullscreen" c:identifier="totem_object_is_fullscreen">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="3098">Returns %TRUE if Totem is fullscreened.</doc>
+        <source-position filename="../src/totem.h" line="186"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="3104">%TRUE if Totem is fullscreened</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="3100">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_paused" c:identifier="totem_object_is_paused">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="3133">Returns %TRUE if playback is paused.</doc>
+        <source-position filename="../src/totem.h" line="188"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="3139">%TRUE if playback is paused, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="3135">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_playing" c:identifier="totem_object_is_playing">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="3114">Returns %TRUE if Totem is playing a stream.</doc>
+        <source-position filename="../src/totem.h" line="187"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="3120">%TRUE if Totem is playing a stream</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="3116">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_seekable" c:identifier="totem_object_is_seekable">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="3149">Returns %TRUE if the current stream is seekable.</doc>
+        <source-position filename="../src/totem.h" line="189"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="3155">%TRUE if the current stream is seekable</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="3151">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="next_angle" c:identifier="totem_object_next_angle">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="2798">Switches to the next angle, if watching a DVD. If not watching a DVD, this is a
+no-op.</doc>
+        <source-position filename="../src/totem.h" line="180"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2800">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="pause" c:identifier="totem_object_pause">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="1603">Pauses the current stream. If Totem is already paused, it continues
+to be paused.</doc>
+        <source-position filename="../src/totem.h" line="170"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="1605">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="play" c:identifier="totem_object_play">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="1441">Plays the current stream. If Totem is already playing, it continues
+to play. If the stream cannot be played, and error dialog is displayed.</doc>
+        <source-position filename="../src/totem.h" line="167"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="1443">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="play_pause" c:identifier="totem_object_play_pause">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="1540">Gets the current MRL from the playlist and attempts to play it.
+If the stream is already playing, playback is paused.</doc>
+        <source-position filename="../src/totem.h" line="169"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="1542">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="remote_command" c:identifier="totem_object_remote_command">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="2811">Executes the specified @cmd on this instance of Totem. If @cmd
+is an operation requiring an MRL, @url is required; it can be %NULL
+otherwise.
+
+If Totem's fullscreened and the operation is executed correctly,
+the controls will appear as if the user had moved the mouse.</doc>
+        <source-position filename="../src/totem.h" line="224"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2813">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+          <parameter name="cmd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2814">a #TotemRemoteCommand</doc>
+            <type name="RemoteCommand" c:type="TotemRemoteCommand"/>
+          </parameter>
+          <parameter name="url" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2815">an MRL to play, or %NULL</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remote_get_setting"
+              c:identifier="totem_object_remote_get_setting">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="2986">Returns the value of @setting for this instance of Totem.</doc>
+        <source-position filename="../src/totem.h" line="230"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="2993">%TRUE if the setting is enabled, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2988">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+          <parameter name="setting" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2989">a #TotemRemoteSetting</doc>
+            <type name="RemoteSetting" c:type="TotemRemoteSetting"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remote_set_setting"
+              c:identifier="totem_object_remote_set_setting">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="2960">Sets @setting to @value on this instance of Totem.</doc>
+        <source-position filename="../src/totem.h" line="227"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2962">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+          <parameter name="setting" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2963">a #TotemRemoteSetting</doc>
+            <type name="RemoteSetting" c:type="TotemRemoteSetting"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2964">the new value for the setting</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="seek_next" c:identifier="totem_object_seek_next">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="2009">If a DVD is being played, goes to the next chapter. If a normal stream
+is being played, plays the next entry in the playlist.</doc>
+        <source-position filename="../src/totem.h" line="172"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2011">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="seek_previous" c:identifier="totem_object_seek_previous">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="1981">If a DVD is being played, goes to the previous chapter. If a normal stream
+is being played, goes to the start of the stream if possible. If seeking is
+not possible, plays the previous entry in the playlist.</doc>
+        <source-position filename="../src/totem.h" line="174"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="1983">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="seek_relative" c:identifier="totem_object_seek_relative">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="2059">Seeks to an @offset from the current position in the stream,
+or displays an error dialog if that's not possible.</doc>
+        <source-position filename="../src/totem.h" line="176"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2061">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2062">the time offset to seek to</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+          <parameter name="accurate" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2063">whether to use accurate seek, an accurate seek might be slower for some formats (see GStreamer docs)</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="seek_time" c:identifier="totem_object_seek_time">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="2074">Seeks to an absolute time in the stream, or displays an
+error dialog if that's not possible.</doc>
+        <source-position filename="../src/totem.h" line="175"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2076">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+          <parameter name="msec" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2077">the time to seek to</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+          <parameter name="accurate" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2078">whether to use accurate seek, an accurate seek might be slower for some formats (see GStreamer docs)</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_current_subtitle"
+              c:identifier="totem_object_set_current_subtitle">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="976">Add the @subtitle_uri subtitle file to the playlist, setting it as the subtitle for the current
+playlist entry.</doc>
+        <source-position filename="../src/totem.h" line="221"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="978">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+          <parameter name="subtitle_uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="979">the URI of the subtitle file to add</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_rate" c:identifier="totem_object_set_rate">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="2143">Sets the playback rate, with `1.0` being the normal playback rate.</doc>
+        <source-position filename="../src/totem.h" line="197"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="2150">%TRUE on success, %FALSE on failure.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2145">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+          <parameter name="rate" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2146">the new absolute playback rate</doc>
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_volume" c:identifier="totem_object_set_volume">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="2113">Sets the volume, with &lt;code class="literal"&gt;1.0&lt;/code&gt; being the maximum, and &lt;code class="literal"&gt;0.0&lt;/code&gt; being the minimum level.</doc>
+        <source-position filename="../src/totem.h" line="178"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2115">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+          <parameter name="volume" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="2116">the new absolute volume value</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="show_error" c:identifier="totem_object_show_error">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="1247">Displays a non-blocking error dialog with the
+given @title and @reason.</doc>
+        <source-position filename="../src/totem.h" line="182"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="1249">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+          <parameter name="title" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="1250">the error dialog title</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="reason" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="1251">the error dialog text</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="stop" c:identifier="totem_object_stop">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="1579">Stops playback, and sets the playlist back at the start.</doc>
+        <source-position filename="../src/totem.h" line="168"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="totem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="1581">a #TotemObject</doc>
+            <type name="Object" c:type="TotemObject*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="current-content-type" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="365">The content-type of the current stream.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="current-display-name" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="376">The display name of the current stream.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="current-mrl" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="356">The MRL of the current stream.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="current-time" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="337">The player's position (time) in the current stream, in milliseconds.</doc>
+        <type name="gint64" c:type="gint64"/>
+      </property>
+      <property name="fullscreen" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="309">If %TRUE, Totem is in fullscreen mode.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="main-page" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="387">The name of the current main page (usually "grilo", or "player").</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="playing" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="318">If %TRUE, Totem is playing an audio or video file.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="seekable" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="347">If %TRUE, the current stream is seekable.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="stream-length" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="327">The length of the current stream, in milliseconds.</doc>
+        <type name="gint64" c:type="gint64"/>
+      </property>
+      <glib:signal name="file-closed" when="last">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="430">The #TotemObject::file-closed signal is emitted when Totem closes a stream.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="file-has-played" when="last">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="414">The #TotemObject::file-has-played signal is emitted when a new stream has started playing in Totem.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="mrl" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="417">the MRL of the opened stream</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="file-opened" when="last">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="398">The #TotemObject::file-opened signal is emitted when a new stream is opened by Totem.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="mrl" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="401">the MRL of the opened stream</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="get-text-subtitle" when="last">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="484">The #TotemObject::get-text-subtitle signal is emitted before opening a stream, so that plugins
+have the opportunity to detect or download text subtitles for the stream if necessary.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="492">allocated string representing the URI of the subtitle to use for @mrl</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="mrl" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="487">the MRL of the opened stream</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="get-user-agent" when="last">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="465">The #TotemObject::get-user-agent signal is emitted before opening a stream, so that plugins
+have the opportunity to return the user-agent to be set.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../src/totem-object.c"
+               line="473">allocated string representing the user-agent to use for @mrl</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="mrl" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="468">the MRL of the opened stream</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="metadata-updated" when="last">
+        <doc xml:space="preserve"
+             filename="../src/totem-object.c"
+             line="445">The #TotemObject::metadata-updated signal is emitted when the metadata of a stream is updated, typically
+when it's being loaded.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="artist" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="448">the name of the artist, or %NULL</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="title" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="449">the stream title, or %NULL</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="album" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="450">the name of the stream's album, or %NULL</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="track_number" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../src/totem-object.c"
+                 line="451">the stream's track number</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ObjectClass"
+            c:type="TotemObjectClass"
+            glib:is-gtype-struct-for="Object">
+      <source-position filename="../src/totem.h" line="162"/>
+      <field name="parent_class">
+        <type name="Gtk.ApplicationClass" c:type="GtkApplicationClass"/>
+      </field>
+      <field name="file_opened">
+        <callback name="file_opened">
+          <source-position filename="../src/totem.h" line="150"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="totem" transfer-ownership="none">
+              <type name="Object" c:type="TotemObject*"/>
+            </parameter>
+            <parameter name="mrl" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="file_closed">
+        <callback name="file_closed">
+          <source-position filename="../src/totem.h" line="151"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="totem" transfer-ownership="none">
+              <type name="Object" c:type="TotemObject*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="file_has_played">
+        <callback name="file_has_played">
+          <source-position filename="../src/totem.h" line="152"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="totem" transfer-ownership="none">
+              <type name="Object" c:type="TotemObject*"/>
+            </parameter>
+            <parameter name="mrl" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="metadata_updated">
+        <callback name="metadata_updated">
+          <source-position filename="../src/totem.h" line="153"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="totem" transfer-ownership="none">
+              <type name="Object" c:type="TotemObject*"/>
+            </parameter>
+            <parameter name="artist" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="title" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="album" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="track_num" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_user_agent">
+        <callback name="get_user_agent">
+          <source-position filename="../src/totem.h" line="158"/>
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="totem" transfer-ownership="none">
+              <type name="Object" c:type="TotemObject*"/>
+            </parameter>
+            <parameter name="mrl" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_text_subtitle">
+        <callback name="get_text_subtitle">
+          <source-position filename="../src/totem.h" line="160"/>
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="totem" transfer-ownership="none">
+              <type name="Object" c:type="TotemObject*"/>
+            </parameter>
+            <parameter name="mrl" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <function-macro name="PLUGIN_REGISTER"
+                    c:identifier="TOTEM_PLUGIN_REGISTER"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="../src/plugins/totem-plugin.h"
+           line="143">Registers a plugin with the Totem plugin system, including registering the type specified in the parameters and declaring its activate and
+deactivate functions.</doc>
+      <source-position filename="../src/plugins/totem-plugin.h" line="152"/>
+      <parameters>
+        <parameter name="TYPE_NAME">
+          <doc xml:space="preserve"
+               filename="../src/plugins/totem-plugin.h"
+               line="145">the name of the plugin type, in UPPER_CASE</doc>
+        </parameter>
+        <parameter name="TypeName">
+          <doc xml:space="preserve"
+               filename="../src/plugins/totem-plugin.h"
+               line="146">the name of the plugin type, in CamelCase</doc>
+        </parameter>
+        <parameter name="type_name">
+          <doc xml:space="preserve"
+               filename="../src/plugins/totem-plugin.h"
+               line="147">the name of the plugin type, in lower_case</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PLUGIN_REGISTER_CONFIGURABLE"
+                    c:identifier="TOTEM_PLUGIN_REGISTER_CONFIGURABLE"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="../src/plugins/totem-plugin.h"
+           line="155">Registers a configurable plugin with the Totem plugin system, including registering the type specified in the parameters and declaring its activate
+and deactivate and widget creation functions.</doc>
+      <source-position filename="../src/plugins/totem-plugin.h" line="164"/>
+      <parameters>
+        <parameter name="TYPE_NAME">
+          <doc xml:space="preserve"
+               filename="../src/plugins/totem-plugin.h"
+               line="157">the name of the plugin type, in UPPER_CASE</doc>
+        </parameter>
+        <parameter name="TypeName">
+          <doc xml:space="preserve"
+               filename="../src/plugins/totem-plugin.h"
+               line="158">the name of the plugin type, in CamelCase</doc>
+        </parameter>
+        <parameter name="type_name">
+          <doc xml:space="preserve"
+               filename="../src/plugins/totem-plugin.h"
+               line="159">the name of the plugin type, in lower_case</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <enumeration name="RemoteCommand"
+                 glib:type-name="TotemRemoteCommand"
+                 glib:get-type="totem_remote_command_get_type"
+                 c:type="TotemRemoteCommand">
+      <doc xml:space="preserve"
+           filename="../src/totem.h"
+           line="43">Represents a command which can be sent to a running Totem instance remotely.</doc>
+      <member name="unknown"
+              value="0"
+              c:identifier="TOTEM_REMOTE_COMMAND_UNKNOWN"
+              glib:nick="unknown">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="45">unknown command</doc>
+      </member>
+      <member name="play"
+              value="1"
+              c:identifier="TOTEM_REMOTE_COMMAND_PLAY"
+              glib:nick="play">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="46">play the current stream</doc>
+      </member>
+      <member name="pause"
+              value="2"
+              c:identifier="TOTEM_REMOTE_COMMAND_PAUSE"
+              glib:nick="pause">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="47">pause the current stream</doc>
+      </member>
+      <member name="stop"
+              value="3"
+              c:identifier="TOTEM_REMOTE_COMMAND_STOP"
+              glib:nick="stop">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="48">stop playing the current stream</doc>
+      </member>
+      <member name="play_pause"
+              value="4"
+              c:identifier="TOTEM_REMOTE_COMMAND_PLAYPAUSE"
+              glib:nick="play-pause">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="49">toggle play/pause on the current stream</doc>
+      </member>
+      <member name="next"
+              value="5"
+              c:identifier="TOTEM_REMOTE_COMMAND_NEXT"
+              glib:nick="next">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="50">play the next playlist item</doc>
+      </member>
+      <member name="previous"
+              value="6"
+              c:identifier="TOTEM_REMOTE_COMMAND_PREVIOUS"
+              glib:nick="previous">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="51">play the previous playlist item</doc>
+      </member>
+      <member name="seek_forward"
+              value="7"
+              c:identifier="TOTEM_REMOTE_COMMAND_SEEK_FORWARD"
+              glib:nick="seek-forward">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="52">seek forwards in the current stream</doc>
+      </member>
+      <member name="seek_backward"
+              value="8"
+              c:identifier="TOTEM_REMOTE_COMMAND_SEEK_BACKWARD"
+              glib:nick="seek-backward">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="53">seek backwards in the current stream</doc>
+      </member>
+      <member name="volume_up"
+              value="9"
+              c:identifier="TOTEM_REMOTE_COMMAND_VOLUME_UP"
+              glib:nick="volume-up">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="54">increase the volume</doc>
+      </member>
+      <member name="volume_down"
+              value="10"
+              c:identifier="TOTEM_REMOTE_COMMAND_VOLUME_DOWN"
+              glib:nick="volume-down">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="55">decrease the volume</doc>
+      </member>
+      <member name="fullscreen"
+              value="11"
+              c:identifier="TOTEM_REMOTE_COMMAND_FULLSCREEN"
+              glib:nick="fullscreen">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="56">toggle fullscreen mode</doc>
+      </member>
+      <member name="quit"
+              value="12"
+              c:identifier="TOTEM_REMOTE_COMMAND_QUIT"
+              glib:nick="quit">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="57">quit the instance of Totem</doc>
+      </member>
+      <member name="enqueue"
+              value="13"
+              c:identifier="TOTEM_REMOTE_COMMAND_ENQUEUE"
+              glib:nick="enqueue">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="58">enqueue a new playlist item</doc>
+      </member>
+      <member name="replace"
+              value="14"
+              c:identifier="TOTEM_REMOTE_COMMAND_REPLACE"
+              glib:nick="replace">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="59">replace an item in the playlist</doc>
+      </member>
+      <member name="show"
+              value="15"
+              c:identifier="TOTEM_REMOTE_COMMAND_SHOW"
+              glib:nick="show">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="60">show the Totem instance</doc>
+      </member>
+      <member name="up"
+              value="16"
+              c:identifier="TOTEM_REMOTE_COMMAND_UP"
+              glib:nick="up">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="61">go up (DVD controls)</doc>
+      </member>
+      <member name="down"
+              value="17"
+              c:identifier="TOTEM_REMOTE_COMMAND_DOWN"
+              glib:nick="down">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="62">go down (DVD controls)</doc>
+      </member>
+      <member name="left"
+              value="18"
+              c:identifier="TOTEM_REMOTE_COMMAND_LEFT"
+              glib:nick="left">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="63">go left (DVD controls)</doc>
+      </member>
+      <member name="right"
+              value="19"
+              c:identifier="TOTEM_REMOTE_COMMAND_RIGHT"
+              glib:nick="right">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="64">go right (DVD controls)</doc>
+      </member>
+      <member name="select"
+              value="20"
+              c:identifier="TOTEM_REMOTE_COMMAND_SELECT"
+              glib:nick="select">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="65">select the current item (DVD controls)</doc>
+      </member>
+      <member name="dvd_menu"
+              value="21"
+              c:identifier="TOTEM_REMOTE_COMMAND_DVD_MENU"
+              glib:nick="dvd-menu">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="66">go to the DVD menu</doc>
+      </member>
+      <member name="zoom_up"
+              value="22"
+              c:identifier="TOTEM_REMOTE_COMMAND_ZOOM_UP"
+              glib:nick="zoom-up">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="67">increase the zoom level</doc>
+      </member>
+      <member name="zoom_down"
+              value="23"
+              c:identifier="TOTEM_REMOTE_COMMAND_ZOOM_DOWN"
+              glib:nick="zoom-down">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="68">decrease the zoom level</doc>
+      </member>
+      <member name="eject"
+              value="24"
+              c:identifier="TOTEM_REMOTE_COMMAND_EJECT"
+              glib:nick="eject">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="69">eject the current disc</doc>
+      </member>
+      <member name="play_dvd"
+              value="25"
+              c:identifier="TOTEM_REMOTE_COMMAND_PLAY_DVD"
+              glib:nick="play-dvd">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="70">play a DVD in a drive</doc>
+      </member>
+      <member name="mute"
+              value="26"
+              c:identifier="TOTEM_REMOTE_COMMAND_MUTE"
+              glib:nick="mute">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="71">toggle mute</doc>
+      </member>
+      <member name="toggle_aspect_ratio"
+              value="27"
+              c:identifier="TOTEM_REMOTE_COMMAND_TOGGLE_ASPECT"
+              glib:nick="toggle-aspect-ratio">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="72">toggle the aspect ratio</doc>
+      </member>
+      <function name="quark" c:identifier="totem_remote_command_quark">
+        <source-position filename="../src/totem.h" line="118"/>
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <enumeration name="RemoteSetting"
+                 glib:type-name="TotemRemoteSetting"
+                 glib:get-type="totem_remote_setting_get_type"
+                 c:type="TotemRemoteSetting">
+      <doc xml:space="preserve"
+           filename="../src/totem.h"
+           line="107">Represents a boolean setting or preference on a remote Totem instance.</doc>
+      <member name="repeat"
+              value="0"
+              c:identifier="TOTEM_REMOTE_SETTING_REPEAT"
+              glib:nick="repeat">
+        <doc xml:space="preserve"
+             filename="../src/totem.h"
+             line="109">whether repeat is enabled</doc>
+      </member>
+      <function name="quark" c:identifier="totem_remote_setting_quark">
+        <source-position filename="../src/totem.h" line="123"/>
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <function name="get_plugin_paths"
+              c:identifier="totem_get_plugin_paths"
+              version="2.90.0">
+      <doc xml:space="preserve"
+           filename="../src/plugins/totem-dirs.c"
+           line="53">Return a %NULL-terminated array of paths to directories which can contain Totem plugins. This respects the GSettings disable_user_plugins setting.</doc>
+      <source-position filename="../src/plugins/totem-dirs.h" line="31"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="../src/plugins/totem-dirs.c"
+             line="58">a %NULL-terminated array of paths to plugin directories</doc>
+        <array c:type="char**">
+          <type name="utf8"/>
+        </array>
+      </return-value>
+    </function>
+    <function name="interface_create_header_button"
+              c:identifier="totem_interface_create_header_button">
+      <doc xml:space="preserve"
+           filename="../src/totem-interface.c"
+           line="290">Put the given @icon_name into @button, and pack @button into @header
+according to @pack_type.</doc>
+      <source-position filename="../src/totem-interface.h" line="52"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../src/totem-interface.c"
+             line="300">the button passed as input</doc>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+      <parameters>
+        <parameter name="header" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="292">The header widget to put the button in</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </parameter>
+        <parameter name="button" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="293">The button to use in the header</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </parameter>
+        <parameter name="icon_name" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="294">The icon name for the button image</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="pack_type" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="295">A #GtkPackType to tell us where to include the button</doc>
+          <type name="Gtk.PackType" c:type="GtkPackType"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="interface_error" c:identifier="totem_interface_error">
+      <doc xml:space="preserve"
+           filename="../src/totem-interface.c"
+           line="77">Display a modal error dialogue with @title as its primary error text, and @reason
+as its secondary text.</doc>
+      <source-position filename="../src/totem-interface.h" line="41"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="title" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="79">the error title</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="reason" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="80">the error reason (secondary text)</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="parent" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="81">the error dialogue's parent #GtkWindow</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="interface_error_blocking"
+              c:identifier="totem_interface_error_blocking">
+      <doc xml:space="preserve"
+           filename="../src/totem-interface.c"
+           line="100">Display a modal error dialogue like totem_interface_error() which blocks until the user has
+dismissed it.</doc>
+      <source-position filename="../src/totem-interface.h" line="44"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="title" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="102">the error title</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="reason" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="103">the error reason (secondary text)</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="parent" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="104">the error dialogue's parent #GtkWindow</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="interface_error_with_link"
+              c:identifier="totem_interface_error_with_link">
+      <doc xml:space="preserve"
+           filename="../src/totem-interface.c"
+           line="121">Display a modal error dialogue like totem_interface_error(),
+but add a button which will open @uri in a browser window.</doc>
+      <source-position filename="../src/totem-interface.h" line="47"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="title" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="123">the error title</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="reason" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="124">the error reason (secondary text)</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="uri" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="125">the URI to open</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="label" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="126">a label for the URI's button, or %NULL to use @uri as the label</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="parent" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="127">the error dialogue's parent #GtkWindow</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="interface_get_full_path"
+              c:identifier="totem_interface_get_full_path">
+      <source-position filename="../src/totem-interface.h" line="32"/>
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="interface_load" c:identifier="totem_interface_load">
+      <doc xml:space="preserve"
+           filename="../src/totem-interface.c"
+           line="158">Load a #GtkBuilder UI file with the given name and return the #GtkBuilder instance for it. If loading the file fails, an error dialogue is shown.</doc>
+      <source-position filename="../src/totem-interface.h" line="33"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="../src/totem-interface.c"
+             line="167">the loaded #GtkBuilder object, or %NULL</doc>
+        <type name="Gtk.Builder" c:type="GtkBuilder*"/>
+      </return-value>
+      <parameters>
+        <parameter name="name" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="160">the #GtkBuilder UI file to load</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="fatal" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="161">%TRUE if errors loading the file should be fatal, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="parent"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="162">the parent window to use when displaying error dialogues, or %NULL</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="163">the user data to pass to gtk_builder_connect_signals(), or %NULL</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="interface_load_pixbuf"
+              c:identifier="totem_interface_load_pixbuf">
+      <doc xml:space="preserve"
+           filename="../src/totem-interface.c"
+           line="239">Load the image called @name in the directory given by totem_interface_get_full_path() into a #GdkPixbuf.</doc>
+      <source-position filename="../src/totem-interface.h" line="31"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="../src/totem-interface.c"
+             line="245">the loaded pixbuf, or %NULL</doc>
+        <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+      </return-value>
+      <parameters>
+        <parameter name="name" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="241">the image file name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="interface_load_with_full_path"
+              c:identifier="totem_interface_load_with_full_path">
+      <doc xml:space="preserve"
+           filename="../src/totem-interface.c"
+           line="196">Load a #GtkBuilder UI file from the given path and return the #GtkBuilder instance for it. If loading the file fails, an error dialogue is shown.</doc>
+      <source-position filename="../src/totem-interface.h" line="37"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="../src/totem-interface.c"
+             line="205">the loaded #GtkBuilder object, or %NULL</doc>
+        <type name="Gtk.Builder" c:type="GtkBuilder*"/>
+      </return-value>
+      <parameters>
+        <parameter name="filename" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="198">the #GtkBuilder UI file path to load</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="fatal" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="199">%TRUE if errors loading the file should be fatal, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="parent"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="200">the parent window to use when displaying error dialogues, or %NULL</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="../src/totem-interface.c"
+               line="201">the user data to pass to gtk_builder_connect_signals(), or %NULL</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="plugin_find_file" c:identifier="totem_plugin_find_file">
+      <doc xml:space="preserve"
+           filename="../src/plugins/totem-dirs.c"
+           line="100">Finds the specified @file by looking in the plugin paths
+listed by totem_get_plugin_paths() and then in the system
+Totem data directory.
+
+This should be used by plugins to find plugin-specific
+resource files.</doc>
+      <source-position filename="../src/plugins/totem-dirs.h" line="32"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="../src/plugins/totem-dirs.c"
+             line="112">a newly-allocated absolute path for the file, or %NULL</doc>
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="plugin_name" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/plugins/totem-dirs.c"
+               line="102">the plugin name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="file" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/plugins/totem-dirs.c"
+               line="103">the file to find</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="plugin_load_interface"
+              c:identifier="totem_plugin_load_interface">
+      <doc xml:space="preserve"
+           filename="../src/plugins/totem-dirs.c"
+           line="163">Loads an interface file (GtkBuilder UI file) for a plugin, given its filename and
+assuming it's installed in the plugin's data directory.
+
+This should be used instead of attempting to load interfaces manually in plugins.</doc>
+      <source-position filename="../src/plugins/totem-dirs.h" line="34"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="../src/plugins/totem-dirs.c"
+             line="176">the #GtkBuilder instance for the interface</doc>
+        <type name="Gtk.Builder" c:type="GtkBuilder*"/>
+      </return-value>
+      <parameters>
+        <parameter name="plugin_name" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/plugins/totem-dirs.c"
+               line="165">the plugin name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="name" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/plugins/totem-dirs.c"
+               line="166">interface filename</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="fatal" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../src/plugins/totem-dirs.c"
+               line="167">%TRUE if it's a fatal error if the interface can't be loaded</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="parent"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="../src/plugins/totem-dirs.c"
+               line="168">the interface's parent #GtkWindow</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="../src/plugins/totem-dirs.c"
+               line="169">a pointer to be passed to each signal handler in the interface when they're called</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="remote_command_quark"
+              c:identifier="totem_remote_command_quark"
+              moved-to="RemoteCommand.quark">
+      <source-position filename="../src/totem.h" line="118"/>
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="remote_setting_quark"
+              c:identifier="totem_remote_setting_quark"
+              moved-to="RemoteSetting.quark">
+      <source-position filename="../src/totem.h" line="123"/>
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

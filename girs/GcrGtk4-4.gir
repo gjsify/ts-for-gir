@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gck" version="2"/>
+  <include name="Gcr" version="4"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="4.0"/>
+  <package name="gcr-4-gtk4"/>
+  <c:include name="gcr-gtk4/gcr-gtk4.h"/>
+  <namespace name="GcrGtk4"
+             version="4"
+             shared-library="libgcr-4-gtk4.so.0.0.0"
+             c:identifier-prefixes="Gcr"
+             c:symbol-prefixes="gcr">
+    <class name="CertificateWidget"
+           c:symbol-prefix="certificate_widget"
+           c:type="GcrCertificateWidget"
+           parent="Gtk.Widget"
+           glib:type-name="GcrCertificateWidget"
+           glib:get-type="gcr_certificate_widget_get_type"
+           glib:type-struct="CertificateWidgetClass">
+      <source-position filename="../gcr-gtk4/gcr-certificate-widget.h"
+                       line="19"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new" c:identifier="gcr_certificate_widget_new">
+        <doc xml:space="preserve"
+             filename="../gcr-gtk4/gcr-certificate-widget.c"
+             line="134">Create a new certificate widget which displays a given certificate.</doc>
+        <source-position filename="../gcr-gtk4/gcr-certificate-widget.h"
+                         line="21"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../gcr-gtk4/gcr-certificate-widget.c"
+               line="140">a newly allocated #GcrCertificateWidget, which
+         should be freed with g_object_unref()</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="certificate"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../gcr-gtk4/gcr-certificate-widget.c"
+                 line="136">certificate to display, or %NULL</doc>
+            <type name="Gcr.Certificate" c:type="GcrCertificate*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_certificate"
+              c:identifier="gcr_certificate_widget_get_certificate"
+              glib:get-property="certificate">
+        <doc xml:space="preserve"
+             filename="../gcr-gtk4/gcr-certificate-widget.c"
+             line="149">Get the certificate displayed in the widget.</doc>
+        <source-position filename="../gcr-gtk4/gcr-certificate-widget.h"
+                         line="23"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="../gcr-gtk4/gcr-certificate-widget.c"
+               line="155">the certificate</doc>
+          <type name="Gcr.Certificate" c:type="GcrCertificate*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gcr-gtk4/gcr-certificate-widget.c"
+                 line="151">The certificate widget</doc>
+            <type name="CertificateWidget" c:type="GcrCertificateWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_certificate"
+              c:identifier="gcr_certificate_widget_set_certificate"
+              glib:set-property="certificate">
+        <doc xml:space="preserve"
+             filename="../gcr-gtk4/gcr-certificate-widget.c"
+             line="164">Set the certificate displayed in the widget</doc>
+        <source-position filename="../gcr-gtk4/gcr-certificate-widget.h"
+                         line="25"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../gcr-gtk4/gcr-certificate-widget.c"
+                 line="166">The certificate widget</doc>
+            <type name="CertificateWidget" c:type="GcrCertificateWidget*"/>
+          </instance-parameter>
+          <parameter name="certificate"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../gcr-gtk4/gcr-certificate-widget.c"
+                 line="167">the certificate to display</doc>
+            <type name="Gcr.Certificate" c:type="GcrCertificate*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="certificate"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_certificate"
+                getter="get_certificate">
+        <type name="Gcr.Certificate"/>
+      </property>
+    </class>
+    <record name="CertificateWidgetClass"
+            c:type="GcrCertificateWidgetClass"
+            glib:is-gtype-struct-for="CertificateWidget">
+      <source-position filename="../gcr-gtk4/gcr-certificate-widget.h"
+                       line="19"/>
+      <field name="parent_class">
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+    </record>
+  </namespace>
+</repository>

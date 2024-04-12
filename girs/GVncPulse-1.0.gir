@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="GVnc" version="1.0"/>
+  <package name="gvncpulse-1.0"/>
+  <c:include name="gvncpulse.h"/>
+  <namespace name="GVncPulse"
+             version="1.0"
+             shared-library="libgvncpulse-1.0.so.0"
+             c:identifier-prefixes="Vnc"
+             c:symbol-prefixes="vnc">
+    <function-macro name="AUDIO_PULSE"
+                    c:identifier="VNC_AUDIO_PULSE"
+                    introspectable="0">
+      <source-position filename="src/vncaudiopulse.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="AUDIO_PULSE_CLASS"
+                    c:identifier="VNC_AUDIO_PULSE_CLASS"
+                    introspectable="0">
+      <source-position filename="src/vncaudiopulse.h" line="32"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="AUDIO_PULSE_GET_CLASS"
+                    c:identifier="VNC_AUDIO_PULSE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="src/vncaudiopulse.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="AudioPulse"
+           c:symbol-prefix="audio_pulse"
+           c:type="VncAudioPulse"
+           parent="GVnc.BaseAudio"
+           glib:type-name="VncAudioPulse"
+           glib:get-type="vnc_audio_pulse_get_type"
+           glib:type-struct="AudioPulseClass">
+      <source-position filename="src/vncaudiopulse.h" line="53"/>
+      <implements name="GVnc.Audio"/>
+      <constructor name="new" c:identifier="vnc_audio_pulse_new">
+        <doc xml:space="preserve"
+             filename="src/vncaudiopulse.c"
+             line="151">Create a new VNC audio object able to play
+audio samples via pulseaudio</doc>
+        <source-position filename="src/vncaudiopulse.h" line="58"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/vncaudiopulse.c"
+               line="157">the new audio object</doc>
+          <type name="AudioPulse" c:type="VncAudioPulse*"/>
+        </return-value>
+      </constructor>
+      <field name="parent">
+        <type name="GVnc.BaseAudio" c:type="VncBaseAudio"/>
+      </field>
+      <field name="priv">
+        <type name="AudioPulsePrivate" c:type="VncAudioPulsePrivate*"/>
+      </field>
+    </class>
+    <record name="AudioPulseClass"
+            c:type="VncAudioPulseClass"
+            glib:is-gtype-struct-for="AudioPulse">
+      <source-position filename="src/vncaudiopulse.h" line="53"/>
+      <field name="parent_class">
+        <type name="GVnc.BaseAudioClass" c:type="VncBaseAudioClass"/>
+      </field>
+    </record>
+    <record name="AudioPulsePrivate"
+            c:type="VncAudioPulsePrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="src/vncaudiopulse.h" line="39"/>
+    </record>
+    <function-macro name="IS_AUDIO_PULSE"
+                    c:identifier="VNC_IS_AUDIO_PULSE"
+                    introspectable="0">
+      <source-position filename="src/vncaudiopulse.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_AUDIO_PULSE_CLASS"
+                    c:identifier="VNC_IS_AUDIO_PULSE_CLASS"
+                    introspectable="0">
+      <source-position filename="src/vncaudiopulse.h" line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+  </namespace>
+</repository>

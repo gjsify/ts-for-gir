@@ -91,13 +91,6 @@ export class GirModule {
     dependencies?: Dependency[] = []
     private _transitiveDependencies: Dependency[] = []
 
-    /**
-     * @deprecated Use init() instead
-     */
-    set transitiveDependencies(deps: Dependency[]) {
-        throw new Error('transitiveDependencies is deprecated')
-    }
-
     get transitiveDependencies(): Dependency[] {
         return this._transitiveDependencies
     }
@@ -156,7 +149,7 @@ export class GirModule {
         this.dependencies = await this.dependencyManager.fromGirIncludes(
             this.dependency.girXML?.repository[0]?.include || [],
         )
-        this.transitiveDependencies = await this.checkTransitiveDependencies(this.dependencies)
+        this._transitiveDependencies = await this.checkTransitiveDependencies(this.dependencies)
     }
 
     get ns() {

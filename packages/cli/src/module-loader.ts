@@ -359,11 +359,9 @@ export class ModuleLoader {
      * is required so that all dependencies can be found internally when generating the dependency imports for the module .d.ts file
      * @param girModules
      */
-    protected setTraverseDependenciesForModules(girModules: GirModuleResolvedBy[]): void {
+    protected async initGirModules(girModules: GirModuleResolvedBy[]): Promise<void> {
         for (const girModule of girModules) {
-            const result: { [name: string]: Dependency } = {}
-            this.traverseDependencies(girModule.packageName, result)
-            girModule.module.transitiveDependencies = Object.values(result)
+            await girModule.module.init()
         }
     }
 
@@ -460,7 +458,7 @@ export class ModuleLoader {
         }
 
         // Figure out transitive module dependencies
-        this.setTraverseDependenciesForModules(girModules)
+        await this.initGirModules(girModules)
 
         // Load girModules for dependencies
         for (const girModule of girModules) {

@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "lib": ["ESNext"],
+      "skipLibCheck": false,
+      "types": [],
+      "strict": true,
+      "noImplicitAny": true,
+      "strictNullChecks": true,
+      "noImplicitThis": true,
+      "alwaysStrict": true
+    },
+    "include": ["types.ts"],
+    "exclude": []
+  }

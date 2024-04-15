@@ -82,7 +82,7 @@ export class TypeIdentifier extends TypeExpression {
             // GirRecord.prototype.getType resolves this relationship.
             if (c) return c.getType()
 
-            return new TypeIdentifier(name, ns.name)
+            return new TypeIdentifier(name, ns.namespace)
         }
 
         // Handle "class callback" types (they're in a definition-merged module)
@@ -100,20 +100,20 @@ export class TypeIdentifier extends TypeExpression {
         }
 
         if (!c_resolved_name) {
-            c_resolved_name = ns.resolveSymbolFromTypeName(`${ns.name}${name}`)
+            c_resolved_name = ns.resolveSymbolFromTypeName(`${ns.namespace}${name}`)
         }
 
         if (!cb && !resolved_name && !c_resolved_name) {
             // Don't warn if a missing import is at fault, this will be dealt with later.
-            if (namespace.name === ns.name) {
-                console.error(`Attempting to fall back on c:type inference for ${ns.name}.${name}.`)
+            if (namespace.namespace === ns.namespace) {
+                console.error(`Attempting to fall back on c:type inference for ${ns.namespace}.${name}.`)
             }
 
-            ;[cb, corrected_name] = ns.findClassCallback(`${ns.name}${name}`)
+            ;[cb, corrected_name] = ns.findClassCallback(`${ns.namespace}${name}`)
 
             if (cb) {
                 console.error(
-                    `Falling back on c:type inference for ${ns.name}.${name} and found ${ns.name}.${corrected_name}.`,
+                    `Falling back on c:type inference for ${ns.namespace}.${name} and found ${ns.namespace}.${corrected_name}.`,
                 )
             }
         }
@@ -123,21 +123,21 @@ export class TypeIdentifier extends TypeExpression {
                 console.debug(`Callback found: ${cb}.${corrected_name}`)
             }
 
-            return new ModuleTypeIdentifier(corrected_name, cb, ns.name)
+            return new ModuleTypeIdentifier(corrected_name, cb, ns.namespace)
         } else if (resolved_name) {
-            return new TypeIdentifier(resolved_name, ns.name)
+            return new TypeIdentifier(resolved_name, ns.namespace)
         } else if (c_resolved_name) {
             console.error(
-                `Fell back on c:type inference for ${ns.name}.${name} and found ${ns.name}.${corrected_name}.`,
+                `Fell back on c:type inference for ${ns.namespace}.${name} and found ${ns.namespace}.${corrected_name}.`,
             )
 
-            return new TypeIdentifier(c_resolved_name, ns.name)
-        } else if (namespace.name === ns.name) {
-            console.error(`Unable to resolve type ${this.name} in same namespace ${ns.name}!`)
+            return new TypeIdentifier(c_resolved_name, ns.namespace)
+        } else if (namespace.namespace === ns.namespace) {
+            console.error(`Unable to resolve type ${this.name} in same namespace ${ns.namespace}!`)
             return null
         }
 
-        console.error(`Type ${this.name} could not be resolved in ${namespace.name}`)
+        console.error(`Type ${this.name} could not be resolved in ${namespace.namespace}`)
         return null
     }
 
@@ -159,13 +159,13 @@ export class TypeIdentifier extends TypeExpression {
 
     // eslint-disable-next-line  @typescript-eslint/no-unused-vars
     print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
-        if (namespace.hasSymbol(this.namespace) && this.namespace !== namespace.name) {
+        if (namespace.hasSymbol(this.namespace) && this.namespace !== namespace.namespace) {
             // TODO: Move to TypeScript generator...
             // Libraries like zbar have classes named things like "Gtk"
             return `${this.namespace}__.${this.name}`
         }
 
-        if (namespace.name === this.namespace) {
+        if (namespace.namespace === this.namespace) {
             return `${this.name}`
         } else {
             return `${this.namespace}.${this.name}`
@@ -215,7 +215,7 @@ export class ModuleTypeIdentifier extends TypeIdentifier {
 
     // eslint-disable-next-line  @typescript-eslint/no-unused-vars
     print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
-        if (namespace.name === this.namespace) {
+        if (namespace.namespace === this.namespace) {
             return `${this.moduleName}.${this.name}`
         } else {
             return `${this.namespace}.${this.moduleName}.${this.name}`
@@ -237,7 +237,7 @@ export class ClassStructTypeIdentifier extends TypeIdentifier {
 
     // eslint-disable-next-line  @typescript-eslint/no-unused-vars
     print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
-        if (namespace.name === this.namespace) {
+        if (namespace.namespace === this.namespace) {
             // TODO: Mapping to invalid names should happen at the generator level...
             return `typeof ${isInvalid(this.name) ? `__${this.name}` : this.name}`
         } else {
@@ -257,7 +257,7 @@ export class GenerifiedTypeIdentifier extends TypeIdentifier {
     print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
         const Generics = this.generics.map((generic) => generic.print(namespace, options)).join(', ')
 
-        if (namespace.name === this.namespace) {
+        if (namespace.namespace === this.namespace) {
             return `${this.name}${this.generics.length > 0 ? `<${Generics}>` : ''}`
         } else {
             return `${this.namespace}.${this.name}${this.generics.length > 0 ? `<${Generics}>` : ''}`
@@ -693,7 +693,7 @@ export class TypeConflict extends TypeExpression {
     resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeExpression {
         throw new Error(
             `Type conflict was not resolved for ${this.type.resolve(namespace, options).print(namespace, options)} in ${
-                namespace.name
+                namespace.namespace
             }`,
         )
     }
@@ -701,7 +701,7 @@ export class TypeConflict extends TypeExpression {
     print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
         throw new Error(
             `Type conflict was not resolved for ${this.type.resolve(namespace, options).print(namespace, options)} in ${
-                namespace.name
+                namespace.namespace
             }`,
         )
     }

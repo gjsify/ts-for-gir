@@ -421,13 +421,13 @@ export class JsonGenerator extends FormatGenerator<Json> {
                 const [clazz, plural] = resolveClass(ns, className);
 
                 if (clazz instanceof IntrospectedBaseClass || clazz instanceof IntrospectedEnum) {
-                    const r = `#${plural ? "{" : ""}${ns.name}.${clazz.name}${punc ? `${punc}${modified_name}` : ""}${
+                    const r = `#${plural ? "{" : ""}${ns.namespace}.${clazz.name}${punc ? `${punc}${modified_name}` : ""}${
                         plural ? "}s" : ""
                     }`;
                     return r;
                 }
 
-                return `#${ns.name}${punc ? ` (${punc}${modified_name})` : ""}`;
+                return `#${ns.namespace}${punc ? ` (${punc}${modified_name})` : ""}`;
             } else {
                 return null;
             }
@@ -486,7 +486,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
                 const [member = null] = functionNamespace.getMembers(functionName.toLowerCase());
 
                 if (member instanceof IntrospectedFunction) {
-                    return `${functionNamespace.name}.${member.name}`;
+                    return `${functionNamespace.namespace}.${member.name}`;
                 }
 
                 return null;
@@ -494,7 +494,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
                 const [member = null] = constNamespace.getMembers(functionName.toUpperCase());
 
                 if (member instanceof IntrospectedConstant) {
-                    return `${constNamespace.name}.${member.name}`;
+                    return `${constNamespace.namespace}.${member.name}`;
                 }
 
                 return null;
@@ -507,7 +507,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
                     const [klass = null] = enumNamespace.getMembers(enumName);
 
                     if (klass instanceof IntrospectedEnum) {
-                        return `${enumNamespace.name}.${klass.name}.${memberName.toUpperCase()}`;
+                        return `${enumNamespace.namespace}.${klass.name}.${memberName.toUpperCase()}`;
                     }
                 }
 
@@ -549,12 +549,12 @@ export class JsonGenerator extends FormatGenerator<Json> {
                     const [klass] = resolveClass(resolvedNamespace, selectedClassName);
 
                     if (klass instanceof IntrospectedBaseClass || klass instanceof IntrospectedEnum) {
-                        return `${resolvedNamespace.name}.${klass.name}.${
+                        return `${resolvedNamespace.namespace}.${klass.name}.${
                             upper ? functionName.toUpperCase() : functionName
                         }`;
                     }
 
-                    return `${resolvedNamespace.name}.${selectedClassName}.${
+                    return `${resolvedNamespace.namespace}.${selectedClassName}.${
                         upper ? functionName.toUpperCase() : functionName
                     }`;
                 }
@@ -777,7 +777,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
 
             if (!GObject) {
                 throw new Error(
-                    `GObject.Object could not be found while generating ${node.namespace.name}.${node.name}`
+                    `GObject.Object could not be found while generating ${node.namespace.namespace}.${node.name}`
                 );
             }
 
@@ -1126,7 +1126,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
         // Register our identifier with the sanitized identifiers.
         // We avoid doing this in fromXML because other class-level function classes
         // depends on that code.
-        sanitizeIdentifierName(namespace.name, node.raw_name);
+        sanitizeIdentifierName(namespace.namespace, node.raw_name);
 
         const Parameters = this.generateParameters(node.parameters);
         const ReturnType = this.generateReturn(node.return(), node.output_parameters);
@@ -1231,7 +1231,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
             return node.emit;
         }
 
-        const { name, version } = node;
+        const { namespace, version } = node.dependency;
 
         const members = Array.from(node.members.values())
             .flatMap(m => m)
@@ -1285,7 +1285,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
 
         return Promise.resolve({
             kind: NodeKind.namespace,
-            name,
+            name: namespace,
             version,
             imports: Object.fromEntries(imports),
             classes,
@@ -1304,21 +1304,21 @@ export class JsonGenerator extends FormatGenerator<Json> {
         const { namespace, options } = this;
 
         if (options.verbose) {
-            console.debug(`Resolving the types of ${namespace.name}...`);
+            console.debug(`Resolving the types of ${namespace.namespace}...`);
         }
 
         try {
             const output = await this.generateNamespace(node);
 
             if (options.verbose) {
-                console.debug(`Printing ${namespace.name}...`);
+                console.debug(`Printing ${namespace.namespace}...`);
             }
 
             if (!output) return null;
 
             return JSON.stringify(output, null, 4);
         } catch (err) {
-            console.error(`Failed to generate namespace: ${node.name}`);
+            console.error(`Failed to generate namespace: ${node.namespace}`);
             console.error(err);
             return null;
         }

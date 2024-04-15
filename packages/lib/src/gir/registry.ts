@@ -198,12 +198,12 @@ export class NSRegistry {
     }
 
     register(namespace: GirModule): IntrospectedNamespace {
-        this.mapping.set(namespace.name, namespace.version, namespace);
+        this.mapping.set(namespace.namespace, namespace.version, namespace);
 
         namespace.c_prefixes.forEach(c_prefix => {
             const c_map = this.c_mapping.get(c_prefix) || [];
 
-            c_map.push({ name: namespace.name, version: namespace.version });
+            c_map.push({ name: namespace.namespace, version: namespace.version });
 
             this.c_mapping.set(c_prefix, c_map);
         });

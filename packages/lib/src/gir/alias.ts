@@ -54,14 +54,14 @@ export class IntrospectedAlias extends IntrospectedNamespaceMember {
         options: LoadOptions
     ): IntrospectedAlias | null {
         if (!element.$.name) {
-            console.error(`Alias in ${ns.name} lacks name.`);
+            console.error(`Alias in ${ns.namespace} lacks name.`);
             return null;
         }
 
         const alias = new IntrospectedAlias({
             namespace: ns,
-            name: sanitizeIdentifierName(ns.name, element.$.name),
-            type: getAliasType(ns.name, ns, element),
+            name: sanitizeIdentifierName(ns.namespace, element.$.name),
+            type: getAliasType(ns.namespace, ns, element),
             isIntrospectable: isIntrospectable(element)
         });
 

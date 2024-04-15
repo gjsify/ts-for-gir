@@ -57,7 +57,7 @@ export class IntrospectedConstant extends IntrospectedNamespaceMember {
 
     static fromXML(element: GirConstantElement, ns: IntrospectedNamespace, options: LoadOptions): IntrospectedConstant {
         const c = new IntrospectedConstant({
-            name: sanitizeIdentifierName(ns.name, element.$.name),
+            name: sanitizeIdentifierName(ns.namespace, element.$.name),
             namespace: ns,
             type: getType(ns, element),
             value: element.$.value ?? null

@@ -34,7 +34,7 @@ export class TemplateProcessor {
         protected readonly deps: Dependency[],
         protected readonly config: GenerateConfig,
     ) {
-        this.transformation = new Transformation(config)
+        this.transformation = Transformation.getSingleton(config)
         const dep = DependencyManager.getInstance(config)
         let outdir = config.outdir || './'
         // Make outdir relative to the root directory

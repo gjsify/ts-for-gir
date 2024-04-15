@@ -5,9 +5,7 @@
 import inquirer, { ListQuestion, Answers } from 'inquirer'
 import { glob } from 'glob'
 import { basename, join } from 'path'
-import { readFile } from 'fs/promises'
 import { bold } from 'colorette'
-import { parser } from '@gi.ts/parser'
 import {
     DependencyManager,
     ResolveType,
@@ -186,7 +184,7 @@ export class ModuleLoader {
                 if (girModuleResolvedBy.packageName === packageName) {
                     continue
                 }
-                for (const dep of girModuleResolvedBy.module.dependencies) {
+                for (const dep of girModuleResolvedBy.module.dependencies!) {
                     if (dep.packageName === packageName && !girModules.includes(girModuleResolvedBy)) {
                         girModules.push(girModuleResolvedBy)
                     }
@@ -353,7 +351,7 @@ export class ModuleLoader {
      * @param girModule
      */
     protected extendDependencyMapByGirModule(girModule: GirModule): void {
-        this.modDependencyMap[girModule.packageName] = girModule.dependencies
+        this.modDependencyMap[girModule.packageName] = girModule.dependencies!
     }
 
     /**
@@ -375,15 +373,13 @@ export class ModuleLoader {
      * @param fillName
      * @param config
      */
-    protected async loadAndCreateGirModule(dependency: Dependency): Promise<GirModule | null> {
+    protected loadAndCreateGirModule(dependency: Dependency): GirModule | null {
         if (!dependency.exists || dependency.path === null) {
             return null
         }
 
         this.log.log(`Parsing ${dependency.path}...`)
-        const fileContents = await readFile(dependency.path, 'utf8')
-        const result = parser.parseGir(fileContents)
-        const girModule = GirModule.load(result, this.config, this.dependencyManager)
+        const girModule = GirModule.load(dependency, this.config, this.dependencyManager)
         // Figure out transitive module dependencies
         this.extendDependencyMapByGirModule(girModule)
         return girModule
@@ -437,7 +433,7 @@ export class ModuleLoader {
             if (!dependency?.packageName) continue
             // If module has not already been loaded
             if (!this.existsGirModules(girModules, dependency.packageName)) {
-                const girModule = await this.loadAndCreateGirModule(dependency)
+                const girModule = this.loadAndCreateGirModule(dependency)
                 if (!girModule) {
                     if (!failedGirModules.has(dependency.packageName)) {
                         this.log.warn(WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE(dependency.packageName))
@@ -515,12 +511,16 @@ export class ModuleLoader {
         return foundFiles
     }
 
-    protected girFilePathToDependencies(girFiles: Set<string>): Dependency[] {
-        return Array.from(girFiles).map((girFile) => {
+    protected async girFilePathToDependencies(girFiles: Set<string>): Promise<Dependency[]> {
+        const dependencies: Dependency[] = []
+        for (const girFile of girFiles) {
             const packageName = basename(girFile, '.gir')
             const { namespace, version } = splitModuleName(packageName)
-            return this.dependencyManager.get(namespace, version)
-        })
+            const dep = await this.dependencyManager.get(namespace, version)
+            dependencies.push(dep)
+        }
+
+        return dependencies
     }
 
     /**
@@ -535,11 +535,11 @@ export class ModuleLoader {
     ): Promise<{ keep: GirModuleResolvedBy[]; grouped: GirModulesGroupedMap; ignore: string[]; failed: Set<string> }> {
         const girFiles = await this.findGirFiles([...packageNames], ignore)
         // Always require these because GJS does...
-        const GLib = this.dependencyManager.get('GLib', '2.0')
-        const Gio = this.dependencyManager.get('Gio', '2.0')
-        const GObject = this.dependencyManager.get('GObject', '2.0')
+        const GLib = await this.dependencyManager.get('GLib', '2.0')
+        const Gio = await this.dependencyManager.get('Gio', '2.0')
+        const GObject = await this.dependencyManager.get('GObject', '2.0')
 
-        const dependencies = this.girFilePathToDependencies(girFiles)
+        const dependencies = await this.girFilePathToDependencies(girFiles)
 
         const { loaded, failed } = await this.loadGirModules(
             [
@@ -576,7 +576,7 @@ export class ModuleLoader {
         ignore: string[] = [],
     ): Promise<{ grouped: GirModulesGroupedMap; loaded: GirModuleResolvedBy[]; failed: string[] }> {
         const girFiles = await this.findGirFiles(modules, ignore)
-        const dependencies = this.girFilePathToDependencies(girFiles)
+        const dependencies = await this.girFilePathToDependencies(girFiles)
         const { loaded, failed } = await this.loadGirModules(dependencies, ignore)
         const grouped = this.groupGirFiles(loaded)
         return { grouped, loaded, failed: Array.from(failed) }

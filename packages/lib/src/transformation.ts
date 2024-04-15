@@ -247,6 +247,8 @@ export const IGNORE_GIR_TYPE_TS_DOC_TYPES = [
 export const RESERVED_NAMESPACE_NAMES = {}
 
 export class Transformation {
+    protected static instance?: Transformation
+
     /**
      * Rules for the name conventions
      * For gjs see https://gjs-docs.gnome.org/ and https://wiki.gnome.org/Attic/Gjs
@@ -268,11 +270,18 @@ export class Transformation {
 
     private log: Logger
 
-    constructor(
-        private readonly config: GenerateConfig,
+    protected constructor(
+        readonly config: GenerateConfig,
         logName = 'Transformation',
     ) {
         this.log = new Logger(config.verbose, logName)
+    }
+
+    static getSingleton(config: GenerateConfig) {
+        if (!this.instance) {
+            this.instance = new Transformation(config)
+        }
+        return this.instance
     }
 
     public transformSignalInterfaceName(name: string): string {

@@ -16,23 +16,23 @@ export class DtsModuleGenerator extends DtsGenerator {
         const { namespace, options } = this;
 
         if (options.verbose) {
-            console.debug(`Resolving the types of ${namespace.name}...`);
+            console.debug(`Resolving the types of ${namespace.namespace}...`);
         }
 
         let suffix = "";
 
-        if (!options.noAdvancedVariants && node.name === "GLib") {
+        if (!options.noAdvancedVariants && node.namespace === "GLib") {
             suffix = `\n${overrideGLib(node)}\n`;
-        } else if (node.name === "GObject") {
+        } else if (node.namespace === "GObject") {
             suffix = `\n${overrideGObject(node)}\n`;
         }
 
         try {
-            const { name } = node;
+            const { namespace: name, version } = node.dependency;
 
             const header = `
 /**
- * ${name} ${node.version}
+ * ${name} ${version}
  * 
  * Generated from ${node.package_version.join(".")}
  */
@@ -74,8 +74,8 @@ export const __version__: string;
 `;
 
             const moduleIdentifier = `gi://${name}`;
-            const versionedNamespaceIdentifier = `${name}${node.version.split(".")[0].replace(/[^A-z0-9_]/g, "_")}`;
-            const versionedModuleIdentifier = `${moduleIdentifier}?version=${node.version}`;
+            const versionedNamespaceIdentifier = `${name}${node.dependency.version.split(".")[0].replace(/[^A-z0-9_]/g, "_")}`;
+            const versionedModuleIdentifier = `${moduleIdentifier}?version=${node.dependency.version}`;
 
             const [versionedModuleHeader, versionedModuleSuffix] = [
                 `declare module "${versionedModuleIdentifier}" {
@@ -102,12 +102,12 @@ export const __version__: string;
             ].join("\n\n");
 
             if (options.verbose) {
-                console.debug(`Printing ${namespace.name}...`);
+                console.debug(`Printing ${namespace.namespace}...`);
             }
 
             return Promise.resolve(output);
         } catch (err) {
-            console.error(`Failed to generate namespace: ${node.name}`);
+            console.error(`Failed to generate namespace: ${node.namespace}`);
             console.error(err);
 
             return Promise.resolve(null);

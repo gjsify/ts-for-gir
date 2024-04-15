@@ -1,6 +1,10 @@
+import { parser, GirXML, GirRepository } from '@gi.ts/parser'
+import { readFile } from 'fs/promises'
+
 import { findFileInDirs, splitModuleName, pascalCase } from './utils.js'
 import { Logger } from './logger.js'
 import { Transformation } from './transformation.js'
+import { LibraryVersion } from './library-version.js'
 
 import type { Dependency, GenerateConfig, GirInclude } from './types/index.js'
 import type { GirModule } from './gir-module.js'
@@ -10,14 +14,14 @@ export class DependencyManager extends GirNSRegistry {
     protected log: Logger
     protected transformation: Transformation
 
-    cache: { [packageName: string]: Dependency } = {}
+    protected _cache: { [packageName: string]: Dependency } = {}
 
     static instance?: DependencyManager
 
     protected constructor(protected readonly config: GenerateConfig) {
         super()
 
-        this.transformation = new Transformation(config)
+        this.transformation = Transformation.getSingleton(config)
         this.log = new Logger(config.verbose, 'DependencyManager')
     }
 
@@ -52,19 +56,19 @@ export class DependencyManager extends GirNSRegistry {
      * @returns All dependencies in the cache
      */
     all(): Dependency[] {
-        return Object.values(this.cache)
+        return Object.values(this._cache)
     }
 
     getAllPackageNames(): string[] {
-        return Object.keys(this.cache)
+        return Object.keys(this._cache)
     }
 
     /**
      * Get the core dependencies
      * @returns
      */
-    core(): Dependency[] {
-        return [this.get('GObject-2.0'), this.get('GLib-2.0')]
+    async core(): Promise<Dependency[]> {
+        return [await this.get('GObject-2.0'), await this.get('GLib-2.0')]
     }
 
     createImportProperties(namespace: string, packageName: string) {
@@ -93,31 +97,58 @@ export class DependencyManager extends GirNSRegistry {
      * @param packageName The package name (with version affix) of the dependency
      * @returns The dependency object
      */
-    get(packageName: string): Dependency
+    async get(packageName: string): Promise<Dependency>
     /**
      * Get the dependency object by namespace and version
      * @param namespace The namespace of the dependency
      * @param version The version of the dependency
      * @returns The dependency object
      */
-    get(namespace: string, version: string): Dependency
-    get(namespaceOrPackageName: string, version?: string): Dependency {
-        // Special case for Gjs
-        if (namespaceOrPackageName === 'Gjs') {
-            return this.getGjs()
+    async get(namespace: string, version: string): Promise<Dependency>
+    /**
+     * Get the dependency object by {@link GirRepository}
+     * @param namespace The namespace of the dependency
+     * @param version The version of the dependency
+     * @returns The dependency object
+     */
+    async get(repo: GirRepository): Promise<Dependency>
+    async get(namespaceOrPackageNameOrRepo: string | GirRepository, version?: string): Promise<Dependency> {
+        let packageName: string
+        let namespace: string
+        if (typeof namespaceOrPackageNameOrRepo === 'string') {
+            // Special case for Gjs
+            if (namespaceOrPackageNameOrRepo === 'Gjs') {
+                return this.getGjs()
+            }
+
+            const args = this.parseArgs(namespaceOrPackageNameOrRepo, version)
+            version = args.version
+            packageName = args.packageName
+            namespace = args.namespace
+        } else {
+            const repo = namespaceOrPackageNameOrRepo
+            const ns = repo.namespace?.[0]
+            if (!ns) {
+                throw new Error('Invalid GirRepository')
+            }
+            version = repo.$.version || '0.0'
+            namespace = ns.$.name
+            packageName = `${namespace}-${version}`
+            namespace = ns.$.name
+            ns
         }
 
-        const args = this.parseArgs(namespaceOrPackageName, version)
-        version = args.version
-        const packageName = args.packageName
-        const namespace = args.namespace
-
-        if (this.cache[packageName]) {
-            const dep = this.cache[packageName]
+        if (this._cache[packageName]) {
+            const dep = this._cache[packageName]
             return dep
         }
         const filename = `${packageName}.gir`
         const { exists, path } = findFileInDirs(this.config.girDirectories, filename)
+
+        let girXML: GirXML | null = null
+        if (path) {
+            girXML = parser.parseGir(await readFile(path, 'utf8'))
+        }
 
         const dependency: Dependency = {
             namespace,
@@ -126,11 +157,17 @@ export class DependencyManager extends GirNSRegistry {
             path,
             packageName,
             importName: this.transformation.transformImportName(packageName),
+            importNamespace: this.transformation.transformModuleNamespaceName(packageName),
             version,
+            /**
+             * TODO: married this with `girModule.libraryVersion`
+             */
+            libraryVersion: new LibraryVersion(),
+            girXML,
             ...this.createImportProperties(namespace, packageName),
         }
 
-        this.cache[packageName] = dependency
+        this._cache[packageName] = dependency
 
         return dependency
     }
@@ -163,9 +200,9 @@ export class DependencyManager extends GirNSRegistry {
      * Add all dependencies from an array of gir modules
      * @param girModules
      */
-    addAll(girModules: GirModule[]): Dependency[] {
+    async addAll(girModules: GirModule[]): Promise<Dependency[]> {
         for (const girModule of girModules) {
-            this.get(girModule.namespace, girModule.version || '0.0')
+            await this.get(girModule.namespace, girModule.version || '0.0')
         }
         return this.all()
     }
@@ -175,10 +212,10 @@ export class DependencyManager extends GirNSRegistry {
      * @param girIncludes - Array of gir includes
      * @returns Array of dependencies
      */
-    fromGirIncludes(girIncludes: GirInclude[]): Dependency[] {
+    async fromGirIncludes(girIncludes: GirInclude[]): Promise<Dependency[]> {
         const dependencies: Dependency[] = []
         for (const i of girIncludes) {
-            dependencies.unshift(this.get(i.$.name, i.$.version || '0.0'))
+            dependencies.unshift(await this.get(i.$.name, i.$.version || '0.0'))
         }
         return dependencies
     }
@@ -191,7 +228,7 @@ export class DependencyManager extends GirNSRegistry {
     hasConflict(namespace: string): boolean {
         const packageNames = this.getAllPackageNames()
         const candidates = packageNames.filter((packageName) => {
-            return packageName.startsWith(`${namespace}-`) && this.cache[packageName].namespace === namespace
+            return packageName.startsWith(`${namespace}-`) && this._cache[packageName].namespace === namespace
         })
 
         return candidates.length > 1
@@ -236,7 +273,7 @@ export class DependencyManager extends GirNSRegistry {
 
         const packageNames = this.getAllPackageNames()
         const candidates = packageNames.filter((packageName) => {
-            return packageName.startsWith(`${namespace}-`) && this.cache[packageName].namespace === namespace
+            return packageName.startsWith(`${namespace}-`) && this._cache[packageName].namespace === namespace
         })
 
         if (candidates.length > 1) {
@@ -245,8 +282,8 @@ export class DependencyManager extends GirNSRegistry {
 
         const latestVersion = candidates.sort().pop()
 
-        if (latestVersion && this.cache[latestVersion]) {
-            const dep = this.cache[latestVersion]
+        if (latestVersion && this._cache[latestVersion]) {
+            const dep = this._cache[latestVersion]
             return dep
         }
 
@@ -254,18 +291,23 @@ export class DependencyManager extends GirNSRegistry {
     }
 
     protected getPseudoPackage(packageName: string): Dependency {
-        if (this.cache[packageName]) {
-            return this.cache[packageName]
+        if (this._cache[packageName]) {
+            return this._cache[packageName]
         }
 
+        const namespace = pascalCase(packageName)
+
         const dep: Dependency = {
-            namespace: pascalCase(packageName),
+            namespace,
             exists: true,
             filename: '',
             path: '',
             packageName: packageName,
             importName: this.transformation.transformImportName(packageName),
+            importNamespace: this.transformation.transformModuleNamespaceName(packageName),
             version: '0.0',
+            libraryVersion: new LibraryVersion(),
+            girXML: null,
             ...this.createImportProperties(packageName, packageName),
         }
 

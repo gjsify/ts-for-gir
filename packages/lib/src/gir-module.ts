@@ -9,15 +9,16 @@ import { LibraryVersion } from './library-version.js'
 
 import type {
     Dependency,
-    GirRepository,
     GirType,
     GirConstantElement,
     TsDoc,
     TsDocTag,
-    ParsedGir,
+    GirInterfaceElement,
     GirInfoAttrs,
     GenerateConfig,
     GirDocElement,
+    GirEnumElement,
+    GirBitfieldElement,
 } from './types/index.js'
 import {
     ClosureType,
@@ -52,22 +53,32 @@ export class GirModule {
     /**
      * E.g. 'Gtk'
      */
-    namespace!: string
+    get namespace(): string {
+        return this.namespace
+    }
     /**
      * E.g. '4.0'
      */
-    version: string
+    get version(): string {
+        return this.version
+    }
     /**
      * E.g. 'Gtk-4.0'
      */
-    packageName!: string
+    get packageName(): string {
+        return this.packageName
+    }
     /**
      * E.g. 'Gtk40'
      * Is used in the generated index.d.ts, for example: `import * as Gtk40 from "./Gtk-4.0.js";`
      */
-    importNamespace!: string
+    get importNamespace(): string {
+        return this.importNamespace
+    }
 
-    importName!: string
+    get importName(): string {
+        return this.importName
+    }
 
     prefixes: string[] = []
 
@@ -77,11 +88,14 @@ export class GirModule {
      */
     libraryVersion!: LibraryVersion
 
-    dependencies: Dependency[] = []
+    dependencies?: Dependency[] = []
     private _transitiveDependencies: Dependency[] = []
 
+    /**
+     * @deprecated Use init() instead
+     */
     set transitiveDependencies(deps: Dependency[]) {
-        this._transitiveDependencies = this.checkTransitiveDependencies(deps)
+        throw new Error('transitiveDependencies is deprecated')
     }
 
     get transitiveDependencies(): Dependency[] {
@@ -89,6 +103,9 @@ export class GirModule {
     }
 
     get allDependencies(): Dependency[] {
+        if (!this.dependencies) {
+            throw new Error('dependencies is not initialized, run init() first')
+        }
         return [...new Set([...this.dependencies, ...this.transitiveDependencies])]
     }
 
@@ -111,7 +128,6 @@ export class GirModule {
      */
     constNames: { [varName: string]: GirConstantElement } = {}
 
-    readonly name: string
     readonly c_prefixes: string[]
 
     private _members?: Map<string, GirNSMember | GirNSMember[]>
@@ -123,43 +139,52 @@ export class GirModule {
     parent!: NSRegistry
     config: GenerateConfig
 
-    constructor(repo: GirRepository, name: string, version: string, prefixes: string[], config: GenerateConfig) {
-        this.name = name
-        this.version = version
+    constructor(
+        readonly dependency: Dependency,
+        prefixes: string[],
+        config: GenerateConfig,
+    ) {
         this.c_prefixes = [...prefixes]
         this.package_version = ['0', '0']
         this.config = config
 
+        // TODO: Make this a singleton
         this.dependencyManager = DependencyManager.getInstance(this.config)
-        this.dependencies = this.dependencyManager.fromGirIncludes(repo.include || [])
+    }
+
+    public async init() {
+        this.dependencies = await this.dependencyManager.fromGirIncludes(
+            this.dependency.girXML?.repository[0]?.include || [],
+        )
+        this.transitiveDependencies = await this.checkTransitiveDependencies(this.dependencies)
     }
 
     get ns() {
         return this
     }
 
-    private checkTransitiveDependencies(transitiveDependencies: Dependency[]) {
+    private async checkTransitiveDependencies(transitiveDependencies: Dependency[]) {
         // Always pull in GObject-2.0, as we may need it for e.g. GObject-2.0.type
         if (this.packageName !== 'GObject-2.0') {
             if (!find(transitiveDependencies, (x) => x.packageName === 'GObject-2.0')) {
-                transitiveDependencies.push(this.dependencyManager.get('GObject', '2.0'))
+                transitiveDependencies.push(await this.dependencyManager.get('GObject', '2.0'))
             }
         }
 
         // Add missing dependencies
         if (this.packageName === 'UnityExtras-7.0') {
             if (!find(transitiveDependencies, (x) => x.packageName === 'Unity-7.0')) {
-                transitiveDependencies.push(this.dependencyManager.get('Unity', '7.0'))
+                transitiveDependencies.push(await this.dependencyManager.get('Unity', '7.0'))
             }
         }
         if (this.packageName === 'UnityExtras-6.0') {
             if (!find(transitiveDependencies, (x) => x.packageName === 'Unity-6.0')) {
-                transitiveDependencies.push(this.dependencyManager.get('Unity', '6.0'))
+                transitiveDependencies.push(await this.dependencyManager.get('Unity', '6.0'))
             }
         }
         if (this.packageName === 'GTop-2.0') {
             if (!find(transitiveDependencies, (x) => x.packageName === 'GLib-2.0')) {
-                transitiveDependencies.push(this.dependencyManager.get('GLib', '2.0'))
+                transitiveDependencies.push(await this.dependencyManager.get('GLib', '2.0'))
             }
         }
 
@@ -278,46 +303,51 @@ export class GirModule {
 
     // TODO: Move this into the generator
     hasImport(name: string): boolean {
+        if (!this.dependencies) {
+            throw new Error('')
+        }
         return this.dependencies.some((dep) => dep.importName === name)
     }
 
-    private _getImport(name: string): GirModule | null {
-        if (name === this.name) {
+    private _getImport(namespace: string): GirModule | null {
+        if (namespace === this.namespace) {
             return this
         }
 
         const dep =
-            this.dependencies.find((dep) => dep.namespace === name) ??
-            this.transitiveDependencies.find((dep) => dep.namespace === name)
+            this.dependencies?.find((dep) => dep.namespace === namespace) ??
+            this.transitiveDependencies.find((dep) => dep.namespace === namespace)
 
         // Handle finding imports via their other prefixes
         if (!dep) {
-            this.log.info(`Failed to find namespace ${name} in dependencies, resolving via c:prefixes`)
+            this.log.info(`Failed to find namespace ${namespace} in dependencies, resolving via c:prefixes`)
 
             // TODO: It might make more sense to move this conversion _before_
             // the _getImport call.
-            const resolvedNamespaces = this.dependencyManager.namespacesForPrefix(name)
+            const resolvedNamespaces = this.dependencyManager.namespacesForPrefix(namespace)
             if (resolvedNamespaces.length > 0) {
                 this.log.info(
-                    `Found namespaces for prefix ${name}: ${resolvedNamespaces.map((r) => `${r.name} (${r.version})`).join(', ')}`,
+                    `Found namespaces for prefix ${namespace}: ${resolvedNamespaces.map((r) => `${r.namespace} (${r.version})`).join(', ')}`,
                 )
             }
 
             for (const resolvedNamespace of resolvedNamespaces) {
-                if (resolvedNamespace.name === this.name && resolvedNamespace.version === this.version) {
+                if (resolvedNamespace.namespace === this.namespace && resolvedNamespace.version === this.version) {
                     return this
                 }
 
                 const dep =
-                    this.dependencies.find(
-                        (dep) => dep.namespace === resolvedNamespace.name && dep.version === resolvedNamespace.version,
+                    this.dependencies?.find(
+                        (dep) =>
+                            dep.namespace === resolvedNamespace.namespace && dep.version === resolvedNamespace.version,
                     ) ??
                     this.transitiveDependencies.find(
-                        (dep) => dep.namespace === resolvedNamespace.name && dep.version === resolvedNamespace.version,
+                        (dep) =>
+                            dep.namespace === resolvedNamespace.namespace && dep.version === resolvedNamespace.version,
                     )
 
                 if (dep) {
-                    return this.parent.namespace(resolvedNamespace.name, dep.version)
+                    return this.parent.namespace(resolvedNamespace.namespace, dep.version)
                 }
             }
         }
@@ -325,40 +355,40 @@ export class GirModule {
         let version = dep?.version
 
         if (!version) {
-            version = this.parent.assertDefaultVersionOf(name)
+            version = this.parent.assertDefaultVersionOf(namespace)
         }
 
-        return this.parent.namespace(name, version)
+        return this.parent.namespace(namespace, version)
     }
 
-    getInstalledImport(name: string): GirModule | null {
-        if (name === this.name) {
+    getInstalledImport(_namespace: string): GirModule | null {
+        if (_namespace === this.namespace) {
             return this
         }
 
         const dep =
-            this.dependencies.find((dep) => dep.namespace === name) ??
-            this.transitiveDependencies.find((dep) => dep.namespace === name)
+            this.dependencies?.find((dep) => dep.namespace === _namespace) ??
+            this.transitiveDependencies.find((dep) => dep.namespace === _namespace)
         let version = dep?.version
 
         if (!version) {
-            version = this.parent.defaultVersionOf(name) ?? undefined
+            version = this.parent.defaultVersionOf(_namespace) ?? undefined
         }
 
         if (!version) {
             return null
         }
 
-        const namespace = this.parent.namespace(name, version)
+        const namespace = this.parent.namespace(_namespace, version)
 
         return namespace
     }
 
-    assertInstalledImport(name: string): GirModule {
-        const namespace = this._getImport(name)
+    assertInstalledImport(_namespace: string): GirModule {
+        const namespace = this._getImport(_namespace)
 
         if (!namespace) {
-            throw new Error(`Failed to import ${name} in ${this.name}, not installed or accessible.`)
+            throw new Error(`Failed to import ${_namespace} in ${this.namespace}, not installed or accessible.`)
         }
 
         return namespace
@@ -400,7 +430,7 @@ export class GirModule {
         const clazz = this.getClass(name)
 
         if (!clazz) {
-            throw new Error(`Class ${name} does not exist in namespace ${this.name}.`)
+            throw new Error(`Class ${name} does not exist in namespace ${this.namespace}.`)
         }
 
         return clazz
@@ -479,19 +509,19 @@ export class GirModule {
         this.__dts__references.push(reference)
     }
 
-    static load(repo: ParsedGir, config: GenerateConfig, registry: NSRegistry): GirModule {
-        const ns = repo.repository[0]?.namespace?.[0]
+    static load(dependency: Dependency, config: GenerateConfig, registry: NSRegistry): GirModule {
+        const girXML = dependency.girXML
 
-        if (!ns) throw new Error(`Missing namespace in ${repo.repository[0].package[0].$.name}`)
+        if (!girXML) {
+            throw new Error(`Failed to load gir xml of ${dependency.packageName}`)
+        }
+
+        const ns = girXML?.repository[0]?.namespace?.[0]
+
+        if (!ns) throw new Error(`Missing namespace in ${girXML.repository[0].package[0].$.name}`)
 
         const modName = ns.$['name']
         const version = ns.$['version']
-
-        // TODO: Hardcoding HarfBuzz here leads to issues when loading...
-        // Hardcode harfbuzz version for now...
-        // if (modName === 'HarfBuzz' && version === '0.0') {
-        //     version = '2.0'
-        // }
 
         const options: LoadOptions = {
             loadDocs: !config.noComments,
@@ -512,14 +542,13 @@ export class GirModule {
         if (options.verbose) {
             console.debug(`Parsing ${modName}...`)
         }
-
-        const building = new GirModule(repo.repository[0], modName, version, c_prefix, config)
+        const building = new GirModule(dependency, c_prefix, config)
         building.parent = registry
         // Set the namespace object here to prevent re-parsing the namespace if
         // another namespace imports it.
         registry.register(building)
 
-        const prefixes = repo.repository[0]?.$?.['c:identifier-prefixes']?.split(',')
+        const prefixes = girXML.repository[0]?.$?.['c:identifier-prefixes']?.split(',')
         const unknownPrefixes = prefixes?.filter((pre) => pre !== modName)
 
         if (unknownPrefixes && unknownPrefixes.length > 0) {
@@ -537,9 +566,9 @@ export class GirModule {
             ns.enumeration
                 ?.map((enumeration) => {
                     if (enumeration.$['glib:error-domain']) {
-                        return IntrospectedError.fromXML(enumeration, building, options)
+                        return IntrospectedError.fromXML(enumeration as GirEnumElement, building, options)
                     } else {
-                        return IntrospectedEnum.fromXML(enumeration, building, options)
+                        return IntrospectedEnum.fromXML(enumeration as GirEnumElement, building, options)
                     }
                 })
                 .forEach((c) => building.members.set(c.name, c))
@@ -589,7 +618,7 @@ export class GirModule {
         if (ns.bitfield) {
             ns.bitfield
                 ?.filter(isIntrospectable)
-                .map((field) => IntrospectedEnum.fromXML(field, building, options, true))
+                .map((field) => IntrospectedEnum.fromXML(field as GirBitfieldElement, building, options, true))
                 .forEach((c) => building.members.set(c.name, c))
         }
 
@@ -630,7 +659,7 @@ export class GirModule {
 
         if (ns.interface) {
             ns.interface
-                ?.map((inter) => IntrospectedInterface.fromXML(inter, building, options))
+                ?.map((inter) => IntrospectedInterface.fromXML(inter as GirInterfaceElement, building, options))
                 .filter(importConflicts)
                 .forEach((c) => building.members.set(c.name, c))
         }
@@ -664,16 +693,14 @@ export class GirModule {
                 .forEach((c) => building.members.set(c.name, c))
         }
 
-        building.namespace = building.ns.name
-        building.version = building.ns.version
-        building.packageName = `${building.namespace}-${building.version}`
+        // building.namespace = building.ns.name
+        // building.version = building.ns.version
+        // building.packageName = `${building.namespace}-${building.version}`
         building.libraryVersion = new LibraryVersion(ns.constant, building.version)
-        building.transformation = new Transformation(config)
+        building.transformation = Transformation.getSingleton(config)
 
-        building.log = new Logger(config.verbose, building.packageName || 'GirModule')
-        building.importNamespace = building.transformation.transformModuleNamespaceName(building.packageName)
-        building.importName = building.transformation.transformImportName(building.packageName)
-        building.symTable = new SymTable(building.config, building.packageName, building.namespace)
+        building.log = new Logger(config.verbose, building.namespace || 'GirModule')
+        building.symTable = new SymTable(building.config, building.namespace, building.namespace)
 
         return building
     }

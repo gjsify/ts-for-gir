@@ -144,7 +144,7 @@ export function getType(
     ns: IntrospectedNamespace,
     param?: GirConstantElement | GirCallableReturn | GirFieldElement
 ): TypeExpression {
-    const modName = ns.name;
+    const modName = ns.namespace;
 
     if (!param) return VoidType;
 

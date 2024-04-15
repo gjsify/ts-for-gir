@@ -54,30 +54,30 @@ export class GirModule {
      * E.g. 'Gtk'
      */
     get namespace(): string {
-        return this.namespace
+        return this.dependency.namespace
     }
     /**
      * E.g. '4.0'
      */
     get version(): string {
-        return this.version
+        return this.dependency.version
     }
     /**
      * E.g. 'Gtk-4.0'
      */
     get packageName(): string {
-        return this.packageName
+        return this.dependency.packageName
     }
     /**
      * E.g. 'Gtk40'
      * Is used in the generated index.d.ts, for example: `import * as Gtk40 from "./Gtk-4.0.js";`
      */
     get importNamespace(): string {
-        return this.importNamespace
+        return this.dependency.importNamespace
     }
 
     get importName(): string {
-        return this.importName
+        return this.dependency.importName
     }
 
     prefixes: string[] = []

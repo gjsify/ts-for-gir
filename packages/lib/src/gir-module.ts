@@ -89,10 +89,20 @@ export class GirModule {
      */
     libraryVersion!: LibraryVersion
 
-    dependencies?: Dependency[] = []
-    private _transitiveDependencies: Dependency[] = []
+    protected _dependencies: Dependency[] | null = null
+    protected _transitiveDependencies: Dependency[] | null = null
+
+    get dependencies(): Dependency[] {
+        if (!this._dependencies) {
+            throw new Error('dependencies is not initialized, run initDependencies() first')
+        }
+        return this._dependencies
+    }
 
     get transitiveDependencies(): Dependency[] {
+        if (!this._transitiveDependencies) {
+            throw new Error('transitiveDependencies is not initialized, run initTransitiveDependencies() first')
+        }
         return this._transitiveDependencies
     }
 
@@ -146,11 +156,14 @@ export class GirModule {
         this.dependencyManager = DependencyManager.getInstance(this.config)
     }
 
-    public async init() {
-        this.dependencies = await this.dependencyManager.fromGirIncludes(
+    public async initDependencies() {
+        this._dependencies = await this.dependencyManager.fromGirIncludes(
             this.dependency.girXML?.repository[0]?.include || [],
         )
-        this._transitiveDependencies = await this.checkTransitiveDependencies(this.dependencies)
+    }
+
+    public async initTransitiveDependencies(transitiveDependencies: Dependency[]) {
+        this._transitiveDependencies = await this.checkTransitiveDependencies(transitiveDependencies)
     }
 
     get ns() {
@@ -503,7 +516,7 @@ export class GirModule {
         this.__dts__references.push(reference)
     }
 
-    static load(dependency: Dependency, config: OptionsGeneration, registry: NSRegistry): GirModule {
+    static async load(dependency: Dependency, config: OptionsGeneration, registry: NSRegistry): Promise<GirModule> {
         const girXML = dependency.girXML
 
         if (!girXML) {
@@ -537,6 +550,7 @@ export class GirModule {
             console.debug(`Parsing ${modName}...`)
         }
         const building = new GirModule(dependency, c_prefix, config)
+        await building.initDependencies()
         building.parent = registry
         // Set the namespace object here to prevent re-parsing the namespace if
         // another namespace imports it.

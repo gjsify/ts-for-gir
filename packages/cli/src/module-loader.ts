@@ -184,7 +184,7 @@ export class ModuleLoader {
                 if (girModuleResolvedBy.packageName === packageName) {
                     continue
                 }
-                for (const dep of girModuleResolvedBy.module.dependencies!) {
+                for (const dep of girModuleResolvedBy.module.dependencies) {
                     if (dep.packageName === packageName && !girModules.includes(girModuleResolvedBy)) {
                         girModules.push(girModuleResolvedBy)
                     }
@@ -361,7 +361,9 @@ export class ModuleLoader {
      */
     protected async initGirModules(girModules: GirModuleResolvedBy[]): Promise<void> {
         for (const girModule of girModules) {
-            await girModule.module.init()
+            const result: { [name: string]: Dependency } = {}
+            this.traverseDependencies(girModule.packageName, result)
+            await girModule.module.initTransitiveDependencies(Object.values(result))
         }
     }
 
@@ -371,13 +373,13 @@ export class ModuleLoader {
      * @param fillName
      * @param config
      */
-    protected loadAndCreateGirModule(dependency: Dependency): GirModule | null {
+    protected async loadAndCreateGirModule(dependency: Dependency): Promise<GirModule | null> {
         if (!dependency.exists || dependency.path === null) {
             return null
         }
 
         this.log.log(`Parsing ${dependency.path}...`)
-        const girModule = GirModule.load(dependency, this.config, this.dependencyManager)
+        const girModule = await GirModule.load(dependency, this.config, this.dependencyManager)
         // Figure out transitive module dependencies
         this.extendDependencyMapByGirModule(girModule)
         return girModule
@@ -431,7 +433,7 @@ export class ModuleLoader {
             if (!dependency?.packageName) continue
             // If module has not already been loaded
             if (!this.existsGirModules(girModules, dependency.packageName)) {
-                const girModule = this.loadAndCreateGirModule(dependency)
+                const girModule = await this.loadAndCreateGirModule(dependency)
                 if (!girModule) {
                     if (!failedGirModules.has(dependency.packageName)) {
                         this.log.warn(WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE(dependency.packageName))

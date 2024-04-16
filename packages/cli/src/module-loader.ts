@@ -504,7 +504,8 @@ export class ModuleLoader {
             }
             const filename = `${globPackageNames[i]}.gir`
             const pattern = this.config.girDirectories.map((girDirectory) => join(girDirectory, filename))
-            const files = await glob(pattern, { ignore })
+            const ignoreGirs = ignore.map((girDirectory) => girDirectory + '.gir')
+            const files = await glob(pattern, { ignore: ignoreGirs })
             files.forEach((file) => foundFiles.add(file))
         }
 

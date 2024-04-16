@@ -237,7 +237,6 @@ export class TemplateProcessor {
             )
             return renderedTpl
         } catch (error) {
-            console.error(error)
             this.log.error('Error on render', error)
             return ''
         }

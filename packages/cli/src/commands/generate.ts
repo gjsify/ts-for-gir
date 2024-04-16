@@ -77,10 +77,6 @@ class TypeScriptFormatter extends Formatter {
             })
         } catch (error) {
             return Promise.resolve(input)
-            // TODO: Don't return invalid TypeScript, useful for debugging for now.
-            // console.error('Failed to format output...')
-            // console.error(input)
-            // throw error
         }
     }
 }

@@ -1,3 +1,4 @@
+import { Logger } from './logger.js'
 import { IntrospectedNamespace } from './gir/namespace.js'
 import { IntrospectedProperty, IntrospectedField } from './gir/property.js'
 import { isInvalid, sanitizeIdentifierName, sanitizeNamespace } from './gir/util.js'
@@ -38,11 +39,13 @@ export abstract class TypeExpression {
 export class TypeIdentifier extends TypeExpression {
     readonly name: string
     readonly namespace: string
+    readonly log: Logger
 
-    constructor(name: string, namespace: string) {
+    constructor(name: string, namespace: string, verbose: boolean = true) {
         super()
         this.name = name
         this.namespace = namespace
+        this.log = new Logger(verbose, `TypeIdentifier(${namespace}.${name})`)
     }
 
     equals(type: TypeExpression): boolean {
@@ -106,13 +109,13 @@ export class TypeIdentifier extends TypeExpression {
         if (!cb && !resolved_name && !c_resolved_name) {
             // Don't warn if a missing import is at fault, this will be dealt with later.
             if (namespace.namespace === ns.namespace) {
-                console.error(`Attempting to fall back on c:type inference for ${ns.namespace}.${name}.`)
+                this.log.error(`Attempting to fall back on c:type inference for ${ns.namespace}.${name}.`)
             }
 
             ;[cb, corrected_name] = ns.findClassCallback(`${ns.namespace}${name}`)
 
             if (cb) {
-                console.error(
+                this.log.error(
                     `Falling back on c:type inference for ${ns.namespace}.${name} and found ${ns.namespace}.${corrected_name}.`,
                 )
             }
@@ -127,17 +130,17 @@ export class TypeIdentifier extends TypeExpression {
         } else if (resolved_name) {
             return new TypeIdentifier(resolved_name, ns.namespace)
         } else if (c_resolved_name) {
-            console.error(
+            this.log.error(
                 `Fell back on c:type inference for ${ns.namespace}.${name} and found ${ns.namespace}.${corrected_name}.`,
             )
 
             return new TypeIdentifier(c_resolved_name, ns.namespace)
         } else if (namespace.namespace === ns.namespace) {
-            console.error(`Unable to resolve type ${this.name} in same namespace ${ns.namespace}!`)
+            this.log.error(`Unable to resolve type ${this.name} in same namespace ${ns.namespace}!`)
             return null
         }
 
-        console.error(`Type ${this.name} could not be resolved in ${namespace.namespace}`)
+        this.log.error(`Type ${this.name} could not be resolved in ${namespace.namespace}`)
         return null
     }
 

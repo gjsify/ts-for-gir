@@ -2740,6 +2740,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@girs/gc-1.0@workspace:types/gc-1.0":
+  version: 0.0.0-use.local
+  resolution: "@girs/gc-1.0@workspace:types/gc-1.0"
+  dependencies:
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
 "@girs/gcab-1.0@workspace:^, @girs/gcab-1.0@workspace:types/gcab-1.0":
   version: 0.0.0-use.local
   resolution: "@girs/gcab-1.0@workspace:types/gcab-1.0"

@@ -1664,7 +1664,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
         try {
             contents = this.config.noPrettyPrint ? output.join('\n') : await formatter.format(output.join('\n'))
         } catch (error) {
-            console.error(error)
+            this.log.error('Failed to format output...', error)
             contents = output.join('\n')
         }
 

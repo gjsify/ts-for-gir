@@ -18,7 +18,7 @@ To use this type definitions, install them with NPM:
 npm install <%- npmScope %>/<%- importName %>
 ```
 
-<%_ const pkg = dep.get(packageName) _%>
+<%_ const pkg = dep.getSync(packageName) _%>
 <%_ if(!pkg){ _%>
   <%_ return `Package with package name "${packageName}" not found!` _%>
 <%_ } _%>
@@ -27,11 +27,6 @@ npm install <%- npmScope %>/<%- importName %>
 You can import this package into your project like this:
 ```ts
 import <%- pkg.namespace %> from '<%- pkg.importPath %>';
-```
-
-Or if you prefer CommonJS, you can also use this:
-```ts
-const <%- pkg.namespace %> = require('<%- pkg.importPath %>');
 ```
 
 ### Ambient Modules
@@ -87,19 +82,6 @@ Now you have also type support for this, too:
 ```ts
 const <%= pkg.namespace %> = imports.gi.<%= pkg.namespace %>;
 ```
-
-
-### ESM vs. CommonJS
-
-GJS supports two different import syntaxes. The new modern ESM syntax and the old global imports syntax.
-
-In TypeScript projects for GJS and GNOME Shell extensions, you have the flexibility to use `ESM` syntax and then decide the import syntax for your bundled file. If your bundler is configured to use `CommonJS`, it will convert to the GJS-specific global imports syntax, like `const moduleName = imports.gi[moduleName]`. This is different from the traditional `require` syntax seen in Node.js. The global imports syntax is chosen because it aligns with the CommonJS format supported by NPM, which is used for the generated type definitions and this package.
-
-On the other hand, if you configure your bundler to use ESM, it will retain the ESM import syntax. It's crucial to ensure that your bundler is set up to correctly translate and bundle these imports into either CommonJS or ESM format, depending on your project's requirements.
-
-This approach is particularly important due to the `@girs` types, which include both `*.cjs `files, using the GJS global imports syntax, and `*.js` files, which utilize the ESM syntax. By appropriately setting up your bundler, you can control which syntax—CommonJS or ESM—is used in your project. The choice of CommonJS in this context is also due to the similarity between the GJS-specific global imports and CommonJS syntax, allowing for easier management and bundling in these specific types of projects.
-
-Since GNOME Shell 45, you should only use ESM, even for GNOME Shell extensions. Before that, extensions had to use the global import syntax, unlike normal GJS applications, where ESM has been available for some time.
 
 ### Bundle
 

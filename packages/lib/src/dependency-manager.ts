@@ -1,5 +1,6 @@
 import { parser, GirXML, GirRepository } from '@gi.ts/parser'
 import { readFile } from 'fs/promises'
+import { readFileSync } from 'fs'
 
 import { findFileInDirs, splitModuleName, pascalCase } from './utils.js'
 import { Logger } from './logger.js'
@@ -36,7 +37,7 @@ export class DependencyManager extends GirNSRegistry {
         return this.instance
     }
 
-    protected parseArgs(namespaceOrPackageName: string, version?: string) {
+    protected parsePackageName(namespaceOrPackageName: string, version?: string) {
         let packageName: string
         let namespace: string
         if (version) {
@@ -47,6 +48,34 @@ export class DependencyManager extends GirNSRegistry {
             const { namespace: _namespace, version: _version } = splitModuleName(packageName)
             namespace = _namespace
             version = _version
+        }
+        return { packageName, namespace, version }
+    }
+
+    protected parseArgs(namespaceOrPackageNameOrRepo: string | GirRepository, version?: string) {
+        let packageName: string
+        let namespace: string
+        if (typeof namespaceOrPackageNameOrRepo === 'string') {
+            // Special case for Gjs
+            if (namespaceOrPackageNameOrRepo === 'Gjs') {
+                return this.getGjs()
+            }
+
+            const args = this.parsePackageName(namespaceOrPackageNameOrRepo, version)
+            version = args.version
+            packageName = args.packageName
+            namespace = args.namespace
+        } else {
+            const repo = namespaceOrPackageNameOrRepo
+            const ns = repo.namespace?.[0]
+            if (!ns) {
+                throw new Error('Invalid GirRepository')
+            }
+            version = repo.$.version || '0.0'
+            namespace = ns.$.name
+            packageName = `${namespace}-${version}`
+            namespace = ns.$.name
+            ns
         }
         return { packageName, namespace, version }
     }
@@ -112,31 +141,8 @@ export class DependencyManager extends GirNSRegistry {
      * @returns The dependency object
      */
     async get(repo: GirRepository): Promise<Dependency>
-    async get(namespaceOrPackageNameOrRepo: string | GirRepository, version?: string): Promise<Dependency> {
-        let packageName: string
-        let namespace: string
-        if (typeof namespaceOrPackageNameOrRepo === 'string') {
-            // Special case for Gjs
-            if (namespaceOrPackageNameOrRepo === 'Gjs') {
-                return this.getGjs()
-            }
-
-            const args = this.parseArgs(namespaceOrPackageNameOrRepo, version)
-            version = args.version
-            packageName = args.packageName
-            namespace = args.namespace
-        } else {
-            const repo = namespaceOrPackageNameOrRepo
-            const ns = repo.namespace?.[0]
-            if (!ns) {
-                throw new Error('Invalid GirRepository')
-            }
-            version = repo.$.version || '0.0'
-            namespace = ns.$.name
-            packageName = `${namespace}-${version}`
-            namespace = ns.$.name
-            ns
-        }
+    async get(namespaceOrPackageNameOrRepo: string | GirRepository, _version?: string): Promise<Dependency> {
+        const { packageName, namespace, version } = this.parseArgs(namespaceOrPackageNameOrRepo, _version)
 
         if (this._cache[packageName]) {
             const dep = this._cache[packageName]
@@ -148,6 +154,63 @@ export class DependencyManager extends GirNSRegistry {
         let girXML: GirXML | null = null
         if (path) {
             girXML = parser.parseGir(await readFile(path, 'utf8'))
+        }
+
+        const dependency: Dependency = {
+            namespace,
+            exists,
+            filename,
+            path,
+            packageName,
+            importName: this.transformation.transformImportName(packageName),
+            importNamespace: this.transformation.transformModuleNamespaceName(packageName),
+            version,
+            /**
+             * TODO: married this with `girModule.libraryVersion`
+             */
+            libraryVersion: new LibraryVersion(),
+            girXML,
+            ...this.createImportProperties(namespace, packageName),
+        }
+
+        this._cache[packageName] = dependency
+
+        return dependency
+    }
+
+    /**
+     * Get the dependency object by packageName
+     * @param packageName The package name (with version affix) of the dependency
+     * @returns The dependency object
+     */
+    getSync(packageName: string): Dependency
+    /**
+     * Get the dependency object by namespace and version
+     * @param namespace The namespace of the dependency
+     * @param version The version of the dependency
+     * @returns The dependency object
+     */
+    getSync(namespace: string, version: string): Dependency
+    /**
+     * Get the dependency object by {@link GirRepository}
+     * @param namespace The namespace of the dependency
+     * @param version The version of the dependency
+     * @returns The dependency object
+     */
+    getSync(repo: GirRepository): Dependency
+    getSync(namespaceOrPackageNameOrRepo: string | GirRepository, _version?: string): Dependency {
+        const { packageName, namespace, version } = this.parseArgs(namespaceOrPackageNameOrRepo, _version)
+
+        if (this._cache[packageName]) {
+            const dep = this._cache[packageName]
+            return dep
+        }
+        const filename = `${packageName}.gir`
+        const { exists, path } = findFileInDirs(this.config.girDirectories, filename)
+
+        let girXML: GirXML | null = null
+        if (path) {
+            girXML = parser.parseGir(readFileSync(path, 'utf8'))
         }
 
         const dependency: Dependency = {

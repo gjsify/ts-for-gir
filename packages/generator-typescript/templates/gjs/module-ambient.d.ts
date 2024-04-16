@@ -2,12 +2,11 @@
     // This EJS template is used for the generated .d.ts files for ambient typescript module support.
     // See https://www.typescriptlang.org/docs/handbook/modules.html#ambient-modules
 _%>
-<%_ const pkg = dep.get(girModule.namespace, girModule.version) _%>
 <%_ let moduleImportStr = ""; _%>
 <%_ if(noNamespace){ _%>
-    <%_ moduleImportStr = `import * as ${girModule.namespace} from '${pkg.importPath}'`; _%>
+    <%_ moduleImportStr = `import * as ${girModule.namespace} from '${girModule.importPath}'`; _%>
 <%_ } else { _%>
-    <%_ moduleImportStr = `import ${girModule.namespace} from '${pkg.importPath}'`; _%>
+    <%_ moduleImportStr = `import ${girModule.namespace} from '${girModule.importPath}'`; _%>
 <%_ } _%>
 
 declare module 'gi://<%= name %>?version=<%= version %>' {
@@ -16,7 +15,7 @@ declare module 'gi://<%= name %>?version=<%= version %>' {
 }
 
 <%# // Generate ambient module declarations Without version number if this is the latest version _%>
-<%_ if (dep.isLatestVersion(pkg.namespace, pkg.version)) { _%>
+<%_ if (dep.isLatestVersion(girModule.namespace, girModule.version)) { _%>
 declare module 'gi://<%= name %>' {
     import <%- girModule.importNamespace -%> from 'gi://<%= name %>?version=<%= version %>';
     export default <%- girModule.importNamespace -%>;

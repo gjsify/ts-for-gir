@@ -76,7 +76,7 @@ export class Logger {
     }
     public error(txt: string, ...args: unknown[]): void {
         txt = this.prependInfo(txt, 'ERROR:')
-        return this.danger(txt, args)
+        return this.danger(txt, ...args)
     }
     public success(txt: string, ...args: unknown[]): void {
         if (!this.verbose) {
@@ -85,7 +85,7 @@ export class Logger {
         this.log(green(txt), ...args)
     }
     public danger(txt: string, ...args: unknown[]): void {
-        this.log(red(txt), ...args)
+        console.error(red(txt), ...args)
     }
 
     // Static versions (Here it must be ensured that Verbose is activated)
@@ -104,7 +104,7 @@ export class Logger {
     }
     public static warn(txt: string, ...args: unknown[]): void {
         txt = this.prepend(txt, 'WARN: ')
-        return this.yellow(txt, ...args)
+        return console.warn(yellow(txt), ...args)
     }
     public static debug(txt: string, ...args: unknown[]): void {
         txt = this.prepend(txt, 'DEBUG: ')

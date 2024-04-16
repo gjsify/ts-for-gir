@@ -81,6 +81,10 @@ export class GirModule {
         return this.dependency.importName
     }
 
+    get importPath(): string {
+        return this.dependency.importPath
+    }
+
     prefixes: string[] = []
 
     /**

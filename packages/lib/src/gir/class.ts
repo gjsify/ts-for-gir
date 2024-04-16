@@ -1,3 +1,4 @@
+import { Logger } from "../logger.js";
 import {
     NativeType,
     TypeIdentifier,
@@ -60,6 +61,8 @@ export enum FilterBehavior {
     PRESERVE
 }
 
+const log = new Logger(true, "gir/class");
+
 export function filterConflicts<T extends IntrospectedClassMember | IntrospectedClassFunction | IntrospectedProperty>(
     ns: IntrospectedNamespace,
     c: IntrospectedBaseClass,
@@ -108,7 +111,7 @@ export function filterConflicts<T extends IntrospectedClassMember | Introspected
                               next instanceof IntrospectedProperty &&
                               !isSubtypeOf(ns, thisType, resolved_parent.getType(), next.type, p.type)
                           ) {
-                              console.log(
+                              log.warn(
                                   `>> Conflict in ${next.parent?.name}.${next.name} with ${p.parent?.name}.${p.name}.`
                               );
                               return ConflictType.PROPERTY_NAME_CONFLICT;
@@ -288,7 +291,7 @@ export function filterFunctionConflict<
 
                 prev.push(next, never as T);
             } else if (field_conflicts) {
-                console.error(`Omitting ${next.name} due to field or property conflict.`);
+                log.error(`Omitting ${next.name} due to field or property conflict.`);
             } else {
                 prev.push(next);
             }
@@ -883,7 +886,7 @@ export class IntrospectedClass extends IntrospectedBaseClass {
         const name = sanitizeIdentifierName(ns.namespace, element.$.name);
 
         if (options.verbose) {
-            console.debug(`  >> GirClass: Parsing definition ${element.$.name} (${name})...`);
+            log.debug(`  >> GirClass: Parsing definition ${element.$.name} (${name})...`);
         }
 
         const clazz = new IntrospectedClass(name, ns);
@@ -1004,7 +1007,7 @@ export class IntrospectedClass extends IntrospectedBaseClass {
                 clazz.callbacks.push(
                     ...element.callback.map(callback => {
                         if (options.verbose) {
-                            console.debug(`Adding callback ${callback.$.name} for ${ns.namespace}`);
+                            log.debug(`Adding callback ${callback.$.name} for ${ns.namespace}`);
                         }
 
                         return IntrospectedClassCallback.fromXML(callback, clazz, options);
@@ -1028,8 +1031,7 @@ export class IntrospectedClass extends IntrospectedBaseClass {
                 );
             }
         } catch (e) {
-            console.error(`Failed to parse class: ${clazz.name} in ${ns.namespace}.`);
-            console.error(e);
+            log.error(`Failed to parse class: ${clazz.name} in ${ns.namespace}.`, e);
         }
 
         return clazz;
@@ -1203,7 +1205,7 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
         const name = sanitizeIdentifierName(namespace.namespace, element.$.name);
 
         if (options.verbose) {
-            console.debug(`  >> GirRecord: Parsing definition ${element.$.name} (${name})...`);
+            log.debug(`  >> GirRecord: Parsing definition ${element.$.name} (${name})...`);
         }
 
         const clazz = new IntrospectedRecord({ name, namespace });
@@ -1275,8 +1277,7 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
                 );
             }
         } catch (e) {
-            console.error(`Failed to parse record: ${clazz.name}.`);
-            console.error(e);
+            log.error(`Failed to parse record: ${clazz.name}.`, e);
         }
 
         return clazz;
@@ -1564,7 +1565,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
         const name = sanitizeIdentifierName(namespace.namespace, element.$.name);
 
         if (options.verbose) {
-            console.debug(`  >> GirInterface: Parsing definition ${element.$.name} (${name})...`);
+            log.debug(`  >> GirInterface: Parsing definition ${element.$.name} (${name})...`);
         }
 
         const clazz = new IntrospectedInterface({ name, namespace });
@@ -1654,7 +1655,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
             if (element.callback) {
                 for (const callback of element.callback) {
                     if (options.verbose) {
-                        console.debug(`Adding callback ${callback.$.name} for ${namespace.namespace}`);
+                        log.debug(`Adding callback ${callback.$.name} for ${namespace.namespace}`);
                     }
 
                     clazz.callbacks.push(IntrospectedClassCallback.fromXML(callback, clazz, options));
@@ -1668,8 +1669,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
                 }
             }
         } catch (e) {
-            console.error(`Failed to parse interface: ${clazz.name}.`);
-            console.error(e);
+            log.error(`Failed to parse interface: ${clazz.name}.`, e);
         }
         return clazz;
     }

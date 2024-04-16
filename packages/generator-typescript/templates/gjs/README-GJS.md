@@ -19,7 +19,7 @@ To use this type definitions, install them with NPM:
 npm install <%- npmScope %>/<%- importName %>
 ```
 
-<%_ const pkg = dep.get(packageName) _%>
+<%_ const pkg = dep.getSync(packageName) _%>
 <%_ if(!pkg){ _%>
   <%_ return `Package with package name "${packageName}" not found!` _%>
 <%_ } _%>

@@ -17,7 +17,7 @@ import { IntrospectedStaticClassFunction } from "../gir/function.js";
 import { IntrospectedVirtualClassFunction } from "../gir/function.js";
 import { IntrospectedAlias } from "../gir/alias.js";
 import { TypeExpression } from "../gir.js";
-import { GenerateConfig } from "../types/generate-config.js";
+import { OptionsGeneration } from "../types/options-generation.js";
 
 export interface GenericDescriptor {
     type: TypeExpression;
@@ -26,9 +26,9 @@ export interface GenericDescriptor {
 
 export abstract class FormatGenerator<T = string> {
     protected namespace: IntrospectedNamespace;
-    protected options: GenerateConfig;
+    protected options: OptionsGeneration;
 
-    constructor(namespace: IntrospectedNamespace, options: GenerateConfig) {
+    constructor(namespace: IntrospectedNamespace, options: OptionsGeneration) {
         this.namespace = namespace;
         this.options = options;
     }
@@ -36,25 +36,25 @@ export abstract class FormatGenerator<T = string> {
     abstract generateNamespace(node: IntrospectedNamespace): Promise<T | null>;
     abstract stringifyNamespace(node: IntrospectedNamespace): Promise<string | null>;
 
-    abstract generateCallback(node: IntrospectedCallback): T;
-    abstract generateClassCallback(node: IntrospectedClassCallback): T;
-    abstract generateAlias(node: IntrospectedAlias): T;
+    abstract generateCallback(node: IntrospectedCallback): Promise<T>;
+    abstract generateClassCallback(node: IntrospectedClassCallback): Promise<T>;
+    abstract generateAlias(node: IntrospectedAlias): Promise<T>;
     abstract generateConstructor(node: IntrospectedConstructor): T;
     abstract generateDirectAllocationConstructor(node: IntrospectedDirectAllocationConstructor): T;
-    abstract generateConstructorFunction(node: IntrospectedConstructor): T;
-    abstract generateRecord(node: IntrospectedRecord): T;
-    abstract generateInterface(node: IntrospectedInterface): T;
+    abstract generateConstructorFunction(node: IntrospectedConstructor): Promise<T>;
+    abstract generateRecord(node: IntrospectedRecord): Promise<T>;
+    abstract generateInterface(node: IntrospectedInterface): Promise<T>;
     abstract generateEnumMember(node: GirEnumMember): T;
     abstract generateError(node: IntrospectedError): T;
     abstract generateEnum(node: IntrospectedEnum): T;
-    abstract generateConst(node: IntrospectedConstant): T;
-    abstract generateClass(node: IntrospectedClass): T;
-    abstract generateParameter(node: IntrospectedFunctionParameter): T;
-    abstract generateProperty(node: IntrospectedProperty, construct?: boolean): T;
-    abstract generateField(node: IntrospectedField): T;
+    abstract generateConst(node: IntrospectedConstant): Promise<T>;
+    abstract generateClass(node: IntrospectedClass): Promise<T>;
+    abstract generateParameter(node: IntrospectedFunctionParameter): Promise<T>;
+    abstract generateProperty(node: IntrospectedProperty, construct?: boolean): Promise<T>;
+    abstract generateField(node: IntrospectedField): Promise<T>;
     abstract generateSignal(node: IntrospectedSignal, type?: IntrospectedSignalType): T;
-    abstract generateFunction(node: IntrospectedFunction): T;
-    abstract generateClassFunction(node: IntrospectedClassFunction): T;
-    abstract generateStaticClassFunction(node: IntrospectedStaticClassFunction): T;
-    abstract generateVirtualClassFunction(node: IntrospectedVirtualClassFunction): T;
+    abstract generateFunction(node: IntrospectedFunction): Promise<T>;
+    abstract generateClassFunction(node: IntrospectedClassFunction): Promise<T>;
+    abstract generateStaticClassFunction(node: IntrospectedStaticClassFunction): Promise<T>;
+    abstract generateVirtualClassFunction(node: IntrospectedVirtualClassFunction): Promise<T>;
 }

@@ -7,6 +7,7 @@ import {
     IntrospectedStaticClassFunction
 } from "../gir/function.js";
 import { resolveTypeIdentifier } from "../gir/util.js";
+import { Dependency } from "../types/dependency.js";
 import { GirVisitor } from "../visitor.js";
 
 const filterIntrospectableClassMembers = <T extends IntrospectedBaseClass>(node: T): T => {
@@ -81,11 +82,11 @@ const filterConflictingNamedClassMembers = <T extends IntrospectedBaseClass>(nod
  * @param node
  * @returns
  */
-const fixParamSpecSubtypes = <T extends IntrospectedBaseClass>(node: T): T => {
+const fixParamSpecSubtypes = <T extends IntrospectedBaseClass>(gobject: Dependency, node: T): T => {
     if (node.superType?.namespace === "GObject" && node.superType.name.startsWith("ParamSpec")) {
         // We don't assert this import because we don't want to force libraries
         // to unnecessarily import GObject.
-        node.superType = new TypeIdentifier("ParamSpec", "GObject");
+        node.superType = new TypeIdentifier("ParamSpec", gobject);
 
         node.noEmit();
     }
@@ -280,12 +281,12 @@ function chainVisitors<T>(node: T, ...args: ((node: T) => T)[]) {
 }
 
 export class ClassVisitor extends GirVisitor {
-    visitClass = (node: IntrospectedClass) =>
+    visitClass = (gobject: Dependency, node: IntrospectedClass) =>
         chainVisitors(
             node,
             removeReferencesToMissingLibraries,
             fixMissingParent,
-            fixParamSpecSubtypes,
+            node => fixParamSpecSubtypes(gobject, node),
             removeComplexFields,
             removePrivateFields,
             mergeStaticDefinitions,
@@ -298,11 +299,11 @@ export class ClassVisitor extends GirVisitor {
     visitInterface = (node: IntrospectedInterface) =>
         chainVisitors(node, filterIntrospectableClassMembers, filterReservedProperties);
 
-    visitRecord = (node: IntrospectedRecord) =>
+    visitRecord = (gobject: Dependency, node: IntrospectedRecord) =>
         chainVisitors(
             node,
             fixMissingParent,
-            fixParamSpecSubtypes,
+            node => fixParamSpecSubtypes(gobject, node),
             resolveMainConstructor,
             removeComplexFields,
             removePrivateFields,

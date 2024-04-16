@@ -46,7 +46,7 @@ import {
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedAlias } from "../gir/alias.js";
 import { AnyIntrospectedType } from "../gir/base.js";
-import { GenerateConfig } from "../types/generate-config.js";
+import { OptionsGeneration } from "../types/options-generation.js";
 
 export function versionImportFormat(versionFormat: string, namespace: string, version: string) {
     const versionSlug = version.toLowerCase().split(".")[0];
@@ -60,7 +60,7 @@ export function versionImportFormat(versionFormat: string, namespace: string, ve
 }
 
 export abstract class DtsGenerator extends FormatGenerator<string> {
-    constructor(namespace: IntrospectedNamespace, options: GenerateConfig) {
+    constructor(namespace: IntrospectedNamespace, options: OptionsGeneration) {
         super(namespace, options);
     }
 
@@ -102,7 +102,7 @@ export abstract class DtsGenerator extends FormatGenerator<string> {
         return "";
     }
 
-    generateCallbackType(node: IntrospectedCallback | IntrospectedClassCallback): [string, string] {
+    async generateCallbackType(node: IntrospectedCallback | IntrospectedClassCallback): Promise<[string, string]> {
         const { namespace, options } = this;
 
         const Parameters = this.generateParameters(node.parameters);
@@ -112,26 +112,30 @@ export abstract class DtsGenerator extends FormatGenerator<string> {
 
             return [
                 `${GenericDefinitions}`,
-                `(${Parameters}) => ${node.return().resolve(namespace, options).print(namespace, options)}`
+                `(${Parameters}) => ${(await node.return().resolve(namespace, options)).print(namespace, options)}`
             ];
         }
-        return ["", `(${Parameters}) => ${node.return().resolve(namespace, options).print(namespace, options)}`];
+        return [
+            "",
+            `(${Parameters}) => ${(await node.return().resolve(namespace, options)).print(namespace, options)}`
+        ];
     }
 
-    generateCallback(node: IntrospectedCallback | IntrospectedClassCallback): string {
-        return `${this.docString(node)}export type ${node.name}${this.generateCallbackType(node).join(" = ")};`;
+    async generateCallback(node: IntrospectedCallback | IntrospectedClassCallback): Promise<string> {
+        const [GenericDefinitions, CallbackType] = await this.generateCallbackType(node);
+        return `${this.docString(node)}export type ${node.name}${GenericDefinitions} = ${CallbackType};`;
     }
 
-    generateClassCallback(node: IntrospectedClassCallback): string {
-        return this.generateCallback(node);
+    async generateClassCallback(node: IntrospectedClassCallback): Promise<string> {
+        return await this.generateCallback(node);
     }
 
-    generateReturn(return_type: TypeExpression, output_parameters: IntrospectedFunctionParameter[]) {
+    async generateReturn(return_type: TypeExpression, output_parameters: IntrospectedFunctionParameter[]) {
         const { namespace, options } = this;
 
         const resolved_return_type =
-            resolveDirectedType(return_type, GirDirection.Out)?.resolve(namespace, options) ??
-            return_type.resolve(namespace, options);
+            (await resolveDirectedType(return_type, GirDirection.Out)?.resolve(namespace, options)) ??
+            (await return_type.resolve(namespace, options));
 
         const type = resolved_return_type.rootPrint(namespace, options);
 
@@ -139,14 +143,16 @@ export abstract class DtsGenerator extends FormatGenerator<string> {
             const exclude_first = type === "void" || type === "";
             const returns = [
                 ...(exclude_first ? [] : [`${type}`]),
-                ...output_parameters
-                    .map(op => {
-                        return (
-                            resolveDirectedType(op.type, GirDirection.Out)?.resolve(namespace, options) ??
-                            op.type.resolve(namespace, options)
-                        );
-                    })
-                    .map(p => p.rootPrint(namespace, options))
+                ...(
+                    await Promise.all(
+                        output_parameters.map(async op => {
+                            return (
+                                (await resolveDirectedType(op.type, GirDirection.Out)?.resolve(namespace, options)) ??
+                                (await op.type.resolve(namespace, options))
+                            );
+                        })
+                    )
+                ).map(p => p.rootPrint(namespace, options))
             ];
             if (returns.length > 1) {
                 return `[${returns.join(", ")}]`;
@@ -158,7 +164,7 @@ export abstract class DtsGenerator extends FormatGenerator<string> {
         return type;
     }
 
-    generateEnum(node: IntrospectedEnum): string {
+    async generateEnum(node: IntrospectedEnum): Promise<string> {
         const { namespace } = this;
 
         const isInvalidEnum = Array.from(node.members.keys()).some(
@@ -166,7 +172,7 @@ export abstract class DtsGenerator extends FormatGenerator<string> {
         );
 
         if (isInvalidEnum) {
-            return node.asClass().asString(this);
+            return await node.asClass().asString(this);
         }
 
         // So we can use GObject.GType
@@ -178,9 +184,7 @@ export namespace ${node.name} {
 }
 
 ${this.docString(node)}export enum ${node.name} {
-    ${Array.from(node.members.values())
-        .map(member => `${member.asString(this)}`)
-        .join("\n    ")}
+    ${(await Promise.all(Array.from(node.members.values()).map(async member => await member.asString(this)))).join("\n    ")}
 }`;
     }
 
@@ -213,12 +217,13 @@ ${this.docString(node)}export enum ${node.name} {
         return clazz.asString(this);
     }
 
-    generateConst(node: IntrospectedConstant): string {
+    async generateConst(node: IntrospectedConstant): Promise<string> {
         const { namespace, options } = this;
 
-        return `${this.docString(node)}export const ${node.name}: ${node.type
-            .resolve(namespace, options)
-            .print(namespace, options)};`;
+        return `${this.docString(node)}export const ${node.name}: ${(await node.type.resolve(namespace, options)).print(
+            namespace,
+            options
+        )};`;
     }
 
     protected implements(node: IntrospectedClass) {
@@ -343,7 +348,7 @@ export interface ${name}Prototype${Generics}${Extends} {${node.__ts__indexSignat
     }${hasNamespace ? `\n\nexport const ${name}: ${name}Namespace;\n` : ""}`;
     }
 
-    generateRecord(node: IntrospectedRecord): string {
+    async generateRecord(node: IntrospectedRecord): string {
         const { options, namespace } = this;
 
         const { name } = node;
@@ -374,9 +379,11 @@ export interface ${name}Prototype${Generics}${Extends} {${node.__ts__indexSignat
             .map(v => v.asString(this))
             .join("\n");
 
-        const Constructors = filterConflicts(node.namespace, node, node.constructors)
-            .map(v => this.generateConstructorFunction(v))
-            .join("\n");
+        const Constructors = (
+            await Promise.all(
+                filterConflicts(node.namespace, node, node.constructors).map(v => this.generateConstructorFunction(v))
+            )
+        ).join("\n");
 
         const FilteredMembers = filterFunctionConflict(node.namespace, node, node.members, []);
         const Members = (options.promisify ? promisifyFunctions(FilteredMembers) : FilteredMembers)
@@ -416,7 +423,7 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${
 }`;
     }
 
-    generateClass(node: IntrospectedClass): string {
+    async generateClass(node: IntrospectedClass): Promise<string> {
         const { options, namespace } = this;
 
         const name = node.name;
@@ -440,7 +447,7 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${
         let MainConstructor: string = "";
 
         if (node.mainConstructor) {
-            MainConstructor = `\n${node.mainConstructor.asString(this)}`;
+            MainConstructor = `\n${await node.mainConstructor.asString(this)}`;
         } else {
             MainConstructor = `\nconstructor(properties?: Partial<${name}.ConstructorProperties${GenericTypes}>, ...args: any[]);\n`;
 
@@ -649,7 +656,7 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${
 }`;
     }
 
-    generateField(node: IntrospectedField): string {
+    async generateField(node: IntrospectedField): Promise<string> {
         const { namespace, options } = this;
         const { name, computed } = node;
         const invalid = isInvalid(name);
@@ -672,12 +679,12 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${
             type = new BinaryType(type.unwrap(), AnyType);
         }
 
-        return `${this.docString(node)}${fieldAnnotation}${Modifier} ${Name}${node.optional ? "?" : ""}: ${type
-            .resolve(namespace, options)
-            .rootPrint(namespace, options)};`;
+        return `${this.docString(node)}${fieldAnnotation}${Modifier} ${Name}${node.optional ? "?" : ""}: ${(
+            await type.resolve(namespace, options)
+        ).rootPrint(namespace, options)};`;
     }
 
-    generateProperty(node: IntrospectedProperty, construct: boolean = false): string {
+    async generateProperty(node: IntrospectedProperty, construct: boolean = false): Promise<string> {
         const { namespace, options } = this;
 
         const invalid = isInvalid(node.name);
@@ -717,7 +724,7 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${
             }
         }
 
-        const Type = type.resolve(namespace, options).rootPrint(namespace, options) || "any";
+        const Type = (await type.resolve(namespace, options)).rootPrint(namespace, options) || "any";
 
         if (construct) {
             return `${Name}: ${Type};`;
@@ -768,12 +775,14 @@ ${this.docString(node)}export class ${name}${Generics}${Extends} {${
         }
     }
 
-    generateParameter(node: IntrospectedFunctionParameter): string {
+    async generateParameter(node: IntrospectedFunctionParameter): Promise<string> {
         const { namespace, options } = this;
 
         const type: string =
-            resolveDirectedType(node.type, node.direction)?.resolve(namespace, options).rootPrint(namespace, options) ??
-            node.type.resolve(namespace, options).rootPrint(namespace, options);
+            (await resolveDirectedType(node.type, node.direction)?.resolve(namespace, options))?.rootPrint(
+                namespace,
+                options
+            ) ?? (await node.type.resolve(namespace, options)).rootPrint(namespace, options);
 
         if (node.isVarArgs) {
             return `...args: ${type}`;
@@ -803,7 +812,7 @@ ${node.doc
             : "";
     }
 
-    generateFunction(node: IntrospectedFunction): string {
+    async generateFunction(node: IntrospectedFunction): Promise<string> {
         const { namespace } = this;
         // Register our identifier with the sanitized identifiers.
         // We avoid doing this in fromXML because other class-level function classes
@@ -811,12 +820,12 @@ ${node.doc
         sanitizeIdentifierName(namespace.namespace, node.raw_name);
 
         const Parameters = this.generateParameters(node.parameters);
-        const ReturnType = this.generateReturn(node.return(), node.output_parameters);
+        const ReturnType = await this.generateReturn(node.return(), node.output_parameters);
         const Generics = this.generateGenerics(node.generics);
         return `${this.docString(node)}export function ${node.name}${Generics}(${Parameters}): ${ReturnType};`;
     }
 
-    generateConstructorFunction(node: IntrospectedConstructor): string {
+    async generateConstructorFunction(node: IntrospectedConstructor): Promise<string> {
         const { namespace, options } = this;
 
         const Parameters = this.generateParameters(node.parameters);
@@ -824,10 +833,9 @@ ${node.doc
         const invalid = isInvalid(node.name);
         const name = invalid ? `["${node.name}"]` : node.name;
         const warning = node.getWarning();
-        return `${warning ? `${warning}\n` : ""}${this.docString(node)}static ${name}(${Parameters}): ${node
-            .return()
-            .resolve(namespace, options)
-            .rootPrint(namespace, options)};`;
+        return `${warning ? `${warning}\n` : ""}${this.docString(node)}static ${name}(${Parameters}): ${(
+            await node.return().resolve(namespace, options)
+        ).rootPrint(namespace, options)};`;
     }
 
     generateConstructor(node: IntrospectedConstructor): string {
@@ -845,7 +853,7 @@ ${node.doc
     }>);`;
     }
 
-    generateClassFunction(node: IntrospectedClassFunction): string {
+    async generateClassFunction(node: IntrospectedClassFunction): Promise<string> {
         const invalid = isInvalid(node.name);
 
         const parameters = node.parameters;
@@ -853,7 +861,7 @@ ${node.doc
         const return_type = node.return();
 
         const Parameters = this.generateParameters(parameters);
-        const ReturnType = this.generateReturn(return_type, output_parameters);
+        const ReturnType = await this.generateReturn(return_type, output_parameters);
 
         const Generics = this.generateGenerics(node.generics);
 
@@ -867,10 +875,10 @@ ${node.doc
         }${Generics}(${Parameters}): ${ReturnType};`;
     }
 
-    generateStaticClassFunction(node: IntrospectedStaticClassFunction): string {
+    async generateStaticClassFunction(node: IntrospectedStaticClassFunction): Promise<string> {
         const Generics = this.generateGenerics(node.generics);
 
-        const ReturnType = this.generateReturn(node.return(), node.output_parameters);
+        const ReturnType = await this.generateReturn(node.return(), node.output_parameters);
 
         const warning = node.getWarning();
         return `${warning ? `${warning}\n` : ""}${this.docString(node)}static ${
@@ -878,24 +886,24 @@ ${node.doc
         }${Generics}(${this.generateParameters(node.parameters)}): ${ReturnType};`;
     }
 
-    generateAlias(node: IntrospectedAlias): string {
+    async generateAlias(node: IntrospectedAlias): Promise<string> {
         const { namespace, options } = this;
-        const Type = node.type.resolve(namespace, options).print(namespace, options);
-        const GenericBase = node.generics
-            .map(g => {
+        const Type = (await node.type.resolve(namespace, options)).print(namespace, options);
+        const GenericBase = await Promise.all(
+            node.generics.map(async g => {
                 if (g.type) {
-                    return `${g.name} = ${g.type.resolve(namespace, options).rootPrint(namespace, options)}`;
+                    return `${g.name} = ${(await g.type.resolve(namespace, options)).rootPrint(namespace, options)}`;
                 }
 
                 return `${g.name}`;
             })
-            .join(", ");
-        const Generic = GenericBase ? `<${GenericBase}>` : "";
+        );
+        const Generic = GenericBase.join(", ");
 
         return `${this.docString(node)}export type ${node.name}${Generic} = ${Type};`;
     }
 
-    generateVirtualClassFunction(node: IntrospectedVirtualClassFunction): string {
-        return this.generateClassFunction(node);
+    async generateVirtualClassFunction(node: IntrospectedVirtualClassFunction): Promise<string> {
+        return await this.generateClassFunction(node);
     }
 }

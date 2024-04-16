@@ -18,6 +18,8 @@ import { IntrospectedNamespace } from './gir/namespace.js'
 import { IntrospectedProperty, IntrospectedField } from './gir/property.js'
 import { IntrospectedSignal, IntrospectedSignalType } from './gir/signal.js'
 
+import type { Dependency } from './types/index.js'
+
 export abstract class GirVisitor {
     visitType?: (node: TypeExpression) => TypeExpression
     visitCallback?: (node: IntrospectedCallback) => IntrospectedCallback
@@ -28,13 +30,13 @@ export abstract class GirVisitor {
         node: IntrospectedDirectAllocationConstructor,
     ) => IntrospectedDirectAllocationConstructor
     visitConstructorFunction?: (node: IntrospectedConstructor) => IntrospectedConstructor
-    visitRecord?: (node: IntrospectedRecord) => IntrospectedRecord
+    visitRecord?: (gobject: Dependency, node: IntrospectedRecord) => IntrospectedRecord
     visitInterface?: (node: IntrospectedInterface) => IntrospectedInterface
     visitEnumMember?: (node: GirEnumMember) => GirEnumMember
     visitError?: (node: IntrospectedError) => IntrospectedError
     visitEnum?: (node: IntrospectedEnum) => IntrospectedEnum
     visitConst?: (node: IntrospectedConstant) => IntrospectedConstant
-    visitClass?: (node: IntrospectedClass) => IntrospectedClass
+    visitClass?: (gobject: Dependency, node: IntrospectedClass) => IntrospectedClass
     visitParameter?: (node: IntrospectedFunctionParameter) => IntrospectedFunctionParameter
     visitProperty?: (node: IntrospectedProperty) => IntrospectedProperty
     visitField?: (node: IntrospectedField) => IntrospectedField
@@ -48,6 +50,6 @@ export abstract class GirVisitor {
     visitNamespace?: (node: IntrospectedNamespace) => IntrospectedNamespace
 }
 
-export function visit(namespace: IntrospectedNamespace, visitor: GirVisitor) {
-    namespace.accept(visitor)
+export async function visit(namespace: IntrospectedNamespace, visitor: GirVisitor) {
+    await namespace.accept(visitor)
 }

@@ -6,7 +6,7 @@ const metaTemplate = (version: string) => ({
     version,
     modifier: (namespace: IntrospectedNamespace, inferGenerics: boolean) => {
         if (!inferGenerics) {
-            return;
+            return Promise.resolve();
         }
 
         // Connect BackgroundActor to BackgroundContent
@@ -19,11 +19,12 @@ const metaTemplate = (version: string) => ({
         const parent = BackgroundActor.superType;
 
         if (parent) {
-            BackgroundActor.superType = new GenerifiedTypeIdentifier(parent.name, parent.namespace, [
+            BackgroundActor.superType = new GenerifiedTypeIdentifier(parent.name, parent.dependency, [
                 LayoutManager.getType(),
                 BackgroundContent.getType()
             ]);
         }
+        return Promise.resolve();
     }
 });
 

@@ -1,5 +1,5 @@
 import { FormatGenerator } from "../generators/index.js";
-import { LoadOptions } from "../types.js";
+import { OptionsLoad } from "../types/index.js";
 import { GirVisitor } from "../visitor.js";
 import { IntrospectedNamespace } from "./namespace.js";
 import type { IntrospectedBaseClass } from "./nodes.js";
@@ -99,7 +99,7 @@ export abstract class IntrospectedBase<Parent extends IntrospectedNamespace | An
 
     abstract copy(options?: { parent?: Parent }): IntrospectedBase<Parent>;
 
-    abstract accept(visitor: GirVisitor): IntrospectedBase<Parent>;
+    abstract accept(visitor: GirVisitor): Promise<IntrospectedBase<Parent>>;
 
     static fromXML(
         // eslint-disable-next-line
@@ -107,14 +107,14 @@ export abstract class IntrospectedBase<Parent extends IntrospectedNamespace | An
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         parent: IntrospectedNamespace | AnyIntrospectedType,
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        options: LoadOptions
-    ): AnyIntrospectedType | null {
+        options: OptionsLoad
+    ): Promise<AnyIntrospectedType | null> {
         throw new Error("GirBase cannot be instantiated");
     }
 
     abstract asString<T extends FormatGenerator<unknown>>(
         generator: T
-    ): (T extends FormatGenerator<infer R> ? R : never) | null;
+    ): Promise<(T extends FormatGenerator<infer R> ? R : never) | null>;
     abstract asString<T extends FormatGenerator<unknown>>(generator: T): unknown;
 }
 
@@ -133,8 +133,8 @@ export abstract class IntrospectedNamespaceMember extends IntrospectedBase<Intro
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         parent: IntrospectedNamespace,
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        options: LoadOptions
-    ): IntrospectedNamespaceMember | null {
+        options: OptionsLoad
+    ): Promise<IntrospectedNamespaceMember | null> {
         throw new Error("GirBase cannot be instantiated");
     }
 }

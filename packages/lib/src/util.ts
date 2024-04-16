@@ -12,6 +12,16 @@ export class TwoKeyMap<K1, K2, V> {
         })
     }
 
+    toArray(): V[] {
+        const arr: V[] = []
+
+        this.forEach((v) => {
+            arr.push(v)
+        })
+
+        return arr
+    }
+
     has(key1: K1, key2: K2): boolean {
         const obj = this.baseMap.get(key1)
 

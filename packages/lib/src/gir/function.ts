@@ -28,10 +28,11 @@ import { IntrospectedClass } from "./class.js";
 import { IntrospectedEnum } from "./enum.js";
 import { IntrospectedSignal } from "./signal.js";
 import { FormatGenerator } from "../generators/generator.js";
-import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
 import { IntrospectedField } from "./property.js";
 import { IntrospectedBaseClass } from "./nodes.js";
+
+import type { OptionsLoad } from "../types/index.js";
 
 function hasShadow(obj: GirFunctionElement | GirMethodElement): obj is GirFunctionElement & { $: { shadows: string } } {
     return obj.$["shadows"] != null;
@@ -99,26 +100,30 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
         return fn._copyBaseProperties(this);
     }
 
-    accept(visitor: GirVisitor): IntrospectedFunction {
+    async accept(visitor: GirVisitor): Promise<IntrospectedFunction> {
         const node = this.copy({
             parent: this.parent,
-            parameters: this.parameters.map(p => {
-                return p.accept(visitor);
-            }),
-            outputParameters: this.output_parameters.map(p => {
-                return p.accept(visitor);
-            }),
+            parameters: await Promise.all(
+                this.parameters.map(p => {
+                    return p.accept(visitor);
+                })
+            ),
+            outputParameters: await Promise.all(
+                this.output_parameters.map(p => {
+                    return p.accept(visitor);
+                })
+            ),
             return_type: visitor.visitType?.(this.return_type)
         });
 
         return visitor.visitFunction?.(node) ?? node;
     }
 
-    static fromXML(
+    static async fromXML(
         element: GirFunctionElement | GirMethodElement,
         ns: IntrospectedNamespace,
-        options: LoadOptions
-    ): IntrospectedFunction {
+        options: OptionsLoad
+    ): Promise<IntrospectedFunction> {
         let raw_name = element.$.name;
         let name = sanitizeIdentifierName(null, raw_name);
 
@@ -140,7 +145,7 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
         if ("return-value" in element && element["return-value"] && element["return-value"].length > 0) {
             const value = element["return-value"][0];
 
-            return_type = getType(ns, value);
+            return_type = await getType(ns, value);
 
             fn.returnTypeDoc = parseDoc(value);
         } else {
@@ -157,7 +162,9 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
                     return !!p.$.name;
                 });
 
-                parameters.push(...inputs.map(i => IntrospectedFunctionParameter.fromXML(i, fn, options)));
+                parameters.push(
+                    ...(await Promise.all(inputs.map(i => IntrospectedFunctionParameter.fromXML(i, fn, options))))
+                );
 
                 const unwrapped = return_type.unwrap();
 
@@ -311,8 +318,8 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
         });
     }
 
-    asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateFunction"]> {
-        return generator.generateFunction(this) as ReturnType<T["generateFunction"]>;
+    async asString<T extends FormatGenerator<unknown>>(generator: T): Promise<ReturnType<T["generateFunction"]>> {
+        return generator.generateFunction(this) as Promise<ReturnType<T["generateFunction"]>>;
     }
 }
 
@@ -345,8 +352,10 @@ export class IntrospectedDirectAllocationConstructor extends IntrospectedClassMe
         return building;
     }
 
-    asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateDirectAllocationConstructor"]> {
-        return generator.generateDirectAllocationConstructor(this) as ReturnType<
+    async asString<T extends FormatGenerator<unknown>>(
+        generator: T
+    ): Promise<ReturnType<T["generateDirectAllocationConstructor"]>> {
+        return (await generator.generateDirectAllocationConstructor(this)) as ReturnType<
             T["generateDirectAllocationConstructor"]
         >;
     }
@@ -366,11 +375,13 @@ export class IntrospectedDirectAllocationConstructor extends IntrospectedClassMe
         return copy;
     }
 
-    accept(visitor: GirVisitor): IntrospectedDirectAllocationConstructor {
+    async accept(visitor: GirVisitor): Promise<IntrospectedDirectAllocationConstructor> {
         const node = this.copy({
-            parameters: this.parameters.map(parameters => {
-                return parameters.accept(visitor);
-            })
+            parameters: await Promise.all(
+                this.parameters.map(parameters => {
+                    return parameters.accept(visitor);
+                })
+            )
         });
 
         return visitor.visitDirectAllocationConstructor?.(node) ?? node;
@@ -421,19 +432,21 @@ export class IntrospectedConstructor extends IntrospectedClassMember {
         return constr;
     }
 
-    static fromXML(
+    static async fromXML(
         m: GirConstructorElement,
         parent: IntrospectedBaseClass,
-        options: LoadOptions
-    ): IntrospectedConstructor {
-        return IntrospectedClassFunction.fromXML(m as GirFunctionElement, parent, options).asConstructor();
+        options: OptionsLoad
+    ): Promise<IntrospectedConstructor> {
+        return (await IntrospectedClassFunction.fromXML(m as GirFunctionElement, parent, options)).asConstructor();
     }
 
-    accept(visitor: GirVisitor): IntrospectedConstructor {
+    async accept(visitor: GirVisitor): Promise<IntrospectedConstructor> {
         const node = this.copy({
-            parameters: this.parameters.map(p => {
-                return p.accept(visitor);
-            }),
+            parameters: await Promise.all(
+                this.parameters.map(p => {
+                    return p.accept(visitor);
+                })
+            ),
             return_type: visitor.visitType?.(this.return_type)
         });
 
@@ -545,25 +558,25 @@ export class IntrospectedFunctionParameter extends IntrospectedBase<
         })._copyBaseProperties(this);
     }
 
-    accept(visitor: GirVisitor): IntrospectedFunctionParameter {
+    accept(visitor: GirVisitor): Promise<IntrospectedFunctionParameter> {
         const node = this.copy({
             type: visitor.visitType?.(this.type)
         });
 
-        return visitor.visitParameter?.(node) ?? node;
+        return Promise.resolve(visitor.visitParameter?.(node) ?? node);
     }
 
-    asString<T>(generator: FormatGenerator<T>): T {
-        return generator.generateParameter(this);
+    async asString<T>(generator: FormatGenerator<T>): Promise<T> {
+        return await generator.generateParameter(this);
     }
 
-    static fromXML<
+    static async fromXML<
         Parent extends IntrospectedSignal | IntrospectedClassFunction | IntrospectedFunction | IntrospectedConstructor
     >(
         parameter: GirCallableParamElement & { $: { name: string } },
         parent: Parent,
-        options: LoadOptions
-    ): IntrospectedFunctionParameter {
+        options: OptionsLoad
+    ): Promise<IntrospectedFunctionParameter> {
         const ns = parent.namespace;
         let name = sanitizeMemberName(parameter.$.name);
 
@@ -603,10 +616,10 @@ export class IntrospectedFunctionParameter extends IntrospectedBase<
                 isNullable = true;
             }
 
-            type = getType(ns, parameter);
+            type = await getType(ns, parameter);
         } else if (parameter.$.direction === GirDirection.Out) {
             direction = parameter.$.direction;
-            type = getType(ns, parameter);
+            type = await getType(ns, parameter);
         } else {
             throw new Error(`Unknown parameter direction: ${parameter.$.direction as string}`);
         }
@@ -749,7 +762,7 @@ export class IntrospectedClassFunction<
         return fn._copyBaseProperties(this);
     }
 
-    accept(visitor: GirVisitor): IntrospectedClassFunction<Parent> {
+    accept(visitor: GirVisitor): Promise<IntrospectedClassFunction<Parent>> {
         const node = this.copy({
             parameters: this.parameters.map(p => {
                 return p.accept(visitor);
@@ -762,7 +775,7 @@ export class IntrospectedClassFunction<
 
         const fn = visitor.visitClassFunction?.(node);
 
-        return fn ?? node;
+        return Promise.resolve(fn ?? node);
     }
 
     anyify(): this {
@@ -775,12 +788,12 @@ export class IntrospectedClassFunction<
         return this._anyify;
     }
 
-    static fromXML(
+    static async fromXML(
         element: GirFunctionElement | GirMethodElement,
         parent: IntrospectedBaseClass | IntrospectedEnum,
-        options: LoadOptions
-    ): IntrospectedClassFunction {
-        const fn = IntrospectedFunction.fromXML(element, parent.namespace, options);
+        options: OptionsLoad
+    ): Promise<IntrospectedClassFunction> {
+        const fn = await IntrospectedFunction.fromXML(element, parent.namespace, options);
 
         return fn.asClassFunction(parent);
     }
@@ -857,7 +870,7 @@ export class IntrospectedVirtualClassFunction extends IntrospectedClassFunction<
         return this.return_type;
     }
 
-    accept(visitor: GirVisitor): IntrospectedVirtualClassFunction {
+    accept(visitor: GirVisitor): Promise<IntrospectedVirtualClassFunction> {
         const node = this.copy({
             parameters: this.parameters.map(p => {
                 return p.accept(visitor);
@@ -867,15 +880,15 @@ export class IntrospectedVirtualClassFunction extends IntrospectedClassFunction<
             }),
             returnType: visitor.visitType?.(this.return_type)
         });
-        return visitor.visitVirtualClassFunction?.(node) ?? node;
+        return Promise.resolve(visitor.visitVirtualClassFunction?.(node) ?? node);
     }
 
-    static fromXML(
+    static async fromXML(
         m: GirVirtualMethodElement,
         parent: IntrospectedBaseClass,
-        options: LoadOptions
-    ): IntrospectedVirtualClassFunction {
-        const fn = IntrospectedFunction.fromXML(m, parent.namespace, options);
+        options: OptionsLoad
+    ): Promise<IntrospectedVirtualClassFunction> {
+        const fn = await IntrospectedFunction.fromXML(m, parent.namespace, options);
 
         return fn.asVirtualClassFunction(parent);
     }
@@ -921,7 +934,7 @@ export class IntrospectedStaticClassFunction extends IntrospectedClassFunction {
         return fn._copyBaseProperties(this);
     }
 
-    accept(visitor: GirVisitor): IntrospectedStaticClassFunction {
+    accept(visitor: GirVisitor): Promise<IntrospectedStaticClassFunction> {
         const node = this.copy({
             parent: this.parent,
             parameters: this.parameters.map(p => {
@@ -933,7 +946,7 @@ export class IntrospectedStaticClassFunction extends IntrospectedClassFunction {
             returnType: visitor.visitType?.(this.return_type)
         });
 
-        return visitor.visitStaticClassFunction?.(node) ?? node;
+        return Promise.resolve(visitor.visitStaticClassFunction?.(node) ?? node);
     }
 
     asClassFunction(parent: IntrospectedBaseClass): IntrospectedClassFunction {
@@ -955,12 +968,12 @@ export class IntrospectedStaticClassFunction extends IntrospectedClassFunction {
         return fn;
     }
 
-    static fromXML(
+    static async fromXML(
         m: GirFunctionElement,
         parent: IntrospectedBaseClass | IntrospectedEnum,
-        options: LoadOptions
-    ): IntrospectedStaticClassFunction {
-        const fn = IntrospectedFunction.fromXML(m, parent.namespace, options);
+        options: OptionsLoad
+    ): Promise<IntrospectedStaticClassFunction> {
+        const fn = await IntrospectedFunction.fromXML(m, parent.namespace, options);
 
         return fn.asStaticClassFunction(parent);
     }
@@ -999,7 +1012,7 @@ export class IntrospectedCallback extends IntrospectedFunction {
         return cb;
     }
 
-    accept(visitor: GirVisitor): IntrospectedCallback {
+    accept(visitor: GirVisitor): Promise<IntrospectedCallback> {
         const node = this.copy({
             parameters: this.parameters.map(p => {
                 return p.accept(visitor);
@@ -1010,31 +1023,35 @@ export class IntrospectedCallback extends IntrospectedFunction {
             returnType: visitor.visitType?.(this.return_type)
         });
 
-        return visitor.visitCallback?.(node) ?? node;
+        return Promise.resolve(visitor.visitCallback?.(node) ?? node);
     }
 
-    static fromXML(element: GirCallbackElement, namespace: GirModule, options: LoadOptions): IntrospectedCallback {
+    static async fromXML(
+        element: GirCallbackElement,
+        namespace: GirModule,
+        options: OptionsLoad
+    ): Promise<IntrospectedCallback> {
         const ns = namespace;
-        const cb = IntrospectedFunction.fromXML(element, ns, options).asCallback();
+        const cb = (await IntrospectedFunction.fromXML(element, ns, options)).asCallback();
 
         const glibTypeName = element.$["glib:type-name"];
         if (typeof glibTypeName === "string" && element.$["glib:type-name"]) {
             cb.resolve_names.push(glibTypeName);
 
-            ns.registerResolveName(glibTypeName, ns.namespace, cb.name);
+            ns.registerResolveName(glibTypeName, ns.dependency, cb.name);
         }
 
         if (element.$["c:type"]) {
             cb.resolve_names.push(element.$["c:type"]);
 
-            ns.registerResolveName(element.$["c:type"], ns.namespace, cb.name);
+            ns.registerResolveName(element.$["c:type"], ns.dependency, cb.name);
         }
 
         return cb;
     }
 
-    asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateCallback"]> {
-        return generator.generateCallback(this) as ReturnType<T["generateCallback"]>;
+    async asString<T extends FormatGenerator<unknown>>(generator: T): Promise<ReturnType<T["generateCallback"]>> {
+        return (await generator.generateCallback(this)) as Promise<ReturnType<T["generateCallback"]>>;
     }
 }
 
@@ -1070,39 +1087,43 @@ export class IntrospectedClassCallback extends IntrospectedClassFunction {
         return cb;
     }
 
-    accept(visitor: GirVisitor): IntrospectedClassCallback {
+    async accept(visitor: GirVisitor): Promise<IntrospectedClassCallback> {
         const node = this.copy({
-            parameters: this.parameters.map(p => {
-                return p.accept(visitor);
-            }),
-            outputParameters: this.output_parameters.map(p => {
-                return p.accept(visitor);
-            }),
+            parameters: await Promise.all(
+                this.parameters.map(p => {
+                    return p.accept(visitor);
+                })
+            ),
+            outputParameters: await Promise.all(
+                this.output_parameters.map(p => {
+                    return p.accept(visitor);
+                })
+            ),
             returnType: visitor.visitType?.(this.return_type)
         });
 
         return visitor.visitClassCallback?.(node) ?? node;
     }
 
-    static fromXML(
+    static async fromXML(
         element: GirCallbackElement,
         parent: IntrospectedBaseClass,
-        options: LoadOptions
-    ): IntrospectedClassCallback {
+        options: OptionsLoad
+    ): Promise<IntrospectedClassCallback> {
         const ns = parent.namespace;
-        const cb = IntrospectedClassFunction.fromXML(element, parent, options).asCallback();
+        const cb = (await IntrospectedClassFunction.fromXML(element, parent, options)).asCallback();
 
         const glibTypeName = element.$["glib:type-name"];
         if (typeof glibTypeName === "string" && element.$["glib:type-name"]) {
             cb.resolve_names.push(glibTypeName);
 
-            ns.registerResolveName(glibTypeName, ns.namespace, cb.name);
+            ns.registerResolveName(glibTypeName, ns.dependency, cb.name);
         }
 
         if (element.$["c:type"]) {
             cb.resolve_names.push(element.$["c:type"]);
 
-            ns.registerResolveName(element.$["c:type"], ns.namespace, cb.name);
+            ns.registerResolveName(element.$["c:type"], ns.dependency, cb.name);
         }
 
         return cb;

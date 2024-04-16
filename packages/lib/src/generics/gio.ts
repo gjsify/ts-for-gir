@@ -1,10 +1,12 @@
 import { AnyType, Generic, GenericType, GenerifiedTypeIdentifier, StringType, TypeIdentifier } from "../gir.js";
 import { IntrospectedNamespace } from "../gir/namespace.js";
+import { DependencyManager } from "../dependency-manager.js";
 
 export default {
     namespace: "Gio",
     version: "2.0",
-    modifier: (namespace: IntrospectedNamespace) => {
+    modifier: async (namespace: IntrospectedNamespace) => {
+        const glib = await DependencyManager.getInstance().get("GLib", "2.0");
         const AsyncInitable = namespace.getClass("AsyncInitable");
 
         if (!AsyncInitable) {
@@ -53,7 +55,7 @@ export default {
                     return m.copy({
                         returnType: m
                             .return()
-                            .rewrap(new GenerifiedTypeIdentifier("Variant", "GLib", [new GenericType("T")]))
+                            .rewrap(new GenerifiedTypeIdentifier("Variant", glib, [new GenericType("T")]))
                     });
                 }
 

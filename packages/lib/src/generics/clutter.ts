@@ -6,7 +6,7 @@ export const clutterTemplate = (version: string) => ({
     version,
     modifier: (namespace: IntrospectedNamespace, inferGenerics: boolean) => {
         if (!inferGenerics) {
-            return;
+            return Promise.resolve();
         }
 
         const Actor = namespace.assertClass("Actor");
@@ -50,6 +50,8 @@ export const clutterTemplate = (version: string) => ({
                 // TODO Automatically infer such changes.
                 prop.type = new GenericType("A", Content.getType());
             });
+
+        return Promise.resolve();
     }
 });
 

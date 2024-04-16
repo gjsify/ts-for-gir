@@ -15,7 +15,6 @@ import {
     ThisType,
     ArrayType,
     ClosureType,
-    GTypeType,
     BinaryType,
     ObjectType,
     NullableType,
@@ -35,6 +34,8 @@ import {
 import { Metadata } from "./base.js";
 import { IntrospectedBaseClass } from "./class.js";
 import { TwoKeyMap } from "../util.js";
+import { DependencyManager } from "../dependency-manager.js";
+import { Dependency } from "../types/dependency.js";
 
 const reservedWords = [
     // For now, at least, the typescript compiler doesn't throw on numerical types like int, float, etc.
@@ -105,7 +106,11 @@ const reservedWords = [
     "yield"
 ];
 
-export function getAliasType(modName: string, _ns: IntrospectedNamespace, parameter: GirAliasElement): TypeExpression {
+export async function getAliasType(
+    dependeny: Dependency,
+    _ns: IntrospectedNamespace,
+    parameter: GirAliasElement
+): Promise<TypeExpression> {
     let name = parameter.type?.[0].$["name"] || "unknown";
 
     const nameParts = name.split(" ");
@@ -116,7 +121,7 @@ export function getAliasType(modName: string, _ns: IntrospectedNamespace, parame
         name = nameParts[1];
     }
 
-    return parseTypeExpression(modName, name);
+    return await parseTypeExpression(dependeny, name);
 }
 
 /**
@@ -140,11 +145,11 @@ function isPointerType(types: GirType[] | undefined) {
 }
 
 /* Decode the type */
-export function getType(
+export async function getType(
     ns: IntrospectedNamespace,
     param?: GirConstantElement | GirCallableReturn | GirFieldElement
-): TypeExpression {
-    const modName = ns.namespace;
+): Promise<TypeExpression> {
+    const dep = ns.dependency;
 
     if (!param) return VoidType;
 
@@ -184,7 +189,7 @@ export function getType(
             } else {
                 name = "unknown";
                 console.log(
-                    `Failed to find array type in ${modName}: `,
+                    `Failed to find array type in ${dep.packageName}: `,
                     JSON.stringify(parameter.$, null, 4),
                     "\nMarking as unknown!"
                 );
@@ -201,7 +206,7 @@ export function getType(
         } else {
             name = "unknown";
             console.log(
-                `Failed to find type in ${modName}: `,
+                `Failed to find type in ${dep.packageName}: `,
                 JSON.stringify(parameter.type[0].$, null, 4),
                 "\nMarking as unknown!"
             );
@@ -213,7 +218,7 @@ export function getType(
     } else {
         name = "unknown";
         console.log(
-            `Unknown varargs type in ${modName}: `,
+            `Unknown varargs type in ${dep.packageName}: `,
             JSON.stringify(parameter.$, null, 4),
             "\nMarking as unknown!"
         );
@@ -245,7 +250,7 @@ export function getType(
         throw new Error(`Un-parsable type: ${name}`);
     }
 
-    let variableType: TypeExpression = parseTypeExpression(modName, name);
+    let variableType: TypeExpression = await parseTypeExpression(dep, name);
 
     if (variableType instanceof TypeIdentifier) {
         if (variableType.is("GLib", "List") || variableType.is("GLib", "SList")) {
@@ -255,7 +260,7 @@ export function getType(
 
             if (listType) {
                 name = listType;
-                variableType = parseTypeExpression(modName, name);
+                variableType = await parseTypeExpression(dep, name);
 
                 arrayDepth = 1;
             }
@@ -264,16 +269,18 @@ export function getType(
             const valueType = parameter?.type?.[0]?.type?.[1]?.$.name;
 
             if (keyType && valueType) {
-                const key = parseTypeExpression(modName, keyType);
-                const value = parseTypeExpression(modName, valueType);
+                const key = await parseTypeExpression(dep, keyType);
+                const value = await parseTypeExpression(dep, valueType);
 
-                variableType = new GenerifiedTypeIdentifier("HashTable", "GLib", [key, value]);
+                const glib = await DependencyManager.getInstance().get("GLib", "2.0");
+
+                variableType = new GenerifiedTypeIdentifier("HashTable", glib, [key, value]);
             }
         }
     }
 
     if (arrayDepth != null) {
-        const primitiveArrayType = resolvePrimitiveArrayType(name, arrayDepth);
+        const primitiveArrayType = await resolvePrimitiveArrayType(name, arrayDepth);
 
         if (primitiveArrayType) {
             const [primitiveName, primitiveArrayDepth] = primitiveArrayType;
@@ -410,33 +417,46 @@ export function parseTypeString(type: string): { namespace: string | null; name:
     }
 }
 
-export function parseTypeIdentifier(modName: string, type: string): TypeIdentifier {
+export function parseTypeIdentifier(dependency: Dependency, type: string): TypeIdentifier {
     const baseType = parseTypeString(type);
+    let dep: Dependency | null = null;
 
     if (baseType.namespace) {
-        return new TypeIdentifier(baseType.name, baseType.namespace);
+        dep = DependencyManager.getInstance().find(baseType.namespace);
+    }
+
+    if (dep) {
+        return new TypeIdentifier(baseType.name, dep);
     } else {
-        return new TypeIdentifier(baseType.name, modName);
+        return new TypeIdentifier(baseType.name, dependency);
     }
 }
 
-export function parseTypeExpression(modName: string, type: string): TypeExpression {
+export async function parseTypeExpression(dependency: Dependency, type: string): Promise<TypeExpression> {
     const baseType = parseTypeString(type);
+    let dep: Dependency | null = null;
 
     if (baseType.namespace) {
-        return new TypeIdentifier(baseType.name, baseType.namespace).sanitize();
+        dep = DependencyManager.getInstance().find(baseType.namespace);
+    }
+
+    if (dep) {
+        return new TypeIdentifier(baseType.name, dep).sanitize();
     } else {
-        const primitiveType = resolvePrimitiveType(baseType.name);
+        const primitiveType = await resolvePrimitiveType(baseType.name);
 
         if (primitiveType !== null) {
             return primitiveType;
         } else {
-            return new TypeIdentifier(baseType.name, modName).sanitize();
+            return new TypeIdentifier(baseType.name, dependency).sanitize();
         }
     }
 }
 
-export function resolvePrimitiveArrayType(name: string, arrayDepth: number): [TypeExpression, number] | null {
+export async function resolvePrimitiveArrayType(
+    name: string,
+    arrayDepth: number
+): Promise<[TypeExpression, number] | null> {
     if (arrayDepth > 0) {
         switch (name) {
             case "gint8":
@@ -445,7 +465,7 @@ export function resolvePrimitiveArrayType(name: string, arrayDepth: number): [Ty
         }
     }
 
-    const resolvedName = resolvePrimitiveType(name);
+    const resolvedName = await resolvePrimitiveType(name);
 
     if (resolvedName) {
         return [resolvedName, arrayDepth];
@@ -458,7 +478,7 @@ export function isPrimitiveType(name: string): boolean {
     return resolvePrimitiveType(name) !== null;
 }
 
-export function resolvePrimitiveType(name: string): TypeExpression | null {
+export async function resolvePrimitiveType(name: string): Promise<TypeExpression | null> {
     switch (name) {
         case "":
             console.error("Resolving '' to any on " + name);
@@ -467,7 +487,7 @@ export function resolvePrimitiveType(name: string): TypeExpression | null {
             return StringType;
         // Pass this through
         case "GType":
-            return GTypeType;
+            return new TypeIdentifier("GType", await DependencyManager.getInstance().get("GObject", "2.0"));
         case "utf8":
             return StringType;
         case "void": // Support TS "void"

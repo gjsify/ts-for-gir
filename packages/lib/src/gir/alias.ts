@@ -5,8 +5,9 @@ import { GirAliasElement } from "../index.js";
 import { IntrospectedNamespace, isIntrospectable } from "./namespace.js";
 import { sanitizeIdentifierName, getAliasType, parseDoc, parseMetadata } from "./util.js";
 import { FormatGenerator, GenericDescriptor } from "../generators/generator.js";
-import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
+
+import type { OptionsLoad } from "../types/index.js";
 
 export class IntrospectedAlias extends IntrospectedNamespaceMember {
     readonly type: TypeExpression;
@@ -30,12 +31,12 @@ export class IntrospectedAlias extends IntrospectedNamespaceMember {
         this.generics = generics;
     }
 
-    accept(visitor: GirVisitor): IntrospectedAlias {
+    accept(visitor: GirVisitor): Promise<IntrospectedAlias> {
         const node = this.copy({
             type: visitor.visitType?.(this.type)
         });
 
-        return visitor.visitAlias?.(node) ?? node;
+        return Promise.resolve(visitor.visitAlias?.(node) ?? node);
     }
 
     copy(options?: { parent?: undefined; type?: TypeExpression }): IntrospectedAlias {
@@ -44,24 +45,24 @@ export class IntrospectedAlias extends IntrospectedNamespaceMember {
         return new IntrospectedAlias({ name, namespace, type: options?.type ?? type })._copyBaseProperties(this);
     }
 
-    asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateAlias"]> {
-        return generator.generateAlias(this) as ReturnType<T["generateAlias"]>;
+    async asString<T extends FormatGenerator<unknown>>(generator: T): Promise<string> {
+        return (await generator.generateAlias(this)) as string;
     }
 
-    static fromXML(
+    static async fromXML(
         element: GirAliasElement,
         ns: IntrospectedNamespace,
-        options: LoadOptions
-    ): IntrospectedAlias | null {
+        options: OptionsLoad
+    ): Promise<IntrospectedAlias | null> {
         if (!element.$.name) {
             console.error(`Alias in ${ns.namespace} lacks name.`);
-            return null;
+            return Promise.resolve(null);
         }
 
         const alias = new IntrospectedAlias({
             namespace: ns,
             name: sanitizeIdentifierName(ns.namespace, element.$.name),
-            type: getAliasType(ns.namespace, ns, element),
+            type: await getAliasType(ns.dependency, ns, element),
             isIntrospectable: isIntrospectable(element)
         });
 
@@ -70,6 +71,6 @@ export class IntrospectedAlias extends IntrospectedNamespaceMember {
             alias.metadata = parseMetadata(element);
         }
 
-        return alias;
+        return Promise.resolve(alias);
     }
 }

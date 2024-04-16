@@ -1,12 +1,12 @@
 import { parser, GirXML, GirRepository } from '@gi.ts/parser'
 import { readFile } from 'fs/promises'
 
-import { findFileInDirs, splitModuleName, pascalCase } from './utils.js'
+import { findFileInDirs, splitModuleName } from './utils.js'
 import { Logger } from './logger.js'
 import { Transformation } from './transformation.js'
 import { LibraryVersion } from './library-version.js'
 
-import type { Dependency, GenerateConfig, GirInclude } from './types/index.js'
+import type { Dependency, OptionsGeneration, GirInclude } from './types/index.js'
 import type { GirModule } from './gir-module.js'
 import { GirNSRegistry } from './registry.js'
 
@@ -18,7 +18,7 @@ export class DependencyManager extends GirNSRegistry {
 
     static instance?: DependencyManager
 
-    protected constructor(protected readonly config: GenerateConfig) {
+    protected constructor(protected readonly config: OptionsGeneration) {
         super()
 
         this.transformation = Transformation.getSingleton(config)
@@ -28,9 +28,12 @@ export class DependencyManager extends GirNSRegistry {
     /**
      * Get the DependencyManager singleton instance
      */
-    static getInstance(config: GenerateConfig): DependencyManager {
+    static getInstance(config?: OptionsGeneration): DependencyManager {
         if (this.instance) {
             return this.instance
+        }
+        if (!config) {
+            throw new Error('config is required if DependencyManager is not initialized')
         }
         this.instance = new DependencyManager(config)
         return this.instance
@@ -74,9 +77,13 @@ export class DependencyManager extends GirNSRegistry {
     createImportProperties(namespace: string, packageName: string) {
         const importPath = this.createImportPath(packageName)
         const importDef = this.createImportDef(namespace, importPath)
+        const importName = this.transformation.transformImportName(packageName)
+        const importNamespace = this.transformation.transformModuleNamespaceName(packageName)
         return {
             importPath,
             importDef,
+            importName,
+            importNamespace,
         }
     }
 
@@ -126,16 +133,15 @@ export class DependencyManager extends GirNSRegistry {
             packageName = args.packageName
             namespace = args.namespace
         } else {
+            // TODO: Move this block to  this.parseArgs
             const repo = namespaceOrPackageNameOrRepo
             const ns = repo.namespace?.[0]
             if (!ns) {
                 throw new Error('Invalid GirRepository')
             }
-            version = repo.$.version || '0.0'
+            version = ns.$.version
             namespace = ns.$.name
             packageName = `${namespace}-${version}`
-            namespace = ns.$.name
-            ns
         }
 
         if (this._cache[packageName]) {
@@ -156,9 +162,7 @@ export class DependencyManager extends GirNSRegistry {
             filename,
             path,
             packageName,
-            importName: this.transformation.transformImportName(packageName),
-            importNamespace: this.transformation.transformModuleNamespaceName(packageName),
-            version,
+            version: version || '0.0',
             /**
              * TODO: married this with `girModule.libraryVersion`
              */
@@ -295,16 +299,12 @@ export class DependencyManager extends GirNSRegistry {
             return this._cache[packageName]
         }
 
-        const namespace = pascalCase(packageName)
-
         const dep: Dependency = {
-            namespace,
+            namespace: packageName,
             exists: true,
             filename: '',
             path: '',
             packageName: packageName,
-            importName: this.transformation.transformImportName(packageName),
-            importNamespace: this.transformation.transformModuleNamespaceName(packageName),
             version: '0.0',
             libraryVersion: new LibraryVersion(),
             girXML: null,

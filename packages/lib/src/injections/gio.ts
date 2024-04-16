@@ -26,11 +26,16 @@ import {
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedField, JSField } from "../gir/property.js";
 import { IntrospectedClass, IntrospectedInterface } from "../gir/class.js";
+import { DependencyManager } from "../dependency-manager.js";
 
 export default {
     namespace: "Gio",
     version: "2.0",
-    modifier(namespace: IntrospectedNamespace) {
+    async modifier(namespace: IntrospectedNamespace) {
+        const dependencyManager = DependencyManager.getInstance();
+        const gio = await dependencyManager.get("Gio", "2.0");
+        const glib = await dependencyManager.get("GLib", "2.0");
+
         // For IterableIterator...
         namespace.___dts___addReference('/// <reference lib="es2015.iterable" />');
 
@@ -264,7 +269,7 @@ export default {
                         // Generify the parameter
                         return p.copy({
                             type: p.type.rewrap(
-                                new GenerifiedTypeIdentifier("VariantType", "GLib", [new GenericType("T")])
+                                new GenerifiedTypeIdentifier("VariantType", glib, [new GenericType("T")])
                             )
                         });
                     }
@@ -276,7 +281,7 @@ export default {
             const finishReplacement = callFinish.copy({
                 returnType: callFinish
                     .return()
-                    .rewrap(new GenerifiedTypeIdentifier("Variant", "GLib", [new GenericType("T")]))
+                    .rewrap(new GenerifiedTypeIdentifier("Variant", glib, [new GenericType("T")]))
             });
 
             DBusConnection.members.splice(DBusConnection.members.indexOf(call), 1, replacement);
@@ -534,7 +539,7 @@ export default {
                             direction: GirDirection.In,
                             name: "callback",
                             isNullable: true,
-                            type: new TypeIdentifier("AsyncReadyCallback", "Gio")
+                            type: new TypeIdentifier("AsyncReadyCallback", gio)
                         })
                     ]
                 })

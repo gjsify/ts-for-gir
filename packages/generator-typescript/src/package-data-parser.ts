@@ -5,7 +5,7 @@ import { Logger, splitModuleName, cleanString } from '@ts-for-gir/lib'
 import { __dirname } from './utils.js'
 
 import type {
-    GenerateConfig,
+    OptionsGeneration,
     ParsedPackageData,
     PackageSectionParsed,
     PackageDataParsed,
@@ -16,7 +16,7 @@ export class PackageDataParser {
     protected log: Logger
     protected packages: PackageData[] = []
 
-    constructor(protected readonly config: GenerateConfig) {
+    constructor(protected readonly config: OptionsGeneration) {
         this.log = new Logger(config.verbose, 'ModuleLoader')
     }
 

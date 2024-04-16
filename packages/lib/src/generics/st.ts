@@ -6,7 +6,7 @@ const stTemplate = (version: string) => ({
     version,
     modifier: (namespace: IntrospectedNamespace, inferGenerics: boolean) => {
         if (!inferGenerics) {
-            return;
+            return Promise.resolve();
         }
 
         const Bin = namespace.assertClass("Bin");
@@ -64,7 +64,7 @@ const stTemplate = (version: string) => ({
         if (StBoxLayout.superType) {
             StBoxLayout.superType = new GenerifiedTypeIdentifier(
                 StBoxLayout.superType.name,
-                StBoxLayout.superType.namespace,
+                StBoxLayout.superType.dependency,
                 [ClutterBoxLayout.getType()]
             );
         }
@@ -108,6 +108,8 @@ const stTemplate = (version: string) => ({
                 // TODO Automatically infer such changes.
                 prop.type = new GenericType("A", Actor.getType());
             });
+
+        return Promise.resolve();
     }
 });
 

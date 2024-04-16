@@ -41,7 +41,7 @@ import { PackageDataParser } from './package-data-parser.js'
 import { writeFile, mkdir } from 'fs/promises'
 import { dirname } from 'path'
 import {
-    GenerateConfig,
+    OptionsGeneration,
     GirModule,
     IntrospectedFunction,
     IntrospectedCallback,
@@ -68,7 +68,7 @@ import {
     filterConflicts,
 } from '@ts-for-gir/lib'
 
-function printGirDocComment(tsDoc: TsDoc, config: GenerateConfig) {
+function printGirDocComment(tsDoc: TsDoc, config: OptionsGeneration) {
     const desc: string[] = []
     if (config.noComments) {
         return desc.join('\n')
@@ -102,13 +102,13 @@ class ModuleGenerator extends FormatGenerator<string[]> {
     dependencyManager: DependencyManager
     packageData?: PackageDataParser
 
-    config: GenerateConfig
+    config: OptionsGeneration
     moduleTemplateProcessor: TemplateProcessor
 
     /**
      * @param _config The config to use without the override config
      */
-    constructor(namespace: GirModule, config: GenerateConfig) {
+    constructor(namespace: GirModule, config: OptionsGeneration) {
         super(namespace, config)
 
         this.config = config
@@ -1853,7 +1853,7 @@ export class TypeDefinitionGenerator implements Generator {
     /**
      * @param _config The config to use without the override config
      */
-    constructor(readonly config: GenerateConfig) {
+    constructor(readonly config: OptionsGeneration) {
         this.log = new Logger(this.config.verbose, TypeDefinitionGenerator.name)
         this.dependencyManager = DependencyManager.getInstance(this.config)
         this.packageData = new PackageDataParser(this.config)
@@ -1919,14 +1919,14 @@ export class TypeDefinitionGenerator implements Generator {
 }
 
 class NpmPackage<Wrapped extends Dependency | GirModule> {
-    config: GenerateConfig
+    config: OptionsGeneration
     moduleTemplateProcessor: TemplateProcessor
     dependencyManager: DependencyManager
     log: Logger
     packageName: string
 
     constructor(
-        config: GenerateConfig,
+        config: OptionsGeneration,
         dependencyManager: DependencyManager,
         dependencyOrModule: Wrapped,
         deps: Dependency[],

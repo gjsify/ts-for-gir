@@ -31,5 +31,7 @@ export default {
                     parent: LinkedList
                 })
             );
+
+        return Promise.resolve();
     }
 };

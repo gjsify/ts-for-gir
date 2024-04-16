@@ -8,15 +8,15 @@ import { IntrospectedNamespace } from "../gir/namespace.js";
 import { NSRegistry } from "../gir/registry.js";
 import { GenericVisitor } from "./visitor.js";
 
-type NamespaceModifier = (namespace: IntrospectedNamespace, inferGenerics: boolean) => void;
+type NamespaceModifier = (namespace: IntrospectedNamespace, inferGenerics: boolean) => Promise<void>;
 
 function generifyDefinitions(registry: NSRegistry, inferGenerics: boolean, required: boolean = true) {
-    return (definition: { namespace: string; version: string; modifier: NamespaceModifier }) => {
+    return async (definition: { namespace: string; version: string; modifier: NamespaceModifier }) => {
         const version = definition.version;
         const ns = registry.namespace(definition.namespace, version);
 
         if (ns) {
-            definition.modifier(ns, inferGenerics);
+            await definition.modifier(ns, inferGenerics);
             return;
         }
 
@@ -26,27 +26,26 @@ function generifyDefinitions(registry: NSRegistry, inferGenerics: boolean, requi
     };
 }
 
-export function generify(registry: NSRegistry, inferGenerics: boolean) {
+export async function generify(registry: NSRegistry, inferGenerics: boolean) {
     const $ = generifyDefinitions(registry, inferGenerics);
 
-    $(gio);
-    $(glib);
+    await $(gio);
+    await $(glib);
 
     const $_ = generifyDefinitions(registry, inferGenerics, false);
 
-    $_(clutter10);
-    $_(clutter11);
-    $_(clutter12);
-    $_(clutter13);
-    $_(st1);
-    $_(st12);
-    $_(st13);
-    $_(meta10);
-    $_(meta11);
-    $_(meta12);
-    $_(meta13);
-
+    await $_(clutter10);
+    await $_(clutter11);
+    await $_(clutter12);
+    await $_(clutter13);
+    await $_(st1);
+    await $_(st12);
+    await $_(st13);
+    await $_(meta10);
+    await $_(meta11);
+    await $_(meta12);
+    await $_(meta13);
     const visitor = new GenericVisitor(registry, inferGenerics);
 
-    registry.registerTransformation(visitor);
+    await registry.registerTransformation(visitor);
 }

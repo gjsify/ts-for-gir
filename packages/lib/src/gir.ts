@@ -1,7 +1,7 @@
+import { Logger } from './logger.js'
 import { IntrospectedNamespace } from './gir/namespace.js'
 import { IntrospectedProperty, IntrospectedField } from './gir/property.js'
-import { GenerationOptions } from './types.js'
-import { isInvalid, sanitizeIdentifierName, sanitizeNamespace } from './gir/util.js'
+import { isInvalid, sanitizeIdentifierName /*, sanitizeNamespace */ } from './gir/util.js'
 
 export { sanitizeMemberName, isInvalid } from './gir/util.js'
 
@@ -16,6 +16,8 @@ export { filterConflicts, filterFunctionConflict, FilterBehavior } from './gir/c
 export { resolveDirectedType, resolvePrimitiveType } from './gir/util.js'
 export * from './gir/nodes.js'
 
+import type { OptionsGeneration, Dependency } from './types/index.js'
+
 export abstract class TypeExpression {
     isPointer = false
 
@@ -27,22 +29,38 @@ export abstract class TypeExpression {
     }
 
     abstract rewrap(type: TypeExpression): TypeExpression
-    abstract resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeExpression
+    abstract resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): Promise<TypeExpression>
 
-    abstract print(namespace: IntrospectedNamespace, options: GenerationOptions): string
-    rootPrint(namespace: IntrospectedNamespace, options: GenerationOptions): string {
+    abstract print(namespace: IntrospectedNamespace, options: OptionsGeneration): string
+    rootPrint(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
         return this.print(namespace, options)
     }
 }
 
 export class TypeIdentifier extends TypeExpression {
     readonly name: string
-    readonly namespace: string
+    get namespace(): string {
+        return this.dependency.namespace
+    }
+    get version(): string {
+        return this.dependency.version
+    }
+    readonly log: Logger
 
-    constructor(name: string, namespace: string) {
+    constructor(
+        name: string,
+        public readonly dependency: Dependency,
+        public readonly verbose = false,
+    ) {
         super()
+
+        // WORKAROUND
+        if (name === 'BaseTransform' && dependency.namespace === 'GstBase' && dependency.version === '0.10') {
+            name = 'Transform'
+        }
+
         this.name = name
-        this.namespace = namespace
+        this.log = new Logger(verbose, `TypeIdentifier(${dependency.namespace}.${name})`)
     }
 
     equals(type: TypeExpression): boolean {
@@ -66,10 +84,15 @@ export class TypeIdentifier extends TypeExpression {
      * invalid names such as "3gppProfile"
      */
     sanitize() {
-        return new TypeIdentifier(sanitizeIdentifierName(this.namespace, this.name), sanitizeNamespace(this.namespace))
+        return new TypeIdentifier(
+            sanitizeIdentifierName(this.namespace, this.name),
+            // sanitizeNamespace(this.namespace),
+            this.dependency,
+            this.verbose,
+        )
     }
 
-    protected _resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeIdentifier | null {
+    protected _resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): TypeIdentifier | null {
         const name: string = sanitizeIdentifierName(null, this.name)
         const unresolvedNamespaceName = this.namespace
 
@@ -82,7 +105,7 @@ export class TypeIdentifier extends TypeExpression {
             // GirRecord.prototype.getType resolves this relationship.
             if (c) return c.getType()
 
-            return new TypeIdentifier(name, ns.namespace)
+            return new TypeIdentifier(name, ns.dependency, this.verbose)
         }
 
         // Handle "class callback" types (they're in a definition-merged module)
@@ -106,13 +129,13 @@ export class TypeIdentifier extends TypeExpression {
         if (!cb && !resolved_name && !c_resolved_name) {
             // Don't warn if a missing import is at fault, this will be dealt with later.
             if (namespace.namespace === ns.namespace) {
-                console.error(`Attempting to fall back on c:type inference for ${ns.namespace}.${name}.`)
+                this.log.error(`Attempting to fall back on c:type inference for ${ns.namespace}.${name}.`)
             }
 
             ;[cb, corrected_name] = ns.findClassCallback(`${ns.namespace}${name}`)
 
             if (cb) {
-                console.error(
+                this.log.error(
                     `Falling back on c:type inference for ${ns.namespace}.${name} and found ${ns.namespace}.${corrected_name}.`,
                 )
             }
@@ -120,45 +143,46 @@ export class TypeIdentifier extends TypeExpression {
 
         if (cb) {
             if (options.verbose) {
-                console.debug(`Callback found: ${cb}.${corrected_name}`)
+                this.log.debug(`Callback found: ${cb}.${corrected_name}`)
             }
 
-            return new ModuleTypeIdentifier(corrected_name, cb, ns.namespace)
+            return new ModuleTypeIdentifier(corrected_name, cb, ns.dependency)
         } else if (resolved_name) {
-            return new TypeIdentifier(resolved_name, ns.namespace)
+            return new TypeIdentifier(resolved_name, ns.dependency, this.verbose)
         } else if (c_resolved_name) {
-            console.error(
+            this.log.error(
                 `Fell back on c:type inference for ${ns.namespace}.${name} and found ${ns.namespace}.${corrected_name}.`,
             )
 
-            return new TypeIdentifier(c_resolved_name, ns.namespace)
+            return new TypeIdentifier(c_resolved_name, ns.dependency, this.verbose)
         } else if (namespace.namespace === ns.namespace) {
-            console.error(`Unable to resolve type ${this.name} in same namespace ${ns.namespace}!`)
+            this.log.error(`Unable to resolve type ${this.name} in same namespace ${ns.namespace}!`)
             return null
         }
 
-        console.error(`Type ${this.name} could not be resolved in ${namespace.namespace}`)
+        this.log.error(`Type ${this.name} could not be resolved in ${namespace.namespace}`)
+
         return null
     }
 
-    resolveIdentifier(namespace: IntrospectedNamespace, options: GenerationOptions): TypeIdentifier | null {
+    resolveIdentifier(namespace: IntrospectedNamespace, options: OptionsGeneration): TypeIdentifier | null {
         return this._resolve(namespace, options)
     }
 
-    resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeExpression {
+    resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): Promise<TypeExpression> {
         const resolved = this._resolve(namespace, options)
 
         // Generally if we can't resolve a type it is not introspectable,
         // thus we annotate it as "never".
-        return resolved ?? NeverType
+        return Promise.resolve(resolved ?? NeverType)
     }
 
-    static new({ name, namespace }: { name: string; namespace: string }) {
-        return new TypeIdentifier(name, namespace)
+    static new({ name, dependency, verbose }: { name: string; dependency: Dependency; verbose: boolean }) {
+        return new TypeIdentifier(name, dependency, verbose)
     }
 
     // eslint-disable-next-line  @typescript-eslint/no-unused-vars
-    print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
+    print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
         if (namespace.hasSymbol(this.namespace) && this.namespace !== namespace.namespace) {
             // TODO: Move to TypeScript generator...
             // Libraries like zbar have classes named things like "Gtk"
@@ -176,8 +200,8 @@ export class TypeIdentifier extends TypeExpression {
 export class ModuleTypeIdentifier extends TypeIdentifier {
     readonly moduleName: string
 
-    constructor(name: string, moduleName: string, namespace: string) {
-        super(name, namespace)
+    constructor(name: string, moduleName: string, dependeny: Dependency) {
+        super(name, dependeny)
 
         this.moduleName = moduleName
     }
@@ -204,17 +228,18 @@ export class ModuleTypeIdentifier extends TypeIdentifier {
         return new ModuleTypeIdentifier(
             sanitizeIdentifierName(this.namespace, this.name),
             sanitizeIdentifierName(this.namespace, this.moduleName),
-            sanitizeNamespace(this.namespace),
+            // sanitizeNamespace(this.namespace),
+            this.dependency,
         )
     }
 
     // eslint-disable-next-line  @typescript-eslint/no-unused-vars
-    protected _resolve(namespace: IntrospectedNamespace, options: GenerationOptions): ModuleTypeIdentifier | null {
+    protected _resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): ModuleTypeIdentifier | null {
         return this
     }
 
     // eslint-disable-next-line  @typescript-eslint/no-unused-vars
-    print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
+    print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
         if (namespace.namespace === this.namespace) {
             return `${this.moduleName}.${this.name}`
         } else {
@@ -227,8 +252,8 @@ export class ModuleTypeIdentifier extends TypeIdentifier {
  * This class overrides the default printing for types
  */
 export class ClassStructTypeIdentifier extends TypeIdentifier {
-    constructor(name: string, namespace: string) {
-        super(name, namespace)
+    constructor(name: string, dependency: Dependency) {
+        super(name, dependency)
     }
 
     equals(type: TypeExpression): boolean {
@@ -236,7 +261,7 @@ export class ClassStructTypeIdentifier extends TypeIdentifier {
     }
 
     // eslint-disable-next-line  @typescript-eslint/no-unused-vars
-    print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
+    print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
         if (namespace.namespace === this.namespace) {
             // TODO: Mapping to invalid names should happen at the generator level...
             return `typeof ${isInvalid(this.name) ? `__${this.name}` : this.name}`
@@ -249,12 +274,12 @@ export class ClassStructTypeIdentifier extends TypeIdentifier {
 export class GenerifiedTypeIdentifier extends TypeIdentifier {
     generics: TypeExpression[]
 
-    constructor(name: string, namespace: string, generics: TypeExpression[] = []) {
-        super(name, namespace)
+    constructor(name: string, dependency: Dependency, generics: TypeExpression[] = []) {
+        super(name, dependency)
         this.generics = generics
     }
 
-    print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
+    print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
         const Generics = this.generics.map((generic) => generic.print(namespace, options)).join(', ')
 
         if (namespace.namespace === this.namespace) {
@@ -264,11 +289,11 @@ export class GenerifiedTypeIdentifier extends TypeIdentifier {
         }
     }
 
-    _resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeIdentifier | null {
+    _resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): TypeIdentifier | null {
         const iden = super._resolve(namespace, options)
 
         if (iden) {
-            return new GenerifiedTypeIdentifier(iden.name, iden.namespace, [...this.generics])
+            return new GenerifiedTypeIdentifier(iden.name, iden.dependency, [...this.generics])
         }
 
         return iden
@@ -276,9 +301,9 @@ export class GenerifiedTypeIdentifier extends TypeIdentifier {
 }
 
 export class NativeType extends TypeExpression {
-    readonly expression: (options?: GenerationOptions) => string
+    readonly expression: (options?: OptionsGeneration) => string
 
-    constructor(expression: ((options?: GenerationOptions) => string) | string) {
+    constructor(expression: ((options?: OptionsGeneration) => string) | string) {
         super()
 
         this.expression = typeof expression === 'string' ? () => expression : expression
@@ -288,15 +313,15 @@ export class NativeType extends TypeExpression {
         return type
     }
 
-    resolve(): TypeExpression {
-        return this
+    resolve(): Promise<TypeExpression> {
+        return Promise.resolve(this)
     }
 
-    print(_namespace: IntrospectedNamespace, options: GenerationOptions) {
+    print(_namespace: IntrospectedNamespace, options: OptionsGeneration) {
         return this.expression(options)
     }
 
-    equals(type: TypeExpression, options?: GenerationOptions): boolean {
+    equals(type: TypeExpression, options?: OptionsGeneration): boolean {
         return type instanceof NativeType && this.expression(options) === type.expression(options)
     }
 
@@ -304,7 +329,7 @@ export class NativeType extends TypeExpression {
         return this
     }
 
-    static withGenerator(generator: (options?: GenerationOptions) => string): TypeExpression {
+    static withGenerator(generator: (options?: OptionsGeneration) => string): TypeExpression {
         return new NativeType(generator)
     }
 
@@ -329,17 +354,18 @@ export class OrType extends TypeExpression {
         return this
     }
 
-    resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeExpression {
+    async resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): Promise<TypeExpression> {
         const [type, ...types] = this.types
 
-        return new OrType(type.resolve(namespace, options), ...types.map((t) => t.resolve(namespace, options)))
+        const mappedTypes = await Promise.all(types.map((t) => t.resolve(namespace, options)))
+        return new OrType(await type.resolve(namespace, options), ...mappedTypes)
     }
 
-    print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
+    print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
         return `(${this.types.map((t) => t.print(namespace, options)).join(' | ')})`
     }
 
-    rootPrint(namespace: IntrospectedNamespace, options: GenerationOptions): string {
+    rootPrint(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
         return `${this.types.map((t) => t.print(namespace, options)).join(' | ')}`
     }
 
@@ -353,18 +379,18 @@ export class OrType extends TypeExpression {
 }
 
 export class TupleType extends OrType {
-    print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
+    print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
         return `[${this.types.map((t) => t.print(namespace, options)).join(', ')}]`
     }
 
-    rootPrint(namespace: IntrospectedNamespace, options: GenerationOptions): string {
+    rootPrint(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
         return this.print(namespace, options)
     }
 
-    resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeExpression {
+    async resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): Promise<TypeExpression> {
         const [type, ...types] = this.types
-
-        return new TupleType(type.resolve(namespace, options), ...types.map((t) => t.resolve(namespace, options)))
+        const mappedTypes = await Promise.all(types.map((t) => t.resolve(namespace, options)))
+        return new TupleType(await type.resolve(namespace, options), ...mappedTypes)
     }
 
     equals(type: TypeExpression) {
@@ -385,8 +411,8 @@ export class BinaryType extends OrType {
         return this
     }
 
-    resolve(namespace: IntrospectedNamespace, options: GenerationOptions) {
-        return new BinaryType(this.a.resolve(namespace, options), this.b.resolve(namespace, options))
+    async resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): Promise<TypeExpression> {
+        return new BinaryType(await this.a.resolve(namespace, options), await this.b.resolve(namespace, options))
     }
 
     is() {
@@ -437,18 +463,17 @@ export class FunctionType extends TypeExpression {
         return this
     }
 
-    resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeExpression {
-        return new FunctionType(
-            Object.fromEntries(
-                Object.entries(this.parameterTypes).map(([k, p]) => {
-                    return [k, p.resolve(namespace, options)]
-                }),
-            ),
-            this.returnType.resolve(namespace, options),
+    async resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): Promise<TypeExpression> {
+        const mappedParamTypes = await Promise.all(
+            Object.entries(this.parameterTypes).map(async ([k, p]) => {
+                return [k, await p.resolve(namespace, options)]
+            }),
         )
+
+        return new FunctionType(Object.fromEntries(mappedParamTypes), await this.returnType.resolve(namespace, options))
     }
 
-    rootPrint(namespace: IntrospectedNamespace, options: GenerationOptions): string {
+    rootPrint(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
         const Parameters = Object.entries(this.parameterTypes)
             .map(([k, v]) => {
                 return `${k}: ${v.rootPrint(namespace, options)}`
@@ -458,7 +483,7 @@ export class FunctionType extends TypeExpression {
         return `(${Parameters}) => ${this.returnType.print(namespace, options)}`
     }
 
-    print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
+    print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
         return `(${this.rootPrint(namespace, options)})`
     }
 }
@@ -520,19 +545,19 @@ export class GenerifiedType extends TypeExpression {
         this.generic = generic
     }
 
-    resolve(namespace: IntrospectedNamespace, options: GenerationOptions) {
-        return new GenerifiedType(this.type.resolve(namespace, options), this.generic.resolve())
+    async resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): Promise<TypeExpression> {
+        return new GenerifiedType(await this.type.resolve(namespace, options), await this.generic.resolve())
     }
 
     unwrap() {
         return this.type
     }
 
-    rootPrint(namespace: IntrospectedNamespace, options: GenerationOptions) {
+    rootPrint(namespace: IntrospectedNamespace, options: OptionsGeneration) {
         return `${this.type.print(namespace, options)}<${this.generic.print()}>`
     }
 
-    print(namespace: IntrospectedNamespace, options: GenerationOptions) {
+    print(namespace: IntrospectedNamespace, options: OptionsGeneration) {
         return `${this.type.print(namespace, options)}<${this.generic.print()}>`
     }
 
@@ -575,8 +600,8 @@ export class GenericType extends TypeExpression {
         return type
     }
 
-    resolve(): GenericType {
-        return this
+    resolve(): Promise<GenericType> {
+        return Promise.resolve(this)
     }
 
     print(): string {
@@ -622,11 +647,11 @@ export class PromiseType extends TypeExpression {
         return new PromiseType(this.type.rewrap(type))
     }
 
-    resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeExpression {
-        return new PromiseType(this.type.resolve(namespace, options))
+    async resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): Promise<TypeExpression> {
+        return new PromiseType(await this.type.resolve(namespace, options))
     }
 
-    print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
+    print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
         // TODO: Optimize this check.
         if (!namespace.hasSymbol('Promise')) {
             return `Promise<${this.type.print(namespace, options)}>`
@@ -690,20 +715,24 @@ export class TypeConflict extends TypeExpression {
         return true
     }
 
-    resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeExpression {
+    async resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): Promise<TypeExpression> {
         throw new Error(
-            `Type conflict was not resolved for ${this.type.resolve(namespace, options).print(namespace, options)} in ${
+            `Type conflict was not resolved for ${(await this.type.resolve(namespace, options)).print(namespace, options)} in ${
                 namespace.namespace
             }`,
         )
     }
 
-    print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
-        throw new Error(
-            `Type conflict was not resolved for ${this.type.resolve(namespace, options).print(namespace, options)} in ${
-                namespace.namespace
-            }`,
-        )
+    print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
+        // TODO make this method async
+        ;async () => {
+            throw new Error(
+                `Type conflict was not resolved for ${(await this.type.resolve(namespace, options)).print(namespace, options)} in ${
+                    namespace.namespace
+                }`,
+            )
+        }
+        return ''
     }
 }
 
@@ -741,16 +770,16 @@ export class ClosureType extends TypeExpression {
         return this
     }
 
-    resolve(namespace: IntrospectedNamespace, options: GenerationOptions) {
+    async resolve(namespace: IntrospectedNamespace, options: OptionsGeneration) {
         const { user_data, type } = this
 
         return ClosureType.new({
             user_data,
-            type: type.resolve(namespace, options),
+            type: await type.resolve(namespace, options),
         })
     }
 
-    print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
+    print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
         return this.type.print(namespace, options)
     }
 
@@ -798,16 +827,16 @@ export class ArrayType extends TypeExpression {
         return false
     }
 
-    resolve(namespace: IntrospectedNamespace, options: GenerationOptions): TypeExpression {
+    async resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): Promise<TypeExpression> {
         const { type, arrayDepth, length } = this
         return ArrayType.new({
-            type: type.resolve(namespace, options),
+            type: await type.resolve(namespace, options),
             arrayDepth,
             length,
         })
     }
 
-    print(namespace: IntrospectedNamespace, options: GenerationOptions): string {
+    print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
         const depth = this.arrayDepth
         let typeSuffix: string = ''
 
@@ -838,7 +867,6 @@ export class ArrayType extends TypeExpression {
     }
 }
 
-export const GTypeType = new TypeIdentifier('GType', 'GObject')
 export const ThisType = new NativeType('this')
 export const ObjectType = new NativeType('object')
 export const AnyType = new NativeType('any')

@@ -6,7 +6,6 @@ import { JsonGenerator } from "../generators/json.js";
 import { FormatGenerator } from "../generators/generator.js";
 import { generify } from "../generics/generify.js";
 import { inject } from "../injections/inject.js";
-import { GenerationOptions, TransformOptions } from "../types.js";
 import { TwoKeyMap } from "../util.js";
 import { ClassVisitor } from "../validators/class.js";
 import { InterfaceVisitor } from "../validators/interface.js";
@@ -17,6 +16,8 @@ import { DtsInlineGenerator } from "../generators/dts-inline.js";
 import { ParsedGir } from "../types/parsed-gir.js";
 import { GirModule } from "../index.js";
 
+import type { OptionsGeneration, OptionsTransform } from "../types/index.js";
+
 export interface NSLoader {
     load(namespace: string, version: string): ParsedGir | null;
     loadAll(namespace: string): ParsedGir[];
@@ -24,7 +25,7 @@ export interface NSLoader {
 
 type GeneratorConstructor<T> = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    new (namespace: IntrospectedNamespace, options: GenerationOptions, ...args: any[]): FormatGenerator<T>;
+    new (namespace: IntrospectedNamespace, options: OptionsGeneration, ...args: any[]): FormatGenerator<T>;
 };
 
 export class NSRegistry {
@@ -39,13 +40,13 @@ export class NSRegistry {
         this.formatters.set("json", new JSONFormatter());
     }
 
-    registerTransformation(visitor: GirVisitor) {
+    async registerTransformation(visitor: GirVisitor) {
         this.transformations.push(visitor);
 
         // Apply transformations to already built namespaces.
-        this.mapping.forEach(n => {
-            n.accept(visitor);
-        });
+        for (const n of this.mapping.toArray()) {
+            await n.accept(visitor);
+        }
     }
 
     registerFormatter(output: string, formatter: Formatter) {
@@ -58,17 +59,17 @@ export class NSRegistry {
 
     registerGenerator<T>(
         output: string,
-        generator: { new (namespace: IntrospectedNamespace, options: GenerationOptions): FormatGenerator<T> }
+        generator: { new (namespace: IntrospectedNamespace, options: OptionsGeneration): FormatGenerator<T> }
     ) {
         this.generators.set(output, generator);
     }
 
     async getGenerator(
         output: "json"
-    ): Promise<{ new (namespace: IntrospectedNamespace, options: GenerationOptions): JsonGenerator }>;
+    ): Promise<{ new (namespace: IntrospectedNamespace, options: OptionsGeneration): JsonGenerator }>;
     async getGenerator(
         output: "dts"
-    ): Promise<{ new (namespace: IntrospectedNamespace, options: GenerationOptions): DtsGenerator }>;
+    ): Promise<{ new (namespace: IntrospectedNamespace, options: OptionsGeneration): DtsGenerator }>;
     async getGenerator<T>(output: string): Promise<GeneratorConstructor<T> | undefined>;
     async getGenerator(output: string): Promise<GeneratorConstructor<unknown> | undefined> {
         if (output === "dts") {
@@ -118,10 +119,10 @@ export class NSRegistry {
         return this.generators.get(output);
     }
 
-    private _transformNamespace(namespace: IntrospectedNamespace) {
-        this.transformations.forEach(t => {
-            namespace.accept(t);
-        });
+    private async _transformNamespace(namespace: IntrospectedNamespace) {
+        for (const t of this.transformations) {
+            await namespace.accept(t);
+        }
     }
 
     namespace(name: string, version: string): IntrospectedNamespace | null {
@@ -136,7 +137,7 @@ export class NSRegistry {
         );
     }
 
-    transform(options: TransformOptions) {
+    async transform(options: OptionsTransform) {
         const GLib = this.assertNamespace("GLib", "2.0");
         const Gio = this.assertNamespace("Gio", "2.0");
         const GObject = this.assertNamespace("GObject", "2.0");
@@ -147,26 +148,26 @@ export class NSRegistry {
 
         const interfaceVisitor = new InterfaceVisitor();
 
-        this.registerTransformation(interfaceVisitor);
+        await this.registerTransformation(interfaceVisitor);
 
         const classVisitor = new ClassVisitor();
 
-        this.registerTransformation(classVisitor);
+        await this.registerTransformation(classVisitor);
 
         console.log("Adding generics...");
-        generify(this, options.inferGenerics);
+        await generify(this, options.inferGenerics);
 
         console.log("Injecting types...");
-        inject(this);
+        await inject(this);
     }
 
-    defaultVersionOf(name: string): string | null {
+    defaultVersionOf(namespace: string): string | null {
         // GJS has a hard dependency on these versions.
-        if (name === "GLib" || name === "Gio" || name === "GObject") {
+        if (namespace === "GLib" || namespace === "Gio" || namespace === "GObject") {
             return "2.0";
         }
 
-        const meta = this.mapping.getIfOnly(name);
+        const meta = this.mapping.getIfOnly(namespace);
 
         if (meta) {
             return meta[0];
@@ -175,8 +176,8 @@ export class NSRegistry {
         return null;
     }
 
-    assertDefaultVersionOf(name: string): string {
-        const version = this.defaultVersionOf(name);
+    assertDefaultVersionOf(namespace: string): string {
+        const version = this.defaultVersionOf(namespace);
 
         if (version) {
             return version;
@@ -184,7 +185,7 @@ export class NSRegistry {
 
         // This mirrors GJS' and GI's default behavior.
         // If we can't find a single version of an unspecified dependency, we throw an error.
-        throw new Error(`No single version found for unspecified dependency: ${name}.`);
+        throw new Error(`No single version found for unspecified dependency: ${namespace}.`);
     }
 
     assertNamespace(name: string, version: string): IntrospectedNamespace {
@@ -197,7 +198,7 @@ export class NSRegistry {
         return namespace;
     }
 
-    register(namespace: GirModule): IntrospectedNamespace {
+    async register(namespace: GirModule): Promise<IntrospectedNamespace> {
         this.mapping.set(namespace.namespace, namespace.version, namespace);
 
         namespace.c_prefixes.forEach(c_prefix => {
@@ -208,7 +209,7 @@ export class NSRegistry {
             this.c_mapping.set(c_prefix, c_map);
         });
 
-        this._transformNamespace(namespace);
+        await this._transformNamespace(namespace);
 
         return namespace;
     }

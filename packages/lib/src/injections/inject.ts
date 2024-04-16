@@ -7,10 +7,10 @@ import gee1 from "./gee1.js";
 import { IntrospectedNamespace } from "../gir/namespace.js";
 import { NSRegistry } from "../gir/registry.js";
 
-export type NamespaceInjection = (namespace: IntrospectedNamespace, registry: NSRegistry) => void;
+export type NamespaceInjection = (namespace: IntrospectedNamespace, registry: NSRegistry) => Promise<void>;
 
 function injectDefinitions(registry: NSRegistry, required = true) {
-    return (definition: { namespace: string; version: string; modifier: NamespaceInjection }) => {
+    return async (definition: { namespace: string; version: string; modifier: NamespaceInjection }) => {
         const ns = registry.namespace(definition.namespace, definition.version);
 
         if (required && !ns) {
@@ -18,21 +18,21 @@ function injectDefinitions(registry: NSRegistry, required = true) {
         }
 
         if (ns) {
-            definition.modifier(ns, registry);
+            await definition.modifier(ns, registry);
         }
     };
 }
 
-export function inject(registry: NSRegistry) {
+export async function inject(registry: NSRegistry) {
     const $ = injectDefinitions(registry);
 
-    $(glib);
-    $(gobject);
-    $(gio);
+    await $(glib);
+    await $(gobject);
+    await $(gio);
 
     const $_ = injectDefinitions(registry, false);
 
-    $_(tracker1);
-    $_(gee08);
-    $_(gee1);
+    await $_(tracker1);
+    await $_(gee08);
+    await $_(gee1);
 }

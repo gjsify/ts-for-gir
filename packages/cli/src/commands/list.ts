@@ -25,8 +25,8 @@ const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
-    const generateConfig = Config.getGenerateConfig(config)
-    const moduleLoader = new ModuleLoader(generateConfig)
+    const OptionsGeneration = Config.getOptionsGeneration(config)
+    const moduleLoader = new ModuleLoader(OptionsGeneration)
     const { grouped, failed } = await moduleLoader.getModules(config.modules, config.ignore)
     const moduleGroups = Object.values(grouped)
     if (Object.keys(grouped).length === 0) {

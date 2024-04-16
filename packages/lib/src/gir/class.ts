@@ -25,7 +25,8 @@ import {
     GirRecordElement,
     GirDirection,
     GirUnionElement,
-    ClassStructTypeIdentifier
+    ClassStructTypeIdentifier,
+    DependencyManager
 } from "../index.js";
 import {
     IntrospectedClassFunction,
@@ -49,10 +50,11 @@ import {
 } from "./util.js";
 import { IntrospectedSignal } from "./signal.js";
 import { FormatGenerator } from "../generators/generator.js";
-import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
 import { GenericNameGenerator } from "./generics.js";
 import { findMap } from "../util.js";
+
+import type { OptionsLoad } from "../types/index.js";
 
 export enum FilterBehavior {
     DELETE,
@@ -470,7 +472,7 @@ export abstract class IntrospectedBaseClass extends IntrospectedNamespaceMember 
         this.callbacks = [...callbacks.map(c => c.copy({ parent: this }))];
     }
 
-    abstract accept(visitor: GirVisitor): IntrospectedBaseClass;
+    abstract accept(visitor: GirVisitor): Promise<IntrospectedBaseClass>;
 
     abstract copy(options?: {
         parent?: undefined;
@@ -506,7 +508,7 @@ export abstract class IntrospectedBaseClass extends IntrospectedNamespaceMember 
     }
 
     getType(): TypeIdentifier {
-        return new TypeIdentifier(this.name, this.namespace.namespace);
+        return new TypeIdentifier(this.name, this.namespace.dependency);
     }
 
     static fromXML(
@@ -515,12 +517,12 @@ export abstract class IntrospectedBaseClass extends IntrospectedNamespaceMember 
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         ns: IntrospectedNamespace,
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        options: LoadOptions
-    ): IntrospectedBaseClass {
+        options: OptionsLoad
+    ): Promise<IntrospectedBaseClass> {
         throw new Error("fromXML is not implemented on GirBaseClass");
     }
 
-    abstract asString<T = string>(generator: FormatGenerator<T>): T;
+    abstract asString<T = string>(generator: FormatGenerator<T>): Promise<T>;
 }
 
 type ClassMember = IntrospectedClassMember | IntrospectedClassFunction | IntrospectedProperty;
@@ -536,7 +538,7 @@ export class IntrospectedClass extends IntrospectedBaseClass {
         super({ name, namespace });
     }
 
-    accept(visitor: GirVisitor): IntrospectedClass {
+    async accept(visitor: GirVisitor): Promise<IntrospectedClass> {
         const node = this.copy({
             signals: this.signals.map(s => s.accept(visitor)),
             constructors: this.constructors.map(c => c.accept(visitor)),
@@ -545,7 +547,8 @@ export class IntrospectedClass extends IntrospectedBaseClass {
             fields: this.fields.map(f => f.accept(visitor)),
             callbacks: this.callbacks.map(c => c.accept(visitor))
         });
-        return visitor.visitClass?.(node) ?? node;
+        const gobject = await DependencyManager.getInstance().get("GObject", "2.0");
+        return visitor.visitClass?.(gobject, node) ?? node;
     }
 
     hasInstanceSymbol<S extends { name: string }>(s: S): boolean {
@@ -878,7 +881,11 @@ export class IntrospectedClass extends IntrospectedBaseClass {
         return this._staticDefinition;
     }
 
-    static fromXML(element: GirClassElement, ns: IntrospectedNamespace, options: LoadOptions): IntrospectedClass {
+    static async fromXML(
+        element: GirClassElement,
+        ns: IntrospectedNamespace,
+        options: OptionsLoad
+    ): Promise<IntrospectedClass> {
         const name = sanitizeIdentifierName(ns.namespace, element.$.name);
 
         if (options.verbose) {
@@ -895,19 +902,19 @@ export class IntrospectedClass extends IntrospectedBaseClass {
         if (element.$["glib:type-name"]) {
             clazz.resolve_names.push(element.$["glib:type-name"]);
 
-            ns.registerResolveName(element.$["glib:type-name"], ns.namespace, name);
+            ns.registerResolveName(element.$["glib:type-name"], ns.dependency, name);
         }
 
         if (element.$["glib:type-struct"]) {
             clazz.resolve_names.push();
 
-            ns.registerResolveName(element.$["glib:type-struct"], ns.namespace, name);
+            ns.registerResolveName(element.$["glib:type-struct"], ns.dependency, name);
         }
 
         if (element.$["c:type"]) {
             clazz.resolve_names.push(element.$["c:type"]);
 
-            ns.registerResolveName(element.$["c:type"], ns.namespace, name);
+            ns.registerResolveName(element.$["c:type"], ns.dependency, name);
         }
 
         const typeStruct = element.$["glib:type-struct"];
@@ -916,13 +923,13 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 
             clazz.resolve_names.push(typeStruct);
 
-            ns.registerResolveName(typeStruct, ns.namespace, name);
+            ns.registerResolveName(typeStruct, ns.dependency, name);
         }
 
         try {
             // Setup parent type if this is an interface or class.
             if (element.$.parent) {
-                clazz.superType = parseTypeIdentifier(ns.namespace, element.$.parent);
+                clazz.superType = parseTypeIdentifier(ns.dependency, element.$.parent);
             }
 
             if (element.$.abstract) {
@@ -931,22 +938,26 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 
             if (Array.isArray(element.constructor)) {
                 clazz.constructors.push(
-                    ...element.constructor.map(constructor =>
-                        IntrospectedConstructor.fromXML(constructor, clazz, options)
-                    )
+                    ...(await Promise.all(
+                        element.constructor.map(constructor =>
+                            IntrospectedConstructor.fromXML(constructor, clazz, options)
+                        )
+                    ))
                 );
             }
 
             if (element["glib:signal"]) {
                 clazz.signals.push(
-                    ...element["glib:signal"].map(signal => IntrospectedSignal.fromXML(signal, clazz, options))
+                    ...(await Promise.all(
+                        element["glib:signal"].map(signal => IntrospectedSignal.fromXML(signal, clazz, options))
+                    ))
                 );
             }
 
             // Properties
             if (element.property) {
-                element.property.forEach(prop => {
-                    const property = IntrospectedProperty.fromXML(prop, clazz, options);
+                for (const prop of element.property) {
+                    const property = await IntrospectedProperty.fromXML(prop, clazz, options);
                     switch (options.propertyCase) {
                         case "both":
                             clazz.props.push(property);
@@ -966,31 +977,32 @@ export class IntrospectedClass extends IntrospectedBaseClass {
                             clazz.props.push(property);
                             break;
                     }
-                });
+                }
             }
 
             // Instance Methods
             if (element.method) {
                 clazz.members.push(
-                    ...element.method.map(method => IntrospectedClassFunction.fromXML(method, clazz, options))
+                    ...(await Promise.all(
+                        element.method.map(method => IntrospectedClassFunction.fromXML(method, clazz, options))
+                    ))
                 );
             }
 
             // Fields
             if (element.field) {
-                element.field
-                    .filter(field => !("callback" in field))
-                    .forEach(field => {
-                        const f = IntrospectedField.fromXML(field, clazz);
+                const fields = element.field.filter(field => !("callback" in field));
 
-                        clazz.fields.push(f);
-                    });
+                for (const field of fields) {
+                    const f = await IntrospectedField.fromXML(field, clazz);
+                    clazz.fields.push(f);
+                }
             }
 
             if (element.implements) {
                 element.implements.forEach(implementee => {
                     const name = implementee.$.name;
-                    const type = parseTypeIdentifier(ns.namespace, name);
+                    const type = parseTypeIdentifier(ns.dependency, name);
 
                     if (type) {
                         clazz.interfaces.push(type);
@@ -1001,29 +1013,35 @@ export class IntrospectedClass extends IntrospectedBaseClass {
             // Callback Types
             if (element.callback) {
                 clazz.callbacks.push(
-                    ...element.callback.map(callback => {
-                        if (options.verbose) {
-                            console.debug(`Adding callback ${callback.$.name} for ${ns.namespace}`);
-                        }
+                    ...(await Promise.all(
+                        element.callback.map(callback => {
+                            if (options.verbose) {
+                                console.debug(`Adding callback ${callback.$.name} for ${ns.namespace}`);
+                            }
 
-                        return IntrospectedClassCallback.fromXML(callback, clazz, options);
-                    })
+                            return IntrospectedClassCallback.fromXML(callback, clazz, options);
+                        })
+                    ))
                 );
             }
 
             // Virtual Methods
             if (element["virtual-method"]) {
                 clazz.members.push(
-                    ...element["virtual-method"].map(method =>
-                        IntrospectedVirtualClassFunction.fromXML(method, clazz, options)
-                    )
+                    ...(await Promise.all(
+                        element["virtual-method"].map(method =>
+                            IntrospectedVirtualClassFunction.fromXML(method, clazz, options)
+                        )
+                    ))
                 );
             }
 
             // Static methods (functions)
             if (element.function) {
                 clazz.members.push(
-                    ...element.function.map(func => IntrospectedStaticClassFunction.fromXML(func, clazz, options))
+                    ...(await Promise.all(
+                        element.function.map(func => IntrospectedStaticClassFunction.fromXML(func, clazz, options))
+                    ))
                 );
             }
         } catch (e) {
@@ -1037,8 +1055,8 @@ export class IntrospectedClass extends IntrospectedBaseClass {
         this._staticDefinition = typeStruct;
     }
 
-    asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateClass"]> {
-        return generator.generateClass(this) as ReturnType<T["generateClass"]>;
+    async asString<T extends FormatGenerator<unknown>>(generator: T): Promise<ReturnType<T["generateClass"]>> {
+        return (await generator.generateClass(this)) as Promise<ReturnType<T["generateClass"]>>;
     }
 }
 
@@ -1061,7 +1079,7 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
             return this._structFor;
         }
 
-        return new TypeIdentifier(this.name, this.namespace.namespace);
+        return new TypeIdentifier(this.name, this.namespace.dependency);
     }
 
     someParent(predicate: (p: IntrospectedRecord) => boolean): boolean {
@@ -1103,16 +1121,18 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
         return undefined;
     }
 
-    accept(visitor: GirVisitor): IntrospectedRecord {
+    async accept(visitor: GirVisitor): Promise<IntrospectedRecord> {
         const node = this.copy({
-            constructors: this.constructors.map(c => c.accept(visitor)),
-            members: this.members.map(m => m.accept(visitor)),
-            props: this.props.map(p => p.accept(visitor)),
-            fields: this.fields.map(f => f.accept(visitor)),
-            callbacks: this.callbacks.map(c => c.accept(visitor))
+            constructors: await Promise.all(this.constructors.map(c => c.accept(visitor))),
+            members: await Promise.all(this.members.map(m => m.accept(visitor))),
+            props: await Promise.all(this.props.map(p => p.accept(visitor))),
+            fields: await Promise.all(this.fields.map(f => f.accept(visitor))),
+            callbacks: await Promise.all(this.callbacks.map(c => c.accept(visitor)))
         });
 
-        return visitor.visitRecord?.(node) ?? node;
+        const gobject = await DependencyManager.getInstance().get("GObject", "2.0");
+
+        return visitor.visitRecord?.(gobject, node) ?? node;
     }
 
     resolveParents(): RecordResolution {
@@ -1190,11 +1210,11 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
         return foreignRecord;
     }
 
-    static fromXML(
+    static async fromXML(
         element: GirRecordElement | GirUnionElement,
         namespace: IntrospectedNamespace,
-        options: LoadOptions
-    ): IntrospectedRecord {
+        options: OptionsLoad
+    ): Promise<IntrospectedRecord> {
         if (!element.$.name) {
             throw new Error("Invalid GIR File: No name provided for union.");
         }
@@ -1214,21 +1234,21 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
         );
 
         if (typeof element.$["glib:is-gtype-struct-for"] === "string" && !!element.$["glib:is-gtype-struct-for"]) {
-            const structFor = parseTypeIdentifier(namespace.namespace, element.$["glib:is-gtype-struct-for"]);
+            const structFor = parseTypeIdentifier(namespace.dependency, element.$["glib:is-gtype-struct-for"]);
 
             // This let's replace these references when generating.
-            clazz._structFor = new ClassStructTypeIdentifier(structFor.name, structFor.namespace);
+            clazz._structFor = new ClassStructTypeIdentifier(structFor.name, structFor.dependency);
         } else {
             if (element.$["glib:type-name"]) {
                 clazz.resolve_names.push(element.$["glib:type-name"]);
 
-                namespace.registerResolveName(element.$["glib:type-name"], namespace.namespace, name);
+                namespace.registerResolveName(element.$["glib:type-name"], namespace.dependency, name);
             }
 
             if (element.$["c:type"]) {
                 clazz.resolve_names.push(element.$["c:type"]);
 
-                namespace.registerResolveName(element.$["c:type"], namespace.namespace, name);
+                namespace.registerResolveName(element.$["c:type"], namespace.dependency, name);
             }
         }
 
@@ -1241,23 +1261,26 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
             // Instance Methods
             if (element.method) {
                 clazz.members.push(
-                    ...element.method.map(method => IntrospectedClassFunction.fromXML(method, clazz, options))
+                    ...(await Promise.all(
+                        element.method.map(method => IntrospectedClassFunction.fromXML(method, clazz, options))
+                    ))
                 );
             }
 
             // Constructors
             if (Array.isArray(element.constructor)) {
-                element.constructor.forEach(constructor => {
-                    const c = IntrospectedConstructor.fromXML(constructor, clazz, options);
-
+                for (const constructor of element.constructor) {
+                    const c = await IntrospectedConstructor.fromXML(constructor, clazz, options);
                     clazz.constructors.push(c);
-                });
+                }
             }
 
             // Static methods (functions)
             if (element.function) {
                 clazz.members.push(
-                    ...element.function.map(func => IntrospectedStaticClassFunction.fromXML(func, clazz, options))
+                    ...(await Promise.all(
+                        element.function.map(func => IntrospectedStaticClassFunction.fromXML(func, clazz, options))
+                    ))
                 );
             }
 
@@ -1268,9 +1291,11 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
             // Fields (for "non-class" records)
             if (element.field) {
                 clazz.fields.push(
-                    ...element.field
-                        .filter(field => !("callback" in field))
-                        .map(field => IntrospectedField.fromXML(field, clazz))
+                    ...(await Promise.all(
+                        element.field
+                            .filter(field => !("callback" in field))
+                            .map(field => IntrospectedField.fromXML(field, clazz))
+                    ))
                 );
             }
         } catch (e) {
@@ -1418,8 +1443,8 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
         return this._isSimpleWithoutPointers;
     }
 
-    asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateRecord"]> {
-        return generator.generateRecord(this) as ReturnType<T["generateRecord"]>;
+    async asString<T extends FormatGenerator<unknown>>(generator: T): Promise<ReturnType<T["generateRecord"]>> {
+        return (await generator.generateRecord(this)) as Promise<ReturnType<T["generateRecord"]>>;
     }
 }
 
@@ -1543,23 +1568,23 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
         };
     }
 
-    accept(visitor: GirVisitor): IntrospectedInterface {
+    async accept(visitor: GirVisitor): Promise<IntrospectedInterface> {
         const node = this.copy({
-            constructors: this.constructors.map(c => c.accept(visitor)),
-            members: this.members.map(m => m.accept(visitor)),
-            props: this.props.map(p => p.accept(visitor)),
-            fields: this.fields.map(f => f.accept(visitor)),
-            callbacks: this.callbacks.map(c => c.accept(visitor))
+            constructors: await Promise.all(this.constructors.map(c => c.accept(visitor))),
+            members: await Promise.all(this.members.map(m => m.accept(visitor))),
+            props: await Promise.all(this.props.map(p => p.accept(visitor))),
+            fields: await Promise.all(this.fields.map(f => f.accept(visitor))),
+            callbacks: await Promise.all(this.callbacks.map(c => c.accept(visitor)))
         });
 
-        return visitor.visitInterface?.(node) ?? node;
+        return Promise.resolve(visitor.visitInterface?.(node) ?? node);
     }
 
-    static fromXML(
+    static async fromXML(
         element: GirInterfaceElement,
         namespace: IntrospectedNamespace,
-        options: LoadOptions
-    ): IntrospectedInterface {
+        options: OptionsLoad
+    ): Promise<IntrospectedInterface> {
         const name = sanitizeIdentifierName(namespace.namespace, element.$.name);
 
         if (options.verbose) {
@@ -1576,19 +1601,19 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
         if (element.$["glib:type-name"]) {
             clazz.resolve_names.push(element.$["glib:type-name"]);
 
-            namespace.registerResolveName(element.$["glib:type-name"], namespace.namespace, name);
+            namespace.registerResolveName(element.$["glib:type-name"], namespace.dependency, name);
         }
 
         if (element.$["glib:type-struct"]) {
             clazz.resolve_names.push();
 
-            namespace.registerResolveName(element.$["glib:type-struct"], namespace.namespace, name);
+            namespace.registerResolveName(element.$["glib:type-struct"], namespace.dependency, name);
         }
 
         if (element.$["c:type"]) {
             clazz.resolve_names.push(element.$["c:type"]);
 
-            namespace.registerResolveName(element.$["c:type"], namespace.namespace, name);
+            namespace.registerResolveName(element.$["c:type"], namespace.dependency, name);
         }
 
         try {
@@ -1597,21 +1622,24 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
                 const [prerequisite] = element.prerequisite;
 
                 if (prerequisite.$.name) {
-                    clazz.superType = parseTypeIdentifier(namespace.namespace, prerequisite.$.name);
+                    clazz.superType = parseTypeIdentifier(namespace.dependency, prerequisite.$.name);
                 }
             }
 
             if (Array.isArray(element.constructor)) {
                 for (const constructor of element.constructor) {
-                    clazz.constructors.push(IntrospectedConstructor.fromXML(constructor, clazz, options));
+                    clazz.constructors.push(await IntrospectedConstructor.fromXML(constructor, clazz, options));
                 }
             }
 
             // Properties
             if (element.property) {
+                const properties = await Promise.all(
+                    element.property.map(prop => IntrospectedProperty.fromXML(prop, clazz, options))
+                );
+
                 clazz.props.push(
-                    ...element.property
-                        .map(prop => IntrospectedProperty.fromXML(prop, clazz, options))
+                    ...properties
                         .map(prop => {
                             switch (options.propertyCase) {
                                 case "both":
@@ -1636,7 +1664,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
             // Instance Methods
             if (element.method) {
                 for (const method of element.method) {
-                    const m = IntrospectedClassFunction.fromXML(method, clazz, options);
+                    const m = await IntrospectedClassFunction.fromXML(method, clazz, options);
 
                     clazz.members.push(m);
                 }
@@ -1645,7 +1673,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
             // Virtual Methods
             if (element["virtual-method"]) {
                 for (const method of element["virtual-method"]) {
-                    clazz.members.push(IntrospectedVirtualClassFunction.fromXML(method, clazz, options));
+                    clazz.members.push(await IntrospectedVirtualClassFunction.fromXML(method, clazz, options));
                 }
             }
 
@@ -1656,14 +1684,14 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
                         console.debug(`Adding callback ${callback.$.name} for ${namespace.namespace}`);
                     }
 
-                    clazz.callbacks.push(IntrospectedClassCallback.fromXML(callback, clazz, options));
+                    clazz.callbacks.push(await IntrospectedClassCallback.fromXML(callback, clazz, options));
                 }
             }
 
             // Static methods (functions)
             if (element.function) {
                 for (const func of element.function) {
-                    clazz.members.push(IntrospectedStaticClassFunction.fromXML(func, clazz, options));
+                    clazz.members.push(await IntrospectedStaticClassFunction.fromXML(func, clazz, options));
                 }
             }
         } catch (e) {
@@ -1673,7 +1701,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
         return clazz;
     }
 
-    asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateInterface"]> {
-        return generator.generateInterface(this) as ReturnType<T["generateInterface"]>;
+    async asString<T extends FormatGenerator<unknown>>(generator: T): Promise<ReturnType<T["generateInterface"]>> {
+        return (await generator.generateInterface(this)) as Promise<ReturnType<T["generateInterface"]>>;
     }
 }

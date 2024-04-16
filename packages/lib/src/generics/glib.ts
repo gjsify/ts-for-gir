@@ -18,5 +18,6 @@ export default {
         HashTable.addGeneric({
             default: AnyType
         });
+        return Promise.resolve();
     }
 };

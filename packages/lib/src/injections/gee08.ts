@@ -4,7 +4,7 @@ import { IntrospectedProperty } from "../index.js";
 export default {
     namespace: "Gee",
     version: "0.8",
-    modifier(namespace: IntrospectedNamespace) {
+    async modifier(namespace: IntrospectedNamespace) {
         const SortedMap = namespace.assertClass("SortedMap");
         const AbstractSortedMap = namespace.assertClass("AbstractSortedMap");
 
@@ -85,5 +85,7 @@ export default {
                     parent: UnrolledLinkedList
                 })
             );
+
+        return Promise.resolve();
     }
 };

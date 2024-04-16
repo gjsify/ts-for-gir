@@ -5,10 +5,11 @@ import { GirFieldElement, GirPropertyElement } from "../index.js";
 import { getType, parseDoc, parseMetadata } from "./util.js";
 import { isIntrospectable } from "./namespace.js";
 import { FormatGenerator } from "../generators/generator.js";
-import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
 import { IntrospectedBaseClass } from "./class.js";
 import { IntrospectedEnum } from "./enum.js";
+
+import type { OptionsLoad } from "../types/index.js";
 
 export class IntrospectedField extends IntrospectedClassMember {
     type: TypeExpression;
@@ -65,22 +66,22 @@ export class IntrospectedField extends IntrospectedClassMember {
         return generator.generateField(this) as ReturnType<T["generateField"]>;
     }
 
-    accept(visitor: GirVisitor): IntrospectedField {
+    accept(visitor: GirVisitor): Promise<IntrospectedField> {
         const node = this.copy({
             type: visitor.visitType?.(this.type) ?? this.type
         });
 
-        return visitor.visitField?.(node) ?? node;
+        return Promise.resolve(visitor.visitField?.(node) ?? node);
     }
 
-    static fromXML(field: GirFieldElement, parent: IntrospectedBaseClass): IntrospectedField {
+    static async fromXML(field: GirFieldElement, parent: IntrospectedBaseClass): Promise<IntrospectedField> {
         const namespace = parent.namespace;
         const name = field.$["name"];
         const _name = name.replace(/[-]/g, "_");
         const f = new IntrospectedField({
             name: _name,
             parent,
-            type: getType(namespace, field),
+            type: await getType(namespace, field),
             isPrivate: field.$.private === "1",
             isIntrospectable: isIntrospectable(field)
         });
@@ -121,13 +122,13 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
         })._copyBaseProperties(this);
     }
 
-    accept(visitor: GirVisitor): IntrospectedProperty {
+    accept(visitor: GirVisitor): Promise<IntrospectedProperty> {
         const node = this.copy({
             parent: this.parent,
             type: visitor.visitType?.(this.type) ?? this.type
         });
 
-        return visitor.visitProperty?.(node) ?? node;
+        return Promise.resolve(visitor.visitProperty?.(node) ?? node);
     }
 
     constructor({
@@ -176,11 +177,11 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
         });
     }
 
-    static fromXML(
+    static async fromXML(
         element: GirPropertyElement,
         parent: IntrospectedBaseClass | IntrospectedEnum,
-        options: LoadOptions
-    ): IntrospectedProperty {
+        options: OptionsLoad
+    ): Promise<IntrospectedProperty> {
         const ns = parent.namespace;
         const name = element.$["name"];
         const _name = name.replace(/[-]/g, "_");
@@ -189,7 +190,7 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
             writable: element.$?.writable === "1",
             readable: element.$?.readable !== "0",
             constructOnly: element.$?.["construct-only"] === "1",
-            type: getType(ns, element),
+            type: await getType(ns, element),
             parent,
             isIntrospectable: isIntrospectable(element)
         });

@@ -37,5 +37,7 @@ export default {
             // @ts-expect-error This is a private property by Tracker is cursed
             BuilderClass._structFor = new ClassStructTypeIdentifier("SparqlBuilder", "Tracker");
         }
+
+        return Promise.resolve();
     }
 };

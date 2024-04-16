@@ -1,7 +1,7 @@
 /**
  * Type for currently used config e.g. in GirModule
  */
-export interface GenerateConfig {
+export interface OptionsGeneration {
     /** root / working directory of your project */
     root: string
     /** directory to output to */

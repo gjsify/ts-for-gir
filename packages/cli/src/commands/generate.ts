@@ -30,8 +30,8 @@ const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
 const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
 
-    const generateConfig = Config.getGenerateConfig(config)
-    const moduleLoader = new ModuleLoader(generateConfig)
+    const OptionsGeneration = Config.getOptionsGeneration(config)
+    const moduleLoader = new ModuleLoader(OptionsGeneration)
     const { keep } = await moduleLoader.getModulesResolved(
         config.modules,
         config.ignore || [],
@@ -42,7 +42,7 @@ const handler = async (args: ConfigFlags) => {
         return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))
     }
 
-    const tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES)
+    const tsForGir = new GenerationHandler(OptionsGeneration, GeneratorType.TYPES)
 
     const girModules = Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module)
 

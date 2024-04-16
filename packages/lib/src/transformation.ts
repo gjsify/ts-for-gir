@@ -6,7 +6,7 @@
 import {
     Transformations,
     ConstructName,
-    GenerateConfig,
+    OptionsGeneration,
     GirCallableParamElement,
     GirEnumElement,
     GirBitfieldElement,
@@ -271,13 +271,13 @@ export class Transformation {
     private log: Logger
 
     protected constructor(
-        readonly config: GenerateConfig,
+        readonly config: OptionsGeneration,
         logName = 'Transformation',
     ) {
         this.log = new Logger(config.verbose, logName)
     }
 
-    static getSingleton(config: GenerateConfig) {
+    static getSingleton(config: OptionsGeneration) {
         if (!this.instance) {
             this.instance = new Transformation(config)
         }

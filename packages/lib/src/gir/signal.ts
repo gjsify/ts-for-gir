@@ -15,8 +15,9 @@ import { IntrospectedClassFunction, IntrospectedFunctionParameter, IntrospectedC
 import { GirSignalElement, GirDirection, GirCallableParamElement } from "@gi.ts/parser";
 import { getType, parseDoc, parseMetadata } from "./util.js";
 import { FormatGenerator } from "../generators/generator.js";
-import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
+
+import type { OptionsLoad } from "../types/index.js";
 
 export enum IntrospectedSignalType {
     CONNECT,
@@ -46,7 +47,7 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
         this.return_type = return_type;
     }
 
-    accept(visitor: GirVisitor): IntrospectedSignal {
+    accept(visitor: GirVisitor): Promise<IntrospectedSignal> {
         const node = this.copy({
             parameters: this.parameters.map(p => {
                 return p.accept(visitor);
@@ -54,7 +55,7 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
             returnType: visitor.visitType?.(this.return_type)
         });
 
-        return visitor.visitSignal?.(node) ?? node;
+        return Promise.resolve(visitor.visitSignal?.(node) ?? node);
     }
 
     copy({
@@ -74,7 +75,11 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
         })._copyBaseProperties(this);
     }
 
-    static fromXML(element: GirSignalElement, parent: IntrospectedClass, options: LoadOptions): IntrospectedSignal {
+    static async fromXML(
+        element: GirSignalElement,
+        parent: IntrospectedClass,
+        options: OptionsLoad
+    ): Promise<IntrospectedSignal> {
         const ns = parent.namespace;
         const signal = new IntrospectedSignal({
             name: element.$.name,
@@ -84,9 +89,11 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
 
         if (element.parameters && element.parameters[0].parameter) {
             signal.parameters.push(
-                ...element.parameters[0].parameter
-                    .filter((p): p is GirCallableParamElement & { $: { name: string } } => !!p.$.name)
-                    .map(p => IntrospectedFunctionParameter.fromXML(p, signal, options))
+                ...(await Promise.all(
+                    element.parameters[0].parameter
+                        .filter((p): p is GirCallableParamElement & { $: { name: string } } => !!p.$.name)
+                        .map(p => IntrospectedFunctionParameter.fromXML(p, signal, options))
+                ))
             );
         }
 
@@ -141,7 +148,7 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
             .params.reverse()
             .filter((p): p is IntrospectedFunctionParameter => p != null);
 
-        signal.return_type = getType(ns, element["return-value"]?.[0]);
+        signal.return_type = await getType(ns, element["return-value"]?.[0]);
 
         if (options.loadDocs) {
             signal.doc = parseDoc(element);
@@ -223,10 +230,10 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
         });
     }
 
-    asString<T extends FormatGenerator<unknown>>(
+    async asString<T extends FormatGenerator<unknown>>(
         generator: T,
         type?: IntrospectedSignalType
-    ): ReturnType<T["generateSignal"]> {
-        return generator.generateSignal(this, type) as ReturnType<T["generateSignal"]>;
+    ): Promise<ReturnType<T["generateSignal"]>> {
+        return (await generator.generateSignal(this, type)) as Promise<ReturnType<T["generateSignal"]>>;
     }
 }

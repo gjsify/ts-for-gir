@@ -39,8 +39,9 @@ import {
 } from "../gir.js";
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedAlias } from "../gir/alias.js";
-import { GenerationOptions } from "../types.js";
 import { AnyIntrospectedType, IntrospectedNamespaceMember } from "../gir/base.js";
+
+import type { OptionsGeneration } from "../types/index.js";
 
 export const enum NodeKind {
     class = "class",
@@ -324,7 +325,7 @@ export interface NamespaceJson extends Json {
 }
 
 export class JsonGenerator extends FormatGenerator<Json> {
-    constructor(namespace: IntrospectedNamespace, options: GenerationOptions) {
+    constructor(namespace: IntrospectedNamespace, options: OptionsGeneration) {
         super(namespace, options);
     }
 
@@ -650,12 +651,12 @@ export class JsonGenerator extends FormatGenerator<Json> {
         };
     }
 
-    generateReturn(
+    async generateReturn(
         return_type: TypeExpression,
         output_parameters: IntrospectedFunctionParameter[]
-    ): TypeJson | TypeJson[] {
+    ): Promise<TypeJson | TypeJson[]> {
         const { namespace, options } = this;
-        const type = return_type.resolve(namespace, options);
+        const type = await return_type.resolve(namespace, options);
 
         if (output_parameters.length > 0) {
             const exclude_first = type.equals(VoidType);
@@ -664,7 +665,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
                 ...output_parameters.map(op => op.type.resolve(namespace, options))
             ];
 
-            return returns.map(r => generateType(r));
+            return Promise.all(returns.map(async r => generateType(await r)));
         }
 
         return generateType(type);
@@ -729,13 +730,13 @@ export class JsonGenerator extends FormatGenerator<Json> {
         };
     }
 
-    generateConst(node: IntrospectedConstant): ConstJson {
+    async generateConst(node: IntrospectedConstant): Promise<ConstJson> {
         const { namespace, options } = this;
 
         return {
             kind: NodeKind.constant,
             name: node.name,
-            type: generateType(node.type.resolve(namespace, options)),
+            type: generateType(await node.type.resolve(namespace, options)),
             ...this._generateDocAndMetadata(node)
         };
     }
@@ -762,7 +763,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
         return null;
     }
 
-    generateInterface(node: IntrospectedInterface): InterfaceJson {
+    async generateInterface(node: IntrospectedInterface): Promise<InterfaceJson> {
         const { namespace } = this;
         // If an interface does not list a prerequisite type, we fill it with GObject.Object
         if (node.superType == null) {
@@ -788,7 +789,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
 
         const Extends = this.extends(node);
 
-        const Properties = node.props.map(v => v && v.asString(this));
+        const Properties = await Promise.all(node.props.map(v => v && v.asString(this)));
 
         const Methods = node.members
             .filter(
@@ -1226,7 +1227,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
         };
     }
 
-    generateNamespace(node: IntrospectedNamespace): Promise<NamespaceJson> {
+    async generateNamespace(node: IntrospectedNamespace): Promise<NamespaceJson> {
         function shouldGenerate(node: AnyIntrospectedType) {
             return node.emit;
         }
@@ -1234,26 +1235,34 @@ export class JsonGenerator extends FormatGenerator<Json> {
         const { namespace, version } = node.dependency;
 
         const members = Array.from(node.members.values())
-            .flatMap(m => m)
+            .flatMap(m => m as any) // TODO: Fix type
             .filter(shouldGenerate);
 
-        const classes = members
-            .filter((m): m is IntrospectedClass => m instanceof IntrospectedClass)
-            .map(m => m.asString(this));
-        const interfaces = members
-
-            .filter((m): m is IntrospectedInterface => m instanceof IntrospectedInterface)
-            .map(m => m.asString(this));
-        const records = members
-            .filter((m): m is IntrospectedRecord => m instanceof IntrospectedRecord)
-            .map(m => m.asString(this));
-        const constants = members
-            .filter((m): m is IntrospectedConstant => m instanceof IntrospectedConstant)
-            .map(m => m.asString(this));
-        const callbacks = members
-
-            .filter((m): m is IntrospectedCallback => m instanceof IntrospectedCallback)
-            .map(m => m.asString(this));
+        const classes = await Promise.all(
+            members
+                .filter((m): m is IntrospectedClass => m instanceof IntrospectedClass)
+                .map(async m => await m.asString(this))
+        );
+        const interfaces = await Promise.all(
+            members
+                .filter((m): m is IntrospectedInterface => m instanceof IntrospectedInterface)
+                .map(async m => await m.asString(this))
+        );
+        const records = await Promise.all(
+            members
+                .filter((m): m is IntrospectedRecord => m instanceof IntrospectedRecord)
+                .map(async m => await m.asString(this))
+        );
+        const constants = await Promise.all(
+            members
+                .filter((m): m is IntrospectedConstant => m instanceof IntrospectedConstant)
+                .map(async m => await m.asString(this))
+        );
+        const callbacks = await Promise.all(
+            members
+                .filter((m): m is IntrospectedCallback => m instanceof IntrospectedCallback)
+                .map(async m => await m.asString(this))
+        );
         // Functions can have overrides.
         const functions = [
             ...members
@@ -1269,21 +1278,28 @@ export class JsonGenerator extends FormatGenerator<Json> {
                 }, new Map<string, FunctionJson>())
                 .values()
         ];
-        const errors = members
-            .filter((m): m is IntrospectedError => m instanceof IntrospectedError)
-            .map(m => m.asString(this));
-        const enums = members
-
-            .filter((m): m is IntrospectedEnum => !(m instanceof IntrospectedError) && m instanceof IntrospectedEnum)
-            .map(m => m.asString(this));
-        const alias = members
-            .filter((m): m is IntrospectedAlias => m instanceof IntrospectedAlias)
-            .map(m => m.asString(this));
+        const errors = await Promise.all(
+            members
+                .filter((m): m is IntrospectedError => m instanceof IntrospectedError)
+                .map(async m => await m.asString(this))
+        );
+        const enums = await Promise.all(
+            members
+                .filter(
+                    (m): m is IntrospectedEnum => !(m instanceof IntrospectedError) && m instanceof IntrospectedEnum
+                )
+                .map(async m => await m.asString(this))
+        );
+        const alias = await Promise.all(
+            members
+                .filter((m): m is IntrospectedAlias => m instanceof IntrospectedAlias)
+                .map(async m => await m.asString(this))
+        );
 
         // Resolve imports after we stringify everything else, sometimes we have to ad-hoc add an import.
         const imports = [];
 
-        return Promise.resolve({
+        return {
             kind: NodeKind.namespace,
             name: namespace,
             version,
@@ -1297,7 +1313,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
             errors,
             enums,
             alias
-        });
+        };
     }
 
     async stringifyNamespace(node: IntrospectedNamespace): Promise<string | null> {

@@ -1,4 +1,4 @@
-import type { SymTableItems, GenerateConfig, GirAnyElement, Dependency } from './types/index.js'
+import type { SymTableItems, OptionsGeneration, GirAnyElement, Dependency } from './types/index.js'
 import { Logger } from './logger.js'
 import { WARN_NOT_FOUND_PACKAGE_NAME } from './messages.js'
 
@@ -13,7 +13,7 @@ export class SymTable {
     private log: Logger
 
     public constructor(
-        private readonly config: GenerateConfig,
+        private readonly config: OptionsGeneration,
         private readonly modPackageName: string,
         private readonly modNamespace: string,
     ) {

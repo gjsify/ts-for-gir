@@ -49,10 +49,11 @@ import {
 } from "./util.js";
 import { IntrospectedSignal } from "./signal.js";
 import { FormatGenerator } from "../generators/generator.js";
-import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
 import { GenericNameGenerator } from "./generics.js";
 import { findMap } from "../util.js";
+
+import type { OptionsLoad } from "../types/index.js";
 
 export enum FilterBehavior {
     DELETE,
@@ -515,7 +516,7 @@ export abstract class IntrospectedBaseClass extends IntrospectedNamespaceMember 
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         ns: IntrospectedNamespace,
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        options: LoadOptions
+        options: OptionsLoad
     ): IntrospectedBaseClass {
         throw new Error("fromXML is not implemented on GirBaseClass");
     }
@@ -878,7 +879,7 @@ export class IntrospectedClass extends IntrospectedBaseClass {
         return this._staticDefinition;
     }
 
-    static fromXML(element: GirClassElement, ns: IntrospectedNamespace, options: LoadOptions): IntrospectedClass {
+    static fromXML(element: GirClassElement, ns: IntrospectedNamespace, options: OptionsLoad): IntrospectedClass {
         const name = sanitizeIdentifierName(ns.namespace, element.$.name);
 
         if (options.verbose) {
@@ -1193,7 +1194,7 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
     static fromXML(
         element: GirRecordElement | GirUnionElement,
         namespace: IntrospectedNamespace,
-        options: LoadOptions
+        options: OptionsLoad
     ): IntrospectedRecord {
         if (!element.$.name) {
             throw new Error("Invalid GIR File: No name provided for union.");
@@ -1558,7 +1559,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
     static fromXML(
         element: GirInterfaceElement,
         namespace: IntrospectedNamespace,
-        options: LoadOptions
+        options: OptionsLoad
     ): IntrospectedInterface {
         const name = sanitizeIdentifierName(namespace.namespace, element.$.name);
 

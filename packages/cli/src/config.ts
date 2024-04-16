@@ -9,7 +9,7 @@ import { writeFile } from 'fs/promises'
 import { existsSync } from 'fs'
 import { merge, isEqual, Logger, APP_NAME, APP_USAGE, ERROR_CONFIG_EXTENSION_UNSUPPORTED } from '@ts-for-gir/lib'
 
-import type { UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from '@ts-for-gir/lib'
+import type { UserConfig, ConfigFlags, UserConfigLoadResult, OptionsGeneration } from '@ts-for-gir/lib'
 
 export class Config {
     static appName = APP_NAME
@@ -267,8 +267,8 @@ export class Config {
         return configFile
     }
 
-    public static getGenerateConfig(config: UserConfig): GenerateConfig {
-        const generateConfig: GenerateConfig = {
+    public static getOptionsGeneration(config: UserConfig): OptionsGeneration {
+        const generateConfig: OptionsGeneration = {
             girDirectories: config.girDirectories,
             root: config.root,
             outdir: config.outdir,

@@ -42,7 +42,7 @@ const copyGirFile = async (config: UserConfig, depModule: GirModuleResolvedBy) =
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const handler = async (args: ConfigFlags) => {
     const config = await Config.load(args)
-    const generateConfig = Config.getGenerateConfig(config)
+    const generateConfig = Config.getOptionsGeneration(config)
     const moduleLoader = new ModuleLoader(generateConfig)
     const { grouped, failed } = await moduleLoader.getModules(config.modules, config.ignore)
     const moduleGroups = Object.values(grouped)

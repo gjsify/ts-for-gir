@@ -1,14 +1,13 @@
 import { IntrospectedNamespace, promisifyNamespaceFunctions } from "../gir/namespace.js";
-
-import { GenerationOptions } from "../types.js";
-
 import { override as overrideGLib } from "./dts/glib.js";
 import { override as overrideGObject } from "./dts/gobject.js";
 import { DtsGenerator } from "./dts.js";
 import { IntrospectedNamespaceMember } from "../gir/base.js";
 
+import type { OptionsGeneration } from "../types/index.js";
+
 export class DtsInlineGenerator extends DtsGenerator {
-    constructor(namespace: IntrospectedNamespace, options: GenerationOptions) {
+    constructor(namespace: IntrospectedNamespace, options: OptionsGeneration) {
         super(namespace, options);
     }
 

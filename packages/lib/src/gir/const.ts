@@ -5,8 +5,9 @@ import { GirConstantElement } from "../index.js";
 import { IntrospectedNamespace } from "./namespace.js";
 import { getType, parseDoc, parseMetadata, sanitizeIdentifierName } from "./util.js";
 import { FormatGenerator } from "../generators/generator.js";
-import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
+
+import type { OptionsLoad } from "../types/index.js";
 
 export class IntrospectedConstant extends IntrospectedNamespaceMember {
     type: TypeExpression;
@@ -55,7 +56,7 @@ export class IntrospectedConstant extends IntrospectedNamespaceMember {
         })._copyBaseProperties(this);
     }
 
-    static fromXML(element: GirConstantElement, ns: IntrospectedNamespace, options: LoadOptions): IntrospectedConstant {
+    static fromXML(element: GirConstantElement, ns: IntrospectedNamespace, options: OptionsLoad): IntrospectedConstant {
         const c = new IntrospectedConstant({
             name: sanitizeIdentifierName(ns.namespace, element.$.name),
             namespace: ns,

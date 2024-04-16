@@ -5,8 +5,9 @@ import { GirAliasElement } from "../index.js";
 import { IntrospectedNamespace, isIntrospectable } from "./namespace.js";
 import { sanitizeIdentifierName, getAliasType, parseDoc, parseMetadata } from "./util.js";
 import { FormatGenerator, GenericDescriptor } from "../generators/generator.js";
-import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
+
+import type { OptionsLoad } from "../types/index.js";
 
 export class IntrospectedAlias extends IntrospectedNamespaceMember {
     readonly type: TypeExpression;
@@ -51,7 +52,7 @@ export class IntrospectedAlias extends IntrospectedNamespaceMember {
     static fromXML(
         element: GirAliasElement,
         ns: IntrospectedNamespace,
-        options: LoadOptions
+        options: OptionsLoad
     ): IntrospectedAlias | null {
         if (!element.$.name) {
             console.error(`Alias in ${ns.namespace} lacks name.`);

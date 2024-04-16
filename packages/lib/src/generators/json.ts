@@ -39,8 +39,9 @@ import {
 } from "../gir.js";
 import { GirDirection } from "@gi.ts/parser";
 import { IntrospectedAlias } from "../gir/alias.js";
-import { GenerationOptions } from "../types.js";
 import { AnyIntrospectedType, IntrospectedNamespaceMember } from "../gir/base.js";
+
+import type { OptionsGeneration } from "../types/index.js";
 
 export const enum NodeKind {
     class = "class",
@@ -324,7 +325,7 @@ export interface NamespaceJson extends Json {
 }
 
 export class JsonGenerator extends FormatGenerator<Json> {
-    constructor(namespace: IntrospectedNamespace, options: GenerationOptions) {
+    constructor(namespace: IntrospectedNamespace, options: OptionsGeneration) {
         super(namespace, options);
     }
 

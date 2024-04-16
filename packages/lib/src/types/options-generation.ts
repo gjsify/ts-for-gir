@@ -1,15 +1,15 @@
+import type { OptionsBase } from './index.js'
+
 /**
  * Type for currently used config e.g. in GirModule
  */
-export interface GenerateConfig {
+export interface OptionsGeneration extends OptionsBase {
     /** root / working directory of your project */
     root: string
     /** directory to output to */
     outdir: string | null
     /** GIR directories */
     girDirectories: string[]
-    /** Switch on/off the verbose mode */
-    verbose: boolean
     /** Do not export all symbols for each module as a namespace */
     noNamespace: boolean
     /** Do not generate documentation comments */

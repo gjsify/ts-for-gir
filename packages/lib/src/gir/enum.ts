@@ -9,8 +9,9 @@ import { IntrospectedStaticClassFunction } from "./function.js";
 import { IntrospectedNamespace } from "./namespace.js";
 import { parseDoc, parseMetadata, sanitizeIdentifierName, sanitizeMemberName } from "./util.js";
 import { FormatGenerator } from "../generators/generator.js";
-import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
+
+import type { OptionsLoad } from "../types/index.js";
 
 export class IntrospectedEnum extends IntrospectedNamespaceMember {
     members = new Map<string, GirEnumMember>();
@@ -92,7 +93,7 @@ export class IntrospectedEnum extends IntrospectedNamespaceMember {
     static fromXML(
         element: GirEnumElement | GirBitfieldElement,
         ns: IntrospectedNamespace,
-        options: LoadOptions,
+        options: OptionsLoad,
         flags = false
     ): IntrospectedEnum {
         const em = new IntrospectedEnum(sanitizeMemberName(element.$.name), ns);
@@ -155,7 +156,7 @@ export class GirEnumMember extends IntrospectedBase<IntrospectedEnum> {
         return new GirEnumMember(name, value, parent, c_identifier)._copyBaseProperties(this);
     }
 
-    static fromXML(element: GirMemberElement, parent: IntrospectedEnum, options: LoadOptions): GirEnumMember {
+    static fromXML(element: GirMemberElement, parent: IntrospectedEnum, options: OptionsLoad): GirEnumMember {
         const upper = element.$.name.toUpperCase();
         const c_identifier = element.$["c:identifier"];
 
@@ -211,7 +212,7 @@ export class IntrospectedError extends IntrospectedEnum {
     static fromXML(
         element: GirEnumElement | GirBitfieldElement,
         ns: IntrospectedNamespace,
-        options: LoadOptions
+        options: OptionsLoad
     ): IntrospectedEnum {
         const err = new IntrospectedError(sanitizeMemberName(element.$.name), ns);
 

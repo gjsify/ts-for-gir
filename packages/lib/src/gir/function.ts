@@ -28,10 +28,11 @@ import { IntrospectedClass } from "./class.js";
 import { IntrospectedEnum } from "./enum.js";
 import { IntrospectedSignal } from "./signal.js";
 import { FormatGenerator } from "../generators/generator.js";
-import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
 import { IntrospectedField } from "./property.js";
 import { IntrospectedBaseClass } from "./nodes.js";
+
+import type { OptionsLoad } from "../types/index.js";
 
 function hasShadow(obj: GirFunctionElement | GirMethodElement): obj is GirFunctionElement & { $: { shadows: string } } {
     return obj.$["shadows"] != null;
@@ -117,7 +118,7 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
     static fromXML(
         element: GirFunctionElement | GirMethodElement,
         ns: IntrospectedNamespace,
-        options: LoadOptions
+        options: OptionsLoad
     ): IntrospectedFunction {
         let raw_name = element.$.name;
         let name = sanitizeIdentifierName(null, raw_name);
@@ -424,7 +425,7 @@ export class IntrospectedConstructor extends IntrospectedClassMember {
     static fromXML(
         m: GirConstructorElement,
         parent: IntrospectedBaseClass,
-        options: LoadOptions
+        options: OptionsLoad
     ): IntrospectedConstructor {
         return IntrospectedClassFunction.fromXML(m as GirFunctionElement, parent, options).asConstructor();
     }
@@ -562,7 +563,7 @@ export class IntrospectedFunctionParameter extends IntrospectedBase<
     >(
         parameter: GirCallableParamElement & { $: { name: string } },
         parent: Parent,
-        options: LoadOptions
+        options: OptionsLoad
     ): IntrospectedFunctionParameter {
         const ns = parent.namespace;
         let name = sanitizeMemberName(parameter.$.name);
@@ -778,7 +779,7 @@ export class IntrospectedClassFunction<
     static fromXML(
         element: GirFunctionElement | GirMethodElement,
         parent: IntrospectedBaseClass | IntrospectedEnum,
-        options: LoadOptions
+        options: OptionsLoad
     ): IntrospectedClassFunction {
         const fn = IntrospectedFunction.fromXML(element, parent.namespace, options);
 
@@ -873,7 +874,7 @@ export class IntrospectedVirtualClassFunction extends IntrospectedClassFunction<
     static fromXML(
         m: GirVirtualMethodElement,
         parent: IntrospectedBaseClass,
-        options: LoadOptions
+        options: OptionsLoad
     ): IntrospectedVirtualClassFunction {
         const fn = IntrospectedFunction.fromXML(m, parent.namespace, options);
 
@@ -958,7 +959,7 @@ export class IntrospectedStaticClassFunction extends IntrospectedClassFunction {
     static fromXML(
         m: GirFunctionElement,
         parent: IntrospectedBaseClass | IntrospectedEnum,
-        options: LoadOptions
+        options: OptionsLoad
     ): IntrospectedStaticClassFunction {
         const fn = IntrospectedFunction.fromXML(m, parent.namespace, options);
 
@@ -1013,7 +1014,7 @@ export class IntrospectedCallback extends IntrospectedFunction {
         return visitor.visitCallback?.(node) ?? node;
     }
 
-    static fromXML(element: GirCallbackElement, namespace: GirModule, options: LoadOptions): IntrospectedCallback {
+    static fromXML(element: GirCallbackElement, namespace: GirModule, options: OptionsLoad): IntrospectedCallback {
         const ns = namespace;
         const cb = IntrospectedFunction.fromXML(element, ns, options).asCallback();
 
@@ -1087,7 +1088,7 @@ export class IntrospectedClassCallback extends IntrospectedClassFunction {
     static fromXML(
         element: GirCallbackElement,
         parent: IntrospectedBaseClass,
-        options: LoadOptions
+        options: OptionsLoad
     ): IntrospectedClassCallback {
         const ns = parent.namespace;
         const cb = IntrospectedClassFunction.fromXML(element, parent, options).asCallback();

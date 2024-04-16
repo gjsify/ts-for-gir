@@ -20,7 +20,7 @@ import {
     Transformation,
 } from '@ts-for-gir/lib'
 
-import type { GenerateConfig, Dependency, TemplateData } from '@ts-for-gir/lib'
+import type { OptionsGeneration, Dependency, TemplateData } from '@ts-for-gir/lib'
 
 const TEMPLATE_DIR = join(__dirname, '../templates')
 
@@ -32,7 +32,7 @@ export class TemplateProcessor {
         protected readonly data: TemplateData | undefined,
         protected readonly packageName: string,
         protected readonly deps: Dependency[],
-        protected readonly config: GenerateConfig,
+        protected readonly config: OptionsGeneration,
     ) {
         this.transformation = Transformation.getSingleton(config)
         const dep = DependencyManager.getInstance(config)

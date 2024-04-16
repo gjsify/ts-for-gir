@@ -1,8 +1,8 @@
 import type { Data } from 'ejs'
-import type { GenerateConfig } from './generate-config.js'
+import type { OptionsGeneration } from './options-generation.js'
 import type { GirModule } from '../gir-module.js'
 
-export interface TemplateData extends Data, Partial<GenerateConfig> {
+export interface TemplateData extends Data, Partial<OptionsGeneration> {
     girModule?: GirModule
     importName?: string
 }

@@ -15,8 +15,9 @@ import { IntrospectedClassFunction, IntrospectedFunctionParameter, IntrospectedC
 import { GirSignalElement, GirDirection, GirCallableParamElement } from "@gi.ts/parser";
 import { getType, parseDoc, parseMetadata } from "./util.js";
 import { FormatGenerator } from "../generators/generator.js";
-import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
+
+import type { OptionsLoad } from "../types/index.js";
 
 export enum IntrospectedSignalType {
     CONNECT,
@@ -74,7 +75,7 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
         })._copyBaseProperties(this);
     }
 
-    static fromXML(element: GirSignalElement, parent: IntrospectedClass, options: LoadOptions): IntrospectedSignal {
+    static fromXML(element: GirSignalElement, parent: IntrospectedClass, options: OptionsLoad): IntrospectedSignal {
         const ns = parent.namespace;
         const signal = new IntrospectedSignal({
             name: element.$.name,

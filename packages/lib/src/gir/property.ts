@@ -5,10 +5,11 @@ import { GirFieldElement, GirPropertyElement } from "../index.js";
 import { getType, parseDoc, parseMetadata } from "./util.js";
 import { isIntrospectable } from "./namespace.js";
 import { FormatGenerator } from "../generators/generator.js";
-import { LoadOptions } from "../types.js";
 import { GirVisitor } from "../visitor.js";
 import { IntrospectedBaseClass } from "./class.js";
 import { IntrospectedEnum } from "./enum.js";
+
+import type { OptionsLoad } from "../types/index.js";
 
 export class IntrospectedField extends IntrospectedClassMember {
     type: TypeExpression;
@@ -179,7 +180,7 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
     static fromXML(
         element: GirPropertyElement,
         parent: IntrospectedBaseClass | IntrospectedEnum,
-        options: LoadOptions
+        options: OptionsLoad
     ): IntrospectedProperty {
         const ns = parent.namespace;
         const name = element.$["name"];

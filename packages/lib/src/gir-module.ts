@@ -15,7 +15,7 @@ import type {
     TsDocTag,
     GirInterfaceElement,
     GirInfoAttrs,
-    GenerateConfig,
+    OptionsGeneration,
     GirDocElement,
     GirEnumElement,
     GirBitfieldElement,
@@ -46,8 +46,9 @@ import {
 } from './gir/function.js'
 import { NSRegistry } from './gir/registry.js'
 import { isPrimitiveType } from './gir/util.js'
-import { LoadOptions } from './types.js'
 import { GirVisitor } from './visitor.js'
+
+import type { OptionsLoad } from './types/index.js'
 
 export class GirModule {
     /**
@@ -130,12 +131,12 @@ export class GirModule {
 
     package_version!: readonly [string, string] | readonly [string, string, string]
     parent!: NSRegistry
-    config: GenerateConfig
+    config: OptionsGeneration
 
     constructor(
         readonly dependency: Dependency,
         prefixes: string[],
-        config: GenerateConfig,
+        config: OptionsGeneration,
     ) {
         this.c_prefixes = [...prefixes]
         this.package_version = ['0', '0']
@@ -502,7 +503,7 @@ export class GirModule {
         this.__dts__references.push(reference)
     }
 
-    static load(dependency: Dependency, config: GenerateConfig, registry: NSRegistry): GirModule {
+    static load(dependency: Dependency, config: OptionsGeneration, registry: NSRegistry): GirModule {
         const girXML = dependency.girXML
 
         if (!girXML) {
@@ -516,7 +517,7 @@ export class GirModule {
         const modName = ns.$['name']
         const version = ns.$['version']
 
-        const options: LoadOptions = {
+        const options: OptionsLoad = {
             loadDocs: !config.noComments,
             propertyCase: 'both',
             verbose: config.verbose,

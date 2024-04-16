@@ -2,14 +2,14 @@
 import { Logger, DANGER_HTML_DOC_GENERATOR_NOT_IMPLEMENTED } from '@ts-for-gir/lib'
 import { Generator } from '@ts-for-gir/generator-base'
 
-import type { GenerateConfig, GirModule, NSRegistry } from '@ts-for-gir/lib'
+import type { OptionsGeneration, GirModule, NSRegistry } from '@ts-for-gir/lib'
 
 /**
  * A template that can be used to implement an HTML Documentation Generator
  */
 export class HtmlDocGenerator implements Generator {
     protected log: Logger
-    constructor(protected readonly config: GenerateConfig) {
+    constructor(protected readonly config: OptionsGeneration) {
         this.log = new Logger(config.verbose, HtmlDocGenerator.name)
     }
 

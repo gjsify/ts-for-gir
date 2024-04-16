@@ -20,7 +20,7 @@ import { Config } from './config.js'
 
 import type {
     GirModulesGroupedMap,
-    GenerateConfig,
+    OptionsGeneration,
     GirModuleResolvedBy,
     GirModulesGrouped,
     DependencyMap,
@@ -33,7 +33,7 @@ export class ModuleLoader {
     dependencyManager: DependencyManager
     /** Transitive module dependencies */
     modDependencyMap: DependencyMap = {}
-    constructor(protected readonly config: GenerateConfig) {
+    constructor(protected readonly config: OptionsGeneration) {
         this.log = new Logger(config.verbose, 'ModuleLoader')
         this.dependencyManager = DependencyManager.getInstance(config)
     }

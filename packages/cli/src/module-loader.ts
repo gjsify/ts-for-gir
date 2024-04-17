@@ -467,14 +467,6 @@ export class ModuleLoader {
             // Load dependencies
             const transitiveDependencies = girModule.module.transitiveDependencies
             if (transitiveDependencies.length > 0) {
-                for (const transitiveDependency of transitiveDependencies) {
-                    if (ignoreDependencies.includes(transitiveDependency.packageName)) {
-                        this.log.warn(
-                            `Load dependency "${transitiveDependency.packageName}" which is in the ignore list, if this should really be ignored also ignore "${girModule.packageName}"`,
-                        )
-                    }
-                }
-
                 await this.loadGirModules(
                     transitiveDependencies,
                     ignoreDependencies,
@@ -484,6 +476,7 @@ export class ModuleLoader {
                 )
             }
         }
+
         return {
             loaded: girModules,
             failed: failedGirModules,
@@ -525,9 +518,10 @@ export class ModuleLoader {
     }
 
     /**
-     * Loads all found `packageNames` and sorts out those that the user does not want to use including their dependencies
+     * Loads all found `packageNames`
      * @param girDirectories
      * @param packageNames
+     * @param doNotAskForVersionOnConflict Set this to false if you want to get a prompt for each version conflict
      */
     public async getModulesResolved(
         packageNames: string[],
@@ -568,7 +562,7 @@ export class ModuleLoader {
     }
 
     /**
-     * Find modules with the possibility to use wild cards for module names. E.g. `Gtk*` or `'*'`
+     * Find modules
      * @param girDirectories
      * @param modules
      */
@@ -581,5 +575,12 @@ export class ModuleLoader {
         const { loaded, failed } = await this.loadGirModules(dependencies, ignore)
         const grouped = this.groupGirFiles(loaded)
         return { grouped, loaded, failed: Array.from(failed) }
+    }
+
+    /** Start parsing the gir modules */
+    public parse(girModules: GirModuleResolvedBy[]): void {
+        for (const girModule of girModules) {
+            girModule.module.parse()
+        }
     }
 }

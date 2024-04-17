@@ -1022,13 +1022,13 @@ export class IntrospectedCallback extends IntrospectedFunction {
         if (typeof glibTypeName === "string" && element.$["glib:type-name"]) {
             cb.resolve_names.push(glibTypeName);
 
-            ns.registerResolveName(glibTypeName, ns.namespace, cb.name);
+            ns.registerResolveName(glibTypeName, ns, cb.name);
         }
 
         if (element.$["c:type"]) {
             cb.resolve_names.push(element.$["c:type"]);
 
-            ns.registerResolveName(element.$["c:type"], ns.namespace, cb.name);
+            ns.registerResolveName(element.$["c:type"], ns, cb.name);
         }
 
         return cb;
@@ -1097,13 +1097,13 @@ export class IntrospectedClassCallback extends IntrospectedClassFunction {
         if (typeof glibTypeName === "string" && element.$["glib:type-name"]) {
             cb.resolve_names.push(glibTypeName);
 
-            ns.registerResolveName(glibTypeName, ns.namespace, cb.name);
+            ns.registerResolveName(glibTypeName, ns, cb.name);
         }
 
         if (element.$["c:type"]) {
             cb.resolve_names.push(element.$["c:type"]);
 
-            ns.registerResolveName(element.$["c:type"], ns.namespace, cb.name);
+            ns.registerResolveName(element.$["c:type"], ns, cb.name);
         }
 
         return cb;

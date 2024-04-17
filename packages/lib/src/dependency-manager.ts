@@ -1,8 +1,9 @@
-import { parser, GirXML, GirRepository } from '@gi.ts/parser'
+import { parser, GirXML, GirRepository, GirNamespace } from '@gi.ts/parser'
 import { readFile } from 'fs/promises'
 import { readFileSync } from 'fs'
 
 import { findFileInDirs, splitModuleName, pascalCase } from './utils.js'
+import { sanitizeNamespace } from './gir/util.js'
 import { Logger } from './logger.js'
 import { Transformation } from './transformation.js'
 import { LibraryVersion } from './library-version.js'
@@ -10,7 +11,6 @@ import { LibraryVersion } from './library-version.js'
 import type { Dependency, OptionsGeneration, GirInclude } from './types/index.js'
 import type { GirModule } from './gir-module.js'
 import { GirNSRegistry } from './registry.js'
-
 export class DependencyManager extends GirNSRegistry {
     protected log: Logger
     protected transformation: Transformation
@@ -29,9 +29,12 @@ export class DependencyManager extends GirNSRegistry {
     /**
      * Get the DependencyManager singleton instance
      */
-    static getInstance(config: OptionsGeneration): DependencyManager {
+    static getInstance(config?: OptionsGeneration): DependencyManager {
         if (this.instance) {
             return this.instance
+        }
+        if (!config) {
+            throw new Error('config parameter is required to initialize DependencyManager')
         }
         this.instance = new DependencyManager(config)
         return this.instance
@@ -55,10 +58,12 @@ export class DependencyManager extends GirNSRegistry {
     protected parseArgs(namespaceOrPackageNameOrRepo: string | GirRepository, version?: string) {
         let packageName: string
         let namespace: string
+        let repo: GirRepository | null = null
+
         if (typeof namespaceOrPackageNameOrRepo === 'string') {
             // Special case for Gjs
             if (namespaceOrPackageNameOrRepo === 'Gjs') {
-                return this.getGjs()
+                return { ...this.getGjs(), repo: null }
             }
 
             const args = this.parsePackageName(namespaceOrPackageNameOrRepo, version)
@@ -66,18 +71,17 @@ export class DependencyManager extends GirNSRegistry {
             packageName = args.packageName
             namespace = args.namespace
         } else {
-            const repo = namespaceOrPackageNameOrRepo
+            repo = namespaceOrPackageNameOrRepo
             const ns = repo.namespace?.[0]
             if (!ns) {
                 throw new Error('Invalid GirRepository')
             }
-            version = repo.$.version || '0.0'
+            version = ns.$.version
             namespace = ns.$.name
             packageName = `${namespace}-${version}`
-            namespace = ns.$.name
-            ns
         }
-        return { packageName, namespace, version }
+
+        return { packageName, namespace, version, repo }
     }
 
     /**
@@ -97,7 +101,7 @@ export class DependencyManager extends GirNSRegistry {
      * @returns
      */
     async core(): Promise<Dependency[]> {
-        return [await this.get('GObject-2.0'), await this.get('GLib-2.0')]
+        return [await this.get('GObject', '2.0'), await this.get('GLib', '2.0'), await this.get('Gio', '2.0')]
     }
 
     createImportProperties(namespace: string, packageName: string) {
@@ -142,7 +146,10 @@ export class DependencyManager extends GirNSRegistry {
      */
     async get(repo: GirRepository): Promise<Dependency>
     async get(namespaceOrPackageNameOrRepo: string | GirRepository, _version?: string): Promise<Dependency> {
-        const { packageName, namespace, version } = this.parseArgs(namespaceOrPackageNameOrRepo, _version)
+        const parsedArgs = this.parseArgs(namespaceOrPackageNameOrRepo, _version)
+        const { packageName, repo } = parsedArgs
+        let { namespace, version } = parsedArgs
+        namespace = sanitizeNamespace(namespace)
 
         if (this._cache[packageName]) {
             const dep = this._cache[packageName]
@@ -154,6 +161,16 @@ export class DependencyManager extends GirNSRegistry {
         let girXML: GirXML | null = null
         if (path) {
             girXML = parser.parseGir(await readFile(path, 'utf8'))
+        }
+
+        const ns: GirNamespace | null = girXML?.repository[0]?.namespace?.[0] || repo?.namespace?.[0] || null
+
+        // Use the version from the gir file if it exists
+        if (ns?.$.version) {
+            version = ns?.$.version
+        }
+        if (ns?.$.name) {
+            namespace = ns?.$.name
         }
 
         const dependency: Dependency = {
@@ -199,7 +216,10 @@ export class DependencyManager extends GirNSRegistry {
      */
     getSync(repo: GirRepository): Dependency
     getSync(namespaceOrPackageNameOrRepo: string | GirRepository, _version?: string): Dependency {
-        const { packageName, namespace, version } = this.parseArgs(namespaceOrPackageNameOrRepo, _version)
+        const parsedArgs = this.parseArgs(namespaceOrPackageNameOrRepo, _version)
+        const { packageName, repo } = parsedArgs
+        let { namespace, version } = parsedArgs
+        namespace = sanitizeNamespace(namespace)
 
         if (this._cache[packageName]) {
             const dep = this._cache[packageName]
@@ -211,6 +231,16 @@ export class DependencyManager extends GirNSRegistry {
         let girXML: GirXML | null = null
         if (path) {
             girXML = parser.parseGir(readFileSync(path, 'utf8'))
+        }
+
+        const ns: GirNamespace | null = girXML?.repository[0]?.namespace?.[0] || repo?.namespace?.[0] || null
+
+        // Use the version from the gir file if it exists
+        if (ns?.$.version) {
+            version = ns?.$.version
+        }
+        if (ns?.$.name) {
+            namespace = ns?.$.name
         }
 
         const dependency: Dependency = {
@@ -243,7 +273,7 @@ export class DependencyManager extends GirNSRegistry {
     list(namespace: string): Dependency[] {
         const packageNames = this.all()
         const candidates = packageNames.filter((dep) => {
-            return dep.namespace === namespace
+            return dep.namespace === namespace && dep.exists
         })
         return candidates
     }

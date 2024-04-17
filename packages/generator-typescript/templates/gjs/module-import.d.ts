@@ -7,7 +7,6 @@ _%>
 
 import <%= girModule.importNamespace %> from '<%= girModule.importPath %>';
 
-
 declare global {
     export interface GjsGiImports {
         <%= name %>: typeof <%= girModule.importNamespace %>;

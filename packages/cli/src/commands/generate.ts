@@ -42,6 +42,8 @@ const handler = async (args: ConfigFlags) => {
         return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))
     }
 
+    moduleLoader.parse(keep)
+
     const tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES)
 
     const girModules = Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module)

@@ -194,7 +194,7 @@ class ModuleGenerator extends FormatGenerator<string[]> {
                     new IntrospectedAlias({
                         name: node.name,
                         namespace: node.namespace,
-                        type: new ClassStructTypeIdentifier(structFor.name, structFor.namespace),
+                        type: new ClassStructTypeIdentifier(structFor.name, structFor),
                     }),
                 )
             }

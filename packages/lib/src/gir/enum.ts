@@ -16,12 +16,12 @@ import type { OptionsLoad } from "../types/index.js";
 export class IntrospectedEnum extends IntrospectedNamespaceMember {
     members = new Map<string, GirEnumMember>();
     flags: boolean = false;
-    ns: string;
+    ns: IntrospectedNamespace;
 
     constructor(name: string, namespace: IntrospectedNamespace, options: { isIntrospectable?: boolean } = {}) {
         super(sanitizeIdentifierName(namespace.namespace, name), namespace, options);
 
-        this.ns = namespace.namespace;
+        this.ns = namespace;
     }
 
     copy({
@@ -101,13 +101,13 @@ export class IntrospectedEnum extends IntrospectedNamespaceMember {
         if (element.$["glib:type-name"]) {
             em.resolve_names.push(element.$["glib:type-name"]);
 
-            ns.registerResolveName(element.$["glib:type-name"], ns.namespace, em.name);
+            ns.registerResolveName(element.$["glib:type-name"], ns, em.name);
         }
 
         if (element.$["c:type"]) {
             em.resolve_names.push(element.$["c:type"]);
 
-            ns.registerResolveName(element.$["c:type"], ns.namespace, em.name);
+            ns.registerResolveName(element.$["c:type"], ns, em.name);
         }
 
         if (options.loadDocs) {
@@ -219,13 +219,13 @@ export class IntrospectedError extends IntrospectedEnum {
         if (element.$["glib:type-name"]) {
             err.resolve_names.push(element.$["glib:type-name"]);
 
-            ns.registerResolveName(element.$["glib:type-name"], ns.namespace, err.name);
+            ns.registerResolveName(element.$["glib:type-name"], ns, err.name);
         }
 
         if (element.$["c:type"]) {
             err.resolve_names.push(element.$["c:type"]);
 
-            ns.registerResolveName(element.$["c:type"], ns.namespace, err.name);
+            ns.registerResolveName(element.$["c:type"], ns, err.name);
         }
 
         if (options.loadDocs) {

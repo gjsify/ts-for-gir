@@ -33,7 +33,6 @@ export {
     AnyType,
     ThisType,
     TupleType,
-    GTypeType,
     NeverType,
     BinaryType,
     NumberType,

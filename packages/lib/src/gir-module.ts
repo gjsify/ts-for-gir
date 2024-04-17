@@ -4,19 +4,16 @@ import { IGNORE_GIR_TYPE_TS_DOC_TYPES, Transformation } from './transformation.j
 import { Logger } from './logger.js'
 import { DependencyManager } from './dependency-manager.js'
 import { find } from './utils.js'
-import { SymTable } from './symtable.js'
 import { LibraryVersion } from './library-version.js'
 
 import type {
     Dependency,
     GirType,
     GirConstantElement,
-    TsDoc,
     TsDocTag,
     GirInterfaceElement,
     GirInfoAttrs,
     OptionsGeneration,
-    GirDocElement,
     GirEnumElement,
     GirBitfieldElement,
 } from './types/index.js'
@@ -117,11 +114,6 @@ export class GirModule {
         return [...new Set([...this.dependencies, ...this.transitiveDependencies])]
     }
 
-    /**
-     * Used to find namespaces that are used in other modules
-     */
-    symTable!: SymTable
-
     transformation!: Transformation
 
     dependencyManager: DependencyManager
@@ -202,37 +194,6 @@ export class GirModule {
         return transitiveDependencies
     }
 
-    private getTsDoc(girDoc: GirDocElement) {
-        const tsDoc: TsDoc = {
-            text: '',
-            tags: [],
-        }
-        if (girDoc.doc?.[0]?._) {
-            // TODO: Somehow _ is not a string
-            let text = `${girDoc.doc?.[0]?._ || ''}`
-            text = this.transformation.transformGirDocText(text)
-            tsDoc.text = text
-        }
-
-        return tsDoc
-    }
-
-    private getTsDocGirElementTags(tsTypeName?: string, girTypeName?: string): TsDocTag[] {
-        const tags: TsDocTag[] = []
-
-        if (!girTypeName || IGNORE_GIR_TYPE_TS_DOC_TYPES.includes(girTypeName)) {
-            return tags
-        }
-
-        tags.push({
-            tagName: girTypeName,
-            paramName: '',
-            text: '',
-        })
-
-        return tags
-    }
-
     getTsDocReturnTags(girElement?: IntrospectedFunction | IntrospectedClassFunction): TsDocTag[] {
         const girReturnValue = girElement?.returnTypeDoc
         if (!girReturnValue) {
@@ -267,8 +228,12 @@ export class GirModule {
         return tags
     }
 
-    registerResolveName(resolveName: string, namespace: string, name: string) {
-        this._resolve_names.set(resolveName, new TypeIdentifier(name, namespace))
+    registerResolveName(
+        resolveName: string,
+        dependency: Dependency | { namespace: string; version: string },
+        name: string,
+    ) {
+        this._resolve_names.set(resolveName, new TypeIdentifier(name, dependency))
     }
 
     get members(): Map<string, GirNSMember | GirNSMember[]> {
@@ -314,9 +279,6 @@ export class GirModule {
 
     // TODO: Move this into the generator
     hasImport(name: string): boolean {
-        if (!this.dependencies) {
-            throw new Error('')
-        }
         return this.dependencies.some((dep) => dep.importName === name)
     }
 
@@ -522,23 +484,16 @@ export class GirModule {
 
     static async load(dependency: Dependency, config: OptionsGeneration, registry: NSRegistry): Promise<GirModule> {
         const girXML = dependency.girXML
-
+        const ns = girXML?.repository[0]?.namespace?.[0]
         if (!girXML) {
             throw new Error(`Failed to load gir xml of ${dependency.packageName}`)
         }
-
-        const ns = girXML?.repository[0]?.namespace?.[0]
-
-        if (!ns) throw new Error(`Missing namespace in ${girXML.repository[0].package[0].$.name}`)
+        if (!ns) {
+            throw new Error(`Missing namespace in ${girXML.repository[0].package[0].$.name}`)
+        }
 
         const modName = ns.$['name']
         const version = ns.$['version']
-
-        const options: OptionsLoad = {
-            loadDocs: !config.noComments,
-            propertyCase: 'both',
-            verbose: config.verbose,
-        }
 
         if (!modName) {
             throw new Error('Invalid GIR file: no namespace name specified.')
@@ -550,7 +505,7 @@ export class GirModule {
 
         const c_prefix = ns.$?.['c:identifier-prefixes']?.split(',') ?? []
 
-        if (options.verbose) {
+        if (config.verbose) {
             console.debug(`Parsing ${modName}...`)
         }
         const building = new GirModule(dependency, c_prefix, config)
@@ -569,8 +524,34 @@ export class GirModule {
             building.prefixes.push(...unknownPrefixes)
         }
 
+        // building.parse()
+
+        building.libraryVersion = new LibraryVersion(ns.constant, building.version)
+        building.transformation = Transformation.getSingleton(config)
+
+        building.log = new Logger(config.verbose, `GirModule(${building.packageName})`)
+
+        return building
+    }
+
+    /** Start to parse all the data from the XML we need for the typescript generation */
+    public parse() {
+        const girXML = this.dependency.girXML
+        const ns = girXML?.repository[0]?.namespace?.[0]
+        const options: OptionsLoad = {
+            loadDocs: !this.config.noComments,
+            propertyCase: 'both',
+            verbose: this.config.verbose,
+        }
+        if (!girXML) {
+            throw new Error(`Failed to load gir xml of ${this.dependency.packageName}`)
+        }
+        if (!ns) {
+            throw new Error(`Missing namespace in ${girXML.repository[0].package[0].$.name}`)
+        }
+
         const importConflicts = (el: IntrospectedConstant | IntrospectedBaseClass | IntrospectedFunction) => {
-            return !building.hasImport(el.name)
+            return !this.hasImport(el.name)
         }
 
         if (ns.enumeration) {
@@ -578,38 +559,38 @@ export class GirModule {
             ns.enumeration
                 ?.map((enumeration) => {
                     if (enumeration.$['glib:error-domain']) {
-                        return IntrospectedError.fromXML(enumeration as GirEnumElement, building, options)
+                        return IntrospectedError.fromXML(enumeration as GirEnumElement, this, options)
                     } else {
-                        return IntrospectedEnum.fromXML(enumeration as GirEnumElement, building, options)
+                        return IntrospectedEnum.fromXML(enumeration as GirEnumElement, this, options)
                     }
                 })
-                .forEach((c) => building.members.set(c.name, c))
+                .forEach((c) => this.members.set(c.name, c))
         }
 
         // Constants
         if (ns.constant) {
             ns.constant
                 ?.filter(isIntrospectable)
-                .map((constant) => IntrospectedConstant.fromXML(constant, building, options))
+                .map((constant) => IntrospectedConstant.fromXML(constant, this, options))
                 .filter(importConflicts)
-                .forEach((c) => building.members.set(c.name, c))
+                .forEach((c) => this.members.set(c.name, c))
         }
 
         // Get the requested functions
         if (ns.function) {
             ns.function
                 ?.filter(isIntrospectable)
-                .map((func) => IntrospectedFunction.fromXML(func, building, options))
+                .map((func) => IntrospectedFunction.fromXML(func, this, options))
                 .filter(importConflicts)
-                .forEach((c) => building.members.set(c.name, c))
+                .forEach((c) => this.members.set(c.name, c))
         }
 
         if (ns.callback) {
             ns.callback
                 ?.filter(isIntrospectable)
-                .map((callback) => IntrospectedCallback.fromXML(callback, building, options))
+                .map((callback) => IntrospectedCallback.fromXML(callback, this, options))
                 .filter(importConflicts)
-                .forEach((c) => building.members.set(c.name, c))
+                .forEach((c) => this.members.set(c.name, c))
         }
 
         if (ns['glib:boxed']) {
@@ -619,28 +600,28 @@ export class GirModule {
                     (boxed) =>
                         new IntrospectedAlias({
                             name: boxed.$['glib:name'],
-                            namespace: building,
+                            namespace: this,
                             type: new NullableType(ObjectType),
                         }),
                 )
-                .forEach((c) => building.members.set(c.name, c))
+                .forEach((c) => this.members.set(c.name, c))
         }
 
         // Bitfield is a type of enum
         if (ns.bitfield) {
             ns.bitfield
                 ?.filter(isIntrospectable)
-                .map((field) => IntrospectedEnum.fromXML(field as GirBitfieldElement, building, options, true))
-                .forEach((c) => building.members.set(c.name, c))
+                .map((field) => IntrospectedEnum.fromXML(field as GirBitfieldElement, this, options, true))
+                .forEach((c) => this.members.set(c.name, c))
         }
 
         // The `enum_constants` map maps the C identifiers (GTK_BUTTON_TYPE_Y)
         // to the name of the enum (Button) to resolve references (Gtk.Button.Y)
-        Array.from(building.members.values())
+        Array.from(this.members.values())
             .filter((m): m is IntrospectedEnum => m instanceof IntrospectedEnum)
             .forEach((m) => {
                 m.members.forEach((member) => {
-                    building.enum_constants.set(member.c_identifier, [m.name, member.name] as const)
+                    this.enum_constants.set(member.c_identifier, [m.name, member.name] as const)
                 })
             })
 
@@ -648,32 +629,32 @@ export class GirModule {
         if (ns.class) {
             ns.class
                 ?.filter(isIntrospectable)
-                .map((klass) => IntrospectedClass.fromXML(klass, building, options))
+                .map((klass) => IntrospectedClass.fromXML(klass, this, options))
                 .filter(importConflicts)
-                .forEach((c) => building.members.set(c.name, c))
+                .forEach((c) => this.members.set(c.name, c))
         }
 
         if (ns.record) {
             ns.record
                 ?.filter(isIntrospectable)
-                .map((record) => IntrospectedRecord.fromXML(record, building, options))
+                .map((record) => IntrospectedRecord.fromXML(record, this, options))
                 .filter(importConflicts)
-                .forEach((c) => building.members.set(c.name, c))
+                .forEach((c) => this.members.set(c.name, c))
         }
 
         if (ns.union) {
             ns.union
                 ?.filter(isIntrospectable)
-                .map((union) => IntrospectedRecord.fromXML(union, building, options))
+                .map((union) => IntrospectedRecord.fromXML(union, this, options))
                 .filter(importConflicts)
-                .forEach((c) => building.members.set(c.name, c))
+                .forEach((c) => this.members.set(c.name, c))
         }
 
         if (ns.interface) {
             ns.interface
-                ?.map((inter) => IntrospectedInterface.fromXML(inter as GirInterfaceElement, building, options))
+                ?.map((inter) => IntrospectedInterface.fromXML(inter as GirInterfaceElement, this, options))
                 .filter(importConflicts)
-                .forEach((c) => building.members.set(c.name, c))
+                .forEach((c) => this.members.set(c.name, c))
         }
 
         if (ns.alias) {
@@ -688,7 +669,7 @@ export class GirModule {
                         .map((t) => {
                             if (
                                 t.$.name &&
-                                !building.hasSymbol(t.$.name) &&
+                                !this.hasSymbol(t.$.name) &&
                                 !isPrimitiveType(t.$.name) &&
                                 !t.$.name.includes('.')
                             ) {
@@ -700,21 +681,10 @@ export class GirModule {
 
                     return b
                 })
-                .map((alias) => IntrospectedAlias.fromXML(alias, building, options))
+                .map((alias) => IntrospectedAlias.fromXML(alias, this, options))
                 .filter((alias): alias is IntrospectedAlias => alias != null)
-                .forEach((c) => building.members.set(c.name, c))
+                .forEach((c) => this.members.set(c.name, c))
         }
-
-        // building.namespace = building.ns.name
-        // building.version = building.ns.version
-        // building.packageName = `${building.namespace}-${building.version}`
-        building.libraryVersion = new LibraryVersion(ns.constant, building.version)
-        building.transformation = Transformation.getSingleton(config)
-
-        building.log = new Logger(config.verbose, building.namespace || 'GirModule')
-        building.symTable = new SymTable(building.config, building.namespace, building.namespace)
-
-        return building
     }
 
     /**

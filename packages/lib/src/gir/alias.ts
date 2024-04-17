@@ -62,7 +62,7 @@ export class IntrospectedAlias extends IntrospectedNamespaceMember {
         const alias = new IntrospectedAlias({
             namespace: ns,
             name: sanitizeIdentifierName(ns.namespace, element.$.name),
-            type: getAliasType(ns.namespace, ns, element),
+            type: getAliasType(ns, ns, element),
             isIntrospectable: isIntrospectable(element)
         });
 

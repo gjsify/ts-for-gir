@@ -58,7 +58,7 @@ export class IntrospectedEnum extends IntrospectedNamespaceMember {
     }
 
     getType(): TypeIdentifier {
-        return new TypeIdentifier(this.name, this.ns);
+        return new TypeIdentifier(this.name, this.ns.namespace);
     }
 
     asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateEnum"]> {
@@ -101,13 +101,13 @@ export class IntrospectedEnum extends IntrospectedNamespaceMember {
         if (element.$["glib:type-name"]) {
             em.resolve_names.push(element.$["glib:type-name"]);
 
-            ns.registerResolveName(element.$["glib:type-name"], ns, em.name);
+            ns.registerResolveName(element.$["glib:type-name"], ns.namespace, em.name);
         }
 
         if (element.$["c:type"]) {
             em.resolve_names.push(element.$["c:type"]);
 
-            ns.registerResolveName(element.$["c:type"], ns, em.name);
+            ns.registerResolveName(element.$["c:type"], ns.namespace, em.name);
         }
 
         if (options.loadDocs) {
@@ -219,13 +219,13 @@ export class IntrospectedError extends IntrospectedEnum {
         if (element.$["glib:type-name"]) {
             err.resolve_names.push(element.$["glib:type-name"]);
 
-            ns.registerResolveName(element.$["glib:type-name"], ns, err.name);
+            ns.registerResolveName(element.$["glib:type-name"], ns.namespace, err.name);
         }
 
         if (element.$["c:type"]) {
             err.resolve_names.push(element.$["c:type"]);
 
-            ns.registerResolveName(element.$["c:type"], ns, err.name);
+            ns.registerResolveName(element.$["c:type"], ns.namespace, err.name);
         }
 
         if (options.loadDocs) {

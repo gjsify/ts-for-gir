@@ -185,7 +185,7 @@ export class NSRegistry {
 
         // This mirrors GJS' and GI's default behavior.
         // If we can't find a single version of an unspecified dependency, we throw an error.
-        throw new Error(`No single version found for unspecified dependency: ${name}.`);
+        throw new Error(`No single version found for unspecified dependency: ${JSON.stringify(name)}.`);
     }
 
     assertNamespace(name: string, version: string): IntrospectedNamespace {

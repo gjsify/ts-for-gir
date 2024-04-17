@@ -62,9 +62,11 @@ const stTemplate = (version: string) => ({
         });
 
         if (StBoxLayout.superType) {
-            StBoxLayout.superType = new GenerifiedTypeIdentifier(StBoxLayout.superType.name, StBoxLayout.superType, [
-                ClutterBoxLayout.getType()
-            ]);
+            StBoxLayout.superType = new GenerifiedTypeIdentifier(
+                StBoxLayout.superType.name,
+                StBoxLayout.superType.namespace,
+                [ClutterBoxLayout.getType()]
+            );
         }
 
         Bin.addGeneric({

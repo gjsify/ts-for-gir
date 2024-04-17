@@ -14,9 +14,8 @@ export {
 export { filterConflicts, filterFunctionConflict, FilterBehavior } from './gir/class.js'
 export { resolveDirectedType, resolvePrimitiveType } from './gir/util.js'
 export * from './gir/nodes.js'
-import { DependencyManager } from './dependency-manager.js'
 
-import type { OptionsGeneration, Dependency } from './types/index.js'
+import type { OptionsGeneration } from './types/index.js'
 
 export abstract class TypeExpression {
     isPointer = false
@@ -38,24 +37,14 @@ export abstract class TypeExpression {
 }
 
 export class TypeIdentifier extends TypeExpression {
-    readonly name: string
-    readonly dependency: Dependency
     readonly log: Logger
 
-    get namespace() {
-        return this.dependency.namespace
-    }
-
-    get version() {
-        return this.dependency.version
-    }
-
-    constructor(name: string, dependency: Dependency | { namespace: string; version: string }) {
+    constructor(
+        readonly name: string,
+        readonly namespace: string,
+    ) {
         super()
-        const dependencyManager = DependencyManager.getInstance()
-        this.dependency = dependencyManager.getSync(dependency.namespace, dependency.version)
-        this.name = name
-        this.log = new Logger(true, `TypeIdentifier(${this.dependency.namespace}.${name})`)
+        this.log = new Logger(true, `TypeIdentifier(${this.namespace}.${name})`)
     }
 
     equals(type: TypeExpression): boolean {
@@ -79,10 +68,7 @@ export class TypeIdentifier extends TypeExpression {
      * invalid names such as "3gppProfile"
      */
     sanitize() {
-        return new TypeIdentifier(sanitizeIdentifierName(this.namespace, this.name), {
-            namespace: sanitizeNamespace(this.namespace),
-            version: this.version,
-        })
+        return new TypeIdentifier(sanitizeIdentifierName(this.namespace, this.name), sanitizeNamespace(this.namespace))
     }
 
     protected _resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): TypeIdentifier | null {
@@ -98,7 +84,7 @@ export class TypeIdentifier extends TypeExpression {
             // GirRecord.prototype.getType resolves this relationship.
             if (c) return c.getType()
 
-            return new TypeIdentifier(name, ns)
+            return new TypeIdentifier(name, ns.namespace)
         }
 
         // Handle "class callback" types (they're in a definition-merged module)
@@ -122,13 +108,13 @@ export class TypeIdentifier extends TypeExpression {
         if (!cb && !resolved_name && !c_resolved_name) {
             // Don't warn if a missing import is at fault, this will be dealt with later.
             if (namespace.namespace === ns.namespace) {
-                this.log.error(`Attempting to fall back on c:type inference for ${ns.namespace}.${name}.`)
+                this.log.warn(`Attempting to fall back on c:type inference for ${ns.namespace}.${name}.`)
             }
 
             ;[cb, corrected_name] = ns.findClassCallback(`${ns.namespace}${name}`)
 
             if (cb) {
-                this.log.error(
+                this.log.warn(
                     `Falling back on c:type inference for ${ns.namespace}.${name} and found ${ns.namespace}.${corrected_name}.`,
                 )
             }
@@ -139,15 +125,15 @@ export class TypeIdentifier extends TypeExpression {
                 console.debug(`Callback found: ${cb}.${corrected_name}`)
             }
 
-            return new ModuleTypeIdentifier(corrected_name, cb, ns)
+            return new ModuleTypeIdentifier(corrected_name, cb, ns.namespace)
         } else if (resolved_name) {
-            return new TypeIdentifier(resolved_name, ns)
+            return new TypeIdentifier(resolved_name, ns.namespace)
         } else if (c_resolved_name) {
-            this.log.error(
-                `Fell back on c:type inference for ${ns.namespace}.${name} and found ${ns.namespace}.${corrected_name}.`,
+            this.log.warn(
+                `Fall back on c:type inference for ${ns.namespace}.${name} and found ${ns.namespace}.${corrected_name}.`,
             )
 
-            return new TypeIdentifier(c_resolved_name, ns)
+            return new TypeIdentifier(c_resolved_name, ns.namespace)
         } else if (namespace.namespace === ns.namespace) {
             this.log.error(`Unable to resolve type ${this.name} in same namespace ${ns.namespace}!`)
             return null
@@ -169,12 +155,12 @@ export class TypeIdentifier extends TypeExpression {
         return resolved ?? NeverType
     }
 
-    static new({ name, namespace, version }: { name: string; namespace: string; version: string }) {
-        return new TypeIdentifier(name, { namespace, version })
+    static new({ name, namespace }: { name: string; namespace: string }) {
+        return new TypeIdentifier(name, namespace)
     }
 
     // eslint-disable-next-line  @typescript-eslint/no-unused-vars
-    print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
+    print(namespace: IntrospectedNamespace, _options: OptionsGeneration): string {
         if (namespace.hasSymbol(this.namespace) && this.namespace !== namespace.namespace) {
             // TODO: Move to TypeScript generator...
             // Libraries like zbar have classes named things like "Gtk"
@@ -190,12 +176,12 @@ export class TypeIdentifier extends TypeExpression {
 }
 
 export class ModuleTypeIdentifier extends TypeIdentifier {
-    readonly moduleName: string
-
-    constructor(name: string, moduleName: string, dependency: Dependency | { namespace: string; version: string }) {
-        super(name, dependency)
-
-        this.moduleName = moduleName
+    constructor(
+        name: string,
+        readonly moduleName: string,
+        readonly namespace: string,
+    ) {
+        super(name, namespace)
     }
 
     equals(type: TypeExpression): boolean {
@@ -220,7 +206,7 @@ export class ModuleTypeIdentifier extends TypeIdentifier {
         return new ModuleTypeIdentifier(
             sanitizeIdentifierName(this.namespace, this.name),
             sanitizeIdentifierName(this.namespace, this.moduleName),
-            { namespace: sanitizeNamespace(this.namespace), version: this.version },
+            sanitizeNamespace(this.namespace),
         )
     }
 
@@ -243,8 +229,8 @@ export class ModuleTypeIdentifier extends TypeIdentifier {
  * This class overrides the default printing for types
  */
 export class ClassStructTypeIdentifier extends TypeIdentifier {
-    constructor(name: string, dependency: Dependency | { namespace: string; version: string }) {
-        super(name, dependency)
+    constructor(name: string, namespace: string) {
+        super(name, namespace)
     }
 
     equals(type: TypeExpression): boolean {
@@ -265,12 +251,8 @@ export class ClassStructTypeIdentifier extends TypeIdentifier {
 export class GenerifiedTypeIdentifier extends TypeIdentifier {
     generics: TypeExpression[]
 
-    constructor(
-        name: string,
-        dependency: Dependency | { namespace: string; version: string },
-        generics: TypeExpression[] = [],
-    ) {
-        super(name, dependency)
+    constructor(name: string, namespace: string, generics: TypeExpression[] = []) {
+        super(name, namespace)
         this.generics = generics
     }
 
@@ -288,7 +270,7 @@ export class GenerifiedTypeIdentifier extends TypeIdentifier {
         const iden = super._resolve(namespace, options)
 
         if (iden) {
-            return new GenerifiedTypeIdentifier(iden.name, iden, [...this.generics])
+            return new GenerifiedTypeIdentifier(iden.name, iden.namespace, [...this.generics])
         }
 
         return iden

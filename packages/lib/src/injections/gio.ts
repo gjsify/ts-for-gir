@@ -264,9 +264,7 @@ export default {
                         // Generify the parameter
                         return p.copy({
                             type: p.type.rewrap(
-                                new GenerifiedTypeIdentifier("VariantType", { namespace: "GLib", version: "2.0" }, [
-                                    new GenericType("T")
-                                ])
+                                new GenerifiedTypeIdentifier("VariantType", "GLib", [new GenericType("T")])
                             )
                         });
                     }
@@ -278,11 +276,7 @@ export default {
             const finishReplacement = callFinish.copy({
                 returnType: callFinish
                     .return()
-                    .rewrap(
-                        new GenerifiedTypeIdentifier("Variant", { namespace: "GLib", version: "2.0" }, [
-                            new GenericType("T")
-                        ])
-                    )
+                    .rewrap(new GenerifiedTypeIdentifier("Variant", "GLib", [new GenericType("T")]))
             });
 
             DBusConnection.members.splice(DBusConnection.members.indexOf(call), 1, replacement);
@@ -540,7 +534,7 @@ export default {
                             direction: GirDirection.In,
                             name: "callback",
                             isNullable: true,
-                            type: new TypeIdentifier("AsyncReadyCallback", { namespace: "Gio", version: "2.0" })
+                            type: new TypeIdentifier("AsyncReadyCallback", "Gio")
                         })
                     ]
                 })

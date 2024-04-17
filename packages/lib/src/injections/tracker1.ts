@@ -21,30 +21,21 @@ export default {
 
         if (CursorClass instanceof IntrospectedRecord) {
             // @ts-expect-error This is a private property by Tracker is cursed
-            CursorClass._structFor = new ClassStructTypeIdentifier("SparqlCursor", {
-                namespace: "Tracker",
-                version: "1.0"
-            });
+            CursorClass._structFor = new ClassStructTypeIdentifier("SparqlCursor", "Tracker");
         }
 
         const ConnectionClass = namespace.members.get("SparqlConnectionClass");
 
         if (ConnectionClass instanceof IntrospectedRecord) {
             // @ts-expect-error This is a private property by Tracker is cursed
-            ConnectionClass._structFor = new ClassStructTypeIdentifier("SparqlConnection", {
-                namespace: "Tracker",
-                version: "1.0"
-            });
+            ConnectionClass._structFor = new ClassStructTypeIdentifier("SparqlConnection", "Tracker");
         }
 
         const BuilderClass = namespace.members.get("SparqlBuilderClass");
 
         if (BuilderClass instanceof IntrospectedRecord) {
             // @ts-expect-error This is a private property by Tracker is cursed
-            BuilderClass._structFor = new ClassStructTypeIdentifier("SparqlBuilder", {
-                namespace: "Tracker",
-                version: "1.0"
-            });
+            BuilderClass._structFor = new ClassStructTypeIdentifier("SparqlBuilder", "Tracker");
         }
     }
 };

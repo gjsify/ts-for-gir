@@ -34,7 +34,6 @@ import {
 import { Metadata } from "./base.js";
 import { IntrospectedBaseClass } from "./class.js";
 import { TwoKeyMap } from "../util.js";
-import { Dependency } from "../types/dependency.js";
 
 const reservedWords = [
     // For now, at least, the typescript compiler doesn't throw on numerical types like int, float, etc.
@@ -105,11 +104,7 @@ const reservedWords = [
     "yield"
 ];
 
-export function getAliasType(
-    dependency: Dependency | { namespace: string; version: string },
-    ns: IntrospectedNamespace,
-    parameter: GirAliasElement
-): TypeExpression {
+export function getAliasType(namespace: string, ns: IntrospectedNamespace, parameter: GirAliasElement): TypeExpression {
     let name = parameter.type?.[0].$["name"] || "unknown";
 
     const nameParts = name.split(" ");
@@ -120,7 +115,7 @@ export function getAliasType(
         name = nameParts[1];
     }
 
-    return parseTypeExpression(dependency, ns.allDependencies, name);
+    return parseTypeExpression(namespace, name);
 }
 
 /**
@@ -249,7 +244,7 @@ export function getType(
         throw new Error(`Un-parsable type: ${name}`);
     }
 
-    let variableType: TypeExpression = parseTypeExpression(ns, ns.allDependencies, name);
+    let variableType: TypeExpression = parseTypeExpression(ns.namespace, name);
 
     if (variableType instanceof TypeIdentifier) {
         if (variableType.is("GLib", "List") || variableType.is("GLib", "SList")) {
@@ -259,7 +254,7 @@ export function getType(
 
             if (listType) {
                 name = listType;
-                variableType = parseTypeExpression(ns, ns.allDependencies, name);
+                variableType = parseTypeExpression(ns.namespace, name);
 
                 arrayDepth = 1;
             }
@@ -268,13 +263,10 @@ export function getType(
             const valueType = parameter?.type?.[0]?.type?.[1]?.$.name;
 
             if (keyType && valueType) {
-                const key = parseTypeExpression(ns, ns.allDependencies, keyType);
-                const value = parseTypeExpression(ns, ns.allDependencies, valueType);
+                const key = parseTypeExpression(ns.namespace, keyType);
+                const value = parseTypeExpression(ns.namespace, valueType);
 
-                variableType = new GenerifiedTypeIdentifier("HashTable", { namespace: "GLib", version: "2.0" }, [
-                    key,
-                    value
-                ]);
+                variableType = new GenerifiedTypeIdentifier("HashTable", "GLib", [key, value]);
             }
         }
     }
@@ -417,71 +409,30 @@ export function parseTypeString(type: string): { namespace: string | null; name:
     }
 }
 
-export function findVersionForNamespace(namespace: string, dependencies: Dependency[]): string | undefined {
-    if (namespace === "GLib" || namespace === "GObject" || namespace === "Gio") {
-        return "2.0";
-    }
-    namespace = sanitizeNamespace(namespace);
-    const dep = dependencies.find(dep => dep.namespace === namespace);
-    return dep?.version;
-}
-
-export function parseTypeIdentifier(
-    dependency: Dependency | { namespace: string; version: string },
-    dependencies: Dependency[],
-    type: string
-): TypeIdentifier {
+export function parseTypeIdentifier(namespace: string, type: string): TypeIdentifier {
     const baseType = parseTypeString(type);
 
     if (baseType.namespace) {
-        if (baseType.namespace === dependency.namespace) {
-            return new TypeIdentifier(baseType.name, dependency);
-        }
-        const dep = {
-            namespace: baseType.namespace,
-            version: findVersionForNamespace(baseType.namespace, dependencies) || ""
-        };
-
-        if (!dep.version) {
-            throw new Error(
-                `Failed to find version for ${baseType.namespace} (Parent is ${dependency.namespace}.${dependency.version})`
-            );
-        }
-
-        return new TypeIdentifier(baseType.name, dep);
+        return new TypeIdentifier(baseType.name, baseType.namespace);
     } else {
-        return new TypeIdentifier(baseType.name, dependency);
+        return new TypeIdentifier(baseType.name, namespace);
     }
 }
 
-export function parseTypeExpression(
-    dependency: Dependency | { namespace: string; version: string },
-    dependencies: Dependency[],
-    type: string
-): TypeExpression {
+export function parseTypeExpression(namespace: string, type: string): TypeExpression {
     const baseType = parseTypeString(type);
     if (baseType.namespace) {
-        if (baseType.namespace === dependency.namespace) {
-            return new TypeIdentifier(baseType.name, dependency);
+        if (baseType.namespace === namespace) {
+            return new TypeIdentifier(baseType.name, namespace);
         }
-        const dep = {
-            namespace: baseType.namespace,
-            version: findVersionForNamespace(baseType.namespace, dependencies) || ""
-        };
-
-        if (!dep.version) {
-            throw new Error(
-                `Failed to find version for ${baseType.namespace} (Parent is ${dependency.namespace}.${dependency.version})`
-            );
-        }
-        return new TypeIdentifier(baseType.name, dep).sanitize();
+        return new TypeIdentifier(baseType.name, baseType.namespace).sanitize();
     } else {
         const primitiveType = resolvePrimitiveType(baseType.name);
 
         if (primitiveType !== null) {
             return primitiveType;
         } else {
-            return new TypeIdentifier(baseType.name, dependency);
+            return new TypeIdentifier(baseType.name, namespace);
         }
     }
 }
@@ -517,7 +468,7 @@ export function resolvePrimitiveType(name: string): TypeExpression | null {
             return StringType;
         // Pass this through
         case "GType":
-            return new TypeIdentifier("GType", { namespace: "GObject", version: "2.0" });
+            return new TypeIdentifier("GType", "GObject");
         case "utf8":
             return StringType;
         case "void": // Support TS "void"

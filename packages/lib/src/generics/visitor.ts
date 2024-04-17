@@ -102,7 +102,7 @@ export class GenericVisitor extends GirVisitor {
                 if (generic.length > 0) {
                     return new GenerifiedTypeIdentifier(
                         iface.name,
-                        iface,
+                        iface.namespace,
                         generic.map(g => g.type)
                     );
                 }
@@ -119,7 +119,9 @@ export class GenericVisitor extends GirVisitor {
                             );
 
                             if (constrainedGeneric) {
-                                return new GenerifiedTypeIdentifier(iface.name, iface, [constrainedGeneric.type]);
+                                return new GenerifiedTypeIdentifier(iface.name, iface.namespace, [
+                                    constrainedGeneric.type
+                                ]);
                             }
 
                             if (
@@ -134,13 +136,13 @@ export class GenericVisitor extends GirVisitor {
 
                                 const firstGeneric = node.generics[node.generics.length - 1];
 
-                                return new GenerifiedTypeIdentifier(resolved.name, resolved.namespace, [
+                                return new GenerifiedTypeIdentifier(resolved.name, resolved.namespace.namespace, [
                                     firstGeneric.type
                                 ]);
                             }
                         }
 
-                        return new GenerifiedTypeIdentifier(iface.name, iface, [node.getType()]);
+                        return new GenerifiedTypeIdentifier(iface.name, iface.namespace, [node.getType()]);
                     }
                 }
 
@@ -158,7 +160,7 @@ export class GenericVisitor extends GirVisitor {
             } else if (generic.length > 0) {
                 node.superType = new GenerifiedTypeIdentifier(
                     parentType.name,
-                    parentType,
+                    parentType.namespace,
                     generic.map(g => g.type)
                 );
             } else {
@@ -173,7 +175,7 @@ export class GenericVisitor extends GirVisitor {
                         );
 
                         if (constrainedGeneric) {
-                            node.superType = new GenerifiedTypeIdentifier(resolved.name, resolved.namespace, [
+                            node.superType = new GenerifiedTypeIdentifier(resolved.name, resolved.namespace.namespace, [
                                 constrainedGeneric.type
                             ]);
                         } else {
@@ -189,17 +191,21 @@ export class GenericVisitor extends GirVisitor {
 
                                 const firstGeneric = node.generics[node.generics.length - 1];
 
-                                node.superType = new GenerifiedTypeIdentifier(resolved.name, resolved.namespace, [
-                                    firstGeneric.type
-                                ]);
+                                node.superType = new GenerifiedTypeIdentifier(
+                                    resolved.name,
+                                    resolved.namespace.namespace,
+                                    [firstGeneric.type]
+                                );
                             } else if (
                                 [...node.resolveParents()].some(
                                     c => generic.defaultType && c.identifier.equals(generic.defaultType)
                                 )
                             ) {
-                                node.superType = new GenerifiedTypeIdentifier(resolved.name, resolved.namespace, [
-                                    node.getType()
-                                ]);
+                                node.superType = new GenerifiedTypeIdentifier(
+                                    resolved.name,
+                                    resolved.namespace.namespace,
+                                    [node.getType()]
+                                );
                             }
                         }
                     } else if (
@@ -207,7 +213,7 @@ export class GenericVisitor extends GirVisitor {
                             c => generic.defaultType && c.identifier.equals(generic.defaultType)
                         )
                     ) {
-                        node.superType = new GenerifiedTypeIdentifier(resolved.name, resolved.namespace, [
+                        node.superType = new GenerifiedTypeIdentifier(resolved.name, resolved.namespace.namespace, [
                             node.getType()
                         ]);
                     }
@@ -233,7 +239,7 @@ export class GenericVisitor extends GirVisitor {
                 if (member instanceof IntrospectedFunction && member.parameters.length >= 2) {
                     const generified = node.copy({
                         type: node.type.rewrap(
-                            new GenerifiedTypeIdentifier(internal.name, internal, [member.parameters[0].type])
+                            new GenerifiedTypeIdentifier(internal.name, internal.namespace, [member.parameters[0].type])
                         )
                     });
 
@@ -241,14 +247,16 @@ export class GenericVisitor extends GirVisitor {
                 } else if (member instanceof IntrospectedStaticClassFunction) {
                     const generified = node.copy({
                         type: node.type.rewrap(
-                            new GenerifiedTypeIdentifier(internal.name, internal, [member.parent.getType()])
+                            new GenerifiedTypeIdentifier(internal.name, internal.namespace, [member.parent.getType()])
                         )
                     });
 
                     return generified;
                 } else if (member instanceof IntrospectedClassFunction) {
                     const generified = node.copy({
-                        type: node.type.rewrap(new GenerifiedTypeIdentifier(internal.name, internal, [ThisType]))
+                        type: node.type.rewrap(
+                            new GenerifiedTypeIdentifier(internal.name, internal.namespace, [ThisType])
+                        )
                     });
 
                     return generified;

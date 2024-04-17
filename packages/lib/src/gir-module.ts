@@ -228,12 +228,8 @@ export class GirModule {
         return tags
     }
 
-    registerResolveName(
-        resolveName: string,
-        dependency: Dependency | { namespace: string; version: string },
-        name: string,
-    ) {
-        this._resolve_names.set(resolveName, new TypeIdentifier(name, dependency))
+    registerResolveName(resolveName: string, namespace: string, name: string) {
+        this._resolve_names.set(resolveName, new TypeIdentifier(name, namespace))
     }
 
     get members(): Map<string, GirNSMember | GirNSMember[]> {

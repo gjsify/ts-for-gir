@@ -291,7 +291,7 @@ export function filterFunctionConflict<
 
                 prev.push(next, never as T);
             } else if (field_conflicts) {
-                log.error(`Omitting ${next.name} due to field or property conflict.`);
+                log.warn(`Omitting ${next.name} due to field or property conflict.`);
             } else {
                 prev.push(next);
             }
@@ -510,7 +510,7 @@ export abstract class IntrospectedBaseClass extends IntrospectedNamespaceMember 
     }
 
     getType(): TypeIdentifier {
-        return new TypeIdentifier(this.name, this.namespace);
+        return new TypeIdentifier(this.name, this.namespace.namespace);
     }
 
     static fromXML(
@@ -899,19 +899,19 @@ export class IntrospectedClass extends IntrospectedBaseClass {
         if (element.$["glib:type-name"]) {
             clazz.resolve_names.push(element.$["glib:type-name"]);
 
-            ns.registerResolveName(element.$["glib:type-name"], ns, name);
+            ns.registerResolveName(element.$["glib:type-name"], ns.namespace, name);
         }
 
         if (element.$["glib:type-struct"]) {
             clazz.resolve_names.push();
 
-            ns.registerResolveName(element.$["glib:type-struct"], ns, name);
+            ns.registerResolveName(element.$["glib:type-struct"], ns.namespace, name);
         }
 
         if (element.$["c:type"]) {
             clazz.resolve_names.push(element.$["c:type"]);
 
-            ns.registerResolveName(element.$["c:type"], ns, name);
+            ns.registerResolveName(element.$["c:type"], ns.namespace, name);
         }
 
         const typeStruct = element.$["glib:type-struct"];
@@ -920,13 +920,13 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 
             clazz.resolve_names.push(typeStruct);
 
-            ns.registerResolveName(typeStruct, ns, name);
+            ns.registerResolveName(typeStruct, ns.namespace, name);
         }
 
         try {
             // Setup parent type if this is an interface or class.
             if (element.$.parent) {
-                clazz.superType = parseTypeIdentifier(ns, ns.allDependencies, element.$.parent);
+                clazz.superType = parseTypeIdentifier(ns.namespace, element.$.parent);
             }
 
             if (element.$.abstract) {
@@ -994,7 +994,7 @@ export class IntrospectedClass extends IntrospectedBaseClass {
             if (element.implements) {
                 element.implements.forEach(implementee => {
                     const name = implementee.$.name;
-                    const type = parseTypeIdentifier(ns, ns.allDependencies, name);
+                    const type = parseTypeIdentifier(ns.namespace, name);
 
                     if (type) {
                         clazz.interfaces.push(type);
@@ -1064,7 +1064,7 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
             return this._structFor;
         }
 
-        return new TypeIdentifier(this.name, this.namespace);
+        return new TypeIdentifier(this.name, this.namespace.namespace);
     }
 
     someParent(predicate: (p: IntrospectedRecord) => boolean): boolean {
@@ -1217,25 +1217,21 @@ export class IntrospectedRecord extends IntrospectedBaseClass {
         );
 
         if (typeof element.$["glib:is-gtype-struct-for"] === "string" && !!element.$["glib:is-gtype-struct-for"]) {
-            const structFor = parseTypeIdentifier(
-                namespace,
-                namespace.allDependencies,
-                element.$["glib:is-gtype-struct-for"]
-            );
+            const structFor = parseTypeIdentifier(namespace.namespace, element.$["glib:is-gtype-struct-for"]);
 
             // This let's replace these references when generating.
-            clazz._structFor = new ClassStructTypeIdentifier(structFor.name, structFor);
+            clazz._structFor = new ClassStructTypeIdentifier(structFor.name, structFor.namespace);
         } else {
             if (element.$["glib:type-name"]) {
                 clazz.resolve_names.push(element.$["glib:type-name"]);
 
-                namespace.registerResolveName(element.$["glib:type-name"], namespace, name);
+                namespace.registerResolveName(element.$["glib:type-name"], namespace.namespace, name);
             }
 
             if (element.$["c:type"]) {
                 clazz.resolve_names.push(element.$["c:type"]);
 
-                namespace.registerResolveName(element.$["c:type"], namespace, name);
+                namespace.registerResolveName(element.$["c:type"], namespace.namespace, name);
             }
         }
 
@@ -1582,19 +1578,19 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
         if (element.$["glib:type-name"]) {
             clazz.resolve_names.push(element.$["glib:type-name"]);
 
-            namespace.registerResolveName(element.$["glib:type-name"], namespace, name);
+            namespace.registerResolveName(element.$["glib:type-name"], namespace.namespace, name);
         }
 
         if (element.$["glib:type-struct"]) {
             clazz.resolve_names.push();
 
-            namespace.registerResolveName(element.$["glib:type-struct"], namespace, name);
+            namespace.registerResolveName(element.$["glib:type-struct"], namespace.namespace, name);
         }
 
         if (element.$["c:type"]) {
             clazz.resolve_names.push(element.$["c:type"]);
 
-            namespace.registerResolveName(element.$["c:type"], namespace, name);
+            namespace.registerResolveName(element.$["c:type"], namespace.namespace, name);
         }
 
         try {
@@ -1603,7 +1599,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
                 const [prerequisite] = element.prerequisite;
 
                 if (prerequisite.$.name) {
-                    clazz.superType = parseTypeIdentifier(namespace, namespace.allDependencies, prerequisite.$.name);
+                    clazz.superType = parseTypeIdentifier(namespace.namespace, prerequisite.$.name);
                 }
             }
 

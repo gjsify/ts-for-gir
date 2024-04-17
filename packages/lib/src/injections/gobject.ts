@@ -213,14 +213,14 @@ export default {
                         type: new OrType(
                             namespace.assertClass("Object").getType(),
                             new NativeType("Function"),
-                            new TypeIdentifier("GType", { namespace: "GObject", version: "2.0" })
+                            new TypeIdentifier("GType", "GObject")
                         )
                     })
                 ]
             });
 
             function ParamSpecWithGenerics(type: TypeExpression) {
-                return new GenerifiedTypeIdentifier("ParamSpec", { namespace: "GObject", version: "2.0" }, [type]);
+                return new GenerifiedTypeIdentifier("ParamSpec", "GObject", [type]);
             }
 
             ParamSpec.members.push(
@@ -503,10 +503,10 @@ export default {
                     new TupleType(Object.getType(), NativeType.of("SignalMatch")),
                     new TupleType(
                         Object.getType(),
-                        new TypeIdentifier("SignalMatchType", { namespace: "GObject", version: "2.0" }),
+                        new TypeIdentifier("SignalMatchType", "GObject"),
                         NumberType,
-                        new TypeIdentifier("Quark", { namespace: "GLib", version: "2.0" }),
-                        new NullableType(new TypeIdentifier("Closure", { namespace: "GObject", version: "2.0" })),
+                        new TypeIdentifier("Quark", "GLib"),
+                        new NullableType(new TypeIdentifier("Closure", "GObject")),
                         new NullableType(ObjectType),
                         new NullableType(ObjectType)
                     )
@@ -537,7 +537,7 @@ export default {
                 new IntrospectedFunctionParameter({
                     name: "match",
                     direction: GirDirection.In,
-                    type: new TypeIdentifier("SignalMatchType", { namespace: "GObject", version: "2.0" })
+                    type: new TypeIdentifier("SignalMatchType", "GObject")
                 }),
                 new IntrospectedFunctionParameter({
                     name: "signal_id",
@@ -546,12 +546,12 @@ export default {
                 }),
                 new IntrospectedFunctionParameter({
                     name: "detail",
-                    type: new TypeIdentifier("Quark", { namespace: "GLib", version: "2.0" }),
+                    type: new TypeIdentifier("Quark", "GLib"),
                     direction: GirDirection.In
                 }),
                 new IntrospectedFunctionParameter({
                     name: "closure",
-                    type: new NullableType(new TypeIdentifier("Closure", { namespace: "GObject", version: "2.0" })),
+                    type: new NullableType(new TypeIdentifier("Closure", "GObject")),
                     direction: GirDirection.In
                 }),
                 new IntrospectedFunctionParameter({

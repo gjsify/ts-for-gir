@@ -19,6 +19,7 @@
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": [
+    "lib",
     "node_modules",
     "**/*.spec.ts",
     "templates"

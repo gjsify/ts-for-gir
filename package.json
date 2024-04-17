@@ -45,7 +45,7 @@
     "validate:examples": "yarn workspaces foreach -v --all --parallel run validate:app",
     "validate:types:packages": "yarn workspace @ts-for-gir-test/types-packages run validate:types:packages",
     "clear": "yarn clear:build && yarn clear:types",
-    "clear:build": "yarn workspaces foreach -v --include '@ts-for-gir/*' run clear:build",
+    "clear:build": "yarn workspaces foreach -v --all --include '@ts-for-gir/*' run clear:build",
     "clear:types": "yarn run clear:types:local",
     "clear:types:local": "rimraf ./@types",
     "clear:examples": "yarn workspaces foreach -v --all --include '@ts-for-gir-example/*' --include '*-example' --parallel run clear",

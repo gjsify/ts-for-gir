@@ -19,7 +19,7 @@ const metaTemplate = (version: string) => ({
         const parent = BackgroundActor.superType;
 
         if (parent) {
-            BackgroundActor.superType = new GenerifiedTypeIdentifier(parent.name, parent, [
+            BackgroundActor.superType = new GenerifiedTypeIdentifier(parent.name, parent.namespace, [
                 LayoutManager.getType(),
                 BackgroundContent.getType()
             ]);

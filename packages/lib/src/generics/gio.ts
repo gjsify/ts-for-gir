@@ -53,11 +53,7 @@ export default {
                     return m.copy({
                         returnType: m
                             .return()
-                            .rewrap(
-                                new GenerifiedTypeIdentifier("Variant", { namespace: "GLib", version: "2.0" }, [
-                                    new GenericType("T")
-                                ])
-                            )
+                            .rewrap(new GenerifiedTypeIdentifier("Variant", "GLib", [new GenericType("T")]))
                     });
                 }
 

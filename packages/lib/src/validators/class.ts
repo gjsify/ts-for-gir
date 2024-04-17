@@ -85,7 +85,7 @@ const fixParamSpecSubtypes = <T extends IntrospectedBaseClass>(node: T): T => {
     if (node.superType?.namespace === "GObject" && node.superType.name.startsWith("ParamSpec")) {
         // We don't assert this import because we don't want to force libraries
         // to unnecessarily import GObject.
-        node.superType = new TypeIdentifier("ParamSpec", { namespace: "GObject", version: "2.0" });
+        node.superType = new TypeIdentifier("ParamSpec", "GObject");
 
         node.noEmit();
     }

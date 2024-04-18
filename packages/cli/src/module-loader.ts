@@ -378,7 +378,7 @@ export class ModuleLoader {
             return null
         }
 
-        this.log.log(`Parsing ${dependency.path}...`)
+        this.log.log(`Loading ${dependency.packageName}...`)
         const girModule = await GirModule.load(dependency, this.config, this.dependencyManager)
         // Figure out transitive module dependencies
         this.extendDependencyMapByGirModule(girModule)

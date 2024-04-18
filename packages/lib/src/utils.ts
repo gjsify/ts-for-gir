@@ -3,7 +3,7 @@ import lodash from 'lodash'
 import { join, dirname } from 'path'
 import { existsSync } from 'fs'
 import { readFile } from 'fs/promises'
-import { globSync } from 'glob'
+import { glob, globSync } from 'glob'
 
 import { fileURLToPath } from 'url'
 import { FileInfo } from './types/index.js'
@@ -312,32 +312,76 @@ export const underscores = (str: string): string => {
  * @param filename The filename to search for
  * @returns The file info
  */
-export const findFileInDirs = (dirs: string[], filename: string): FileInfo => {
-    const FileInfo: FileInfo = {
-        path: null,
-        filename,
-        exists: false,
-    }
+export const findFilesInDirs = async (dirs: string[], filename: string): Promise<FileInfo[]> => {
+    const filesInfo: FileInfo[] = []
 
     const pattern = dirs.map((dir) => join(dir, filename))
-    const files = globSync(pattern)
+    const _files = await glob(pattern)
 
-    if (files.length > 1) {
-        Logger.warn(`Multiple paths found for ${filename}`)
-        for (const filePath of files) {
-            Logger.gray(` - ${filePath}`)
-        }
-    }
+    // Remove duplicates
+    const files = [...new Set(_files)]
 
     for (const filePath of files) {
-        FileInfo.exists = existsSync(filePath)
-        if (FileInfo.exists) {
-            FileInfo.path = filePath
-            return FileInfo
+        const fileInfo: FileInfo = {
+            path: null,
+            filename,
+            exists: false,
+        }
+        fileInfo.exists = existsSync(filePath)
+        if (fileInfo.exists) {
+            fileInfo.path = filePath
+            filesInfo.push(fileInfo)
         }
     }
 
-    return FileInfo
+    if (filesInfo.length === 0) {
+        filesInfo.push({
+            path: null,
+            filename,
+            exists: false,
+        })
+    }
+
+    return filesInfo
+}
+
+/**
+ * Find a file in a list of directories (sync)
+ * @param dirs The directories to search in
+ * @param filename The filename to search for
+ * @returns The file info
+ */
+export const findFilesInDirsSync = (dirs: string[], filename: string): FileInfo[] => {
+    const filesInfo: FileInfo[] = []
+
+    const pattern = dirs.map((dir) => join(dir, filename))
+    const _files = globSync(pattern)
+
+    // Remove duplicates
+    const files = [...new Set(_files)]
+
+    for (const filePath of files) {
+        const fileInfo: FileInfo = {
+            path: null,
+            filename,
+            exists: false,
+        }
+        fileInfo.exists = existsSync(filePath)
+        if (fileInfo.exists) {
+            fileInfo.path = filePath
+            filesInfo.push(fileInfo)
+        }
+    }
+
+    if (filesInfo.length === 0) {
+        filesInfo.push({
+            path: null,
+            filename,
+            exists: false,
+        })
+    }
+
+    return filesInfo
 }
 
 /**

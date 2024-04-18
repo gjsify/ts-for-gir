@@ -87,6 +87,9 @@ export class Logger {
     public danger(txt: string, ...args: unknown[]): void {
         console.error(red(txt), ...args)
     }
+    public muted(txt: string, ...args: unknown[]): void {
+        this.log(gray(txt), ...args)
+    }
 
     // Static versions (Here it must be ensured that Verbose is activated)
     public static log(...args: unknown[]): void {

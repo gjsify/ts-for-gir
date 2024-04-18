@@ -61,8 +61,6 @@ export class GenerationHandler {
 
         for (const girModule of girModules) {
             this.log.log(` - ${girModule.packageName} ...`)
-            girModule.start(girModules)
-
             await this.generator.generate(registry, girModule)
         }
 

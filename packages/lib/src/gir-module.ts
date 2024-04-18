@@ -88,7 +88,16 @@ export class GirModule {
      * The version of the library as an object.
      * E.g. `{ major: 4, minor: 0, patch: 0 }` or as string `4.0.0`'
      */
-    libraryVersion!: LibraryVersion
+    get libraryVersion(): LibraryVersion {
+        // GObject and Gio are following the version of GLib
+        if (this.namespace === 'GObject' || this.namespace === 'Gio') {
+            const dep = this.allDependencies.find((girModule) => girModule.namespace === 'GLib')
+            if (dep) {
+                return dep.libraryVersion
+            }
+        }
+        return this.dependency.libraryVersion
+    }
 
     protected _dependencies: Dependency[] | null = null
     protected _transitiveDependencies: Dependency[] | null = null
@@ -501,9 +510,6 @@ export class GirModule {
 
         const c_prefix = ns.$?.['c:identifier-prefixes']?.split(',') ?? []
 
-        if (config.verbose) {
-            console.debug(`Parsing ${modName}...`)
-        }
         const building = new GirModule(dependency, c_prefix, config)
         await building.initDependencies()
         building.parent = registry
@@ -515,14 +521,11 @@ export class GirModule {
         const unknownPrefixes = prefixes?.filter((pre) => pre !== modName)
 
         if (unknownPrefixes && unknownPrefixes.length > 0) {
-            console.log(`Found additional prefixes for ${modName}: ${unknownPrefixes.join(', ')}`)
+            Logger.log(`Found additional prefixes for ${modName}: ${unknownPrefixes.join(', ')}`)
 
             building.prefixes.push(...unknownPrefixes)
         }
 
-        // building.parse()
-
-        building.libraryVersion = new LibraryVersion(ns.constant, building.version)
         building.transformation = Transformation.getSingleton(config)
 
         building.log = new Logger(config.verbose, `GirModule(${building.packageName})`)
@@ -532,6 +535,7 @@ export class GirModule {
 
     /** Start to parse all the data from the XML we need for the typescript generation */
     public parse() {
+        this.log.debug(`Parsing ${this.dependency.packageName}...`)
         const girXML = this.dependency.girXML
         const ns = girXML?.repository[0]?.namespace?.[0]
         const options: OptionsLoad = {
@@ -680,19 +684,6 @@ export class GirModule {
                 .map((alias) => IntrospectedAlias.fromXML(alias, this, options))
                 .filter((alias): alias is IntrospectedAlias => alias != null)
                 .forEach((c) => this.members.set(c.name, c))
-        }
-    }
-
-    /**
-     * Start processing the typescript data
-     */
-    public start(girModules: GirModule[]) {
-        // GObject and Gio are following the version of GLib
-        if (this.namespace === 'GObject' || this.namespace === 'Gio') {
-            const glibModule = girModules.find((girModule) => girModule.namespace === 'GLib')
-            if (glibModule) {
-                this.libraryVersion = glibModule.libraryVersion
-            }
         }
     }
 }

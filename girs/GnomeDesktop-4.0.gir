@@ -1820,13 +1820,13 @@ This function is threadsafe and does no blocking I/O.</doc>
               version="3.8">
       <doc xml:space="preserve"
            filename="libgnome-desktop/gnome-languages.c"
-           line="1243">Gets all locales.</doc>
+           line="1233">Gets all locales.</doc>
       <source-position filename="libgnome-desktop/gnome-languages.h"
-                       line="40"/>
+                       line="39"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-languages.c"
-             line="1248">
+             line="1238">
   a newly allocated %NULL-terminated string array containing the
   all locales. Free with g_strfreev().</doc>
         <array c:type="char**">
@@ -1839,14 +1839,14 @@ This function is threadsafe and does no blocking I/O.</doc>
               version="3.8">
       <doc xml:space="preserve"
            filename="libgnome-desktop/gnome-languages.c"
-           line="1303">Gets the country name for @code. If @translation is provided the
+           line="1293">Gets the country name for @code. If @translation is provided the
 returned string is translated accordingly.</doc>
       <source-position filename="libgnome-desktop/gnome-languages.h"
-                       line="50"/>
+                       line="49"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-languages.c"
-             line="1311">the country name. Caller takes
+             line="1301">the country name. Caller takes
 ownership.</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
@@ -1854,7 +1854,7 @@ ownership.</doc>
         <parameter name="code" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="1305">an ISO 3166 code string</doc>
+               line="1295">an ISO 3166 code string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="translation"
@@ -1863,7 +1863,7 @@ ownership.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="1306">a locale string</doc>
+               line="1296">a locale string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -1873,14 +1873,14 @@ ownership.</doc>
               version="3.8">
       <doc xml:space="preserve"
            filename="libgnome-desktop/gnome-languages.c"
-           line="1148">Gets the country description for @locale. If @translation is
+           line="1138">Gets the country description for @locale. If @translation is
 provided the returned string is translated accordingly.</doc>
       <source-position filename="libgnome-desktop/gnome-languages.h"
-                       line="38"/>
+                       line="37"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-languages.c"
-             line="1156">the country description. Caller
+             line="1146">the country description. Caller
 takes ownership.</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
@@ -1888,7 +1888,7 @@ takes ownership.</doc>
         <parameter name="locale" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="1150">a locale string</doc>
+               line="1140">a locale string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="translation"
@@ -1897,109 +1897,8 @@ takes ownership.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="1151">a locale string</doc>
+               line="1141">a locale string</doc>
           <type name="utf8" c:type="const char*"/>
-        </parameter>
-      </parameters>
-    </function>
-    <function name="get_default_input_sources"
-              c:identifier="gnome_get_default_input_sources"
-              version="46">
-      <doc xml:space="preserve"
-           filename="libgnome-desktop/gnome-languages.c"
-           line="1732">Asynchronously fetches a list of of default input sources based on locale and system
-configuration. This is for when a user has no input sources configured
-in GSettings.</doc>
-      <source-position filename="libgnome-desktop/gnome-languages.h"
-                       line="61"/>
-      <return-value transfer-ownership="none">
-        <type name="none" c:type="void"/>
-      </return-value>
-      <parameters>
-        <parameter name="cancellable"
-                   transfer-ownership="none"
-                   nullable="1"
-                   allow-none="1">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-languages.c"
-               line="1734">a #GCancellable</doc>
-          <type name="Gio.Cancellable" c:type="GCancellable*"/>
-        </parameter>
-        <parameter name="callback"
-                   transfer-ownership="none"
-                   nullable="1"
-                   allow-none="1"
-                   scope="async"
-                   closure="2">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-languages.c"
-               line="1735">a #GAsyncReadyCallback</doc>
-          <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
-        </parameter>
-        <parameter name="user_data"
-                   transfer-ownership="none"
-                   nullable="1"
-                   allow-none="1">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-languages.c"
-               line="1736">user data for @callback</doc>
-          <type name="gpointer" c:type="gpointer"/>
-        </parameter>
-      </parameters>
-    </function>
-    <function name="get_default_input_sources_finish"
-              c:identifier="gnome_get_default_input_sources_finish"
-              version="46"
-              throws="1">
-      <doc xml:space="preserve"
-           filename="libgnome-desktop/gnome-languages.c"
-           line="1764">Returns a whether or not a list of default input sources based on locale and system
-configuration could be retrieved. This is for when a user has no input sources configured
-in GSettings.</doc>
-      <source-position filename="libgnome-desktop/gnome-languages.h"
-                       line="65"/>
-      <return-value transfer-ownership="none">
-        <type name="gboolean" c:type="gboolean"/>
-      </return-value>
-      <parameters>
-        <parameter name="result" transfer-ownership="none">
-          <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
-        </parameter>
-        <parameter name="ids"
-                   direction="out"
-                   caller-allocates="0"
-                   transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-languages.c"
-               line="1766">an array of input sources (eg. "us+dvorak" or "anthy")</doc>
-          <array c:type="GStrv*">
-            <type name="utf8"/>
-          </array>
-        </parameter>
-        <parameter name="types"
-                   direction="out"
-                   caller-allocates="0"
-                   transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-languages.c"
-               line="1767">an array of types (either "xkb" or "ibus")</doc>
-          <array c:type="GStrv*">
-            <type name="utf8"/>
-          </array>
-        </parameter>
-        <parameter name="options"
-                   direction="out"
-                   caller-allocates="0"
-                   transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-languages.c"
-               line="1768">an options string to use with all input sources</doc>
-          <array c:type="GStrv*">
-            <type name="utf8"/>
-          </array>
-        </parameter>
-        <parameter name="model" transfer-ownership="none">
-          <type name="utf8" c:type="char**"/>
         </parameter>
       </parameters>
     </function>
@@ -2008,21 +1907,21 @@ in GSettings.</doc>
               version="3.8">
       <doc xml:space="preserve"
            filename="libgnome-desktop/gnome-languages.c"
-           line="1399">Gets the default input source's type and identifier for a given
+           line="1389">Gets the default input source's type and identifier for a given
 locale.</doc>
       <source-position filename="libgnome-desktop/gnome-languages.h"
-                       line="54"/>
+                       line="53"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-languages.c"
-             line="1410">%TRUE if a input source exists or %FALSE otherwise.</doc>
+             line="1400">%TRUE if a input source exists or %FALSE otherwise.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="locale" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="1401">a locale string</doc>
+               line="1391">a locale string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="type"
@@ -2031,7 +1930,7 @@ locale.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="1402">location to store the input source
+               line="1392">location to store the input source
 type</doc>
           <type name="utf8" c:type="const char**"/>
         </parameter>
@@ -2041,7 +1940,7 @@ type</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="1404">location to store the input source
+               line="1394">location to store the input source
 identifier</doc>
           <type name="utf8" c:type="const char**"/>
         </parameter>
@@ -2052,14 +1951,14 @@ identifier</doc>
               version="3.8">
       <doc xml:space="preserve"
            filename="libgnome-desktop/gnome-languages.c"
-           line="1279">Gets the language name for @code. If @translation is provided the
+           line="1269">Gets the language name for @code. If @translation is provided the
 returned string is translated accordingly.</doc>
       <source-position filename="libgnome-desktop/gnome-languages.h"
-                       line="48"/>
+                       line="47"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-languages.c"
-             line="1287">the language name. Caller takes
+             line="1277">the language name. Caller takes
 ownership.</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
@@ -2067,7 +1966,7 @@ ownership.</doc>
         <parameter name="code" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="1281">an ISO 639 code string</doc>
+               line="1271">an ISO 639 code string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="translation"
@@ -2076,7 +1975,7 @@ ownership.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="1282">a locale string</doc>
+               line="1272">a locale string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -2086,14 +1985,14 @@ ownership.</doc>
               version="3.8">
       <doc xml:space="preserve"
            filename="libgnome-desktop/gnome-languages.c"
-           line="1056">Gets the language description for @locale. If @translation is
+           line="1046">Gets the language description for @locale. If @translation is
 provided the returned string is translated accordingly.</doc>
       <source-position filename="libgnome-desktop/gnome-languages.h"
-                       line="36"/>
+                       line="35"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-languages.c"
-             line="1064">the language description. Caller
+             line="1054">the language description. Caller
 takes ownership.</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
@@ -2101,7 +2000,7 @@ takes ownership.</doc>
         <parameter name="locale" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="1058">a locale string</doc>
+               line="1048">a locale string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="translation"
@@ -2110,7 +2009,7 @@ takes ownership.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="1059">a locale string</doc>
+               line="1049">a locale string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -2139,14 +2038,14 @@ version is 42 or previous.</doc>
               version="3.34">
       <doc xml:space="preserve"
            filename="libgnome-desktop/gnome-languages.c"
-           line="1327">Gets a translation of the raw @modifier string. If @translation
+           line="1317">Gets a translation of the raw @modifier string. If @translation
 is provided the returned string is translated accordingly.</doc>
       <source-position filename="libgnome-desktop/gnome-languages.h"
-                       line="52"/>
+                       line="51"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-languages.c"
-             line="1335">the translated modifier string.
+             line="1325">the translated modifier string.
 Caller takes ownership.</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
@@ -2154,7 +2053,7 @@ Caller takes ownership.</doc>
         <parameter name="modifier" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="1329">the modifier part of a locale name</doc>
+               line="1319">the modifier part of a locale name</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="translation"
@@ -2163,7 +2062,7 @@ Caller takes ownership.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="1330">a locale string</doc>
+               line="1320">a locale string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -2257,54 +2156,25 @@ collisions) and its last modification time at the point of thumbnailing. If
 the stored modification time doesn’t match the file’s current one, a new
 thumbnail is generated.</doc>
     </docsection>
-    <function name="input_source_is_non_latin"
-              c:identifier="gnome_input_source_is_non_latin"
-              version="46">
-      <doc xml:space="preserve"
-           filename="libgnome-desktop/gnome-languages.c"
-           line="1451">Returns whether or not the input source has the ability to enter latin characters.</doc>
-      <source-position filename="libgnome-desktop/gnome-languages.h"
-                       line="58"/>
-      <return-value transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="libgnome-desktop/gnome-languages.c"
-             line="1458">%TRUE if it can't enter latin characters</doc>
-        <type name="gboolean" c:type="gboolean"/>
-      </return-value>
-      <parameters>
-        <parameter name="type" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-languages.c"
-               line="1453">an input source type (e.g., "xkb" or "ibus")</doc>
-          <type name="utf8" c:type="const char*"/>
-        </parameter>
-        <parameter name="id" transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-languages.c"
-               line="1454">an input source id (e.g., "us+dvorak" or "anthy")</doc>
-          <type name="utf8" c:type="const char*"/>
-        </parameter>
-      </parameters>
-    </function>
     <function name="language_has_translations"
               c:identifier="gnome_language_has_translations"
               version="3.8">
       <doc xml:space="preserve"
            filename="libgnome-desktop/gnome-languages.c"
-           line="316">Returns %TRUE if there are translations for language @code.</doc>
+           line="306">Returns %TRUE if there are translations for language @code.</doc>
       <source-position filename="libgnome-desktop/gnome-languages.h"
-                       line="47"/>
+                       line="46"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-languages.c"
-             line="322">%TRUE if there are translations for language @code.</doc>
+             line="312">%TRUE if there are translations for language @code.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="code" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="318">an ISO 639 code string</doc>
+               line="308">an ISO 639 code string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -2314,14 +2184,14 @@ thumbnail is generated.</doc>
               version="3.8">
       <doc xml:space="preserve"
            filename="libgnome-desktop/gnome-languages.c"
-           line="229">Gets the normalized locale string in the form
+           line="219">Gets the normalized locale string in the form
 [language[_country][.codeset][@modifier]] for @name.</doc>
       <source-position filename="libgnome-desktop/gnome-languages.h"
-                       line="46"/>
+                       line="45"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-languages.c"
-             line="236">normalized locale string. Caller
+             line="226">normalized locale string. Caller
 takes ownership.</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
@@ -2329,7 +2199,7 @@ takes ownership.</doc>
         <parameter name="locale" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="231">a locale string</doc>
+               line="221">a locale string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -2339,22 +2209,22 @@ takes ownership.</doc>
               version="3.8">
       <doc xml:space="preserve"
            filename="libgnome-desktop/gnome-languages.c"
-           line="135">Extracts the various components of a locale string in XPG format.
+           line="125">Extracts the various components of a locale string in XPG format.
 ([language[_country][.codeset][@modifier]]). See
 http://en.wikipedia.org/wiki/Locale.</doc>
       <source-position filename="libgnome-desktop/gnome-languages.h"
-                       line="41"/>
+                       line="40"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-languages.c"
-             line="151">%TRUE if parsing was successful.</doc>
+             line="141">%TRUE if parsing was successful.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="locale" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="137">a locale string</doc>
+               line="127">a locale string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="language_codep"
@@ -2365,7 +2235,7 @@ http://en.wikipedia.org/wiki/Locale.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="138">location to
+               line="128">location to
 store the language code, or %NULL</doc>
           <type name="utf8" c:type="char**"/>
         </parameter>
@@ -2378,7 +2248,7 @@ store the language code, or %NULL</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="140">location to
+               line="130">location to
 store the country code, or %NULL</doc>
           <type name="utf8" c:type="char**"/>
         </parameter>
@@ -2391,7 +2261,7 @@ store the country code, or %NULL</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="142">location to
+               line="132">location to
 store the codeset, or %NULL</doc>
           <type name="utf8" c:type="char**"/>
         </parameter>
@@ -2404,7 +2274,7 @@ store the codeset, or %NULL</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-languages.c"
-               line="144">location to
+               line="134">location to
 store the modifier, or %NULL</doc>
           <type name="utf8" c:type="char**"/>
         </parameter>

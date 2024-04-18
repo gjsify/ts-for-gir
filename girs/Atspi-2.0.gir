@@ -230,6 +230,7 @@ Typically, this is the gtkbuilder id.</doc>
       </method>
       <method name="get_action"
               c:identifier="atspi_accessible_get_action"
+              shadows="get_action_iface"
               deprecated="1"
               deprecated-version="2.10">
         <doc xml:space="preserve"
@@ -254,7 +255,8 @@ Typically, this is the gtkbuilder id.</doc>
         </parameters>
       </method>
       <method name="get_action_iface"
-              c:identifier="atspi_accessible_get_action_iface">
+              c:identifier="atspi_accessible_get_action_iface"
+              shadowed-by="get_action">
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1276">Gets the #AtspiAction interface for an #AtspiAccessible.</doc>
@@ -433,6 +435,7 @@ index @child_index or NULL on exception.</doc>
       </method>
       <method name="get_collection"
               c:identifier="atspi_accessible_get_collection"
+              shadows="get_collection_iface"
               deprecated="1"
               deprecated-version="2.10">
         <doc xml:space="preserve"
@@ -457,7 +460,8 @@ index @child_index or NULL on exception.</doc>
         </parameters>
       </method>
       <method name="get_collection_iface"
-              c:identifier="atspi_accessible_get_collection_iface">
+              c:identifier="atspi_accessible_get_collection_iface"
+              shadowed-by="get_collection">
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1308">Gets the #AtspiCollection interface for an #AtspiAccessible.</doc>
@@ -480,6 +484,7 @@ index @child_index or NULL on exception.</doc>
       </method>
       <method name="get_component"
               c:identifier="atspi_accessible_get_component"
+              shadows="get_component_iface"
               deprecated="1"
               deprecated-version="2.10">
         <doc xml:space="preserve"
@@ -504,7 +509,8 @@ index @child_index or NULL on exception.</doc>
         </parameters>
       </method>
       <method name="get_component_iface"
-              c:identifier="atspi_accessible_get_component_iface">
+              c:identifier="atspi_accessible_get_component_iface"
+              shadowed-by="get_component">
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1340">Gets the #AtspiComponent interface for an #AtspiAccessible.</doc>
@@ -550,6 +556,7 @@ or NULL on exception.</doc>
       </method>
       <method name="get_document"
               c:identifier="atspi_accessible_get_document"
+              shadows="get_document_iface"
               deprecated="1"
               deprecated-version="2.10">
         <doc xml:space="preserve"
@@ -574,7 +581,8 @@ or NULL on exception.</doc>
         </parameters>
       </method>
       <method name="get_document_iface"
-              c:identifier="atspi_accessible_get_document_iface">
+              c:identifier="atspi_accessible_get_document_iface"
+              shadowed-by="get_document">
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1372">Gets the #AtspiDocument interface for an #AtspiAccessible.</doc>
@@ -597,6 +605,7 @@ or NULL on exception.</doc>
       </method>
       <method name="get_editable_text"
               c:identifier="atspi_accessible_get_editable_text"
+              shadows="get_editable_text_iface"
               deprecated="1"
               deprecated-version="2.10">
         <doc xml:space="preserve"
@@ -621,7 +630,8 @@ or NULL on exception.</doc>
         </parameters>
       </method>
       <method name="get_editable_text_iface"
-              c:identifier="atspi_accessible_get_editable_text_iface">
+              c:identifier="atspi_accessible_get_editable_text_iface"
+              shadowed-by="get_editable_text">
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1404">Gets the #AtspiEditableText interface for an #AtspiAccessible.</doc>
@@ -638,32 +648,6 @@ or NULL on exception.</doc>
             <doc xml:space="preserve"
                  filename="atspi/atspi-accessible.c"
                  line="1406">a pointer to the #AtspiAccessible instance to query.</doc>
-            <type name="Accessible" c:type="AtspiAccessible*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_help_text"
-              c:identifier="atspi_accessible_get_help_text"
-              version="2.52"
-              throws="1">
-        <doc xml:space="preserve"
-             filename="atspi/atspi-accessible.c"
-             line="1947">Gets the help text associated with the accessible, if set. When this is
-present, it provides information that a screen reader can relay to the user
-to explain how to interact with the object.</doc>
-        <source-position filename="atspi/atspi-accessible.h" line="177"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="atspi/atspi-accessible.c"
-               line="1957">a character string representing the help text for the
-#AtspiAccessible object or NULL on exception.</doc>
-          <type name="utf8" c:type="gchar*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="obj" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="atspi/atspi-accessible.c"
-                 line="1949">an #AtspiAccessible</doc>
             <type name="Accessible" c:type="AtspiAccessible*"/>
           </instance-parameter>
         </parameters>
@@ -692,6 +676,7 @@ to explain how to interact with the object.</doc>
       </method>
       <method name="get_hypertext"
               c:identifier="atspi_accessible_get_hypertext"
+              shadows="get_hypertext_iface"
               deprecated="1"
               deprecated-version="2.10">
         <doc xml:space="preserve"
@@ -716,7 +701,8 @@ to explain how to interact with the object.</doc>
         </parameters>
       </method>
       <method name="get_hypertext_iface"
-              c:identifier="atspi_accessible_get_hypertext_iface">
+              c:identifier="atspi_accessible_get_hypertext_iface"
+              shadowed-by="get_hypertext">
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1451">Gets the #AtspiHypertext interface for an #AtspiAccessible.</doc>
@@ -761,6 +747,7 @@ or -1 on exception.</doc>
       </method>
       <method name="get_image"
               c:identifier="atspi_accessible_get_image"
+              shadows="get_image_iface"
               deprecated="1"
               deprecated-version="2.10">
         <doc xml:space="preserve"
@@ -785,7 +772,8 @@ or -1 on exception.</doc>
         </parameters>
       </method>
       <method name="get_image_iface"
-              c:identifier="atspi_accessible_get_image_iface">
+              c:identifier="atspi_accessible_get_image_iface"
+              shadowed-by="get_image">
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1483">Gets the #AtspiImage interface for an #AtspiAccessible.</doc>
@@ -1043,6 +1031,7 @@ enumeration used in atspi_accessible_get_role ().</doc>
       </method>
       <method name="get_selection"
               c:identifier="atspi_accessible_get_selection"
+              shadows="get_selection_iface"
               deprecated="1"
               deprecated-version="2.10">
         <doc xml:space="preserve"
@@ -1067,7 +1056,8 @@ enumeration used in atspi_accessible_get_role ().</doc>
         </parameters>
       </method>
       <method name="get_selection_iface"
-              c:identifier="atspi_accessible_get_selection_iface">
+              c:identifier="atspi_accessible_get_selection_iface"
+              shadowed-by="get_selection">
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1515">Gets the #AtspiSelection interface for an #AtspiAccessible.</doc>
@@ -1112,6 +1102,7 @@ object's current state set.</doc>
       </method>
       <method name="get_table"
               c:identifier="atspi_accessible_get_table"
+              shadows="get_table_iface"
               deprecated="1"
               deprecated-version="2.10">
         <doc xml:space="preserve"
@@ -1158,7 +1149,8 @@ object's current state set.</doc>
         </parameters>
       </method>
       <method name="get_table_iface"
-              c:identifier="atspi_accessible_get_table_iface">
+              c:identifier="atspi_accessible_get_table_iface"
+              shadowed-by="get_table">
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1565">Gets the #AtspiTable interface for an #AtspiAccessible.</doc>
@@ -1181,6 +1173,7 @@ object's current state set.</doc>
       </method>
       <method name="get_text"
               c:identifier="atspi_accessible_get_text"
+              shadows="get_text_iface"
               deprecated="1"
               deprecated-version="2.10">
         <doc xml:space="preserve"
@@ -1205,7 +1198,8 @@ object's current state set.</doc>
         </parameters>
       </method>
       <method name="get_text_iface"
-              c:identifier="atspi_accessible_get_text_iface">
+              c:identifier="atspi_accessible_get_text_iface"
+              shadowed-by="get_text">
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1612">Gets the #AtspiTable interface for an #AtspiAccessible.</doc>
@@ -1274,6 +1268,7 @@ Only works on application root objects.</doc>
       </method>
       <method name="get_value"
               c:identifier="atspi_accessible_get_value"
+              shadows="get_value_iface"
               deprecated="1"
               deprecated-version="2.10">
         <doc xml:space="preserve"
@@ -1298,7 +1293,8 @@ Only works on application root objects.</doc>
         </parameters>
       </method>
       <method name="get_value_iface"
-              c:identifier="atspi_accessible_get_value_iface">
+              c:identifier="atspi_accessible_get_value_iface"
+              shadowed-by="get_value">
         <doc xml:space="preserve"
              filename="atspi/atspi-accessible.c"
              line="1644">Gets the #AtspiTable interface for an #AtspiAccessible.</doc>
@@ -3329,23 +3325,23 @@ immediate parent.</doc>
            glib:type-name="AtspiDevice"
            glib:get-type="atspi_device_get_type"
            glib:type-struct="DeviceClass">
-      <source-position filename="atspi/atspi-device.h" line="60"/>
+      <source-position filename="atspi/atspi-device.h" line="59"/>
       <constructor name="new" c:identifier="atspi_device_new">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="90">Creates a new #AtspiDevice with a specified callback function.</doc>
-        <source-position filename="atspi/atspi-device.h" line="78"/>
+             line="89">Creates a new #AtspiDevice with a specified callback function.</doc>
+        <source-position filename="atspi/atspi-device.h" line="77"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="95">a pointer to a newly-created #AtspiDevice.</doc>
+               line="94">a pointer to a newly-created #AtspiDevice.</doc>
           <type name="Device" c:type="AtspiDevice*"/>
         </return-value>
       </constructor>
       <virtual-method name="add_key_grab">
         <source-position filename="atspi/atspi-device.h" line="51"/>
         <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
+          <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
@@ -3356,76 +3352,24 @@ immediate parent.</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="generate_mouse_event"
-                      invoker="generate_mouse_event"
-                      version="2.52"
-                      throws="1">
-        <doc xml:space="preserve"
-             filename="atspi/atspi-device.c"
-             line="402">Synthesizes a mouse event at a specific screen coordinate.
-Most AT clients should use the #AccessibleAction interface when
-tempted to generate mouse events, rather than this method.
-Event names: b1p = button 1 press; b2r = button 2 release;
-             b3c = button 3 click; b2d = button 2 double-click;
-             abs = absolute motion; rel = relative motion.</doc>
-        <source-position filename="atspi/atspi-device.h" line="59"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="device" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="atspi/atspi-device.c"
-                 line="404">the device.</doc>
-            <type name="Device" c:type="AtspiDevice*"/>
-          </instance-parameter>
-          <parameter name="obj" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="atspi/atspi-device.c"
-                 line="405">The #AtspiAccessible that should receive the click.</doc>
-            <type name="Accessible" c:type="AtspiAccessible*"/>
-          </parameter>
-          <parameter name="x" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="atspi/atspi-device.c"
-                 line="406">a #gint indicating the x coordinate of the mouse event, relative to
-    @obj..</doc>
-            <type name="gint" c:type="gint"/>
-          </parameter>
-          <parameter name="y" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="atspi/atspi-device.c"
-                 line="408">a #gint indicating the y coordinate of the mouse event, relative to
-    @obj..</doc>
-            <type name="gint" c:type="gint"/>
-          </parameter>
-          <parameter name="name" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="atspi/atspi-device.c"
-                 line="410">a string indicating which mouse event to be synthesized
-       (e.g. "b1p", "b1c", "b2r", "rel", "abs").</doc>
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
-        </parameters>
-      </virtual-method>
       <virtual-method name="get_locked_modifiers"
                       invoker="get_locked_modifiers">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="354">Returns the locked modifiers (ie, num lock, caps lock) associated with this
+             line="366">Returns the locked modifiers (ie, num lock, caps lock) associated with this
 keyboard.</doc>
         <source-position filename="atspi/atspi-device.h" line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="361">a guint of modifier flags.</doc>
+               line="373">a guint of modifier flags.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="356">the device.</doc>
+                 line="368">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
         </parameters>
@@ -3433,7 +3377,7 @@ keyboard.</doc>
       <virtual-method name="get_modifier" invoker="get_modifier">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="333">Gets the modifier for a given keycode, if one exists. Does not create a new
+             line="345">Gets the modifier for a given keycode, if one exists. Does not create a new
 mapping. This function should be used when the intention is to query a
 locking modifier such as num lock via atspi_device_get_locked_modifiers,
 rather than to add key grabs.</doc>
@@ -3441,20 +3385,20 @@ rather than to add key grabs.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="343">the modifier that is mapped to this keycode.</doc>
+               line="355">the modifier that is mapped to this keycode.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="335">the device.</doc>
+                 line="347">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="keycode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="336">the keycode to map.</doc>
+                 line="348">the keycode to map.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -3462,14 +3406,14 @@ rather than to add key grabs.</doc>
       <virtual-method name="grab_keyboard" invoker="grab_keyboard">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="372">Attempts to grab the entire keyboard. This should only be done
+             line="384">Attempts to grab the entire keyboard. This should only be done
 temporarily, as it may conflict with other applications that also want to
 grab the keyboard.</doc>
         <source-position filename="atspi/atspi-device.h" line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="379">#TRUE if successful, #FALSE otherwise.</doc>
+               line="391">#TRUE if successful, #FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -3481,7 +3425,7 @@ grab the keyboard.</doc>
       <virtual-method name="map_modifier" invoker="map_modifier">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="293">Maps the specified key code to a modifier so that it can be used in
+             line="305">Maps the specified key code to a modifier so that it can be used in
 conjunction with other keys to create a key grab. If the given keycode is
 already mapped, then this function will return the modifier that is
 currently mapped to the keycode, without doing anything else. Otherwise,
@@ -3493,7 +3437,7 @@ then it will use the first modifier by default.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="307">the modifier that is now mapped to this keycode. This return
+               line="319">the modifier that is now mapped to this keycode. This return
 value can be passed to atspi_device_add_key_grab.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -3501,13 +3445,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="295">the device.</doc>
+                 line="307">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="keycode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="296">the keycode to map.</doc>
+                 line="308">the keycode to map.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -3515,7 +3459,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
       <virtual-method name="remove_key_grab" invoker="remove_key_grab">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="221">Removes the key grab specified by @id.</doc>
+             line="232">Removes the key grab specified by @id.</doc>
         <source-position filename="atspi/atspi-device.h" line="52"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3524,13 +3468,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="223">the device.</doc>
+                 line="234">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="224">the identifier of the grab to be removed.</doc>
+                 line="235">the identifier of the grab to be removed.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -3538,7 +3482,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
       <virtual-method name="ungrab_keyboard" invoker="ungrab_keyboard">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="390">Removes a keyboard grab added via a call to atspi_device_add_keyboard.</doc>
+             line="402">Removes a keyboard grab added via a call to atspi_device_add_keyboard.</doc>
         <source-position filename="atspi/atspi-device.h" line="57"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3552,7 +3496,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
       <virtual-method name="unmap_modifier" invoker="unmap_modifier">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="319">Removes a mapped modifier from the given keycode.</doc>
+             line="331">Removes a mapped modifier from the given keycode.</doc>
         <source-position filename="atspi/atspi-device.h" line="54"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3561,24 +3505,23 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="321">the device.</doc>
+                 line="333">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="keycode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="322">the keycode to unmap.</doc>
+                 line="334">the keycode to unmap.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
       </virtual-method>
       <method name="add_key_grab" c:identifier="atspi_device_add_key_grab">
-        <source-position filename="atspi/atspi-device.h" line="82"/>
+        <source-position filename="atspi/atspi-device.h" line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="195">an identifier that can be later used to remove the grab, or 0
-if the key/modifier combination could not be grabbed.
+               line="210">an identifier that can be later used to remove the grab.
 Add a key grab for the given key/modifier combination.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -3586,13 +3529,13 @@ Add a key grab for the given key/modifier combination.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="187">the device.</doc>
+                 line="202">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="kd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="188">a #AtspiKeyDefinition specifying the key code to grab.</doc>
+                 line="203">a #AtspiKeyDefinition specifying the key code to grab.</doc>
             <type name="KeyDefinition" c:type="AtspiKeyDefinition*"/>
           </parameter>
           <parameter name="callback"
@@ -3604,7 +3547,7 @@ Add a key grab for the given key/modifier combination.</doc>
                      destroy="3">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="189">the function to call when the
+                 line="204">the function to call when the
            given key is pressed.</doc>
             <type name="KeyCallback" c:type="AtspiKeyCallback"/>
           </parameter>
@@ -3614,7 +3557,7 @@ Add a key grab for the given key/modifier combination.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="191">Data to be passed to @callback.</doc>
+                 line="206">Data to be passed to @callback.</doc>
             <type name="gpointer" c:type="void*"/>
           </parameter>
           <parameter name="callback_destroyed"
@@ -3622,7 +3565,7 @@ Add a key grab for the given key/modifier combination.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="192">callback function to be called when @callback is
+                 line="207">callback function to be called when @callback is
                      destroyed.</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
@@ -3632,9 +3575,9 @@ Add a key grab for the given key/modifier combination.</doc>
               c:identifier="atspi_device_add_key_watcher">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="249">Add a callback that will receive a notification whenever a key is
+             line="261">Add a callback that will receive a notification whenever a key is
 pressed or released.</doc>
-        <source-position filename="atspi/atspi-device.h" line="86"/>
+        <source-position filename="atspi/atspi-device.h" line="85"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3642,7 +3585,7 @@ pressed or released.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="251">the device.</doc>
+                 line="263">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="callback"
@@ -3654,7 +3597,7 @@ pressed or released.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="252">the function to call when the given key is
+                 line="264">the function to call when the given key is
            pressed.</doc>
             <type name="KeyCallback" c:type="AtspiKeyCallback"/>
           </parameter>
@@ -3665,7 +3608,7 @@ pressed or released.</doc>
                      closure="0">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="254">Data to be passed to @callback.</doc>
+                 line="266">Data to be passed to @callback.</doc>
             <type name="gpointer" c:type="void*"/>
           </parameter>
           <parameter name="callback_destroyed"
@@ -3674,66 +3617,14 @@ pressed or released.</doc>
                      destroy="0">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="255">callback function to be called
+                 line="267">callback function to be called
                      when @callback is destroyed.</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
       </method>
-      <method name="generate_mouse_event"
-              c:identifier="atspi_device_generate_mouse_event"
-              version="2.52"
-              throws="1">
-        <doc xml:space="preserve"
-             filename="atspi/atspi-device.c"
-             line="402">Synthesizes a mouse event at a specific screen coordinate.
-Most AT clients should use the #AccessibleAction interface when
-tempted to generate mouse events, rather than this method.
-Event names: b1p = button 1 press; b2r = button 2 release;
-             b3c = button 3 click; b2d = button 2 double-click;
-             abs = absolute motion; rel = relative motion.</doc>
-        <source-position filename="atspi/atspi-device.h" line="102"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="device" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="atspi/atspi-device.c"
-                 line="404">the device.</doc>
-            <type name="Device" c:type="AtspiDevice*"/>
-          </instance-parameter>
-          <parameter name="obj" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="atspi/atspi-device.c"
-                 line="405">The #AtspiAccessible that should receive the click.</doc>
-            <type name="Accessible" c:type="AtspiAccessible*"/>
-          </parameter>
-          <parameter name="x" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="atspi/atspi-device.c"
-                 line="406">a #gint indicating the x coordinate of the mouse event, relative to
-    @obj..</doc>
-            <type name="gint" c:type="gint"/>
-          </parameter>
-          <parameter name="y" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="atspi/atspi-device.c"
-                 line="408">a #gint indicating the y coordinate of the mouse event, relative to
-    @obj..</doc>
-            <type name="gint" c:type="gint"/>
-          </parameter>
-          <parameter name="name" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="atspi/atspi-device.c"
-                 line="410">a string indicating which mouse event to be synthesized
-       (e.g. "b1p", "b1c", "b2r", "rel", "abs").</doc>
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
-        </parameters>
-      </method>
       <method name="get_grab_by_id" c:identifier="atspi_device_get_grab_by_id">
-        <source-position filename="atspi/atspi-device.h" line="88"/>
+        <source-position filename="atspi/atspi-device.h" line="87"/>
         <return-value transfer-ownership="full">
           <type name="KeyDefinition" c:type="AtspiKeyDefinition*"/>
         </return-value>
@@ -3750,20 +3641,20 @@ Event names: b1p = button 1 press; b2r = button 2 release;
               c:identifier="atspi_device_get_locked_modifiers">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="354">Returns the locked modifiers (ie, num lock, caps lock) associated with this
+             line="366">Returns the locked modifiers (ie, num lock, caps lock) associated with this
 keyboard.</doc>
-        <source-position filename="atspi/atspi-device.h" line="96"/>
+        <source-position filename="atspi/atspi-device.h" line="95"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="361">a guint of modifier flags.</doc>
+               line="373">a guint of modifier flags.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="356">the device.</doc>
+                 line="368">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
         </parameters>
@@ -3771,28 +3662,28 @@ keyboard.</doc>
       <method name="get_modifier" c:identifier="atspi_device_get_modifier">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="333">Gets the modifier for a given keycode, if one exists. Does not create a new
+             line="345">Gets the modifier for a given keycode, if one exists. Does not create a new
 mapping. This function should be used when the intention is to query a
 locking modifier such as num lock via atspi_device_get_locked_modifiers,
 rather than to add key grabs.</doc>
-        <source-position filename="atspi/atspi-device.h" line="94"/>
+        <source-position filename="atspi/atspi-device.h" line="93"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="343">the modifier that is mapped to this keycode.</doc>
+               line="355">the modifier that is mapped to this keycode.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="335">the device.</doc>
+                 line="347">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="keycode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="336">the keycode to map.</doc>
+                 line="348">the keycode to map.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -3800,14 +3691,14 @@ rather than to add key grabs.</doc>
       <method name="grab_keyboard" c:identifier="atspi_device_grab_keyboard">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="372">Attempts to grab the entire keyboard. This should only be done
+             line="384">Attempts to grab the entire keyboard. This should only be done
 temporarily, as it may conflict with other applications that also want to
 grab the keyboard.</doc>
-        <source-position filename="atspi/atspi-device.h" line="98"/>
+        <source-position filename="atspi/atspi-device.h" line="97"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="379">#TRUE if successful, #FALSE otherwise.</doc>
+               line="391">#TRUE if successful, #FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -3819,7 +3710,7 @@ grab the keyboard.</doc>
       <method name="map_modifier" c:identifier="atspi_device_map_modifier">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="293">Maps the specified key code to a modifier so that it can be used in
+             line="305">Maps the specified key code to a modifier so that it can be used in
 conjunction with other keys to create a key grab. If the given keycode is
 already mapped, then this function will return the modifier that is
 currently mapped to the keycode, without doing anything else. Otherwise,
@@ -3827,11 +3718,11 @@ it will use the last modifier that AT-SPI used to map a key. If no keys
 have yet been mapped using this device, then it will look for a modifier
 that is not currently being used. If no unused modifier can be found,
 then it will use the first modifier by default.</doc>
-        <source-position filename="atspi/atspi-device.h" line="90"/>
+        <source-position filename="atspi/atspi-device.h" line="89"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.c"
-               line="307">the modifier that is now mapped to this keycode. This return
+               line="319">the modifier that is now mapped to this keycode. This return
 value can be passed to atspi_device_add_key_grab.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -3839,19 +3730,19 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="295">the device.</doc>
+                 line="307">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="keycode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="296">the keycode to map.</doc>
+                 line="308">the keycode to map.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
       </method>
       <method name="notify_key" c:identifier="atspi_device_notify_key">
-        <source-position filename="atspi/atspi-device.h" line="80"/>
+        <source-position filename="atspi/atspi-device.h" line="79"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3872,7 +3763,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="text" transfer-ownership="none">
-            <type name="utf8" c:type="const gchar*"/>
+            <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -3880,8 +3771,8 @@ value can be passed to atspi_device_add_key_grab.</doc>
               c:identifier="atspi_device_remove_key_grab">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="221">Removes the key grab specified by @id.</doc>
-        <source-position filename="atspi/atspi-device.h" line="84"/>
+             line="232">Removes the key grab specified by @id.</doc>
+        <source-position filename="atspi/atspi-device.h" line="83"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3889,13 +3780,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="223">the device.</doc>
+                 line="234">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="224">the identifier of the grab to be removed.</doc>
+                 line="235">the identifier of the grab to be removed.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -3904,8 +3795,8 @@ value can be passed to atspi_device_add_key_grab.</doc>
               c:identifier="atspi_device_ungrab_keyboard">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="390">Removes a keyboard grab added via a call to atspi_device_add_keyboard.</doc>
-        <source-position filename="atspi/atspi-device.h" line="100"/>
+             line="402">Removes a keyboard grab added via a call to atspi_device_add_keyboard.</doc>
+        <source-position filename="atspi/atspi-device.h" line="99"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3918,8 +3809,8 @@ value can be passed to atspi_device_add_key_grab.</doc>
       <method name="unmap_modifier" c:identifier="atspi_device_unmap_modifier">
         <doc xml:space="preserve"
              filename="atspi/atspi-device.c"
-             line="319">Removes a mapped modifier from the given keycode.</doc>
-        <source-position filename="atspi/atspi-device.h" line="92"/>
+             line="331">Removes a mapped modifier from the given keycode.</doc>
+        <source-position filename="atspi/atspi-device.h" line="91"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3927,13 +3818,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="321">the device.</doc>
+                 line="333">the device.</doc>
             <type name="Device" c:type="AtspiDevice*"/>
           </instance-parameter>
           <parameter name="keycode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="322">the keycode to unmap.</doc>
+                 line="334">the keycode to unmap.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -3945,7 +3836,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
     <record name="DeviceClass"
             c:type="AtspiDeviceClass"
             glib:is-gtype-struct-for="Device">
-      <source-position filename="atspi/atspi-device.h" line="60"/>
+      <source-position filename="atspi/atspi-device.h" line="59"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -3953,7 +3844,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
         <callback name="add_key_grab">
           <source-position filename="atspi/atspi-device.h" line="51"/>
           <return-value transfer-ownership="none">
-            <type name="gboolean" c:type="gboolean"/>
+            <type name="none" c:type="void"/>
           </return-value>
           <parameters>
             <parameter name="device" transfer-ownership="none">
@@ -3975,13 +3866,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
             <parameter name="device" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="223">the device.</doc>
+                   line="234">the device.</doc>
               <type name="Device" c:type="AtspiDevice*"/>
             </parameter>
             <parameter name="id" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="224">the identifier of the grab to be removed.</doc>
+                   line="235">the identifier of the grab to be removed.</doc>
               <type name="guint" c:type="guint"/>
             </parameter>
           </parameters>
@@ -3993,7 +3884,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="307">the modifier that is now mapped to this keycode. This return
+                 line="319">the modifier that is now mapped to this keycode. This return
 value can be passed to atspi_device_add_key_grab.</doc>
             <type name="guint" c:type="guint"/>
           </return-value>
@@ -4001,13 +3892,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
             <parameter name="device" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="295">the device.</doc>
+                   line="307">the device.</doc>
               <type name="Device" c:type="AtspiDevice*"/>
             </parameter>
             <parameter name="keycode" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="296">the keycode to map.</doc>
+                   line="308">the keycode to map.</doc>
               <type name="gint" c:type="gint"/>
             </parameter>
           </parameters>
@@ -4023,13 +3914,13 @@ value can be passed to atspi_device_add_key_grab.</doc>
             <parameter name="device" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="321">the device.</doc>
+                   line="333">the device.</doc>
               <type name="Device" c:type="AtspiDevice*"/>
             </parameter>
             <parameter name="keycode" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="322">the keycode to unmap.</doc>
+                   line="334">the keycode to unmap.</doc>
               <type name="gint" c:type="gint"/>
             </parameter>
           </parameters>
@@ -4041,20 +3932,20 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="343">the modifier that is mapped to this keycode.</doc>
+                 line="355">the modifier that is mapped to this keycode.</doc>
             <type name="guint" c:type="guint"/>
           </return-value>
           <parameters>
             <parameter name="device" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="335">the device.</doc>
+                   line="347">the device.</doc>
               <type name="Device" c:type="AtspiDevice*"/>
             </parameter>
             <parameter name="keycode" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="336">the keycode to map.</doc>
+                   line="348">the keycode to map.</doc>
               <type name="gint" c:type="gint"/>
             </parameter>
           </parameters>
@@ -4066,7 +3957,7 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="379">#TRUE if successful, #FALSE otherwise.</doc>
+                 line="391">#TRUE if successful, #FALSE otherwise.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
@@ -4095,58 +3986,15 @@ value can be passed to atspi_device_add_key_grab.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
-                 line="361">a guint of modifier flags.</doc>
+                 line="373">a guint of modifier flags.</doc>
             <type name="guint" c:type="guint"/>
           </return-value>
           <parameters>
             <parameter name="device" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="atspi/atspi-device.c"
-                   line="356">the device.</doc>
+                   line="368">the device.</doc>
               <type name="Device" c:type="AtspiDevice*"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
-      <field name="generate_mouse_event">
-        <callback name="generate_mouse_event" throws="1">
-          <source-position filename="atspi/atspi-device.h" line="59"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-          <parameters>
-            <parameter name="device" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="atspi/atspi-device.c"
-                   line="404">the device.</doc>
-              <type name="Device" c:type="AtspiDevice*"/>
-            </parameter>
-            <parameter name="obj" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="atspi/atspi-device.c"
-                   line="405">The #AtspiAccessible that should receive the click.</doc>
-              <type name="Accessible" c:type="AtspiAccessible*"/>
-            </parameter>
-            <parameter name="x" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="atspi/atspi-device.c"
-                   line="406">a #gint indicating the x coordinate of the mouse event, relative to
-    @obj..</doc>
-              <type name="gint" c:type="gint"/>
-            </parameter>
-            <parameter name="y" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="atspi/atspi-device.c"
-                   line="408">a #gint indicating the y coordinate of the mouse event, relative to
-    @obj..</doc>
-              <type name="gint" c:type="gint"/>
-            </parameter>
-            <parameter name="name" transfer-ownership="none">
-              <doc xml:space="preserve"
-                   filename="atspi/atspi-device.c"
-                   line="410">a string indicating which mouse event to be synthesized
-       (e.g. "b1p", "b1c", "b2r", "rel", "abs").</doc>
-              <type name="utf8" c:type="const gchar*"/>
             </parameter>
           </parameters>
         </callback>
@@ -4191,12 +4039,12 @@ value can be passed to atspi_device_add_key_grab.</doc>
       <constructor name="new" c:identifier="atspi_device_legacy_new">
         <doc xml:space="preserve"
              filename="atspi/atspi-device-legacy.c"
-             line="340">Creates a new #AtspiDeviceLegacy.</doc>
+             line="311">Creates a new #AtspiDeviceLegacy.</doc>
         <source-position filename="atspi/atspi-device-legacy.h" line="55"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-device-legacy.c"
-               line="345">a pointer to a newly-created #AtspiDeviceLegacy.</doc>
+               line="316">a pointer to a newly-created #AtspiDeviceLegacy.</doc>
           <type name="DeviceLegacy" c:type="AtspiDeviceLegacy*"/>
         </return-value>
       </constructor>
@@ -4490,12 +4338,12 @@ relayed to the currently focussed application, #FALSE if the event delivery shou
       <constructor name="new" c:identifier="atspi_device_x11_new">
         <doc xml:space="preserve"
              filename="atspi/atspi-device-x11.c"
-             line="825">Creates a new #AtspiDeviceX11.</doc>
+             line="775">Creates a new #AtspiDeviceX11.</doc>
         <source-position filename="atspi/atspi-device-x11.h" line="55"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-device-x11.c"
-               line="830">a pointer to a newly-created #AtspiDeviceX11.</doc>
+               line="780">a pointer to a newly-created #AtspiDeviceX11.</doc>
           <type name="DeviceX11" c:type="AtspiDeviceX11*"/>
         </return-value>
       </constructor>
@@ -4526,7 +4374,7 @@ relayed to the currently focussed application, #FALSE if the event delivery shou
              filename="atspi/atspi-document.c"
              line="47">Gets the value of a single attribute, if specified for the document as a whole.</doc>
         <doc-deprecated xml:space="preserve">Use atspi_document_get_document_attribute_value instead.</doc-deprecated>
-        <source-position filename="atspi/atspi-document.h" line="93"/>
+        <source-position filename="atspi/atspi-document.h" line="51"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-document.c"
@@ -4560,7 +4408,7 @@ an empty string if the attribute is unspecified for the object.</doc>
              line="94">Gets all constant attributes for the document as a whole. For attributes
 that change within the document content, see @atspi_text_get_attribute_run instead.</doc>
         <doc-deprecated xml:space="preserve">Use atspi_document_get_document_attributes instead.</doc-deprecated>
-        <source-position filename="atspi/atspi-document.h" line="99"/>
+        <source-position filename="atspi/atspi-document.h" line="57"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-document.c"
@@ -4586,7 +4434,7 @@ that change within the document content, see @atspi_text_get_attribute_run inste
         <doc xml:space="preserve"
              filename="atspi/atspi-document.c"
              line="154">Gets the current page number of an #AccessibleDocument object.</doc>
-        <source-position filename="atspi/atspi-document.h" line="105"/>
+        <source-position filename="atspi/atspi-document.h" line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-document.c"
@@ -4610,7 +4458,7 @@ that change within the document content, see @atspi_text_get_attribute_run inste
         <doc xml:space="preserve"
              filename="atspi/atspi-document.c"
              line="67">Gets the value of a single attribute, if specified for the document as a whole.</doc>
-        <source-position filename="atspi/atspi-document.h" line="96"/>
+        <source-position filename="atspi/atspi-document.h" line="54"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-document.c"
@@ -4641,7 +4489,7 @@ an empty string if the attribute is unspecified for the object.</doc>
              filename="atspi/atspi-document.c"
              line="112">Gets all constant attributes for the document as a whole. For attributes
 that change within the document content, see @atspi_text_get_attribute_run instead.</doc>
-        <source-position filename="atspi/atspi-document.h" line="102"/>
+        <source-position filename="atspi/atspi-document.h" line="60"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-document.c"
@@ -4668,7 +4516,7 @@ that change within the document content, see @atspi_text_get_attribute_run inste
              filename="atspi/atspi-document.c"
              line="26">Gets the locale associated with the document's content,
 e.g. the locale for LOCALE_TYPE_MESSAGES.</doc>
-        <source-position filename="atspi/atspi-document.h" line="90"/>
+        <source-position filename="atspi/atspi-document.h" line="48"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-document.c"
@@ -4690,7 +4538,7 @@ e.g. the locale for LOCALE_TYPE_MESSAGES.</doc>
         <doc xml:space="preserve"
              filename="atspi/atspi-document.c"
              line="133">Gets the page count of an #AccessibleDocument object.</doc>
-        <source-position filename="atspi/atspi-document.h" line="104"/>
+        <source-position filename="atspi/atspi-document.h" line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-document.c"
@@ -4705,68 +4553,6 @@ e.g. the locale for LOCALE_TYPE_MESSAGES.</doc>
                  line="135">a pointer to the #AtspiDocument object to query.</doc>
             <type name="Document" c:type="AtspiDocument*"/>
           </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_text_selections"
-              c:identifier="atspi_document_get_text_selections"
-              version="2.52"
-              throws="1">
-        <doc xml:space="preserve"
-             filename="atspi/atspi-document.c"
-             line="184">Returns an array of AtspiTextSelections within this document.</doc>
-        <source-position filename="atspi/atspi-document.h" line="107"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="atspi/atspi-document.c"
-               line="190">a GArray of
-AtspiTextSelection structures representing the selection.</doc>
-          <array name="GLib.Array" c:type="GArray*">
-            <type name="TextSelection"/>
-          </array>
-        </return-value>
-        <parameters>
-          <instance-parameter name="document" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="atspi/atspi-document.c"
-                 line="186">an #AtspiDocument</doc>
-            <type name="Document" c:type="AtspiDocument*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="set_text_selections"
-              c:identifier="atspi_document_set_text_selections"
-              version="2.52"
-              throws="1">
-        <doc xml:space="preserve"
-             filename="atspi/atspi-document.c"
-             line="248">Makes 1 or more selections within this document denoted by the given
-array of AtspiTextSelections. Any existing physical selection (inside or
-outside this document) is replaced by the new selections. All objects within
-the given selection ranges must be descendants of this document. Otherwise
-FALSE will be returned.</doc>
-        <source-position filename="atspi/atspi-document.h" line="109"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="atspi/atspi-document.c"
-               line="260">TRUE if the selection was made successfully; FALSE otherwise.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="document" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="atspi/atspi-document.c"
-                 line="250">an #AtspiDocument.</doc>
-            <type name="Document" c:type="AtspiDocument*"/>
-          </instance-parameter>
-          <parameter name="selections" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="atspi/atspi-document.c"
-                 line="251">a GArray of AtspiTextSelections
-             to be selected.</doc>
-            <array name="GLib.Array" c:type="GArray*">
-              <type name="TextSelection"/>
-            </array>
-          </parameter>
         </parameters>
       </method>
     </interface>
@@ -5199,13 +4985,13 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="877">Deregisters an #AtspiEventListenerCB from the registry, for a specific
+             line="853">Deregisters an #AtspiEventListenerCB from the registry, for a specific
             event type.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="144"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="888">#TRUE if successful, otherwise #FALSE.</doc>
+               line="864">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -5215,7 +5001,7 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="879">the #AtspiEventListenerCB registered against an
+                 line="855">the #AtspiEventListenerCB registered against an
            event type.</doc>
             <type name="EventListenerCB" c:type="AtspiEventListenerCB"/>
           </parameter>
@@ -5225,13 +5011,13 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="881">User data that was passed in for this callback.</doc>
+                 line="857">User data that was passed in for this callback.</doc>
             <type name="gpointer" c:type="void*"/>
           </parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="882">a string specifying the event type for which this
+                 line="858">a string specifying the event type for which this
             listener is to be deregistered.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -5243,20 +5029,20 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="960">deregisters an #AtspiEventListenerSimpleCB from the registry, for a specific
+             line="936">deregisters an #AtspiEventListenerSimpleCB from the registry, for a specific
             event type.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="150"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="970">#TRUE if successful, otherwise #FALSE.</doc>
+               line="946">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="callback" transfer-ownership="none" scope="call">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="962">the #AtspiEventListenerSimpleCB registered against
+                 line="938">the #AtspiEventListenerSimpleCB registered against
            an event type.</doc>
             <type name="EventListenerSimpleCB"
                   c:type="AtspiEventListenerSimpleCB"/>
@@ -5264,7 +5050,7 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="964">a string specifying the event type for which this
+                 line="940">a string specifying the event type for which this
             listener is to be deregistered.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -5275,12 +5061,12 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="656">Registers an #AtspiEventListenerCB against an @event_type.</doc>
+             line="632">Registers an #AtspiEventListenerCB against an @event_type.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="109"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="668">#TRUE if successfull, otherwise #FALSE.</doc>
+               line="644">#TRUE if successfull, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -5291,7 +5077,7 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="658">the #AtspiEventListenerCB to be registered
+                 line="634">the #AtspiEventListenerCB to be registered
 against an event type.</doc>
             <type name="EventListenerCB" c:type="AtspiEventListenerCB"/>
           </parameter>
@@ -5301,7 +5087,7 @@ against an event type.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="660">User data to be passed to the callback.</doc>
+                 line="636">User data to be passed to the callback.</doc>
             <type name="gpointer" c:type="void*"/>
           </parameter>
           <parameter name="callback_destroyed"
@@ -5309,13 +5095,13 @@ against an event type.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="661">A #GDestroyNotify called when the callback is destroyed.</doc>
+                 line="637">A #GDestroyNotify called when the callback is destroyed.</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="662">a character string indicating the type of events for which
+                 line="638">a character string indicating the type of events for which
            notification is requested.  See #atspi_event_listener_register
 for a description of the format.</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -5329,7 +5115,7 @@ for a description of the format.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="711">#TRUE if successful, otherwise #FALSE.</doc>
+               line="687">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -5342,7 +5128,7 @@ for a description of the format.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="704">an #AtspiEventListenerCB function pointer.</doc>
+                 line="680">an #AtspiEventListenerCB function pointer.</doc>
             <type name="EventListenerCB" c:type="AtspiEventListenerCB"/>
           </parameter>
           <parameter name="user_data"
@@ -5375,7 +5161,7 @@ for a description of the format.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="739">#TRUE if successful, otherwise #FALSE.</doc>
+               line="715">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -5388,7 +5174,7 @@ for a description of the format.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="731">an #AtspiEventListenerCB function pointer.</doc>
+                 line="707">an #AtspiEventListenerCB function pointer.</doc>
             <type name="EventListenerCB" c:type="AtspiEventListenerCB"/>
           </parameter>
           <parameter name="user_data"
@@ -5426,13 +5212,13 @@ for a description of the format.</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="817">Registers an #AtspiEventListenetSimpleCB. The method is similar to
+             line="793">Registers an #AtspiEventListenetSimpleCB. The method is similar to
 #atspi_event_listener_register, but @callback takes no user_data.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="133"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="833">#TRUE if successfull, otherwise #FALSE.</doc>
+               line="809">#TRUE if successfull, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -5442,7 +5228,7 @@ for a description of the format.</doc>
                      destroy="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="819">the #AtspiEventListenerSimpleCB to be
+                 line="795">the #AtspiEventListenerSimpleCB to be
            registered against an event type.</doc>
             <type name="EventListenerSimpleCB"
                   c:type="AtspiEventListenerSimpleCB"/>
@@ -5452,13 +5238,13 @@ for a description of the format.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="821">A #GDestroyNotify called when the callback is destroyed.</doc>
+                 line="797">A #GDestroyNotify called when the callback is destroyed.</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="822">a character string indicating the type of events for which
+                 line="798">a character string indicating the type of events for which
            notification is requested.  Format is
            EventClass:major_type:minor_type:detail
            where all subfields other than EventClass are optional.
@@ -5474,26 +5260,26 @@ for a description of the format.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="856">Deregisters an #AtspiEventListener from the registry, for a specific
+             line="832">Deregisters an #AtspiEventListener from the registry, for a specific
             event type.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="139"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="865">#TRUE if successful, otherwise #FALSE.</doc>
+               line="841">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="listener" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="858">The #AtspiEventListener to deregister.</doc>
+                 line="834">The #AtspiEventListener to deregister.</doc>
             <type name="EventListener" c:type="AtspiEventListener*"/>
           </instance-parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="859">a string specifying the event type for which this
+                 line="835">a string specifying the event type for which this
             listener is to be deregistered.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -5504,7 +5290,7 @@ for a description of the format.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="466">Adds an in-process callback function to an existing #AtspiEventListener.
+             line="442">Adds an in-process callback function to an existing #AtspiEventListener.
 
 Legal object event types:
 
@@ -5591,20 +5377,20 @@ reader and is thus a special case internally.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="561">#TRUE if successful, otherwise #FALSE.</doc>
+               line="537">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="listener" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="468">The #AtspiEventListener to register against an event type.</doc>
+                 line="444">The #AtspiEventListener to register against an event type.</doc>
             <type name="EventListener" c:type="AtspiEventListener*"/>
           </instance-parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="469">a character string indicating the type of events for which
+                 line="445">a character string indicating the type of events for which
            notification is requested.  Format is
            EventClass:major_type:minor_type:detail
            where all subfields other than EventClass are optional.
@@ -5620,25 +5406,25 @@ reader and is thus a special case internally.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="577">Adds an in-process callback function to an existing #AtspiEventListener.</doc>
+             line="553">Adds an in-process callback function to an existing #AtspiEventListener.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="590">#TRUE if successful, otherwise #FALSE.</doc>
+               line="566">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="listener" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="579">The #AtspiEventListener to register against an event type.</doc>
+                 line="555">The #AtspiEventListener to register against an event type.</doc>
             <type name="EventListener" c:type="AtspiEventListener*"/>
           </instance-parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="580">a character string indicating the type of events for which
+                 line="556">a character string indicating the type of events for which
            notification is requested.  See #atspi_event_listener_register
 for a description of the format and legal event types.</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -5649,7 +5435,7 @@ for a description of the format and legal event types.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="583">a list of
+                 line="559">a list of
             properties that should be sent along with the event. The
             properties are valued for the duration of the event callback.
             TODO: Document.</doc>
@@ -5664,25 +5450,25 @@ for a description of the format and legal event types.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="609">Adds an in-process callback function to an existing #AtspiEventListener.</doc>
+             line="585">Adds an in-process callback function to an existing #AtspiEventListener.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="102"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="623">#TRUE if successful, otherwise #FALSE.</doc>
+               line="599">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="listener" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="611">The #AtspiEventListener to register against an event type.</doc>
+                 line="587">The #AtspiEventListener to register against an event type.</doc>
             <type name="EventListener" c:type="AtspiEventListener*"/>
           </instance-parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="612">a character string indicating the type of events for which
+                 line="588">a character string indicating the type of events for which
            notification is requested.  See #atspi_event_listener_register
 for a description of the format and legal event types.</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -5693,7 +5479,7 @@ for a description of the format and legal event types.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="615">a list of
+                 line="591">a list of
             properties that should be sent along with the event. The
             properties are valued for the duration of the event callback.</doc>
             <array name="GLib.Array" c:type="GArray*">
@@ -5706,7 +5492,7 @@ for a description of the format and legal event types.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="618">the application whose events should be reported, or
+                 line="594">the application whose events should be reported, or
      %null for all applications.</doc>
             <type name="Accessible" c:type="AtspiAccessible*"/>
           </parameter>
@@ -6694,8 +6480,8 @@ the image's width and y corresponds to the image's height.</doc>
     <callback name="KeyCallback" c:type="AtspiKeyCallback">
       <doc xml:space="preserve"
            filename="atspi/atspi-device.h"
-           line="64">A callback that will be invoked when a key is pressed.</doc>
-      <source-position filename="atspi/atspi-device.h" line="76"/>
+           line="63">A callback that will be invoked when a key is pressed.</doc>
+      <source-position filename="atspi/atspi-device.h" line="75"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -6703,37 +6489,37 @@ the image's width and y corresponds to the image's height.</doc>
         <parameter name="device" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.h"
-               line="66">the device.</doc>
+               line="65">the device.</doc>
           <type name="Device" c:type="AtspiDevice*"/>
         </parameter>
         <parameter name="pressed" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.h"
-               line="67">TRUE if the key is being pressed, FALSE if being released.</doc>
+               line="66">TRUE if the key is being pressed, FALSE if being released.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
         <parameter name="keycode" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.h"
-               line="68">the hardware code for the key.</doc>
+               line="67">the hardware code for the key.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="keysym" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.h"
-               line="69">the keysym for the key.</doc>
+               line="68">the keysym for the key.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="modifiers" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.h"
-               line="70">a bitflag indicating which key modifiers are active.</doc>
+               line="69">a bitflag indicating which key modifiers are active.</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="keystring" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.h"
-               line="71">the text corresponding to the keypress.</doc>
+               line="70">the text corresponding to the keypress.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="user_data"
@@ -6743,7 +6529,7 @@ the image's width and y corresponds to the image's height.</doc>
                    closure="6">
           <doc xml:space="preserve"
                filename="atspi/atspi-device.h"
-               line="72">user-supplied data</doc>
+               line="71">user-supplied data</doc>
           <type name="gpointer" c:type="void*"/>
         </parameter>
       </parameters>
@@ -11757,31 +11543,31 @@ be selected, if the objects StateSet includes STATE_SELECTABLE_TEXT.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-text.c"
-             line="870">Selects some text (adds a text selection) in an #AtspiText object.</doc>
+             line="834">Selects some text (adds a text selection) in an #AtspiText object.</doc>
         <source-position filename="atspi/atspi-text.h" line="133"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-text.c"
-               line="878">#TRUE if successful, #FALSE otherwise.</doc>
+               line="842">#TRUE if successful, #FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="872">a pointer to the #AtspiText object on which to operate.</doc>
+                 line="836">a pointer to the #AtspiText object on which to operate.</doc>
             <type name="Text" c:type="AtspiText*"/>
           </instance-parameter>
           <parameter name="start_offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="873">the starting offset of the desired new selection.</doc>
+                 line="837">the starting offset of the desired new selection.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="end_offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="874">the offset of the first character after the new selection.</doc>
+                 line="838">the offset of the first character after the new selection.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -11952,13 +11738,13 @@ describing the attributes at the given character offset.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-text.c"
-             line="775">Gets the ranges of text from an #AtspiText object which lie within the
+             line="739">Gets the ranges of text from an #AtspiText object which lie within the
          bounds defined by (@x, @y) and (@x+@width, @y+@height).</doc>
         <source-position filename="atspi/atspi-text.h" line="127"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-text.c"
-               line="792">a null-terminated list of
+               line="756">a null-terminated list of
          pointers to #AtspiTextRange structs detailing the bounded text.</doc>
           <array name="GLib.Array" c:type="GArray*">
             <type name="TextRange"/>
@@ -11968,51 +11754,51 @@ describing the attributes at the given character offset.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="777">a pointer to the #AtspiText object on which to operate.</doc>
+                 line="741">a pointer to the #AtspiText object on which to operate.</doc>
             <type name="Text" c:type="AtspiText*"/>
           </instance-parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="778">the 'starting' x coordinate of the bounding box.</doc>
+                 line="742">the 'starting' x coordinate of the bounding box.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="779">the 'starting' y coordinate of the bounding box.</doc>
+                 line="743">the 'starting' y coordinate of the bounding box.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="780">the x extent of the bounding box.</doc>
+                 line="744">the x extent of the bounding box.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="781">the y extent of the bounding box.</doc>
+                 line="745">the y extent of the bounding box.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="782">an #AccessibleCoordType indicating the coordinate system to use
+                 line="746">an #AccessibleCoordType indicating the coordinate system to use
        for the returned values.</doc>
             <type name="CoordType" c:type="AtspiCoordType"/>
           </parameter>
           <parameter name="clipTypeX" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="784">an #AtspiTextClipType indicating how to treat characters that
+                 line="748">an #AtspiTextClipType indicating how to treat characters that
        intersect the bounding box's x extents.</doc>
             <type name="TextClipType" c:type="AtspiTextClipType"/>
           </parameter>
           <parameter name="clipTypeY" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="786">an #AtspiTextClipType indicating how to treat characters that
+                 line="750">an #AtspiTextClipType indicating how to treat characters that
        intersect the bounding box's y extents.</doc>
             <type name="TextClipType" c:type="AtspiTextClipType"/>
           </parameter>
@@ -12045,12 +11831,12 @@ describing the attributes at the given character offset.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-text.c"
-             line="630">Gets the character at a given offset for an #AtspiText object.</doc>
+             line="594">Gets the character at a given offset for an #AtspiText object.</doc>
         <source-position filename="atspi/atspi-text.h" line="119"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-text.c"
-               line="638">a #guint  representing the
+               line="602">a #guint  representing the
        UCS-4 unicode code point of the given character, or
        0xFFFFFFFF if the character in question cannot be represented
        in the UCS-4 encoding.</doc>
@@ -12060,13 +11846,13 @@ describing the attributes at the given character offset.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="632">a pointer to the #AtspiText object on which to operate.</doc>
+                 line="596">a pointer to the #AtspiText object on which to operate.</doc>
             <type name="Text" c:type="AtspiText*"/>
           </instance-parameter>
           <parameter name="offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="633">a #gint indicating the text offset where the desired
+                 line="597">a #gint indicating the text offset where the desired
          character is located.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
@@ -12100,7 +11886,7 @@ describing the attributes at the given character offset.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-text.c"
-             line="658">Gets a bounding box containing the glyph representing
+             line="622">Gets a bounding box containing the glyph representing
        the character at a particular text offset.
 The returned values are meaningful only if the Text has both
 STATE_VISIBLE and STATE_SHOWING.</doc>
@@ -12108,27 +11894,27 @@ STATE_VISIBLE and STATE_SHOWING.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-text.c"
-               line="671">An #AtspiRect specifying the position and size of the character.</doc>
+               line="635">An #AtspiRect specifying the position and size of the character.</doc>
           <type name="Rect" c:type="AtspiRect*"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="660">a pointer to the #AtspiText object on which to operate.</doc>
+                 line="624">a pointer to the #AtspiText object on which to operate.</doc>
             <type name="Text" c:type="AtspiText*"/>
           </instance-parameter>
           <parameter name="offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="661">a #gint indicating the offset of the text character for
+                 line="625">a #gint indicating the offset of the text character for
        whom boundary information is requested.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="663">an #AccessibleCoordType indicating the coordinate system to use
+                 line="627">an #AccessibleCoordType indicating the coordinate system to use
        for the returned values.</doc>
             <type name="CoordType" c:type="AtspiCoordType"/>
           </parameter>
@@ -12170,13 +11956,13 @@ describes the entire set of text attributes over a range.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-text.c"
-             line="818">Gets the number of active non-contiguous selections for an
+             line="782">Gets the number of active non-contiguous selections for an
          #AtspiText object.</doc>
         <source-position filename="atspi/atspi-text.h" line="129"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-text.c"
-               line="825">a #gint indicating the current
+               line="789">a #gint indicating the current
          number of non-contiguous text selections active
          within an #AtspiText object.</doc>
           <type name="gint" c:type="gint"/>
@@ -12185,7 +11971,7 @@ describes the entire set of text attributes over a range.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="820">a pointer to the #AtspiText object on which to operate.</doc>
+                 line="784">a pointer to the #AtspiText object on which to operate.</doc>
             <type name="Text" c:type="AtspiText*"/>
           </instance-parameter>
         </parameters>
@@ -12195,12 +11981,12 @@ describes the entire set of text attributes over a range.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-text.c"
-             line="699">Gets the character offset into the text at a given point.</doc>
+             line="663">Gets the character offset into the text at a given point.</doc>
         <source-position filename="atspi/atspi-text.h" line="123"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-text.c"
-               line="709">the offset (as a #gint) at the point (@x, @y)
+               line="673">the offset (as a #gint) at the point (@x, @y)
       in the specified coordinate system.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -12208,25 +11994,25 @@ describes the entire set of text attributes over a range.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="701">a pointer to the #AtspiText object on which to operate.</doc>
+                 line="665">a pointer to the #AtspiText object on which to operate.</doc>
             <type name="Text" c:type="AtspiText*"/>
           </instance-parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="702">the x coordinate of the point to be queried.</doc>
+                 line="666">the x coordinate of the point to be queried.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="703">the y coordinate of the point to be queried.</doc>
+                 line="667">the y coordinate of the point to be queried.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="704">an #AtspiCoordType indicating the coordinate system in which
+                 line="668">an #AtspiCoordType indicating the coordinate system in which
       the values should be returned.</doc>
             <type name="CoordType" c:type="AtspiCoordType"/>
           </parameter>
@@ -12237,14 +12023,14 @@ describes the entire set of text attributes over a range.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-text.c"
-             line="731">Gets the bounding box for text within a range in an  #AtspiText object.
+             line="695">Gets the bounding box for text within a range in an  #AtspiText object.
 The returned values are meaningful only if the Text has both
 STATE_VISIBLE and STATE_SHOWING.</doc>
         <source-position filename="atspi/atspi-text.h" line="125"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-text.c"
-               line="745">An #AtspiRect giving the position and size of the specified range
+               line="709">An #AtspiRect giving the position and size of the specified range
          of text.</doc>
           <type name="Rect" c:type="AtspiRect*"/>
         </return-value>
@@ -12252,27 +12038,27 @@ STATE_VISIBLE and STATE_SHOWING.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="733">a pointer to the #AtspiText object on which to operate.</doc>
+                 line="697">a pointer to the #AtspiText object on which to operate.</doc>
             <type name="Text" c:type="AtspiText*"/>
           </instance-parameter>
           <parameter name="start_offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="734">a #gint indicating the offset of the first text character for
+                 line="698">a #gint indicating the offset of the first text character for
        whom boundary information is requested.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="end_offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="736">a #gint indicating the offset of the text character
+                 line="700">a #gint indicating the offset of the text character
        after the last character for whom boundary information is requested.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="738">an #AtspiCoordType indicating the coordinate system to use
+                 line="702">an #AtspiCoordType indicating the coordinate system to use
        for the returned values.</doc>
             <type name="CoordType" c:type="AtspiCoordType"/>
           </parameter>
@@ -12283,7 +12069,7 @@ STATE_VISIBLE and STATE_SHOWING.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-text.c"
-             line="841">Gets the bounds of the @selection_num-th active text selection for an
+             line="805">Gets the bounds of the @selection_num-th active text selection for an
         #AtspiText object.</doc>
         <source-position filename="atspi/atspi-text.h" line="131"/>
         <return-value transfer-ownership="full">
@@ -12293,13 +12079,13 @@ STATE_VISIBLE and STATE_SHOWING.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="843">a pointer to the #AtspiText object on which to operate.</doc>
+                 line="807">a pointer to the #AtspiText object on which to operate.</doc>
             <type name="Text" c:type="AtspiText*"/>
           </instance-parameter>
           <parameter name="selection_num" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="844">a #gint indicating which selection to query.</doc>
+                 line="808">a #gint indicating which selection to query.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -12310,7 +12096,7 @@ STATE_VISIBLE and STATE_SHOWING.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-text.c"
-             line="458">Gets a portion of the text exposed through an #AtspiText according to a given @offset
+             line="437">Gets a portion of the text exposed through an #AtspiText according to a given @offset
 and a specific @granularity, along with the start and end offsets defining the
 boundaries of such a portion of text.
 
@@ -12344,7 +12130,7 @@ of the following paragraph after the offset.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-text.c"
-               line="497">a newly allocated string containing the text at the @offset bounded
+               line="476">a newly allocated string containing the text at the @offset bounded
   by the specified @granularity. Use g_free() to free the returned string.
   Returns %NULL if the offset is invalid or no implementation is available.</doc>
           <type name="TextRange" c:type="AtspiTextRange*"/>
@@ -12353,19 +12139,19 @@ of the following paragraph after the offset.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="460">an #AtspiText</doc>
+                 line="439">an #AtspiText</doc>
             <type name="Text" c:type="AtspiText*"/>
           </instance-parameter>
           <parameter name="offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="461">position</doc>
+                 line="440">position</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="granularity" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="462">An #AtspiTextGranularity</doc>
+                 line="441">An #AtspiTextGranularity</doc>
             <type name="TextGranularity" c:type="AtspiTextGranularity"/>
           </parameter>
         </parameters>
@@ -12410,13 +12196,13 @@ of the following paragraph after the offset.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-text.c"
-             line="587">Gets delimited text from an #AtspiText object which follows a given
+             line="551">Gets delimited text from an #AtspiText object which follows a given
          text offset.</doc>
         <source-position filename="atspi/atspi-text.h" line="114"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-text.c"
-               line="598">an #AtspiTextRange containing a UTF-8 string representing the
+               line="562">an #AtspiTextRange containing a UTF-8 string representing the
          delimited text, both of whose delimiting boundaries are after or
          inclusive of the current offset, or an empty string if no such
          text exists.</doc>
@@ -12426,20 +12212,20 @@ of the following paragraph after the offset.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="589">a pointer to the #AtspiText object on which to operate.</doc>
+                 line="553">a pointer to the #AtspiText object on which to operate.</doc>
             <type name="Text" c:type="AtspiText*"/>
           </instance-parameter>
           <parameter name="offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="590">a #gint indicating the offset from which the delimiter
+                 line="554">a #gint indicating the offset from which the delimiter
        search is based.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="592">an #AtspiTextBoundaryType indicating whether the desired
+                 line="556">an #AtspiTextBoundaryType indicating whether the desired
       text string is a word, sentence, line, or attribute run.</doc>
             <type name="TextBoundaryType" c:type="AtspiTextBoundaryType"/>
           </parameter>
@@ -12452,14 +12238,14 @@ of the following paragraph after the offset.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-text.c"
-             line="543">Gets delimited text from an #AtspiText object which includes a given
+             line="507">Gets delimited text from an #AtspiText object which includes a given
          text offset.</doc>
         <doc-deprecated xml:space="preserve">Use atspi_text_get_string_at_offset.</doc-deprecated>
         <source-position filename="atspi/atspi-text.h" line="112"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-text.c"
-               line="554">an #AtspiTextRange containing a UTF-8 string representing the
+               line="518">an #AtspiTextRange containing a UTF-8 string representing the
          delimited text, whose delimiting boundaries bracket the
          current offset, or an empty string if no such text exists.</doc>
           <type name="TextRange" c:type="AtspiTextRange*"/>
@@ -12468,20 +12254,20 @@ of the following paragraph after the offset.</doc>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="545">a pointer to the #AtspiText object on which to operate.</doc>
+                 line="509">a pointer to the #AtspiText object on which to operate.</doc>
             <type name="Text" c:type="AtspiText*"/>
           </instance-parameter>
           <parameter name="offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="546">a #gint indicating the offset from which the delimiter
+                 line="510">a #gint indicating the offset from which the delimiter
        search is based.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="548">an #AtspiTextBoundaryType indicating whether the desired
+                 line="512">an #AtspiTextBoundaryType indicating whether the desired
       text string is a word, sentence, line, or attribute run.</doc>
             <type name="TextBoundaryType" c:type="AtspiTextBoundaryType"/>
           </parameter>
@@ -12623,25 +12409,25 @@ describing the attributes at the given character offset.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-text.c"
-             line="894">De-selects a text selection.</doc>
+             line="858">De-selects a text selection.</doc>
         <source-position filename="atspi/atspi-text.h" line="135"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-text.c"
-               line="901">#TRUE if successful, #FALSE otherwise.</doc>
+               line="865">#TRUE if successful, #FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="896">a pointer to the #AtspiText object on which to operate.</doc>
+                 line="860">a pointer to the #AtspiText object on which to operate.</doc>
             <type name="Text" c:type="AtspiText*"/>
           </instance-parameter>
           <parameter name="selection_num" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="897">a #gint indicating which text selection to remove.</doc>
+                 line="861">a #gint indicating which text selection to remove.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -12651,38 +12437,38 @@ describing the attributes at the given character offset.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-text.c"
-             line="947">Scrolls whatever container of the #AtspiText text range so it becomes
+             line="911">Scrolls whatever container of the #AtspiText text range so it becomes
 visible on the screen.</doc>
         <source-position filename="atspi/atspi-text.h" line="139"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-text.c"
-               line="958">#TRUE if successful, #FALSE otherwise.</doc>
+               line="922">#TRUE if successful, #FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="949">a pointer to the #AtspiText object on which to operate.</doc>
+                 line="913">a pointer to the #AtspiText object on which to operate.</doc>
             <type name="Text" c:type="AtspiText*"/>
           </instance-parameter>
           <parameter name="start_offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="950">a #gint indicating the start of the desired text range.</doc>
+                 line="914">a #gint indicating the start of the desired text range.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="end_offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="951">a #gint indicating the first character past the desired range.</doc>
+                 line="915">a #gint indicating the first character past the desired range.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="952">a #AtspiScrollType indicating where the object should be placed on the
+                 line="916">a #AtspiScrollType indicating where the object should be placed on the
        screen.</doc>
             <type name="ScrollType" c:type="AtspiScrollType"/>
           </parameter>
@@ -12693,51 +12479,51 @@ visible on the screen.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-text.c"
-             line="978">Scrolls whatever container of the #AtspiText text range so it becomes
+             line="942">Scrolls whatever container of the #AtspiText text range so it becomes
 visible on the screen at a given position.</doc>
         <source-position filename="atspi/atspi-text.h" line="141"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-text.c"
-               line="991">#TRUE if successful, #FALSE otherwise.</doc>
+               line="955">#TRUE if successful, #FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="980">a pointer to the #AtspiText object on which to operate.</doc>
+                 line="944">a pointer to the #AtspiText object on which to operate.</doc>
             <type name="Text" c:type="AtspiText*"/>
           </instance-parameter>
           <parameter name="start_offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="981">a #gint indicating the start of the desired text range.</doc>
+                 line="945">a #gint indicating the start of the desired text range.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="end_offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="982">a #gint indicating the first character past the desired range.</doc>
+                 line="946">a #gint indicating the first character past the desired range.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="coords" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="983">a #AtspiCoordType indicating whether the coordinates are relative to
+                 line="947">a #AtspiCoordType indicating whether the coordinates are relative to
          the screen, to the window, or to the parent object.</doc>
             <type name="CoordType" c:type="AtspiCoordType"/>
           </parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="985">the x coordinate of the point to reach</doc>
+                 line="949">the x coordinate of the point to reach</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="986">the y coordinate of the point to reach</doc>
+                 line="950">the y coordinate of the point to reach</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -12775,37 +12561,37 @@ visible on the screen at a given position.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-text.c"
-             line="918">Changes the bounds of an existing #AtspiText text selection.</doc>
+             line="882">Changes the bounds of an existing #AtspiText text selection.</doc>
         <source-position filename="atspi/atspi-text.h" line="137"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-text.c"
-               line="928">#TRUE if successful, #FALSE otherwise.</doc>
+               line="892">#TRUE if successful, #FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="920">a pointer to the #AtspiText object on which to operate.</doc>
+                 line="884">a pointer to the #AtspiText object on which to operate.</doc>
             <type name="Text" c:type="AtspiText*"/>
           </instance-parameter>
           <parameter name="selection_num" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="921">a zero-offset index indicating which text selection to modify.</doc>
+                 line="885">a zero-offset index indicating which text selection to modify.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="start_offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="922">a #gint indicating the new starting offset for the selection.</doc>
+                 line="886">a #gint indicating the new starting offset for the selection.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="end_offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-text.c"
-                 line="923">a #gint indicating the desired new offset of the first character
+                 line="887">a #gint indicating the desired new offset of the first character
             after the selection.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
@@ -13036,62 +12822,6 @@ the following one, if present.</doc>
       </field>
       <field name="content" writable="1">
         <type name="utf8" c:type="gchar*"/>
-      </field>
-    </record>
-    <record name="TextSelection" c:type="AtspiTextSelection" version="2.52">
-      <doc xml:space="preserve"
-           filename="atspi/atspi-document.h"
-           line="43">This structure represents a single  text selection within a document. This
-selection is defined by two points in the content, where each one is defined
-by an AtkObject supporting the AtkText interface and a character offset
-relative to it.
-
-The end object must appear after the start object in the accessibility tree,
-i.e. the end object must be reachable from the start object by navigating
-forward (next, first child etc).
-
-This struct also contains a @start_is_active boolean, to communicate if the
-start of the selection is the active point or not.
-
-The active point corresponds to the user's focus or point of interest. The
-user moves the active point to expand or collapse the range. The anchor
-point is the other point of the range and typically remains constant. In
-most cases, anchor is the start of the range and active is the end. However,
-when selecting backwards (e.g. pressing shift+left arrow in a text field),
-the start of the range is the active point, as the user moves this to
-manipulate the selection.</doc>
-      <source-position filename="atspi/atspi-document.h" line="83"/>
-      <field name="start_object" writable="1">
-        <doc xml:space="preserve"
-             filename="atspi/atspi-document.h"
-             line="45">the AtspiAccessible containing the start of the selection.</doc>
-        <type name="Accessible" c:type="AtspiAccessible*"/>
-      </field>
-      <field name="start_offset" writable="1">
-        <doc xml:space="preserve"
-             filename="atspi/atspi-document.h"
-             line="46">the text offset of the beginning of the selection within
-               @start_object.</doc>
-        <type name="gint" c:type="gint"/>
-      </field>
-      <field name="end_object" writable="1">
-        <doc xml:space="preserve"
-             filename="atspi/atspi-document.h"
-             line="48">the AtspiAccessible containing the end of the selection.</doc>
-        <type name="Accessible" c:type="AtspiAccessible*"/>
-      </field>
-      <field name="end_offset" writable="1">
-        <doc xml:space="preserve"
-             filename="atspi/atspi-document.h"
-             line="49">the text offset of the end of the selection within @end_object.</doc>
-        <type name="gint" c:type="gint"/>
-      </field>
-      <field name="start_is_active" writable="1">
-        <doc xml:space="preserve"
-             filename="atspi/atspi-document.h"
-             line="50">a gboolean indicating whether the start of the selection
-                 is the active point.</doc>
-        <type name="gboolean" c:type="gboolean"/>
       </field>
     </record>
     <function-macro name="VALUE" c:identifier="ATSPI_VALUE" introspectable="0">

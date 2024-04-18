@@ -379,7 +379,7 @@ and/or use gtk-doc annotations.  -->
            glib:type-struct="ContextMenuClass">
       <doc xml:space="preserve"
            filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-           line="38">Represents the context menu in a #WebKitWebView.
+           line="41">Represents the context menu in a #WebKitWebView.
 
 #WebKitContextMenu represents a context menu containing
 #WebKitContextMenuItem&lt;!-- --&gt;s in a #WebKitWebView.
@@ -397,7 +397,7 @@ existing ones with webkit_context_menu_remove_all().</doc>
       <constructor name="new" c:identifier="webkit_context_menu_new">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="130">Creates a new #WebKitContextMenu object.
+             line="135">Creates a new #WebKitContextMenu object.
 
 Creates a new #WebKitContextMenu object to be used as a submenu of an existing
 #WebKitContextMenu. The context menu of a #WebKitWebView is created by the view
@@ -411,7 +411,7 @@ a list of initial items.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-               line="143">The newly created #WebKitContextMenu object</doc>
+               line="148">The newly created #WebKitContextMenu object</doc>
           <type name="ContextMenu" c:type="WebKitContextMenu*"/>
         </return-value>
       </constructor>
@@ -419,7 +419,7 @@ a list of initial items.</doc>
                    c:identifier="webkit_context_menu_new_with_items">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="150">Creates a new #WebKitContextMenu object with the given items.
+             line="155">Creates a new #WebKitContextMenu object with the given items.
 
 Creates a new #WebKitContextMenu object to be used as a submenu of an existing
 #WebKitContextMenu with the given initial items.
@@ -429,14 +429,14 @@ See also webkit_context_menu_new()</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-               line="160">The newly created #WebKitContextMenu object</doc>
+               line="165">The newly created #WebKitContextMenu object</doc>
           <type name="ContextMenu" c:type="WebKitContextMenu*"/>
         </return-value>
         <parameters>
           <parameter name="items" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="152">a #GList of #WebKitContextMenuItem</doc>
+                 line="157">a #GList of #WebKitContextMenuItem</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="ContextMenuItem"/>
             </type>
@@ -446,7 +446,7 @@ See also webkit_context_menu_new()</doc>
       <method name="append" c:identifier="webkit_context_menu_append">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="183">Adds @item at the end of the @menu.</doc>
+             line="188">Adds @item at the end of the @menu.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="65"/>
         <return-value transfer-ownership="none">
@@ -456,13 +456,13 @@ See also webkit_context_menu_new()</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="185">a #WebKitContextMenu</doc>
+                 line="190">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="186">the #WebKitContextMenuItem to add</doc>
+                 line="191">the #WebKitContextMenuItem to add</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </parameter>
         </parameters>
@@ -470,13 +470,13 @@ See also webkit_context_menu_new()</doc>
       <method name="first" c:identifier="webkit_context_menu_first">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="272">Gets the first item in the @menu.</doc>
+             line="277">Gets the first item in the @menu.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="84"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-               line="278">the first #WebKitContextMenuItem of @menu,
+               line="283">the first #WebKitContextMenuItem of @menu,
    or %NULL if the #WebKitContextMenu is empty.</doc>
           <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
         </return-value>
@@ -484,7 +484,7 @@ See also webkit_context_menu_new()</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="274">a #WebKitContextMenu</doc>
+                 line="279">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
         </parameters>
@@ -494,7 +494,7 @@ See also webkit_context_menu_new()</doc>
               version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="400">Gets the #GdkEvent that triggered the context menu. This function only returns a valid
+             line="405">Gets the #GdkEvent that triggered the context menu. This function only returns a valid
 #GdkEvent when called for a #WebKitContextMenu passed to #WebKitWebView::context-menu
 signal; in all other cases, %NULL is returned.
 
@@ -515,14 +515,14 @@ a generic #GdkEvent of type %GDK_NOTHING when the #GtkWidget::popup-menu signal 
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-               line="421">the menu event or %NULL.</doc>
+               line="426">the menu event or %NULL.</doc>
           <type name="Gdk.Event" c:type="GdkEvent*"/>
         </return-value>
         <parameters>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="402">a #WebKitContextMenu</doc>
+                 line="407">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
         </parameters>
@@ -531,13 +531,13 @@ a generic #GdkEvent of type %GDK_NOTHING when the #GtkWidget::popup-menu signal 
               c:identifier="webkit_context_menu_get_item_at_position">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="305">Gets the item at the given position in the @menu.</doc>
+             line="310">Gets the item at the given position in the @menu.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="90"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-               line="312">the #WebKitContextMenuItem at position @position in @menu,
+               line="317">the #WebKitContextMenuItem at position @position in @menu,
    or %NULL if the position is off the end of the @menu.</doc>
           <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
         </return-value>
@@ -545,13 +545,13 @@ a generic #GdkEvent of type %GDK_NOTHING when the #GtkWidget::popup-menu signal 
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="307">a #WebKitContextMenu</doc>
+                 line="312">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="308">the position of the item, counting from 0</doc>
+                 line="313">the position of the item, counting from 0</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -559,13 +559,13 @@ a generic #GdkEvent of type %GDK_NOTHING when the #GtkWidget::popup-menu signal 
       <method name="get_items" c:identifier="webkit_context_menu_get_items">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="241">Returns the item list of @menu.</doc>
+             line="246">Returns the item list of @menu.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="78"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-               line="247">a #GList of
+               line="252">a #GList of
    #WebKitContextMenuItem&lt;!-- --&gt;s</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="ContextMenuItem"/>
@@ -575,7 +575,7 @@ a generic #GdkEvent of type %GDK_NOTHING when the #GtkWidget::popup-menu signal 
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="243">a #WebKitContextMenu</doc>
+                 line="248">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
         </parameters>
@@ -584,20 +584,20 @@ a generic #GdkEvent of type %GDK_NOTHING when the #GtkWidget::popup-menu signal 
               c:identifier="webkit_context_menu_get_n_items">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="257">Gets the length of the @menu.</doc>
+             line="262">Gets the length of the @menu.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-               line="263">the number of #WebKitContextMenuItem&lt;!-- --&gt;s in @menu</doc>
+               line="268">the number of #WebKitContextMenuItem&lt;!-- --&gt;s in @menu</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="259">a #WebKitContextMenu</doc>
+                 line="264">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
         </parameters>
@@ -607,7 +607,7 @@ a generic #GdkEvent of type %GDK_NOTHING when the #GtkWidget::popup-menu signal 
               version="2.8">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="379">Gets the user data of @menu.
+             line="384">Gets the user data of @menu.
 
 This function can be used from the UI Process to get user data previously set
 from the Web Process with webkit_context_menu_set_user_data().</doc>
@@ -616,14 +616,14 @@ from the Web Process with webkit_context_menu_set_user_data().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-               line="388">the user data of @menu, or %NULL if @menu doesn't have user data</doc>
+               line="393">the user data of @menu, or %NULL if @menu doesn't have user data</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>
         <parameters>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="381">a #WebKitContextMenu</doc>
+                 line="386">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
         </parameters>
@@ -631,7 +631,7 @@ from the Web Process with webkit_context_menu_set_user_data().</doc>
       <method name="insert" c:identifier="webkit_context_menu_insert">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="195">Inserts @item into the @menu at the given position.
+             line="200">Inserts @item into the @menu at the given position.
 
 If @position is negative, or is larger than the number of items
 in the #WebKitContextMenu, the item is added on to the end of
@@ -645,19 +645,19 @@ the @menu. The first position is 0.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="197">a #WebKitContextMenu</doc>
+                 line="202">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="198">the #WebKitContextMenuItem to add</doc>
+                 line="203">the #WebKitContextMenuItem to add</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="199">the position to insert the item</doc>
+                 line="204">the position to insert the item</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -665,13 +665,13 @@ the @menu. The first position is 0.</doc>
       <method name="last" c:identifier="webkit_context_menu_last">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="288">Gets the last item in the @menu.</doc>
+             line="293">Gets the last item in the @menu.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="87"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-               line="294">the last #WebKitContextMenuItem of @menu,
+               line="299">the last #WebKitContextMenuItem of @menu,
    or %NULL if the #WebKitContextMenu is empty.</doc>
           <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
         </return-value>
@@ -679,7 +679,7 @@ the @menu. The first position is 0.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="290">a #WebKitContextMenu</doc>
+                 line="295">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
         </parameters>
@@ -687,7 +687,7 @@ the @menu. The first position is 0.</doc>
       <method name="move_item" c:identifier="webkit_context_menu_move_item">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="216">Moves @item to the given position in the @menu.
+             line="221">Moves @item to the given position in the @menu.
 
 If @position is negative, or is larger than the number of items
 in the #WebKitContextMenu, the item is added on to the end of
@@ -702,19 +702,19 @@ The first position is 0.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="218">a #WebKitContextMenu</doc>
+                 line="223">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="219">the #WebKitContextMenuItem to add</doc>
+                 line="224">the #WebKitContextMenuItem to add</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="220">the new position to move the item</doc>
+                 line="225">the new position to move the item</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -722,7 +722,7 @@ The first position is 0.</doc>
       <method name="prepend" c:identifier="webkit_context_menu_prepend">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="171">Adds @item at the beginning of the @menu.</doc>
+             line="176">Adds @item at the beginning of the @menu.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="61"/>
         <return-value transfer-ownership="none">
@@ -732,13 +732,13 @@ The first position is 0.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="173">a #WebKitContextMenu</doc>
+                 line="178">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="174">the #WebKitContextMenuItem to add</doc>
+                 line="179">the #WebKitContextMenuItem to add</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </parameter>
         </parameters>
@@ -746,7 +746,7 @@ The first position is 0.</doc>
       <method name="remove" c:identifier="webkit_context_menu_remove">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="323">Removes @item from the @menu.
+             line="328">Removes @item from the @menu.
 
 See also webkit_context_menu_remove_all() to remove all items.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
@@ -758,13 +758,13 @@ See also webkit_context_menu_remove_all() to remove all items.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="325">a #WebKitContextMenu</doc>
+                 line="330">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="326">the #WebKitContextMenuItem to remove</doc>
+                 line="331">the #WebKitContextMenuItem to remove</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </parameter>
         </parameters>
@@ -772,7 +772,7 @@ See also webkit_context_menu_remove_all() to remove all items.</doc>
       <method name="remove_all" c:identifier="webkit_context_menu_remove_all">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="344">Removes all items of the @menu.</doc>
+             line="349">Removes all items of the @menu.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenu.h"
                          line="98"/>
         <return-value transfer-ownership="none">
@@ -782,7 +782,7 @@ See also webkit_context_menu_remove_all() to remove all items.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="346">a #WebKitContextMenu</doc>
+                 line="351">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
         </parameters>
@@ -792,7 +792,7 @@ See also webkit_context_menu_remove_all() to remove all items.</doc>
               version="2.8">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-             line="358">Sets user data to @menu.
+             line="363">Sets user data to @menu.
 
 This function can be used from a Web Process extension to set user data
 that can be retrieved from the UI Process using webkit_context_menu_get_user_data().
@@ -806,13 +806,13 @@ If the @user_data #GVariant is floating, it is consumed.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="360">a #WebKitContextMenu</doc>
+                 line="365">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </instance-parameter>
           <parameter name="user_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenu.cpp"
-                 line="361">a #GVariant</doc>
+                 line="366">a #GVariant</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
         </parameters>
@@ -1215,7 +1215,7 @@ If the @user_data #GVariant is floating, it is consumed.</doc>
            glib:type-struct="ContextMenuItemClass">
       <doc xml:space="preserve"
            filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-           line="39">One item of a #WebKitContextMenu.
+           line="41">One item of a #WebKitContextMenu.
 
 The #WebKitContextMenu is composed of #WebKitContextMenuItem&lt;!--
 --&gt;s. These items can be created from a #GtkAction, from a
@@ -1230,21 +1230,21 @@ for the items. You can also create separators and submenus.</doc>
                    deprecated-version="2.18">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="128">Creates a new #WebKitContextMenuItem for the given @action.</doc>
+             line="136">Creates a new #WebKitContextMenuItem for the given @action.</doc>
         <doc-deprecated xml:space="preserve">Use webkit_context_menu_item_new_from_gaction() instead.</doc-deprecated>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
                          line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="134">the newly created #WebKitContextMenuItem object.</doc>
+               line="142">the newly created #WebKitContextMenuItem object.</doc>
           <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
         </return-value>
         <parameters>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="130">a #GtkAction</doc>
+                 line="138">a #GtkAction</doc>
             <type name="Gtk.Action" c:type="GtkAction*"/>
           </parameter>
         </parameters>
@@ -1254,7 +1254,7 @@ for the items. You can also create separators and submenus.</doc>
                    version="2.18">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="149">Creates a new #WebKitContextMenuItem for the given @action and @label.
+             line="159">Creates a new #WebKitContextMenuItem for the given @action and @label.
 
 On activation
 @target will be passed as parameter to the callback.</doc>
@@ -1263,20 +1263,20 @@ On activation
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="160">the newly created #WebKitContextMenuItem object.</doc>
+               line="170">the newly created #WebKitContextMenuItem object.</doc>
           <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
         </return-value>
         <parameters>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="151">a #GAction</doc>
+                 line="161">a #GAction</doc>
             <type name="Gio.Action" c:type="GAction*"/>
           </parameter>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="152">the menu item label text</doc>
+                 line="162">the menu item label text</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="target"
@@ -1285,7 +1285,7 @@ On activation
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="153">a #GVariant to use as the action target</doc>
+                 line="163">a #GVariant to use as the action target</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
         </parameters>
@@ -1294,7 +1294,7 @@ On activation
                    c:identifier="webkit_context_menu_item_new_from_stock_action">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="177">Creates a new #WebKitContextMenuItem for the given stock action.
+             line="189">Creates a new #WebKitContextMenuItem for the given stock action.
 
 Stock actions are handled automatically by WebKit so that, for example,
 when a menu item created with a %WEBKIT_CONTEXT_MENU_ACTION_STOP is
@@ -1309,14 +1309,14 @@ action from being performed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="192">the newly created #WebKitContextMenuItem object.</doc>
+               line="204">the newly created #WebKitContextMenuItem object.</doc>
           <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
         </return-value>
         <parameters>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="179">a #WebKitContextMenuAction stock action</doc>
+                 line="191">a #WebKitContextMenuAction stock action</doc>
             <type name="ContextMenuAction" c:type="WebKitContextMenuAction"/>
           </parameter>
         </parameters>
@@ -1325,7 +1325,7 @@ action from being performed.</doc>
                    c:identifier="webkit_context_menu_item_new_from_stock_action_with_label">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="205">Creates a new #WebKitContextMenuItem for the given stock action using the given @label.
+             line="219">Creates a new #WebKitContextMenuItem for the given stock action using the given @label.
 
 Stock actions have a predefined label, this method can be used to create a
 #WebKitContextMenuItem for a #WebKitContextMenuAction but using a custom label.</doc>
@@ -1334,20 +1334,20 @@ Stock actions have a predefined label, this method can be used to create a
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="215">the newly created #WebKitContextMenuItem object.</doc>
+               line="229">the newly created #WebKitContextMenuItem object.</doc>
           <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
         </return-value>
         <parameters>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="207">a #WebKitContextMenuAction stock action</doc>
+                 line="221">a #WebKitContextMenuAction stock action</doc>
             <type name="ContextMenuAction" c:type="WebKitContextMenuAction"/>
           </parameter>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="208">a custom label text to use instead of the predefined one</doc>
+                 line="222">a custom label text to use instead of the predefined one</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1356,13 +1356,13 @@ Stock actions have a predefined label, this method can be used to create a
                    c:identifier="webkit_context_menu_item_new_separator">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="253">Creates a new #WebKitContextMenuItem representing a separator.</doc>
+             line="273">Creates a new #WebKitContextMenuItem representing a separator.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
                          line="75"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="258">the newly created #WebKitContextMenuItem object.</doc>
+               line="278">the newly created #WebKitContextMenuItem object.</doc>
           <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
         </return-value>
       </constructor>
@@ -1370,26 +1370,26 @@ Stock actions have a predefined label, this method can be used to create a
                    c:identifier="webkit_context_menu_item_new_with_submenu">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="228">Creates a new #WebKitContextMenuItem using the given @label with a submenu.</doc>
+             line="244">Creates a new #WebKitContextMenuItem using the given @label with a submenu.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
                          line="71"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="235">the newly created #WebKitContextMenuItem object.</doc>
+               line="251">the newly created #WebKitContextMenuItem object.</doc>
           <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
         </return-value>
         <parameters>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="230">the menu item label text</doc>
+                 line="246">the menu item label text</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="submenu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="231">a #WebKitContextMenu to set</doc>
+                 line="247">a #WebKitContextMenu to set</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </parameter>
         </parameters>
@@ -1400,14 +1400,14 @@ Stock actions have a predefined label, this method can be used to create a
               deprecated-version="2.18">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="269">Gets the action associated to @item as a #GtkAction.</doc>
+             line="291">Gets the action associated to @item as a #GtkAction.</doc>
         <doc-deprecated xml:space="preserve">Use webkit_context_menu_item_get_gaction() instead.</doc-deprecated>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
                          line="78"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="275">the #GtkAction associated to the #WebKitContextMenuItem,
+               line="297">the #GtkAction associated to the #WebKitContextMenuItem,
    or %NULL if @item is a separator.</doc>
           <type name="Gtk.Action" c:type="GtkAction*"/>
         </return-value>
@@ -1415,7 +1415,7 @@ Stock actions have a predefined label, this method can be used to create a
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="271">a #WebKitContextMenuItem</doc>
+                 line="293">a #WebKitContextMenuItem</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -1425,13 +1425,13 @@ Stock actions have a predefined label, this method can be used to create a
               version="2.18">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="288">Gets the action associated to @item as a #GAction.</doc>
+             line="314">Gets the action associated to @item as a #GAction.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
                          line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="294">the #GAction associated to the #WebKitContextMenuItem,
+               line="320">the #GAction associated to the #WebKitContextMenuItem,
    or %NULL if @item is a separator.</doc>
           <type name="Gio.Action" c:type="GAction*"/>
         </return-value>
@@ -1439,7 +1439,7 @@ Stock actions have a predefined label, this method can be used to create a
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="290">a #WebKitContextMenuItem</doc>
+                 line="316">a #WebKitContextMenuItem</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -1448,7 +1448,7 @@ Stock actions have a predefined label, this method can be used to create a
               c:identifier="webkit_context_menu_item_get_stock_action">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="306">Gets the #WebKitContextMenuAction of @item.
+             line="336">Gets the #WebKitContextMenuAction of @item.
 
 If the #WebKitContextMenuItem was not
 created for a stock action %WEBKIT_CONTEXT_MENU_ACTION_CUSTOM will be
@@ -1459,14 +1459,14 @@ will be returned.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="317">the #WebKitContextMenuAction of @item</doc>
+               line="347">the #WebKitContextMenuAction of @item</doc>
           <type name="ContextMenuAction" c:type="WebKitContextMenuAction"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="308">a #WebKitContextMenuItem</doc>
+                 line="338">a #WebKitContextMenuItem</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -1475,13 +1475,13 @@ will be returned.</doc>
               c:identifier="webkit_context_menu_item_get_submenu">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="361">Gets the submenu of @item.</doc>
+             line="401">Gets the submenu of @item.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
                          line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="367">the #WebKitContextMenu representing the submenu of
+               line="407">the #WebKitContextMenu representing the submenu of
    @item or %NULL if @item doesn't have a submenu.</doc>
           <type name="ContextMenu" c:type="WebKitContextMenu*"/>
         </return-value>
@@ -1489,7 +1489,7 @@ will be returned.</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="363">a #WebKitContextMenuItem</doc>
+                 line="403">a #WebKitContextMenuItem</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -1498,20 +1498,20 @@ will be returned.</doc>
               c:identifier="webkit_context_menu_item_is_separator">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="326">Checks whether @item is a separator.</doc>
+             line="360">Checks whether @item is a separator.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitContextMenuItem.h"
                          line="87"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-               line="332">%TRUE is @item is a separator or %FALSE otherwise</doc>
+               line="366">%TRUE is @item is a separator or %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="328">a #WebKitContextMenuItem</doc>
+                 line="362">a #WebKitContextMenuItem</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </instance-parameter>
         </parameters>
@@ -1520,7 +1520,7 @@ will be returned.</doc>
               c:identifier="webkit_context_menu_item_set_submenu">
         <doc xml:space="preserve"
              filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-             line="341">Sets or replaces the @item submenu.
+             line="379">Sets or replaces the @item submenu.
 
 If @submenu is %NULL the current
 submenu of @item is removed.</doc>
@@ -1533,7 +1533,7 @@ submenu of @item is removed.</doc>
           <instance-parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="343">a #WebKitContextMenuItem</doc>
+                 line="381">a #WebKitContextMenuItem</doc>
             <type name="ContextMenuItem" c:type="WebKitContextMenuItem*"/>
           </instance-parameter>
           <parameter name="submenu"
@@ -1542,7 +1542,7 @@ submenu of @item is removed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/Shared/API/glib/WebKitContextMenuItem.cpp"
-                 line="344">a #WebKitContextMenu</doc>
+                 line="382">a #WebKitContextMenu</doc>
             <type name="ContextMenu" c:type="WebKitContextMenu*"/>
           </parameter>
         </parameters>
@@ -48488,14 +48488,14 @@ about the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
               deprecated-version="2.40.">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="818">Get the #WebKitDOMDocument currently loaded in @web_page</doc>
+             line="826">Get the #WebKitDOMDocument currently loaded in @web_page</doc>
         <doc-deprecated xml:space="preserve">Use JavaScriptCore API instead.</doc-deprecated>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                          line="78"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="824">the #WebKitDOMDocument currently loaded, or %NULL
+               line="832">the #WebKitDOMDocument currently loaded, or %NULL
    if no document is currently loaded.</doc>
           <type name="DOMDocument" c:type="WebKitDOMDocument*"/>
         </return-value>
@@ -48503,7 +48503,7 @@ about the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="820">a #WebKitWebPage</doc>
+                 line="828">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
         </parameters>
@@ -48513,20 +48513,20 @@ about the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
               version="2.10">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="891">Gets the #WebKitWebEditor of a #WebKitWebPage.</doc>
+             line="899">Gets the #WebKitWebEditor of a #WebKitWebPage.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                          line="90"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="897">the #WebKitWebEditor</doc>
+               line="905">the #WebKitWebEditor</doc>
           <type name="WebEditor" c:type="WebKitWebEditor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="893">a #WebKitWebPage</doc>
+                 line="901">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
         </parameters>
@@ -48536,20 +48536,20 @@ about the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
               version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="976">Get the #WebKitWebFormManager of @web_page in @world.</doc>
+             line="984">Get the #WebKitWebFormManager of @web_page in @world.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                          line="93"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="983">a #WebKitWebFormManager</doc>
+               line="991">a #WebKitWebFormManager</doc>
           <type name="WebFormManager" c:type="WebKitWebFormManager*"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="978">a #WebKitWebPage</doc>
+                 line="986">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
           <parameter name="world"
@@ -48558,7 +48558,7 @@ about the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="979">a #WebKitScriptWorld</doc>
+                 line="987">a #WebKitScriptWorld</doc>
             <type name="ScriptWorld" c:type="WebKitScriptWorld*"/>
           </parameter>
         </parameters>
@@ -48566,20 +48566,20 @@ about the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
       <method name="get_id" c:identifier="webkit_web_page_get_id">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="840">Get the identifier of the #WebKitWebPage</doc>
+             line="848">Get the identifier of the #WebKitWebPage</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                          line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="846">the identifier of @web_page</doc>
+               line="854">the identifier of @web_page</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="842">a #WebKitWebPage</doc>
+                 line="850">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
         </parameters>
@@ -48589,20 +48589,20 @@ about the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
               version="2.2">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="874">Returns the main frame of a #WebKitWebPage.</doc>
+             line="882">Returns the main frame of a #WebKitWebPage.</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                          line="87"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="880">the #WebKitFrame that is the main frame of @web_page</doc>
+               line="888">the #WebKitFrame that is the main frame of @web_page</doc>
           <type name="Frame" c:type="WebKitFrame*"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="876">a #WebKitWebPage</doc>
+                 line="884">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
         </parameters>
@@ -48612,7 +48612,7 @@ about the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
               glib:get-property="uri">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="855">Returns the current active URI of @web_page.
+             line="863">Returns the current active URI of @web_page.
 
 You can monitor the active URI by connecting to the notify::uri
 signal of @web_page.</doc>
@@ -48621,7 +48621,7 @@ signal of @web_page.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="864">the current active URI of @web_view or %NULL if nothing has been
+               line="872">the current active URI of @web_view or %NULL if nothing has been
    loaded yet.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -48629,7 +48629,7 @@ signal of @web_page.</doc>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="857">a #WebKitWebPage</doc>
+                 line="865">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
         </parameters>
@@ -48639,7 +48639,7 @@ signal of @web_page.</doc>
               version="2.28">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="911">Send @message to the #WebKitWebView corresponding to @web_page. If @message is floating, it's consumed.
+             line="919">Send @message to the #WebKitWebView corresponding to @web_page. If @message is floating, it's consumed.
 
 If you don't expect any reply, or you simply want to ignore it, you can pass %NULL as @callback.
 When the operation is finished, @callback will be called. You can then call
@@ -48653,13 +48653,13 @@ webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="913">a #WebKitWebPage</doc>
+                 line="921">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="914">a #WebKitUserMessage</doc>
+                 line="922">a #WebKitUserMessage</doc>
             <type name="UserMessage" c:type="WebKitUserMessage*"/>
           </parameter>
           <parameter name="cancellable"
@@ -48668,7 +48668,7 @@ webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="915">a #GCancellable or %NULL to ignore</doc>
+                 line="923">a #GCancellable or %NULL to ignore</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -48679,7 +48679,7 @@ webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="916">A #GAsyncReadyCallback to call when the request is satisfied or %NULL</doc>
+                 line="924">A #GAsyncReadyCallback to call when the request is satisfied or %NULL</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -48688,7 +48688,7 @@ webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="917">the data to pass to callback function</doc>
+                 line="925">the data to pass to callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -48699,26 +48699,26 @@ webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="956">Finish an asynchronous operation started with webkit_web_page_send_message_to_view().</doc>
+             line="964">Finish an asynchronous operation started with webkit_web_page_send_message_to_view().</doc>
         <source-position filename="redhat-linux-build/webkit2gtk-4.0/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                          line="104"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="964">a #WebKitUserMessage with the reply or %NULL in case of error.</doc>
+               line="972">a #WebKitUserMessage with the reply or %NULL in case of error.</doc>
           <type name="UserMessage" c:type="WebKitUserMessage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="958">a #WebKitWebPage</doc>
+                 line="966">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="959">a #GAsyncResult</doc>
+                 line="967">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -48729,7 +48729,7 @@ webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="511">The current active URI of the #WebKitWebPage.</doc>
+             line="513">The current active URI of the #WebKitWebPage.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="parent">
@@ -48745,7 +48745,7 @@ webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
                    deprecated-version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="609">Emitted when a message is sent to the console. This can be a message
+             line="615">Emitted when a message is sent to the console. This can be a message
 produced by the use of JavaScript console API, a JavaScript exception,
 a security error or other errors, warnings, debug or log messages.
 The @console_message contains information of the message.</doc>
@@ -48756,7 +48756,7 @@ The @console_message contains information of the message.</doc>
           <parameter name="console_message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="612">the #WebKitConsoleMessage</doc>
+                 line="618">the #WebKitConsoleMessage</doc>
             <type name="ConsoleMessage"/>
           </parameter>
         </parameters>
@@ -48764,7 +48764,7 @@ The @console_message contains information of the message.</doc>
       <glib:signal name="context-menu" when="last" version="2.8">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="577">Emitted before a context menu is displayed in the UI Process to
+             line="579">Emitted before a context menu is displayed in the UI Process to
 give the application a chance to customize the proposed menu,
 build its own context menu or pass user data to the UI Process.
 This signal is useful when the information available in the UI Process
@@ -48775,20 +48775,20 @@ signal instead.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="592">%TRUE if the proposed @context_menu has been modified, or %FALSE otherwise.</doc>
+               line="594">%TRUE if the proposed @context_menu has been modified, or %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="context_menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="580">the proposed #WebKitContextMenu</doc>
+                 line="582">the proposed #WebKitContextMenu</doc>
             <type name="ContextMenu"/>
           </parameter>
           <parameter name="hit_test_result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="581">a #WebKitWebHitTestResult</doc>
+                 line="583">a #WebKitWebHitTestResult</doc>
             <type name="WebHitTestResult"/>
           </parameter>
         </parameters>
@@ -48796,7 +48796,7 @@ signal instead.</doc>
       <glib:signal name="document-loaded" when="last">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="525">This signal is emitted when the DOM document of a #WebKitWebPage has been
+             line="527">This signal is emitted when the DOM document of a #WebKitWebPage has been
 loaded.
 
 You can wait for this signal to get the DOM document</doc>
@@ -48811,7 +48811,7 @@ You can wait for this signal to get the DOM document</doc>
                    deprecated-version="2.26">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="636">Emitted after form elements (or form associated elements) are associated to a particular web
+             line="642">Emitted after form elements (or form associated elements) are associated to a particular web
 page. This is useful to implement form auto filling for web pages where form fields are added
 dynamically. This signal might be emitted multiple times for the same web page.
 
@@ -48828,7 +48828,7 @@ keep them alive after the signal handler returns.</doc>
           <parameter name="elements" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="639">a #GPtrArray of
+                 line="645">a #GPtrArray of
     #WebKitDOMElement with the list of forms in the page</doc>
             <array name="GLib.PtrArray">
               <type name="DOMElement"/>
@@ -48843,7 +48843,7 @@ keep them alive after the signal handler returns.</doc>
                    deprecated-version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="665">Emitted after form elements (or form associated elements) are associated to a particular web
+             line="671">Emitted after form elements (or form associated elements) are associated to a particular web
 page. This is useful to implement form auto filling for web pages where form fields are added
 dynamically. This signal might be emitted multiple times for the same web page.
 
@@ -48860,7 +48860,7 @@ keep them alive after the signal handler returns.</doc>
           <parameter name="elements" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="668">a #GPtrArray of
+                 line="674">a #GPtrArray of
     #WebKitDOMElement with the list of forms in the page</doc>
             <array name="GLib.PtrArray">
               <type name="DOMElement"/>
@@ -48869,7 +48869,7 @@ keep them alive after the signal handler returns.</doc>
           <parameter name="frame" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="670">the #WebKitFrame</doc>
+                 line="676">the #WebKitFrame</doc>
             <type name="Frame"/>
           </parameter>
         </parameters>
@@ -48877,7 +48877,7 @@ keep them alive after the signal handler returns.</doc>
       <glib:signal name="send-request" when="last">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="542">This signal is emitted when @request is about to be sent to
+             line="544">This signal is emitted when @request is about to be sent to
 the server. This signal can be used to modify the #WebKitURIRequest
 that will be sent to the server. You can also cancel the resource load
 operation by connecting to this signal and returning %TRUE.
@@ -48894,7 +48894,7 @@ is sent over the network.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="563">%TRUE to stop other handlers from being invoked for the event.
+               line="565">%TRUE to stop other handlers from being invoked for the event.
    %FALSE to continue emission of the event.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -48902,13 +48902,13 @@ is sent over the network.</doc>
           <parameter name="request" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="545">a #WebKitURIRequest</doc>
+                 line="547">a #WebKitURIRequest</doc>
             <type name="URIRequest"/>
           </parameter>
           <parameter name="redirected_response" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="546">a #WebKitURIResponse, or %NULL</doc>
+                 line="548">a #WebKitURIResponse, or %NULL</doc>
             <type name="URIResponse"/>
           </parameter>
         </parameters>
@@ -48916,7 +48916,7 @@ is sent over the network.</doc>
       <glib:signal name="user-message-received" when="last" version="2.28">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="759">This signal is emitted when a #WebKitUserMessage is received from the
+             line="765">This signal is emitted when a #WebKitUserMessage is received from the
 #WebKitWebView corresponding to @web_page. You can reply to the message
 using webkit_user_message_send_reply().
 
@@ -48927,14 +48927,14 @@ finish with error %WEBKIT_USER_MESSAGE_UNHANDLED_MESSAGE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="773">%TRUE if the message was handled, or %FALSE otherwise.</doc>
+               line="779">%TRUE if the message was handled, or %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="762">the #WebKitUserMessage received</doc>
+                 line="768">the #WebKitUserMessage received</doc>
             <type name="UserMessage"/>
           </parameter>
         </parameters>
@@ -48946,7 +48946,7 @@ finish with error %WEBKIT_USER_MESSAGE_UNHANDLED_MESSAGE.</doc>
                    deprecated-version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="696">This signal is emitted to indicate various points during form
+             line="702">This signal is emitted to indicate various points during form
 submission. @step indicates the current stage of form submission.
 
 If this signal is emitted with %WEBKIT_FORM_SUBMISSION_WILL_SEND_DOM_EVENT,
@@ -48981,34 +48981,34 @@ emitted.</doc>
           <parameter name="form" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="699">the #WebKitDOMElement to be submitted, which will always correspond to an HTMLFormElement</doc>
+                 line="705">the #WebKitDOMElement to be submitted, which will always correspond to an HTMLFormElement</doc>
             <type name="DOMElement"/>
           </parameter>
           <parameter name="step" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="700">a #WebKitFormSubmissionEventType indicating the current
+                 line="706">a #WebKitFormSubmissionEventType indicating the current
 stage of form submission</doc>
             <type name="FormSubmissionStep"/>
           </parameter>
           <parameter name="source_frame" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="702">the #WebKitFrame containing the form to be
+                 line="708">the #WebKitFrame containing the form to be
 submitted</doc>
             <type name="Frame"/>
           </parameter>
           <parameter name="target_frame" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="704">the #WebKitFrame containing the form's target,
+                 line="710">the #WebKitFrame containing the form's target,
 which may be the same as @source_frame if no target was specified</doc>
             <type name="Frame"/>
           </parameter>
           <parameter name="text_field_names" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="706">names of
+                 line="712">names of
 the form's text fields</doc>
             <array name="GLib.PtrArray">
               <type name="utf8"/>
@@ -49017,7 +49017,7 @@ the form's text fields</doc>
           <parameter name="text_field_values" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="708">values
+                 line="714">values
 of the form's text fields</doc>
             <array name="GLib.PtrArray">
               <type name="utf8"/>

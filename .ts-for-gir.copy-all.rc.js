@@ -11,5 +11,6 @@ export default {
         '/usr/lib/x86_64-linux-gnu/mutter-*',
 
         './vala-girs/gir-1.0',
+        './girs',
     ],
 }

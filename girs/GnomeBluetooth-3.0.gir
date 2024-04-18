@@ -122,8 +122,7 @@ and/or use gtk-doc annotations.  -->
         </return-value>
       </constructor>
       <method name="connect_service"
-              c:identifier="bluetooth_client_connect_service"
-              glib:finish-func="connect_service_finish">
+              c:identifier="bluetooth_client_connect_service">
         <doc xml:space="preserve"
              filename="lib/bluetooth-client.c"
              line="1773">This will start the process of connecting to one of the known-connectable

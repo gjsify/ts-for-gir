@@ -4288,7 +4288,7 @@ the font size in device units.</doc>
                       version="1.44">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2825">Obtain the OpenType features that are provided by the font.
+             line="2777">Obtain the OpenType features that are provided by the font.
 
 These are passed to the rendering system, together with features
 that have been explicitly set via attributes.
@@ -4303,7 +4303,7 @@ rendering system enables by default.</doc>
           <instance-parameter name="font" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2827">a `PangoFont`</doc>
+                 line="2779">a `PangoFont`</doc>
             <type name="Font" c:type="PangoFont*"/>
           </instance-parameter>
           <parameter name="features"
@@ -4312,7 +4312,7 @@ rendering system enables by default.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2828">Array to features in</doc>
+                 line="2780">Array to features in</doc>
             <array length="1" zero-terminated="0" c:type="hb_feature_t*">
               <type name="HarfBuzz.feature_t" c:type="hb_feature_t"/>
             </array>
@@ -4320,7 +4320,7 @@ rendering system enables by default.</doc>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2829">the length of @features</doc>
+                 line="2781">the length of @features</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="num_features"
@@ -4329,7 +4329,7 @@ rendering system enables by default.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2830">the number of used items in @features</doc>
+                 line="2782">the number of used items in @features</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
         </parameters>
@@ -4572,7 +4572,7 @@ Use [method@Pango.Font.describe] if you want the font size in points.</doc>
               version="1.44">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2825">Obtain the OpenType features that are provided by the font.
+             line="2777">Obtain the OpenType features that are provided by the font.
 
 These are passed to the rendering system, together with features
 that have been explicitly set via attributes.
@@ -4587,7 +4587,7 @@ rendering system enables by default.</doc>
           <instance-parameter name="font" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2827">a `PangoFont`</doc>
+                 line="2779">a `PangoFont`</doc>
             <type name="Font" c:type="PangoFont*"/>
           </instance-parameter>
           <parameter name="features"
@@ -4596,7 +4596,7 @@ rendering system enables by default.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2828">Array to features in</doc>
+                 line="2780">Array to features in</doc>
             <array length="1" zero-terminated="0" c:type="hb_feature_t*">
               <type name="HarfBuzz.feature_t" c:type="hb_feature_t"/>
             </array>
@@ -4604,7 +4604,7 @@ rendering system enables by default.</doc>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2829">the length of @features</doc>
+                 line="2781">the length of @features</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="num_features"
@@ -4613,7 +4613,7 @@ rendering system enables by default.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2830">the number of used items in @features</doc>
+                 line="2782">the number of used items in @features</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
         </parameters>
@@ -4746,7 +4746,7 @@ use [hb_font_create_sub_font()](https://harfbuzz.github.io/harfbuzz-hb-font.html
               version="1.50">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2852">Returns the languages that are supported by @font.
+             line="2804">Returns the languages that are supported by @font.
 
 If the font backend does not provide this information,
 %NULL is returned. For the fontconfig backend, this
@@ -4758,7 +4758,7 @@ and its fontmap are valid.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="pango/fonts.c"
-               line="2865">an array of `PangoLanguage`</doc>
+               line="2817">an array of `PangoLanguage`</doc>
           <array c:type="PangoLanguage**">
             <type name="Language"/>
           </array>
@@ -4767,7 +4767,7 @@ and its fontmap are valid.</doc>
           <instance-parameter name="font" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2854">a `PangoFont`</doc>
+                 line="2806">a `PangoFont`</doc>
             <type name="Font" c:type="PangoFont*"/>
           </instance-parameter>
         </parameters>
@@ -4819,25 +4819,25 @@ output variables and returns.</doc>
               version="1.44">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2805">Returns whether the font provides a glyph for this character.</doc>
+             line="2757">Returns whether the font provides a glyph for this character.</doc>
         <source-position filename="pango/pango-font.h" line="619"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/fonts.c"
-               line="2812">`TRUE` if @font can render @wc</doc>
+               line="2764">`TRUE` if @font can render @wc</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="font" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2807">a `PangoFont`</doc>
+                 line="2759">a `PangoFont`</doc>
             <type name="Font" c:type="PangoFont*"/>
           </instance-parameter>
           <parameter name="wc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2808">a Unicode character</doc>
+                 line="2760">a Unicode character</doc>
             <type name="gunichar" c:type="gunichar"/>
           </parameter>
         </parameters>
@@ -5055,7 +5055,7 @@ To recreate a font from its serialized form, use [func@Pango.Font.deserialize].<
             <parameter name="font" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="pango/fonts.c"
-                   line="2827">a `PangoFont`</doc>
+                   line="2779">a `PangoFont`</doc>
               <type name="Font" c:type="PangoFont*"/>
             </parameter>
             <parameter name="features"
@@ -5064,7 +5064,7 @@ To recreate a font from its serialized form, use [func@Pango.Font.deserialize].<
                        transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="pango/fonts.c"
-                   line="2828">Array to features in</doc>
+                   line="2780">Array to features in</doc>
               <array length="2" zero-terminated="0" c:type="hb_feature_t*">
                 <type name="HarfBuzz.feature_t" c:type="hb_feature_t"/>
               </array>
@@ -5072,7 +5072,7 @@ To recreate a font from its serialized form, use [func@Pango.Font.deserialize].<
             <parameter name="len" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="pango/fonts.c"
-                   line="2829">the length of @features</doc>
+                   line="2781">the length of @features</doc>
               <type name="guint" c:type="guint"/>
             </parameter>
             <parameter name="num_features"
@@ -5081,7 +5081,7 @@ To recreate a font from its serialized form, use [func@Pango.Font.deserialize].<
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="pango/fonts.c"
-                   line="2830">the number of used items in @features</doc>
+                   line="2782">the number of used items in @features</doc>
               <type name="guint" c:type="guint*"/>
             </parameter>
           </parameters>
@@ -6146,7 +6146,7 @@ the same family, slant, weight, and width, but varying sizes.</doc>
       <virtual-method name="describe" invoker="describe">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2681">Returns a font description that matches the face.
+             line="2633">Returns a font description that matches the face.
 
 The resulting font description will have the family, style,
 variant, weight and stretch of the face, but its size field
@@ -6155,7 +6155,7 @@ will be unset.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="pango/fonts.c"
-               line="2691">a newly-created `PangoFontDescription` structure
+               line="2643">a newly-created `PangoFontDescription` structure
   holding the description of the face. Use [method@Pango.FontDescription.free]
   to free the result.</doc>
           <type name="FontDescription" c:type="PangoFontDescription*"/>
@@ -6164,7 +6164,7 @@ will be unset.</doc>
           <instance-parameter name="face" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2683">a `PangoFontFace`</doc>
+                 line="2635">a `PangoFontFace`</doc>
             <type name="FontFace" c:type="PangoFontFace*"/>
           </instance-parameter>
         </parameters>
@@ -6172,7 +6172,7 @@ will be unset.</doc>
       <virtual-method name="get_face_name" invoker="get_face_name">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2728">Gets a name representing the style of this face.
+             line="2680">Gets a name representing the style of this face.
 
 Note that a font family may contain multiple faces
 with the same name (e.g. a variable and a non-variable
@@ -6181,7 +6181,7 @@ face for the same style).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/fonts.c"
-               line="2738">the face name for the face. This string is
+               line="2690">the face name for the face. This string is
   owned by the face object and must not be modified or freed.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -6189,7 +6189,7 @@ face for the same style).</doc>
           <instance-parameter name="face" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2730">a `PangoFontFace`.</doc>
+                 line="2682">a `PangoFontFace`.</doc>
             <type name="FontFace" c:type="PangoFontFace*"/>
           </instance-parameter>
         </parameters>
@@ -6197,19 +6197,19 @@ face for the same style).</doc>
       <virtual-method name="get_family" invoker="get_family" version="1.46">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2787">Gets the `PangoFontFamily` that @face belongs to.</doc>
+             line="2739">Gets the `PangoFontFamily` that @face belongs to.</doc>
         <source-position filename="pango/pango-font.h" line="507"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/fonts.c"
-               line="2793">the `PangoFontFamily`</doc>
+               line="2745">the `PangoFontFamily`</doc>
           <type name="FontFamily" c:type="PangoFontFamily*"/>
         </return-value>
         <parameters>
           <instance-parameter name="face" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2789">a `PangoFontFace`</doc>
+                 line="2741">a `PangoFontFace`</doc>
             <type name="FontFace" c:type="PangoFontFace*"/>
           </instance-parameter>
         </parameters>
@@ -6219,7 +6219,7 @@ face for the same style).</doc>
                       version="1.18">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2703">Returns whether a `PangoFontFace` is synthesized.
+             line="2655">Returns whether a `PangoFontFace` is synthesized.
 
 This will be the case if the underlying font rendering engine
 creates this face from another face, by shearing, emboldening,
@@ -6228,14 +6228,14 @@ lightening or modifying it in some other way.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/fonts.c"
-               line="2713">whether @face is synthesized</doc>
+               line="2665">whether @face is synthesized</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="face" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2705">a `PangoFontFace`</doc>
+                 line="2657">a `PangoFontFace`</doc>
             <type name="FontFace" c:type="PangoFontFace*"/>
           </instance-parameter>
         </parameters>
@@ -6243,7 +6243,7 @@ lightening or modifying it in some other way.</doc>
       <virtual-method name="list_sizes" invoker="list_sizes" version="1.4">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2749">List the available sizes for a font.
+             line="2701">List the available sizes for a font.
 
 This is only applicable to bitmap fonts. For scalable fonts, stores
 %NULL at the location pointed to by @sizes and 0 at the location pointed
@@ -6257,7 +6257,7 @@ in ascending order.</doc>
           <instance-parameter name="face" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2751">a `PangoFontFace`.</doc>
+                 line="2703">a `PangoFontFace`.</doc>
             <type name="FontFace" c:type="PangoFontFace*"/>
           </instance-parameter>
           <parameter name="sizes"
@@ -6269,7 +6269,7 @@ in ascending order.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2752">
+                 line="2704">
   location to store a pointer to an array of int. This array
   should be freed with g_free().</doc>
             <array length="1" zero-terminated="0" c:type="int**">
@@ -6282,7 +6282,7 @@ in ascending order.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2755">location to store the number of elements in @sizes</doc>
+                 line="2707">location to store the number of elements in @sizes</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -6290,7 +6290,7 @@ in ascending order.</doc>
       <method name="describe" c:identifier="pango_font_face_describe">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2681">Returns a font description that matches the face.
+             line="2633">Returns a font description that matches the face.
 
 The resulting font description will have the family, style,
 variant, weight and stretch of the face, but its size field
@@ -6299,7 +6299,7 @@ will be unset.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="pango/fonts.c"
-               line="2691">a newly-created `PangoFontDescription` structure
+               line="2643">a newly-created `PangoFontDescription` structure
   holding the description of the face. Use [method@Pango.FontDescription.free]
   to free the result.</doc>
           <type name="FontDescription" c:type="PangoFontDescription*"/>
@@ -6308,7 +6308,7 @@ will be unset.</doc>
           <instance-parameter name="face" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2683">a `PangoFontFace`</doc>
+                 line="2635">a `PangoFontFace`</doc>
             <type name="FontFace" c:type="PangoFontFace*"/>
           </instance-parameter>
         </parameters>
@@ -6317,7 +6317,7 @@ will be unset.</doc>
               c:identifier="pango_font_face_get_face_name">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2728">Gets a name representing the style of this face.
+             line="2680">Gets a name representing the style of this face.
 
 Note that a font family may contain multiple faces
 with the same name (e.g. a variable and a non-variable
@@ -6326,7 +6326,7 @@ face for the same style).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/fonts.c"
-               line="2738">the face name for the face. This string is
+               line="2690">the face name for the face. This string is
   owned by the face object and must not be modified or freed.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -6334,7 +6334,7 @@ face for the same style).</doc>
           <instance-parameter name="face" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2730">a `PangoFontFace`.</doc>
+                 line="2682">a `PangoFontFace`.</doc>
             <type name="FontFace" c:type="PangoFontFace*"/>
           </instance-parameter>
         </parameters>
@@ -6344,19 +6344,19 @@ face for the same style).</doc>
               version="1.46">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2787">Gets the `PangoFontFamily` that @face belongs to.</doc>
+             line="2739">Gets the `PangoFontFamily` that @face belongs to.</doc>
         <source-position filename="pango/pango-font.h" line="533"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/fonts.c"
-               line="2793">the `PangoFontFamily`</doc>
+               line="2745">the `PangoFontFamily`</doc>
           <type name="FontFamily" c:type="PangoFontFamily*"/>
         </return-value>
         <parameters>
           <instance-parameter name="face" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2789">a `PangoFontFace`</doc>
+                 line="2741">a `PangoFontFace`</doc>
             <type name="FontFace" c:type="PangoFontFace*"/>
           </instance-parameter>
         </parameters>
@@ -6366,7 +6366,7 @@ face for the same style).</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2703">Returns whether a `PangoFontFace` is synthesized.
+             line="2655">Returns whether a `PangoFontFace` is synthesized.
 
 This will be the case if the underlying font rendering engine
 creates this face from another face, by shearing, emboldening,
@@ -6375,14 +6375,14 @@ lightening or modifying it in some other way.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/fonts.c"
-               line="2713">whether @face is synthesized</doc>
+               line="2665">whether @face is synthesized</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="face" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2705">a `PangoFontFace`</doc>
+                 line="2657">a `PangoFontFace`</doc>
             <type name="FontFace" c:type="PangoFontFace*"/>
           </instance-parameter>
         </parameters>
@@ -6392,7 +6392,7 @@ lightening or modifying it in some other way.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2749">List the available sizes for a font.
+             line="2701">List the available sizes for a font.
 
 This is only applicable to bitmap fonts. For scalable fonts, stores
 %NULL at the location pointed to by @sizes and 0 at the location pointed
@@ -6406,7 +6406,7 @@ in ascending order.</doc>
           <instance-parameter name="face" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2751">a `PangoFontFace`.</doc>
+                 line="2703">a `PangoFontFace`.</doc>
             <type name="FontFace" c:type="PangoFontFace*"/>
           </instance-parameter>
           <parameter name="sizes"
@@ -6418,7 +6418,7 @@ in ascending order.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2752">
+                 line="2704">
   location to store a pointer to an array of int. This array
   should be freed with g_free().</doc>
             <array length="1" zero-terminated="0" c:type="int**">
@@ -6431,7 +6431,7 @@ in ascending order.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2755">location to store the number of elements in @sizes</doc>
+                 line="2707">location to store the number of elements in @sizes</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -6453,7 +6453,7 @@ in ascending order.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2738">the face name for the face. This string is
+                 line="2690">the face name for the face. This string is
   owned by the face object and must not be modified or freed.</doc>
             <type name="utf8" c:type="const char*"/>
           </return-value>
@@ -6461,7 +6461,7 @@ in ascending order.</doc>
             <parameter name="face" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="pango/fonts.c"
-                   line="2730">a `PangoFontFace`.</doc>
+                   line="2682">a `PangoFontFace`.</doc>
               <type name="FontFace" c:type="PangoFontFace*"/>
             </parameter>
           </parameters>
@@ -6473,7 +6473,7 @@ in ascending order.</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2691">a newly-created `PangoFontDescription` structure
+                 line="2643">a newly-created `PangoFontDescription` structure
   holding the description of the face. Use [method@Pango.FontDescription.free]
   to free the result.</doc>
             <type name="FontDescription" c:type="PangoFontDescription*"/>
@@ -6482,7 +6482,7 @@ in ascending order.</doc>
             <parameter name="face" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="pango/fonts.c"
-                   line="2683">a `PangoFontFace`</doc>
+                   line="2635">a `PangoFontFace`</doc>
               <type name="FontFace" c:type="PangoFontFace*"/>
             </parameter>
           </parameters>
@@ -6498,7 +6498,7 @@ in ascending order.</doc>
             <parameter name="face" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="pango/fonts.c"
-                   line="2751">a `PangoFontFace`.</doc>
+                   line="2703">a `PangoFontFace`.</doc>
               <type name="FontFace" c:type="PangoFontFace*"/>
             </parameter>
             <parameter name="sizes"
@@ -6510,7 +6510,7 @@ in ascending order.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="pango/fonts.c"
-                   line="2752">
+                   line="2704">
   location to store a pointer to an array of int. This array
   should be freed with g_free().</doc>
               <array length="2" zero-terminated="0" c:type="int**">
@@ -6523,7 +6523,7 @@ in ascending order.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="pango/fonts.c"
-                   line="2755">location to store the number of elements in @sizes</doc>
+                   line="2707">location to store the number of elements in @sizes</doc>
               <type name="gint" c:type="int*"/>
             </parameter>
           </parameters>
@@ -6535,14 +6535,14 @@ in ascending order.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2713">whether @face is synthesized</doc>
+                 line="2665">whether @face is synthesized</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="face" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="pango/fonts.c"
-                   line="2705">a `PangoFontFace`</doc>
+                   line="2657">a `PangoFontFace`</doc>
               <type name="FontFace" c:type="PangoFontFace*"/>
             </parameter>
           </parameters>
@@ -6554,14 +6554,14 @@ in ascending order.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2793">the `PangoFontFamily`</doc>
+                 line="2745">the `PangoFontFamily`</doc>
             <type name="FontFamily" c:type="PangoFontFamily*"/>
           </return-value>
           <parameters>
             <parameter name="face" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="pango/fonts.c"
-                   line="2789">a `PangoFontFace`</doc>
+                   line="2741">a `PangoFontFace`</doc>
               <type name="FontFace" c:type="PangoFontFace*"/>
             </parameter>
           </parameters>
@@ -6604,12 +6604,12 @@ slant, weight, width or other aspects.</doc>
       <virtual-method name="get_face" invoker="get_face" version="1.46">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2589">Gets the `PangoFontFace` of @family with the given name.</doc>
+             line="2541">Gets the `PangoFontFace` of @family with the given name.</doc>
         <source-position filename="pango/pango-font.h" line="438"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="pango/fonts.c"
-               line="2598">the `PangoFontFace`,
+               line="2550">the `PangoFontFace`,
   or %NULL if no face with the given name exists.</doc>
           <type name="FontFace" c:type="PangoFontFace*"/>
         </return-value>
@@ -6617,7 +6617,7 @@ slant, weight, width or other aspects.</doc>
           <instance-parameter name="family" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2591">a `PangoFontFamily`</doc>
+                 line="2543">a `PangoFontFamily`</doc>
             <type name="FontFamily" c:type="PangoFontFamily*"/>
           </instance-parameter>
           <parameter name="name"
@@ -6626,7 +6626,7 @@ slant, weight, width or other aspects.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2592">the name of a face. If the name is %NULL,
+                 line="2544">the name of a face. If the name is %NULL,
   the family's default face (fontconfig calls it "Regular")
   will be returned.</doc>
             <type name="utf8" c:type="const char*"/>
@@ -6636,7 +6636,7 @@ slant, weight, width or other aspects.</doc>
       <virtual-method name="get_name" invoker="get_name">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2505">Gets the name of the family.
+             line="2457">Gets the name of the family.
 
 The name is unique among all fonts for the font backend and can
 be used in a `PangoFontDescription` to specify that a face from
@@ -6645,7 +6645,7 @@ this family is desired.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/fonts.c"
-               line="2515">the name of the family. This string is owned
+               line="2467">the name of the family. This string is owned
   by the family object and must not be modified or freed.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -6653,7 +6653,7 @@ this family is desired.</doc>
           <instance-parameter name="family" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2507">a `PangoFontFamily`</doc>
+                 line="2459">a `PangoFontFamily`</doc>
             <type name="FontFamily" c:type="PangoFontFamily*"/>
           </instance-parameter>
         </parameters>
@@ -6661,7 +6661,7 @@ this family is desired.</doc>
       <virtual-method name="is_monospace" invoker="is_monospace" version="1.4">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2612">A monospace font is a font designed for text display where the the
+             line="2564">A monospace font is a font designed for text display where the the
 characters form a regular grid.
 
 For Western languages this would
@@ -6679,14 +6679,14 @@ be affected by double-width characters.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/fonts.c"
-               line="2631">%TRUE if the family is monospace.</doc>
+               line="2583">%TRUE if the family is monospace.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="family" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2614">a `PangoFontFamily`</doc>
+                 line="2566">a `PangoFontFamily`</doc>
             <type name="FontFamily" c:type="PangoFontFamily*"/>
           </instance-parameter>
         </parameters>
@@ -6694,7 +6694,7 @@ be affected by double-width characters.</doc>
       <virtual-method name="is_variable" invoker="is_variable" version="1.44">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2643">A variable font is a font which has axes that can be modified to
+             line="2595">A variable font is a font which has axes that can be modified to
 produce different faces.
 
 Such axes are also known as _variations_; see
@@ -6703,14 +6703,14 @@ Such axes are also known as _variations_; see
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/fonts.c"
-               line="2653">%TRUE if the family is variable</doc>
+               line="2605">%TRUE if the family is variable</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="family" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2645">a `PangoFontFamily`</doc>
+                 line="2597">a `PangoFontFamily`</doc>
             <type name="FontFamily" c:type="PangoFontFamily*"/>
           </instance-parameter>
         </parameters>
@@ -6718,7 +6718,7 @@ Such axes are also known as _variations_; see
       <virtual-method name="list_faces" invoker="list_faces">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2526">Lists the different font faces that make up @family.
+             line="2478">Lists the different font faces that make up @family.
 
 The faces in a family share a common design, but differ in slant, weight,
 width and other aspects.
@@ -6736,7 +6736,7 @@ for enumerating faces.</doc>
           <instance-parameter name="family" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2528">a `PangoFontFamily`</doc>
+                 line="2480">a `PangoFontFamily`</doc>
             <type name="FontFamily" c:type="PangoFontFamily*"/>
           </instance-parameter>
           <parameter name="faces"
@@ -6747,7 +6747,7 @@ for enumerating faces.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2529">
+                 line="2481">
   location to store an array of pointers to `PangoFontFace` objects,
   or %NULL. This array should be freed with g_free() when it is no
   longer needed.</doc>
@@ -6761,7 +6761,7 @@ for enumerating faces.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2533">location to store number of elements in @faces.</doc>
+                 line="2485">location to store number of elements in @faces.</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -6771,12 +6771,12 @@ for enumerating faces.</doc>
               version="1.46">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2589">Gets the `PangoFontFace` of @family with the given name.</doc>
+             line="2541">Gets the `PangoFontFace` of @family with the given name.</doc>
         <source-position filename="pango/pango-font.h" line="465"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="pango/fonts.c"
-               line="2598">the `PangoFontFace`,
+               line="2550">the `PangoFontFace`,
   or %NULL if no face with the given name exists.</doc>
           <type name="FontFace" c:type="PangoFontFace*"/>
         </return-value>
@@ -6784,7 +6784,7 @@ for enumerating faces.</doc>
           <instance-parameter name="family" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2591">a `PangoFontFamily`</doc>
+                 line="2543">a `PangoFontFamily`</doc>
             <type name="FontFamily" c:type="PangoFontFamily*"/>
           </instance-parameter>
           <parameter name="name"
@@ -6793,19 +6793,17 @@ for enumerating faces.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2592">the name of a face. If the name is %NULL,
+                 line="2544">the name of a face. If the name is %NULL,
   the family's default face (fontconfig calls it "Regular")
   will be returned.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
-      <method name="get_name"
-              c:identifier="pango_font_family_get_name"
-              glib:get-property="name">
+      <method name="get_name" c:identifier="pango_font_family_get_name">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2505">Gets the name of the family.
+             line="2457">Gets the name of the family.
 
 The name is unique among all fonts for the font backend and can
 be used in a `PangoFontDescription` to specify that a face from
@@ -6814,7 +6812,7 @@ this family is desired.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/fonts.c"
-               line="2515">the name of the family. This string is owned
+               line="2467">the name of the family. This string is owned
   by the family object and must not be modified or freed.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -6822,18 +6820,17 @@ this family is desired.</doc>
           <instance-parameter name="family" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2507">a `PangoFontFamily`</doc>
+                 line="2459">a `PangoFontFamily`</doc>
             <type name="FontFamily" c:type="PangoFontFamily*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="is_monospace"
               c:identifier="pango_font_family_is_monospace"
-              glib:get-property="is-monospace"
               version="1.4">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2612">A monospace font is a font designed for text display where the the
+             line="2564">A monospace font is a font designed for text display where the the
 characters form a regular grid.
 
 For Western languages this would
@@ -6851,25 +6848,24 @@ be affected by double-width characters.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/fonts.c"
-               line="2631">%TRUE if the family is monospace.</doc>
+               line="2583">%TRUE if the family is monospace.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="family" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2614">a `PangoFontFamily`</doc>
+                 line="2566">a `PangoFontFamily`</doc>
             <type name="FontFamily" c:type="PangoFontFamily*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="is_variable"
               c:identifier="pango_font_family_is_variable"
-              glib:get-property="is-variable"
               version="1.44">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2643">A variable font is a font which has axes that can be modified to
+             line="2595">A variable font is a font which has axes that can be modified to
 produce different faces.
 
 Such axes are also known as _variations_; see
@@ -6878,14 +6874,14 @@ Such axes are also known as _variations_; see
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/fonts.c"
-               line="2653">%TRUE if the family is variable</doc>
+               line="2605">%TRUE if the family is variable</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="family" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2645">a `PangoFontFamily`</doc>
+                 line="2597">a `PangoFontFamily`</doc>
             <type name="FontFamily" c:type="PangoFontFamily*"/>
           </instance-parameter>
         </parameters>
@@ -6893,7 +6889,7 @@ Such axes are also known as _variations_; see
       <method name="list_faces" c:identifier="pango_font_family_list_faces">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2526">Lists the different font faces that make up @family.
+             line="2478">Lists the different font faces that make up @family.
 
 The faces in a family share a common design, but differ in slant, weight,
 width and other aspects.
@@ -6911,7 +6907,7 @@ for enumerating faces.</doc>
           <instance-parameter name="family" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2528">a `PangoFontFamily`</doc>
+                 line="2480">a `PangoFontFamily`</doc>
             <type name="FontFamily" c:type="PangoFontFamily*"/>
           </instance-parameter>
           <parameter name="faces"
@@ -6922,7 +6918,7 @@ for enumerating faces.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2529">
+                 line="2481">
   location to store an array of pointers to `PangoFontFace` objects,
   or %NULL. This array should be freed with g_free() when it is no
   longer needed.</doc>
@@ -6936,58 +6932,22 @@ for enumerating faces.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2533">location to store number of elements in @faces.</doc>
+                 line="2485">location to store number of elements in @faces.</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
       </method>
-      <property name="is-monospace"
-                version="1.52"
-                transfer-ownership="none"
-                getter="is_monospace"
-                default-value="FALSE">
-        <attribute name="org.gtk.Property.get"
-                   value="pango_font_family_is_monospace"/>
-        <doc xml:space="preserve"
-             filename="pango/fonts.c"
-             line="2455">Is this a monospace font</doc>
-        <type name="gboolean" c:type="gboolean"/>
-      </property>
-      <property name="is-variable"
-                version="1.52"
-                transfer-ownership="none"
-                getter="is_variable"
-                default-value="FALSE">
-        <attribute name="org.gtk.Property.get"
-                   value="pango_font_family_is_variable"/>
-        <doc xml:space="preserve"
-             filename="pango/fonts.c"
-             line="2466">Is this a variable font</doc>
-        <type name="gboolean" c:type="gboolean"/>
-      </property>
       <property name="item-type" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2477">The type of items contained in this list.</doc>
+             line="2429">The type of items contained in this list.</doc>
         <type name="GType" c:type="GType"/>
       </property>
       <property name="n-items" transfer-ownership="none" default-value="0">
         <doc xml:space="preserve"
              filename="pango/fonts.c"
-             line="2486">The number of items contained in this list.</doc>
+             line="2438">The number of items contained in this list.</doc>
         <type name="guint" c:type="guint"/>
-      </property>
-      <property name="name"
-                version="1.52"
-                transfer-ownership="none"
-                getter="get_name"
-                default-value="NULL">
-        <attribute name="org.gtk.Property.get"
-                   value="pango_font_family_get_name"/>
-        <doc xml:space="preserve"
-             filename="pango/fonts.c"
-             line="2444">The name of the family</doc>
-        <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="parent_instance">
         <type name="GObject.Object" c:type="GObject"/>
@@ -7010,7 +6970,7 @@ for enumerating faces.</doc>
             <parameter name="family" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="pango/fonts.c"
-                   line="2528">a `PangoFontFamily`</doc>
+                   line="2480">a `PangoFontFamily`</doc>
               <type name="FontFamily" c:type="PangoFontFamily*"/>
             </parameter>
             <parameter name="faces"
@@ -7021,7 +6981,7 @@ for enumerating faces.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="pango/fonts.c"
-                   line="2529">
+                   line="2481">
   location to store an array of pointers to `PangoFontFace` objects,
   or %NULL. This array should be freed with g_free() when it is no
   longer needed.</doc>
@@ -7035,7 +6995,7 @@ for enumerating faces.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="pango/fonts.c"
-                   line="2533">location to store number of elements in @faces.</doc>
+                   line="2485">location to store number of elements in @faces.</doc>
               <type name="gint" c:type="int*"/>
             </parameter>
           </parameters>
@@ -7047,7 +7007,7 @@ for enumerating faces.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2515">the name of the family. This string is owned
+                 line="2467">the name of the family. This string is owned
   by the family object and must not be modified or freed.</doc>
             <type name="utf8" c:type="const char*"/>
           </return-value>
@@ -7055,7 +7015,7 @@ for enumerating faces.</doc>
             <parameter name="family" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="pango/fonts.c"
-                   line="2507">a `PangoFontFamily`</doc>
+                   line="2459">a `PangoFontFamily`</doc>
               <type name="FontFamily" c:type="PangoFontFamily*"/>
             </parameter>
           </parameters>
@@ -7067,14 +7027,14 @@ for enumerating faces.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2631">%TRUE if the family is monospace.</doc>
+                 line="2583">%TRUE if the family is monospace.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="family" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="pango/fonts.c"
-                   line="2614">a `PangoFontFamily`</doc>
+                   line="2566">a `PangoFontFamily`</doc>
               <type name="FontFamily" c:type="PangoFontFamily*"/>
             </parameter>
           </parameters>
@@ -7086,14 +7046,14 @@ for enumerating faces.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2653">%TRUE if the family is variable</doc>
+                 line="2605">%TRUE if the family is variable</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="family" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="pango/fonts.c"
-                   line="2645">a `PangoFontFamily`</doc>
+                   line="2597">a `PangoFontFamily`</doc>
               <type name="FontFamily" c:type="PangoFontFamily*"/>
             </parameter>
           </parameters>
@@ -7105,7 +7065,7 @@ for enumerating faces.</doc>
           <return-value transfer-ownership="none" nullable="1">
             <doc xml:space="preserve"
                  filename="pango/fonts.c"
-                 line="2598">the `PangoFontFace`,
+                 line="2550">the `PangoFontFace`,
   or %NULL if no face with the given name exists.</doc>
             <type name="FontFace" c:type="PangoFontFace*"/>
           </return-value>
@@ -7113,7 +7073,7 @@ for enumerating faces.</doc>
             <parameter name="family" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="pango/fonts.c"
-                   line="2591">a `PangoFontFamily`</doc>
+                   line="2543">a `PangoFontFamily`</doc>
               <type name="FontFamily" c:type="PangoFontFamily*"/>
             </parameter>
             <parameter name="name"
@@ -7122,7 +7082,7 @@ for enumerating faces.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="pango/fonts.c"
-                   line="2592">the name of a face. If the name is %NULL,
+                   line="2544">the name of a face. If the name is %NULL,
   the family's default face (fontconfig calls it "Regular")
   will be returned.</doc>
               <type name="utf8" c:type="const char*"/>
@@ -11527,19 +11487,19 @@ A negative value indicates a hanging indentation.</doc>
       <method name="get_iter" c:identifier="pango_layout_get_iter">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7189">Returns an iterator to iterate over the visual extents of the layout.</doc>
+             line="7183">Returns an iterator to iterate over the visual extents of the layout.</doc>
         <source-position filename="pango/pango-layout.h" line="486"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="7195">the new `PangoLayoutIter`</doc>
+               line="7189">the new `PangoLayoutIter`</doc>
           <type name="LayoutIter" c:type="PangoLayoutIter*"/>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7191">a `PangoLayout`</doc>
+                 line="7185">a `PangoLayout`</doc>
             <type name="Layout" c:type="PangoLayout*"/>
           </instance-parameter>
         </parameters>
@@ -13314,19 +13274,19 @@ The `PangoLayoutIter` structure is opaque, and has no user-visible fields.</doc>
               c:identifier="pango_layout_iter_at_last_line">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7430">Determines whether @iter is on the last line of the layout.</doc>
+             line="7424">Determines whether @iter is on the last line of the layout.</doc>
         <source-position filename="pango/pango-layout.h" line="503"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="7436">%TRUE if @iter is on the last line</doc>
+               line="7430">%TRUE if @iter is on the last line</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7432">a `PangoLayoutIter`</doc>
+                 line="7426">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
         </parameters>
@@ -13334,12 +13294,12 @@ The `PangoLayoutIter` structure is opaque, and has no user-visible fields.</doc>
       <method name="copy" c:identifier="pango_layout_iter_copy" version="1.20">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7129">Copies a `PangoLayoutIter`.</doc>
+             line="7123">Copies a `PangoLayoutIter`.</doc>
         <source-position filename="pango/pango-layout.h" line="488"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="7135">the newly allocated `PangoLayoutIter`</doc>
+               line="7129">the newly allocated `PangoLayoutIter`</doc>
           <type name="LayoutIter" c:type="PangoLayoutIter*"/>
         </return-value>
         <parameters>
@@ -13349,7 +13309,7 @@ The `PangoLayoutIter` structure is opaque, and has no user-visible fields.</doc>
                               allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7131">a `PangoLayoutIter`</doc>
+                 line="7125">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
         </parameters>
@@ -13357,7 +13317,7 @@ The `PangoLayoutIter` structure is opaque, and has no user-visible fields.</doc>
       <method name="free" c:identifier="pango_layout_iter_free">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7274">Frees an iterator that's no longer in use.</doc>
+             line="7268">Frees an iterator that's no longer in use.</doc>
         <source-position filename="pango/pango-layout.h" line="490"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -13369,7 +13329,7 @@ The `PangoLayoutIter` structure is opaque, and has no user-visible fields.</doc>
                               allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7276">a `PangoLayoutIter`, may be %NULL</doc>
+                 line="7270">a `PangoLayoutIter`, may be %NULL</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
         </parameters>
@@ -13378,7 +13338,7 @@ The `PangoLayoutIter` structure is opaque, and has no user-visible fields.</doc>
               c:identifier="pango_layout_iter_get_baseline">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7993">Gets the Y position of the current line's baseline, in layout
+             line="7987">Gets the Y position of the current line's baseline, in layout
 coordinates.
 
 Layout coordinates have the origin at the top left of the entire layout.</doc>
@@ -13386,14 +13346,14 @@ Layout coordinates have the origin at the top left of the entire layout.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="8002">baseline of current line</doc>
+               line="7996">baseline of current line</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7995">a `PangoLayoutIter`</doc>
+                 line="7989">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
         </parameters>
@@ -13402,7 +13362,7 @@ Layout coordinates have the origin at the top left of the entire layout.</doc>
               c:identifier="pango_layout_iter_get_char_extents">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7720">Gets the extents of the current character, in layout coordinates.
+             line="7714">Gets the extents of the current character, in layout coordinates.
 
 Layout coordinates have the origin at the top left of the entire layout.
 
@@ -13416,7 +13376,7 @@ ink extents make sense only down to the level of clusters.</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7722">a `PangoLayoutIter`</doc>
+                 line="7716">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
           <parameter name="logical_rect"
@@ -13425,7 +13385,7 @@ ink extents make sense only down to the level of clusters.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7723">rectangle to fill with
+                 line="7717">rectangle to fill with
   logical extents</doc>
             <type name="Rectangle" c:type="PangoRectangle*"/>
           </parameter>
@@ -13435,7 +13395,7 @@ ink extents make sense only down to the level of clusters.</doc>
               c:identifier="pango_layout_iter_get_cluster_extents">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7773">Gets the extents of the current cluster, in layout coordinates.
+             line="7767">Gets the extents of the current cluster, in layout coordinates.
 
 Layout coordinates have the origin at the top left of the entire layout.</doc>
         <source-position filename="pango/pango-layout.h" line="520"/>
@@ -13446,7 +13406,7 @@ Layout coordinates have the origin at the top left of the entire layout.</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7775">a `PangoLayoutIter`</doc>
+                 line="7769">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
           <parameter name="ink_rect"
@@ -13457,7 +13417,7 @@ Layout coordinates have the origin at the top left of the entire layout.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7776">rectangle to fill with ink extents</doc>
+                 line="7770">rectangle to fill with ink extents</doc>
             <type name="Rectangle" c:type="PangoRectangle*"/>
           </parameter>
           <parameter name="logical_rect"
@@ -13468,7 +13428,7 @@ Layout coordinates have the origin at the top left of the entire layout.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7777">rectangle to fill with logical extents</doc>
+                 line="7771">rectangle to fill with logical extents</doc>
             <type name="Rectangle" c:type="PangoRectangle*"/>
           </parameter>
         </parameters>
@@ -13476,7 +13436,7 @@ Layout coordinates have the origin at the top left of the entire layout.</doc>
       <method name="get_index" c:identifier="pango_layout_iter_get_index">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7290">Gets the current byte index.
+             line="7284">Gets the current byte index.
 
 Note that iterating forward by char moves in visual order,
 not logical order, so indexes may not be sequential. Also,
@@ -13486,14 +13446,14 @@ layout, if on the %NULL run (see [method@Pango.LayoutIter.get_run]).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="7301">current byte index</doc>
+               line="7295">current byte index</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7292">a `PangoLayoutIter`</doc>
+                 line="7286">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
         </parameters>
@@ -13503,19 +13463,19 @@ layout, if on the %NULL run (see [method@Pango.LayoutIter.get_run]).</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7447">Gets the layout associated with a `PangoLayoutIter`.</doc>
+             line="7441">Gets the layout associated with a `PangoLayoutIter`.</doc>
         <source-position filename="pango/pango-layout.h" line="505"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="7453">the layout associated with @iter</doc>
+               line="7447">the layout associated with @iter</doc>
           <type name="Layout" c:type="PangoLayout*"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7449">a `PangoLayoutIter`</doc>
+                 line="7443">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
         </parameters>
@@ -13524,7 +13484,7 @@ layout, if on the %NULL run (see [method@Pango.LayoutIter.get_run]).</doc>
               c:identifier="pango_layout_iter_get_layout_extents">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="8039">Obtains the extents of the `PangoLayout` being iterated over.</doc>
+             line="8033">Obtains the extents of the `PangoLayout` being iterated over.</doc>
         <source-position filename="pango/pango-layout.h" line="539"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -13533,7 +13493,7 @@ layout, if on the %NULL run (see [method@Pango.LayoutIter.get_run]).</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="8041">a `PangoLayoutIter`</doc>
+                 line="8035">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
           <parameter name="ink_rect"
@@ -13544,7 +13504,7 @@ layout, if on the %NULL run (see [method@Pango.LayoutIter.get_run]).</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="8042">rectangle to fill with ink extents</doc>
+                 line="8036">rectangle to fill with ink extents</doc>
             <type name="Rectangle" c:type="PangoRectangle*"/>
           </parameter>
           <parameter name="logical_rect"
@@ -13555,7 +13515,7 @@ layout, if on the %NULL run (see [method@Pango.LayoutIter.get_run]).</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="8043">rectangle to fill with logical extents</doc>
+                 line="8037">rectangle to fill with logical extents</doc>
             <type name="Rectangle" c:type="PangoRectangle*"/>
           </parameter>
         </parameters>
@@ -13563,7 +13523,7 @@ layout, if on the %NULL run (see [method@Pango.LayoutIter.get_run]).</doc>
       <method name="get_line" c:identifier="pango_layout_iter_get_line">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7383">Gets the current line.
+             line="7377">Gets the current line.
 
 Use the faster [method@Pango.LayoutIter.get_line_readonly] if
 you do not plan to modify the contents of the line (glyphs,
@@ -13572,14 +13532,14 @@ glyph widths, etc.).</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="7393">the current line</doc>
+               line="7387">the current line</doc>
           <type name="LayoutLine" c:type="PangoLayoutLine*"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7385">a `PangoLayoutIter`</doc>
+                 line="7379">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
         </parameters>
@@ -13588,7 +13548,7 @@ glyph widths, etc.).</doc>
               c:identifier="pango_layout_iter_get_line_extents">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7897">Obtains the extents of the current line.
+             line="7891">Obtains the extents of the current line.
 
 Extents are in layout coordinates (origin is the top-left corner
 of the entire `PangoLayout`). Thus the extents returned by this
@@ -13602,7 +13562,7 @@ as the extents returned from [method@Pango.LayoutLine.get_extents].</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7899">a `PangoLayoutIter`</doc>
+                 line="7893">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
           <parameter name="ink_rect"
@@ -13613,7 +13573,7 @@ as the extents returned from [method@Pango.LayoutLine.get_extents].</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7900">rectangle to fill with ink extents</doc>
+                 line="7894">rectangle to fill with ink extents</doc>
             <type name="Rectangle" c:type="PangoRectangle*"/>
           </parameter>
           <parameter name="logical_rect"
@@ -13624,7 +13584,7 @@ as the extents returned from [method@Pango.LayoutLine.get_extents].</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7901">rectangle to fill with logical extents</doc>
+                 line="7895">rectangle to fill with logical extents</doc>
             <type name="Rectangle" c:type="PangoRectangle*"/>
           </parameter>
         </parameters>
@@ -13634,7 +13594,7 @@ as the extents returned from [method@Pango.LayoutLine.get_extents].</doc>
               version="1.16">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7406">Gets the current line for read-only access.
+             line="7400">Gets the current line for read-only access.
 
 This is a faster alternative to [method@Pango.LayoutIter.get_line],
 but the user is not expected to modify the contents of the line
@@ -13643,7 +13603,7 @@ but the user is not expected to modify the contents of the line
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="7416">the current line, that should not be
+               line="7410">the current line, that should not be
   modified</doc>
           <type name="LayoutLine" c:type="PangoLayoutLine*"/>
         </return-value>
@@ -13651,7 +13611,7 @@ but the user is not expected to modify the contents of the line
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7408">a `PangoLayoutIter`</doc>
+                 line="7402">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
         </parameters>
@@ -13660,7 +13620,7 @@ but the user is not expected to modify the contents of the line
               c:identifier="pango_layout_iter_get_line_yrange">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7936">Divides the vertical space in the `PangoLayout` being iterated over
+             line="7930">Divides the vertical space in the `PangoLayout` being iterated over
 between the lines in the layout, and returns the space belonging to
 the current line.
 
@@ -13679,7 +13639,7 @@ may be gaps between the ranges returned by this function.</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7938">a `PangoLayoutIter`</doc>
+                 line="7932">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
           <parameter name="y0_"
@@ -13690,7 +13650,7 @@ may be gaps between the ranges returned by this function.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7939">start of line</doc>
+                 line="7933">start of line</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="y1_"
@@ -13701,7 +13661,7 @@ may be gaps between the ranges returned by this function.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7940">end of line</doc>
+                 line="7934">end of line</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -13709,7 +13669,7 @@ may be gaps between the ranges returned by this function.</doc>
       <method name="get_run" c:identifier="pango_layout_iter_get_run">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7312">Gets the current run.
+             line="7306">Gets the current run.
 
 When iterating by run, at the end of each line, there's a position
 with a %NULL run, so this function can return %NULL. The %NULL run
@@ -13722,14 +13682,14 @@ plan to modify the contents of the run (glyphs, glyph widths, etc.).</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="7326">the current run</doc>
+               line="7320">the current run</doc>
           <type name="LayoutRun" c:type="PangoLayoutRun*"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7314">a `PangoLayoutIter`</doc>
+                 line="7308">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
         </parameters>
@@ -13739,7 +13699,7 @@ plan to modify the contents of the run (glyphs, glyph widths, etc.).</doc>
               version="1.50">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="8013">Gets the Y position of the current run's baseline, in layout
+             line="8007">Gets the Y position of the current run's baseline, in layout
 coordinates.
 
 Layout coordinates have the origin at the top left of the entire layout.
@@ -13754,7 +13714,7 @@ example due to superscript or subscript positioning.</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="8015">a `PangoLayoutIter`</doc>
+                 line="8009">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
         </parameters>
@@ -13763,7 +13723,7 @@ example due to superscript or subscript positioning.</doc>
               c:identifier="pango_layout_iter_get_run_extents">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7823">Gets the extents of the current run in layout coordinates.
+             line="7817">Gets the extents of the current run in layout coordinates.
 
 Layout coordinates have the origin at the top left of the entire layout.</doc>
         <source-position filename="pango/pango-layout.h" line="524"/>
@@ -13774,7 +13734,7 @@ Layout coordinates have the origin at the top left of the entire layout.</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7825">a `PangoLayoutIter`</doc>
+                 line="7819">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
           <parameter name="ink_rect"
@@ -13785,7 +13745,7 @@ Layout coordinates have the origin at the top left of the entire layout.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7826">rectangle to fill with ink extents</doc>
+                 line="7820">rectangle to fill with ink extents</doc>
             <type name="Rectangle" c:type="PangoRectangle*"/>
           </parameter>
           <parameter name="logical_rect"
@@ -13796,7 +13756,7 @@ Layout coordinates have the origin at the top left of the entire layout.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7827">rectangle to fill with logical extents</doc>
+                 line="7821">rectangle to fill with logical extents</doc>
             <type name="Rectangle" c:type="PangoRectangle*"/>
           </parameter>
         </parameters>
@@ -13806,7 +13766,7 @@ Layout coordinates have the origin at the top left of the entire layout.</doc>
               version="1.16">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7339">Gets the current run for read-only access.
+             line="7333">Gets the current run for read-only access.
 
 When iterating by run, at the end of each line, there's a position
 with a %NULL run, so this function can return %NULL. The %NULL run
@@ -13820,7 +13780,7 @@ glyph widths, etc.).</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="7354">the current run, that
+               line="7348">the current run, that
   should not be modified</doc>
           <type name="LayoutRun" c:type="PangoLayoutRun*"/>
         </return-value>
@@ -13828,7 +13788,7 @@ glyph widths, etc.).</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7341">a `PangoLayoutIter`</doc>
+                 line="7335">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
         </parameters>
@@ -13836,21 +13796,21 @@ glyph widths, etc.).</doc>
       <method name="next_char" c:identifier="pango_layout_iter_next_char">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7569">Moves @iter forward to the next character in visual order.
+             line="7563">Moves @iter forward to the next character in visual order.
 
 If @iter was already at the end of the layout, returns %FALSE.</doc>
         <source-position filename="pango/pango-layout.h" line="508"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="7577">whether motion was possible</doc>
+               line="7571">whether motion was possible</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7571">a `PangoLayoutIter`</doc>
+                 line="7565">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
         </parameters>
@@ -13859,21 +13819,21 @@ If @iter was already at the end of the layout, returns %FALSE.</doc>
               c:identifier="pango_layout_iter_next_cluster">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7614">Moves @iter forward to the next cluster in visual order.
+             line="7608">Moves @iter forward to the next cluster in visual order.
 
 If @iter was already at the end of the layout, returns %FALSE.</doc>
         <source-position filename="pango/pango-layout.h" line="510"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="7622">whether motion was possible</doc>
+               line="7616">whether motion was possible</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7616">a `PangoLayoutIter`</doc>
+                 line="7610">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
         </parameters>
@@ -13881,21 +13841,21 @@ If @iter was already at the end of the layout, returns %FALSE.</doc>
       <method name="next_line" c:identifier="pango_layout_iter_next_line">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7675">Moves @iter forward to the start of the next line.
+             line="7669">Moves @iter forward to the start of the next line.
 
 If @iter is already on the last line, returns %FALSE.</doc>
         <source-position filename="pango/pango-layout.h" line="514"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="7683">whether motion was possible</doc>
+               line="7677">whether motion was possible</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7677">a `PangoLayoutIter`</doc>
+                 line="7671">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
         </parameters>
@@ -13903,21 +13863,21 @@ If @iter is already on the last line, returns %FALSE.</doc>
       <method name="next_run" c:identifier="pango_layout_iter_next_run">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="7630">Moves @iter forward to the next run in visual order.
+             line="7624">Moves @iter forward to the next run in visual order.
 
 If @iter was already at the end of the layout, returns %FALSE.</doc>
         <source-position filename="pango/pango-layout.h" line="512"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="7638">whether motion was possible</doc>
+               line="7632">whether motion was possible</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="7632">a `PangoLayoutIter`</doc>
+                 line="7626">a `PangoLayoutIter`</doc>
             <type name="LayoutIter" c:type="PangoLayoutIter*"/>
           </instance-parameter>
         </parameters>
@@ -13979,7 +13939,7 @@ attributes, or settings of the parent `PangoLayout` are modified.</doc>
       <method name="get_extents" c:identifier="pango_layout_line_get_extents">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="5903">Computes the logical and ink extents of a layout line.
+             line="5897">Computes the logical and ink extents of a layout line.
 
 See [method@Pango.Font.get_glyph_extents] for details
 about the interpretation of the rectangles.</doc>
@@ -13991,7 +13951,7 @@ about the interpretation of the rectangles.</doc>
           <instance-parameter name="line" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5905">a `PangoLayoutLine`</doc>
+                 line="5899">a `PangoLayoutLine`</doc>
             <type name="LayoutLine" c:type="PangoLayoutLine*"/>
           </instance-parameter>
           <parameter name="ink_rect"
@@ -14002,7 +13962,7 @@ about the interpretation of the rectangles.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5906">rectangle used to store the extents of
+                 line="5900">rectangle used to store the extents of
   the glyph string as drawn</doc>
             <type name="Rectangle" c:type="PangoRectangle*"/>
           </parameter>
@@ -14014,7 +13974,7 @@ about the interpretation of the rectangles.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5908">rectangle used to store the logical
+                 line="5902">rectangle used to store the logical
   extents of the glyph string</doc>
             <type name="Rectangle" c:type="PangoRectangle*"/>
           </parameter>
@@ -14025,7 +13985,7 @@ about the interpretation of the rectangles.</doc>
               version="1.44">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="5924">Computes the height of the line, as the maximum of the heights
+             line="5918">Computes the height of the line, as the maximum of the heights
 of fonts used in this line.
 
 Note that the actual baseline-to-baseline distance between lines
@@ -14040,7 +14000,7 @@ of text is influenced by other factors, such as
           <instance-parameter name="line" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5926">a `PangoLayoutLine`</doc>
+                 line="5920">a `PangoLayoutLine`</doc>
             <type name="LayoutLine" c:type="PangoLayoutLine*"/>
           </instance-parameter>
           <parameter name="height"
@@ -14051,7 +14011,7 @@ of text is influenced by other factors, such as
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5927">return location for the line height</doc>
+                 line="5921">return location for the line height</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -14061,19 +14021,19 @@ of text is influenced by other factors, such as
               version="1.50">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="5060">Returns the length of the line, in bytes.</doc>
+             line="5054">Returns the length of the line, in bytes.</doc>
         <source-position filename="pango/pango-layout.h" line="443"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="5066">the length of the line</doc>
+               line="5060">the length of the line</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="line" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5062">a `PangoLayoutLine`</doc>
+                 line="5056">a `PangoLayoutLine`</doc>
             <type name="LayoutLine" c:type="PangoLayoutLine*"/>
           </instance-parameter>
         </parameters>
@@ -14082,7 +14042,7 @@ of text is influenced by other factors, such as
               c:identifier="pango_layout_line_get_pixel_extents">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="5963">Computes the logical and ink extents of @layout_line in device units.
+             line="5957">Computes the logical and ink extents of @layout_line in device units.
 
 This function just calls [method@Pango.LayoutLine.get_extents] followed by
 two [func@extents_to_pixels] calls, rounding @ink_rect and @logical_rect
@@ -14096,7 +14056,7 @@ passes them as first argument to [func@extents_to_pixels]).</doc>
           <instance-parameter name="layout_line" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5965">a `PangoLayoutLine`</doc>
+                 line="5959">a `PangoLayoutLine`</doc>
             <type name="LayoutLine" c:type="PangoLayoutLine*"/>
           </instance-parameter>
           <parameter name="ink_rect"
@@ -14107,7 +14067,7 @@ passes them as first argument to [func@extents_to_pixels]).</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5966">rectangle used to store the extents of
+                 line="5960">rectangle used to store the extents of
   the glyph string as drawn</doc>
             <type name="Rectangle" c:type="PangoRectangle*"/>
           </parameter>
@@ -14119,7 +14079,7 @@ passes them as first argument to [func@extents_to_pixels]).</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5968">rectangle used to store the logical
+                 line="5962">rectangle used to store the logical
   extents of the glyph string</doc>
             <type name="Rectangle" c:type="PangoRectangle*"/>
           </parameter>
@@ -14130,19 +14090,19 @@ passes them as first argument to [func@extents_to_pixels]).</doc>
               version="1.50">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="5092">Returns the resolved direction of the line.</doc>
+             line="5086">Returns the resolved direction of the line.</doc>
         <source-position filename="pango/pango-layout.h" line="447"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="5098">the resolved direction of the line</doc>
+               line="5092">the resolved direction of the line</doc>
           <type name="Direction" c:type="PangoDirection"/>
         </return-value>
         <parameters>
           <instance-parameter name="line" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5094">a `PangoLayoutLine`</doc>
+                 line="5088">a `PangoLayoutLine`</doc>
             <type name="LayoutLine" c:type="PangoLayoutLine*"/>
           </instance-parameter>
         </parameters>
@@ -14152,20 +14112,20 @@ passes them as first argument to [func@extents_to_pixels]).</doc>
               version="1.50">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="5043">Returns the start index of the line, as byte index
+             line="5037">Returns the start index of the line, as byte index
 into the text of the layout.</doc>
         <source-position filename="pango/pango-layout.h" line="441"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="5050">the start index of the line</doc>
+               line="5044">the start index of the line</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="line" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5045">a `PangoLayoutLine`</doc>
+                 line="5039">a `PangoLayoutLine`</doc>
             <type name="LayoutLine" c:type="PangoLayoutLine*"/>
           </instance-parameter>
         </parameters>
@@ -14174,7 +14134,7 @@ into the text of the layout.</doc>
               c:identifier="pango_layout_line_get_x_ranges">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="5327">Gets a list of visual ranges corresponding to a given logical range.
+             line="5321">Gets a list of visual ranges corresponding to a given logical range.
 
 This list is not necessarily minimal - there may be consecutive
 ranges which are adjacent. The ranges will be sorted from left to
@@ -14188,13 +14148,13 @@ layout, not with respect to the line.</doc>
           <instance-parameter name="line" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5329">a `PangoLayoutLine`</doc>
+                 line="5323">a `PangoLayoutLine`</doc>
             <type name="LayoutLine" c:type="PangoLayoutLine*"/>
           </instance-parameter>
           <parameter name="start_index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5330">Start byte index of the logical range. If this value
+                 line="5324">Start byte index of the logical range. If this value
   is less than the start index for the line, then the first range
   will extend all the way to the leading edge of the layout. Otherwise,
   it will start at the leading edge of the first character.</doc>
@@ -14203,7 +14163,7 @@ layout, not with respect to the line.</doc>
           <parameter name="end_index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5334">Ending byte index of the logical range. If this value is
+                 line="5328">Ending byte index of the logical range. If this value is
   greater than the end index for the line, then the last range will
   extend all the way to the trailing edge of the layout. Otherwise,
   it will end at the trailing edge of the last character.</doc>
@@ -14215,7 +14175,7 @@ layout, not with respect to the line.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5338">location to
+                 line="5332">location to
   store a pointer to an array of ranges. The array will be of length
   `2*n_ranges`, with each range starting at `(*ranges)[2*n]` and of
   width `(*ranges)[2*n + 1] - (*ranges)[2*n]`. This array must be freed
@@ -14231,7 +14191,7 @@ layout, not with respect to the line.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5344">The number of ranges stored in @ranges</doc>
+                 line="5338">The number of ranges stored in @ranges</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -14281,19 +14241,19 @@ layout, not with respect to the line.</doc>
               version="1.50">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="5076">Returns whether this is the first line of the paragraph.</doc>
+             line="5070">Returns whether this is the first line of the paragraph.</doc>
         <source-position filename="pango/pango-layout.h" line="445"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="5082">%TRUE if this is the first line</doc>
+               line="5076">%TRUE if this is the first line</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="line" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5078">a `PangoLayoutLine`</doc>
+                 line="5072">a `PangoLayoutLine`</doc>
             <type name="LayoutLine" c:type="PangoLayoutLine*"/>
           </instance-parameter>
         </parameters>
@@ -14301,12 +14261,12 @@ layout, not with respect to the line.</doc>
       <method name="ref" c:identifier="pango_layout_line_ref" version="1.10">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="4989">Increase the reference count of a `PangoLayoutLine` by one.</doc>
+             line="4983">Increase the reference count of a `PangoLayoutLine` by one.</doc>
         <source-position filename="pango/pango-layout.h" line="436"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="4995">the line passed in.</doc>
+               line="4989">the line passed in.</doc>
           <type name="LayoutLine" c:type="PangoLayoutLine*"/>
         </return-value>
         <parameters>
@@ -14316,7 +14276,7 @@ layout, not with respect to the line.</doc>
                               allow-none="1">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="4991">a `PangoLayoutLine`</doc>
+                 line="4985">a `PangoLayoutLine`</doc>
             <type name="LayoutLine" c:type="PangoLayoutLine*"/>
           </instance-parameter>
         </parameters>
@@ -14324,7 +14284,7 @@ layout, not with respect to the line.</doc>
       <method name="unref" c:identifier="pango_layout_line_unref">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="5012">Decrease the reference count of a `PangoLayoutLine` by one.
+             line="5006">Decrease the reference count of a `PangoLayoutLine` by one.
 
 If the result is zero, the line and all associated memory
 will be freed.</doc>
@@ -14336,7 +14296,7 @@ will be freed.</doc>
           <instance-parameter name="line" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5014">a `PangoLayoutLine`</doc>
+                 line="5008">a `PangoLayoutLine`</doc>
             <type name="LayoutLine" c:type="PangoLayoutLine*"/>
           </instance-parameter>
         </parameters>
@@ -14344,7 +14304,7 @@ will be freed.</doc>
       <method name="x_to_index" c:identifier="pango_layout_line_x_to_index">
         <doc xml:space="preserve"
              filename="pango/pango-layout.c"
-             line="5108">Converts from x offset to the byte index of the corresponding character
+             line="5102">Converts from x offset to the byte index of the corresponding character
 within the text of the layout.
 
 If @x_pos is outside the line, @index_ and @trailing will point to the very
@@ -14359,20 +14319,20 @@ grapheme. The reverse is true for a left-to-right line.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pango-layout.c"
-               line="5130">%FALSE if @x_pos was outside the line, %TRUE if inside</doc>
+               line="5124">%FALSE if @x_pos was outside the line, %TRUE if inside</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="line" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5110">a `PangoLayoutLine`</doc>
+                 line="5104">a `PangoLayoutLine`</doc>
             <type name="LayoutLine" c:type="PangoLayoutLine*"/>
           </instance-parameter>
           <parameter name="x_pos" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5111">the X offset (in Pango units) from the left edge of the line.</doc>
+                 line="5105">the X offset (in Pango units) from the left edge of the line.</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="index_"
@@ -14381,7 +14341,7 @@ grapheme. The reverse is true for a left-to-right line.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5112">location to store calculated byte index for the grapheme
+                 line="5106">location to store calculated byte index for the grapheme
   in which the user clicked</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
@@ -14391,7 +14351,7 @@ grapheme. The reverse is true for a left-to-right line.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="pango/pango-layout.c"
-                 line="5114">location to store an integer indicating where in the
+                 line="5108">location to store an integer indicating where in the
   grapheme the user clicked. It will either be zero, or the number of
   characters in the grapheme. 0 represents the leading edge of the grapheme.</doc>
             <type name="gint" c:type="int*"/>
@@ -19221,7 +19181,7 @@ Two encoded version numbers can be compared as integers.</doc>
       <source-position filename="pango/pango-features.h" line="4"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_MICRO" value="2" c:type="PANGO_VERSION_MICRO">
+    <constant name="VERSION_MICRO" value="0" c:type="PANGO_VERSION_MICRO">
       <doc xml:space="preserve"
            filename="pango/pango-utils.h"
            line="147">The micro component of the version of Pango available at compile-time.</doc>
@@ -19236,7 +19196,7 @@ Two encoded version numbers can be compared as integers.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="VERSION_STRING"
-              value="1.51.2"
+              value="1.51.0"
               c:type="PANGO_VERSION_STRING">
       <doc xml:space="preserve"
            filename="pango/pango-utils.h"

@@ -129,9 +129,7 @@ and/or use gtk-doc annotations.  -->
           </parameter>
         </parameters>
       </constructor>
-      <method name="export"
-              c:identifier="shew_window_exporter_export"
-              glib:finish-func="export_finish">
+      <method name="export" c:identifier="shew_window_exporter_export">
         <source-position filename="src/shew-window-exporter.h" line="30"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>

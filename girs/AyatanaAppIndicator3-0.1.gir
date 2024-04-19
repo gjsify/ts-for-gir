@@ -1,0 +1,1742 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <c:include name="libayatana-appindicator/app-indicator.h"/>
+  <namespace name="AyatanaAppIndicator3"
+             version="0.1"
+             shared-library="libayatana-appindicator3.so.1"
+             c:identifier-prefixes="App"
+             c:symbol-prefixes="app">
+    <function-macro name="INDICATOR"
+                    c:identifier="APP_INDICATOR"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="app-indicator.h"
+           line="42">Safely convert a #GObject into an #AppIndicator.</doc>
+      <source-position filename="app-indicator.h" line="74"/>
+      <parameters>
+        <parameter name="obj">
+          <doc xml:space="preserve"
+               filename="app-indicator.h"
+               line="44">The object to convert</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="INDICATOR_CLASS"
+                    c:identifier="APP_INDICATOR_CLASS"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="app-indicator.h"
+           line="48">Safely convert a #GObjectClass into a #AppIndicatorClass.</doc>
+      <source-position filename="app-indicator.h" line="75"/>
+      <parameters>
+        <parameter name="klass">
+          <doc xml:space="preserve"
+               filename="app-indicator.h"
+               line="50">#GObjectClass based class to convert.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="INDICATOR_GET_CLASS"
+                    c:identifier="APP_INDICATOR_GET_CLASS"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="app-indicator.h"
+           line="66">Gets a pointer to the #AppIndicatorClass for the object @obj.</doc>
+      <source-position filename="app-indicator.h" line="78"/>
+      <parameters>
+        <parameter name="obj">
+          <doc xml:space="preserve"
+               filename="app-indicator.h"
+               line="68">A #GObject in the class hierarchy of #AppIndicator.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="INDICATOR_SIGNAL_CONNECTION_CHANGED"
+              value="connection-changed"
+              c:type="APP_INDICATOR_SIGNAL_CONNECTION_CHANGED">
+      <doc xml:space="preserve"
+           filename="app-indicator.h"
+           line="100">String identifier for the #AppIndicator::connection-changed signal.</doc>
+      <source-position filename="app-indicator.h" line="119"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="INDICATOR_SIGNAL_NEW_ATTENTION_ICON"
+              value="new-attention-icon"
+              c:type="APP_INDICATOR_SIGNAL_NEW_ATTENTION_ICON">
+      <doc xml:space="preserve"
+           filename="app-indicator.h"
+           line="85">String identifier for the #AppIndicator::new-attention-icon signal.</doc>
+      <source-position filename="app-indicator.h" line="116"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="INDICATOR_SIGNAL_NEW_ICON"
+              value="new-icon"
+              c:type="APP_INDICATOR_SIGNAL_NEW_ICON">
+      <doc xml:space="preserve"
+           filename="app-indicator.h"
+           line="80">String identifier for the #AppIndicator::new-icon signal.</doc>
+      <source-position filename="app-indicator.h" line="115"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="INDICATOR_SIGNAL_NEW_ICON_THEME_PATH"
+              value="new-icon-theme-path"
+              c:type="APP_INDICATOR_SIGNAL_NEW_ICON_THEME_PATH">
+      <doc xml:space="preserve"
+           filename="app-indicator.h"
+           line="105">String identifier for the #AppIndicator::new-icon-theme-path signal.</doc>
+      <source-position filename="app-indicator.h" line="120"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="INDICATOR_SIGNAL_NEW_LABEL"
+              value="new-label"
+              c:type="APP_INDICATOR_SIGNAL_NEW_LABEL">
+      <doc xml:space="preserve"
+           filename="app-indicator.h"
+           line="95">String identifier for the #AppIndicator::new-label signal.</doc>
+      <source-position filename="app-indicator.h" line="118"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="INDICATOR_SIGNAL_NEW_STATUS"
+              value="new-status"
+              c:type="APP_INDICATOR_SIGNAL_NEW_STATUS">
+      <doc xml:space="preserve"
+           filename="app-indicator.h"
+           line="90">String identifier for the #AppIndicator::new-status signal.</doc>
+      <source-position filename="app-indicator.h" line="117"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="INDICATOR_SIGNAL_SCROLL_EVENT"
+              value="scroll-event"
+              c:type="APP_INDICATOR_SIGNAL_SCROLL_EVENT">
+      <doc xml:space="preserve"
+           filename="app-indicator.h"
+           line="110">String identifier for the #AppIndicator::scroll-event signal.</doc>
+      <source-position filename="app-indicator.h" line="121"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function-macro name="IS_INDICATOR"
+                    c:identifier="APP_IS_INDICATOR"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="app-indicator.h"
+           line="54">Checks to see if @obj is in the object hierarchy of #AppIndicator.</doc>
+      <source-position filename="app-indicator.h" line="76"/>
+      <parameters>
+        <parameter name="obj">
+          <doc xml:space="preserve"
+               filename="app-indicator.h"
+               line="56">An #GObject to check</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_INDICATOR_CLASS"
+                    c:identifier="APP_IS_INDICATOR_CLASS"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="app-indicator.h"
+           line="60">Checks to see if @klass is in the object class hierarchy of #AppIndicatorClass.</doc>
+      <source-position filename="app-indicator.h" line="77"/>
+      <parameters>
+        <parameter name="klass">
+          <doc xml:space="preserve"
+               filename="app-indicator.h"
+               line="62">An #GObjectClass to check</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Indicator"
+           c:symbol-prefix="indicator"
+           c:type="AppIndicator"
+           parent="GObject.Object"
+           glib:type-name="AppIndicator"
+           glib:get-type="app_indicator_get_type"
+           glib:type-struct="IndicatorClass">
+      <doc xml:space="preserve"
+           filename="app-indicator.h"
+           line="233">parent: Parent object.
+priv: Internal data.
+An application indicator represents the values that are needed to show a
+unique status in the panel for an application.  In general, applications
+should try to fit in the other indicators that are available on the
+panel before using this.  But, sometimes it is necissary.</doc>
+      <source-position filename="app-indicator.h" line="231"/>
+      <constructor name="new" c:identifier="app_indicator_new">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="1828">Creates a new #AppIndicator setting the properties:
+#AppIndicator:id with @id, #AppIndicator:category with @category
+and #AppIndicator:icon-name with @icon_name.</doc>
+        <source-position filename="app-indicator.h" line="251"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="app-indicator.c"
+               line="1838">A pointer to a new #AppIndicator object.</doc>
+          <type name="Indicator" c:type="AppIndicator*"/>
+        </return-value>
+        <parameters>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="1830">The unique id of the indicator to create.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="icon_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="1831">The icon name for this indicator</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="category" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="1832">The category of indicator.</doc>
+            <type name="IndicatorCategory" c:type="AppIndicatorCategory"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_with_path"
+                   c:identifier="app_indicator_new_with_path">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="1854">Creates a new #AppIndicator setting the properties:
+#AppIndicator:id with @id, #AppIndicator:category with @category,
+#AppIndicator:icon-name with @icon_name and #AppIndicator:icon-theme-path
+with @icon_theme_path.</doc>
+        <source-position filename="app-indicator.h" line="254"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="app-indicator.c"
+               line="1866">A pointer to a new #AppIndicator object.</doc>
+          <type name="Indicator" c:type="AppIndicator*"/>
+        </return-value>
+        <parameters>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="1856">The unique id of the indicator to create.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="icon_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="1857">The icon name for this indicator</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="category" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="1858">The category of indicator.</doc>
+            <type name="IndicatorCategory" c:type="AppIndicatorCategory"/>
+          </parameter>
+          <parameter name="icon_theme_path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="1859">A custom path for finding icons.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="connection_changed">
+        <source-position filename="app-indicator.h" line="208"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="indicator" transfer-ownership="none">
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="connected" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="fallback" introspectable="0">
+        <source-position filename="app-indicator.h" line="220"/>
+        <return-value>
+          <type name="Gtk.StatusIcon" c:type="GtkStatusIcon*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="indicator" transfer-ownership="none">
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="new_attention_icon">
+        <source-position filename="app-indicator.h" line="194"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="indicator" transfer-ownership="none">
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="0">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="new_icon">
+        <source-position filename="app-indicator.h" line="192"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="indicator" transfer-ownership="none">
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="0">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="new_icon_theme_path">
+        <source-position filename="app-indicator.h" line="199"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="indicator" transfer-ownership="none">
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="icon_theme_path" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="new_label">
+        <source-position filename="app-indicator.h" line="202"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="indicator" transfer-ownership="none">
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="label" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="guide" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="2">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="new_status">
+        <source-position filename="app-indicator.h" line="196"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="indicator" transfer-ownership="none">
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="status" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="scroll_event">
+        <source-position filename="app-indicator.h" line="212"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="indicator" transfer-ownership="none">
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="delta" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="direction" transfer-ownership="none">
+            <type name="Gdk.ScrollDirection" c:type="GdkScrollDirection"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="2">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="unfallback">
+        <source-position filename="app-indicator.h" line="221"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="indicator" transfer-ownership="none">
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="status_icon" transfer-ownership="none">
+            <type name="Gtk.StatusIcon" c:type="GtkStatusIcon*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="build_menu_from_desktop"
+              c:identifier="app_indicator_build_menu_from_desktop">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2659">This function allows for building the Application Indicator menu
+from a static desktop file.</doc>
+        <source-position filename="app-indicator.h" line="304"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2661">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="desktop_file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2662">A path to the desktop file to build the menu from</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="desktop_profile" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2663">Which entries should be used from the desktop file</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_attention_icon"
+              c:identifier="app_indicator_get_attention_icon">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2492">Wrapper function for property #AppIndicator:attention-icon-name.</doc>
+        <source-position filename="app-indicator.h" line="293"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="app-indicator.c"
+               line="2498">The current attention icon name.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2494">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_attention_icon_desc"
+              c:identifier="app_indicator_get_attention_icon_desc"
+              glib:get-property="attention-icon-desc">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2509">Wrapper function for property #AppIndicator:attention-icon-desc.</doc>
+        <source-position filename="app-indicator.h" line="294"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="app-indicator.c"
+               line="2515">The current attention icon description.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2511">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_category"
+              c:identifier="app_indicator_get_category"
+              glib:get-property="category">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2407">Wrapper function for property #AppIndicator:category.</doc>
+        <source-position filename="app-indicator.h" line="288"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="app-indicator.c"
+               line="2413">The current category.</doc>
+          <type name="IndicatorCategory" c:type="AppIndicatorCategory"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2409">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon" c:identifier="app_indicator_get_icon">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2441">Wrapper function for property #AppIndicator:icon-name.</doc>
+        <source-position filename="app-indicator.h" line="290"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="app-indicator.c"
+               line="2447">The current icon name.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2443">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_desc"
+              c:identifier="app_indicator_get_icon_desc"
+              glib:get-property="icon-desc">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2458">Wrapper function for property #AppIndicator:icon-desc.</doc>
+        <source-position filename="app-indicator.h" line="291"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="app-indicator.c"
+               line="2464">The current icon description.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2460">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_theme_path"
+              c:identifier="app_indicator_get_icon_theme_path"
+              glib:get-property="icon-theme-path">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2475">Wrapper function for property #AppIndicator:icon-theme-path.</doc>
+        <source-position filename="app-indicator.h" line="292"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="app-indicator.c"
+               line="2481">The current icon theme path.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2477">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_id"
+              c:identifier="app_indicator_get_id"
+              glib:get-property="id">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2390">Wrapper function for property #AppIndicator:id.</doc>
+        <source-position filename="app-indicator.h" line="287"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="app-indicator.c"
+               line="2396">The current ID</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2392">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_label"
+              c:identifier="app_indicator_get_label"
+              glib:get-property="label">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2566">Wrapper function for property #AppIndicator:label.</doc>
+        <source-position filename="app-indicator.h" line="298"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="app-indicator.c"
+               line="2572">The current label.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2568">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_label_guide"
+              c:identifier="app_indicator_get_label_guide"
+              glib:get-property="label-guide">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2583">Wrapper function for property #AppIndicator:label-guide.</doc>
+        <source-position filename="app-indicator.h" line="299"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="app-indicator.c"
+               line="2589">The current label guide.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2585">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_menu"
+              c:identifier="app_indicator_get_menu"
+              glib:get-property="menu">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2547">Gets the menu being used for this application indicator.
+Wrapper function for property #AppIndicator:menu.</doc>
+        <source-position filename="app-indicator.h" line="297"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="app-indicator.c"
+               line="2554">A #GtkMenu object or %NULL if one hasn't been set.</doc>
+          <type name="Gtk.Menu" c:type="GtkMenu*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2549">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_ordering_index"
+              c:identifier="app_indicator_get_ordering_index"
+              glib:get-property="ordering-index">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2600">Wrapper function for property #AppIndicator:ordering-index.</doc>
+        <source-position filename="app-indicator.h" line="300"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="app-indicator.c"
+               line="2606">The current ordering index.</doc>
+          <type name="guint32" c:type="guint32"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2602">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_secondary_activate_target"
+              c:identifier="app_indicator_get_secondary_activate_target">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2621">Gets the menuitem being called on secondary-activate event.</doc>
+        <source-position filename="app-indicator.h" line="301"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="app-indicator.c"
+               line="2627">A #GtkWidget object or %NULL if none has been set.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2623">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_status"
+              c:identifier="app_indicator_get_status"
+              glib:get-property="status">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2424">Wrapper function for property #AppIndicator:status.</doc>
+        <source-position filename="app-indicator.h" line="289"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="app-indicator.c"
+               line="2430">The current status.</doc>
+          <type name="IndicatorStatus" c:type="AppIndicatorStatus"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2426">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_title"
+              c:identifier="app_indicator_get_title"
+              glib:get-property="title"
+              version="0.5">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2526">Gets the title of the application indicator.  See the function
+app_indicator_set_title() for information on the title.</doc>
+        <source-position filename="app-indicator.h" line="295"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="app-indicator.c"
+               line="2533">The current title.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2528">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_attention_icon"
+              c:identifier="app_indicator_set_attention_icon"
+              deprecated="1">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="1932">Wrapper for app_indicator_set_attention_icon_full() with a NULL
+description.</doc>
+        <doc-deprecated xml:space="preserve">Use app_indicator_set_attention_icon_full() instead.</doc-deprecated>
+        <source-position filename="app-indicator.h" line="262"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="1934">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="icon_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="1935">The name of the attention icon to set for this indicator</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_attention_icon_full"
+              c:identifier="app_indicator_set_attention_icon_full">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="1948">Wrapper function for property #AppIndicator:attention-icon-name.</doc>
+        <source-position filename="app-indicator.h" line="264"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="1950">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="icon_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="1951">The name of the attention icon to set for this indicator</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="icon_desc"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="1952">A textual description of the icon</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_icon"
+              c:identifier="app_indicator_set_icon"
+              deprecated="1">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2009">Wrapper function for app_indicator_set_icon_full() with a NULL
+description.</doc>
+        <doc-deprecated xml:space="preserve">Use app_indicator_set_icon_full()</doc-deprecated>
+        <source-position filename="app-indicator.h" line="269"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2011">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="icon_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2012">The icon name to set.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_icon_full" c:identifier="app_indicator_set_icon_full">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2025">Sets the default icon to use when the status is active but
+not set to attention.  In most cases, this should be the
+application icon for the program.
+
+Wrapper function for property #AppIndicator:icon-name and
+#AppIndicator:icon-desc.</doc>
+        <source-position filename="app-indicator.h" line="271"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2027">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="icon_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2028">The icon name to set.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="icon_desc"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2029">A textual description of the icon for accessibility</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_icon_theme_path"
+              c:identifier="app_indicator_set_icon_theme_path"
+              glib:set-property="icon-theme-path">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2182">Sets the path to use when searching for icons.</doc>
+        <source-position filename="app-indicator.h" line="277"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2184">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="icon_theme_path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2185">The icon theme path to set.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_label"
+              c:identifier="app_indicator_set_label"
+              glib:set-property="label">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2097">This is a wrapper function for the #AppIndicator:label and
+#AppIndicator:label-guide properties.  This function can take #NULL
+as either @label or @guide and will clear the entries.</doc>
+        <source-position filename="app-indicator.h" line="274"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2099">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="label" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2100">The label to show next to the icon.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="guide" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2101">A guide to size the label correctly.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_menu"
+              c:identifier="app_indicator_set_menu"
+              glib:set-property="menu">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2260">Sets the menu that should be shown when the Application Indicator
+is clicked on in the panel.  An application indicator will not
+be rendered unless it has a menu.
+
+Wrapper function for property #AppIndicator:menu.</doc>
+        <source-position filename="app-indicator.h" line="267"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2262">The #AppIndicator</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="menu"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2263">A #GtkMenu to set</doc>
+            <type name="Gtk.Menu" c:type="GtkMenu*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_ordering_index"
+              c:identifier="app_indicator_set_ordering_index"
+              glib:set-property="ordering-index">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2298">Sets the ordering index for the app indicator which effects the
+placement of it on the panel.  For almost all app indicator
+this is not the function you're looking for.
+
+Wrapper function for property #AppIndicator:ordering-index.</doc>
+        <source-position filename="app-indicator.h" line="279"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2300">The #AppIndicator</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="ordering_index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2301">A value for the ordering of this app indicator</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_secondary_activate_target"
+              c:identifier="app_indicator_set_secondary_activate_target">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2321">Set the @menuitem to be activated when a secondary activation event (i.e. a
+middle-click) is emitted over the #AppIndicator icon/label.
+
+The @menuitem can be also a complex #GtkWidget, but to get activated when
+a secondary activation occurs in the #AppIndicator, it must be a visible and
+active child (or inner-child) of the #AppIndicator:menu.
+
+Setting @menuitem to %NULL causes to disable this feature.</doc>
+        <source-position filename="app-indicator.h" line="281"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2323">The #AppIndicator</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="menuitem"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2324">A #GtkWidget to be activated on secondary activation</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_status"
+              c:identifier="app_indicator_set_status"
+              glib:set-property="status">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="1892">Wrapper function for property #AppIndicator:status.</doc>
+        <source-position filename="app-indicator.h" line="260"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="1894">The #AppIndicator object to use</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="status" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="1895">The status to set for this indicator</doc>
+            <type name="IndicatorStatus" c:type="AppIndicatorStatus"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_title"
+              c:identifier="app_indicator_set_title"
+              glib:set-property="title"
+              version="0.5">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="2360">Sets the title of the application indicator, or how it should be referred
+in a human readable form.  This string should be UTF-8 and localized as it
+expected that users will set it.
+
+In the Unity desktop the most prominent place that this is show will be
+in the HUD.  HUD listings for this application indicator will start with
+the title as the first part of the line for the menu items.
+
+Setting @title to %NULL removes the title.</doc>
+        <source-position filename="app-indicator.h" line="283"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2362">The #AppIndicator</doc>
+            <type name="Indicator" c:type="AppIndicator*"/>
+          </instance-parameter>
+          <parameter name="title"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="2363">Title of the app indicator</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="attention-icon-desc"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_attention_icon_desc"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="380">If the indicator sets it's status to %APP_INDICATOR_STATUS_ATTENTION
+then this textual description of the icon shown.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="attention-icon-name"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="367">If the indicator sets it's status to %APP_INDICATOR_STATUS_ATTENTION
+then this icon is shown.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="category"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_category"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="312">The type of indicator that this represents.  Please don't use 'Other'.
+Defaults to 'ApplicationStatus'.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="connected"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="407">Pretty simple, %TRUE if we have a reasonable expectation of being
+displayed through this object. You should hide your TrayIcon if so.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="dbus-menu-server"
+                introspectable="0"
+                writable="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="475">A way to get the internal dbusmenu server if it is available.
+This should only be used for testing.</doc>
+        <type/>
+      </property>
+      <property name="icon-desc"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_icon_desc"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="354">The description of the regular icon that is shown for the indicator.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="icon-name"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="342">The name of the regular icon that is shown for the indicator.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="icon-theme-path"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_icon_theme_path"
+                getter="get_icon_theme_path"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="393">An additional place to look for icon names that may be installed by the
+application.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="id"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_id"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="298">The ID for this indicator, which should be unique, but used consistently
+by this program and its indicator.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="label"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_label"
+                getter="get_label"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="420">A label that can be shown next to the string in the application
+indicator.  The label will not be shown unless there is an icon
+as well.  The label is useful for numerical and other frequently
+updated information.  In general, it shouldn't be shown unless a
+user requests it as it can take up a significant amount of space
+on the user's panel.  This may not be shown in all visualizations.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="label-guide"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_label_guide"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="437">An optional string to provide guidance to the panel on how big
+the #AppIndicator:label string could get.  If this is set correctly
+then the panel should never 'jiggle' as the string adjusts through
+out the range of options.  For instance, if you were providing a
+percentage like "54% thrust" in #AppIndicator:label you'd want to
+set this string to "100% thrust" to ensure space when Scotty can
+get you enough power.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="menu"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_menu"
+                getter="get_menu"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="504">The menu that should be shown when the Application Indicator
+is clicked on in the panel.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="ordering-index"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_ordering_index"
+                getter="get_ordering_index"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="455">The ordering index is an odd parameter, and if you think you don't need
+it you're probably right.  In general, the application indicator try
+to place the applications in a recreatable place taking into account
+which category they're in to try and group them.  But, there are some
+cases where you'd want to ensure indicators are next to each other.
+To do that you can override the generated ordering index and replace it
+with a new one.  Again, you probably don't want to be doing this, but
+in case you do, this is the way.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="status"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_status"
+                getter="get_status"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="326">Whether the indicator is shown or requests attention. Can be one of
+'Passive' (the indicator should not be shown), 'Active' (the indicator
+should be shown in its default state), and 'Attention' (the indicator
+should now show it's attention icon). Defaults to 'Passive'.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="title"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_title"
+                getter="get_title"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="488">Provides a way to refer to this application indicator in a human
+readable form.  This is used in the Unity desktop in the HUD as
+the first part of the menu entries to distinguish them from the
+focused application's entries.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="connection-changed" when="last">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="581">Signaled when we connect to a watcher, or when it drops away.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="arg1" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="584">Whether we're connected or not</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="new-attention-icon" when="last">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="534">Emitted when #AppIndicator:attention-icon-name is changed</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="new-icon" when="last">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="520">when #AppIndicator:icon-name is changed</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="new-icon-theme-path" when="last">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="596">Signaled when there is a new icon set for the
+object.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="arg1" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="599">The icon theme path</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="new-label" when="last">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="564">Emitted when either #AppIndicator:label or #AppIndicator:label-guide are
+changed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="arg1" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="567">The string for the label</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="arg2" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="568">The string for the guide</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="new-status" when="last">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="548">Emitted when #AppIndicator:status is changed</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="arg1" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="551">The string value of the #AppIndicatorStatus enum.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="scroll-event" when="last">
+        <doc xml:space="preserve"
+             filename="app-indicator.c"
+             line="612">Signaled when the #AppIndicator receives a scroll event.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="arg1" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="615">How many steps the scroll wheel has taken</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="arg2" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="app-indicator.c"
+                 line="616">Which direction the wheel went in</doc>
+            <type name="Gdk.ScrollDirection"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <enumeration name="IndicatorCategory" c:type="AppIndicatorCategory">
+      <doc xml:space="preserve"
+           filename="app-indicator.h"
+           line="123">The category provides grouping for the indicators so that
+users can find indicators that are similar together.</doc>
+      <source-position filename="app-indicator.h" line="140"/>
+      <member name="application_status"
+              value="0"
+              c:identifier="APP_INDICATOR_CATEGORY_APPLICATION_STATUS">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="125">The indicator is used to display the status of the application.</doc>
+      </member>
+      <member name="communications"
+              value="1"
+              c:identifier="APP_INDICATOR_CATEGORY_COMMUNICATIONS">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="126">The application is used for communication with other people.</doc>
+      </member>
+      <member name="system_services"
+              value="2"
+              c:identifier="APP_INDICATOR_CATEGORY_SYSTEM_SERVICES">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="127">A system indicator relating to something in the user's system.</doc>
+      </member>
+      <member name="hardware"
+              value="3"
+              c:identifier="APP_INDICATOR_CATEGORY_HARDWARE">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="128">An indicator relating to the user's hardware.</doc>
+      </member>
+      <member name="other"
+              value="4"
+              c:identifier="APP_INDICATOR_CATEGORY_OTHER">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="129">Something not defined in this enum, please don't use unless you really need it.</doc>
+      </member>
+    </enumeration>
+    <record name="IndicatorClass"
+            c:type="AppIndicatorClass"
+            glib:is-gtype-struct-for="Indicator">
+      <doc xml:space="preserve"
+           filename="app-indicator.h"
+           line="162">The signals and external functions that make up the #AppIndicator
+class object.</doc>
+      <source-position filename="app-indicator.h" line="231"/>
+      <field name="parent_class">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="164">Mia familia</doc>
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="new_icon">
+        <callback name="new_icon">
+          <source-position filename="app-indicator.h" line="192"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="indicator" transfer-ownership="none">
+              <type name="Indicator" c:type="AppIndicator*"/>
+            </parameter>
+            <parameter name="user_data"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1"
+                       closure="1">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="new_attention_icon">
+        <callback name="new_attention_icon">
+          <source-position filename="app-indicator.h" line="194"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="indicator" transfer-ownership="none">
+              <type name="Indicator" c:type="AppIndicator*"/>
+            </parameter>
+            <parameter name="user_data"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1"
+                       closure="1">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="new_status">
+        <callback name="new_status">
+          <source-position filename="app-indicator.h" line="196"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="indicator" transfer-ownership="none">
+              <type name="Indicator" c:type="AppIndicator*"/>
+            </parameter>
+            <parameter name="status" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="user_data"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1"
+                       closure="2">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="new_icon_theme_path">
+        <callback name="new_icon_theme_path">
+          <source-position filename="app-indicator.h" line="199"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="indicator" transfer-ownership="none">
+              <type name="Indicator" c:type="AppIndicator*"/>
+            </parameter>
+            <parameter name="icon_theme_path" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="user_data"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1"
+                       closure="2">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="new_label">
+        <callback name="new_label">
+          <source-position filename="app-indicator.h" line="202"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="indicator" transfer-ownership="none">
+              <type name="Indicator" c:type="AppIndicator*"/>
+            </parameter>
+            <parameter name="label" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="guide" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="user_data"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1"
+                       closure="3">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="connection_changed">
+        <callback name="connection_changed">
+          <source-position filename="app-indicator.h" line="208"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="indicator" transfer-ownership="none">
+              <type name="Indicator" c:type="AppIndicator*"/>
+            </parameter>
+            <parameter name="connected" transfer-ownership="none">
+              <type name="gboolean" c:type="gboolean"/>
+            </parameter>
+            <parameter name="user_data"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1"
+                       closure="2">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="scroll_event">
+        <callback name="scroll_event">
+          <source-position filename="app-indicator.h" line="212"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="indicator" transfer-ownership="none">
+              <type name="Indicator" c:type="AppIndicator*"/>
+            </parameter>
+            <parameter name="delta" transfer-ownership="none">
+              <type name="gint" c:type="gint"/>
+            </parameter>
+            <parameter name="direction" transfer-ownership="none">
+              <type name="Gdk.ScrollDirection" c:type="GdkScrollDirection"/>
+            </parameter>
+            <parameter name="user_data"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1"
+                       closure="3">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="app_indicator_reserved_ats">
+        <callback name="app_indicator_reserved_ats">
+          <source-position filename="app-indicator.h" line="217"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="fallback" introspectable="0">
+        <callback name="fallback" introspectable="0">
+          <source-position filename="app-indicator.h" line="220"/>
+          <return-value>
+            <type name="Gtk.StatusIcon" c:type="GtkStatusIcon*"/>
+          </return-value>
+          <parameters>
+            <parameter name="indicator" transfer-ownership="none">
+              <type name="Indicator" c:type="AppIndicator*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="unfallback">
+        <callback name="unfallback">
+          <source-position filename="app-indicator.h" line="221"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="indicator" transfer-ownership="none">
+              <type name="Indicator" c:type="AppIndicator*"/>
+            </parameter>
+            <parameter name="status_icon" transfer-ownership="none">
+              <type name="Gtk.StatusIcon" c:type="GtkStatusIcon*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="app_indicator_reserved_1">
+        <callback name="app_indicator_reserved_1">
+          <source-position filename="app-indicator.h" line="225"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="app_indicator_reserved_2">
+        <callback name="app_indicator_reserved_2">
+          <source-position filename="app-indicator.h" line="226"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="app_indicator_reserved_3">
+        <callback name="app_indicator_reserved_3">
+          <source-position filename="app-indicator.h" line="227"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="app_indicator_reserved_4">
+        <callback name="app_indicator_reserved_4">
+          <source-position filename="app-indicator.h" line="228"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="app_indicator_reserved_5">
+        <callback name="app_indicator_reserved_5">
+          <source-position filename="app-indicator.h" line="229"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="app_indicator_reserved_6">
+        <callback name="app_indicator_reserved_6">
+          <source-position filename="app-indicator.h" line="230"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="IndicatorStatus" c:type="AppIndicatorStatus">
+      <doc xml:space="preserve"
+           filename="app-indicator.h"
+           line="142">These are the states that the indicator can be on in
+the user's panel.  The indicator by default starts
+in the state @APP_INDICATOR_STATUS_PASSIVE and can be
+shown by setting it to @APP_INDICATOR_STATUS_ACTIVE.</doc>
+      <source-position filename="app-indicator.h" line="157"/>
+      <member name="passive"
+              value="0"
+              c:identifier="APP_INDICATOR_STATUS_PASSIVE">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="144">The indicator should not be shown to the user.</doc>
+      </member>
+      <member name="active"
+              value="1"
+              c:identifier="APP_INDICATOR_STATUS_ACTIVE">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="145">The indicator should be shown in it's default state.</doc>
+      </member>
+      <member name="attention"
+              value="2"
+              c:identifier="APP_INDICATOR_STATUS_ATTENTION">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="146">The indicator should show it's attention icon.</doc>
+      </member>
+    </enumeration>
+    <docsection name="app-indicator">
+      <doc xml:space="preserve"
+           filename="app-indicator.h"
+           line="310">An application indicator is a way for an application to put
+a menu into the panel on the user's screen.  This allows the
+user to interact with the application even though it might
+not be visible to the user at the time.  In most cases this
+is not a good solution as there are other ways to inform the
+user.  It should only be use if persistence is a desired
+feature for the user (not for your marketing purpose of
+having your logo in the panel).</doc>
+    </docsection>
+  </namespace>
+</repository>

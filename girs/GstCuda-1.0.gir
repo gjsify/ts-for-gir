@@ -1,0 +1,1172 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="CudaGst" version="1.0"/>
+  <include name="Gst" version="1.0"/>
+  <include name="GstBase" version="1.0"/>
+  <include name="GstGL" version="1.0"/>
+  <include name="GstVideo" version="1.0"/>
+  <package name="gstreamer-cuda-1.0"/>
+  <namespace name="GstCuda"
+             version="1.0"
+             shared-library="libgstcuda-1.0.so.0"
+             c:identifier-prefixes="Gst"
+             c:symbol-prefixes="gst">
+    <constant name="CAPS_FEATURE_MEMORY_CUDA_MEMORY"
+              value="memory:CUDAMemory"
+              c:type="GST_CAPS_FEATURE_MEMORY_CUDA_MEMORY"
+              version="1.22">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/cuda/gstcudamemory.h"
+           line="94">Name of the caps feature for indicating the use of #GstCudaMemory</doc>
+      <source-position filename="gst-libs/gst/cuda/gstcudamemory.h"
+                       line="101"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function-macro name="CUDA_ALLOCATOR"
+                    c:identifier="GST_CUDA_ALLOCATOR"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudamemory.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CUDA_ALLOCATOR_CAST"
+                    c:identifier="GST_CUDA_ALLOCATOR_CAST"
+                    version="1.22"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudamemory.h" line="48"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CUDA_ALLOCATOR_CLASS"
+                    c:identifier="GST_CUDA_ALLOCATOR_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudamemory.h" line="39"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CUDA_ALLOCATOR_GET_CLASS"
+                    c:identifier="GST_CUDA_ALLOCATOR_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudamemory.h" line="40"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CUDA_BUFFER_POOL"
+                    c:identifier="GST_CUDA_BUFFER_POOL"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudabufferpool.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CUDA_BUFFER_POOL_CAST"
+                    c:identifier="GST_CUDA_BUFFER_POOL_CAST"
+                    version="1.22"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudabufferpool.h"
+                       line="47"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CUDA_BUFFER_POOL_CLASS"
+                    c:identifier="GST_CUDA_BUFFER_POOL_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudabufferpool.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CUDA_BUFFER_POOL_GET_CLASS"
+                    c:identifier="GST_CUDA_BUFFER_POOL_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudabufferpool.h"
+                       line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CUDA_CONTEXT"
+                    c:identifier="GST_CUDA_CONTEXT"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CUDA_CONTEXT_CAST"
+                    c:identifier="GST_CUDA_CONTEXT_CAST"
+                    version="1.22"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
+                       line="46"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CUDA_CONTEXT_CLASS"
+                    c:identifier="GST_CUDA_CONTEXT_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CUDA_CONTEXT_GET_CLASS"
+                    c:identifier="GST_CUDA_CONTEXT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="CUDA_CONTEXT_TYPE"
+              value="gst.cuda.context"
+              c:type="GST_CUDA_CONTEXT_TYPE"
+              version="1.22">
+      <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
+                       line="53"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function-macro name="CUDA_MEMORY_CAST"
+                    c:identifier="GST_CUDA_MEMORY_CAST"
+                    version="1.22"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudamemory.h" line="54"/>
+      <parameters>
+        <parameter name="mem">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="CUDA_MEMORY_TYPE_NAME"
+              value="gst.cuda.memory"
+              c:type="GST_CUDA_MEMORY_TYPE_NAME"
+              version="1.22">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/cuda/gstcudamemory.h"
+           line="85">Name of cuda memory type</doc>
+      <source-position filename="gst-libs/gst/cuda/gstcudamemory.h" line="92"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <class name="CudaAllocator"
+           c:symbol-prefix="cuda_allocator"
+           c:type="GstCudaAllocator"
+           version="1.22"
+           parent="Gst.Allocator"
+           glib:type-name="GstCudaAllocator"
+           glib:get-type="gst_cuda_allocator_get_type"
+           glib:type-struct="CudaAllocatorClass">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/cuda/gstcudamemory.h"
+           line="56">A #GstAllocator subclass for cuda memory</doc>
+      <source-position filename="gst-libs/gst/cuda/gstcudamemory.h"
+                       line="144"/>
+      <method name="alloc"
+              c:identifier="gst_cuda_allocator_alloc"
+              version="1.22">
+        <source-position filename="gst-libs/gst/cuda/gstcudamemory.h"
+                         line="156"/>
+        <return-value transfer-ownership="full">
+          <type name="Gst.Memory" c:type="GstMemory*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="allocator" transfer-ownership="none">
+            <type name="CudaAllocator" c:type="GstCudaAllocator*"/>
+          </instance-parameter>
+          <parameter name="context" transfer-ownership="none">
+            <type name="CudaContext" c:type="GstCudaContext*"/>
+          </parameter>
+          <parameter name="info" transfer-ownership="none">
+            <type name="GstVideo.VideoInfo" c:type="const GstVideoInfo*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="Gst.Allocator" c:type="GstAllocator"/>
+      </field>
+    </class>
+    <record name="CudaAllocatorClass"
+            c:type="GstCudaAllocatorClass"
+            glib:is-gtype-struct-for="CudaAllocator">
+      <source-position filename="gst-libs/gst/cuda/gstcudamemory.h"
+                       line="144"/>
+      <field name="parent_class">
+        <type name="Gst.AllocatorClass" c:type="GstAllocatorClass"/>
+      </field>
+    </record>
+    <class name="CudaBufferPool"
+           c:symbol-prefix="cuda_buffer_pool"
+           c:type="GstCudaBufferPool"
+           version="1.22"
+           parent="Gst.BufferPool"
+           glib:type-name="GstCudaBufferPool"
+           glib:get-type="gst_cuda_buffer_pool_get_type"
+           glib:type-struct="CudaBufferPoolClass">
+      <source-position filename="gst-libs/gst/cuda/gstcudabufferpool.h"
+                       line="73"/>
+      <constructor name="new"
+                   c:identifier="gst_cuda_buffer_pool_new"
+                   version="1.22">
+        <source-position filename="gst-libs/gst/cuda/gstcudabufferpool.h"
+                         line="79"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudabufferpool.c"
+               line="141">A newly created #GstCudaBufferPool</doc>
+          <type name="Gst.BufferPool" c:type="GstBufferPool*"/>
+        </return-value>
+        <parameters>
+          <parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudabufferpool.c"
+                 line="139">The #GstCudaContext to use for the new buffer pool</doc>
+            <type name="CudaContext" c:type="GstCudaContext*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="parent">
+        <type name="Gst.BufferPool" c:type="GstBufferPool"/>
+      </field>
+      <field name="context">
+        <type name="CudaContext" c:type="GstCudaContext*"/>
+      </field>
+      <field name="priv">
+        <type name="CudaBufferPoolPrivate" c:type="GstCudaBufferPoolPrivate*"/>
+      </field>
+    </class>
+    <record name="CudaBufferPoolClass"
+            c:type="GstCudaBufferPoolClass"
+            glib:is-gtype-struct-for="CudaBufferPool">
+      <source-position filename="gst-libs/gst/cuda/gstcudabufferpool.h"
+                       line="73"/>
+      <field name="parent_class">
+        <type name="Gst.BufferPoolClass" c:type="GstBufferPoolClass"/>
+      </field>
+    </record>
+    <record name="CudaBufferPoolPrivate"
+            c:type="GstCudaBufferPoolPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="gst-libs/gst/cuda/gstcudabufferpool.h"
+                       line="51"/>
+    </record>
+    <class name="CudaContext"
+           c:symbol-prefix="cuda_context"
+           c:type="GstCudaContext"
+           version="1.22"
+           parent="Gst.Object"
+           glib:type-name="GstCudaContext"
+           glib:get-type="gst_cuda_context_get_type"
+           glib:type-struct="CudaContextClass">
+      <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
+                       line="75"/>
+      <constructor name="new"
+                   c:identifier="gst_cuda_context_new"
+                   version="1.22">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudacontext.c"
+             line="371">Create #GstCudaContext with given device_id</doc>
+        <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
+                         line="81"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudacontext.c"
+               line="377">a new #GstCudaContext or %NULL on
+failure</doc>
+          <type name="CudaContext" c:type="GstCudaContext*"/>
+        </return-value>
+        <parameters>
+          <parameter name="device_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudacontext.c"
+                 line="373">device-id for creating #GstCudaContext</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_wrapped"
+                   c:identifier="gst_cuda_context_new_wrapped"
+                   version="1.22">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudacontext.c"
+             line="516">Note: The caller is responsible for ensuring that the CUcontext and CUdevice
+represented by @handle and @device stay alive while the returned
+#GstCudaContext is active.</doc>
+        <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
+                         line="84"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudacontext.c"
+               line="529">A newly created #GstCudaContext</doc>
+          <type name="CudaContext" c:type="GstCudaContext*"/>
+        </return-value>
+        <parameters>
+          <parameter name="handler" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudacontext.c"
+                 line="518">A
+[CUcontext](https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__TYPES.html#group__CUDA__TYPES_1gf9f5bd81658f866613785b3a0bb7d7d9)
+to wrap</doc>
+            <type name="CudaGst.context" c:type="CUcontext"/>
+          </parameter>
+          <parameter name="device" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudacontext.c"
+                 line="521">A
+[CUDevice](https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__TYPES.html#group__CUDA__TYPES_1gf9f5bd81658f866613785b3a0bb7d7d9)
+to wrap</doc>
+            <type name="CudaGst.device" c:type="CUdevice"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="pop" c:identifier="gst_cuda_context_pop" version="1.22">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudacontext.c"
+             line="432">Pops the current CUDA context from CPU thread</doc>
+        <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
+                         line="90"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudacontext.c"
+               line="437">%TRUE if @ctx was pushed without error.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="cuda_ctx" transfer-ownership="none">
+            <type name="CudaGst.context" c:type="CUcontext*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="can_access_peer"
+              c:identifier="gst_cuda_context_can_access_peer"
+              version="1.22">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudacontext.c"
+             line="486">Query whether @ctx can access any memory which belongs to @peer directly.</doc>
+        <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
+                         line="99"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudacontext.c"
+               line="493">%TRUE if @ctx can access @peer directly</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudacontext.c"
+                 line="488">a #GstCudaContext</doc>
+            <type name="CudaContext" c:type="GstCudaContext*"/>
+          </instance-parameter>
+          <parameter name="peer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudacontext.c"
+                 line="489">a #GstCudaContext</doc>
+            <type name="CudaContext" c:type="GstCudaContext*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_handle"
+              c:identifier="gst_cuda_context_get_handle"
+              version="1.22">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudacontext.c"
+             line="447">Get CUDA device context. Caller must not modify and/or destroy
+returned device context.</doc>
+        <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
+                         line="93"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudacontext.c"
+               line="454">the `CUcontext` of @ctx</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudacontext.c"
+                 line="449">a #GstCudaContext</doc>
+            <type name="CudaContext" c:type="GstCudaContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_texture_alignment"
+              c:identifier="gst_cuda_context_get_texture_alignment"
+              version="1.22">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudacontext.c"
+             line="467">Get required texture alignment by device</doc>
+        <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
+                         line="96"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudacontext.c"
+               line="473">the `CUcontext` of @ctx</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudacontext.c"
+                 line="469">a #GstCudaContext</doc>
+            <type name="CudaContext" c:type="GstCudaContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="push" c:identifier="gst_cuda_context_push" version="1.22">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudacontext.c"
+             line="411">Pushes the given @ctx onto the CPU thread's stack of current contexts.
+The specified context becomes the CPU thread's current context,
+so all CUDA functions that operate on the current context are affected.</doc>
+        <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
+                         line="87"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudacontext.c"
+               line="419">%TRUE if @ctx was pushed without error.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="ctx" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudacontext.c"
+                 line="413">a #GstCudaContext to push current thread</doc>
+            <type name="CudaContext" c:type="GstCudaContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="cuda-device-id"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <field name="object">
+        <type name="Gst.Object" c:type="GstObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="CudaContextPrivate" c:type="GstCudaContextPrivate*"/>
+      </field>
+    </class>
+    <record name="CudaContextClass"
+            c:type="GstCudaContextClass"
+            glib:is-gtype-struct-for="CudaContext">
+      <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
+                       line="75"/>
+      <field name="parent_class">
+        <type name="Gst.ObjectClass" c:type="GstObjectClass"/>
+      </field>
+    </record>
+    <record name="CudaContextPrivate"
+            c:type="GstCudaContextPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
+                       line="57"/>
+    </record>
+    <record name="CudaGraphicsResource"
+            c:type="GstCudaGraphicsResource"
+            version="1.22">
+      <source-position filename="gst-libs/gst/cuda/gstcudautils.h" line="131"/>
+      <field name="cuda_context" writable="1">
+        <type name="CudaContext" c:type="GstCudaContext*"/>
+      </field>
+      <field name="graphics_context" writable="1">
+        <type name="Gst.Object" c:type="GstObject*"/>
+      </field>
+      <field name="type" writable="1">
+        <type name="CudaGraphicsResourceType"
+              c:type="GstCudaGraphicsResourceType"/>
+      </field>
+      <field name="resource" writable="1">
+        <type name="CudaGst.graphicsResource" c:type="CUgraphicsResource"/>
+      </field>
+      <field name="flags" writable="1">
+        <type name="CudaGst.graphicsRegisterFlags"
+              c:type="CUgraphicsRegisterFlags"/>
+      </field>
+      <field name="registered" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="mapped" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <method name="free"
+              c:identifier="gst_cuda_graphics_resource_free"
+              version="1.22"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudautils.c"
+             line="670">Free @resource</doc>
+        <source-position filename="gst-libs/gst/cuda/gstcudautils.h"
+                         line="185"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudautils.c"
+                 line="672">a #GstCudaGraphicsResource</doc>
+            <type name="CudaGraphicsResource"
+                  c:type="GstCudaGraphicsResource*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="map"
+              c:identifier="gst_cuda_graphics_resource_map"
+              version="1.22"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudautils.c"
+             line="566">Map previously registered resource with map flags</doc>
+        <source-position filename="gst-libs/gst/cuda/gstcudautils.h"
+                         line="176"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudautils.c"
+               line="574">the `CUgraphicsResource` if successful or %NULL when failed</doc>
+          <type name="CudaGst.graphicsResource" c:type="CUgraphicsResource"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudautils.c"
+                 line="568">a #GstCudaGraphicsResource</doc>
+            <type name="CudaGraphicsResource"
+                  c:type="GstCudaGraphicsResource*"/>
+          </instance-parameter>
+          <parameter name="stream" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudautils.c"
+                 line="569">a CUstream</doc>
+            <type name="CudaGst.stream" c:type="CUstream"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudautils.c"
+                 line="570">a CUgraphicsMapResourceFlags</doc>
+            <type name="CudaGst.graphicsMapResourceFlags"
+                  c:type="CUgraphicsMapResourceFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="register_gl_buffer"
+              c:identifier="gst_cuda_graphics_resource_register_gl_buffer"
+              version="1.22"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudautils.c"
+             line="461">@resource a #GstCudaGraphicsResource
+Register the @buffer for access by CUDA.
+Must be called from the gl context thread with current cuda context was
+pushed on the current thread</doc>
+        <source-position filename="gst-libs/gst/cuda/gstcudautils.h"
+                         line="161"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudautils.c"
+               line="471">whether @buffer was registered or not</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource" transfer-ownership="none">
+            <type name="CudaGraphicsResource"
+                  c:type="GstCudaGraphicsResource*"/>
+          </instance-parameter>
+          <parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudautils.c"
+                 line="464">a GL buffer object</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudautils.c"
+                 line="465">a `CUgraphicsRegisterFlags`</doc>
+            <type name="CudaGst.graphicsRegisterFlags"
+                  c:type="CUgraphicsRegisterFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unmap"
+              c:identifier="gst_cuda_graphics_resource_unmap"
+              version="1.22"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudautils.c"
+             line="602">Unmap previously mapped resource</doc>
+        <source-position filename="gst-libs/gst/cuda/gstcudautils.h"
+                         line="181"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudautils.c"
+                 line="604">a #GstCudaGraphicsResource</doc>
+            <type name="CudaGraphicsResource"
+                  c:type="GstCudaGraphicsResource*"/>
+          </instance-parameter>
+          <parameter name="stream" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudautils.c"
+                 line="605">a `CUstream`</doc>
+            <type name="CudaGst.stream" c:type="CUstream"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unregister"
+              c:identifier="gst_cuda_graphics_resource_unregister"
+              version="1.22"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudautils.c"
+             line="538">Unregister previously registered resource.
+For GL resource, this method must be called from gl context thread.
+Also, current cuda context should be pushed on the current thread
+before calling this method.</doc>
+        <source-position filename="gst-libs/gst/cuda/gstcudautils.h"
+                         line="173"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="resource" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudautils.c"
+                 line="540">a #GstCudaGraphicsResource</doc>
+            <type name="CudaGraphicsResource"
+                  c:type="GstCudaGraphicsResource*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <function name="new"
+                c:identifier="gst_cuda_graphics_resource_new"
+                version="1.22"
+                introspectable="0">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudautils.c"
+             line="430">Create new #GstCudaGraphicsResource with given @context and @type</doc>
+        <source-position filename="gst-libs/gst/cuda/gstcudautils.h"
+                         line="156"/>
+        <return-value>
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudautils.c"
+               line="438">a new #GstCudaGraphicsResource.
+Free with gst_cuda_graphics_resource_free</doc>
+          <type name="CudaGraphicsResource" c:type="GstCudaGraphicsResource*"/>
+        </return-value>
+        <parameters>
+          <parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudautils.c"
+                 line="432">a #GstCudaContext</doc>
+            <type name="CudaContext" c:type="GstCudaContext*"/>
+          </parameter>
+          <parameter name="graphics_context"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudautils.c"
+                 line="433">a graphics API specific context object</doc>
+            <type name="Gst.Object" c:type="GstObject*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudautils.c"
+                 line="434">a #GstCudaGraphicsResourceType of resource registration</doc>
+            <type name="CudaGraphicsResourceType"
+                  c:type="GstCudaGraphicsResourceType"/>
+          </parameter>
+        </parameters>
+      </function>
+    </record>
+    <enumeration name="CudaGraphicsResourceType"
+                 version="1.22"
+                 c:type="GstCudaGraphicsResourceType">
+      <source-position filename="gst-libs/gst/cuda/gstcudautils.h" line="112"/>
+      <member name="none"
+              value="0"
+              c:identifier="GST_CUDA_GRAPHICS_RESOURCE_NONE">
+      </member>
+      <member name="gl_buffer"
+              value="1"
+              c:identifier="GST_CUDA_GRAPHICS_RESOURCE_GL_BUFFER">
+      </member>
+      <member name="d3d11_resource"
+              value="2"
+              c:identifier="GST_CUDA_GRAPHICS_RESOURCE_D3D11_RESOURCE">
+      </member>
+    </enumeration>
+    <record name="CudaMemory" c:type="GstCudaMemory" version="1.22">
+      <source-position filename="gst-libs/gst/cuda/gstcudamemory.h"
+                       line="134"/>
+      <field name="mem" writable="1">
+        <type name="Gst.Memory" c:type="GstMemory"/>
+      </field>
+      <field name="context" writable="1">
+        <type name="CudaContext" c:type="GstCudaContext*"/>
+      </field>
+      <field name="info" writable="1">
+        <type name="GstVideo.VideoInfo" c:type="GstVideoInfo"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="CudaMemoryPrivate" c:type="GstCudaMemoryPrivate*"/>
+      </field>
+      <field name="_gst_reserved" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="4">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+      <function name="init_once"
+                c:identifier="gst_cuda_memory_init_once"
+                version="1.22">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudamemory.c"
+             line="449">Ensures that the #GstCudaAllocator is initialized and ready to be used.</doc>
+        <source-position filename="gst-libs/gst/cuda/gstcudamemory.h"
+                         line="147"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </function>
+    </record>
+    <record name="CudaMemoryPrivate"
+            c:type="GstCudaMemoryPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="gst-libs/gst/cuda/gstcudamemory.h" line="67"/>
+    </record>
+    <bitfield name="CudaMemoryTransfer"
+              version="1.22"
+              c:type="GstCudaMemoryTransfer">
+      <source-position filename="gst-libs/gst/cuda/gstcudamemory.h"
+                       line="116"/>
+      <member name="download"
+              value="1048576"
+              c:identifier="GST_CUDA_MEMORY_TRANSFER_NEED_DOWNLOAD">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudamemory.h"
+             line="105">the device memory needs downloading
+                                         to the staging memory</doc>
+      </member>
+      <member name="upload"
+              value="2097152"
+              c:identifier="GST_CUDA_MEMORY_TRANSFER_NEED_UPLOAD">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudamemory.h"
+             line="107">the staging memory needs uploading
+                                         to the device memory</doc>
+      </member>
+    </bitfield>
+    <enumeration name="CudaQuarkId" version="1.22" c:type="GstCudaQuarkId">
+      <source-position filename="gst-libs/gst/cuda/gstcudautils.h" line="97"/>
+      <member name="graphics_resource"
+              value="0"
+              c:identifier="GST_CUDA_QUARK_GRAPHICS_RESOURCE">
+      </member>
+      <member name="max" value="1" c:identifier="GST_CUDA_QUARK_MAX">
+      </member>
+    </enumeration>
+    <function-macro name="IS_CUDA_ALLOCATOR"
+                    c:identifier="GST_IS_CUDA_ALLOCATOR"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudamemory.h" line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CUDA_ALLOCATOR_CLASS"
+                    c:identifier="GST_IS_CUDA_ALLOCATOR_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudamemory.h" line="42"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CUDA_BUFFER_POOL"
+                    c:identifier="GST_IS_CUDA_BUFFER_POOL"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudabufferpool.h"
+                       line="40"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CUDA_BUFFER_POOL_CLASS"
+                    c:identifier="GST_IS_CUDA_BUFFER_POOL_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudabufferpool.h"
+                       line="41"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CUDA_CONTEXT"
+                    c:identifier="GST_IS_CUDA_CONTEXT"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CUDA_CONTEXT_CLASS"
+                    c:identifier="GST_IS_CUDA_CONTEXT_CLASS"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
+                       line="39"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="MAP_CUDA"
+              value="131072"
+              c:type="GST_MAP_CUDA"
+              version="1.22">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/cuda/gstcudamemory.h"
+           line="69">Flag indicating that we should map the CUDA device memory
+instead of to system memory.
+
+Combining #GST_MAP_CUDA with #GST_MAP_WRITE has the same semantics as though
+you are writing to CUDA device/host memory.
+Conversely, combining #GST_MAP_CUDA with
+#GST_MAP_READ has the same semantics as though you are reading from
+CUDA device/host memory</doc>
+      <source-position filename="gst-libs/gst/cuda/gstcudamemory.h" line="83"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <function name="context_new_cuda_context"
+              c:identifier="gst_context_new_cuda_context"
+              version="1.22">
+      <source-position filename="gst-libs/gst/cuda/gstcudautils.h" line="150"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudautils.c"
+             line="371">a new #GstContext embedding the @cuda_ctx</doc>
+        <type name="Gst.Context" c:type="GstContext*"/>
+      </return-value>
+      <parameters>
+        <parameter name="cuda_ctx" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudautils.c"
+               line="369">a #GstCudaContext</doc>
+          <type name="CudaContext" c:type="GstCudaContext*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="cuda_ensure_element_context"
+              c:identifier="gst_cuda_ensure_element_context"
+              version="1.22">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/cuda/gstcudautils.c"
+           line="179">Perform the steps necessary for retrieving a #GstCudaContext from the
+surrounding elements or from the application using the #GstContext mechanism.
+
+If the content of @cuda_ctx is not %NULL, then no #GstContext query is
+necessary for #GstCudaContext.</doc>
+      <source-position filename="gst-libs/gst/cuda/gstcudautils.h" line="134"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudautils.c"
+             line="192">whether a #GstCudaContext exists in @cuda_ctx</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="element" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudautils.c"
+               line="181">the #GstElement running the query</doc>
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </parameter>
+        <parameter name="device_id" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudautils.c"
+               line="182">preferred device-id, pass device_id &gt;=0 when
+            the device_id explicitly required. Otherwise, set -1.</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="cuda_ctx"
+                   direction="inout"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudautils.c"
+               line="184">the resulting #GstCudaContext</doc>
+          <type name="CudaContext" c:type="GstCudaContext**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="cuda_graphics_resource_new"
+              c:identifier="gst_cuda_graphics_resource_new"
+              moved-to="CudaGraphicsResource.new"
+              version="1.22"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/cuda/gstcudautils.c"
+           line="430">Create new #GstCudaGraphicsResource with given @context and @type</doc>
+      <source-position filename="gst-libs/gst/cuda/gstcudautils.h" line="156"/>
+      <return-value>
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudautils.c"
+             line="438">a new #GstCudaGraphicsResource.
+Free with gst_cuda_graphics_resource_free</doc>
+        <type name="CudaGraphicsResource" c:type="GstCudaGraphicsResource*"/>
+      </return-value>
+      <parameters>
+        <parameter name="context" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudautils.c"
+               line="432">a #GstCudaContext</doc>
+          <type name="CudaContext" c:type="GstCudaContext*"/>
+        </parameter>
+        <parameter name="graphics_context"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudautils.c"
+               line="433">a graphics API specific context object</doc>
+          <type name="Gst.Object" c:type="GstObject*"/>
+        </parameter>
+        <parameter name="type" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudautils.c"
+               line="434">a #GstCudaGraphicsResourceType of resource registration</doc>
+          <type name="CudaGraphicsResourceType"
+                c:type="GstCudaGraphicsResourceType"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="cuda_handle_context_query"
+              c:identifier="gst_cuda_handle_context_query"
+              version="1.22">
+      <source-position filename="gst-libs/gst/cuda/gstcudautils.h" line="145"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudautils.c"
+             line="323">Whether the @query was successfully responded to from the passed
+         @context.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="element" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudautils.c"
+               line="319">a #GstElement</doc>
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </parameter>
+        <parameter name="query" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudautils.c"
+               line="320">a #GstQuery of type %GST_QUERY_CONTEXT</doc>
+          <type name="Gst.Query" c:type="GstQuery*"/>
+        </parameter>
+        <parameter name="cuda_ctx"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudautils.c"
+               line="321">a #GstCudaContext</doc>
+          <type name="CudaContext" c:type="GstCudaContext*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="cuda_handle_set_context"
+              c:identifier="gst_cuda_handle_set_context"
+              version="1.22">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/cuda/gstcudautils.c"
+           line="257">Helper function for implementing #GstElementClass.set_context() in
+CUDA capable elements.
+
+Retrieves the #GstCudaContext in @context and places the result in @cuda_ctx.</doc>
+      <source-position filename="gst-libs/gst/cuda/gstcudautils.h" line="139"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudautils.c"
+             line="270">whether the @cuda_ctx could be set successfully</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="element" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudautils.c"
+               line="259">a #GstElement</doc>
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </parameter>
+        <parameter name="context" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudautils.c"
+               line="260">a #GstContext</doc>
+          <type name="Gst.Context" c:type="GstContext*"/>
+        </parameter>
+        <parameter name="device_id" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudautils.c"
+               line="261">preferred device-id, pass device_id &gt;=0 when
+            the device_id explicitly required. Otherwise, set -1.</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="cuda_ctx"
+                   direction="inout"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudautils.c"
+               line="263">location of a #GstCudaContext</doc>
+          <type name="CudaContext" c:type="GstCudaContext**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="cuda_load_library"
+              c:identifier="gst_cuda_load_library"
+              version="1.22">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/cuda/gstcudaloader.c"
+           line="140">Loads the cuda library</doc>
+      <source-position filename="gst-libs/gst/cuda/gstcudaloader.h" line="37"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudaloader.c"
+             line="145">%TRUE if the libcuda could be loaded %FALSE otherwise</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+    </function>
+    <function name="cuda_memory_init_once"
+              c:identifier="gst_cuda_memory_init_once"
+              moved-to="CudaMemory.init_once"
+              version="1.22">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/cuda/gstcudamemory.c"
+           line="449">Ensures that the #GstCudaAllocator is initialized and ready to be used.</doc>
+      <source-position filename="gst-libs/gst/cuda/gstcudamemory.h"
+                       line="147"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="cuda_nvrtc_compile"
+              c:identifier="gst_cuda_nvrtc_compile"
+              version="1.22">
+      <source-position filename="gst-libs/gst/cuda/gstcudanvrtc.h" line="37"/>
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="source" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudanvrtc.c"
+               line="259">Source code to compile</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="cuda_nvrtc_load_library"
+              c:identifier="gst_cuda_nvrtc_load_library"
+              version="1.22">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/cuda/gstcudanvrtc.c"
+           line="172">Loads the nvrtc library.</doc>
+      <source-position filename="gst-libs/gst/cuda/gstcudanvrtc.h" line="34"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudanvrtc.c"
+             line="177">%TRUE if the library could be loaded, %FALSE otherwise</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+    </function>
+    <function name="cuda_quark_from_id"
+              c:identifier="gst_cuda_quark_from_id"
+              version="1.22"
+              introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudautils.h" line="153"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudautils.c"
+             line="415">the GQuark for given @id or 0 if @id is unknown value</doc>
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+      <parameters>
+        <parameter name="id" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudautils.c"
+               line="413">a #GstCudaQuarkId</doc>
+          <type name="CudaQuarkId" c:type="GstCudaQuarkId"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function-macro name="cuda_result"
+                    c:identifier="gst_cuda_result"
+                    introspectable="0">
+      <source-position filename="gst-libs/gst/cuda/gstcudautils.h" line="62"/>
+      <parameters>
+        <parameter name="result">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudautils.h"
+               line="58">CUDA device API return code `CUresult`</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function name="is_cuda_memory"
+              c:identifier="gst_is_cuda_memory"
+              version="1.22">
+      <doc xml:space="preserve"
+           filename="gst-libs/gst/cuda/gstcudamemory.c"
+           line="471">Check if @mem is a cuda memory</doc>
+      <source-position filename="gst-libs/gst/cuda/gstcudamemory.h"
+                       line="150"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="mem" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudamemory.c"
+               line="473">A #GstMemory</doc>
+          <type name="Gst.Memory" c:type="GstMemory*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

@@ -3254,7 +3254,7 @@ it on the created adapter object.</doc>
       <glib:signal name="error" when="last" no-recurse="1" no-hooks="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/play/gstplay-signal-adapter.c"
-             line="423">Emitted on errors.</doc>
+             line="425">Emitted on errors.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3262,7 +3262,7 @@ it on the created adapter object.</doc>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay-signal-adapter.c"
-                 line="426">The error</doc>
+                 line="428">The error</doc>
             <type name="GLib.Error"/>
           </parameter>
           <parameter name="details"
@@ -3271,7 +3271,7 @@ it on the created adapter object.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay-signal-adapter.c"
-                 line="427">Additional error details</doc>
+                 line="429">Additional error details</doc>
             <type name="Gst.Structure"/>
           </parameter>
         </parameters>
@@ -3377,7 +3377,7 @@ it on the created adapter object.</doc>
       <glib:signal name="warning" when="last" no-recurse="1" no-hooks="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/play/gstplay-signal-adapter.c"
-             line="456">Emitted on warnings.</doc>
+             line="458">Emitted on warnings.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3385,7 +3385,7 @@ it on the created adapter object.</doc>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay-signal-adapter.c"
-                 line="459">The warning</doc>
+                 line="461">The warning</doc>
             <type name="GLib.Error"/>
           </parameter>
           <parameter name="details"
@@ -3394,7 +3394,7 @@ it on the created adapter object.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/play/gstplay-signal-adapter.c"
-                 line="460">Additional warning details</doc>
+                 line="462">Additional warning details</doc>
             <type name="Gst.Structure"/>
           </parameter>
         </parameters>

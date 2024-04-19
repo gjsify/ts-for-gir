@@ -74,7 +74,7 @@ otherwise.</doc>
                  filename="libgupnp/gupnp-acl.c"
                  line="38">The [class@GUPnP.Device] associated with @path or %NULL if
 unknown.</doc>
-            <type name="gpointer" c:type="_GUPnPDevice*"/>
+            <type name="Device" c:type="GUPnPDevice*"/>
           </parameter>
           <parameter name="service"
                      transfer-ownership="none"
@@ -84,7 +84,7 @@ unknown.</doc>
                  filename="libgupnp/gupnp-acl.c"
                  line="40">The [class@GUPnP.Service] associated with @path or %NULL if
 unknown.</doc>
-            <type name="gpointer" c:type="_GUPnPService*"/>
+            <type name="Service" c:type="GUPnPService*"/>
           </parameter>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
@@ -145,7 +145,7 @@ Use [method@GUPnP.Acl.is_allowed_finish] to retrieve the result.</doc>
                  filename="libgupnp/gupnp-acl.c"
                  line="72">The [class@GUPnP.Device] associated with @path or %NULL if
 unknown.</doc>
-            <type name="gpointer" c:type="_GUPnPDevice*"/>
+            <type name="Device" c:type="GUPnPDevice*"/>
           </parameter>
           <parameter name="service"
                      transfer-ownership="none"
@@ -155,7 +155,7 @@ unknown.</doc>
                  filename="libgupnp/gupnp-acl.c"
                  line="74">The [class@GUPnP.Service] associated with @path or %NULL if
 unknown.</doc>
-            <type name="gpointer" c:type="_GUPnPService*"/>
+            <type name="Service" c:type="GUPnPService*"/>
           </parameter>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
@@ -284,7 +284,7 @@ otherwise.</doc>
                  filename="libgupnp/gupnp-acl.c"
                  line="38">The [class@GUPnP.Device] associated with @path or %NULL if
 unknown.</doc>
-            <type name="gpointer" c:type="_GUPnPDevice*"/>
+            <type name="Device" c:type="GUPnPDevice*"/>
           </parameter>
           <parameter name="service"
                      transfer-ownership="none"
@@ -294,7 +294,7 @@ unknown.</doc>
                  filename="libgupnp/gupnp-acl.c"
                  line="40">The [class@GUPnP.Service] associated with @path or %NULL if
 unknown.</doc>
-            <type name="gpointer" c:type="_GUPnPService*"/>
+            <type name="Service" c:type="GUPnPService*"/>
           </parameter>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
@@ -355,7 +355,7 @@ Use [method@GUPnP.Acl.is_allowed_finish] to retrieve the result.</doc>
                  filename="libgupnp/gupnp-acl.c"
                  line="72">The [class@GUPnP.Device] associated with @path or %NULL if
 unknown.</doc>
-            <type name="gpointer" c:type="_GUPnPDevice*"/>
+            <type name="Device" c:type="GUPnPDevice*"/>
           </parameter>
           <parameter name="service"
                      transfer-ownership="none"
@@ -365,7 +365,7 @@ unknown.</doc>
                  filename="libgupnp/gupnp-acl.c"
                  line="74">The [class@GUPnP.Service] associated with @path or %NULL if
 unknown.</doc>
-            <type name="gpointer" c:type="_GUPnPService*"/>
+            <type name="Service" c:type="GUPnPService*"/>
           </parameter>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
@@ -476,7 +476,7 @@ operation.</doc>
                    filename="libgupnp/gupnp-acl.c"
                    line="38">The [class@GUPnP.Device] associated with @path or %NULL if
 unknown.</doc>
-              <type name="gpointer" c:type="_GUPnPDevice*"/>
+              <type name="Device" c:type="GUPnPDevice*"/>
             </parameter>
             <parameter name="service"
                        transfer-ownership="none"
@@ -486,7 +486,7 @@ unknown.</doc>
                    filename="libgupnp/gupnp-acl.c"
                    line="40">The [class@GUPnP.Service] associated with @path or %NULL if
 unknown.</doc>
-              <type name="gpointer" c:type="_GUPnPService*"/>
+              <type name="Service" c:type="GUPnPService*"/>
             </parameter>
             <parameter name="path" transfer-ownership="none">
               <doc xml:space="preserve"
@@ -534,7 +534,7 @@ unknown.</doc>
                    filename="libgupnp/gupnp-acl.c"
                    line="72">The [class@GUPnP.Device] associated with @path or %NULL if
 unknown.</doc>
-              <type name="gpointer" c:type="_GUPnPDevice*"/>
+              <type name="Device" c:type="GUPnPDevice*"/>
             </parameter>
             <parameter name="service"
                        transfer-ownership="none"
@@ -544,7 +544,7 @@ unknown.</doc>
                    filename="libgupnp/gupnp-acl.c"
                    line="74">The [class@GUPnP.Service] associated with @path or %NULL if
 unknown.</doc>
-              <type name="gpointer" c:type="_GUPnPService*"/>
+              <type name="Service" c:type="GUPnPService*"/>
             </parameter>
             <parameter name="path" transfer-ownership="none">
               <doc xml:space="preserve"
@@ -2654,7 +2654,7 @@ service is not available any more.</doc>
            glib:type-struct="DeviceClass">
       <doc xml:space="preserve"
            filename="libgupnp/gupnp-device.c"
-           line="26">Base class for UPnP device implementations.
+           line="25">Base class for UPnP device implementations.
 
 #GUPnPDevice allows for retrieving a device's sub-devices
 and services. #GUPnPDevice implements the #GUPnPDeviceInfo
@@ -4611,7 +4611,7 @@ absolute path or path relative to GUPnPRootDevice:description-dir.</doc>
            glib:type-struct="ServiceClass">
       <doc xml:space="preserve"
            filename="libgupnp/gupnp-service.c"
-           line="54">Implementation of an UPnP service
+           line="52">Implementation of an UPnP service
 
 #GUPnPService allows for handling incoming actions and state variable
 notification. It implements the [class@GUPnP.ServiceInfo] interface.
@@ -4625,7 +4625,7 @@ For more details, see the ["Implementing UPnP devices"](server-tutorial.html#imp
       <virtual-method name="action_invoked" invoker="action_invoked">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service.c"
-             line="1873">Default handler for [signal@GUPnP.Service::action_invoked]. See its documentation for details.
+             line="1874">Default handler for [signal@GUPnP.Service::action_invoked]. See its documentation for details.
 
 Can be overridden by child classes instead of connecting to the signal.</doc>
         <source-position filename="libgupnp/gupnp-service.h" line="41"/>
@@ -4636,13 +4636,13 @@ Can be overridden by child classes instead of connecting to the signal.</doc>
           <instance-parameter name="service" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service.c"
-                 line="1875">a `GUPnPService`</doc>
+                 line="1876">a `GUPnPService`</doc>
             <type name="Service" c:type="GUPnPService*"/>
           </instance-parameter>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service.c"
-                 line="1876">a `GUPnPServiceAction`</doc>
+                 line="1877">a `GUPnPServiceAction`</doc>
             <type name="ServiceAction" c:type="GUPnPServiceAction*"/>
           </parameter>
         </parameters>
@@ -4650,7 +4650,7 @@ Can be overridden by child classes instead of connecting to the signal.</doc>
       <virtual-method name="notify_failed" invoker="notify_failed">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service.c"
-             line="1912">Default handler for [signal@GUPnP.Service::notify_failed]. See its documentation for details.
+             line="1913">Default handler for [signal@GUPnP.Service::notify_failed]. See its documentation for details.
 
 Can be overridden by child classes instead of connecting to the signal.</doc>
         <source-position filename="libgupnp/gupnp-service.h" line="48"/>
@@ -4661,13 +4661,13 @@ Can be overridden by child classes instead of connecting to the signal.</doc>
           <instance-parameter name="service" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service.c"
-                 line="1914">a `GUPnPService`</doc>
+                 line="1915">a `GUPnPService`</doc>
             <type name="Service" c:type="GUPnPService*"/>
           </instance-parameter>
           <parameter name="callback_urls" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service.c"
-                 line="1915">a list of call-back urls that failed the notification</doc>
+                 line="1916">a list of call-back urls that failed the notification</doc>
             <type name="GLib.List" c:type="const GList*">
               <type name="GLib.Uri"/>
             </type>
@@ -4675,7 +4675,7 @@ Can be overridden by child classes instead of connecting to the signal.</doc>
           <parameter name="reason" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service.c"
-                 line="1916">An error that describes why the notification failed</doc>
+                 line="1917">An error that describes why the notification failed</doc>
             <type name="GLib.Error" c:type="const GError*"/>
           </parameter>
         </parameters>
@@ -4683,7 +4683,7 @@ Can be overridden by child classes instead of connecting to the signal.</doc>
       <virtual-method name="query_variable" invoker="query_variable">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service.c"
-             line="1891">Default handler for [signal@GUPnP.Service::query_variable]. See its documentation for details.
+             line="1892">Default handler for [signal@GUPnP.Service::query_variable]. See its documentation for details.
 
 Can be overridden by child classes instead of connecting to the signal.</doc>
         <source-position filename="libgupnp/gupnp-service.h" line="44"/>
@@ -4694,19 +4694,19 @@ Can be overridden by child classes instead of connecting to the signal.</doc>
           <instance-parameter name="service" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service.c"
-                 line="1893">a `GUPnPService`</doc>
+                 line="1894">a `GUPnPService`</doc>
             <type name="Service" c:type="GUPnPService*"/>
           </instance-parameter>
           <parameter name="variable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service.c"
-                 line="1894">the name of the variable that was queried</doc>
+                 line="1895">the name of the variable that was queried</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service.c"
-                 line="1895">a value that should be filled to the current value of @variable</doc>
+                 line="1896">a value that should be filled to the current value of @variable</doc>
             <type name="GObject.Value" c:type="GValue*"/>
           </parameter>
         </parameters>
@@ -4715,7 +4715,7 @@ Can be overridden by child classes instead of connecting to the signal.</doc>
               c:identifier="gupnp_service_action_invoked">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service.c"
-             line="1873">Default handler for [signal@GUPnP.Service::action_invoked]. See its documentation for details.
+             line="1874">Default handler for [signal@GUPnP.Service::action_invoked]. See its documentation for details.
 
 Can be overridden by child classes instead of connecting to the signal.</doc>
         <source-position filename="libgupnp/gupnp-service.h" line="135"/>
@@ -4726,13 +4726,13 @@ Can be overridden by child classes instead of connecting to the signal.</doc>
           <instance-parameter name="service" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service.c"
-                 line="1875">a `GUPnPService`</doc>
+                 line="1876">a `GUPnPService`</doc>
             <type name="Service" c:type="GUPnPService*"/>
           </instance-parameter>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service.c"
-                 line="1876">a `GUPnPServiceAction`</doc>
+                 line="1877">a `GUPnPServiceAction`</doc>
             <type name="ServiceAction" c:type="GUPnPServiceAction*"/>
           </parameter>
         </parameters>
@@ -4793,7 +4793,7 @@ terminated with %NULL.</doc>
       <method name="notify_failed" c:identifier="gupnp_service_notify_failed">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service.c"
-             line="1912">Default handler for [signal@GUPnP.Service::notify_failed]. See its documentation for details.
+             line="1913">Default handler for [signal@GUPnP.Service::notify_failed]. See its documentation for details.
 
 Can be overridden by child classes instead of connecting to the signal.</doc>
         <source-position filename="libgupnp/gupnp-service.h" line="144"/>
@@ -4804,13 +4804,13 @@ Can be overridden by child classes instead of connecting to the signal.</doc>
           <instance-parameter name="service" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service.c"
-                 line="1914">a `GUPnPService`</doc>
+                 line="1915">a `GUPnPService`</doc>
             <type name="Service" c:type="GUPnPService*"/>
           </instance-parameter>
           <parameter name="callback_urls" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service.c"
-                 line="1915">a list of call-back urls that failed the notification</doc>
+                 line="1916">a list of call-back urls that failed the notification</doc>
             <type name="GLib.List" c:type="const GList*">
               <type name="GLib.Uri"/>
             </type>
@@ -4818,7 +4818,7 @@ Can be overridden by child classes instead of connecting to the signal.</doc>
           <parameter name="reason" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service.c"
-                 line="1916">An error that describes why the notification failed</doc>
+                 line="1917">An error that describes why the notification failed</doc>
             <type name="GLib.Error" c:type="const GError*"/>
           </parameter>
         </parameters>
@@ -4856,7 +4856,7 @@ Can be overridden by child classes instead of connecting to the signal.</doc>
               c:identifier="gupnp_service_query_variable">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service.c"
-             line="1891">Default handler for [signal@GUPnP.Service::query_variable]. See its documentation for details.
+             line="1892">Default handler for [signal@GUPnP.Service::query_variable]. See its documentation for details.
 
 Can be overridden by child classes instead of connecting to the signal.</doc>
         <source-position filename="libgupnp/gupnp-service.h" line="139"/>
@@ -4867,19 +4867,19 @@ Can be overridden by child classes instead of connecting to the signal.</doc>
           <instance-parameter name="service" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service.c"
-                 line="1893">a `GUPnPService`</doc>
+                 line="1894">a `GUPnPService`</doc>
             <type name="Service" c:type="GUPnPService*"/>
           </instance-parameter>
           <parameter name="variable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service.c"
-                 line="1894">the name of the variable that was queried</doc>
+                 line="1895">the name of the variable that was queried</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service.c"
-                 line="1895">a value that should be filled to the current value of @variable</doc>
+                 line="1896">a value that should be filled to the current value of @variable</doc>
             <type name="GObject.Value" c:type="GValue*"/>
           </parameter>
         </parameters>
@@ -5532,13 +5532,13 @@ argument.</doc>
             <parameter name="service" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libgupnp/gupnp-service.c"
-                   line="1875">a `GUPnPService`</doc>
+                   line="1876">a `GUPnPService`</doc>
               <type name="Service" c:type="GUPnPService*"/>
             </parameter>
             <parameter name="action" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libgupnp/gupnp-service.c"
-                   line="1876">a `GUPnPServiceAction`</doc>
+                   line="1877">a `GUPnPServiceAction`</doc>
               <type name="ServiceAction" c:type="GUPnPServiceAction*"/>
             </parameter>
           </parameters>
@@ -5554,19 +5554,19 @@ argument.</doc>
             <parameter name="service" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libgupnp/gupnp-service.c"
-                   line="1893">a `GUPnPService`</doc>
+                   line="1894">a `GUPnPService`</doc>
               <type name="Service" c:type="GUPnPService*"/>
             </parameter>
             <parameter name="variable" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libgupnp/gupnp-service.c"
-                   line="1894">the name of the variable that was queried</doc>
+                   line="1895">the name of the variable that was queried</doc>
               <type name="utf8" c:type="const char*"/>
             </parameter>
             <parameter name="value" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libgupnp/gupnp-service.c"
-                   line="1895">a value that should be filled to the current value of @variable</doc>
+                   line="1896">a value that should be filled to the current value of @variable</doc>
               <type name="GObject.Value" c:type="GValue*"/>
             </parameter>
           </parameters>
@@ -5582,13 +5582,13 @@ argument.</doc>
             <parameter name="service" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libgupnp/gupnp-service.c"
-                   line="1914">a `GUPnPService`</doc>
+                   line="1915">a `GUPnPService`</doc>
               <type name="Service" c:type="GUPnPService*"/>
             </parameter>
             <parameter name="callback_urls" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libgupnp/gupnp-service.c"
-                   line="1915">a list of call-back urls that failed the notification</doc>
+                   line="1916">a list of call-back urls that failed the notification</doc>
               <type name="GLib.List" c:type="const GList*">
                 <type name="GLib.Uri"/>
               </type>
@@ -5596,7 +5596,7 @@ argument.</doc>
             <parameter name="reason" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libgupnp/gupnp-service.c"
-                   line="1916">An error that describes why the notification failed</doc>
+                   line="1917">An error that describes why the notification failed</doc>
               <type name="GLib.Error" c:type="const GError*"/>
             </parameter>
           </parameters>
@@ -5668,7 +5668,7 @@ argument.</doc>
            glib:type-struct="ServiceInfoClass">
       <doc xml:space="preserve"
            filename="libgupnp/gupnp-service-info.c"
-           line="46">Service information shared by local and remote services.
+           line="47">Service information shared by local and remote services.
 
 A class that contains the common parts between local and remote services.</doc>
       <source-position filename="libgupnp/gupnp-service-info.h" line="35"/>
@@ -5677,19 +5677,19 @@ A class that contains the common parts between local and remote services.</doc>
               glib:get-property="context">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-info.c"
-             line="335">Get the #GUPnPContext associated with @info.</doc>
+             line="337">Get the #GUPnPContext associated with @info.</doc>
         <source-position filename="libgupnp/gupnp-service-info.h" line="38"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-info.c"
-               line="341">A #GUPnPContext.</doc>
+               line="343">A #GUPnPContext.</doc>
           <type name="Context" c:type="GUPnPContext*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-info.c"
-                 line="337">A #GUPnPServiceInfo</doc>
+                 line="339">A #GUPnPServiceInfo</doc>
             <type name="ServiceInfo" c:type="GUPnPServiceInfo*"/>
           </instance-parameter>
         </parameters>
@@ -5698,19 +5698,19 @@ A class that contains the common parts between local and remote services.</doc>
               c:identifier="gupnp_service_info_get_control_url">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-info.c"
-             line="491">Get the control URL for this service, or %NULL..</doc>
+             line="493">Get the control URL for this service, or %NULL..</doc>
         <source-position filename="libgupnp/gupnp-service-info.h" line="59"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-info.c"
-               line="497">A string. This string should be freed with g_free() after use.</doc>
+               line="499">A string. This string should be freed with g_free() after use.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-info.c"
-                 line="493">A #GUPnPServiceInfo</doc>
+                 line="495">A #GUPnPServiceInfo</doc>
             <type name="ServiceInfo" c:type="GUPnPServiceInfo*"/>
           </instance-parameter>
         </parameters>
@@ -5719,19 +5719,19 @@ A class that contains the common parts between local and remote services.</doc>
               c:identifier="gupnp_service_info_get_event_subscription_url">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-info.c"
-             line="513">Get the event subscription URL for this service, or %NULL.</doc>
+             line="515">Get the event subscription URL for this service, or %NULL.</doc>
         <source-position filename="libgupnp/gupnp-service-info.h" line="62"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-info.c"
-               line="519">A string. This string should be freed with g_free() after use.</doc>
+               line="521">A string. This string should be freed with g_free() after use.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-info.c"
-                 line="515">A #GUPnPServiceInfo</doc>
+                 line="517">A #GUPnPServiceInfo</doc>
             <type name="ServiceInfo" c:type="GUPnPServiceInfo*"/>
           </instance-parameter>
         </parameters>
@@ -5739,7 +5739,7 @@ A class that contains the common parts between local and remote services.</doc>
       <method name="get_id" c:identifier="gupnp_service_info_get_id">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-info.c"
-             line="443">Get the serviceID of this service, or %NULL if there is no ID.
+             line="445">Get the serviceID of this service, or %NULL if there is no ID.
 
 The serviceID should be unique to a device. This makes it possible to provide
 the same serviceType multiple times on one device
@@ -5749,14 +5749,14 @@ Example: `org:serviceId:RenderingControl`</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-info.c"
-               line="454">A string. This string should be freed with g_free() after use.</doc>
+               line="456">A string. This string should be freed with g_free() after use.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-info.c"
-                 line="445">A #GUPnPServiceInfo</doc>
+                 line="447">A #GUPnPServiceInfo</doc>
             <type name="ServiceInfo" c:type="GUPnPServiceInfo*"/>
           </instance-parameter>
         </parameters>
@@ -5766,19 +5766,19 @@ Example: `org:serviceId:RenderingControl`</doc>
               glib:get-property="location">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-info.c"
-             line="355">Get the location of the device description file.</doc>
+             line="357">Get the location of the device description file.</doc>
         <source-position filename="libgupnp/gupnp-service-info.h" line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-info.c"
-               line="361">A constant string.</doc>
+               line="363">A constant string.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-info.c"
-                 line="357">A #GUPnPServiceInfo</doc>
+                 line="359">A #GUPnPServiceInfo</doc>
             <type name="ServiceInfo" c:type="GUPnPServiceInfo*"/>
           </instance-parameter>
         </parameters>
@@ -5787,19 +5787,19 @@ Example: `org:serviceId:RenderingControl`</doc>
               c:identifier="gupnp_service_info_get_scpd_url">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-info.c"
-             line="469">Get the SCPD URL for this service, or %NULL if there is no SCPD.</doc>
+             line="471">Get the SCPD URL for this service, or %NULL if there is no SCPD.</doc>
         <source-position filename="libgupnp/gupnp-service-info.h" line="56"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-info.c"
-               line="475">A string. This string should be freed with g_free() after use.</doc>
+               line="477">A string. This string should be freed with g_free() after use.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-info.c"
-                 line="471">A #GUPnPServiceInfo</doc>
+                 line="473">A #GUPnPServiceInfo</doc>
             <type name="ServiceInfo" c:type="GUPnPServiceInfo*"/>
           </instance-parameter>
         </parameters>
@@ -5809,21 +5809,21 @@ Example: `org:serviceId:RenderingControl`</doc>
               glib:get-property="service-type">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-info.c"
-             line="415">Get the UPnP service type, or %NULL.
+             line="417">Get the UPnP service type, or %NULL.
 
 Example: `urn:schemas-upnp-org:service:RenderingControl:1`</doc>
         <source-position filename="libgupnp/gupnp-service-info.h" line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-info.c"
-               line="423">A constant string.</doc>
+               line="425">A constant string.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-info.c"
-                 line="417">A #GUPnPServiceInfo</doc>
+                 line="419">A #GUPnPServiceInfo</doc>
             <type name="ServiceInfo" c:type="GUPnPServiceInfo*"/>
           </instance-parameter>
         </parameters>
@@ -5833,19 +5833,19 @@ Example: `urn:schemas-upnp-org:service:RenderingControl:1`</doc>
               glib:get-property="udn">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-info.c"
-             line="395">Get the Unique Device Name of the containing device.</doc>
+             line="397">Get the Unique Device Name of the containing device.</doc>
         <source-position filename="libgupnp/gupnp-service-info.h" line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-info.c"
-               line="401">A constant string.</doc>
+               line="403">A constant string.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-info.c"
-                 line="397">A #GUPnPServiceInfo</doc>
+                 line="399">A #GUPnPServiceInfo</doc>
             <type name="ServiceInfo" c:type="GUPnPServiceInfo*"/>
           </instance-parameter>
         </parameters>
@@ -5855,19 +5855,19 @@ Example: `urn:schemas-upnp-org:service:RenderingControl:1`</doc>
               glib:get-property="url-base">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-info.c"
-             line="375">Get the URL base of this service.</doc>
+             line="377">Get the URL base of this service.</doc>
         <source-position filename="libgupnp/gupnp-service-info.h" line="44"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-info.c"
-               line="381">A constant #SoupURI.</doc>
+               line="383">A constant #SoupURI.</doc>
           <type name="GLib.Uri" c:type="const GUri*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-info.c"
-                 line="377">A #GUPnPServiceInfo</doc>
+                 line="379">A #GUPnPServiceInfo</doc>
             <type name="ServiceInfo" c:type="GUPnPServiceInfo*"/>
           </instance-parameter>
         </parameters>
@@ -5877,7 +5877,7 @@ Example: `urn:schemas-upnp-org:service:RenderingControl:1`</doc>
               version="1.2.2">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-info.c"
-             line="598">Note that introspection object is created from the information in service
+             line="605">Note that introspection object is created from the information in service
 description document (SCPD) provided by the service so it can not be created
 if the service does not provide a SCPD.
 
@@ -5891,7 +5891,7 @@ error code %G_IO_ERROR_CANCELLED.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-info.c"
-                 line="600">A #GUPnPServiceInfo</doc>
+                 line="607">A #GUPnPServiceInfo</doc>
             <type name="ServiceInfo" c:type="GUPnPServiceInfo*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -5900,7 +5900,7 @@ error code %G_IO_ERROR_CANCELLED.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-info.c"
-                 line="601">a #GCancellable that can be used to cancel the call.</doc>
+                 line="608">a #GCancellable that can be used to cancel the call.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -5911,7 +5911,7 @@ error code %G_IO_ERROR_CANCELLED.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-info.c"
-                 line="602">callback to be called when introspection object is ready.</doc>
+                 line="609">callback to be called when introspection object is ready.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -5920,7 +5920,7 @@ error code %G_IO_ERROR_CANCELLED.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-info.c"
-                 line="603">user_data to be passed to the callback.</doc>
+                 line="610">user_data to be passed to the callback.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -5931,13 +5931,13 @@ error code %G_IO_ERROR_CANCELLED.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-info.c"
-             line="675">Finish an asynchronous call initiated with
+             line="693">Finish an asynchronous call initiated with
 gupnp_service_info_introspect_async().</doc>
         <source-position filename="libgupnp/gupnp-service-info.h" line="71"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-info.c"
-               line="684">%NULL, if the call had an error, a
+               line="702">%NULL, if the call had an error, a
 #GUPnPServiceIntrospection object otherwise.</doc>
           <type name="ServiceIntrospection"
                 c:type="GUPnPServiceIntrospection*"/>
@@ -5946,13 +5946,13 @@ gupnp_service_info_introspect_async().</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-info.c"
-                 line="677">A GUPnPServiceInfo</doc>
+                 line="695">A GUPnPServiceInfo</doc>
             <type name="ServiceInfo" c:type="GUPnPServiceInfo*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-info.c"
-                 line="678">A #GAsyncResult</doc>
+                 line="696">A #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -5964,7 +5964,7 @@ gupnp_service_info_introspect_async().</doc>
                 getter="get_context">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-info.c"
-             line="203">The #GUPnPContext to use.</doc>
+             line="205">The #GUPnPContext to use.</doc>
         <type name="Context"/>
       </property>
       <property name="document"
@@ -5975,7 +5975,7 @@ gupnp_service_info_introspect_async().</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-info.c"
-             line="293">Private property.</doc>
+             line="295">Private property.</doc>
         <type name="XMLDoc"/>
       </property>
       <property name="element"
@@ -5986,7 +5986,7 @@ gupnp_service_info_introspect_async().</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-info.c"
-             line="314">Private property.</doc>
+             line="316">Private property.</doc>
         <type name="gpointer" c:type="gpointer"/>
       </property>
       <property name="location"
@@ -5997,7 +5997,7 @@ gupnp_service_info_introspect_async().</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-info.c"
-             line="221">The location of the device description file.</doc>
+             line="223">The location of the device description file.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="service-type"
@@ -6008,7 +6008,7 @@ gupnp_service_info_introspect_async().</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-info.c"
-             line="258">The service type.</doc>
+             line="260">The service type.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="udn"
@@ -6019,7 +6019,7 @@ gupnp_service_info_introspect_async().</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-info.c"
-             line="240">The UDN of the containing device.</doc>
+             line="242">The UDN of the containing device.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="url-base"
@@ -6029,7 +6029,7 @@ gupnp_service_info_introspect_async().</doc>
                 getter="get_url_base">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-info.c"
-             line="276">The URL base (#SoupURI).</doc>
+             line="278">The URL base (#SoupURI).</doc>
         <type name="GLib.Uri"/>
       </property>
       <field name="parent_instance">
@@ -6108,13 +6108,13 @@ to be used for regular device or control point development.</doc>
               c:identifier="gupnp_service_introspection_get_action">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-introspection.c"
-             line="972">Returns the action by the name @action_name in this service.</doc>
+             line="978">Returns the action by the name @action_name in this service.</doc>
         <source-position filename="libgupnp/gupnp-service-introspection.h"
                          line="123"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-introspection.c"
-               line="979">the action or %NULL. Do not modify or free
+               line="985">the action or %NULL. Do not modify or free
 it.</doc>
           <type name="ServiceActionInfo"
                 c:type="const GUPnPServiceActionInfo*"/>
@@ -6123,14 +6123,14 @@ it.</doc>
           <instance-parameter name="introspection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-introspection.c"
-                 line="974">A #GUPnPServiceIntrospection</doc>
+                 line="980">A #GUPnPServiceIntrospection</doc>
             <type name="ServiceIntrospection"
                   c:type="GUPnPServiceIntrospection*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-introspection.c"
-                 line="975">The name of the action to retrieve</doc>
+                 line="981">The name of the action to retrieve</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -6139,13 +6139,13 @@ it.</doc>
               c:identifier="gupnp_service_introspection_get_state_variable">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-introspection.c"
-             line="932">Returns the state variable by the name @variable_name in this service.</doc>
+             line="938">Returns the state variable by the name @variable_name in this service.</doc>
         <source-position filename="libgupnp/gupnp-service-introspection.h"
                          line="136"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-introspection.c"
-               line="939">the state variable or %NULL. Do not modify or
+               line="945">the state variable or %NULL. Do not modify or
 free it.</doc>
           <type name="ServiceStateVariableInfo"
                 c:type="const GUPnPServiceStateVariableInfo*"/>
@@ -6154,14 +6154,14 @@ free it.</doc>
           <instance-parameter name="introspection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-introspection.c"
-                 line="934">A #GUPnPServiceIntrospection</doc>
+                 line="940">A #GUPnPServiceIntrospection</doc>
             <type name="ServiceIntrospection"
                   c:type="GUPnPServiceIntrospection*"/>
           </instance-parameter>
           <parameter name="variable_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-introspection.c"
-                 line="935">The name of the variable to retrieve</doc>
+                 line="941">The name of the variable to retrieve</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -6170,13 +6170,13 @@ free it.</doc>
               c:identifier="gupnp_service_introspection_list_action_names">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-introspection.c"
-             line="822">Returns a GList of names of all the actions in this service.</doc>
+             line="828">Returns a GList of names of all the actions in this service.</doc>
         <source-position filename="libgupnp/gupnp-service-introspection.h"
                          line="115"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-introspection.c"
-               line="828">A GList of names of all
+               line="834">A GList of names of all
 the actions or %NULL. Do not modify or free it or its contents.</doc>
           <type name="GLib.List" c:type="const GList*">
             <type name="utf8"/>
@@ -6186,7 +6186,7 @@ the actions or %NULL. Do not modify or free it or its contents.</doc>
           <instance-parameter name="introspection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-introspection.c"
-                 line="824">A #GUPnPServiceIntrospection</doc>
+                 line="830">A #GUPnPServiceIntrospection</doc>
             <type name="ServiceIntrospection"
                   c:type="GUPnPServiceIntrospection*"/>
           </instance-parameter>
@@ -6196,14 +6196,14 @@ the actions or %NULL. Do not modify or free it or its contents.</doc>
               c:identifier="gupnp_service_introspection_list_actions">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-introspection.c"
-             line="851">Returns a #GList of all the actions (of type #GUPnPServiceActionInfo) in
+             line="857">Returns a #GList of all the actions (of type #GUPnPServiceActionInfo) in
 this service.</doc>
         <source-position filename="libgupnp/gupnp-service-introspection.h"
                          line="119"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-introspection.c"
-               line="858">A
+               line="864">A
 #GList of all the actions or %NULL. Do not modify or free it or its
 contents.</doc>
           <type name="GLib.List" c:type="const GList*">
@@ -6214,7 +6214,7 @@ contents.</doc>
           <instance-parameter name="introspection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-introspection.c"
-                 line="853">A #GUPnPServiceIntrospection</doc>
+                 line="859">A #GUPnPServiceIntrospection</doc>
             <type name="ServiceIntrospection"
                   c:type="GUPnPServiceIntrospection*"/>
           </instance-parameter>
@@ -6224,13 +6224,13 @@ contents.</doc>
               c:identifier="gupnp_service_introspection_list_state_variable_names">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-introspection.c"
-             line="896">Returns a #GList of names of all the state variables in this service.</doc>
+             line="902">Returns a #GList of names of all the state variables in this service.</doc>
         <source-position filename="libgupnp/gupnp-service-introspection.h"
                          line="128"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-introspection.c"
-               line="902">A #GList of names of all
+               line="908">A #GList of names of all
 the state variables or %NULL. Do not modify or free it or its contents.</doc>
           <type name="GLib.List" c:type="const GList*">
             <type name="utf8"/>
@@ -6240,7 +6240,7 @@ the state variables or %NULL. Do not modify or free it or its contents.</doc>
           <instance-parameter name="introspection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-introspection.c"
-                 line="898">A #GUPnPServiceIntrospection</doc>
+                 line="904">A #GUPnPServiceIntrospection</doc>
             <type name="ServiceIntrospection"
                   c:type="GUPnPServiceIntrospection*"/>
           </instance-parameter>
@@ -6250,14 +6250,14 @@ the state variables or %NULL. Do not modify or free it or its contents.</doc>
               c:identifier="gupnp_service_introspection_list_state_variables">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-introspection.c"
-             line="873">Returns a GList of all the state variables (of type
+             line="879">Returns a GList of all the state variables (of type
 #GUPnPServiceStateVariableInfo) in this service.</doc>
         <source-position filename="libgupnp/gupnp-service-introspection.h"
                          line="132"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-introspection.c"
-               line="880">
+               line="886">
 A #GList of all the state variables or %NULL. Do not modify or free it or
 its contents.</doc>
           <type name="GLib.List" c:type="const GList*">
@@ -6268,7 +6268,7 @@ its contents.</doc>
           <instance-parameter name="introspection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-introspection.c"
-                 line="875">A #GUPnPServiceIntrospection</doc>
+                 line="881">A #GUPnPServiceIntrospection</doc>
             <type name="ServiceIntrospection"
                   c:type="GUPnPServiceIntrospection*"/>
           </instance-parameter>
@@ -6331,9 +6331,9 @@ its contents.</doc>
 
 #GUPnPServiceProxy sends commands to a remote UPnP service and handles
 incoming event notifications.</doc>
-      <source-position filename="libgupnp/gupnp-service-proxy.h" line="48"/>
+      <source-position filename="libgupnp/gupnp-service-proxy.h" line="47"/>
       <virtual-method name="subscription_lost">
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="38"/>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="37"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -6352,32 +6352,32 @@ incoming event notifications.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy.c"
-             line="558">Sets up @callback to be called whenever a change notification for
+             line="562">Sets up @callback to be called whenever a change notification for
 @variable is recieved.</doc>
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="88"/>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="99"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy.c"
-               line="569">%TRUE on success.</doc>
+               line="573">%TRUE on success.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="proxy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="560">A #GUPnPServiceProxy</doc>
+                 line="564">A #GUPnPServiceProxy</doc>
             <type name="ServiceProxy" c:type="GUPnPServiceProxy*"/>
           </instance-parameter>
           <parameter name="variable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="561">The variable to add notification for</doc>
+                 line="565">The variable to add notification for</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="562">The type of the variable</doc>
+                 line="566">The type of the variable</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="callback"
@@ -6386,7 +6386,7 @@ incoming event notifications.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="563">The callback to call when @variable changes</doc>
+                 line="567">The callback to call when @variable changes</doc>
             <type name="ServiceProxyNotifyCallback"
                   c:type="GUPnPServiceProxyNotifyCallback"/>
           </parameter>
@@ -6396,7 +6396,7 @@ incoming event notifications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="564">User data for @callback</doc>
+                 line="568">User data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -6407,32 +6407,32 @@ incoming event notifications.</doc>
               version="0.20.12">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy.c"
-             line="587">Sets up @callback to be called whenever a change notification for
+             line="591">Sets up @callback to be called whenever a change notification for
 @variable is recieved.</doc>
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="95"/>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="106"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy.c"
-               line="601">%TRUE on success.</doc>
+               line="605">%TRUE on success.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="proxy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="589">A #GUPnPServiceProxy</doc>
+                 line="593">A #GUPnPServiceProxy</doc>
             <type name="ServiceProxy" c:type="GUPnPServiceProxy*"/>
           </instance-parameter>
           <parameter name="variable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="590">The variable to add notification for</doc>
+                 line="594">The variable to add notification for</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="591">The type of the variable</doc>
+                 line="595">The type of the variable</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="callback"
@@ -6442,7 +6442,7 @@ incoming event notifications.</doc>
                      destroy="4">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="592">The callback to call when @variable changes</doc>
+                 line="596">The callback to call when @variable changes</doc>
             <type name="ServiceProxyNotifyCallback"
                   c:type="GUPnPServiceProxyNotifyCallback"/>
           </parameter>
@@ -6452,7 +6452,7 @@ incoming event notifications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="593">User data for @callback</doc>
+                 line="597">User data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="notify"
@@ -6462,7 +6462,7 @@ incoming event notifications.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="594">Function to call when the notification is removed, or %NULL</doc>
+                 line="598">Function to call when the notification is removed, or %NULL</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -6472,22 +6472,22 @@ incoming event notifications.</doc>
               version="0.20.12">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy.c"
-             line="663">Get a notification for anything that happens on the peer.
+             line="667">Get a notification for anything that happens on the peer.
 
 @value in @callback will be of type G_TYPE_POINTER and contain the pre-parsed
 [type@libxml2.Doc]. Do NOT free or modify this document.</doc>
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="103"/>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="114"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy.c"
-               line="676">%TRUE on success.</doc>
+               line="680">%TRUE on success.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="proxy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="665">A #GUPnPServiceProxy</doc>
+                 line="669">A #GUPnPServiceProxy</doc>
             <type name="ServiceProxy" c:type="GUPnPServiceProxy*"/>
           </instance-parameter>
           <parameter name="callback"
@@ -6497,7 +6497,7 @@ incoming event notifications.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="666">The callback to call when the peer issues any
+                 line="670">The callback to call when the peer issues any
 variable notification.</doc>
             <type name="ServiceProxyNotifyCallback"
                   c:type="GUPnPServiceProxyNotifyCallback"/>
@@ -6508,7 +6508,7 @@ variable notification.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="668">User data for @callback</doc>
+                 line="672">User data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="notify"
@@ -6518,7 +6518,7 @@ variable notification.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="669">A #GDestroyNotify for @user_data</doc>
+                 line="673">A #GDestroyNotify for @user_data</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -6529,25 +6529,25 @@ variable notification.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy.c"
-             line="1640">Synchronously call the @action on the remote UPnP service.</doc>
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="184"/>
+             line="1644">Synchronously call the @action on the remote UPnP service.</doc>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="216"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy.c"
-               line="1650">%NULL on error, @action if successful.</doc>
+               line="1654">%NULL on error, @action if successful.</doc>
           <type name="ServiceProxyAction" c:type="GUPnPServiceProxyAction*"/>
         </return-value>
         <parameters>
           <instance-parameter name="proxy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="1642">A #GUPnPServiceProxy</doc>
+                 line="1646">A #GUPnPServiceProxy</doc>
             <type name="ServiceProxy" c:type="GUPnPServiceProxy*"/>
           </instance-parameter>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="1643">An action</doc>
+                 line="1647">An action</doc>
             <type name="ServiceProxyAction" c:type="GUPnPServiceProxyAction*"/>
           </parameter>
           <parameter name="cancellable"
@@ -6556,7 +6556,7 @@ variable notification.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="1644">A #GCancellable which can be used to cancel the
+                 line="1648">A #GCancellable which can be used to cancel the
 current action call</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
@@ -6567,13 +6567,13 @@ current action call</doc>
               version="1.2.0">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy.c"
-             line="1565">Start a call on the remote UPnP service using the pre-configured @action.
+             line="1569">Start a call on the remote UPnP service using the pre-configured @action.
 Use gupnp_service_proxy_call_action_finish() in the @callback to finalize
 the call and gupnp_service_proxy_action_get_result(),
 gupnp_service_proxy_action_get_result_hash() or
 gupnp_service_proxy_action_get_result_list() to extract the result of the
 remote call.</doc>
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="171"/>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="203"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -6581,13 +6581,13 @@ remote call.</doc>
           <instance-parameter name="proxy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="1567">A #GUPnPServiceProxy</doc>
+                 line="1571">A #GUPnPServiceProxy</doc>
             <type name="ServiceProxy" c:type="GUPnPServiceProxy*"/>
           </instance-parameter>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="1568">A #GUPnPServiceProxyAction to call</doc>
+                 line="1572">A #GUPnPServiceProxyAction to call</doc>
             <type name="ServiceProxyAction" c:type="GUPnPServiceProxyAction*"/>
           </parameter>
           <parameter name="cancellable"
@@ -6596,7 +6596,7 @@ remote call.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="1569">A #GCancellable which can be used to cancel the
+                 line="1573">A #GCancellable which can be used to cancel the
 current action call</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
@@ -6608,7 +6608,7 @@ current action call</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="1571">A #GAsyncReadyCallback to call when the action is
+                 line="1575">A #GAsyncReadyCallback to call when the action is
 finished.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -6618,7 +6618,7 @@ finished.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="1573">User data for @callback</doc>
+                 line="1577">User data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -6629,26 +6629,26 @@ finished.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy.c"
-             line="1614">Finish an asynchronous call initiated with
+             line="1618">Finish an asynchronous call initiated with
 gupnp_service_proxy_call_action_async().</doc>
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="179"/>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="211"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy.c"
-               line="1623">%NULL, if the call had an error, the action otherwise.</doc>
+               line="1627">%NULL, if the call had an error, the action otherwise.</doc>
           <type name="ServiceProxyAction" c:type="GUPnPServiceProxyAction*"/>
         </return-value>
         <parameters>
           <instance-parameter name="proxy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="1616">a #GUPnPServiceProxy</doc>
+                 line="1620">a #GUPnPServiceProxy</doc>
             <type name="ServiceProxy" c:type="GUPnPServiceProxy*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="1617">a #GAsyncResult</doc>
+                 line="1621">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -6658,19 +6658,19 @@ gupnp_service_proxy_call_action_async().</doc>
               glib:get-property="subscribed">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy.c"
-             line="1545">Returns if we are subscribed to this service.</doc>
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="125"/>
+             line="1549">Returns if we are subscribed to this service.</doc>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="136"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy.c"
-               line="1551">%TRUE if we are subscribed to this service, otherwise %FALSE.</doc>
+               line="1555">%TRUE if we are subscribed to this service, otherwise %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="proxy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="1547">A #GUPnPServiceProxy</doc>
+                 line="1551">A #GUPnPServiceProxy</doc>
             <type name="ServiceProxy" c:type="GUPnPServiceProxy*"/>
           </instance-parameter>
         </parameters>
@@ -6679,30 +6679,30 @@ gupnp_service_proxy_call_action_async().</doc>
               c:identifier="gupnp_service_proxy_remove_notify">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy.c"
-             line="695">Cancels the variable change notification for @callback and @user_data.
+             line="699">Cancels the variable change notification for @callback and @user_data.
 
 Up to version 0.20.9 this function must not be called directlya or
 indirectly from a #GUPnPServiceProxyNotifyCallback associated with this
 service proxy, even if it is for another variable. In later versions such
 calls are allowed.</doc>
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="109"/>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="120"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy.c"
-               line="709">%TRUE on success.</doc>
+               line="713">%TRUE on success.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="proxy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="697">A #GUPnPServiceProxy</doc>
+                 line="701">A #GUPnPServiceProxy</doc>
             <type name="ServiceProxy" c:type="GUPnPServiceProxy*"/>
           </instance-parameter>
           <parameter name="variable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="698">The variable to add notification for</doc>
+                 line="702">The variable to add notification for</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="callback"
@@ -6711,7 +6711,7 @@ calls are allowed.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="699">The callback to call when @variable changes</doc>
+                 line="703">The callback to call when @variable changes</doc>
             <type name="ServiceProxyNotifyCallback"
                   c:type="GUPnPServiceProxyNotifyCallback"/>
           </parameter>
@@ -6721,7 +6721,7 @@ calls are allowed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="700">User data for @callback</doc>
+                 line="704">User data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -6730,23 +6730,23 @@ calls are allowed.</doc>
               c:identifier="gupnp_service_proxy_remove_raw_notify">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy.c"
-             line="774">Cancels the variable change notification for @callback and @user_data.
+             line="778">Cancels the variable change notification for @callback and @user_data.
 
 This function must not be called directly or indirectly from a
 #GUPnPServiceProxyNotifyCallback associated with this service proxy, even
 if it is for another variable.</doc>
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="115"/>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="126"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy.c"
-               line="786">%TRUE on success.</doc>
+               line="790">%TRUE on success.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="proxy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="776">A #GUPnPServiceProxy</doc>
+                 line="780">A #GUPnPServiceProxy</doc>
             <type name="ServiceProxy" c:type="GUPnPServiceProxy*"/>
           </instance-parameter>
           <parameter name="callback"
@@ -6755,7 +6755,7 @@ if it is for another variable.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="777">The callback to call when @variable changes</doc>
+                 line="781">The callback to call when @variable changes</doc>
             <type name="ServiceProxyNotifyCallback"
                   c:type="GUPnPServiceProxyNotifyCallback"/>
           </parameter>
@@ -6765,7 +6765,7 @@ if it is for another variable.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="778">User data for @callback</doc>
+                 line="782">User data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -6775,8 +6775,8 @@ if it is for another variable.</doc>
               version="1.6.4">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy.c"
-             line="1712">Sets user and password for authentication</doc>
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="190"/>
+             line="1718">Sets user and password for authentication</doc>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="222"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -6784,19 +6784,19 @@ if it is for another variable.</doc>
           <instance-parameter name="proxy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="1714">A #GUPnPServiceProxy</doc>
+                 line="1720">A #GUPnPServiceProxy</doc>
             <type name="ServiceProxy" c:type="GUPnPServiceProxy*"/>
           </instance-parameter>
           <parameter name="user" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="1715">user name for authentication</doc>
+                 line="1721">user name for authentication</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="password" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="1716">user password for authentication</doc>
+                 line="1722">user password for authentication</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -6806,13 +6806,13 @@ if it is for another variable.</doc>
               glib:set-property="subscribed">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy.c"
-             line="1511">(Un)subscribes to this service.
+             line="1515">(Un)subscribes to this service.
 
 &lt;note&gt;The relevant messages are not immediately sent but queued.
 If you want to unsubcribe from this service because the application
 is quitting, rely on automatic synchronised unsubscription on object
 destruction instead.&lt;/note&gt;</doc>
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="121"/>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="132"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -6820,13 +6820,13 @@ destruction instead.&lt;/note&gt;</doc>
           <instance-parameter name="proxy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="1513">A #GUPnPServiceProxy</doc>
+                 line="1517">A #GUPnPServiceProxy</doc>
             <type name="ServiceProxy" c:type="GUPnPServiceProxy*"/>
           </instance-parameter>
           <parameter name="subscribed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="1514">%TRUE to subscribe to this service</doc>
+                 line="1518">%TRUE to subscribe to this service</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -6839,7 +6839,7 @@ destruction instead.&lt;/note&gt;</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy.c"
-             line="291">Whether we are subscribed to this service.</doc>
+             line="294">Whether we are subscribed to this service.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <field name="parent_instance">
@@ -6848,7 +6848,7 @@ destruction instead.&lt;/note&gt;</doc>
       <glib:signal name="subscription-lost" when="last">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy.c"
-             line="309">Emitted whenever the subscription to this service has been lost due
+             line="312">Emitted whenever the subscription to this service has been lost due
 to an error condition.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6857,7 +6857,7 @@ to an error condition.</doc>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy.c"
-                 line="312">A pointer to a #GError describing why the subscription has
+                 line="315">A pointer to a #GError describing why the subscription has
 been lost</doc>
             <type name="GLib.Error" c:type="gpointer"/>
           </parameter>
@@ -6872,14 +6872,14 @@ been lost</doc>
             c:symbol-prefix="service_proxy_action">
       <doc xml:space="preserve"
            filename="libgupnp/gupnp-service-proxy.h"
-           line="50">Opaque structure for holding in-progress action data.</doc>
-      <source-position filename="libgupnp/gupnp-service-proxy.h" line="55"/>
+           line="49">Opaque structure for holding in-progress action data.</doc>
+      <source-position filename="libgupnp/gupnp-service-proxy.h" line="54"/>
       <constructor name="new"
                    c:identifier="gupnp_service_proxy_action_new"
                    introspectable="0">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy-action.c"
-             line="157">Prepares action @action with parameters @Varargs to be sent off to
+             line="375">Prepares action @action with parameters @Varargs to be sent off to
 a remote service later with gupnp_service_proxy_call_action() or
 gupnp_service_proxy_call_action_async().
 
@@ -6916,24 +6916,24 @@ if (!gupnp_service_proxy_action_get_result (action,
 
 gupnp_service_proxy_action_unref (action);
 ```</doc>
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="130"/>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="141"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy-action.c"
-               line="201">A newly created #GUPnPServiceProxyAction</doc>
+               line="419">A newly created #GUPnPServiceProxyAction</doc>
           <type name="ServiceProxyAction" c:type="GUPnPServiceProxyAction*"/>
         </return-value>
         <parameters>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy-action.c"
-                 line="159">The name of a remote action to call</doc>
+                 line="377">The name of a remote action to call</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy-action.c"
-                 line="160">tuples of in parameter name, in parameter type, and in parameter
+                 line="378">tuples of in parameter name, in parameter type, and in parameter
 value, terminated with %NULL</doc>
             <varargs/>
           </parameter>
@@ -6943,7 +6943,7 @@ value, terminated with %NULL</doc>
                    c:identifier="gupnp_service_proxy_action_new_from_list">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy-action.c"
-             line="246">Prepares action @action with parameters @in_names and @in_values to be
+             line="462">Prepares action @action with parameters @in_names and @in_values to be
 sent off to a remote service later with gupnp_service_proxy_call_action() or
 gupnp_service_proxy_call_action_async(). This is mainly useful for language
 bindings.
@@ -6978,24 +6978,24 @@ GError *error = NULL;
 gupnp_service_proxy_call_action_async (proxy, action, NULL, on_action_finished, NULL);
 gupnp_service_proxy_action_unref (action);
 ```</doc>
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="134"/>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="148"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy-action.c"
-               line="290">A newly created #GUPnPServiceProxyAction</doc>
+               line="506">A newly created #GUPnPServiceProxyAction</doc>
           <type name="ServiceProxyAction" c:type="GUPnPServiceProxyAction*"/>
         </return-value>
         <parameters>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy-action.c"
-                 line="248">An action</doc>
+                 line="464">An action</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="in_names" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy-action.c"
-                 line="249">#GList of 'in' parameter
+                 line="465">#GList of 'in' parameter
 names (as strings)</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="utf8"/>
@@ -7004,7 +7004,7 @@ names (as strings)</doc>
           <parameter name="in_values" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy-action.c"
-                 line="251">#GList of values (as
+                 line="467">#GList of values (as
 #GValue) that line up with @in_names</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="GObject.Value"/>
@@ -7012,26 +7012,98 @@ names (as strings)</doc>
           </parameter>
         </parameters>
       </constructor>
+      <constructor name="new_plain"
+                   c:identifier="gupnp_service_proxy_action_new_plain"
+                   version="1.6.6">
+        <doc xml:space="preserve"
+             filename="libgupnp/gupnp-service-proxy-action.c"
+             line="250">Prepares action @action with to be sent off to
+a remote service later with gupnp_service_proxy_call_action() or
+gupnp_service_proxy_call_action_async() if no arguments required or by adding more
+parameters with gupnp_service_proxy_action_add()
+
+After the action call has finished, the results of the call may be
+retrived from the #GUPnPServiceProxyAction by using
+gupnp_service_proxy_action_get_result(),
+gupnp_service_proxy_action_get_result_list() or
+gupnp_service_proxy_action_get_result_hash()
+
+```c
+GUPnPServiceProxyAction *action =
+        gupnp_service_proxy_action_new_plain ("GetVolume");
+gupnp_service_proxy_action_add (action, "InstanceID", value_instance);
+gupnp_service_proxy_action_add (action, "Channel", value_channel);
+````</doc>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="145"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgupnp/gupnp-service-proxy-action.c"
+               line="272">A newly created #GUPnPServiceProxyAction</doc>
+          <type name="ServiceProxyAction" c:type="GUPnPServiceProxyAction*"/>
+        </return-value>
+        <parameters>
+          <parameter name="action" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgupnp/gupnp-service-proxy-action.c"
+                 line="252">The name of a remote action to call</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="add_argument"
+              c:identifier="gupnp_service_proxy_action_add_argument"
+              version="1.6.6">
+        <doc xml:space="preserve"
+             filename="libgupnp/gupnp-service-proxy-action.c"
+             line="534">Append @name to the list of arguments used by @action</doc>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="162"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgupnp/gupnp-service-proxy-action.c"
+               line="542">@action for convenience.</doc>
+          <type name="ServiceProxyAction" c:type="GUPnPServiceProxyAction*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="action" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgupnp/gupnp-service-proxy-action.c"
+                 line="536">The action to append to</doc>
+            <type name="ServiceProxyAction" c:type="GUPnPServiceProxyAction*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgupnp/gupnp-service-proxy-action.c"
+                 line="537">The name of the argument</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgupnp/gupnp-service-proxy-action.c"
+                 line="538">The value of the argument</doc>
+            <type name="GObject.Value" c:type="const GValue*"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="get_result"
               c:identifier="gupnp_service_proxy_action_get_result"
               introspectable="0">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy-action.c"
-             line="714">Retrieves the result of @action. The out parameters in @Varargs will be
+             line="960">Retrieves the result of @action. The out parameters in @Varargs will be
 filled in, and if an error occurred, @error will be set. In case of
 an UPnP error the error code will be the same in @error.</doc>
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="154"/>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="186"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy-action.c"
-               line="726">%TRUE on success.</doc>
+               line="972">%TRUE on success.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy-action.c"
-                 line="716">A #GUPnPServiceProxyAction handle</doc>
+                 line="962">A #GUPnPServiceProxyAction handle</doc>
             <type name="ServiceProxyAction" c:type="GUPnPServiceProxyAction*"/>
           </instance-parameter>
           <parameter name="error"
@@ -7043,13 +7115,13 @@ an UPnP error the error code will be the same in @error.</doc>
                      optional="1">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy-action.c"
-                 line="717">The location where to store any error, or %NULL</doc>
+                 line="963">The location where to store any error, or %NULL</doc>
             <type name="GLib.Error" c:type="GError**"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy-action.c"
-                 line="718">tuples of out parameter name, out parameter type, and out parameter
+                 line="964">tuples of out parameter name, out parameter type, and out parameter
 value location, terminated with %NULL. The out parameter values should be
 freed after use</doc>
             <varargs/>
@@ -7062,7 +7134,7 @@ freed after use</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy-action.c"
-             line="626">See gupnp_service_proxy_action_get_result(); this version takes a #GHashTable for
+             line="872">See gupnp_service_proxy_action_get_result(); this version takes a #GHashTable for
 runtime generated parameter lists.
 
 The @out_hash needs to be pre-initialized with key value pairs denoting the argument
@@ -7107,18 +7179,18 @@ void on_action_finished(GObject *object, GAsyncResult *res, gpointer user_data)
     g_hash_table_unref (out_args);
 }
 ```</doc>
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="165"/>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="197"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy-action.c"
-               line="679">%TRUE on success.</doc>
+               line="925">%TRUE on success.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy-action.c"
-                 line="628">A #GUPnPServiceProxyAction handle</doc>
+                 line="874">A #GUPnPServiceProxyAction handle</doc>
             <type name="ServiceProxyAction" c:type="GUPnPServiceProxyAction*"/>
           </instance-parameter>
           <parameter name="out_hash"
@@ -7127,7 +7199,7 @@ void on_action_finished(GObject *object, GAsyncResult *res, gpointer user_data)
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy-action.c"
-                 line="629">A #GHashTable of
+                 line="875">A #GHashTable of
 out parameter name and initialised #GValue pairs</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
               <type name="utf8"/>
@@ -7142,7 +7214,7 @@ out parameter name and initialised #GValue pairs</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy-action.c"
-             line="508">A variant of gupnp_service_proxy_action_get_result() that takes lists of
+             line="754">A variant of gupnp_service_proxy_action_get_result() that takes lists of
 out-parameter names, types and place-holders for values.
 
 The returned list in @out_values must be freed using `g_list_free` and each element
@@ -7192,24 +7264,24 @@ void on_action_finished(GObject *object, GAsyncResult *res, gpointer user_data)
     g_list_free (out_values);
 }
 ```</doc>
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="159"/>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="191"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy-action.c"
-               line="570">%TRUE on success.</doc>
+               line="816">%TRUE on success.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy-action.c"
-                 line="510">A #GUPnPServiceProxyAction handle</doc>
+                 line="756">A #GUPnPServiceProxyAction handle</doc>
             <type name="ServiceProxyAction" c:type="GUPnPServiceProxyAction*"/>
           </instance-parameter>
           <parameter name="out_names" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy-action.c"
-                 line="511">#GList of 'out' parameter
+                 line="757">#GList of 'out' parameter
 names (as strings)</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="utf8"/>
@@ -7218,7 +7290,7 @@ names (as strings)</doc>
           <parameter name="out_types" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy-action.c"
-                 line="513">#GList of types (as #GType)
+                 line="759">#GList of types (as #GType)
 that line up with @out_names</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="GType"/>
@@ -7230,7 +7302,7 @@ that line up with @out_names</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy-action.c"
-                 line="515">#GList of values
+                 line="761">#GList of values
 (as #GValue) that line up with @out_names and @out_types.</doc>
             <type name="GLib.List" c:type="GList**">
               <type name="GObject.Value"/>
@@ -7238,24 +7310,48 @@ that line up with @out_names</doc>
           </parameter>
         </parameters>
       </method>
+      <method name="iterate"
+              c:identifier="gupnp_service_proxy_action_iterate"
+              version="1.6.6"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libgupnp/gupnp-service-proxy-action.c"
+             line="59">Iterate over the out arguments of a finished action</doc>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="173"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libgupnp/gupnp-service-proxy-action.c"
+               line="66">A newly created GUPnPServiceProxyActionIterator, or %NULL on error</doc>
+          <type name="ServiceProxyActionIter"
+                c:type="GUPnPServiceProxyActionIter*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="action" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgupnp/gupnp-service-proxy-action.c"
+                 line="61">A finished GUPnPServiceProxyAction</doc>
+            <type name="ServiceProxyAction" c:type="GUPnPServiceProxyAction*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
       <method name="ref"
               c:identifier="gupnp_service_proxy_action_ref"
               version="1.2.0">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy-action.c"
-             line="72">Increases reference count of `action`</doc>
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="139"/>
+             line="290">Increases reference count of `action`</doc>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="153"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy-action.c"
-               line="78">@action with an increased reference count</doc>
+               line="296">@action with an increased reference count</doc>
           <type name="ServiceProxyAction" c:type="GUPnPServiceProxyAction*"/>
         </return-value>
         <parameters>
           <instance-parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy-action.c"
-                 line="74">an action</doc>
+                 line="292">an action</doc>
             <type name="ServiceProxyAction" c:type="GUPnPServiceProxyAction*"/>
           </instance-parameter>
         </parameters>
@@ -7266,33 +7362,33 @@ that line up with @out_names</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy-action.c"
-             line="767">Update the value of @key to @value.
+             line="1013">Update the value of @key to @value.
 
 @key needs to already exist in @action.</doc>
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="148"/>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="167"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy-action.c"
-               line="778">true if successfully modified, false otherwise</doc>
+               line="1024">true if successfully modified, false otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy-action.c"
-                 line="769">the action to modify</doc>
+                 line="1015">the action to modify</doc>
             <type name="ServiceProxyAction" c:type="GUPnPServiceProxyAction*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy-action.c"
-                 line="770">the name of the value to modify</doc>
+                 line="1016">the name of the value to modify</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy-action.c"
-                 line="771">the new value of @key</doc>
+                 line="1017">the new value of @key</doc>
             <type name="GObject.Value" c:type="const GValue*"/>
           </parameter>
         </parameters>
@@ -7302,9 +7398,9 @@ that line up with @out_names</doc>
               version="1.2.0">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service-proxy-action.c"
-             line="111">Decreases reference count of `action`. If reference count drops to 0,
+             line="329">Decreases reference count of `action`. If reference count drops to 0,
 the action and its contents will be freed.</doc>
-        <source-position filename="libgupnp/gupnp-service-proxy.h" line="142"/>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="156"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7312,7 +7408,7 @@ the action and its contents will be freed.</doc>
           <instance-parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgupnp/gupnp-service-proxy-action.c"
-                 line="113">an action</doc>
+                 line="331">an action</doc>
             <type name="ServiceProxyAction" c:type="GUPnPServiceProxyAction*"/>
           </instance-parameter>
         </parameters>
@@ -7324,9 +7420,9 @@ the action and its contents will be freed.</doc>
               deprecated-version="1.2.0">
       <doc xml:space="preserve"
            filename="libgupnp/gupnp-service-proxy.h"
-           line="57">Callback notifying that @action on @proxy has returned and
+           line="68">Callback notifying that @action on @proxy has returned and
 gupnp_service_proxy_end_action() etc can be called.</doc>
-      <source-position filename="libgupnp/gupnp-service-proxy.h" line="67"/>
+      <source-position filename="libgupnp/gupnp-service-proxy.h" line="78"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -7334,13 +7430,13 @@ gupnp_service_proxy_end_action() etc can be called.</doc>
         <parameter name="proxy" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy.h"
-               line="59">The #GUPnPServiceProxy @action is called from</doc>
+               line="70">The #GUPnPServiceProxy @action is called from</doc>
           <type name="ServiceProxy" c:type="GUPnPServiceProxy*"/>
         </parameter>
         <parameter name="action" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy.h"
-               line="60">The #GUPnPServiceProxyAction in progress</doc>
+               line="71">The #GUPnPServiceProxyAction in progress</doc>
           <type name="ServiceProxyAction" c:type="GUPnPServiceProxyAction*"/>
         </parameter>
         <parameter name="user_data"
@@ -7350,22 +7446,124 @@ gupnp_service_proxy_end_action() etc can be called.</doc>
                    closure="2">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy.h"
-               line="61">User data</doc>
+               line="72">User data</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
     </callback>
+    <class name="ServiceProxyActionIter"
+           c:symbol-prefix="service_proxy_action_iter"
+           c:type="GUPnPServiceProxyActionIter"
+           version="1.6.6"
+           parent="GObject.Object"
+           glib:type-name="GUPnPServiceProxyActionIter"
+           glib:get-type="gupnp_service_proxy_action_iter_get_type"
+           glib:type-struct="ServiceProxyActionIterClass">
+      <doc xml:space="preserve"
+           filename="libgupnp/gupnp-service-proxy.h"
+           line="61">An opaque object representing an iterator over the out parameters of an action</doc>
+      <source-position filename="libgupnp/gupnp-service-proxy.h" line="56"/>
+      <method name="get_name"
+              c:identifier="gupnp_service_proxy_action_iter_get_name"
+              version="1.6.6">
+        <doc xml:space="preserve"
+             filename="libgupnp/gupnp-service-proxy-action.c"
+             line="131">Get the name of the current out argument</doc>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="180"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgupnp/gupnp-service-proxy-action.c"
+               line="137">Name of the current argument</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgupnp/gupnp-service-proxy-action.c"
+                 line="133">A GUPnP.ServiceProxyActionIter</doc>
+            <type name="ServiceProxyActionIter"
+                  c:type="GUPnPServiceProxyActionIter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_value"
+              c:identifier="gupnp_service_proxy_action_iter_get_value"
+              version="1.6.6">
+        <doc xml:space="preserve"
+             filename="libgupnp/gupnp-service-proxy-action.c"
+             line="157">Get the value of the current parameter.
+
+If the service proxy had a successful introspection, the type according
+to the introspection data will be used, otherwise it will be string.</doc>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="183"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgupnp/gupnp-service-proxy-action.c"
+               line="167">%TRUE if the value could be read successfully</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgupnp/gupnp-service-proxy-action.c"
+                 line="159">A GUPnP.ServiceProxyActionIter</doc>
+            <type name="ServiceProxyActionIter"
+                  c:type="GUPnPServiceProxyActionIter*"/>
+          </instance-parameter>
+          <parameter name="value"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgupnp/gupnp-service-proxy-action.c"
+                 line="160">The value</doc>
+            <type name="GObject.Value" c:type="GValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="next"
+              c:identifier="gupnp_service_proxy_action_iter_next"
+              version="1.6.6">
+        <doc xml:space="preserve"
+             filename="libgupnp/gupnp-service-proxy-action.c"
+             line="109">Move @self to the next out value of the iterated action</doc>
+        <source-position filename="libgupnp/gupnp-service-proxy.h" line="177"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgupnp/gupnp-service-proxy-action.c"
+               line="115">%TRUE if the next value was available</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgupnp/gupnp-service-proxy-action.c"
+                 line="111">A GUPnP.ServiceProxyActionIter</doc>
+            <type name="ServiceProxyActionIter"
+                  c:type="GUPnPServiceProxyActionIter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="ServiceProxyActionIterClass"
+            c:type="GUPnPServiceProxyActionIterClass"
+            glib:is-gtype-struct-for="ServiceProxyActionIter">
+      <source-position filename="libgupnp/gupnp-service-proxy.h" line="56"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
     <record name="ServiceProxyClass"
             c:type="GUPnPServiceProxyClass"
             glib:is-gtype-struct-for="ServiceProxy">
-      <source-position filename="libgupnp/gupnp-service-proxy.h" line="48"/>
+      <source-position filename="libgupnp/gupnp-service-proxy.h" line="47"/>
       <field name="parent_class">
         <type name="ServiceInfoClass" c:type="GUPnPServiceInfoClass"/>
       </field>
       <field name="subscription_lost">
         <callback name="subscription_lost">
           <source-position filename="libgupnp/gupnp-service-proxy.h"
-                           line="38"/>
+                           line="37"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -7384,9 +7582,9 @@ gupnp_service_proxy_end_action() etc can be called.</doc>
               c:type="GUPnPServiceProxyNotifyCallback">
       <doc xml:space="preserve"
            filename="libgupnp/gupnp-service-proxy.h"
-           line="72">Callback notifying that the state variable @variable on @proxy has changed to
+           line="83">Callback notifying that the state variable @variable on @proxy has changed to
 @value.</doc>
-      <source-position filename="libgupnp/gupnp-service-proxy.h" line="82"/>
+      <source-position filename="libgupnp/gupnp-service-proxy.h" line="93"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -7394,19 +7592,19 @@ gupnp_service_proxy_end_action() etc can be called.</doc>
         <parameter name="proxy" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy.h"
-               line="74">The #GUPnPServiceProxy the notification originates from</doc>
+               line="85">The #GUPnPServiceProxy the notification originates from</doc>
           <type name="ServiceProxy" c:type="GUPnPServiceProxy*"/>
         </parameter>
         <parameter name="variable" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy.h"
-               line="75">The name of the variable being notified</doc>
+               line="86">The name of the variable being notified</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy.h"
-               line="76">The #GValue of the variable being notified</doc>
+               line="87">The #GValue of the variable being notified</doc>
           <type name="GObject.Value" c:type="GValue*"/>
         </parameter>
         <parameter name="user_data"
@@ -7416,7 +7614,7 @@ gupnp_service_proxy_end_action() etc can be called.</doc>
                    closure="3">
           <doc xml:space="preserve"
                filename="libgupnp/gupnp-service-proxy.h"
-               line="77">User data</doc>
+               line="88">User data</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -7692,13 +7890,13 @@ contains a list of (char *) strings rather than GValues.</doc>
               deprecated-version="1.6.">
       <doc xml:space="preserve"
            filename="libgupnp/gupnp-service.c"
-           line="551">Generate and return a new UUID.</doc>
+           line="549">Generate and return a new UUID.</doc>
       <doc-deprecated xml:space="preserve">Use [func@GLib.uuid_string_random] instead.</doc-deprecated>
       <source-position filename="libgupnp/gupnp-uuid.h" line="17"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libgupnp/gupnp-service.c"
-             line="556">A newly generated UUID in string representation.</doc>
+             line="554">A newly generated UUID in string representation.</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
     </function>

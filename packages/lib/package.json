@@ -51,7 +51,7 @@
     ],
     "devDependencies": {
         "@types/ejs": "^3.1.5",
-        "@types/eslint": "8.56.9",
+        "@types/eslint": "8.56.10",
         "@types/lodash": "^4.17.0",
         "@types/node": "^20.12.7",
         "@typescript-eslint/eslint-plugin": "^7.7.0",

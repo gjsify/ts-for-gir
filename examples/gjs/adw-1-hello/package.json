@@ -22,9 +22,9 @@
   "devDependencies": {
     "@babel/core": "^7.24.4",
     "@rollup/plugin-babel": "^6.0.4",
-    "rollup": "^4.14.3",
+    "rollup": "^4.16.1",
     "typescript": "^5.4.5",
-    "vite": "^5.2.9"
+    "vite": "^5.2.10"
   },
   "dependencies": {
     "@girs/adw-1": "workspace:^",

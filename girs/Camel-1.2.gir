@@ -4317,7 +4317,7 @@ and gets the value.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="805">A new #CamelDB with @filename as its database file.
+               line="802">A new #CamelDB with @filename as its database file.
   Free it with g_object_unref() when no longer needed.</doc>
           <type name="DB" c:type="CamelDB*"/>
         </return-value>
@@ -4325,7 +4325,7 @@ and gets the value.</doc>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="802">A filename with the database to open/create</doc>
+                 line="799">A filename with the database to open/create</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4335,7 +4335,7 @@ and gets the value.</doc>
                 version="2.24">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="2642">Frees the @record and all of its associated data.</doc>
+             line="2639">Frees the @record and all of its associated data.</doc>
         <source-position filename="src/camel/camel-db.h" line="509"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4347,7 +4347,7 @@ and gets the value.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2644">a #CamelMIRecord</doc>
+                 line="2641">a #CamelMIRecord</doc>
             <type name="MIRecord" c:type="CamelMIRecord*"/>
           </parameter>
         </parameters>
@@ -4362,7 +4362,7 @@ and gets the value.</doc>
                 version="2.24">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="2692">Frees a string previosuly returned by camel_db_sqlize_string().</doc>
+             line="2689">Frees a string previosuly returned by camel_db_sqlize_string().</doc>
         <source-position filename="src/camel/camel-db.h" line="507"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4374,7 +4374,7 @@ and gets the value.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2694">a string to free</doc>
+                 line="2691">a string to free</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -4384,7 +4384,7 @@ and gets the value.</doc>
                 version="3.4">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="2907">Traverses column name from index @index into an enum
+             line="2904">Traverses column name from index @index into an enum
 #CamelDBKnownColumnNames value.  The @col_names contains @ncols columns.
 First time this is called is created the @hash from col_names indexes into
 the enum, and this is reused for every other call.  The function expects
@@ -4401,7 +4401,7 @@ are read the @hash table can be freed with g_hash_table_destroy().</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2909">a #GHashTable</doc>
+                 line="2906">a #GHashTable</doc>
             <type name="GLib.HashTable" c:type="GHashTable**">
               <type name="gpointer" c:type="gpointer"/>
               <type name="gpointer" c:type="gpointer"/>
@@ -4410,19 +4410,19 @@ are read the @hash table can be freed with g_hash_table_destroy().</doc>
           <parameter name="index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2910">an index to start with, between 0 and @ncols</doc>
+                 line="2907">an index to start with, between 0 and @ncols</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="ncols" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2911">number of @col_names</doc>
+                 line="2908">number of @col_names</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="col_names" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2912">column names to traverse</doc>
+                 line="2909">column names to traverse</doc>
             <array length="2" zero-terminated="0" c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -4436,7 +4436,7 @@ are read the @hash table can be freed with g_hash_table_destroy().</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="2725">A corresponding column name in the message info table
+               line="2722">A corresponding column name in the message info table
   for the @raw_name, or %NULL, when there is no corresponding column in the summary.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -4444,7 +4444,7 @@ are read the @hash table can be freed with g_hash_table_destroy().</doc>
           <parameter name="raw_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2723">raw name to find the column name for</doc>
+                 line="2720">raw name to find the column name for</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4454,7 +4454,7 @@ are read the @hash table can be freed with g_hash_table_destroy().</doc>
                 version="3.24">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="3033">Instructs sqlite to release its memory, if possible. This can be avoided
+             line="3030">Instructs sqlite to release its memory, if possible. This can be avoided
 when CAMEL_SQLITE_FREE_CACHE environment variable is set.</doc>
         <source-position filename="src/camel/camel-db.h" line="504"/>
         <return-value transfer-ownership="none">
@@ -4466,12 +4466,12 @@ when CAMEL_SQLITE_FREE_CACHE environment variable is set.</doc>
                 version="2.24">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="2675">Converts the @string to be usable in the SQLite statements.</doc>
+             line="2672">Converts the @string to be usable in the SQLite statements.</doc>
         <source-position filename="src/camel/camel-db.h" line="506"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="2681">A newly allocated sqlized @string. The returned
+               line="2678">A newly allocated sqlized @string. The returned
    value should be freed with camel_db_sqlize_string(), when no longer needed.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -4479,7 +4479,7 @@ when CAMEL_SQLITE_FREE_CACHE environment variable is set.</doc>
           <parameter name="string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2677">a string to "sqlize"</doc>
+                 line="2674">a string to "sqlize"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4490,19 +4490,19 @@ when CAMEL_SQLITE_FREE_CACHE environment variable is set.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="1057">Ends an ongoing transaction by ignoring the changes.</doc>
+             line="1054">Ends an ongoing transaction by ignoring the changes.</doc>
         <source-position filename="src/camel/camel-db.h" line="376"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="1064">0 on success, -1 on error</doc>
+               line="1061">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1059">a #CamelDB</doc>
+                 line="1056">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
         </parameters>
@@ -4513,25 +4513,25 @@ when CAMEL_SQLITE_FREE_CACHE environment variable is set.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="1092">Adds a statement to an ongoing transaction.</doc>
+             line="1089">Adds a statement to an ongoing transaction.</doc>
         <source-position filename="src/camel/camel-db.h" line="371"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="1100">0 on success, -1 on error</doc>
+               line="1097">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1094">a #CamelDB</doc>
+                 line="1091">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="query" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1095">an SQL (SQLite) statement</doc>
+                 line="1092">an SQL (SQLite) statement</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4542,19 +4542,19 @@ when CAMEL_SQLITE_FREE_CACHE environment variable is set.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="988">Begins transaction. End it with camel_db_end_transaction() or camel_db_abort_transaction().</doc>
+             line="985">Begins transaction. End it with camel_db_end_transaction() or camel_db_abort_transaction().</doc>
         <source-position filename="src/camel/camel-db.h" line="369"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="995">0 on success, -1 on error</doc>
+               line="992">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="990">a #CamelDB</doc>
+                 line="987">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
         </parameters>
@@ -4565,26 +4565,26 @@ when CAMEL_SQLITE_FREE_CACHE environment variable is set.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="2499">Deletes the given folder from the 'folders' table and empties
+             line="2496">Deletes the given folder from the 'folders' table and empties
 its message info table.</doc>
         <source-position filename="src/camel/camel-db.h" line="378"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="2508">0 on success, -1 on error</doc>
+               line="2505">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2501">a #CamelDB</doc>
+                 line="2498">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="folder_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2502">full name of the folder</doc>
+                 line="2499">full name of the folder</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4595,25 +4595,25 @@ its message info table.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="968">Executes an SQLite command.</doc>
+             line="965">Executes an SQLite command.</doc>
         <source-position filename="src/camel/camel-db.h" line="363"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="976">0 on success, -1 on error</doc>
+               line="973">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="970">a #CamelDB</doc>
+                 line="967">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="stmt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="971">an SQL (SQLite) statement to execute</doc>
+                 line="968">an SQL (SQLite) statement to execute</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4624,25 +4624,25 @@ its message info table.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="1377">Counts how many deleted messages is stored in the given table.</doc>
+             line="1374">Counts how many deleted messages is stored in the given table.</doc>
         <source-position filename="src/camel/camel-db.h" line="444"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="1386">0 on success, -1 on error</doc>
+               line="1383">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1379">a #CamelDB</doc>
+                 line="1376">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="table_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1380">name of the table</doc>
+                 line="1377">name of the table</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="count"
@@ -4651,7 +4651,7 @@ its message info table.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1381">where to store the resulting count</doc>
+                 line="1378">where to store the resulting count</doc>
             <type name="guint32" c:type="guint32*"/>
           </parameter>
         </parameters>
@@ -4662,25 +4662,25 @@ its message info table.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="1212">Counts how many junk messages is stored in the given table.</doc>
+             line="1209">Counts how many junk messages is stored in the given table.</doc>
         <source-position filename="src/camel/camel-db.h" line="434"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="1221">0 on success, -1 on error</doc>
+               line="1218">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1214">a #CamelDB</doc>
+                 line="1211">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="table_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1215">name of the table</doc>
+                 line="1212">name of the table</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="count"
@@ -4689,7 +4689,7 @@ its message info table.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1216">where to store the resulting count</doc>
+                 line="1213">where to store the resulting count</doc>
             <type name="guint32" c:type="guint32*"/>
           </parameter>
         </parameters>
@@ -4719,26 +4719,26 @@ its message info table.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="1175">Executes a COUNT() query (like "SELECT COUNT(*) FROM table") and provides
+             line="1172">Executes a COUNT() query (like "SELECT COUNT(*) FROM table") and provides
 the result of it as an unsigned 32-bit integer.</doc>
         <source-position filename="src/camel/camel-db.h" line="469"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="1185">0 on success, -1 on error</doc>
+               line="1182">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1177">a #CamelDB</doc>
+                 line="1174">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="query" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1178">a COUNT() query</doc>
+                 line="1175">a COUNT() query</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="count"
@@ -4747,7 +4747,7 @@ the result of it as an unsigned 32-bit integer.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1179">the result of the query</doc>
+                 line="1176">the result of the query</doc>
             <type name="guint32" c:type="guint32*"/>
           </parameter>
         </parameters>
@@ -4758,25 +4758,25 @@ the result of it as an unsigned 32-bit integer.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="1410">Counts how many messages is stored in the given table.</doc>
+             line="1407">Counts how many messages is stored in the given table.</doc>
         <source-position filename="src/camel/camel-db.h" line="449"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="1419">0 on success, -1 on error</doc>
+               line="1416">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1412">a #CamelDB</doc>
+                 line="1409">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="table_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1413">name of the table</doc>
+                 line="1410">name of the table</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="count"
@@ -4785,7 +4785,7 @@ the result of it as an unsigned 32-bit integer.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1414">where to store the resulting count</doc>
+                 line="1411">where to store the resulting count</doc>
             <type name="guint32" c:type="guint32*"/>
           </parameter>
         </parameters>
@@ -4796,25 +4796,25 @@ the result of it as an unsigned 32-bit integer.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="1245">Counts how many unread messages is stored in the given table.</doc>
+             line="1242">Counts how many unread messages is stored in the given table.</doc>
         <source-position filename="src/camel/camel-db.h" line="439"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="1254">0 on success, -1 on error</doc>
+               line="1251">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1247">a #CamelDB</doc>
+                 line="1244">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="table_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1248">name of the table</doc>
+                 line="1245">name of the table</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="count"
@@ -4823,7 +4823,7 @@ the result of it as an unsigned 32-bit integer.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1249">where to store the resulting count</doc>
+                 line="1246">where to store the resulting count</doc>
             <type name="guint32" c:type="guint32*"/>
           </parameter>
         </parameters>
@@ -4834,25 +4834,25 @@ the result of it as an unsigned 32-bit integer.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="1311">Counts how many visible (not deleted and not junk) messages is stored in the given table.</doc>
+             line="1308">Counts how many visible (not deleted and not junk) messages is stored in the given table.</doc>
         <source-position filename="src/camel/camel-db.h" line="454"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="1320">0 on success, -1 on error</doc>
+               line="1317">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1313">a #CamelDB</doc>
+                 line="1310">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="table_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1314">name of the table</doc>
+                 line="1311">name of the table</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="count"
@@ -4861,7 +4861,7 @@ the result of it as an unsigned 32-bit integer.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1315">where to store the resulting count</doc>
+                 line="1312">where to store the resulting count</doc>
             <type name="guint32" c:type="guint32*"/>
           </parameter>
         </parameters>
@@ -4872,25 +4872,25 @@ the result of it as an unsigned 32-bit integer.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="1278">Counts how many visible (not deleted and not junk) and unread messages is stored in the given table.</doc>
+             line="1275">Counts how many visible (not deleted and not junk) and unread messages is stored in the given table.</doc>
         <source-position filename="src/camel/camel-db.h" line="459"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="1287">0 on success, -1 on error</doc>
+               line="1284">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1280">a #CamelDB</doc>
+                 line="1277">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="table_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1281">name of the table</doc>
+                 line="1278">name of the table</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="count"
@@ -4899,7 +4899,7 @@ the result of it as an unsigned 32-bit integer.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1282">where to store the resulting count</doc>
+                 line="1279">where to store the resulting count</doc>
             <type name="guint32" c:type="guint32*"/>
           </parameter>
         </parameters>
@@ -4910,19 +4910,19 @@ the result of it as an unsigned 32-bit integer.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="1627">Creates a 'folders' table, if it doesn't exist yet.</doc>
+             line="1624">Creates a 'folders' table, if it doesn't exist yet.</doc>
         <source-position filename="src/camel/camel-db.h" line="396"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="1634">0 on success, -1 on error</doc>
+               line="1631">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1629">a #CamelDB</doc>
+                 line="1626">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
         </parameters>
@@ -4933,26 +4933,26 @@ the result of it as an unsigned 32-bit integer.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="2543">Deletes the given folder from the 'folders' table and also drops
+             line="2540">Deletes the given folder from the 'folders' table and also drops
 its message info table.</doc>
         <source-position filename="src/camel/camel-db.h" line="385"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="2552">0 on success, -1 on error</doc>
+               line="2549">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2545">a #CamelDB</doc>
+                 line="2542">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="folder_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2546">full name of the folder</doc>
+                 line="2543">full name of the folder</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4963,32 +4963,32 @@ its message info table.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="2380">Deletes single mesage info in the given folder with
+             line="2377">Deletes single mesage info in the given folder with
 the given UID.</doc>
         <source-position filename="src/camel/camel-db.h" line="388"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="2390">0 on success, -1 on error</doc>
+               line="2387">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2382">a #CamelDB</doc>
+                 line="2379">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="folder_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2383">full name of the folder</doc>
+                 line="2380">full name of the folder</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="uid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2384">a message info UID to delete</doc>
+                 line="2381">a message info UID to delete</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4999,31 +4999,31 @@ the given UID.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="2474">Deletes a list of message UIDs as one transaction.</doc>
+             line="2471">Deletes a list of message UIDs as one transaction.</doc>
         <source-position filename="src/camel/camel-db.h" line="392"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="2483">0 on success, -1 on error</doc>
+               line="2480">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2476">a #CamelDB</doc>
+                 line="2473">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="folder_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2477">full name of the folder</doc>
+                 line="2474">full name of the folder</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="uids" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2478">A #GList of uids</doc>
+                 line="2475">A #GList of uids</doc>
             <type name="GLib.List" c:type="const GList*">
               <type name="utf8"/>
             </type>
@@ -5036,19 +5036,19 @@ the given UID.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="1025">Ends an ongoing transaction by committing the changes.</doc>
+             line="1022">Ends an ongoing transaction by committing the changes.</doc>
         <source-position filename="src/camel/camel-db.h" line="374"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="1032">0 on success, -1 on error</doc>
+               line="1029">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1027">a #CamelDB</doc>
+                 line="1024">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
         </parameters>
@@ -5059,26 +5059,26 @@ the given UID.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="2825">A pair function for camel_db_start_in_memory_transactions(),
+             line="2822">A pair function for camel_db_start_in_memory_transactions(),
 to commit the changes to @folder_name and free the in-memory table.</doc>
         <source-position filename="src/camel/camel-db.h" line="493"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="2834">0 on success, -1 on error</doc>
+               line="2831">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2827">a #CamelDB</doc>
+                 line="2824">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="folder_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2828">full name of the folder</doc>
+                 line="2825">full name of the folder</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5090,14 +5090,14 @@ to commit the changes to @folder_name and free the in-memory table.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="923">A filename associated with @cdb.</doc>
+               line="920">A filename associated with @cdb.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="921">a #CamelDB</doc>
+                 line="918">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
         </parameters>
@@ -5110,7 +5110,7 @@ to commit the changes to @folder_name and free the in-memory table.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="1599">An array
+               line="1596">An array
   of the UID-s of the deleted messages in the given folder. Use
   camel_pstring_free() to free the elements.</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
@@ -5121,13 +5121,13 @@ to commit the changes to @folder_name and free the in-memory table.</doc>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1595">a #CamelDB</doc>
+                 line="1592">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="folder_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1596">full name of the folder</doc>
+                 line="1593">full name of the folder</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5140,7 +5140,7 @@ to commit the changes to @folder_name and free the in-memory table.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="1564">An array
+               line="1561">An array
   of the UID-s of the junk messages in the given folder. Use
   camel_pstring_free() to free the elements.</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
@@ -5151,13 +5151,13 @@ to commit the changes to @folder_name and free the in-memory table.</doc>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1560">a #CamelDB</doc>
+                 line="1557">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="folder_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1561">full name of the folder</doc>
+                 line="1558">full name of the folder</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5168,26 +5168,26 @@ to commit the changes to @folder_name and free the in-memory table.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="1517">Fills hash with uid-&gt;GUINT_TO_POINTER (flag). Use camel_pstring_free()
+             line="1514">Fills hash with uid-&gt;GUINT_TO_POINTER (flag). Use camel_pstring_free()
 to free the keys of the @hash.</doc>
         <source-position filename="src/camel/camel-db.h" line="473"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="1529">0 on success, -1 on error</doc>
+               line="1526">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1519">a #CamelDB</doc>
+                 line="1516">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="folder_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1520">full name of the folder</doc>
+                 line="1517">full name of the folder</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="sort_by"
@@ -5196,7 +5196,7 @@ to free the keys of the @hash.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1521">optional ORDER BY clause (without the "ORDER BY" prefix)</doc>
+                 line="1518">optional ORDER BY clause (without the "ORDER BY" prefix)</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="collate"
@@ -5205,13 +5205,13 @@ to free the keys of the @hash.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1522">optional collate function name to use</doc>
+                 line="1519">optional collate function name to use</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="hash" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1523">a hash table to fill</doc>
+                 line="1520">a hash table to fill</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
               <type name="utf8"/>
               <type name="guint32"/>
@@ -5225,19 +5225,19 @@ to free the keys of the @hash.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="2983">Runs a @cdb maintenance, which includes vacuum, if necessary.</doc>
+             line="2980">Runs a @cdb maintenance, which includes vacuum, if necessary.</doc>
         <source-position filename="src/camel/camel-db.h" line="501"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="2990">Whether succeeded.</doc>
+               line="2987">Whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2985">a #CamelDB</doc>
+                 line="2982">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
         </parameters>
@@ -5248,25 +5248,25 @@ to free the keys of the @hash.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="2002">Prepares message info table for the given folder.</doc>
+             line="1999">Prepares message info table for the given folder.</doc>
         <source-position filename="src/camel/camel-db.h" line="412"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="2010">0 on success, -1 on error</doc>
+               line="2007">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2004">a #CamelDB</doc>
+                 line="2001">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="folder_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2005">full name of the folder</doc>
+                 line="2002">full name of the folder</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5277,25 +5277,25 @@ to free the keys of the @hash.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="2272">reads folder information for the given folder and stores it into the @record.</doc>
+             line="2269">reads folder information for the given folder and stores it into the @record.</doc>
         <source-position filename="src/camel/camel-db.h" line="407"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="2281">0 on success, -1 on error</doc>
+               line="2278">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2274">a #CamelDB</doc>
+                 line="2271">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="folder_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2275">full name of the folder</doc>
+                 line="2272">full name of the folder</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="record"
@@ -5304,7 +5304,7 @@ to free the keys of the @hash.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2276">a #CamelFIRecord</doc>
+                 line="2273">a #CamelFIRecord</doc>
             <type name="FIRecord" c:type="CamelFIRecord*"/>
           </parameter>
         </parameters>
@@ -5315,32 +5315,32 @@ to free the keys of the @hash.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="2308">Selects single message info for the given @uid in folder @folder_name and calls
+             line="2305">Selects single message info for the given @uid in folder @folder_name and calls
 the @callback for it.</doc>
         <source-position filename="src/camel/camel-db.h" line="427"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="2320">0 on success, -1 on error</doc>
+               line="2317">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2310">a #CamelDB</doc>
+                 line="2307">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="folder_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2311">full name of the folder</doc>
+                 line="2308">full name of the folder</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="uid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2312">a message info UID to read the record for</doc>
+                 line="2309">a message info UID to read the record for</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="user_data"
@@ -5349,7 +5349,7 @@ the @callback for it.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2313">user data of the @callback</doc>
+                 line="2310">user data of the @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback"
@@ -5358,7 +5358,7 @@ the @callback for it.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2314">callback to call for the found row</doc>
+                 line="2311">callback to call for the found row</doc>
             <type name="DBSelectCB" c:type="CamelDBSelectCB"/>
           </parameter>
         </parameters>
@@ -5369,25 +5369,25 @@ the @callback for it.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="2346">Reads all mesasge info records for the given folder and calls @callback for them.</doc>
+             line="2343">Reads all mesasge info records for the given folder and calls @callback for them.</doc>
         <source-position filename="src/camel/camel-db.h" line="421"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="2356">0 on success, -1 on error</doc>
+               line="2353">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2348">a #CamelDB</doc>
+                 line="2345">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="folder_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2349">full name of the folder</doc>
+                 line="2346">full name of the folder</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="user_data"
@@ -5396,7 +5396,7 @@ the @callback for it.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2350">user data for the @callback</doc>
+                 line="2347">user data for the @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback"
@@ -5405,7 +5405,7 @@ the @callback for it.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2351">callback to call for each found row</doc>
+                 line="2348">callback to call for each found row</doc>
             <type name="DBSelectCB" c:type="CamelDBSelectCB"/>
           </parameter>
         </parameters>
@@ -5416,31 +5416,31 @@ the @callback for it.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="2586">Renames tables for the @old_folder_name to be used with @new_folder_name.</doc>
+             line="2583">Renames tables for the @old_folder_name to be used with @new_folder_name.</doc>
         <source-position filename="src/camel/camel-db.h" line="381"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="2595">0 on success, -1 on error</doc>
+               line="2592">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2588">a #CamelDB</doc>
+                 line="2585">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="old_folder_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2589">full name of the existing folder</doc>
+                 line="2586">full name of the existing folder</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="new_folder_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2590">full name of the folder to rename it to</doc>
+                 line="2587">full name of the folder to rename it to</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5451,31 +5451,31 @@ the @callback for it.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="1904">Sets a version number for the given folder.</doc>
+             line="1901">Sets a version number for the given folder.</doc>
         <source-position filename="src/camel/camel-db.h" line="497"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="1913">0 on success, -1 on error</doc>
+               line="1910">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1906">a #CamelDB</doc>
+                 line="1903">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="folder_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1907">full name of the folder</doc>
+                 line="1904">full name of the folder</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="reset_version" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1908">version number to set</doc>
+                 line="1905">version number to set</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -5486,25 +5486,25 @@ the @callback for it.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="1444">Executes a SELECT staement and calls the @callback for each selected row.</doc>
+             line="1441">Executes a SELECT staement and calls the @callback for each selected row.</doc>
         <source-position filename="src/camel/camel-db.h" line="398"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="1454">0 on success, -1 on error</doc>
+               line="1451">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1446">a #CamelDB</doc>
+                 line="1443">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="stmt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1447">a SELECT statment to execute</doc>
+                 line="1444">a SELECT statment to execute</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="callback"
@@ -5513,7 +5513,7 @@ the @callback for it.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1448">a callback to call for each row</doc>
+                 line="1445">a callback to call for each row</doc>
             <type name="DBSelectCB" c:type="CamelDBSelectCB"/>
           </parameter>
           <parameter name="user_data"
@@ -5522,7 +5522,7 @@ the @callback for it.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1449">user data for the @callback</doc>
+                 line="1446">user data for the @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -5532,7 +5532,7 @@ the @callback for it.</doc>
               version="2.24">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="935">Defines a collation @collate, which can be used in SQL (SQLite)
+             line="932">Defines a collation @collate, which can be used in SQL (SQLite)
 statement as a collation function. The @func is called when
 colation is used.</doc>
         <source-position filename="src/camel/camel-db.h" line="486"/>
@@ -5543,25 +5543,25 @@ colation is used.</doc>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="937">a #CamelDB</doc>
+                 line="934">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="col" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="938">a column name; currently unused</doc>
+                 line="935">a column name; currently unused</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="collate" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="939">collation name</doc>
+                 line="936">collation name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="func" transfer-ownership="none" scope="call">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="940">a #CamelDBCollate collation function</doc>
+                 line="937">a #CamelDBCollate collation function</doc>
             <type name="DBCollate" c:type="CamelDBCollate"/>
           </parameter>
         </parameters>
@@ -5572,20 +5572,20 @@ colation is used.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="2764">Creates an in-memory table for a batch transactions. Use camel_db_flush_in_memory_transactions()
+             line="2761">Creates an in-memory table for a batch transactions. Use camel_db_flush_in_memory_transactions()
 to commit the changes and free the in-memory table.</doc>
         <source-position filename="src/camel/camel-db.h" line="490"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="2772">0 on success, -1 on error</doc>
+               line="2769">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2766">a #CamelDB</doc>
+                 line="2763">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
         </parameters>
@@ -5596,25 +5596,25 @@ to commit the changes and free the in-memory table.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="1118">Runs the list of commands as a single transaction.</doc>
+             line="1115">Runs the list of commands as a single transaction.</doc>
         <source-position filename="src/camel/camel-db.h" line="366"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="1126">0 on success, -1 on error</doc>
+               line="1123">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1120">a #CamelDB</doc>
+                 line="1117">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="qry_list" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="1121">A #GList of querries</doc>
+                 line="1118">A #GList of querries</doc>
             <type name="GLib.List" c:type="const GList*">
               <type name="utf8"/>
             </type>
@@ -5627,25 +5627,25 @@ to commit the changes and free the in-memory table.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="2154">Write the @record to the 'folders' table.</doc>
+             line="2151">Write the @record to the 'folders' table.</doc>
         <source-position filename="src/camel/camel-db.h" line="403"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="2162">0 on success, -1 on error</doc>
+               line="2159">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2156">a #CamelDB</doc>
+                 line="2153">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="record" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2157">a #CamelFIRecord</doc>
+                 line="2154">a #CamelFIRecord</doc>
             <type name="FIRecord" c:type="CamelFIRecord*"/>
           </parameter>
         </parameters>
@@ -5656,31 +5656,31 @@ to commit the changes and free the in-memory table.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-db.c"
-             line="2081">Write the @record to the message info table of the given folder.</doc>
+             line="2078">Write the @record to the message info table of the given folder.</doc>
         <source-position filename="src/camel/camel-db.h" line="416"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-db.c"
-               line="2090">0 on success, -1 on error</doc>
+               line="2087">0 on success, -1 on error</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2083">a #CamelDB</doc>
+                 line="2080">a #CamelDB</doc>
             <type name="DB" c:type="CamelDB*"/>
           </instance-parameter>
           <parameter name="folder_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2084">full name of the folder</doc>
+                 line="2081">full name of the folder</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="record" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-db.c"
-                 line="2085">a #CamelMIRecord</doc>
+                 line="2082">a #CamelMIRecord</doc>
             <type name="MIRecord" c:type="CamelMIRecord*"/>
           </parameter>
         </parameters>
@@ -8972,7 +8972,7 @@ provider modules are loaded from.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/camel/camel-filter-driver.c"
-               line="441">A new CamelFilterDriver object</doc>
+               line="443">A new CamelFilterDriver object</doc>
           <type name="FilterDriver" c:type="CamelFilterDriver*"/>
         </return-value>
         <parameters>
@@ -8984,7 +8984,7 @@ provider modules are loaded from.</doc>
       <method name="add_rule" c:identifier="camel_filter_driver_add_rule">
         <doc xml:space="preserve"
              filename="src/camel/camel-filter-driver.c"
-             line="582">Adds a new rule to set of rules to process by the filter driver.</doc>
+             line="584">Adds a new rule to set of rules to process by the filter driver.</doc>
         <source-position filename="src/camel/camel-filter-driver.h"
                          line="103"/>
         <return-value transfer-ownership="none">
@@ -8994,25 +8994,25 @@ provider modules are loaded from.</doc>
           <instance-parameter name="d" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="584">a #CamelFilterDriver</doc>
+                 line="586">a #CamelFilterDriver</doc>
             <type name="FilterDriver" c:type="CamelFilterDriver*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="585">name of the rule</doc>
+                 line="587">name of the rule</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="match" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="586">a code (#CamelSExp) to execute to check whether the rule can be applied</doc>
+                 line="588">a code (#CamelSExp) to execute to check whether the rule can be applied</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="action" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="587">an action code (#CamelSExp) to execute, when the @match evaluates to %TRUE</doc>
+                 line="589">an action code (#CamelSExp) to execute, when the @match evaluates to %TRUE</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -9022,14 +9022,14 @@ provider modules are loaded from.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-filter-driver.c"
-             line="1786">Filters a folder based on rules defined in the FilterDriver
+             line="1866">Filters a folder based on rules defined in the FilterDriver
 object.</doc>
         <source-position filename="src/camel/camel-filter-driver.h"
                          line="126"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-filter-driver.c"
-               line="1800">-1 if errors were encountered during filtering,
+               line="1880">-1 if errors were encountered during filtering,
 otherwise returns 0.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -9037,19 +9037,19 @@ otherwise returns 0.</doc>
           <instance-parameter name="driver" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="1788">CamelFilterDriver</doc>
+                 line="1868">CamelFilterDriver</doc>
             <type name="FilterDriver" c:type="CamelFilterDriver*"/>
           </instance-parameter>
           <parameter name="folder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="1789">CamelFolder to be filtered</doc>
+                 line="1869">CamelFolder to be filtered</doc>
             <type name="Folder" c:type="CamelFolder*"/>
           </parameter>
           <parameter name="cache" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="1790">UID cache (needed for POP folders)</doc>
+                 line="1870">UID cache (needed for POP folders)</doc>
             <type name="UIDCache" c:type="CamelUIDCache*"/>
           </parameter>
           <parameter name="uids"
@@ -9058,7 +9058,7 @@ otherwise returns 0.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="1791">message uids to be filtered or
+                 line="1871">message uids to be filtered or
         %NULL (as a shortcut to filter all messages)</doc>
             <array name="GLib.PtrArray" c:type="GPtrArray*">
               <type name="utf8"/>
@@ -9067,7 +9067,7 @@ otherwise returns 0.</doc>
           <parameter name="remove" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="1793">TRUE to mark filtered messages as deleted</doc>
+                 line="1873">TRUE to mark filtered messages as deleted</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="cancellable"
@@ -9076,7 +9076,7 @@ otherwise returns 0.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="1794">optional #GCancellable object, or %NULL</doc>
+                 line="1874">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -9086,7 +9086,7 @@ otherwise returns 0.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-filter-driver.c"
-             line="1631">Filters an mbox file based on rules defined in the FilterDriver
+             line="1711">Filters an mbox file based on rules defined in the FilterDriver
 object. Is more efficient as it doesn't need to open the folder
 through Camel directly.</doc>
         <source-position filename="src/camel/camel-filter-driver.h"
@@ -9094,7 +9094,7 @@ through Camel directly.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-filter-driver.c"
-               line="1643">-1 if errors were encountered during filtering,
+               line="1723">-1 if errors were encountered during filtering,
 otherwise returns 0.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -9102,13 +9102,13 @@ otherwise returns 0.</doc>
           <instance-parameter name="driver" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="1633">CamelFilterDriver</doc>
+                 line="1713">CamelFilterDriver</doc>
             <type name="FilterDriver" c:type="CamelFilterDriver*"/>
           </instance-parameter>
           <parameter name="mbox" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="1634">mbox filename to be filtered</doc>
+                 line="1714">mbox filename to be filtered</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="original_source_url"
@@ -9117,7 +9117,7 @@ otherwise returns 0.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="1635">URI of the @mbox, or %NULL</doc>
+                 line="1715">URI of the @mbox, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -9126,7 +9126,7 @@ otherwise returns 0.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="1636">optional #GCancellable object, or %NULL</doc>
+                 line="1716">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -9136,7 +9136,7 @@ otherwise returns 0.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-filter-driver.c"
-             line="2215">Filters a message based on rules defined in the FilterDriver
+             line="2307">Filters a message based on rules defined in the FilterDriver
 object. If the source folder (@source) and the uid (@uid) are
 provided, the filter will operate on the CamelFolder (which in
 certain cases is more efficient than using the default
@@ -9146,7 +9146,7 @@ camel_folder_append_message() function).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-filter-driver.c"
-               line="2233">-1 if errors were encountered during filtering,
+               line="2325">-1 if errors were encountered during filtering,
 otherwise returns 0.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -9154,7 +9154,7 @@ otherwise returns 0.</doc>
           <instance-parameter name="driver" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="2217">CamelFilterDriver</doc>
+                 line="2309">CamelFilterDriver</doc>
             <type name="FilterDriver" c:type="CamelFilterDriver*"/>
           </instance-parameter>
           <parameter name="message"
@@ -9163,7 +9163,7 @@ otherwise returns 0.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="2218">message to filter or %NULL</doc>
+                 line="2310">message to filter or %NULL</doc>
             <type name="MimeMessage" c:type="CamelMimeMessage*"/>
           </parameter>
           <parameter name="info"
@@ -9172,7 +9172,7 @@ otherwise returns 0.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="2219">message info or %NULL</doc>
+                 line="2311">message info or %NULL</doc>
             <type name="MessageInfo" c:type="CamelMessageInfo*"/>
           </parameter>
           <parameter name="uid"
@@ -9181,7 +9181,7 @@ otherwise returns 0.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="2220">message uid or %NULL</doc>
+                 line="2312">message uid or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="source"
@@ -9190,7 +9190,7 @@ otherwise returns 0.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="2221">source folder or %NULL</doc>
+                 line="2313">source folder or %NULL</doc>
             <type name="Folder" c:type="CamelFolder*"/>
           </parameter>
           <parameter name="store_uid"
@@ -9199,7 +9199,7 @@ otherwise returns 0.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="2222">UID of source store, or %NULL</doc>
+                 line="2314">UID of source store, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="original_store_uid"
@@ -9208,7 +9208,7 @@ otherwise returns 0.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="2223">UID of source store (pre-movemail), or %NULL</doc>
+                 line="2315">UID of source store (pre-movemail), or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -9217,7 +9217,7 @@ otherwise returns 0.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="2224">optional #GCancellable object, or %NULL</doc>
+                 line="2316">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -9225,7 +9225,7 @@ otherwise returns 0.</doc>
       <method name="flush" c:identifier="camel_filter_driver_flush" throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-filter-driver.c"
-             line="1585">Flush all of the only-once filter actions.</doc>
+             line="1665">Flush all of the only-once filter actions.</doc>
         <source-position filename="src/camel/camel-filter-driver.h"
                          line="109"/>
         <return-value transfer-ownership="none">
@@ -9235,7 +9235,7 @@ otherwise returns 0.</doc>
           <instance-parameter name="driver" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="1587">a #CamelFilterDriver</doc>
+                 line="1667">a #CamelFilterDriver</doc>
             <type name="FilterDriver" c:type="CamelFilterDriver*"/>
           </instance-parameter>
         </parameters>
@@ -9246,7 +9246,7 @@ otherwise returns 0.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="src/camel/camel-filter-driver.c"
-             line="2252">Logs an informational message to a filter log. The function does
+             line="2344">Logs an informational message to a filter log. The function does
 nothing when @driver is %NULL or when there is no log file being
 set in @driver.</doc>
         <source-position filename="src/camel/camel-filter-driver.h"
@@ -9261,19 +9261,19 @@ set in @driver.</doc>
                               allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="2254">a #CamelFilterDriver, or %NULL</doc>
+                 line="2346">a #CamelFilterDriver, or %NULL</doc>
             <type name="FilterDriver" c:type="CamelFilterDriver*"/>
           </instance-parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="2255">a printf-like format to use for the informational log entry</doc>
+                 line="2347">a printf-like format to use for the informational log entry</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="2256">arguments for @format</doc>
+                 line="2348">arguments for @format</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -9282,26 +9282,26 @@ set in @driver.</doc>
               c:identifier="camel_filter_driver_remove_rule_by_name">
         <doc xml:space="preserve"
              filename="src/camel/camel-filter-driver.c"
-             line="607">Removes a rule by name, added by camel_filter_driver_add_rule().</doc>
+             line="609">Removes a rule by name, added by camel_filter_driver_add_rule().</doc>
         <source-position filename="src/camel/camel-filter-driver.h"
                          line="105"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-filter-driver.c"
-               line="614">Whether the rule had been found and removed.</doc>
+               line="616">Whether the rule had been found and removed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="d" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="609">a #CamelFilterDriver</doc>
+                 line="611">a #CamelFilterDriver</doc>
             <type name="FilterDriver" c:type="CamelFilterDriver*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="610">rule name</doc>
+                 line="612">rule name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -9310,7 +9310,7 @@ set in @driver.</doc>
               c:identifier="camel_filter_driver_set_default_folder">
         <doc xml:space="preserve"
              filename="src/camel/camel-filter-driver.c"
-             line="554">Sets a default folder for the driver. The function adds
+             line="556">Sets a default folder for the driver. The function adds
 its own reference for the folder.</doc>
         <source-position filename="src/camel/camel-filter-driver.h"
                          line="101"/>
@@ -9321,7 +9321,7 @@ its own reference for the folder.</doc>
           <instance-parameter name="d" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="556">a #CamelFilterDriver</doc>
+                 line="558">a #CamelFilterDriver</doc>
             <type name="FilterDriver" c:type="CamelFilterDriver*"/>
           </instance-parameter>
           <parameter name="def"
@@ -9330,7 +9330,7 @@ its own reference for the folder.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="557">a default #CamelFolder</doc>
+                 line="559">a default #CamelFolder</doc>
             <type name="Folder" c:type="CamelFolder*"/>
           </parameter>
         </parameters>
@@ -9340,7 +9340,7 @@ its own reference for the folder.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="src/camel/camel-filter-driver.c"
-             line="454">Sets a callback (of type #CamelFilterGetFolderFunc) to get a folder.</doc>
+             line="456">Sets a callback (of type #CamelFilterGetFolderFunc) to get a folder.</doc>
         <source-position filename="src/camel/camel-filter-driver.h" line="99"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9349,7 +9349,7 @@ its own reference for the folder.</doc>
           <instance-parameter name="d" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="456">a #CamelFilterDriver</doc>
+                 line="458">a #CamelFilterDriver</doc>
             <type name="FilterDriver" c:type="CamelFilterDriver*"/>
           </instance-parameter>
           <parameter name="get_folder"
@@ -9358,7 +9358,7 @@ its own reference for the folder.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="457">a callback to get a folder</doc>
+                 line="459">a callback to get a folder</doc>
             <type name="FilterGetFolderFunc"
                   c:type="CamelFilterGetFolderFunc"/>
           </parameter>
@@ -9368,7 +9368,7 @@ its own reference for the folder.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="458">user data to pass to @get_folder</doc>
+                 line="460">user data to pass to @get_folder</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -9377,7 +9377,7 @@ its own reference for the folder.</doc>
               c:identifier="camel_filter_driver_set_logfile">
         <doc xml:space="preserve"
              filename="src/camel/camel-filter-driver.c"
-             line="471">Sets a log file to use for logging.</doc>
+             line="473">Sets a log file to use for logging.</doc>
         <source-position filename="src/camel/camel-filter-driver.h" line="93"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9386,7 +9386,7 @@ its own reference for the folder.</doc>
           <instance-parameter name="d" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="473">a #CamelFilterDriver</doc>
+                 line="475">a #CamelFilterDriver</doc>
             <type name="FilterDriver" c:type="CamelFilterDriver*"/>
           </instance-parameter>
           <parameter name="logfile"
@@ -9395,7 +9395,7 @@ its own reference for the folder.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="474">a FILE handle where to write logging</doc>
+                 line="476">a FILE handle where to write logging</doc>
             <type name="gpointer" c:type="FILE*"/>
           </parameter>
         </parameters>
@@ -9404,7 +9404,7 @@ its own reference for the folder.</doc>
               c:identifier="camel_filter_driver_set_play_sound_func">
         <doc xml:space="preserve"
              filename="src/camel/camel-filter-driver.c"
-             line="520">Sets a callback to call when a play of a sound is requested.</doc>
+             line="522">Sets a callback to call when a play of a sound is requested.</doc>
         <source-position filename="src/camel/camel-filter-driver.h" line="97"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9413,7 +9413,7 @@ its own reference for the folder.</doc>
           <instance-parameter name="d" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="522">a #CamelFilterDriver</doc>
+                 line="524">a #CamelFilterDriver</doc>
             <type name="FilterDriver" c:type="CamelFilterDriver*"/>
           </instance-parameter>
           <parameter name="func"
@@ -9422,7 +9422,7 @@ its own reference for the folder.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="523">a callback to play a sound</doc>
+                 line="525">a callback to play a sound</doc>
             <type name="FilterPlaySoundFunc"
                   c:type="CamelFilterPlaySoundFunc"/>
           </parameter>
@@ -9432,7 +9432,7 @@ its own reference for the folder.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="524">user data to pass to @func</doc>
+                 line="526">user data to pass to @func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -9441,7 +9441,7 @@ its own reference for the folder.</doc>
               c:identifier="camel_filter_driver_set_shell_func">
         <doc xml:space="preserve"
              filename="src/camel/camel-filter-driver.c"
-             line="502">Sets a shell command callback, which is called when a shell command
+             line="504">Sets a shell command callback, which is called when a shell command
 execution is requested.</doc>
         <source-position filename="src/camel/camel-filter-driver.h" line="96"/>
         <return-value transfer-ownership="none">
@@ -9451,7 +9451,7 @@ execution is requested.</doc>
           <instance-parameter name="d" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="504">a #CamelFilterDriver</doc>
+                 line="506">a #CamelFilterDriver</doc>
             <type name="FilterDriver" c:type="CamelFilterDriver*"/>
           </instance-parameter>
           <parameter name="func"
@@ -9460,7 +9460,7 @@ execution is requested.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="505">a shell command callback</doc>
+                 line="507">a shell command callback</doc>
             <type name="FilterShellFunc" c:type="CamelFilterShellFunc"/>
           </parameter>
           <parameter name="user_data"
@@ -9469,7 +9469,7 @@ execution is requested.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="506">user data to pass to @func</doc>
+                 line="508">user data to pass to @func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -9478,7 +9478,7 @@ execution is requested.</doc>
               c:identifier="camel_filter_driver_set_status_func">
         <doc xml:space="preserve"
              filename="src/camel/camel-filter-driver.c"
-             line="485">Sets a status callback, which is used to report progress/status.</doc>
+             line="487">Sets a status callback, which is used to report progress/status.</doc>
         <source-position filename="src/camel/camel-filter-driver.h" line="95"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9487,7 +9487,7 @@ execution is requested.</doc>
           <instance-parameter name="d" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="487">a #CamelFilterDriver</doc>
+                 line="489">a #CamelFilterDriver</doc>
             <type name="FilterDriver" c:type="CamelFilterDriver*"/>
           </instance-parameter>
           <parameter name="func"
@@ -9496,7 +9496,7 @@ execution is requested.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="488">a callback to report progress</doc>
+                 line="490">a callback to report progress</doc>
             <type name="FilterStatusFunc" c:type="CamelFilterStatusFunc"/>
           </parameter>
           <parameter name="user_data"
@@ -9505,7 +9505,7 @@ execution is requested.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="489">user data to pass to @func</doc>
+                 line="491">user data to pass to @func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -9514,7 +9514,7 @@ execution is requested.</doc>
               c:identifier="camel_filter_driver_set_system_beep_func">
         <doc xml:space="preserve"
              filename="src/camel/camel-filter-driver.c"
-             line="537">Sets a callback to use for system beep.</doc>
+             line="539">Sets a callback to use for system beep.</doc>
         <source-position filename="src/camel/camel-filter-driver.h" line="98"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9523,7 +9523,7 @@ execution is requested.</doc>
           <instance-parameter name="d" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="539">a #CamelFilterDriver</doc>
+                 line="541">a #CamelFilterDriver</doc>
             <type name="FilterDriver" c:type="CamelFilterDriver*"/>
           </instance-parameter>
           <parameter name="func"
@@ -9532,7 +9532,7 @@ execution is requested.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="540">a system beep callback</doc>
+                 line="542">a system beep callback</doc>
             <type name="FilterSystemBeepFunc"
                   c:type="CamelFilterSystemBeepFunc"/>
           </parameter>
@@ -9542,7 +9542,7 @@ execution is requested.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-filter-driver.c"
-                 line="541">user data to pass to @func</doc>
+                 line="543">user data to pass to @func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -19649,12 +19649,12 @@ which represent the threaded structure of the messages.</doc>
       <constructor name="new" c:identifier="camel_gpg_context_new">
         <doc xml:space="preserve"
              filename="src/camel/camel-gpg-context.c"
-             line="3342">Creates a new gpg cipher context object.</doc>
+             line="3343">Creates a new gpg cipher context object.</doc>
         <source-position filename="src/camel/camel-gpg-context.h" line="87"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/camel/camel-gpg-context.c"
-               line="3348">a new gpg cipher context object.</doc>
+               line="3349">a new gpg cipher context object.</doc>
           <type name="CipherContext" c:type="CamelCipherContext*"/>
         </return-value>
         <parameters>
@@ -19664,7 +19664,7 @@ which represent the threaded structure of the messages.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3344">session</doc>
+                 line="3345">session</doc>
             <type name="Session" c:type="CamelSession*"/>
           </parameter>
         </parameters>
@@ -19681,7 +19681,7 @@ which represent the threaded structure of the messages.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3363">a #CamelGpgContext</doc>
+                 line="3364">a #CamelGpgContext</doc>
             <type name="GpgContext" c:type="CamelGpgContext*"/>
           </instance-parameter>
         </parameters>
@@ -19692,7 +19692,7 @@ which represent the threaded structure of the messages.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-gpg-context.c"
-             line="3960">Receives information about a key stored in @data of size @data_size.
+             line="3961">Receives information about a key stored in @data of size @data_size.
 
 The @flags argument is currently unused and should be set to 0.
 
@@ -19702,32 +19702,32 @@ when no longer needed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-gpg-context.c"
-               line="3977">whether succeeded</doc>
+               line="3978">whether succeeded</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3962">a #CamelGpgContext</doc>
+                 line="3963">a #CamelGpgContext</doc>
             <type name="GpgContext" c:type="CamelGpgContext*"/>
           </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3963">the public key data</doc>
+                 line="3964">the public key data</doc>
             <type name="guint8" c:type="const guint8*"/>
           </parameter>
           <parameter name="data_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3964">the @data size</doc>
+                 line="3965">the @data size</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3965">flags for the operation</doc>
+                 line="3966">flags for the operation</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="out_infos"
@@ -19736,7 +19736,7 @@ when no longer needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3966">an out parameter to get #GSList of #CamelGpgKeyInfo structures</doc>
+                 line="3967">an out parameter to get #GSList of #CamelGpgKeyInfo structures</doc>
             <type name="GLib.SList" c:type="GSList**">
               <type name="GpgKeyInfo"/>
             </type>
@@ -19747,7 +19747,7 @@ when no longer needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3967">optional #GCancellable object, or %NULL</doc>
+                 line="3968">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -19758,13 +19758,13 @@ when no longer needed.</doc>
               version="3.46">
         <doc xml:space="preserve"
              filename="src/camel/camel-gpg-context.c"
-             line="3436">Returns, whether gpg can locate keys using Web Key Directory (WKD) lookup
+             line="3437">Returns, whether gpg can locate keys using Web Key Directory (WKD) lookup
 when encrypting messages. The default is %TRUE.</doc>
         <source-position filename="src/camel/camel-gpg-context.h" line="98"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-gpg-context.c"
-               line="3443">whether gpg can locate keys using Web Key Directory (WKD) lookup
+               line="3444">whether gpg can locate keys using Web Key Directory (WKD) lookup
    when encrypting messages.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -19772,7 +19772,7 @@ when encrypting messages. The default is %TRUE.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3438">a #CamelGpgContext</doc>
+                 line="3439">a #CamelGpgContext</doc>
             <type name="GpgContext" c:type="CamelGpgContext*"/>
           </instance-parameter>
         </parameters>
@@ -19785,14 +19785,14 @@ when encrypting messages. The default is %TRUE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-gpg-context.c"
-               line="3401">Whether prefer inline sign/encrypt (%TRUE), or as multiparts (%FALSE)</doc>
+               line="3402">Whether prefer inline sign/encrypt (%TRUE), or as multiparts (%FALSE)</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3399">a #CamelGpgContext</doc>
+                 line="3400">a #CamelGpgContext</doc>
             <type name="GpgContext" c:type="CamelGpgContext*"/>
           </instance-parameter>
         </parameters>
@@ -19803,7 +19803,7 @@ when encrypting messages. The default is %TRUE.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-gpg-context.c"
-             line="3864">Receives information about a key @keyid.
+             line="3865">Receives information about a key @keyid.
 
 The @keyid can be either key ID or an email address.
 
@@ -19815,26 +19815,26 @@ when no longer needed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-gpg-context.c"
-               line="3882">whether succeeded</doc>
+               line="3883">whether succeeded</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3866">a #CamelGpgContext</doc>
+                 line="3867">a #CamelGpgContext</doc>
             <type name="GpgContext" c:type="CamelGpgContext*"/>
           </instance-parameter>
           <parameter name="keyid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3867">a key ID or an email address</doc>
+                 line="3868">a key ID or an email address</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3868">flags for the operation</doc>
+                 line="3869">flags for the operation</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="out_infos"
@@ -19843,7 +19843,7 @@ when no longer needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3869">an out parameter to get #GSList of #CamelGpgKeyInfo structures</doc>
+                 line="3870">an out parameter to get #GSList of #CamelGpgKeyInfo structures</doc>
             <type name="GLib.SList" c:type="GSList**">
               <type name="GpgKeyInfo"/>
             </type>
@@ -19854,7 +19854,7 @@ when no longer needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3870">optional #GCancellable object, or %NULL</doc>
+                 line="3871">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -19865,7 +19865,7 @@ when no longer needed.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-gpg-context.c"
-             line="3567">Returns a public key with @keyid.
+             line="3568">Returns a public key with @keyid.
 
 The @keyid can be either key ID or an email address.
 
@@ -19877,26 +19877,26 @@ no longer needed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-gpg-context.c"
-               line="3586">whether succeeded</doc>
+               line="3587">whether succeeded</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3569">a #CamelGpgContext</doc>
+                 line="3570">a #CamelGpgContext</doc>
             <type name="GpgContext" c:type="CamelGpgContext*"/>
           </instance-parameter>
           <parameter name="keyid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3570">a key ID or an email address</doc>
+                 line="3571">a key ID or an email address</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3571">flags for the operation</doc>
+                 line="3572">flags for the operation</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="out_data"
@@ -19905,7 +19905,7 @@ no longer needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3572">return location for the public key data, in binary form</doc>
+                 line="3573">return location for the public key data, in binary form</doc>
             <type name="guint8" c:type="guint8**"/>
           </parameter>
           <parameter name="out_data_size"
@@ -19914,7 +19914,7 @@ no longer needed.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3573">return location to store the @out_data size to</doc>
+                 line="3574">return location to store the @out_data size to</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
           <parameter name="cancellable"
@@ -19923,7 +19923,7 @@ no longer needed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3574">optional #GCancellable object, or %NULL</doc>
+                 line="3575">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -19934,27 +19934,27 @@ no longer needed.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-gpg-context.c"
-             line="3499">Checks whether there exists a public key with @keyid.
+             line="3500">Checks whether there exists a public key with @keyid.
 
 The @keyid can be either key ID or an email address.</doc>
         <source-position filename="src/camel/camel-gpg-context.h" line="103"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-gpg-context.c"
-               line="3510">whether the key could be found</doc>
+               line="3511">whether the key could be found</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3501">a #CamelGpgContext</doc>
+                 line="3502">a #CamelGpgContext</doc>
             <type name="GpgContext" c:type="CamelGpgContext*"/>
           </instance-parameter>
           <parameter name="keyid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3502">a key ID or an email address</doc>
+                 line="3503">a key ID or an email address</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -19963,7 +19963,7 @@ The @keyid can be either key ID or an email address.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3503">optional #GCancellable object, or %NULL</doc>
+                 line="3504">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -19974,38 +19974,38 @@ The @keyid can be either key ID or an email address.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-gpg-context.c"
-             line="4124">Imports a (public) key provided in a binary form stored in the @data
+             line="4125">Imports a (public) key provided in a binary form stored in the @data
 of size @data_size.</doc>
         <source-position filename="src/camel/camel-gpg-context.h" line="137"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-gpg-context.c"
-               line="4136">whether succeeded</doc>
+               line="4137">whether succeeded</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="4126">a #CamelGpgContext</doc>
+                 line="4127">a #CamelGpgContext</doc>
             <type name="GpgContext" c:type="CamelGpgContext*"/>
           </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="4127">the public key data</doc>
+                 line="4128">the public key data</doc>
             <type name="guint8" c:type="const guint8*"/>
           </parameter>
           <parameter name="data_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="4128">the @data size</doc>
+                 line="4129">the @data size</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="4129">bit-or of CamelPgpImportFlags, flags for the operation</doc>
+                 line="4130">bit-or of CamelPgpImportFlags, flags for the operation</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
           <parameter name="cancellable"
@@ -20014,7 +20014,7 @@ of size @data_size.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="4130">optional #GCancellable object, or %NULL</doc>
+                 line="4131">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -20024,7 +20024,7 @@ of size @data_size.</doc>
               glib:set-property="always-trust">
         <doc xml:space="preserve"
              filename="src/camel/camel-gpg-context.c"
-             line="3375">Sets the @always_trust flag on the gpg context which is used for
+             line="3376">Sets the @always_trust flag on the gpg context which is used for
 encryption.</doc>
         <source-position filename="src/camel/camel-gpg-context.h" line="90"/>
         <return-value transfer-ownership="none">
@@ -20034,13 +20034,13 @@ encryption.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3377">gpg context</doc>
+                 line="3378">gpg context</doc>
             <type name="GpgContext" c:type="CamelGpgContext*"/>
           </instance-parameter>
           <parameter name="always_trust" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3378">always trust flag</doc>
+                 line="3379">always trust flag</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -20051,33 +20051,33 @@ encryption.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-gpg-context.c"
-             line="4060">Sets @trust level on the key @keyid.
+             line="4061">Sets @trust level on the key @keyid.
 
 The @keyid can be either key ID or an email address.</doc>
         <source-position filename="src/camel/camel-gpg-context.h" line="131"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-gpg-context.c"
-               line="4072">whether succeeded</doc>
+               line="4073">whether succeeded</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="4062">a #CamelGpgContext</doc>
+                 line="4063">a #CamelGpgContext</doc>
             <type name="GpgContext" c:type="CamelGpgContext*"/>
           </instance-parameter>
           <parameter name="keyid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="4063">a key ID or an email address</doc>
+                 line="4064">a key ID or an email address</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="trust" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="4064">a #CamelGpgTrust to set</doc>
+                 line="4065">a #CamelGpgTrust to set</doc>
             <type name="GpgTrust" c:type="CamelGpgTrust"/>
           </parameter>
           <parameter name="cancellable"
@@ -20086,7 +20086,7 @@ The @keyid can be either key ID or an email address.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="4065">optional #GCancellable object, or %NULL</doc>
+                 line="4066">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -20097,7 +20097,7 @@ The @keyid can be either key ID or an email address.</doc>
               version="3.46">
         <doc xml:space="preserve"
              filename="src/camel/camel-gpg-context.c"
-             line="3456">Sets the @locate_keys on the gpg context which is used to instruct
+             line="3457">Sets the @locate_keys on the gpg context which is used to instruct
 gpg to locate keys using Web Key Directory (WKD) lookup when encrypting
 messages.</doc>
         <source-position filename="src/camel/camel-gpg-context.h" line="100"/>
@@ -20108,13 +20108,13 @@ messages.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3458">gpg context</doc>
+                 line="3459">gpg context</doc>
             <type name="GpgContext" c:type="CamelGpgContext*"/>
           </instance-parameter>
           <parameter name="locate_keys" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3459">value to set</doc>
+                 line="3460">value to set</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -20125,7 +20125,7 @@ messages.</doc>
               version="3.20">
         <doc xml:space="preserve"
              filename="src/camel/camel-gpg-context.c"
-             line="3413">Sets the @prefer_inline flag on the gpg context.</doc>
+             line="3414">Sets the @prefer_inline flag on the gpg context.</doc>
         <source-position filename="src/camel/camel-gpg-context.h" line="95"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -20134,13 +20134,13 @@ messages.</doc>
           <instance-parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3415">gpg context</doc>
+                 line="3416">gpg context</doc>
             <type name="GpgContext" c:type="CamelGpgContext*"/>
           </instance-parameter>
           <parameter name="prefer_inline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-gpg-context.c"
-                 line="3416">whether prefer inline sign/encrypt</doc>
+                 line="3417">whether prefer inline sign/encrypt</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -32868,20 +32868,20 @@ for filter output.</doc>
       <constructor name="new" c:identifier="camel_mime_filter_bestenc_new">
         <doc xml:space="preserve"
              filename="src/camel/camel-mime-filter-bestenc.c"
-             line="213">Create a new #CamelMimeFilterBestenc object.</doc>
+             line="234">Create a new #CamelMimeFilterBestenc object.</doc>
         <source-position filename="src/camel/camel-mime-filter-bestenc.h"
                          line="89"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/camel/camel-mime-filter-bestenc.c"
-               line="219">a new #CamelMimeFilterBestenc object</doc>
+               line="240">a new #CamelMimeFilterBestenc object</doc>
           <type name="MimeFilter" c:type="CamelMimeFilter*"/>
         </return-value>
         <parameters>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-mime-filter-bestenc.c"
-                 line="215">a bitmask of data required.</doc>
+                 line="236">a bitmask of data required.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -32890,13 +32890,13 @@ for filter output.</doc>
               c:identifier="camel_mime_filter_bestenc_get_best_charset">
         <doc xml:space="preserve"
              filename="src/camel/camel-mime-filter-bestenc.c"
-             line="298">Gets the best charset that can be used to contain this content.</doc>
+             line="319">Gets the best charset that can be used to contain this content.</doc>
         <source-position filename="src/camel/camel-mime-filter-bestenc.h"
                          line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-mime-filter-bestenc.c"
-               line="304">the name of the best charset to use to encode the input
+               line="325">the name of the best charset to use to encode the input
 text filtered by @filter</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -32904,7 +32904,7 @@ text filtered by @filter</doc>
           <instance-parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-mime-filter-bestenc.c"
-                 line="300">a #CamelMimeFilterBestenc object</doc>
+                 line="321">a #CamelMimeFilterBestenc object</doc>
             <type name="MimeFilterBestenc" c:type="CamelMimeFilterBestenc*"/>
           </instance-parameter>
         </parameters>
@@ -32913,27 +32913,27 @@ text filtered by @filter</doc>
               c:identifier="camel_mime_filter_bestenc_get_best_encoding">
         <doc xml:space="preserve"
              filename="src/camel/camel-mime-filter-bestenc.c"
-             line="232">Get the best encoding, given specific constraints, that can be used to
+             line="253">Get the best encoding, given specific constraints, that can be used to
 encode a stream of bytes.</doc>
         <source-position filename="src/camel/camel-mime-filter-bestenc.h"
                          line="91"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-mime-filter-bestenc.c"
-               line="240">the best encoding to use</doc>
+               line="261">the best encoding to use</doc>
           <type name="TransferEncoding" c:type="CamelTransferEncoding"/>
         </return-value>
         <parameters>
           <instance-parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-mime-filter-bestenc.c"
-                 line="234">a #CamelMimeFilterBestenc object</doc>
+                 line="255">a #CamelMimeFilterBestenc object</doc>
             <type name="MimeFilterBestenc" c:type="CamelMimeFilterBestenc*"/>
           </instance-parameter>
           <parameter name="required" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-mime-filter-bestenc.c"
-                 line="235">maximum level of output encoding allowed.</doc>
+                 line="256">maximum level of output encoding allowed.</doc>
             <type name="BestencEncoding" c:type="CamelBestencEncoding"/>
           </parameter>
         </parameters>
@@ -32942,7 +32942,7 @@ encode a stream of bytes.</doc>
               c:identifier="camel_mime_filter_bestenc_set_flags">
         <doc xml:space="preserve"
              filename="src/camel/camel-mime-filter-bestenc.c"
-             line="315">Set the flags for subsequent operations.</doc>
+             line="342">Set the flags for subsequent operations.</doc>
         <source-position filename="src/camel/camel-mime-filter-bestenc.h"
                          line="96"/>
         <return-value transfer-ownership="none">
@@ -32952,13 +32952,13 @@ encode a stream of bytes.</doc>
           <instance-parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-mime-filter-bestenc.c"
-                 line="317">a #CamelMimeFilterBestenc object</doc>
+                 line="344">a #CamelMimeFilterBestenc object</doc>
             <type name="MimeFilterBestenc" c:type="CamelMimeFilterBestenc*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-mime-filter-bestenc.c"
-                 line="318">bestenc filter flags</doc>
+                 line="345">bestenc filter flags</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -40731,21 +40731,21 @@ camel_object_bag_destroy() to free the object bag.</doc>
                       throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-offline-folder.c"
-             line="582">Synchronizes messages in @folder described by the search @expression to
+             line="625">Synchronizes messages in @folder described by the search @expression to
 the local machine for offline availability.</doc>
         <source-position filename="src/camel/camel-offline-folder.h"
                          line="64"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-offline-folder.c"
-               line="593">%TRUE on success, %FALSE on error</doc>
+               line="636">%TRUE on success, %FALSE on error</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="folder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-offline-folder.c"
-                 line="584">a #CamelOfflineFolder</doc>
+                 line="627">a #CamelOfflineFolder</doc>
             <type name="OfflineFolder" c:type="CamelOfflineFolder*"/>
           </instance-parameter>
           <parameter name="expression"
@@ -40754,7 +40754,7 @@ the local machine for offline availability.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-offline-folder.c"
-                 line="585">search expression describing which set of messages
+                 line="628">search expression describing which set of messages
              to downsync (%NULL for all)</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -40764,7 +40764,7 @@ the local machine for offline availability.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-offline-folder.c"
-                 line="587">optional #GCancellable object, or %NULL</doc>
+                 line="630">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -40774,7 +40774,7 @@ the local machine for offline availability.</doc>
               version="3.22">
         <doc xml:space="preserve"
              filename="src/camel/camel-offline-folder.c"
-             line="543">Checks whether the @folder can run downsync according to its
+             line="586">Checks whether the @folder can run downsync according to its
 settings (camel_offline_folder_get_offline_sync()) and to
 the parent's #CamelOfflineStore settings (camel_offline_settings_get_stay_synchronized()).</doc>
         <source-position filename="src/camel/camel-offline-folder.h"
@@ -40782,14 +40782,14 @@ the parent's #CamelOfflineStore settings (camel_offline_settings_get_stay_synchr
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-offline-folder.c"
-               line="551">%TRUE, when the @folder can be synchronized for offline; %FALSE otherwise.</doc>
+               line="594">%TRUE, when the @folder can be synchronized for offline; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="folder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-offline-folder.c"
-                 line="545">a #CamelOfflineFolder</doc>
+                 line="588">a #CamelOfflineFolder</doc>
             <type name="OfflineFolder" c:type="CamelOfflineFolder*"/>
           </instance-parameter>
         </parameters>
@@ -40799,7 +40799,7 @@ the parent's #CamelOfflineStore settings (camel_offline_settings_get_stay_synchr
               version="3.0">
         <doc xml:space="preserve"
              filename="src/camel/camel-offline-folder.c"
-             line="644">Synchronizes messages in @folder described by the search @expression to
+             line="687">Synchronizes messages in @folder described by the search @expression to
 the local machine asynchronously for offline availability.
 
 When the operation is finished, @callback will be called.  You can then
@@ -40814,7 +40814,7 @@ operation.</doc>
           <instance-parameter name="folder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-offline-folder.c"
-                 line="646">a #CamelOfflineFolder</doc>
+                 line="689">a #CamelOfflineFolder</doc>
             <type name="OfflineFolder" c:type="CamelOfflineFolder*"/>
           </instance-parameter>
           <parameter name="expression"
@@ -40823,14 +40823,14 @@ operation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-offline-folder.c"
-                 line="647">search expression describing which set of messages
+                 line="690">search expression describing which set of messages
              to downsync (%NULL for all)</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="io_priority" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-offline-folder.c"
-                 line="649">the I/O priority of the request</doc>
+                 line="692">the I/O priority of the request</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="cancellable"
@@ -40839,7 +40839,7 @@ operation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-offline-folder.c"
-                 line="650">optional #GCancellable object, or %NULL</doc>
+                 line="693">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -40850,7 +40850,7 @@ operation.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="src/camel/camel-offline-folder.c"
-                 line="651">a #GAsyncReadyCallback to call when the request is satisfied</doc>
+                 line="694">a #GAsyncReadyCallback to call when the request is satisfied</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -40859,7 +40859,7 @@ operation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-offline-folder.c"
-                 line="652">data to pass to the callback function</doc>
+                 line="695">data to pass to the callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -40870,26 +40870,26 @@ operation.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-offline-folder.c"
-             line="692">Finishes the operation started with camel_offline_folder_downsync().</doc>
+             line="735">Finishes the operation started with camel_offline_folder_downsync().</doc>
         <source-position filename="src/camel/camel-offline-folder.h"
                          line="92"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-offline-folder.c"
-               line="700">%TRUE on success, %FALSE on error</doc>
+               line="743">%TRUE on success, %FALSE on error</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="folder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-offline-folder.c"
-                 line="694">a #CamelOfflineFolder</doc>
+                 line="737">a #CamelOfflineFolder</doc>
             <type name="OfflineFolder" c:type="CamelOfflineFolder*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-offline-folder.c"
-                 line="695">a #GAsyncResult</doc>
+                 line="738">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -40900,21 +40900,21 @@ operation.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/camel/camel-offline-folder.c"
-             line="582">Synchronizes messages in @folder described by the search @expression to
+             line="625">Synchronizes messages in @folder described by the search @expression to
 the local machine for offline availability.</doc>
         <source-position filename="src/camel/camel-offline-folder.h"
                          line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/camel/camel-offline-folder.c"
-               line="593">%TRUE on success, %FALSE on error</doc>
+               line="636">%TRUE on success, %FALSE on error</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="folder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-offline-folder.c"
-                 line="584">a #CamelOfflineFolder</doc>
+                 line="627">a #CamelOfflineFolder</doc>
             <type name="OfflineFolder" c:type="CamelOfflineFolder*"/>
           </instance-parameter>
           <parameter name="expression"
@@ -40923,7 +40923,7 @@ the local machine for offline availability.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-offline-folder.c"
-                 line="585">search expression describing which set of messages
+                 line="628">search expression describing which set of messages
              to downsync (%NULL for all)</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -40933,7 +40933,7 @@ the local machine for offline availability.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/camel/camel-offline-folder.c"
-                 line="587">optional #GCancellable object, or %NULL</doc>
+                 line="630">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -40951,7 +40951,7 @@ the local machine for offline availability.</doc>
           <instance-parameter name="folder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-offline-folder.c"
-                 line="508">a #CamelOfflineFolder</doc>
+                 line="551">a #CamelOfflineFolder</doc>
             <type name="OfflineFolder" c:type="CamelOfflineFolder*"/>
           </instance-parameter>
         </parameters>
@@ -40962,7 +40962,7 @@ the local machine for offline availability.</doc>
               version="2.32">
         <doc xml:space="preserve"
              filename="src/camel/camel-offline-folder.c"
-             line="520">The %CAMEL_THREE_STATE_INCONSISTENT means what the parent store has set.</doc>
+             line="563">The %CAMEL_THREE_STATE_INCONSISTENT means what the parent store has set.</doc>
         <source-position filename="src/camel/camel-offline-folder.h"
                          line="76"/>
         <return-value transfer-ownership="none">
@@ -40972,13 +40972,13 @@ the local machine for offline availability.</doc>
           <instance-parameter name="folder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-offline-folder.c"
-                 line="522">a #CamelOfflineFolder</doc>
+                 line="565">a #CamelOfflineFolder</doc>
             <type name="OfflineFolder" c:type="CamelOfflineFolder*"/>
           </instance-parameter>
           <parameter name="offline_sync" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-offline-folder.c"
-                 line="523">whether to synchronize for offline use, as a #CamelThreeState enum</doc>
+                 line="566">whether to synchronize for offline use, as a #CamelThreeState enum</doc>
             <type name="ThreeState" c:type="CamelThreeState"/>
           </parameter>
         </parameters>
@@ -41012,14 +41012,14 @@ the local machine for offline availability.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/camel/camel-offline-folder.c"
-                 line="593">%TRUE on success, %FALSE on error</doc>
+                 line="636">%TRUE on success, %FALSE on error</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="folder" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/camel/camel-offline-folder.c"
-                   line="584">a #CamelOfflineFolder</doc>
+                   line="627">a #CamelOfflineFolder</doc>
               <type name="OfflineFolder" c:type="CamelOfflineFolder*"/>
             </parameter>
             <parameter name="expression"
@@ -41028,7 +41028,7 @@ the local machine for offline availability.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="src/camel/camel-offline-folder.c"
-                   line="585">search expression describing which set of messages
+                   line="628">search expression describing which set of messages
              to downsync (%NULL for all)</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
@@ -41038,7 +41038,7 @@ the local machine for offline availability.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="src/camel/camel-offline-folder.c"
-                   line="587">optional #GCancellable object, or %NULL</doc>
+                   line="630">optional #GCancellable object, or %NULL</doc>
               <type name="Gio.Cancellable" c:type="GCancellable*"/>
             </parameter>
           </parameters>

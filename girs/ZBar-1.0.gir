@@ -1,0 +1,484 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gdk" version="3.0"/>
+  <include name="Gtk" version="3.0"/>
+  <namespace name="ZBar"
+             version="1.0"
+             shared-library="libzbargtk.so.0,libzbar.so.0"
+             c:identifier-prefixes="zbar_,ZBar"
+             c:symbol-prefixes="zbar">
+    <function-macro name="GTK" c:identifier="ZBAR_GTK" introspectable="0">
+      <source-position filename="include/zbar/zbargtk.h" line="59"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTK_CLASS"
+                    c:identifier="ZBAR_GTK_CLASS"
+                    introspectable="0">
+      <source-position filename="include/zbar/zbargtk.h" line="61"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTK_GET_CLASS"
+                    c:identifier="ZBAR_GTK_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="include/zbar/zbargtk.h" line="67"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Gtk"
+           c:symbol-prefix="gtk"
+           c:type="ZBarGtk"
+           parent="Gtk.Widget"
+           glib:type-name="ZBarGtk"
+           glib:get-type="zbar_gtk_get_type"
+           glib:type-struct="GtkClass">
+      <source-position filename="include/zbar/zbargtk.h" line="154"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="zbar_gtk_new">
+        <doc xml:space="preserve"
+             filename="include/zbar/zbargtk.h"
+             line="163">create a new barcode reader widget instance.
+initially has no associated video device or image.</doc>
+        <source-position filename="include/zbar/zbargtk.h" line="170"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="include/zbar/zbargtk.h"
+               line="168">a new #ZBarGtk widget instance</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <function name="image_from_pixbuf"
+                c:identifier="zbar_gtk_image_from_pixbuf">
+        <doc xml:space="preserve"
+             filename="include/zbar/zbargtk.h"
+             line="240">utility function to populate a zbar_image_t from a GdkPixbuf.</doc>
+        <source-position filename="include/zbar/zbargtk.h" line="249"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="include/zbar/zbargtk.h"
+               line="246">TRUE if successful or FALSE if the conversion could not be
+performed for some reason</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="image"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="include/zbar/zbargtk.h"
+                 line="243">the zbar library image destination to populate</doc>
+            <type name="gpointer" c:type="zbar_image_t*"/>
+          </parameter>
+          <parameter name="pixbuf" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="include/zbar/zbargtk.h"
+                 line="244">the GdkPixbuf source</doc>
+            <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="decoded" introspectable="0">
+        <source-position filename="include/zbar/zbargtk.h" line="133"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="zbar" transfer-ownership="none">
+            <type name="Gtk" c:type="ZBarGtk*"/>
+          </instance-parameter>
+          <parameter name="symbol_type" transfer-ownership="none">
+            <type c:type="zbar_symbol_type_t"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="decoded_text">
+        <source-position filename="include/zbar/zbargtk.h" line="146"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="zbar" transfer-ownership="none">
+            <type name="Gtk" c:type="ZBarGtk*"/>
+          </instance-parameter>
+          <parameter name="text" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="scan_image" invoker="scan_image">
+        <source-position filename="include/zbar/zbargtk.h" line="153"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="zbar" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="include/zbar/zbargtk.h"
+                 line="174">pointer to #ZBarGtk</doc>
+            <type name="Gtk" c:type="ZBarGtk*"/>
+          </instance-parameter>
+          <parameter name="image" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="include/zbar/zbargtk.h"
+                 line="175">the GdkPixbuf used to store the image</doc>
+            <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_video_device"
+              c:identifier="zbar_gtk_get_video_device"
+              glib:get-property="video-device">
+        <doc xml:space="preserve"
+             filename="include/zbar/zbargtk.h"
+             line="180">retrieve the currently opened video device.</doc>
+        <source-position filename="include/zbar/zbargtk.h" line="187"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="include/zbar/zbargtk.h"
+               line="185">the current video device or NULL if no device is opened</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="zbar" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="include/zbar/zbargtk.h"
+                 line="183">pointer to #ZBarGtk</doc>
+            <type name="Gtk" c:type="ZBarGtk*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_video_enabled"
+              c:identifier="zbar_gtk_get_video_enabled"
+              glib:get-property="video-enabled">
+        <doc xml:space="preserve"
+             filename="include/zbar/zbargtk.h"
+             line="201">retrieve the current video enabled state.</doc>
+        <source-position filename="include/zbar/zbargtk.h" line="208"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="include/zbar/zbargtk.h"
+               line="206">true if video scanning is currently enabled, false otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="zbar" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="include/zbar/zbargtk.h"
+                 line="204">pointer to #ZBarGtk</doc>
+            <type name="Gtk" c:type="ZBarGtk*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_video_opened"
+              c:identifier="zbar_gtk_get_video_opened"
+              glib:get-property="video-opened">
+        <doc xml:space="preserve"
+             filename="include/zbar/zbargtk.h"
+             line="220">retrieve the current video opened state.</doc>
+        <source-position filename="include/zbar/zbargtk.h" line="227"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="include/zbar/zbargtk.h"
+               line="225">true if video device is currently opened, false otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="zbar" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="include/zbar/zbargtk.h"
+                 line="223">pointer to #ZBarGtk</doc>
+            <type name="Gtk" c:type="ZBarGtk*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="request_video_size"
+              c:identifier="zbar_gtk_request_video_size">
+        <doc xml:space="preserve"
+             filename="include/zbar/zbargtk.h"
+             line="229">set video camera resolution.
+@note this call must be made before video is initialized</doc>
+        <source-position filename="include/zbar/zbargtk.h" line="238"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="zbar" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="include/zbar/zbargtk.h"
+                 line="232">pointer to #ZBarGtk</doc>
+            <type name="Gtk" c:type="ZBarGtk*"/>
+          </instance-parameter>
+          <parameter name="width" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="include/zbar/zbargtk.h"
+                 line="233">width in pixels</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="include/zbar/zbargtk.h"
+                 line="234">height in pixels</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="scan_image" c:identifier="zbar_gtk_scan_image">
+        <source-position filename="include/zbar/zbargtk.h" line="178"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="zbar" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="include/zbar/zbargtk.h"
+                 line="174">pointer to #ZBarGtk</doc>
+            <type name="Gtk" c:type="ZBarGtk*"/>
+          </instance-parameter>
+          <parameter name="image" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="include/zbar/zbargtk.h"
+                 line="175">the GdkPixbuf used to store the image</doc>
+            <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_video_device"
+              c:identifier="zbar_gtk_set_video_device"
+              glib:set-property="video-device">
+        <doc xml:space="preserve"
+             filename="include/zbar/zbargtk.h"
+             line="189">open a new video device.
+@note since opening a device may take some time, this call will
+return immediately and the device will be opened asynchronously</doc>
+        <source-position filename="include/zbar/zbargtk.h" line="199"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="zbar" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="include/zbar/zbargtk.h"
+                 line="192">pointer to #ZBarGtk</doc>
+            <type name="Gtk" c:type="ZBarGtk*"/>
+          </instance-parameter>
+          <parameter name="video_device"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="include/zbar/zbargtk.h"
+                 line="193">the platform specific name of
+  the device to open. use NULL to close a currently opened device.</doc>
+            <type name="filename" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_video_enabled"
+              c:identifier="zbar_gtk_set_video_enabled"
+              glib:set-property="video-enabled">
+        <doc xml:space="preserve"
+             filename="include/zbar/zbargtk.h"
+             line="210">enable/disable video scanning.
+has no effect unless a video device is opened</doc>
+        <source-position filename="include/zbar/zbargtk.h" line="218"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="zbar" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="include/zbar/zbargtk.h"
+                 line="213">pointer to #ZBarGtk</doc>
+            <type name="Gtk" c:type="ZBarGtk*"/>
+          </instance-parameter>
+          <parameter name="video_enabled" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="include/zbar/zbargtk.h"
+                 line="214">true to enable video scanning, false to disable</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="video-device"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_video_device"
+                getter="get_video_device"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="video-enabled"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_video_enabled"
+                getter="get_video_enabled"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="video-opened"
+                transfer-ownership="none"
+                getter="get_video_opened"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <field name="widget">
+        <type name="Gtk.Widget" c:type="GtkWidget"/>
+      </field>
+      <field name="_private">
+        <type name="gpointer" c:type="gpointer*"/>
+      </field>
+      <glib:signal name="decoded" when="cleanup">
+        <doc xml:space="preserve"
+             filename="include/zbar/zbargtk.h"
+             line="123">emitted when a barcode is decoded from an image.
+the symbol type and contained data are provided as separate
+parameters</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="symbol_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="include/zbar/zbargtk.h"
+                 line="126">the type of symbol decoded (a zbar_symbol_type_t)</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="include/zbar/zbargtk.h"
+                 line="127">the data decoded from the symbol</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="decoded-text" when="cleanup">
+        <doc xml:space="preserve"
+             filename="include/zbar/zbargtk.h"
+             line="136">emitted when a barcode is decoded from an image.
+the symbol type name is prefixed to the data, separated by a
+colon</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="text" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="include/zbar/zbargtk.h"
+                 line="139">the decoded data prefixed by the string name of the
+  symbol type (separated by a colon)</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="GtkClass"
+            c:type="ZBarGtkClass"
+            glib:is-gtype-struct-for="Gtk">
+      <source-position filename="include/zbar/zbargtk.h" line="154"/>
+      <field name="parent_class">
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+      <field name="decoded" introspectable="0">
+        <callback name="decoded" introspectable="0">
+          <source-position filename="include/zbar/zbargtk.h" line="133"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="zbar" transfer-ownership="none">
+              <type name="Gtk" c:type="ZBarGtk*"/>
+            </parameter>
+            <parameter name="symbol_type" transfer-ownership="none">
+              <type c:type="zbar_symbol_type_t"/>
+            </parameter>
+            <parameter name="data" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="decoded_text">
+        <callback name="decoded_text">
+          <source-position filename="include/zbar/zbargtk.h" line="146"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="zbar" transfer-ownership="none">
+              <type name="Gtk" c:type="ZBarGtk*"/>
+            </parameter>
+            <parameter name="text" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="scan_image">
+        <callback name="scan_image">
+          <source-position filename="include/zbar/zbargtk.h" line="153"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="zbar" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="include/zbar/zbargtk.h"
+                   line="174">pointer to #ZBarGtk</doc>
+              <type name="Gtk" c:type="ZBarGtk*"/>
+            </parameter>
+            <parameter name="image" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="include/zbar/zbargtk.h"
+                   line="175">the GdkPixbuf used to store the image</doc>
+              <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <function-macro name="IS_GTK"
+                    c:identifier="ZBAR_IS_GTK"
+                    introspectable="0">
+      <source-position filename="include/zbar/zbargtk.h" line="63"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GTK_CLASS"
+                    c:identifier="ZBAR_IS_GTK_CLASS"
+                    introspectable="0">
+      <source-position filename="include/zbar/zbargtk.h" line="65"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <docsection name="ZBarGtk">
+      <doc xml:space="preserve"
+           filename="include/zbar/zbargtk.h"
+           line="35">embeds a barcode reader directly into a GTK+ based GUI.  the widget
+can process barcodes from a video source (using the
+#ZBarGtk:video-device and #ZBarGtk:video-enabled properties) or
+from individual GdkPixbufs supplied to zbar_gtk_scan_image()</doc>
+    </docsection>
+  </namespace>
+</repository>

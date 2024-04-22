@@ -1,0 +1,3590 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <namespace name="Caja"
+             version="2.0"
+             shared-library="libcaja-extension.so.1"
+             c:identifier-prefixes="Caja"
+             c:symbol-prefixes="caja">
+    <function-macro name="COLUMN"
+                    c:identifier="CAJA_COLUMN"
+                    introspectable="0">
+      <source-position filename="caja-column.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="COLUMN_CLASS"
+                    c:identifier="CAJA_COLUMN_CLASS"
+                    introspectable="0">
+      <source-position filename="caja-column.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="COLUMN_GET_CLASS"
+                    c:identifier="CAJA_COLUMN_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="caja-column.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="COLUMN_PROVIDER"
+                    c:identifier="CAJA_COLUMN_PROVIDER"
+                    introspectable="0">
+      <source-position filename="caja-column-provider.h" line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="COLUMN_PROVIDER_GET_IFACE"
+                    c:identifier="CAJA_COLUMN_PROVIDER_GET_IFACE"
+                    introspectable="0">
+      <source-position filename="caja-column-provider.h" line="43"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CONFIGURABLE"
+                    c:identifier="CAJA_CONFIGURABLE"
+                    introspectable="0">
+      <source-position filename="caja-configurable.h" line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CONFIGURABLE_GET_IFACE"
+                    c:identifier="CAJA_CONFIGURABLE_GET_IFACE"
+                    introspectable="0">
+      <source-position filename="caja-configurable.h" line="43"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Column"
+           c:symbol-prefix="column"
+           c:type="CajaColumn"
+           parent="GObject.Object"
+           glib:type-name="CajaColumn"
+           glib:get-type="caja_column_get_type"
+           glib:type-struct="ColumnClass">
+      <source-position filename="caja-column.h" line="52"/>
+      <constructor name="new" c:identifier="caja_column_new">
+        <doc xml:space="preserve"
+             filename="caja-column.c"
+             line="67">Creates a new column</doc>
+        <source-position filename="caja-column.h" line="55"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-column.c"
+               line="76">a newly created #CajaColumn</doc>
+          <type name="Column" c:type="CajaColumn*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-column.c"
+                 line="69">identifier of the column</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="attribute" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-column.c"
+                 line="70">the file attribute to be displayed in the column</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="label" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-column.c"
+                 line="71">the user-visible label for the column</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="description" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-column.c"
+                 line="72">a user-visible description of the column</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="attribute"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="attribute-q" transfer-ownership="none" default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="description"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="label"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="xalign"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
+        <type name="gfloat" c:type="gfloat"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="details">
+        <type name="ColumnDetails" c:type="CajaColumnDetails*"/>
+      </field>
+    </class>
+    <record name="ColumnClass"
+            c:type="CajaColumnClass"
+            glib:is-gtype-struct-for="Column">
+      <source-position filename="caja-column.h" line="52"/>
+      <field name="parent">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="ColumnDetails"
+            c:type="CajaColumnDetails"
+            disguised="1"
+            opaque="1">
+      <source-position filename="caja-column.h" line="41"/>
+    </record>
+    <interface name="ColumnProvider"
+               c:symbol-prefix="column_provider"
+               c:type="CajaColumnProvider"
+               glib:type-name="CajaColumnProvider"
+               glib:get-type="caja_column_provider_get_type"
+               glib:type-struct="ColumnProviderIface">
+      <source-position filename="caja-column-provider.h" line="61"/>
+      <virtual-method name="get_columns" invoker="get_columns">
+        <source-position filename="caja-column-provider.h" line="60"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-column-provider.c"
+               line="76">the provided #CajaColumn objects</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Column"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-column-provider.c"
+                 line="74">a #CajaColumnProvider</doc>
+            <type name="ColumnProvider" c:type="CajaColumnProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_columns"
+              c:identifier="caja_column_provider_get_columns">
+        <source-position filename="caja-column-provider.h" line="65"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-column-provider.c"
+               line="76">the provided #CajaColumn objects</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Column"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-column-provider.c"
+                 line="74">a #CajaColumnProvider</doc>
+            <type name="ColumnProvider" c:type="CajaColumnProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="ColumnProviderIface"
+            c:type="CajaColumnProviderIface"
+            glib:is-gtype-struct-for="ColumnProvider">
+      <doc xml:space="preserve"
+           filename="caja-column-provider.h"
+           line="48">Interface for extensions to provide additional list view columns.</doc>
+      <source-position filename="caja-column-provider.h" line="61"/>
+      <field name="g_iface">
+        <doc xml:space="preserve"
+             filename="caja-column-provider.h"
+             line="50">The parent interface.</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_columns">
+        <callback name="get_columns">
+          <source-position filename="caja-column-provider.h" line="60"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="caja-column-provider.c"
+                 line="76">the provided #CajaColumn objects</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Column"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-column-provider.c"
+                   line="74">a #CajaColumnProvider</doc>
+              <type name="ColumnProvider" c:type="CajaColumnProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <interface name="Configurable"
+               c:symbol-prefix="configurable"
+               c:type="CajaConfigurable"
+               glib:type-name="CajaConfigurable"
+               glib:get-type="caja_configurable_get_type"
+               glib:type-struct="ConfigurableIface">
+      <source-position filename="caja-configurable.h" line="60"/>
+      <virtual-method name="run_config" invoker="run_config">
+        <source-position filename="caja-configurable.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="Configurable" c:type="CajaConfigurable*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="run_config" c:identifier="caja_configurable_run_config">
+        <source-position filename="caja-configurable.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="Configurable" c:type="CajaConfigurable*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="ConfigurableIface"
+            c:type="CajaConfigurableIface"
+            glib:is-gtype-struct-for="Configurable">
+      <doc xml:space="preserve"
+           filename="caja-configurable.h"
+           line="48">Interface for extensions to provide additional menu items.</doc>
+      <source-position filename="caja-configurable.h" line="60"/>
+      <field name="g_iface">
+        <doc xml:space="preserve"
+             filename="caja-configurable.h"
+             line="50">The parent interface.</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="run_config">
+        <callback name="run_config">
+          <source-position filename="caja-configurable.h" line="59"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="Configurable" c:type="CajaConfigurable*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <function-macro name="FILE_INFO"
+                    c:identifier="CAJA_FILE_INFO"
+                    introspectable="0">
+      <source-position filename="caja-file-info.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="FILE_INFO_GET_IFACE"
+                    c:identifier="CAJA_FILE_INFO_GET_IFACE"
+                    introspectable="0">
+      <source-position filename="caja-file-info.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <record name="File" c:type="CajaFile" disguised="1" opaque="1">
+      <source-position filename="caja-file-info.h" line="43"/>
+    </record>
+    <interface name="FileInfo"
+               c:symbol-prefix="file_info"
+               glib:type-name="CajaFileInfo"
+               glib:get-type="caja_file_info_get_type"
+               glib:type-struct="FileInfoIface">
+      <source-position filename="caja-file-info.h" line="127"/>
+      <function name="create" c:identifier="caja_file_info_create">
+        <source-position filename="caja-file-info.h" line="172"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-file-info.c"
+               line="337">a #CajaFileInfo</doc>
+          <type name="FileInfo" c:type="CajaFileInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="location" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-file-info.c"
+                 line="335">the location to create the file info for</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="create_for_uri"
+                c:identifier="caja_file_info_create_for_uri">
+        <source-position filename="caja-file-info.h" line="174"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-file-info.c"
+               line="368">a #CajaFileInfo</doc>
+          <type name="FileInfo" c:type="CajaFileInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-file-info.c"
+                 line="366">the URI to lookup the file info for</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="list_copy" c:identifier="caja_file_info_list_copy">
+        <source-position filename="caja-file-info.h" line="129"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-file-info.c"
+               line="42">a copy of @files.
+ Use #caja_file_info_list_free to free the list and unref its contents.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="FileInfo"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="files" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-file-info.c"
+                 line="40">the files to copy</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="list_free" c:identifier="caja_file_info_list_free">
+        <source-position filename="caja-file-info.h" line="130"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="files" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-file-info.c"
+                 line="62">a list created with
+  #caja_file_info_list_copy</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="lookup" c:identifier="caja_file_info_lookup">
+        <source-position filename="caja-file-info.h" line="171"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-file-info.c"
+               line="325">a #CajaFileInfo</doc>
+          <type name="FileInfo" c:type="CajaFileInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="location" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-file-info.c"
+                 line="323">the location to lookup the file info for</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="lookup_for_uri"
+                c:identifier="caja_file_info_lookup_for_uri">
+        <source-position filename="caja-file-info.h" line="173"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-file-info.c"
+               line="349">a #CajaFileInfo</doc>
+          <type name="FileInfo" c:type="CajaFileInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-file-info.c"
+                 line="347">the URI to lookup the file info for</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="add_emblem" invoker="add_emblem">
+        <source-position filename="caja-file-info.h" line="110"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+          <parameter name="emblem_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="add_string_attribute"
+                      invoker="add_string_attribute">
+        <source-position filename="caja-file-info.h" line="114"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+          <parameter name="attribute_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="can_write" invoker="can_write">
+        <source-position filename="caja-file-info.h" line="126"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_activation_uri" invoker="get_activation_uri">
+        <source-position filename="caja-file-info.h" line="119"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_file_type" invoker="get_file_type">
+        <source-position filename="caja-file-info.h" line="121"/>
+        <return-value transfer-ownership="none">
+          <type name="Gio.FileType" c:type="GFileType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_location" invoker="get_location">
+        <source-position filename="caja-file-info.h" line="122"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-file-info.c"
+               line="142">a #GFile for the location of @file</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-file-info.c"
+                 line="140">a #CajaFileInfo</doc>
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_mime_type" invoker="get_mime_type">
+        <source-position filename="caja-file-info.h" line="105"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_mount" invoker="get_mount">
+        <source-position filename="caja-file-info.h" line="125"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="caja-file-info.c"
+               line="216">a #GMount for the mount of @file,
+  or %NULL if @file has no mount</doc>
+          <type name="Gio.Mount" c:type="GMount*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-file-info.c"
+                 line="214">a #CajaFileInfo</doc>
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_name" invoker="get_name">
+        <source-position filename="caja-file-info.h" line="100"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_parent_info" invoker="get_parent_info">
+        <source-position filename="caja-file-info.h" line="124"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="caja-file-info.c"
+               line="200">a #CajaFileInfo for the parent of @file,
+  or %NULL if @file has no parent</doc>
+          <type name="FileInfo" c:type="CajaFileInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-file-info.c"
+                 line="198">a #CajaFileInfo</doc>
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_parent_location" invoker="get_parent_location">
+        <source-position filename="caja-file-info.h" line="123"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="caja-file-info.c"
+               line="175">a #GFile for the parent location of @file,
+  or %NULL if @file has no parent</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-file-info.c"
+                 line="173">a #CajaFileInfo</doc>
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_parent_uri" invoker="get_parent_uri">
+        <source-position filename="caja-file-info.h" line="102"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_string_attribute"
+                      invoker="get_string_attribute">
+        <source-position filename="caja-file-info.h" line="112"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+          <parameter name="attribute_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_uri" invoker="get_uri">
+        <source-position filename="caja-file-info.h" line="101"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_uri_scheme" invoker="get_uri_scheme">
+        <source-position filename="caja-file-info.h" line="103"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="invalidate_extension_info"
+                      invoker="invalidate_extension_info">
+        <source-position filename="caja-file-info.h" line="117"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="is_directory" invoker="is_directory">
+        <source-position filename="caja-file-info.h" line="108"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="is_gone" invoker="is_gone">
+        <source-position filename="caja-file-info.h" line="98"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="is_mime_type" invoker="is_mime_type">
+        <source-position filename="caja-file-info.h" line="106"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+          <parameter name="mime_Type" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="add_emblem" c:identifier="caja_file_info_add_emblem">
+        <source-position filename="caja-file-info.h" line="160"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+          <parameter name="emblem_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_string_attribute"
+              c:identifier="caja_file_info_add_string_attribute">
+        <source-position filename="caja-file-info.h" line="164"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+          <parameter name="attribute_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_write" c:identifier="caja_file_info_can_write">
+        <source-position filename="caja-file-info.h" line="156"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_activation_uri"
+              c:identifier="caja_file_info_get_activation_uri">
+        <source-position filename="caja-file-info.h" line="141"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_file_type" c:identifier="caja_file_info_get_file_type">
+        <source-position filename="caja-file-info.h" line="137"/>
+        <return-value transfer-ownership="none">
+          <type name="Gio.FileType" c:type="GFileType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_location" c:identifier="caja_file_info_get_location">
+        <source-position filename="caja-file-info.h" line="138"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-file-info.c"
+               line="142">a #GFile for the location of @file</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-file-info.c"
+                 line="140">a #CajaFileInfo</doc>
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_mime_type" c:identifier="caja_file_info_get_mime_type">
+        <source-position filename="caja-file-info.h" line="152"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_mount" c:identifier="caja_file_info_get_mount">
+        <source-position filename="caja-file-info.h" line="144"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="caja-file-info.c"
+               line="216">a #GMount for the mount of @file,
+  or %NULL if @file has no mount</doc>
+          <type name="Gio.Mount" c:type="GMount*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-file-info.c"
+                 line="214">a #CajaFileInfo</doc>
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="caja_file_info_get_name">
+        <source-position filename="caja-file-info.h" line="139"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parent_info"
+              c:identifier="caja_file_info_get_parent_info">
+        <source-position filename="caja-file-info.h" line="149"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="caja-file-info.c"
+               line="200">a #CajaFileInfo for the parent of @file,
+  or %NULL if @file has no parent</doc>
+          <type name="FileInfo" c:type="CajaFileInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-file-info.c"
+                 line="198">a #CajaFileInfo</doc>
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parent_location"
+              c:identifier="caja_file_info_get_parent_location">
+        <source-position filename="caja-file-info.h" line="142"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="caja-file-info.c"
+               line="175">a #GFile for the parent location of @file,
+  or %NULL if @file has no parent</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-file-info.c"
+                 line="173">a #CajaFileInfo</doc>
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parent_uri"
+              c:identifier="caja_file_info_get_parent_uri">
+        <source-position filename="caja-file-info.h" line="143"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_string_attribute"
+              c:identifier="caja_file_info_get_string_attribute">
+        <source-position filename="caja-file-info.h" line="162"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+          <parameter name="attribute_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_uri" c:identifier="caja_file_info_get_uri">
+        <source-position filename="caja-file-info.h" line="140"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_uri_scheme"
+              c:identifier="caja_file_info_get_uri_scheme">
+        <source-position filename="caja-file-info.h" line="145"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="invalidate_extension_info"
+              c:identifier="caja_file_info_invalidate_extension_info">
+        <source-position filename="caja-file-info.h" line="169"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_directory" c:identifier="caja_file_info_is_directory">
+        <source-position filename="caja-file-info.h" line="155"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_gone" c:identifier="caja_file_info_is_gone">
+        <source-position filename="caja-file-info.h" line="134"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_mime_type" c:identifier="caja_file_info_is_mime_type">
+        <source-position filename="caja-file-info.h" line="153"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </instance-parameter>
+          <parameter name="mime_type" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="FileInfoIface"
+            c:type="CajaFileInfoIface"
+            glib:is-gtype-struct-for="FileInfo">
+      <doc xml:space="preserve"
+           filename="caja-file-info.h"
+           line="49">Interface for extensions to get and modify information
+about file objects.</doc>
+      <source-position filename="caja-file-info.h" line="127"/>
+      <field name="g_iface">
+        <doc xml:space="preserve"
+             filename="caja-file-info.h"
+             line="51">The parent interface.</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="is_gone">
+        <callback name="is_gone">
+          <source-position filename="caja-file-info.h" line="98"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_name">
+        <callback name="get_name">
+          <source-position filename="caja-file-info.h" line="100"/>
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_uri">
+        <callback name="get_uri">
+          <source-position filename="caja-file-info.h" line="101"/>
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_parent_uri">
+        <callback name="get_parent_uri">
+          <source-position filename="caja-file-info.h" line="102"/>
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_uri_scheme">
+        <callback name="get_uri_scheme">
+          <source-position filename="caja-file-info.h" line="103"/>
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_mime_type">
+        <callback name="get_mime_type">
+          <source-position filename="caja-file-info.h" line="105"/>
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="is_mime_type">
+        <callback name="is_mime_type">
+          <source-position filename="caja-file-info.h" line="106"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+            <parameter name="mime_Type" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="is_directory">
+        <callback name="is_directory">
+          <source-position filename="caja-file-info.h" line="108"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="add_emblem">
+        <callback name="add_emblem">
+          <source-position filename="caja-file-info.h" line="110"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+            <parameter name="emblem_name" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_string_attribute">
+        <callback name="get_string_attribute">
+          <source-position filename="caja-file-info.h" line="112"/>
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+            <parameter name="attribute_name" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="add_string_attribute">
+        <callback name="add_string_attribute">
+          <source-position filename="caja-file-info.h" line="114"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+            <parameter name="attribute_name" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="value" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="invalidate_extension_info">
+        <callback name="invalidate_extension_info">
+          <source-position filename="caja-file-info.h" line="117"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_activation_uri">
+        <callback name="get_activation_uri">
+          <source-position filename="caja-file-info.h" line="119"/>
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_file_type">
+        <callback name="get_file_type">
+          <source-position filename="caja-file-info.h" line="121"/>
+          <return-value transfer-ownership="none">
+            <type name="Gio.FileType" c:type="GFileType"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_location">
+        <callback name="get_location">
+          <source-position filename="caja-file-info.h" line="122"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="caja-file-info.c"
+                 line="142">a #GFile for the location of @file</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-file-info.c"
+                   line="140">a #CajaFileInfo</doc>
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_parent_location">
+        <callback name="get_parent_location">
+          <source-position filename="caja-file-info.h" line="123"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <doc xml:space="preserve"
+                 filename="caja-file-info.c"
+                 line="175">a #GFile for the parent location of @file,
+  or %NULL if @file has no parent</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-file-info.c"
+                   line="173">a #CajaFileInfo</doc>
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_parent_info">
+        <callback name="get_parent_info">
+          <source-position filename="caja-file-info.h" line="124"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <doc xml:space="preserve"
+                 filename="caja-file-info.c"
+                 line="200">a #CajaFileInfo for the parent of @file,
+  or %NULL if @file has no parent</doc>
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-file-info.c"
+                   line="198">a #CajaFileInfo</doc>
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_mount">
+        <callback name="get_mount">
+          <source-position filename="caja-file-info.h" line="125"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <doc xml:space="preserve"
+                 filename="caja-file-info.c"
+                 line="216">a #GMount for the mount of @file,
+  or %NULL if @file has no mount</doc>
+            <type name="Gio.Mount" c:type="GMount*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-file-info.c"
+                   line="214">a #CajaFileInfo</doc>
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="can_write">
+        <callback name="can_write">
+          <source-position filename="caja-file-info.h" line="126"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <function-macro name="INFO_IS_COLUMN"
+                    c:identifier="CAJA_INFO_IS_COLUMN"
+                    introspectable="0">
+      <source-position filename="caja-column.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="INFO_IS_COLUMN_CLASS"
+                    c:identifier="CAJA_INFO_IS_COLUMN_CLASS"
+                    introspectable="0">
+      <source-position filename="caja-column.h" line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="INFO_PROVIDER"
+                    c:identifier="CAJA_INFO_PROVIDER"
+                    introspectable="0">
+      <source-position filename="caja-info-provider.h" line="40"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="INFO_PROVIDER_GET_IFACE"
+                    c:identifier="CAJA_INFO_PROVIDER_GET_IFACE"
+                    introspectable="0">
+      <source-position filename="caja-info-provider.h" line="42"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_COLUMN_PROVIDER"
+                    c:identifier="CAJA_IS_COLUMN_PROVIDER"
+                    introspectable="0">
+      <source-position filename="caja-column-provider.h" line="42"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CONFIGURABLE"
+                    c:identifier="CAJA_IS_CONFIGURABLE"
+                    introspectable="0">
+      <source-position filename="caja-configurable.h" line="42"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_FILE_INFO"
+                    c:identifier="CAJA_IS_FILE_INFO"
+                    introspectable="0">
+      <source-position filename="caja-file-info.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_INFO_PROVIDER"
+                    c:identifier="CAJA_IS_INFO_PROVIDER"
+                    introspectable="0">
+      <source-position filename="caja-info-provider.h" line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_LOCATION_WIDGET_PROVIDER"
+                    c:identifier="CAJA_IS_LOCATION_WIDGET_PROVIDER"
+                    introspectable="0">
+      <source-position filename="caja-location-widget-provider.h" line="43"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU"
+                    c:identifier="CAJA_IS_MENU"
+                    introspectable="0">
+      <source-position filename="caja-menu.h" line="38"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_CLASS"
+                    c:identifier="CAJA_IS_MENU_CLASS"
+                    introspectable="0">
+      <source-position filename="caja-menu.h" line="39"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_PROVIDER"
+                    c:identifier="CAJA_IS_MENU_PROVIDER"
+                    introspectable="0">
+      <source-position filename="caja-menu-provider.h" line="43"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PROPERTY_PAGE"
+                    c:identifier="CAJA_IS_PROPERTY_PAGE"
+                    introspectable="0">
+      <source-position filename="caja-property-page.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PROPERTY_PAGE_CLASS"
+                    c:identifier="CAJA_IS_PROPERTY_PAGE_CLASS"
+                    introspectable="0">
+      <source-position filename="caja-property-page.h" line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PROPERTY_PAGE_PROVIDER"
+                    c:identifier="CAJA_IS_PROPERTY_PAGE_PROVIDER"
+                    introspectable="0">
+      <source-position filename="caja-property-page-provider.h" line="43"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_WIDGET_VIEW_PROVIDER"
+                    c:identifier="CAJA_IS_WIDGET_VIEW_PROVIDER"
+                    introspectable="0">
+      <source-position filename="caja-widget-view-provider.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <interface name="InfoProvider"
+               c:symbol-prefix="info_provider"
+               c:type="CajaInfoProvider"
+               glib:type-name="CajaInfoProvider"
+               glib:get-type="caja_info_provider_get_type"
+               glib:type-struct="InfoProviderIface">
+      <source-position filename="caja-info-provider.h" line="72"/>
+      <function name="update_complete_invoke"
+                c:identifier="caja_info_provider_update_complete_invoke">
+        <source-position filename="caja-info-provider.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="update_complete" transfer-ownership="none">
+            <type name="GObject.Closure" c:type="GClosure*"/>
+          </parameter>
+          <parameter name="provider" transfer-ownership="none">
+            <type name="InfoProvider" c:type="CajaInfoProvider*"/>
+          </parameter>
+          <parameter name="handle" transfer-ownership="none">
+            <type name="OperationHandle" c:type="CajaOperationHandle*"/>
+          </parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="OperationResult" c:type="CajaOperationResult"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="cancel_update" invoker="cancel_update">
+        <source-position filename="caja-info-provider.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="InfoProvider" c:type="CajaInfoProvider*"/>
+          </instance-parameter>
+          <parameter name="handle" transfer-ownership="none">
+            <type name="OperationHandle" c:type="CajaOperationHandle*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="update_file_info" invoker="update_file_info">
+        <source-position filename="caja-info-provider.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="OperationResult" c:type="CajaOperationResult"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="InfoProvider" c:type="CajaInfoProvider*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </parameter>
+          <parameter name="update_complete" transfer-ownership="none">
+            <type name="GObject.Closure" c:type="GClosure*"/>
+          </parameter>
+          <parameter name="handle" transfer-ownership="none">
+            <type name="OperationHandle" c:type="CajaOperationHandle**"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="cancel_update"
+              c:identifier="caja_info_provider_cancel_update">
+        <source-position filename="caja-info-provider.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="InfoProvider" c:type="CajaInfoProvider*"/>
+          </instance-parameter>
+          <parameter name="handle" transfer-ownership="none">
+            <type name="OperationHandle" c:type="CajaOperationHandle*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="update_file_info"
+              c:identifier="caja_info_provider_update_file_info">
+        <source-position filename="caja-info-provider.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="OperationResult" c:type="CajaOperationResult"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="InfoProvider" c:type="CajaInfoProvider*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </parameter>
+          <parameter name="update_complete" transfer-ownership="none">
+            <type name="GObject.Closure" c:type="GClosure*"/>
+          </parameter>
+          <parameter name="handle" transfer-ownership="none">
+            <type name="OperationHandle" c:type="CajaOperationHandle**"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="InfoProviderIface"
+            c:type="CajaInfoProviderIface"
+            glib:is-gtype-struct-for="InfoProvider">
+      <doc xml:space="preserve"
+           filename="caja-info-provider.h"
+           line="52">Interface for extensions to provide additional information about files.</doc>
+      <source-position filename="caja-info-provider.h" line="72"/>
+      <field name="g_iface">
+        <doc xml:space="preserve"
+             filename="caja-info-provider.h"
+             line="54">The parent interface.</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="update_file_info">
+        <callback name="update_file_info">
+          <source-position filename="caja-info-provider.h" line="66"/>
+          <return-value transfer-ownership="none">
+            <type name="OperationResult" c:type="CajaOperationResult"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="InfoProvider" c:type="CajaInfoProvider*"/>
+            </parameter>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+            <parameter name="update_complete" transfer-ownership="none">
+              <type name="GObject.Closure" c:type="GClosure*"/>
+            </parameter>
+            <parameter name="handle" transfer-ownership="none">
+              <type name="OperationHandle" c:type="CajaOperationHandle**"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="cancel_update">
+        <callback name="cancel_update">
+          <source-position filename="caja-info-provider.h" line="70"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="InfoProvider" c:type="CajaInfoProvider*"/>
+            </parameter>
+            <parameter name="handle" transfer-ownership="none">
+              <type name="OperationHandle" c:type="CajaOperationHandle*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <callback name="InfoProviderUpdateComplete"
+              c:type="CajaInfoProviderUpdateComplete">
+      <source-position filename="caja-info-provider.h" line="47"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="provider" transfer-ownership="none">
+          <type name="InfoProvider" c:type="CajaInfoProvider*"/>
+        </parameter>
+        <parameter name="handle" transfer-ownership="none">
+          <type name="OperationHandle" c:type="CajaOperationHandle*"/>
+        </parameter>
+        <parameter name="result" transfer-ownership="none">
+          <type name="OperationResult" c:type="CajaOperationResult"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="3">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <function-macro name="LOCATION_WIDGET_PROVIDER"
+                    c:identifier="CAJA_LOCATION_WIDGET_PROVIDER"
+                    introspectable="0">
+      <source-position filename="caja-location-widget-provider.h" line="42"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LOCATION_WIDGET_PROVIDER_GET_IFACE"
+                    c:identifier="CAJA_LOCATION_WIDGET_PROVIDER_GET_IFACE"
+                    introspectable="0">
+      <source-position filename="caja-location-widget-provider.h" line="44"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <interface name="LocationWidgetProvider"
+               c:symbol-prefix="location_widget_provider"
+               c:type="CajaLocationWidgetProvider"
+               glib:type-name="CajaLocationWidgetProvider"
+               glib:get-type="caja_location_widget_provider_get_type"
+               glib:type-struct="LocationWidgetProviderIface">
+      <source-position filename="caja-location-widget-provider.h" line="63"/>
+      <virtual-method name="get_widget" invoker="get_widget">
+        <source-position filename="caja-location-widget-provider.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="caja-location-widget-provider.c"
+               line="78">the location widget for @provider at @uri</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-location-widget-provider.c"
+                 line="74">a #CajaLocationWidgetProvider</doc>
+            <type name="LocationWidgetProvider"
+                  c:type="CajaLocationWidgetProvider*"/>
+          </instance-parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-location-widget-provider.c"
+                 line="75">the URI of the location</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-location-widget-provider.c"
+                 line="76">parent #GtkWindow</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_widget"
+              c:identifier="caja_location_widget_provider_get_widget">
+        <source-position filename="caja-location-widget-provider.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="caja-location-widget-provider.c"
+               line="78">the location widget for @provider at @uri</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-location-widget-provider.c"
+                 line="74">a #CajaLocationWidgetProvider</doc>
+            <type name="LocationWidgetProvider"
+                  c:type="CajaLocationWidgetProvider*"/>
+          </instance-parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-location-widget-provider.c"
+                 line="75">the URI of the location</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-location-widget-provider.c"
+                 line="76">parent #GtkWindow</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="LocationWidgetProviderIface"
+            c:type="CajaLocationWidgetProviderIface"
+            glib:is-gtype-struct-for="LocationWidgetProvider">
+      <doc xml:space="preserve"
+           filename="caja-location-widget-provider.h"
+           line="49">Interface for extensions to provide additional location widgets.</doc>
+      <source-position filename="caja-location-widget-provider.h" line="63"/>
+      <field name="g_iface">
+        <doc xml:space="preserve"
+             filename="caja-location-widget-provider.h"
+             line="51">The parent interface.</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_widget">
+        <callback name="get_widget">
+          <source-position filename="caja-location-widget-provider.h"
+                           line="60"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-location-widget-provider.c"
+                 line="78">the location widget for @provider at @uri</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-location-widget-provider.c"
+                   line="74">a #CajaLocationWidgetProvider</doc>
+              <type name="LocationWidgetProvider"
+                    c:type="CajaLocationWidgetProvider*"/>
+            </parameter>
+            <parameter name="uri" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-location-widget-provider.c"
+                   line="75">the URI of the location</doc>
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="window" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-location-widget-provider.c"
+                   line="76">parent #GtkWindow</doc>
+              <type name="Gtk.Widget" c:type="GtkWidget*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <function-macro name="MENU" c:identifier="CAJA_MENU" introspectable="0">
+      <source-position filename="caja-menu.h" line="36"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_CLASS"
+                    c:identifier="CAJA_MENU_CLASS"
+                    introspectable="0">
+      <source-position filename="caja-menu.h" line="37"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_GET_CLASS"
+                    c:identifier="CAJA_MENU_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="caja-menu.h" line="40"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_IS_ITEM"
+                    c:identifier="CAJA_MENU_IS_ITEM"
+                    introspectable="0">
+      <source-position filename="caja-menu.h" line="45"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_IS_ITEM_CLASS"
+                    c:identifier="CAJA_MENU_IS_ITEM_CLASS"
+                    introspectable="0">
+      <source-position filename="caja-menu.h" line="46"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_ITEM"
+                    c:identifier="CAJA_MENU_ITEM"
+                    introspectable="0">
+      <source-position filename="caja-menu.h" line="43"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_ITEM_CLASS"
+                    c:identifier="CAJA_MENU_ITEM_CLASS"
+                    introspectable="0">
+      <source-position filename="caja-menu.h" line="44"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_ITEM_GET_CLASS"
+                    c:identifier="CAJA_MENU_ITEM_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="caja-menu.h" line="47"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_PROVIDER"
+                    c:identifier="CAJA_MENU_PROVIDER"
+                    introspectable="0">
+      <source-position filename="caja-menu-provider.h" line="42"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_PROVIDER_GET_IFACE"
+                    c:identifier="CAJA_MENU_PROVIDER_GET_IFACE"
+                    introspectable="0">
+      <source-position filename="caja-menu-provider.h" line="44"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Menu"
+           c:symbol-prefix="menu"
+           c:type="CajaMenu"
+           parent="GObject.Object"
+           glib:type-name="CajaMenu"
+           glib:get-type="caja_menu_get_type"
+           glib:type-struct="MenuClass">
+      <source-position filename="caja-menu.h" line="66"/>
+      <constructor name="new" c:identifier="caja_menu_new">
+        <source-position filename="caja-menu.h" line="83"/>
+        <return-value transfer-ownership="full">
+          <type name="Menu" c:type="CajaMenu*"/>
+        </return-value>
+      </constructor>
+      <method name="append_item" c:identifier="caja_menu_append_item">
+        <source-position filename="caja-menu.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <type name="Menu" c:type="CajaMenu*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="CajaMenuItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_items" c:identifier="caja_menu_get_items">
+        <source-position filename="caja-menu.h" line="87"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-menu.c"
+               line="64">the provided #CajaMenuItem list</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu.c"
+                 line="62">a #CajaMenu</doc>
+            <type name="Menu" c:type="CajaMenu*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="MenuPrivate" c:type="CajaMenuPrivate*"/>
+      </field>
+    </class>
+    <record name="MenuClass"
+            c:type="CajaMenuClass"
+            glib:is-gtype-struct-for="Menu">
+      <source-position filename="caja-menu.h" line="66"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="MenuItem"
+           c:symbol-prefix="menu_item"
+           c:type="CajaMenuItem"
+           parent="GObject.Object"
+           glib:type-name="CajaMenuItem"
+           glib:get-type="caja_menu_item_get_type"
+           glib:type-struct="MenuItemClass">
+      <source-position filename="caja-menu.h" line="79"/>
+      <constructor name="new" c:identifier="caja_menu_item_new">
+        <doc xml:space="preserve"
+             filename="caja-menu-item.c"
+             line="78">Creates a new menu item that can be added to the toolbar or to a contextual menu.</doc>
+        <source-position filename="caja-menu.h" line="92"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-menu-item.c"
+               line="87">a newly create #CajaMenuItem</doc>
+          <type name="MenuItem" c:type="CajaMenuItem*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-item.c"
+                 line="80">the identifier for the menu item</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="label" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-item.c"
+                 line="81">the user-visible label of the menu item</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="tip" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-item.c"
+                 line="82">the tooltip of the menu item</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="icon" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-item.c"
+                 line="83">the name of the icon to display in the menu item</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="list_free" c:identifier="caja_menu_item_list_free">
+        <source-position filename="caja-menu.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="item_list" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu.c"
+                 line="81">a list of #CajaMenuItem</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="MenuItem"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="activate" invoker="activate">
+        <doc xml:space="preserve"
+             filename="caja-menu-item.c"
+             line="111">emits the activate signal.</doc>
+        <source-position filename="caja-menu.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-item.c"
+                 line="113">pointer to a #CajaMenuItem</doc>
+            <type name="MenuItem" c:type="CajaMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="activate" c:identifier="caja_menu_item_activate">
+        <doc xml:space="preserve"
+             filename="caja-menu-item.c"
+             line="111">emits the activate signal.</doc>
+        <source-position filename="caja-menu.h" line="97"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-item.c"
+                 line="113">pointer to a #CajaMenuItem</doc>
+            <type name="MenuItem" c:type="CajaMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_submenu" c:identifier="caja_menu_item_set_submenu">
+        <doc xml:space="preserve"
+             filename="caja-menu-item.c"
+             line="123">Attachs a menu to the given #CajaMenuItem.</doc>
+        <source-position filename="caja-menu.h" line="98"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-item.c"
+                 line="125">pointer to a #CajaMenuItem</doc>
+            <type name="MenuItem" c:type="CajaMenuItem*"/>
+          </instance-parameter>
+          <parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-item.c"
+                 line="126">pointer to a #CajaMenu to attach to the button</doc>
+            <type name="Menu" c:type="CajaMenu*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="icon"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="label"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="menu" writable="1" transfer-ownership="none">
+        <type name="Menu"/>
+      </property>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="priority"
+                writable="1"
+                transfer-ownership="none"
+                default-value="TRUE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="sensitive"
+                writable="1"
+                transfer-ownership="none"
+                default-value="TRUE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="tip"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="details">
+        <type name="MenuItemDetails" c:type="CajaMenuItemDetails*"/>
+      </field>
+      <glib:signal name="activate" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="MenuItemClass"
+            c:type="CajaMenuItemClass"
+            glib:is-gtype-struct-for="MenuItem">
+      <source-position filename="caja-menu.h" line="79"/>
+      <field name="parent">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="activate">
+        <callback name="activate">
+          <source-position filename="caja-menu.h" line="78"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="item" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-menu-item.c"
+                   line="113">pointer to a #CajaMenuItem</doc>
+              <type name="MenuItem" c:type="CajaMenuItem*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="MenuItemDetails"
+            c:type="CajaMenuItemDetails"
+            disguised="1"
+            opaque="1">
+      <source-position filename="caja-menu.h" line="55"/>
+    </record>
+    <record name="MenuPrivate"
+            c:type="CajaMenuPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="caja-menu.h" line="51"/>
+    </record>
+    <interface name="MenuProvider"
+               c:symbol-prefix="menu_provider"
+               c:type="CajaMenuProvider"
+               glib:type-name="CajaMenuProvider"
+               glib:get-type="caja_menu_provider_get_type"
+               glib:type-struct="MenuProviderIface">
+      <source-position filename="caja-menu-provider.h" line="74"/>
+      <virtual-method name="get_background_items"
+                      invoker="get_background_items">
+        <source-position filename="caja-menu-provider.h" line="68"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-menu-provider.c"
+               line="115">the provided list of #CajaMenuItem</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="111">a #CajaMenuProvider</doc>
+            <type name="MenuProvider" c:type="CajaMenuProvider*"/>
+          </instance-parameter>
+          <parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="112">the parent #GtkWidget window</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="current_folder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="113">the folder for which background items are requested</doc>
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_file_items" invoker="get_file_items">
+        <source-position filename="caja-menu-provider.h" line="65"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-menu-provider.c"
+               line="92">the provided list of #CajaMenuItem</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="88">a #CajaMenuProvider</doc>
+            <type name="MenuProvider" c:type="CajaMenuProvider*"/>
+          </instance-parameter>
+          <parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="89">the parent #GtkWidget window</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="files" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="90">a list of #CajaFileInfo</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_toolbar_items" invoker="get_toolbar_items">
+        <source-position filename="caja-menu-provider.h" line="71"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-menu-provider.c"
+               line="139">the provided list of #CajaMenuItem</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="135">a #CajaMenuProvider</doc>
+            <type name="MenuProvider" c:type="CajaMenuProvider*"/>
+          </instance-parameter>
+          <parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="136">the parent #GtkWidget window</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="current_folder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="137">the folder for which toolbar items are requested</doc>
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="emit_items_updated_signal"
+              c:identifier="caja_menu_provider_emit_items_updated_signal">
+        <source-position filename="caja-menu-provider.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="MenuProvider" c:type="CajaMenuProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_background_items"
+              c:identifier="caja_menu_provider_get_background_items">
+        <source-position filename="caja-menu-provider.h" line="81"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-menu-provider.c"
+               line="115">the provided list of #CajaMenuItem</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="111">a #CajaMenuProvider</doc>
+            <type name="MenuProvider" c:type="CajaMenuProvider*"/>
+          </instance-parameter>
+          <parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="112">the parent #GtkWidget window</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="current_folder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="113">the folder for which background items are requested</doc>
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_file_items"
+              c:identifier="caja_menu_provider_get_file_items">
+        <source-position filename="caja-menu-provider.h" line="78"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-menu-provider.c"
+               line="92">the provided list of #CajaMenuItem</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="88">a #CajaMenuProvider</doc>
+            <type name="MenuProvider" c:type="CajaMenuProvider*"/>
+          </instance-parameter>
+          <parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="89">the parent #GtkWidget window</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="files" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="90">a list of #CajaFileInfo</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_toolbar_items"
+              c:identifier="caja_menu_provider_get_toolbar_items">
+        <source-position filename="caja-menu-provider.h" line="84"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-menu-provider.c"
+               line="139">the provided list of #CajaMenuItem</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="135">a #CajaMenuProvider</doc>
+            <type name="MenuProvider" c:type="CajaMenuProvider*"/>
+          </instance-parameter>
+          <parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="136">the parent #GtkWidget window</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="current_folder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="137">the folder for which toolbar items are requested</doc>
+            <type name="FileInfo" c:type="CajaFileInfo*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <glib:signal name="items-updated" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </interface>
+    <record name="MenuProviderIface"
+            c:type="CajaMenuProviderIface"
+            glib:is-gtype-struct-for="MenuProvider">
+      <doc xml:space="preserve"
+           filename="caja-menu-provider.h"
+           line="49">Interface for extensions to provide additional menu items.</doc>
+      <source-position filename="caja-menu-provider.h" line="74"/>
+      <field name="g_iface">
+        <doc xml:space="preserve"
+             filename="caja-menu-provider.h"
+             line="51">The parent interface.</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_file_items">
+        <callback name="get_file_items">
+          <source-position filename="caja-menu-provider.h" line="65"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="92">the provided list of #CajaMenuItem</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="MenuItem"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-menu-provider.c"
+                   line="88">a #CajaMenuProvider</doc>
+              <type name="MenuProvider" c:type="CajaMenuProvider*"/>
+            </parameter>
+            <parameter name="window" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-menu-provider.c"
+                   line="89">the parent #GtkWidget window</doc>
+              <type name="Gtk.Widget" c:type="GtkWidget*"/>
+            </parameter>
+            <parameter name="files" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-menu-provider.c"
+                   line="90">a list of #CajaFileInfo</doc>
+              <type name="GLib.List" c:type="GList*">
+                <type name="FileInfo"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_background_items">
+        <callback name="get_background_items">
+          <source-position filename="caja-menu-provider.h" line="68"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="115">the provided list of #CajaMenuItem</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="MenuItem"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-menu-provider.c"
+                   line="111">a #CajaMenuProvider</doc>
+              <type name="MenuProvider" c:type="CajaMenuProvider*"/>
+            </parameter>
+            <parameter name="window" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-menu-provider.c"
+                   line="112">the parent #GtkWidget window</doc>
+              <type name="Gtk.Widget" c:type="GtkWidget*"/>
+            </parameter>
+            <parameter name="current_folder" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-menu-provider.c"
+                   line="113">the folder for which background items are requested</doc>
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_toolbar_items">
+        <callback name="get_toolbar_items">
+          <source-position filename="caja-menu-provider.h" line="71"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="caja-menu-provider.c"
+                 line="139">the provided list of #CajaMenuItem</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="MenuItem"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-menu-provider.c"
+                   line="135">a #CajaMenuProvider</doc>
+              <type name="MenuProvider" c:type="CajaMenuProvider*"/>
+            </parameter>
+            <parameter name="window" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-menu-provider.c"
+                   line="136">the parent #GtkWidget window</doc>
+              <type name="Gtk.Widget" c:type="GtkWidget*"/>
+            </parameter>
+            <parameter name="current_folder" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-menu-provider.c"
+                   line="137">the folder for which toolbar items are requested</doc>
+              <type name="FileInfo" c:type="CajaFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="OperationHandle"
+            c:type="CajaOperationHandle"
+            disguised="1"
+            opaque="1">
+      <doc xml:space="preserve"
+           filename="caja-extension-types.h"
+           line="38">Handle for asynchronous interfaces. These are opaque handles that must
+be unique within an extension object. These are returned by operations
+that return CAJA_OPERATION_IN_PROGRESS.</doc>
+      <source-position filename="caja-extension-types.h" line="45"/>
+    </record>
+    <enumeration name="OperationResult"
+                 glib:type-name="CajaOperationResult"
+                 glib:get-type="caja_operation_result_get_type"
+                 c:type="CajaOperationResult">
+      <member name="complete"
+              value="0"
+              c:identifier="CAJA_OPERATION_COMPLETE"
+              glib:nick="complete"
+              glib:name="CAJA_OPERATION_COMPLETE">
+        <doc xml:space="preserve"
+             filename="caja-extension-types.h"
+             line="49">the operation succeeded, and the extension
+ is done with the request.</doc>
+      </member>
+      <member name="failed"
+              value="1"
+              c:identifier="CAJA_OPERATION_FAILED"
+              glib:nick="failed"
+              glib:name="CAJA_OPERATION_FAILED">
+        <doc xml:space="preserve"
+             filename="caja-extension-types.h"
+             line="51">the operation failed.</doc>
+      </member>
+      <member name="in_progress"
+              value="2"
+              c:identifier="CAJA_OPERATION_IN_PROGRESS"
+              glib:nick="in_progress"
+              glib:name="CAJA_OPERATION_IN_PROGRESS">
+        <doc xml:space="preserve"
+             filename="caja-extension-types.h"
+             line="52">the extension has begin an async operation.
+ When this value is returned, the extension must set the handle parameter
+ and call the callback closure when the operation is complete.</doc>
+      </member>
+    </enumeration>
+    <function-macro name="PROPERTY_PAGE"
+                    c:identifier="CAJA_PROPERTY_PAGE"
+                    introspectable="0">
+      <source-position filename="caja-property-page.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PROPERTY_PAGE_CLASS"
+                    c:identifier="CAJA_PROPERTY_PAGE_CLASS"
+                    introspectable="0">
+      <source-position filename="caja-property-page.h" line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PROPERTY_PAGE_GET_CLASS"
+                    c:identifier="CAJA_PROPERTY_PAGE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="caja-property-page.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PROPERTY_PAGE_PROVIDER"
+                    c:identifier="CAJA_PROPERTY_PAGE_PROVIDER"
+                    introspectable="0">
+      <source-position filename="caja-property-page-provider.h" line="42"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PROPERTY_PAGE_PROVIDER_GET_IFACE"
+                    c:identifier="CAJA_PROPERTY_PAGE_PROVIDER_GET_IFACE"
+                    introspectable="0">
+      <source-position filename="caja-property-page-provider.h" line="44"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="PropertyPage"
+           c:symbol-prefix="property_page"
+           c:type="CajaPropertyPage"
+           parent="GObject.Object"
+           glib:type-name="CajaPropertyPage"
+           glib:get-type="caja_property_page_get_type"
+           glib:type-struct="PropertyPageClass">
+      <source-position filename="caja-property-page.h" line="53"/>
+      <constructor name="new" c:identifier="caja_property_page_new">
+        <doc xml:space="preserve"
+             filename="caja-property-page.c"
+             line="62">Creates a new #CajaPropertyPage from page_widget.</doc>
+        <source-position filename="caja-property-page.h" line="56"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-property-page.c"
+               line="70">a newly created #CajaPropertyPage</doc>
+          <type name="PropertyPage" c:type="CajaPropertyPage*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-property-page.c"
+                 line="64">the identifier for the property page</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="label" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-property-page.c"
+                 line="65">the user-visible label of the property page</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-property-page.c"
+                 line="66">the property page to display</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="label" writable="1" transfer-ownership="none">
+        <type name="Gtk.Widget"/>
+      </property>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="page" writable="1" transfer-ownership="none">
+        <type name="Gtk.Widget"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="details">
+        <type name="PropertyPageDetails" c:type="CajaPropertyPageDetails*"/>
+      </field>
+    </class>
+    <record name="PropertyPageClass"
+            c:type="CajaPropertyPageClass"
+            glib:is-gtype-struct-for="PropertyPage">
+      <source-position filename="caja-property-page.h" line="53"/>
+      <field name="parent">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="PropertyPageDetails"
+            c:type="CajaPropertyPageDetails"
+            disguised="1"
+            opaque="1">
+      <source-position filename="caja-property-page.h" line="42"/>
+    </record>
+    <interface name="PropertyPageProvider"
+               c:symbol-prefix="property_page_provider"
+               c:type="CajaPropertyPageProvider"
+               glib:type-name="CajaPropertyPageProvider"
+               glib:get-type="caja_property_page_provider_get_type"
+               glib:type-struct="PropertyPageProviderIface">
+      <source-position filename="caja-property-page-provider.h" line="63"/>
+      <virtual-method name="get_pages" invoker="get_pages">
+        <doc xml:space="preserve"
+             filename="caja-property-page-provider.c"
+             line="73">This function is called by Caja when it wants property page
+items from the extension.
+
+This function is called in the main thread before a property page
+is shown, so it should return quickly.</doc>
+        <source-position filename="caja-property-page-provider.h" line="61"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-property-page-provider.c"
+               line="84">A #GList of allocated #CajaPropertyPage items.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="PropertyPage"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-property-page-provider.c"
+                 line="75">a #CajaPropertyPageProvider</doc>
+            <type name="PropertyPageProvider"
+                  c:type="CajaPropertyPageProvider*"/>
+          </instance-parameter>
+          <parameter name="files" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-property-page-provider.c"
+                 line="76">a #GList of #CajaFileInfo</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_pages"
+              c:identifier="caja_property_page_provider_get_pages">
+        <doc xml:space="preserve"
+             filename="caja-property-page-provider.c"
+             line="73">This function is called by Caja when it wants property page
+items from the extension.
+
+This function is called in the main thread before a property page
+is shown, so it should return quickly.</doc>
+        <source-position filename="caja-property-page-provider.h" line="67"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-property-page-provider.c"
+               line="84">A #GList of allocated #CajaPropertyPage items.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="PropertyPage"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-property-page-provider.c"
+                 line="75">a #CajaPropertyPageProvider</doc>
+            <type name="PropertyPageProvider"
+                  c:type="CajaPropertyPageProvider*"/>
+          </instance-parameter>
+          <parameter name="files" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-property-page-provider.c"
+                 line="76">a #GList of #CajaFileInfo</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="PropertyPageProviderIface"
+            c:type="CajaPropertyPageProviderIface"
+            glib:is-gtype-struct-for="PropertyPageProvider">
+      <doc xml:space="preserve"
+           filename="caja-property-page-provider.h"
+           line="49">Interface for extensions to provide additional property pages.</doc>
+      <source-position filename="caja-property-page-provider.h" line="63"/>
+      <field name="g_iface">
+        <doc xml:space="preserve"
+             filename="caja-property-page-provider.h"
+             line="51">The parent interface.</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_pages">
+        <callback name="get_pages">
+          <source-position filename="caja-property-page-provider.h" line="61"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="caja-property-page-provider.c"
+                 line="84">A #GList of allocated #CajaPropertyPage items.</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="PropertyPage"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-property-page-provider.c"
+                   line="75">a #CajaPropertyPageProvider</doc>
+              <type name="PropertyPageProvider"
+                    c:type="CajaPropertyPageProvider*"/>
+            </parameter>
+            <parameter name="files" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-property-page-provider.c"
+                   line="76">a #GList of #CajaFileInfo</doc>
+              <type name="GLib.List" c:type="GList*">
+                <type name="FileInfo"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <function-macro name="WIDGET_VIEW_PROVIDER"
+                    c:identifier="CAJA_WIDGET_VIEW_PROVIDER"
+                    introspectable="0">
+      <source-position filename="caja-widget-view-provider.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="WIDGET_VIEW_PROVIDER_GET_IFACE"
+                    c:identifier="CAJA_WIDGET_VIEW_PROVIDER_GET_IFACE"
+                    introspectable="0">
+      <source-position filename="caja-widget-view-provider.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <interface name="WidgetViewProvider"
+               c:symbol-prefix="widget_view_provider"
+               c:type="CajaWidgetViewProvider"
+               glib:type-name="CajaWidgetViewProvider"
+               glib:get-type="caja_widget_view_provider_get_type"
+               glib:type-struct="WidgetViewProviderIface">
+      <source-position filename="caja-widget-view-provider.h" line="69"/>
+      <virtual-method name="add_file" invoker="add_file">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.c"
+             line="87">Add a file of this location into the widget view.</doc>
+        <source-position filename="caja-widget-view-provider.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="89">a #CajaWidgetViewProvider</doc>
+            <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="90">add a #CajaFile into the widget view.</doc>
+            <type name="File" c:type="CajaFile*"/>
+          </parameter>
+          <parameter name="directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="91">the directory of the file.</doc>
+            <type name="File" c:type="CajaFile*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="clear" invoker="clear">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.c"
+             line="164">Clear the content of this widget view.</doc>
+        <source-position filename="caja-widget-view-provider.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="166">a #CajaWidgetViewProvider</doc>
+            <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_first_visible_file"
+                      invoker="get_first_visible_file">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.c"
+             line="147">Return the first visible file. When use start visit the location, the caja's status is waiting, until
+get the first visible file.</doc>
+        <source-position filename="caja-widget-view-provider.h" line="67"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-widget-view-provider.c"
+               line="154">the first visible file.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="149">a #CajaWidgetViewProvider</doc>
+            <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_item_count" invoker="get_item_count">
+        <source-position filename="caja-widget-view-provider.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="caja-widget-view-provider.c"
+               line="137">The item count of this #CajaWidgetViewProvider</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="135">a #CajaWidgetViewProvider</doc>
+            <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_widget"
+                      invoker="get_widget"
+                      introspectable="0">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.c"
+             line="70">Return a #GtkWidget to show the current location content.</doc>
+        <source-position filename="caja-widget-view-provider.h" line="62"/>
+        <return-value>
+          <doc xml:space="preserve"
+               filename="caja-widget-view-provider.c"
+               line="76">The #GtkWidget used to show the contents.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="72">a #CajaWidgetViewProvider</doc>
+            <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_location" invoker="set_location">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.c"
+             line="103">Set the location of this #CajaWidgetViewProvider.</doc>
+        <source-position filename="caja-widget-view-provider.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="105">a #CajaWidgetViewProvider</doc>
+            <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
+          </instance-parameter>
+          <parameter name="location" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_window" invoker="set_window">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.c"
+             line="118">Set parent #GtkWindow of this #CajaWidgetViewProvider.</doc>
+        <source-position filename="caja-widget-view-provider.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="120">a #CajaWidgetViewProvider</doc>
+            <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
+          </instance-parameter>
+          <parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="121">parent #GtkWindow</doc>
+            <type name="Gtk.Window" c:type="GtkWindow*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="supports_uri" invoker="supports_uri">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.c"
+             line="178">Whether this widget view works for the uri.</doc>
+        <source-position filename="caja-widget-view-provider.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="caja-widget-view-provider.c"
+               line="187">True to use custom widget view, False to ignore, and caja use normal view.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="180">a #CajaWidgetViewProvider</doc>
+            <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
+          </instance-parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="181">the location to visit.</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="file_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="182">The #GFileType for the uri</doc>
+            <type name="Gio.FileType" c:type="GFileType"/>
+          </parameter>
+          <parameter name="mime_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="183">The mimetype for the uri</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="add_file"
+              c:identifier="caja_widget_view_provider_add_file">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.c"
+             line="87">Add a file of this location into the widget view.</doc>
+        <source-position filename="caja-widget-view-provider.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="89">a #CajaWidgetViewProvider</doc>
+            <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="90">add a #CajaFile into the widget view.</doc>
+            <type name="File" c:type="CajaFile*"/>
+          </parameter>
+          <parameter name="directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="91">the directory of the file.</doc>
+            <type name="File" c:type="CajaFile*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="clear" c:identifier="caja_widget_view_provider_clear">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.c"
+             line="164">Clear the content of this widget view.</doc>
+        <source-position filename="caja-widget-view-provider.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="166">a #CajaWidgetViewProvider</doc>
+            <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_first_visible_file"
+              c:identifier="caja_widget_view_provider_get_first_visible_file">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.c"
+             line="147">Return the first visible file. When use start visit the location, the caja's status is waiting, until
+get the first visible file.</doc>
+        <source-position filename="caja-widget-view-provider.h" line="83"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="caja-widget-view-provider.c"
+               line="154">the first visible file.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="149">a #CajaWidgetViewProvider</doc>
+            <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_item_count"
+              c:identifier="caja_widget_view_provider_get_item_count">
+        <source-position filename="caja-widget-view-provider.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="caja-widget-view-provider.c"
+               line="137">The item count of this #CajaWidgetViewProvider</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="135">a #CajaWidgetViewProvider</doc>
+            <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_widget"
+              c:identifier="caja_widget_view_provider_get_widget"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.c"
+             line="70">Return a #GtkWidget to show the current location content.</doc>
+        <source-position filename="caja-widget-view-provider.h" line="74"/>
+        <return-value>
+          <doc xml:space="preserve"
+               filename="caja-widget-view-provider.c"
+               line="76">The #GtkWidget used to show the contents.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="72">a #CajaWidgetViewProvider</doc>
+            <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_location"
+              c:identifier="caja_widget_view_provider_set_location">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.c"
+             line="103">Set the location of this #CajaWidgetViewProvider.</doc>
+        <source-position filename="caja-widget-view-provider.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="105">a #CajaWidgetViewProvider</doc>
+            <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
+          </instance-parameter>
+          <parameter name="location" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_window"
+              c:identifier="caja_widget_view_provider_set_window">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.c"
+             line="118">Set parent #GtkWindow of this #CajaWidgetViewProvider.</doc>
+        <source-position filename="caja-widget-view-provider.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="120">a #CajaWidgetViewProvider</doc>
+            <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
+          </instance-parameter>
+          <parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="121">parent #GtkWindow</doc>
+            <type name="Gtk.Window" c:type="GtkWindow*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="supports_uri"
+              c:identifier="caja_widget_view_provider_supports_uri">
+        <doc xml:space="preserve"
+             filename="caja-widget-view-provider.c"
+             line="178">Whether this widget view works for the uri.</doc>
+        <source-position filename="caja-widget-view-provider.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="caja-widget-view-provider.c"
+               line="187">True to use custom widget view, False to ignore, and caja use normal view.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="180">a #CajaWidgetViewProvider</doc>
+            <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
+          </instance-parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="181">the location to visit.</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="file_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="182">The #GFileType for the uri</doc>
+            <type name="Gio.FileType" c:type="GFileType"/>
+          </parameter>
+          <parameter name="mime_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="183">The mimetype for the uri</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="WidgetViewProviderIface"
+            c:type="CajaWidgetViewProviderIface"
+            glib:is-gtype-struct-for="WidgetViewProvider">
+      <doc xml:space="preserve"
+           filename="caja-widget-view-provider.h"
+           line="41">Interface for extensions to provide widgets view for content.</doc>
+      <source-position filename="caja-widget-view-provider.h" line="69"/>
+      <field name="g_iface">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="supports_uri">
+        <callback name="supports_uri">
+          <source-position filename="caja-widget-view-provider.h" line="58"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="187">True to use custom widget view, False to ignore, and caja use normal view.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-widget-view-provider.c"
+                   line="180">a #CajaWidgetViewProvider</doc>
+              <type name="WidgetViewProvider"
+                    c:type="CajaWidgetViewProvider*"/>
+            </parameter>
+            <parameter name="uri" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-widget-view-provider.c"
+                   line="181">the location to visit.</doc>
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="file_type" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-widget-view-provider.c"
+                   line="182">The #GFileType for the uri</doc>
+              <type name="Gio.FileType" c:type="GFileType"/>
+            </parameter>
+            <parameter name="mime_type" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-widget-view-provider.c"
+                   line="183">The mimetype for the uri</doc>
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_widget" introspectable="0">
+        <callback name="get_widget" introspectable="0">
+          <source-position filename="caja-widget-view-provider.h" line="62"/>
+          <return-value>
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="76">The #GtkWidget used to show the contents.</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-widget-view-provider.c"
+                   line="72">a #CajaWidgetViewProvider</doc>
+              <type name="WidgetViewProvider"
+                    c:type="CajaWidgetViewProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="add_file">
+        <callback name="add_file">
+          <source-position filename="caja-widget-view-provider.h" line="63"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-widget-view-provider.c"
+                   line="89">a #CajaWidgetViewProvider</doc>
+              <type name="WidgetViewProvider"
+                    c:type="CajaWidgetViewProvider*"/>
+            </parameter>
+            <parameter name="file" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-widget-view-provider.c"
+                   line="90">add a #CajaFile into the widget view.</doc>
+              <type name="File" c:type="CajaFile*"/>
+            </parameter>
+            <parameter name="directory" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-widget-view-provider.c"
+                   line="91">the directory of the file.</doc>
+              <type name="File" c:type="CajaFile*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_location">
+        <callback name="set_location">
+          <source-position filename="caja-widget-view-provider.h" line="64"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-widget-view-provider.c"
+                   line="105">a #CajaWidgetViewProvider</doc>
+              <type name="WidgetViewProvider"
+                    c:type="CajaWidgetViewProvider*"/>
+            </parameter>
+            <parameter name="location" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_window">
+        <callback name="set_window">
+          <source-position filename="caja-widget-view-provider.h" line="65"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-widget-view-provider.c"
+                   line="120">a #CajaWidgetViewProvider</doc>
+              <type name="WidgetViewProvider"
+                    c:type="CajaWidgetViewProvider*"/>
+            </parameter>
+            <parameter name="window" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-widget-view-provider.c"
+                   line="121">parent #GtkWindow</doc>
+              <type name="Gtk.Window" c:type="GtkWindow*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_item_count">
+        <callback name="get_item_count">
+          <source-position filename="caja-widget-view-provider.h" line="66"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="137">The item count of this #CajaWidgetViewProvider</doc>
+            <type name="guint" c:type="guint"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-widget-view-provider.c"
+                   line="135">a #CajaWidgetViewProvider</doc>
+              <type name="WidgetViewProvider"
+                    c:type="CajaWidgetViewProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_first_visible_file">
+        <callback name="get_first_visible_file">
+          <source-position filename="caja-widget-view-provider.h" line="67"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="caja-widget-view-provider.c"
+                 line="154">the first visible file.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-widget-view-provider.c"
+                   line="149">a #CajaWidgetViewProvider</doc>
+              <type name="WidgetViewProvider"
+                    c:type="CajaWidgetViewProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="clear">
+        <callback name="clear">
+          <source-position filename="caja-widget-view-provider.h" line="68"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="caja-widget-view-provider.c"
+                   line="166">a #CajaWidgetViewProvider</doc>
+              <type name="WidgetViewProvider"
+                    c:type="CajaWidgetViewProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <docsection name="caja-column">
+      <doc xml:space="preserve"
+           filename="caja-column.c"
+           line="54">#CajaColumn is an object that describes a column in the file manager
+list view. Extensions can provide #CajaColumn by registering a
+#CajaColumnProvider and returning them from
+caja_column_provider_get_columns(), which will be called by the main
+application when creating a view.</doc>
+    </docsection>
+    <docsection name="caja-column-provider">
+      <doc xml:space="preserve"
+           filename="caja-column-provider.c"
+           line="30">#CajaColumnProvider allows extension to provide additional columns
+in the file manager list view.</doc>
+    </docsection>
+    <docsection name="caja-configurable">
+      <doc xml:space="preserve"
+           filename="caja-configurable.c"
+           line="30">#CajaConfigurable allows an extension to show a configuration page.
+The presence of CajaConfigurable enables the 'Configure' button.</doc>
+    </docsection>
+    <docsection name="caja-extension-types">
+      <doc xml:space="preserve"
+           filename="caja-extension-types.h"
+           line="73">Methods that each extension implements.</doc>
+    </docsection>
+    <docsection name="caja-file-info">
+      <doc xml:space="preserve"
+           filename="caja-file-info.c"
+           line="28">#CajaFileInfo provides methods to get and modify information
+about file objects in the file manager.</doc>
+    </docsection>
+    <docsection name="caja-info-provider">
+      <doc xml:space="preserve"
+           filename="caja-info-provider.c"
+           line="30">#CajaInfoProvider allows extension to provide additional information about
+files. When caja_info_provider_update_file_info() is called by the application,
+extensions will know that it's time to add extra information to the provided
+#CajaFileInfo.</doc>
+    </docsection>
+    <docsection name="caja-location-widget-provider">
+      <doc xml:space="preserve"
+           filename="caja-location-widget-provider.c"
+           line="30">#CajaLocationWidgetProvider allows extension to provide additional location
+widgets in the file manager views.</doc>
+    </docsection>
+    <docsection name="caja-menu">
+      <doc xml:space="preserve"
+           filename="caja-menu.c"
+           line="33">#CajaMenu is an object that describes a submenu in a file manager
+menu. Extensions can provide #CajaMenu objects by attaching them to
+#CajaMenuItem objects, using caja_menu_item_set_submenu().</doc>
+    </docsection>
+    <docsection name="caja-menu-item">
+      <doc xml:space="preserve"
+           filename="caja-menu-item.c"
+           line="64">#CajaMenuItem is an object that describes an item in a file manager
+menu. Extensions can provide #CajaMenuItem objects by registering a
+#CajaMenuProvider and returning them from
+caja_menu_provider_get_file_items(), or
+caja_menu_provider_get_background_items(), which will be called by the
+main application when creating menus.</doc>
+    </docsection>
+    <docsection name="caja-menu-provider">
+      <doc xml:space="preserve"
+           filename="caja-menu-provider.c"
+           line="31">#CajaMenuProvider allows extension to provide additional menu items
+in the file manager menus.</doc>
+    </docsection>
+    <docsection name="caja-property-page">
+      <doc xml:space="preserve"
+           filename="caja-property-page.c"
+           line="49">#CajaPropertyPage is an object that describes a page in the file
+properties dialog. Extensions can provide #CajaPropertyPage objects
+by registering a #CajaPropertyPageProvider and returning them from
+caja_property_page_provider_get_pages(), which will be called by the
+main application when creating file properties dialogs.</doc>
+    </docsection>
+    <docsection name="caja-property-page-provider">
+      <doc xml:space="preserve"
+           filename="caja-property-page-provider.c"
+           line="31">#CajaPropertyPageProvider allows extension to provide additional pages
+for the file properties dialog.</doc>
+    </docsection>
+    <docsection name="caja-widget-view-provider">
+      <doc xml:space="preserve"
+           filename="caja-widget-view-provider.c"
+           line="28">#CajaWidgetViewProvider allows extension to provide widgets view
+in the file manager.</doc>
+    </docsection>
+    <function name="file_info_create"
+              c:identifier="caja_file_info_create"
+              moved-to="FileInfo.create">
+      <source-position filename="caja-file-info.h" line="172"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="caja-file-info.c"
+             line="337">a #CajaFileInfo</doc>
+        <type name="FileInfo" c:type="CajaFileInfo*"/>
+      </return-value>
+      <parameters>
+        <parameter name="location" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="caja-file-info.c"
+               line="335">the location to create the file info for</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_create_for_uri"
+              c:identifier="caja_file_info_create_for_uri"
+              moved-to="FileInfo.create_for_uri">
+      <source-position filename="caja-file-info.h" line="174"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="caja-file-info.c"
+             line="368">a #CajaFileInfo</doc>
+        <type name="FileInfo" c:type="CajaFileInfo*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uri" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="caja-file-info.c"
+               line="366">the URI to lookup the file info for</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_list_copy"
+              c:identifier="caja_file_info_list_copy"
+              moved-to="FileInfo.list_copy">
+      <source-position filename="caja-file-info.h" line="129"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="caja-file-info.c"
+             line="42">a copy of @files.
+ Use #caja_file_info_list_free to free the list and unref its contents.</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="FileInfo"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="files" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="caja-file-info.c"
+               line="40">the files to copy</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="FileInfo"/>
+          </type>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_list_free"
+              c:identifier="caja_file_info_list_free"
+              moved-to="FileInfo.list_free">
+      <source-position filename="caja-file-info.h" line="130"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="files" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="caja-file-info.c"
+               line="62">a list created with
+  #caja_file_info_list_copy</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="FileInfo"/>
+          </type>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_lookup"
+              c:identifier="caja_file_info_lookup"
+              moved-to="FileInfo.lookup">
+      <source-position filename="caja-file-info.h" line="171"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="caja-file-info.c"
+             line="325">a #CajaFileInfo</doc>
+        <type name="FileInfo" c:type="CajaFileInfo*"/>
+      </return-value>
+      <parameters>
+        <parameter name="location" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="caja-file-info.c"
+               line="323">the location to lookup the file info for</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_lookup_for_uri"
+              c:identifier="caja_file_info_lookup_for_uri"
+              moved-to="FileInfo.lookup_for_uri">
+      <source-position filename="caja-file-info.h" line="173"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="caja-file-info.c"
+             line="349">a #CajaFileInfo</doc>
+        <type name="FileInfo" c:type="CajaFileInfo*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uri" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="caja-file-info.c"
+               line="347">the URI to lookup the file info for</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="info_provider_update_complete_invoke"
+              c:identifier="caja_info_provider_update_complete_invoke"
+              moved-to="InfoProvider.update_complete_invoke">
+      <source-position filename="caja-info-provider.h" line="86"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="update_complete" transfer-ownership="none">
+          <type name="GObject.Closure" c:type="GClosure*"/>
+        </parameter>
+        <parameter name="provider" transfer-ownership="none">
+          <type name="InfoProvider" c:type="CajaInfoProvider*"/>
+        </parameter>
+        <parameter name="handle" transfer-ownership="none">
+          <type name="OperationHandle" c:type="CajaOperationHandle*"/>
+        </parameter>
+        <parameter name="result" transfer-ownership="none">
+          <type name="OperationResult" c:type="CajaOperationResult"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="module_initialize" c:identifier="caja_module_initialize">
+      <source-position filename="caja-extension-types.h" line="82"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="module" transfer-ownership="none">
+          <type name="GObject.TypeModule" c:type="GTypeModule*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="module_list_pyfiles"
+              c:identifier="caja_module_list_pyfiles"
+              introspectable="0">
+      <source-position filename="caja-extension-types.h" line="86"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="pyfiles" transfer-ownership="none">
+          <type name="GLib.List" c:type="GList**">
+            <type name="gpointer" c:type="gpointer"/>
+          </type>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="module_list_types" c:identifier="caja_module_list_types">
+      <source-position filename="caja-extension-types.h" line="84"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="types" transfer-ownership="none">
+          <type name="GType" c:type="const GType**"/>
+        </parameter>
+        <parameter name="num_types" transfer-ownership="none">
+          <type name="gint" c:type="int*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="module_shutdown" c:identifier="caja_module_shutdown">
+      <source-position filename="caja-extension-types.h" line="83"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

@@ -141,8 +141,7 @@ and/or use gtk-doc annotations.  -->
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_duration"
-                default-value="0">
+                getter="get_duration">
         <type name="gint64" c:type="gint64"/>
       </property>
       <property name="end-actor"
@@ -156,22 +155,17 @@ and/or use gtk-doc annotations.  -->
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_end_reason"
-                default-value="0">
+                getter="get_end_reason">
         <type name="gint" c:type="gint"/>
       </property>
     </class>
     <record name="CallEventClass"
             c:type="TplCallEventClass"
             disguised="1"
-            opaque="1"
             glib:is-gtype-struct-for="CallEvent">
       <source-position filename="call-event.h" line="37"/>
     </record>
-    <record name="CallEventPriv"
-            c:type="TplCallEventPriv"
-            disguised="1"
-            opaque="1">
+    <record name="CallEventPriv" c:type="TplCallEventPriv" disguised="1">
       <source-position filename="call-event.h" line="38"/>
     </record>
     <function-macro name="ENTITY" c:identifier="TPL_ENTITY" introspectable="0">
@@ -379,8 +373,7 @@ normal contact and self contact, thus only %TPL_ENTITY_CONTACT and
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_alias"
-                default-value="NULL">
+                getter="get_alias">
         <doc xml:space="preserve"
              filename="entity.c"
              line="184">The entity's alias</doc>
@@ -390,8 +383,7 @@ normal contact and self contact, thus only %TPL_ENTITY_CONTACT and
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_avatar_token"
-                default-value="NULL">
+                getter="get_avatar_token">
         <doc xml:space="preserve"
              filename="entity.c"
              line="196">The entity's avatar token</doc>
@@ -401,8 +393,7 @@ normal contact and self contact, thus only %TPL_ENTITY_CONTACT and
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_identifier"
-                default-value="NULL">
+                getter="get_identifier">
         <doc xml:space="preserve"
              filename="entity.c"
              line="172">The entity's identifier</doc>
@@ -411,8 +402,7 @@ normal contact and self contact, thus only %TPL_ENTITY_CONTACT and
       <property name="type"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="0">
+                transfer-ownership="none">
         <doc xml:space="preserve"
              filename="entity.c"
              line="158">The entity's type (see #TplEntityType).</doc>
@@ -425,7 +415,7 @@ normal contact and self contact, thus only %TPL_ENTITY_CONTACT and
         <type name="EntityPriv" c:type="TplEntityPriv*"/>
       </field>
     </class>
-    <record name="EntityPriv" c:type="TplEntityPriv" disguised="1" opaque="1">
+    <record name="EntityPriv" c:type="TplEntityPriv" disguised="1">
       <source-position filename="entity.h" line="54"/>
     </record>
     <enumeration name="EntityType" c:type="TplEntityType">
@@ -603,15 +593,13 @@ data, %FALSE otherwise</doc>
       </property>
       <property name="account-path"
                 transfer-ownership="none"
-                getter="get_account_path"
-                default-value="NULL">
+                getter="get_account_path">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="channel-path"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none"
-                default-value="NULL">
+                transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="receiver"
@@ -632,19 +620,17 @@ data, %FALSE otherwise</doc>
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_timestamp"
-                default-value="0">
+                getter="get_timestamp">
         <type name="gint64" c:type="gint64"/>
       </property>
     </class>
     <record name="EventClass"
             c:type="TplEventClass"
             disguised="1"
-            opaque="1"
             glib:is-gtype-struct-for="Event">
       <source-position filename="event.h" line="39"/>
     </record>
-    <record name="EventPriv" c:type="TplEventPriv" disguised="1" opaque="1">
+    <record name="EventPriv" c:type="TplEventPriv" disguised="1">
       <source-position filename="event.h" line="40"/>
     </record>
     <bitfield name="EventTypeMask" c:type="TplEventTypeMask">
@@ -835,14 +821,14 @@ data, %FALSE otherwise</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="log-manager.c"
-             line="71">%TRUE if @event should appear in the result</doc>
+             line="70">%TRUE if @event should appear in the result</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="event" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="log-manager.c"
-               line="68">the #TplEvent to filter</doc>
+               line="67">the #TplEvent to filter</doc>
           <type name="Event" c:type="TplEvent*"/>
         </parameter>
         <parameter name="user_data"
@@ -852,7 +838,7 @@ data, %FALSE otherwise</doc>
                    closure="1">
           <doc xml:space="preserve"
                filename="log-manager.c"
-               line="69">user-supplied data</doc>
+               line="68">user-supplied data</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -866,7 +852,7 @@ data, %FALSE otherwise</doc>
            glib:type-struct="LogManagerClass">
       <doc xml:space="preserve"
            filename="log-manager.c"
-           line="60">An object used to access logs</doc>
+           line="59">An object used to access logs</doc>
       <source-position filename="log-manager.h" line="65"/>
       <function name="dup_singleton"
                 c:identifier="tpl_log_manager_dup_singleton">
@@ -874,7 +860,7 @@ data, %FALSE otherwise</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="log-manager.c"
-               line="304">a new reference on the log manager</doc>
+               line="303">a new reference on the log manager</doc>
           <type name="LogManager" c:type="TplLogManager*"/>
         </return-value>
       </function>
@@ -884,7 +870,7 @@ data, %FALSE otherwise</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="log-manager.c"
-               line="1495">the #GQuark associated with the error domain of #TplLogManager</doc>
+               line="1419">the #GQuark associated with the error domain of #TplLogManager</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </return-value>
       </function>
@@ -893,8 +879,8 @@ data, %FALSE otherwise</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="log-manager.c"
-             line="719">Free @hits and its content.</doc>
-        <source-position filename="log-manager.h" line="190"/>
+             line="704">Free @hits and its content.</doc>
+        <source-position filename="log-manager.h" line="178"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -902,72 +888,17 @@ data, %FALSE otherwise</doc>
           <parameter name="hits" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="721">a #GList of #TplLogSearchHit</doc>
+                 line="706">a #GList of #TplLogSearchHit</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="gpointer" c:type="gpointer"/>
             </type>
           </parameter>
         </parameters>
       </function>
-      <method name="disable_for_entity"
-              c:identifier="tpl_log_manager_disable_for_entity">
-        <doc xml:space="preserve"
-             filename="log-manager.c"
-             line="1557">Disables logging of events for given entity. By default logging is enabled
-for all entities.</doc>
-        <source-position filename="log-manager.h" line="178"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="log-manager.c"
-                 line="1559">the log manager
-@entity a TplEntity</doc>
-            <type name="LogManager" c:type="TplLogManager*"/>
-          </instance-parameter>
-          <parameter name="account" transfer-ownership="none">
-            <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
-          </parameter>
-          <parameter name="entity" transfer-ownership="none">
-            <type name="Entity" c:type="TplEntity*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="enable_for_entity"
-              c:identifier="tpl_log_manager_enable_for_entity">
-        <doc xml:space="preserve"
-             filename="log-manager.c"
-             line="1604">Re-enables logging of events for entity previously disabled by
-tpl_log_manager_disable_for_entity(). By default logging is enabled for all
-entities.</doc>
-        <source-position filename="log-manager.h" line="182"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="log-manager.c"
-                 line="1606">the log manager</doc>
-            <type name="LogManager" c:type="TplLogManager*"/>
-          </instance-parameter>
-          <parameter name="account" transfer-ownership="none">
-            <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
-          </parameter>
-          <parameter name="entity" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="log-manager.c"
-                 line="1607">a TplEntity</doc>
-            <type name="Entity" c:type="TplEntity*"/>
-          </parameter>
-        </parameters>
-      </method>
       <method name="exists" c:identifier="tpl_log_manager_exists">
         <doc xml:space="preserve"
              filename="log-manager.c"
-             line="439">Checks if logs exist for @target.
+             line="424">Checks if logs exist for @target.
 
 It applies for any registered TplLogStore with the TplLogStore:readable
 property %TRUE.</doc>
@@ -975,32 +906,32 @@ property %TRUE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="log-manager.c"
-               line="451">%TRUE logs exist for @target, otherwise %FALSE</doc>
+               line="436">%TRUE logs exist for @target, otherwise %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="441">TplLogManager</doc>
+                 line="426">TplLogManager</doc>
             <type name="LogManager" c:type="TplLogManager*"/>
           </instance-parameter>
           <parameter name="account" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="442">TpAccount</doc>
+                 line="427">TpAccount</doc>
             <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
           </parameter>
           <parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="443">a non-NULL #TplEntity</doc>
+                 line="428">a non-NULL #TplEntity</doc>
             <type name="Entity" c:type="TplEntity*"/>
           </parameter>
           <parameter name="type_mask" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="444">event type filter see #TplEventTypeMask</doc>
+                 line="429">event type filter see #TplEventTypeMask</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -1009,7 +940,7 @@ property %TRUE.</doc>
               c:identifier="tpl_log_manager_get_dates_async">
         <doc xml:space="preserve"
              filename="log-manager.c"
-             line="941">Retrieves a list of #GDate corresponding to each day where
+             line="860">Retrieves a list of #GDate corresponding to each day where
 at least one event exist for @target.
 
 It applies for any registered TplLogStore with the TplLogStore:readable
@@ -1022,25 +953,25 @@ property %TRUE.</doc>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="943">a #TplLogManager</doc>
+                 line="862">a #TplLogManager</doc>
             <type name="LogManager" c:type="TplLogManager*"/>
           </instance-parameter>
           <parameter name="account" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="944">a #TpAccount</doc>
+                 line="863">a #TpAccount</doc>
             <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
           </parameter>
           <parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="945">a non-NULL #TplEntity</doc>
+                 line="864">a non-NULL #TplEntity</doc>
             <type name="Entity" c:type="TplEntity*"/>
           </parameter>
           <parameter name="type_mask" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="946">event type filter see #TplEventTypeMask</doc>
+                 line="865">event type filter see #TplEventTypeMask</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="callback"
@@ -1051,7 +982,7 @@ property %TRUE.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="947">a callback to call when the request is satisfied</doc>
+                 line="866">a callback to call when the request is satisfied</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1060,7 +991,7 @@ property %TRUE.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="948">data to pass to @callback</doc>
+                 line="867">data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1072,20 +1003,20 @@ property %TRUE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="log-manager.c"
-               line="1001">#TRUE if the operation was successful, otherwise #FALSE</doc>
+               line="921">#TRUE if the operation was successful, otherwise #FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="995">a #TplLogManager</doc>
+                 line="915">a #TplLogManager</doc>
             <type name="LogManager" c:type="TplLogManager*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="996">a #GAsyncResult</doc>
+                 line="916">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
           <parameter name="dates"
@@ -1094,7 +1025,7 @@ property %TRUE.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="997">a pointer to a
+                 line="917">a pointer to a
  #GList used to return the list of #GDate</doc>
             <type name="GLib.List" c:type="GList**">
               <type name="GLib.Date"/>
@@ -1106,7 +1037,7 @@ property %TRUE.</doc>
               c:identifier="tpl_log_manager_get_entities_async">
         <doc xml:space="preserve"
              filename="log-manager.c"
-             line="1318">Start a query looking for all entities for which you have logs in the @account.</doc>
+             line="1240">Start a query looking for all entities for which you have logs in the @account.</doc>
         <source-position filename="log-manager.h" line="157"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1115,13 +1046,13 @@ property %TRUE.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1320">a #TplLogManager</doc>
+                 line="1242">a #TplLogManager</doc>
             <type name="LogManager" c:type="TplLogManager*"/>
           </instance-parameter>
           <parameter name="account" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1321">a #TpAccount</doc>
+                 line="1243">a #TpAccount</doc>
             <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
           </parameter>
           <parameter name="callback"
@@ -1132,7 +1063,7 @@ property %TRUE.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1322">a callback to call when the request is satisfied</doc>
+                 line="1244">a callback to call when the request is satisfied</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1141,7 +1072,7 @@ property %TRUE.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1323">data to pass to @callback</doc>
+                 line="1245">data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1153,20 +1084,20 @@ property %TRUE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="log-manager.c"
-               line="1368">#TRUE if the operation was successful, otherwise #FALSE</doc>
+               line="1291">#TRUE if the operation was successful, otherwise #FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1361">a #TplLogManager</doc>
+                 line="1284">a #TplLogManager</doc>
             <type name="LogManager" c:type="TplLogManager*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1362">a #GAsyncResult</doc>
+                 line="1285">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
           <parameter name="entities"
@@ -1175,7 +1106,7 @@ property %TRUE.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1363">a
+                 line="1286">a
  pointer to a #GList used to return the list of #TplEntity, to be freed
  using something like g_list_free_full (lst, g_object_unref)</doc>
             <type name="GLib.List" c:type="GList**">
@@ -1188,7 +1119,7 @@ property %TRUE.</doc>
               c:identifier="tpl_log_manager_get_events_for_date_async">
         <doc xml:space="preserve"
              filename="log-manager.c"
-             line="1051">Retrieve a list of #TplEvent at @date with @target.</doc>
+             line="971">Retrieve a list of #TplEvent at @date with @target.</doc>
         <source-position filename="log-manager.h" line="122"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1197,31 +1128,31 @@ property %TRUE.</doc>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1053">a #TplLogManager</doc>
+                 line="973">a #TplLogManager</doc>
             <type name="LogManager" c:type="TplLogManager*"/>
           </instance-parameter>
           <parameter name="account" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1054">a #TpAccount</doc>
+                 line="974">a #TpAccount</doc>
             <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
           </parameter>
           <parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1055">a non-NULL #TplEntity</doc>
+                 line="975">a non-NULL #TplEntity</doc>
             <type name="Entity" c:type="TplEntity*"/>
           </parameter>
           <parameter name="type_mask" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1056">event type filter see #TplEventTypeMask</doc>
+                 line="976">event type filter see #TplEventTypeMask</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="date" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1057">a #GDate</doc>
+                 line="977">a #GDate</doc>
             <type name="GLib.Date" c:type="const GDate*"/>
           </parameter>
           <parameter name="callback"
@@ -1232,7 +1163,7 @@ property %TRUE.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1058">a callback to call when the request is satisfied</doc>
+                 line="978">a callback to call when the request is satisfied</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1241,7 +1172,7 @@ property %TRUE.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1059">data to pass to @callback</doc>
+                 line="979">data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1253,20 +1184,20 @@ property %TRUE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="log-manager.c"
-               line="1111">#TRUE if the operation was successful, otherwise #FALSE</doc>
+               line="1032">#TRUE if the operation was successful, otherwise #FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1105">a #TplLogManager</doc>
+                 line="1026">a #TplLogManager</doc>
             <type name="LogManager" c:type="TplLogManager*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1106">a #GAsyncResult</doc>
+                 line="1027">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
           <parameter name="events"
@@ -1275,7 +1206,7 @@ property %TRUE.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1107">a
+                 line="1028">a
  pointer to a #GList used to return the list of #TplEvent</doc>
             <type name="GLib.List" c:type="GList**">
               <type name="Event"/>
@@ -1287,7 +1218,7 @@ property %TRUE.</doc>
               c:identifier="tpl_log_manager_get_filtered_events_async">
         <doc xml:space="preserve"
              filename="log-manager.c"
-             line="1160">Retrieve the most recent @num_event events exchanged with @target.</doc>
+             line="1081">Retrieve the most recent @num_event events exchanged with @target.</doc>
         <source-position filename="log-manager.h" line="135"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1296,31 +1227,31 @@ property %TRUE.</doc>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1162">a #TplLogManager</doc>
+                 line="1083">a #TplLogManager</doc>
             <type name="LogManager" c:type="TplLogManager*"/>
           </instance-parameter>
           <parameter name="account" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1163">a #TpAccount</doc>
+                 line="1084">a #TpAccount</doc>
             <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
           </parameter>
           <parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1164">a non-NULL #TplEntity</doc>
+                 line="1085">a non-NULL #TplEntity</doc>
             <type name="Entity" c:type="TplEntity*"/>
           </parameter>
           <parameter name="type_mask" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1165">event type filter see #TplEventTypeMask</doc>
+                 line="1086">event type filter see #TplEventTypeMask</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="num_events" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1166">number of maximum events to fetch</doc>
+                 line="1087">number of maximum events to fetch</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="filter"
@@ -1331,7 +1262,7 @@ property %TRUE.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1167">an optional filter function</doc>
+                 line="1088">an optional filter function</doc>
             <type name="LogEventFilter" c:type="TplLogEventFilter"/>
           </parameter>
           <parameter name="filter_user_data"
@@ -1340,7 +1271,7 @@ property %TRUE.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1168">user data to pass to @filter</doc>
+                 line="1089">user data to pass to @filter</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback"
@@ -1351,7 +1282,7 @@ property %TRUE.</doc>
                      closure="7">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1169">a callback to call when
+                 line="1090">a callback to call when
 the request is satisfied</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -1361,7 +1292,7 @@ the request is satisfied</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1171">data to pass to @callback</doc>
+                 line="1092">data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1373,20 +1304,20 @@ the request is satisfied</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="log-manager.c"
-               line="1227">#TRUE if the operation was successful, otherwise #FALSE.</doc>
+               line="1149">#TRUE if the operation was successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1221">a #TplLogManager</doc>
+                 line="1143">a #TplLogManager</doc>
             <type name="LogManager" c:type="TplLogManager*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1222">a #GAsyncResult</doc>
+                 line="1144">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
           <parameter name="events"
@@ -1395,7 +1326,7 @@ the request is satisfied</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1223">
+                 line="1145">
  a pointer to a #GList used to return the list #TplEvent</doc>
             <type name="GLib.List" c:type="GList**">
               <type name="Event"/>
@@ -1403,41 +1334,10 @@ the request is satisfied</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="is_disabled_for_entity"
-              c:identifier="tpl_log_manager_is_disabled_for_entity">
-        <doc xml:space="preserve"
-             filename="log-manager.c"
-             line="1655">Checks, whether logging is disabled for given entity. By default, logging
-is enabled for all entities.</doc>
-        <source-position filename="log-manager.h" line="186"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="log-manager.c"
-               line="1663">%TRUE if logging for the entity has been disabled, %FALSE otherwise.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="log-manager.c"
-                 line="1657">the log manager</doc>
-            <type name="LogManager" c:type="TplLogManager*"/>
-          </instance-parameter>
-          <parameter name="account" transfer-ownership="none">
-            <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
-          </parameter>
-          <parameter name="entity" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="log-manager.c"
-                 line="1658">a TplEntity</doc>
-            <type name="Entity" c:type="TplEntity*"/>
-          </parameter>
-        </parameters>
-      </method>
       <method name="search_async" c:identifier="tpl_log_manager_search_async">
         <doc xml:space="preserve"
              filename="log-manager.c"
-             line="1415">Search for all the conversations containing @text.</doc>
+             line="1338">Search for all the conversations containing @text.</doc>
         <source-position filename="log-manager.h" line="167"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1446,19 +1346,19 @@ is enabled for all entities.</doc>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1417">a #TplLogManager</doc>
+                 line="1340">a #TplLogManager</doc>
             <type name="LogManager" c:type="TplLogManager*"/>
           </instance-parameter>
           <parameter name="text" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1418">the pattern to search</doc>
+                 line="1341">the pattern to search</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="type_mask" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1419">event type filter see #TplEventTypeMask</doc>
+                 line="1342">event type filter see #TplEventTypeMask</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="callback"
@@ -1469,7 +1369,7 @@ is enabled for all entities.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1420">a callback to call when the request is satisfied</doc>
+                 line="1343">a callback to call when the request is satisfied</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1478,32 +1378,33 @@ is enabled for all entities.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1421">data to pass to @callback</doc>
+                 line="1344">data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
       </method>
       <method name="search_finish"
               c:identifier="tpl_log_manager_search_finish"
+              introspectable="0"
               throws="1">
         <source-position filename="log-manager.h" line="173"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="log-manager.c"
-               line="1466">#TRUE if the operation was successful, otherwise #FALSE</doc>
+               line="1390">#TRUE if the operation was successful, otherwise #FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1460">a #TplLogManager</doc>
+                 line="1384">a #TplLogManager</doc>
             <type name="LogManager" c:type="TplLogManager*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1461">a #GAsyncResult</doc>
+                 line="1385">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
           <parameter name="hits"
@@ -1512,10 +1413,10 @@ is enabled for all entities.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1462">a
+                 line="1386">a
  pointer to a #GList used to return the list of #TplLogSearchHit</doc>
             <type name="GLib.List" c:type="GList**">
-              <type name="LogSearchHit"/>
+              <type/>
             </type>
           </parameter>
         </parameters>
@@ -1524,37 +1425,37 @@ is enabled for all entities.</doc>
               c:identifier="tpl_log_manager_walk_filtered_events">
         <doc xml:space="preserve"
              filename="log-manager.c"
-             line="1254">Create a #TplLogWalker to traverse all the events exchanged with @target.</doc>
+             line="1176">Create a #TplLogWalker to traverse all the events exchanged with @target.</doc>
         <source-position filename="log-manager.h" line="150"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="log-manager.c"
-               line="1265">a #TplLogWalker</doc>
+               line="1187">a #TplLogWalker</doc>
           <type name="LogWalker" c:type="TplLogWalker*"/>
         </return-value>
         <parameters>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1256">a #TplLogManager</doc>
+                 line="1178">a #TplLogManager</doc>
             <type name="LogManager" c:type="TplLogManager*"/>
           </instance-parameter>
           <parameter name="account" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1257">a #TpAccount</doc>
+                 line="1179">a #TpAccount</doc>
             <type name="TelepathyGLib.Account" c:type="TpAccount*"/>
           </parameter>
           <parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1258">a non-NULL #TplEntity</doc>
+                 line="1180">a non-NULL #TplEntity</doc>
             <type name="Entity" c:type="TplEntity*"/>
           </parameter>
           <parameter name="type_mask" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1259">event type filter see #TplEventTypeMask</doc>
+                 line="1181">event type filter see #TplEventTypeMask</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="filter"
@@ -1565,7 +1466,7 @@ is enabled for all entities.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1260">an optional filter function</doc>
+                 line="1182">an optional filter function</doc>
             <type name="LogEventFilter" c:type="TplLogEventFilter"/>
           </parameter>
           <parameter name="filter_data"
@@ -1574,7 +1475,7 @@ is enabled for all entities.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="log-manager.c"
-                 line="1261">user data to pass to @filter</doc>
+                 line="1183">user data to pass to @filter</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1872,10 +1773,7 @@ the request is satisfied</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
-    <record name="LogWalkerPriv"
-            c:type="TplLogWalkerPriv"
-            disguised="1"
-            opaque="1">
+    <record name="LogWalkerPriv" c:type="TplLogWalkerPriv" disguised="1">
       <source-position filename="log-walker.h" line="53"/>
     </record>
     <function-macro name="TEXT_EVENT"
@@ -1923,14 +1821,14 @@ the request is satisfied</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="text-event.c"
-               line="400">the same value as the #TplTextEvent:edit-timestamp property</doc>
+               line="398">the same value as the #TplTextEvent:edit-timestamp property</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="text-event.c"
-                 line="398">a #TplTextEvent</doc>
+                 line="396">a #TplTextEvent</doc>
             <type name="TextEvent" c:type="TplTextEvent*"/>
           </instance-parameter>
         </parameters>
@@ -1942,14 +1840,14 @@ the request is satisfied</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="text-event.c"
-               line="298">the same message as the #TplTextEvent:message property</doc>
+               line="296">the same message as the #TplTextEvent:message property</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="text-event.c"
-                 line="296">a #TplTextEvent</doc>
+                 line="294">a #TplTextEvent</doc>
             <type name="TextEvent" c:type="TplTextEvent*"/>
           </instance-parameter>
         </parameters>
@@ -1961,14 +1859,14 @@ the request is satisfied</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="text-event.c"
-               line="313">the same message as the #TplTextEvent:message-token property</doc>
+               line="311">the same message as the #TplTextEvent:message-token property</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="text-event.c"
-                 line="311">a #TplTextEvent</doc>
+                 line="309">a #TplTextEvent</doc>
             <type name="TextEvent" c:type="TplTextEvent*"/>
           </instance-parameter>
         </parameters>
@@ -1980,7 +1878,7 @@ the request is satisfied</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="text-event.c"
-               line="384">the same message as the #TplTextEvent:message-type property</doc>
+               line="382">the same message as the #TplTextEvent:message-type property</doc>
           <type name="TelepathyGLib.ChannelTextMessageType"
                 c:type="TpChannelTextMessageType"/>
         </return-value>
@@ -1988,7 +1886,7 @@ the request is satisfied</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="text-event.c"
-                 line="382">a #TplTextEvent</doc>
+                 line="380">a #TplTextEvent</doc>
             <type name="TextEvent" c:type="TplTextEvent*"/>
           </instance-parameter>
         </parameters>
@@ -1999,7 +1897,7 @@ the request is satisfied</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="text-event.c"
-               line="369">A #GList
+               line="367">A #GList
  of #TplTextEvent that this event
 supersedes.</doc>
           <type name="GLib.List" c:type="GList*">
@@ -2010,7 +1908,7 @@ supersedes.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="text-event.c"
-                 line="367">a #TplTextEvent</doc>
+                 line="365">a #TplTextEvent</doc>
             <type name="TextEvent" c:type="TplTextEvent*"/>
           </instance-parameter>
         </parameters>
@@ -2022,14 +1920,14 @@ supersedes.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="text-event.c"
-               line="328">the same message as the #TplTextEvent:supersedes-token property</doc>
+               line="326">the same message as the #TplTextEvent:supersedes-token property</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="text-event.c"
-                 line="326">a #TplTextEvent</doc>
+                 line="324">a #TplTextEvent</doc>
             <type name="TextEvent" c:type="TplTextEvent*"/>
           </instance-parameter>
         </parameters>
@@ -2038,54 +1936,45 @@ supersedes.</doc>
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_edit_timestamp"
-                default-value="0">
+                getter="get_edit_timestamp">
         <type name="gint64" c:type="gint64"/>
       </property>
       <property name="message"
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_message"
-                default-value="NULL">
+                getter="get_message">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="message-token"
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_message_token"
-                default-value="NULL">
+                getter="get_message_token">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="message-type"
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_message_type"
-                default-value="0">
+                getter="get_message_type">
         <type name="guint" c:type="guint"/>
       </property>
       <property name="supersedes-token"
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_supersedes_token"
-                default-value="NULL">
+                getter="get_supersedes_token">
         <type name="utf8" c:type="gchar*"/>
       </property>
     </class>
     <record name="TextEventClass"
             c:type="TplTextEventClass"
             disguised="1"
-            opaque="1"
             glib:is-gtype-struct-for="TextEvent">
       <source-position filename="text-event.h" line="37"/>
     </record>
-    <record name="TextEventPriv"
-            c:type="TplTextEventPriv"
-            disguised="1"
-            opaque="1">
+    <record name="TextEventPriv" c:type="TplTextEventPriv" disguised="1">
       <source-position filename="text-event.h" line="38"/>
     </record>
     <docsection name="call-event">
@@ -2107,7 +1996,7 @@ specialized by subclasses of #TplEvent.</doc>
     <docsection name="log-manager">
       <doc xml:space="preserve"
            filename="log-manager.c"
-           line="52">The #TplLogManager object allows user to fetch logs and make searches.</doc>
+           line="51">The #TplLogManager object allows user to fetch logs and make searches.</doc>
     </docsection>
     <docsection name="log-walker">
       <doc xml:space="preserve"
@@ -2194,7 +2083,7 @@ over the logs.
     if (!tp_proxy_prepare_finish (source_object, res, NULL))
       return;
 
-    accounts = tp_account_manager_dup_valid_accounts (account_manager);
+    accounts = tp_account_manager_get_valid_accounts (account_manager);
     g_list_foreach (accounts, accounts_foreach, &amp;account);
     g_list_free_full (accounts, g_object_unref);
     if (account == NULL)

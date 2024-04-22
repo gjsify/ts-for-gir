@@ -1,0 +1,2550 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <package name="glib-2.0"/>
+  <namespace name="MyPaint"
+             version="1.6"
+             shared-library="libmypaint.so.0"
+             c:identifier-prefixes="MyPaint"
+             c:symbol-prefixes="mypaint_">
+    <record name="Brush"
+            c:type="MyPaintBrush"
+            opaque="1"
+            glib:type-name="MyPaintBrush"
+            glib:get-type="mypaint_brush_get_type"
+            c:symbol-prefix="brush">
+      <doc xml:space="preserve"
+           filename="mypaint-brush.c"
+           line="80">The MyPaint brush engine class.</doc>
+      <source-position filename="mypaint-brush.h" line="38"/>
+      <constructor name="new" c:identifier="mypaint_brush_new">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="169">Create a new MyPaint brush engine instance.
+Initial reference count is 1. Release references using mypaint_brush_unref()</doc>
+        <source-position filename="mypaint-brush.h" line="46"/>
+        <return-value transfer-ownership="full">
+          <type name="Brush" c:type="MyPaintBrush*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_with_buckets"
+                   c:identifier="mypaint_brush_new_with_buckets">
+        <source-position filename="mypaint-brush.h" line="61"/>
+        <return-value transfer-ownership="full">
+          <type name="Brush" c:type="MyPaintBrush*"/>
+        </return-value>
+        <parameters>
+          <parameter name="num_smudge_buckets" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="from_defaults" c:identifier="mypaint_brush_from_defaults">
+        <source-position filename="mypaint-brush.h" line="252"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="from_string" c:identifier="mypaint_brush_from_string">
+        <source-position filename="mypaint-brush.h" line="261"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+          <parameter name="string" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_base_value"
+              c:identifier="mypaint_brush_get_base_value">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="328">Get the base value of a brush setting.</doc>
+        <source-position filename="mypaint-brush.h" line="161"/>
+        <return-value transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <type name="BrushSetting" c:type="MyPaintBrushSetting"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_inputs_used_n"
+              c:identifier="mypaint_brush_get_inputs_used_n">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="375">Returns how many inputs are used for the dynamics of a #MyPaintBrushSetting</doc>
+        <source-position filename="mypaint-brush.h" line="180"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <type name="BrushSetting" c:type="MyPaintBrushSetting"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_mapping_n" c:identifier="mypaint_brush_get_mapping_n">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="352">Get the number of points used for the dynamics mapping between a #MyPaintBrushInput and #MyPaintBrushSetting.</doc>
+        <source-position filename="mypaint-brush.h" line="196"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <type name="BrushSetting" c:type="MyPaintBrushSetting"/>
+          </parameter>
+          <parameter name="input" transfer-ownership="none">
+            <type name="BrushInput" c:type="MyPaintBrushInput"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_mapping_point"
+              c:identifier="mypaint_brush_get_mapping_point">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="400">Get a X,Y point of a dynamics mapping.</doc>
+        <source-position filename="mypaint-brush.h" line="212"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <type name="BrushSetting" c:type="MyPaintBrushSetting"/>
+          </parameter>
+          <parameter name="input" transfer-ownership="none">
+            <type name="BrushInput" c:type="MyPaintBrushInput"/>
+          </parameter>
+          <parameter name="index" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="x"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="mypaint-brush.c"
+                 line="402">Location to return the X value</doc>
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+          <parameter name="y"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="mypaint-brush.c"
+                 line="403">Location to return the Y value</doc>
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_state" c:identifier="mypaint_brush_get_state">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="414">Get an internal brush engine state.
+Normally used for debugging, but can be used to implement record &amp; replay functionality.</doc>
+        <source-position filename="mypaint-brush.h" line="220"/>
+        <return-value transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+          <parameter name="i" transfer-ownership="none">
+            <type name="BrushState" c:type="MyPaintBrushState"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_total_stroke_painting_time"
+              c:identifier="mypaint_brush_get_total_stroke_painting_time">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="267">Return the total amount of painting time for the current stroke.</doc>
+        <source-position filename="mypaint-brush.h" line="236"/>
+        <return-value transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_constant" c:identifier="mypaint_brush_is_constant">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="363">Returns TRUE if the brush has no dynamics for the given #MyPaintBrushSetting</doc>
+        <source-position filename="mypaint-brush.h" line="172"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <type name="BrushSetting" c:type="MyPaintBrushSetting"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="new_stroke" c:identifier="mypaint_brush_new_stroke">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="302">Start a new stroke.</doc>
+        <source-position filename="mypaint-brush.h" line="107"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="mypaint_brush_ref" introspectable="0">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="256">Increase the reference count.</doc>
+        <source-position filename="mypaint-brush.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="reset" c:identifier="mypaint_brush_reset">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="289">Reset the current brush engine state.
+Used when the next mypaint_brush_stroke_to() call is not related to the current state.
+Note that the reset request is queued and changes in state will only happen on next stroke_to()</doc>
+        <source-position filename="mypaint-brush.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_base_value"
+              c:identifier="mypaint_brush_set_base_value">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="314">Set the base value of a brush setting.</doc>
+        <source-position filename="mypaint-brush.h" line="153"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <type name="BrushSetting" c:type="MyPaintBrushSetting"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_mapping_n" c:identifier="mypaint_brush_set_mapping_n">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="340">Set the number of points used for the dynamics mapping between a #MyPaintBrushInput and #MyPaintBrushSetting.</doc>
+        <source-position filename="mypaint-brush.h" line="188"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <type name="BrushSetting" c:type="MyPaintBrushSetting"/>
+          </parameter>
+          <parameter name="input" transfer-ownership="none">
+            <type name="BrushInput" c:type="MyPaintBrushInput"/>
+          </parameter>
+          <parameter name="n" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_mapping_point"
+              c:identifier="mypaint_brush_set_mapping_point">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="387">Set a X,Y point of a dynamics mapping.
+The index must be within the number of points set using mypaint_brush_set_mapping_n()</doc>
+        <source-position filename="mypaint-brush.h" line="204"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <type name="BrushSetting" c:type="MyPaintBrushSetting"/>
+          </parameter>
+          <parameter name="input" transfer-ownership="none">
+            <type name="BrushInput" c:type="MyPaintBrushInput"/>
+          </parameter>
+          <parameter name="index" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="x" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_print_inputs"
+              c:identifier="mypaint_brush_set_print_inputs">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="278">Enable/Disable printing of brush engine inputs on stderr. Intended for debugging only.</doc>
+        <source-position filename="mypaint-brush.h" line="244"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+          <parameter name="enabled" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_state" c:identifier="mypaint_brush_set_state">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="427">Set an internal brush engine state.
+Normally used for debugging, but can be used to implement record &amp; replay functionality.</doc>
+        <source-position filename="mypaint-brush.h" line="228"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+          <parameter name="i" transfer-ownership="none">
+            <type name="BrushState" c:type="MyPaintBrushState"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="stroke_to" c:identifier="mypaint_brush_stroke_to">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="1241">Should be called once for each motion event.</doc>
+        <source-position filename="mypaint-brush.h" line="115"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="mypaint-brush.c"
+               line="1247">non-0 if the stroke is finished or empty, else 0.</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+          <parameter name="surface" transfer-ownership="none">
+            <type name="Surface" c:type="MyPaintSurface*"/>
+          </parameter>
+          <parameter name="x" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="pressure" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="xtilt" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="ytilt" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="dtime" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mypaint-brush.c"
+                 line="1243">Time since last motion event, in seconds.</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="stroke_to_2"
+              c:identifier="mypaint_brush_stroke_to_2"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="1261">Should be called once for each motion event.</doc>
+        <source-position filename="mypaint-brush.h" line="125"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="mypaint-brush.c"
+               line="1270">non-0 if the stroke is finished or empty, else 0.</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+          <parameter name="surface" transfer-ownership="none">
+            <type name="Surface2" c:type="MyPaintSurface2*"/>
+          </parameter>
+          <parameter name="x" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="pressure" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="xtilt" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="ytilt" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="dtime" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mypaint-brush.c"
+                 line="1263">Time since last motion event, in seconds.</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="viewzoom" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mypaint-brush.c"
+                 line="1264">Canvas zoom; 1.0 = 100% zoom. Zoom value v *must* be in range:
+0.0 &lt; v &lt; FLOAT_MAX (reasonable max is probably always below 100). Zoom value
+cannot be 0!</doc>
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="viewrotation" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="barrel_rotation" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="stroke_to_2_linearsRGB"
+              c:identifier="mypaint_brush_stroke_to_2_linearsRGB"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="1281">Same as mypaint_brush_stroke_to_2, but color _dynamics_ operate in linear sRGB,
+i.e. settings that change the hue/value/lightness/saturation of the brush color.</doc>
+        <source-position filename="mypaint-brush.h" line="143"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+          <parameter name="surface" transfer-ownership="none">
+            <type name="Surface2" c:type="MyPaintSurface2*"/>
+          </parameter>
+          <parameter name="x" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="pressure" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="xtilt" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="ytilt" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="dtime" transfer-ownership="none">
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="viewzoom" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="viewrotation" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="barrel_rotation" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unref"
+              c:identifier="mypaint_brush_unref"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="mypaint-brush.c"
+             line="243">Decrease the reference count. Will be freed when it hits 0.</doc>
+        <source-position filename="mypaint-brush.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Brush" c:type="MyPaintBrush*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <function name="input_from_cname"
+                c:identifier="mypaint_brush_input_from_cname">
+        <source-position filename="mypaint-brush-settings.h" line="191"/>
+        <return-value transfer-ownership="none">
+          <type name="BrushInput" c:type="MyPaintBrushInput"/>
+        </return-value>
+        <parameters>
+          <parameter name="cname" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="setting_from_cname"
+                c:identifier="mypaint_brush_setting_from_cname">
+        <source-position filename="mypaint-brush-settings.h" line="96"/>
+        <return-value transfer-ownership="none">
+          <type name="BrushSetting" c:type="MyPaintBrushSetting"/>
+        </return-value>
+        <parameters>
+          <parameter name="cname" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </function>
+    </record>
+    <enumeration name="BrushInput" c:type="MyPaintBrushInput">
+      <source-position filename="mypaint-brush-settings-gen.h" line="25"/>
+      <member name="input_pressure"
+              value="0"
+              c:identifier="MYPAINT_BRUSH_INPUT_PRESSURE">
+      </member>
+      <member name="input_speed1"
+              value="1"
+              c:identifier="MYPAINT_BRUSH_INPUT_SPEED1">
+      </member>
+      <member name="input_speed2"
+              value="2"
+              c:identifier="MYPAINT_BRUSH_INPUT_SPEED2">
+      </member>
+      <member name="input_random"
+              value="3"
+              c:identifier="MYPAINT_BRUSH_INPUT_RANDOM">
+      </member>
+      <member name="input_stroke"
+              value="4"
+              c:identifier="MYPAINT_BRUSH_INPUT_STROKE">
+      </member>
+      <member name="input_direction"
+              value="5"
+              c:identifier="MYPAINT_BRUSH_INPUT_DIRECTION">
+      </member>
+      <member name="input_tilt_declination"
+              value="6"
+              c:identifier="MYPAINT_BRUSH_INPUT_TILT_DECLINATION">
+      </member>
+      <member name="input_tilt_ascension"
+              value="7"
+              c:identifier="MYPAINT_BRUSH_INPUT_TILT_ASCENSION">
+      </member>
+      <member name="input_custom"
+              value="8"
+              c:identifier="MYPAINT_BRUSH_INPUT_CUSTOM">
+      </member>
+      <member name="input_direction_angle"
+              value="9"
+              c:identifier="MYPAINT_BRUSH_INPUT_DIRECTION_ANGLE">
+      </member>
+      <member name="input_attack_angle"
+              value="10"
+              c:identifier="MYPAINT_BRUSH_INPUT_ATTACK_ANGLE">
+      </member>
+      <member name="input_tilt_declinationx"
+              value="11"
+              c:identifier="MYPAINT_BRUSH_INPUT_TILT_DECLINATIONX">
+      </member>
+      <member name="input_tilt_declinationy"
+              value="12"
+              c:identifier="MYPAINT_BRUSH_INPUT_TILT_DECLINATIONY">
+      </member>
+      <member name="input_gridmap_x"
+              value="13"
+              c:identifier="MYPAINT_BRUSH_INPUT_GRIDMAP_X">
+      </member>
+      <member name="input_gridmap_y"
+              value="14"
+              c:identifier="MYPAINT_BRUSH_INPUT_GRIDMAP_Y">
+      </member>
+      <member name="input_viewzoom"
+              value="15"
+              c:identifier="MYPAINT_BRUSH_INPUT_VIEWZOOM">
+      </member>
+      <member name="input_barrel_rotation"
+              value="16"
+              c:identifier="MYPAINT_BRUSH_INPUT_BARREL_ROTATION">
+      </member>
+      <member name="input_brush_radius"
+              value="17"
+              c:identifier="MYPAINT_BRUSH_INPUT_BRUSH_RADIUS">
+      </member>
+      <member name="inputs_count"
+              value="18"
+              c:identifier="MYPAINT_BRUSH_INPUTS_COUNT">
+      </member>
+    </enumeration>
+    <record name="BrushInputInfo" c:type="MyPaintBrushInputInfo">
+      <source-position filename="mypaint-brush-settings.h" line="146"/>
+      <field name="cname" writable="1">
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="hard_min" writable="1">
+        <type name="gfloat" c:type="float"/>
+      </field>
+      <field name="soft_min" writable="1">
+        <type name="gfloat" c:type="float"/>
+      </field>
+      <field name="normal" writable="1">
+        <type name="gfloat" c:type="float"/>
+      </field>
+      <field name="soft_max" writable="1">
+        <type name="gfloat" c:type="float"/>
+      </field>
+      <field name="hard_max" writable="1">
+        <type name="gfloat" c:type="float"/>
+      </field>
+      <field name="name" writable="1">
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="tooltip" writable="1">
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <method name="get_name" c:identifier="mypaint_brush_input_info_get_name">
+        <source-position filename="mypaint-brush-settings.h" line="167"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="BrushInputInfo" c:type="const MyPaintBrushInputInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tooltip"
+              c:identifier="mypaint_brush_input_info_get_tooltip">
+        <source-position filename="mypaint-brush-settings.h" line="177"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="BrushInputInfo" c:type="const MyPaintBrushInputInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <enumeration name="BrushSetting" c:type="MyPaintBrushSetting">
+      <source-position filename="mypaint-brush-settings-gen.h" line="93"/>
+      <member name="setting_opaque"
+              value="0"
+              c:identifier="MYPAINT_BRUSH_SETTING_OPAQUE">
+      </member>
+      <member name="setting_opaque_multiply"
+              value="1"
+              c:identifier="MYPAINT_BRUSH_SETTING_OPAQUE_MULTIPLY">
+      </member>
+      <member name="setting_opaque_linearize"
+              value="2"
+              c:identifier="MYPAINT_BRUSH_SETTING_OPAQUE_LINEARIZE">
+      </member>
+      <member name="setting_radius_logarithmic"
+              value="3"
+              c:identifier="MYPAINT_BRUSH_SETTING_RADIUS_LOGARITHMIC">
+      </member>
+      <member name="setting_hardness"
+              value="4"
+              c:identifier="MYPAINT_BRUSH_SETTING_HARDNESS">
+      </member>
+      <member name="setting_anti_aliasing"
+              value="5"
+              c:identifier="MYPAINT_BRUSH_SETTING_ANTI_ALIASING">
+      </member>
+      <member name="setting_dabs_per_basic_radius"
+              value="6"
+              c:identifier="MYPAINT_BRUSH_SETTING_DABS_PER_BASIC_RADIUS">
+      </member>
+      <member name="setting_dabs_per_actual_radius"
+              value="7"
+              c:identifier="MYPAINT_BRUSH_SETTING_DABS_PER_ACTUAL_RADIUS">
+      </member>
+      <member name="setting_dabs_per_second"
+              value="8"
+              c:identifier="MYPAINT_BRUSH_SETTING_DABS_PER_SECOND">
+      </member>
+      <member name="setting_radius_by_random"
+              value="9"
+              c:identifier="MYPAINT_BRUSH_SETTING_RADIUS_BY_RANDOM">
+      </member>
+      <member name="setting_speed1_slowness"
+              value="10"
+              c:identifier="MYPAINT_BRUSH_SETTING_SPEED1_SLOWNESS">
+      </member>
+      <member name="setting_speed2_slowness"
+              value="11"
+              c:identifier="MYPAINT_BRUSH_SETTING_SPEED2_SLOWNESS">
+      </member>
+      <member name="setting_speed1_gamma"
+              value="12"
+              c:identifier="MYPAINT_BRUSH_SETTING_SPEED1_GAMMA">
+      </member>
+      <member name="setting_speed2_gamma"
+              value="13"
+              c:identifier="MYPAINT_BRUSH_SETTING_SPEED2_GAMMA">
+      </member>
+      <member name="setting_offset_by_random"
+              value="14"
+              c:identifier="MYPAINT_BRUSH_SETTING_OFFSET_BY_RANDOM">
+      </member>
+      <member name="setting_offset_by_speed"
+              value="15"
+              c:identifier="MYPAINT_BRUSH_SETTING_OFFSET_BY_SPEED">
+      </member>
+      <member name="setting_offset_by_speed_slowness"
+              value="16"
+              c:identifier="MYPAINT_BRUSH_SETTING_OFFSET_BY_SPEED_SLOWNESS">
+      </member>
+      <member name="setting_slow_tracking"
+              value="17"
+              c:identifier="MYPAINT_BRUSH_SETTING_SLOW_TRACKING">
+      </member>
+      <member name="setting_slow_tracking_per_dab"
+              value="18"
+              c:identifier="MYPAINT_BRUSH_SETTING_SLOW_TRACKING_PER_DAB">
+      </member>
+      <member name="setting_tracking_noise"
+              value="19"
+              c:identifier="MYPAINT_BRUSH_SETTING_TRACKING_NOISE">
+      </member>
+      <member name="setting_color_h"
+              value="20"
+              c:identifier="MYPAINT_BRUSH_SETTING_COLOR_H">
+      </member>
+      <member name="setting_color_s"
+              value="21"
+              c:identifier="MYPAINT_BRUSH_SETTING_COLOR_S">
+      </member>
+      <member name="setting_color_v"
+              value="22"
+              c:identifier="MYPAINT_BRUSH_SETTING_COLOR_V">
+      </member>
+      <member name="setting_restore_color"
+              value="23"
+              c:identifier="MYPAINT_BRUSH_SETTING_RESTORE_COLOR">
+      </member>
+      <member name="setting_change_color_h"
+              value="24"
+              c:identifier="MYPAINT_BRUSH_SETTING_CHANGE_COLOR_H">
+      </member>
+      <member name="setting_change_color_l"
+              value="25"
+              c:identifier="MYPAINT_BRUSH_SETTING_CHANGE_COLOR_L">
+      </member>
+      <member name="setting_change_color_hsl_s"
+              value="26"
+              c:identifier="MYPAINT_BRUSH_SETTING_CHANGE_COLOR_HSL_S">
+      </member>
+      <member name="setting_change_color_v"
+              value="27"
+              c:identifier="MYPAINT_BRUSH_SETTING_CHANGE_COLOR_V">
+      </member>
+      <member name="setting_change_color_hsv_s"
+              value="28"
+              c:identifier="MYPAINT_BRUSH_SETTING_CHANGE_COLOR_HSV_S">
+      </member>
+      <member name="setting_smudge"
+              value="29"
+              c:identifier="MYPAINT_BRUSH_SETTING_SMUDGE">
+      </member>
+      <member name="setting_smudge_length"
+              value="30"
+              c:identifier="MYPAINT_BRUSH_SETTING_SMUDGE_LENGTH">
+      </member>
+      <member name="setting_smudge_radius_log"
+              value="31"
+              c:identifier="MYPAINT_BRUSH_SETTING_SMUDGE_RADIUS_LOG">
+      </member>
+      <member name="setting_eraser"
+              value="32"
+              c:identifier="MYPAINT_BRUSH_SETTING_ERASER">
+      </member>
+      <member name="setting_stroke_threshold"
+              value="33"
+              c:identifier="MYPAINT_BRUSH_SETTING_STROKE_THRESHOLD">
+      </member>
+      <member name="setting_stroke_duration_logarithmic"
+              value="34"
+              c:identifier="MYPAINT_BRUSH_SETTING_STROKE_DURATION_LOGARITHMIC">
+      </member>
+      <member name="setting_stroke_holdtime"
+              value="35"
+              c:identifier="MYPAINT_BRUSH_SETTING_STROKE_HOLDTIME">
+      </member>
+      <member name="setting_custom_input"
+              value="36"
+              c:identifier="MYPAINT_BRUSH_SETTING_CUSTOM_INPUT">
+      </member>
+      <member name="setting_custom_input_slowness"
+              value="37"
+              c:identifier="MYPAINT_BRUSH_SETTING_CUSTOM_INPUT_SLOWNESS">
+      </member>
+      <member name="setting_elliptical_dab_ratio"
+              value="38"
+              c:identifier="MYPAINT_BRUSH_SETTING_ELLIPTICAL_DAB_RATIO">
+      </member>
+      <member name="setting_elliptical_dab_angle"
+              value="39"
+              c:identifier="MYPAINT_BRUSH_SETTING_ELLIPTICAL_DAB_ANGLE">
+      </member>
+      <member name="setting_direction_filter"
+              value="40"
+              c:identifier="MYPAINT_BRUSH_SETTING_DIRECTION_FILTER">
+      </member>
+      <member name="setting_lock_alpha"
+              value="41"
+              c:identifier="MYPAINT_BRUSH_SETTING_LOCK_ALPHA">
+      </member>
+      <member name="setting_colorize"
+              value="42"
+              c:identifier="MYPAINT_BRUSH_SETTING_COLORIZE">
+      </member>
+      <member name="setting_snap_to_pixel"
+              value="43"
+              c:identifier="MYPAINT_BRUSH_SETTING_SNAP_TO_PIXEL">
+      </member>
+      <member name="setting_pressure_gain_log"
+              value="44"
+              c:identifier="MYPAINT_BRUSH_SETTING_PRESSURE_GAIN_LOG">
+      </member>
+      <member name="setting_gridmap_scale"
+              value="45"
+              c:identifier="MYPAINT_BRUSH_SETTING_GRIDMAP_SCALE">
+      </member>
+      <member name="setting_gridmap_scale_x"
+              value="46"
+              c:identifier="MYPAINT_BRUSH_SETTING_GRIDMAP_SCALE_X">
+      </member>
+      <member name="setting_gridmap_scale_y"
+              value="47"
+              c:identifier="MYPAINT_BRUSH_SETTING_GRIDMAP_SCALE_Y">
+      </member>
+      <member name="setting_smudge_length_log"
+              value="48"
+              c:identifier="MYPAINT_BRUSH_SETTING_SMUDGE_LENGTH_LOG">
+      </member>
+      <member name="setting_smudge_bucket"
+              value="49"
+              c:identifier="MYPAINT_BRUSH_SETTING_SMUDGE_BUCKET">
+      </member>
+      <member name="setting_smudge_transparency"
+              value="50"
+              c:identifier="MYPAINT_BRUSH_SETTING_SMUDGE_TRANSPARENCY">
+      </member>
+      <member name="setting_offset_y"
+              value="51"
+              c:identifier="MYPAINT_BRUSH_SETTING_OFFSET_Y">
+      </member>
+      <member name="setting_offset_x"
+              value="52"
+              c:identifier="MYPAINT_BRUSH_SETTING_OFFSET_X">
+      </member>
+      <member name="setting_offset_angle"
+              value="53"
+              c:identifier="MYPAINT_BRUSH_SETTING_OFFSET_ANGLE">
+      </member>
+      <member name="setting_offset_angle_asc"
+              value="54"
+              c:identifier="MYPAINT_BRUSH_SETTING_OFFSET_ANGLE_ASC">
+      </member>
+      <member name="setting_offset_angle_view"
+              value="55"
+              c:identifier="MYPAINT_BRUSH_SETTING_OFFSET_ANGLE_VIEW">
+      </member>
+      <member name="setting_offset_angle_2"
+              value="56"
+              c:identifier="MYPAINT_BRUSH_SETTING_OFFSET_ANGLE_2">
+      </member>
+      <member name="setting_offset_angle_2_asc"
+              value="57"
+              c:identifier="MYPAINT_BRUSH_SETTING_OFFSET_ANGLE_2_ASC">
+      </member>
+      <member name="setting_offset_angle_2_view"
+              value="58"
+              c:identifier="MYPAINT_BRUSH_SETTING_OFFSET_ANGLE_2_VIEW">
+      </member>
+      <member name="setting_offset_angle_adj"
+              value="59"
+              c:identifier="MYPAINT_BRUSH_SETTING_OFFSET_ANGLE_ADJ">
+      </member>
+      <member name="setting_offset_multiplier"
+              value="60"
+              c:identifier="MYPAINT_BRUSH_SETTING_OFFSET_MULTIPLIER">
+      </member>
+      <member name="setting_posterize"
+              value="61"
+              c:identifier="MYPAINT_BRUSH_SETTING_POSTERIZE">
+      </member>
+      <member name="setting_posterize_num"
+              value="62"
+              c:identifier="MYPAINT_BRUSH_SETTING_POSTERIZE_NUM">
+      </member>
+      <member name="setting_paint_mode"
+              value="63"
+              c:identifier="MYPAINT_BRUSH_SETTING_PAINT_MODE">
+      </member>
+      <member name="settings_count"
+              value="64"
+              c:identifier="MYPAINT_BRUSH_SETTINGS_COUNT">
+      </member>
+    </enumeration>
+    <record name="BrushSettingInfo" c:type="MyPaintBrushSettingInfo">
+      <source-position filename="mypaint-brush-settings.h" line="50"/>
+      <field name="cname" writable="1">
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="name" writable="1">
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="constant" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="min" writable="1">
+        <type name="gfloat" c:type="float"/>
+      </field>
+      <field name="def" writable="1">
+        <type name="gfloat" c:type="float"/>
+      </field>
+      <field name="max" writable="1">
+        <type name="gfloat" c:type="float"/>
+      </field>
+      <field name="tooltip" writable="1">
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <method name="get_name"
+              c:identifier="mypaint_brush_setting_info_get_name">
+        <source-position filename="mypaint-brush-settings.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="BrushSettingInfo"
+                  c:type="const MyPaintBrushSettingInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tooltip"
+              c:identifier="mypaint_brush_setting_info_get_tooltip">
+        <source-position filename="mypaint-brush-settings.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="BrushSettingInfo"
+                  c:type="const MyPaintBrushSettingInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <enumeration name="BrushState" c:type="MyPaintBrushState">
+      <source-position filename="mypaint-brush-settings-gen.h" line="141"/>
+      <member name="state_x" value="0" c:identifier="MYPAINT_BRUSH_STATE_X">
+      </member>
+      <member name="state_y" value="1" c:identifier="MYPAINT_BRUSH_STATE_Y">
+      </member>
+      <member name="state_pressure"
+              value="2"
+              c:identifier="MYPAINT_BRUSH_STATE_PRESSURE">
+      </member>
+      <member name="state_partial_dabs"
+              value="3"
+              c:identifier="MYPAINT_BRUSH_STATE_PARTIAL_DABS">
+      </member>
+      <member name="state_actual_radius"
+              value="4"
+              c:identifier="MYPAINT_BRUSH_STATE_ACTUAL_RADIUS">
+      </member>
+      <member name="state_smudge_ra"
+              value="5"
+              c:identifier="MYPAINT_BRUSH_STATE_SMUDGE_RA">
+      </member>
+      <member name="state_smudge_ga"
+              value="6"
+              c:identifier="MYPAINT_BRUSH_STATE_SMUDGE_GA">
+      </member>
+      <member name="state_smudge_ba"
+              value="7"
+              c:identifier="MYPAINT_BRUSH_STATE_SMUDGE_BA">
+      </member>
+      <member name="state_smudge_a"
+              value="8"
+              c:identifier="MYPAINT_BRUSH_STATE_SMUDGE_A">
+      </member>
+      <member name="state_last_getcolor_r"
+              value="9"
+              c:identifier="MYPAINT_BRUSH_STATE_LAST_GETCOLOR_R">
+      </member>
+      <member name="state_last_getcolor_g"
+              value="10"
+              c:identifier="MYPAINT_BRUSH_STATE_LAST_GETCOLOR_G">
+      </member>
+      <member name="state_last_getcolor_b"
+              value="11"
+              c:identifier="MYPAINT_BRUSH_STATE_LAST_GETCOLOR_B">
+      </member>
+      <member name="state_last_getcolor_a"
+              value="12"
+              c:identifier="MYPAINT_BRUSH_STATE_LAST_GETCOLOR_A">
+      </member>
+      <member name="state_last_getcolor_recentness"
+              value="13"
+              c:identifier="MYPAINT_BRUSH_STATE_LAST_GETCOLOR_RECENTNESS">
+      </member>
+      <member name="state_actual_x"
+              value="14"
+              c:identifier="MYPAINT_BRUSH_STATE_ACTUAL_X">
+      </member>
+      <member name="state_actual_y"
+              value="15"
+              c:identifier="MYPAINT_BRUSH_STATE_ACTUAL_Y">
+      </member>
+      <member name="state_norm_dx_slow"
+              value="16"
+              c:identifier="MYPAINT_BRUSH_STATE_NORM_DX_SLOW">
+      </member>
+      <member name="state_norm_dy_slow"
+              value="17"
+              c:identifier="MYPAINT_BRUSH_STATE_NORM_DY_SLOW">
+      </member>
+      <member name="state_norm_speed1_slow"
+              value="18"
+              c:identifier="MYPAINT_BRUSH_STATE_NORM_SPEED1_SLOW">
+      </member>
+      <member name="state_norm_speed2_slow"
+              value="19"
+              c:identifier="MYPAINT_BRUSH_STATE_NORM_SPEED2_SLOW">
+      </member>
+      <member name="state_stroke"
+              value="20"
+              c:identifier="MYPAINT_BRUSH_STATE_STROKE">
+      </member>
+      <member name="state_stroke_started"
+              value="21"
+              c:identifier="MYPAINT_BRUSH_STATE_STROKE_STARTED">
+      </member>
+      <member name="state_custom_input"
+              value="22"
+              c:identifier="MYPAINT_BRUSH_STATE_CUSTOM_INPUT">
+      </member>
+      <member name="state_rng_seed"
+              value="23"
+              c:identifier="MYPAINT_BRUSH_STATE_RNG_SEED">
+      </member>
+      <member name="state_actual_elliptical_dab_ratio"
+              value="24"
+              c:identifier="MYPAINT_BRUSH_STATE_ACTUAL_ELLIPTICAL_DAB_RATIO">
+      </member>
+      <member name="state_actual_elliptical_dab_angle"
+              value="25"
+              c:identifier="MYPAINT_BRUSH_STATE_ACTUAL_ELLIPTICAL_DAB_ANGLE">
+      </member>
+      <member name="state_direction_dx"
+              value="26"
+              c:identifier="MYPAINT_BRUSH_STATE_DIRECTION_DX">
+      </member>
+      <member name="state_direction_dy"
+              value="27"
+              c:identifier="MYPAINT_BRUSH_STATE_DIRECTION_DY">
+      </member>
+      <member name="state_declination"
+              value="28"
+              c:identifier="MYPAINT_BRUSH_STATE_DECLINATION">
+      </member>
+      <member name="state_ascension"
+              value="29"
+              c:identifier="MYPAINT_BRUSH_STATE_ASCENSION">
+      </member>
+      <member name="state_viewzoom"
+              value="30"
+              c:identifier="MYPAINT_BRUSH_STATE_VIEWZOOM">
+      </member>
+      <member name="state_viewrotation"
+              value="31"
+              c:identifier="MYPAINT_BRUSH_STATE_VIEWROTATION">
+      </member>
+      <member name="state_direction_angle_dx"
+              value="32"
+              c:identifier="MYPAINT_BRUSH_STATE_DIRECTION_ANGLE_DX">
+      </member>
+      <member name="state_direction_angle_dy"
+              value="33"
+              c:identifier="MYPAINT_BRUSH_STATE_DIRECTION_ANGLE_DY">
+      </member>
+      <member name="state_attack_angle"
+              value="34"
+              c:identifier="MYPAINT_BRUSH_STATE_ATTACK_ANGLE">
+      </member>
+      <member name="state_flip"
+              value="35"
+              c:identifier="MYPAINT_BRUSH_STATE_FLIP">
+      </member>
+      <member name="state_gridmap_x"
+              value="36"
+              c:identifier="MYPAINT_BRUSH_STATE_GRIDMAP_X">
+      </member>
+      <member name="state_gridmap_y"
+              value="37"
+              c:identifier="MYPAINT_BRUSH_STATE_GRIDMAP_Y">
+      </member>
+      <member name="state_declinationx"
+              value="38"
+              c:identifier="MYPAINT_BRUSH_STATE_DECLINATIONX">
+      </member>
+      <member name="state_declinationy"
+              value="39"
+              c:identifier="MYPAINT_BRUSH_STATE_DECLINATIONY">
+      </member>
+      <member name="state_dabs_per_basic_radius"
+              value="40"
+              c:identifier="MYPAINT_BRUSH_STATE_DABS_PER_BASIC_RADIUS">
+      </member>
+      <member name="state_dabs_per_actual_radius"
+              value="41"
+              c:identifier="MYPAINT_BRUSH_STATE_DABS_PER_ACTUAL_RADIUS">
+      </member>
+      <member name="state_dabs_per_second"
+              value="42"
+              c:identifier="MYPAINT_BRUSH_STATE_DABS_PER_SECOND">
+      </member>
+      <member name="state_barrel_rotation"
+              value="43"
+              c:identifier="MYPAINT_BRUSH_STATE_BARREL_ROTATION">
+      </member>
+      <member name="states_count"
+              value="44"
+              c:identifier="MYPAINT_BRUSH_STATES_COUNT">
+      </member>
+    </enumeration>
+    <record name="FixedTiledSurface"
+            c:type="MyPaintFixedTiledSurface"
+            opaque="1"
+            glib:type-name="MyPaintFixedTiledSurface"
+            glib:get-type="mypaint_fixed_tiled_surface_get_type"
+            c:symbol-prefix="fixed_tiled_surface">
+      <doc xml:space="preserve"
+           filename="mypaint-fixed-tiled-surface.h"
+           line="10">Simple #MyPaintTiledSurface subclass that implements a fixed sized #MyPaintSurface.
+Only intended for testing and trivial use-cases, and to serve as an example of
+how to implement a tiled surface subclass.</doc>
+      <source-position filename="mypaint-fixed-tiled-surface.h" line="17"/>
+      <constructor name="new" c:identifier="mypaint_fixed_tiled_surface_new">
+        <source-position filename="mypaint-fixed-tiled-surface.h" line="20"/>
+        <return-value transfer-ownership="full">
+          <type name="FixedTiledSurface" c:type="MyPaintFixedTiledSurface*"/>
+        </return-value>
+        <parameters>
+          <parameter name="width" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_height"
+              c:identifier="mypaint_fixed_tiled_surface_get_height">
+        <source-position filename="mypaint-fixed-tiled-surface.h" line="26"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="FixedTiledSurface" c:type="MyPaintFixedTiledSurface*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_width"
+              c:identifier="mypaint_fixed_tiled_surface_get_width">
+        <source-position filename="mypaint-fixed-tiled-surface.h" line="23"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="FixedTiledSurface" c:type="MyPaintFixedTiledSurface*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="interface"
+              c:identifier="mypaint_fixed_tiled_surface_interface">
+        <source-position filename="mypaint-fixed-tiled-surface.h" line="30"/>
+        <return-value transfer-ownership="full">
+          <type name="Surface" c:type="MyPaintSurface*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="FixedTiledSurface" c:type="MyPaintFixedTiledSurface*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="Rectangle"
+            c:type="MyPaintRectangle"
+            glib:type-name="MyPaintRectangle"
+            glib:get-type="mypaint_rectangle_get_type"
+            c:symbol-prefix="rectangle">
+      <source-position filename="mypaint-rectangle.h" line="42"/>
+      <field name="x" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="y" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="width" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="height" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <method name="copy" c:identifier="mypaint_rectangle_copy">
+        <source-position filename="mypaint-rectangle.h" line="108"/>
+        <return-value transfer-ownership="full">
+          <type name="Rectangle" c:type="MyPaintRectangle*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="r" transfer-ownership="none">
+            <type name="Rectangle" c:type="MyPaintRectangle*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="expand_to_include_point"
+              c:identifier="mypaint_rectangle_expand_to_include_point">
+        <source-position filename="mypaint-rectangle.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="r" transfer-ownership="none">
+            <type name="Rectangle" c:type="MyPaintRectangle*"/>
+          </instance-parameter>
+          <parameter name="x" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="expand_to_include_rect"
+              c:identifier="mypaint_rectangle_expand_to_include_rect">
+        <source-position filename="mypaint-rectangle.h" line="93"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="r" transfer-ownership="none">
+            <type name="Rectangle" c:type="MyPaintRectangle*"/>
+          </instance-parameter>
+          <parameter name="other" transfer-ownership="none">
+            <type name="Rectangle" c:type="MyPaintRectangle*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="Rectangles" c:type="MyPaintRectangles">
+      <source-position filename="mypaint-rectangle.h" line="66"/>
+      <field name="num_rectangles" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="rectangles" writable="1">
+        <type name="Rectangle" c:type="MyPaintRectangle*"/>
+      </field>
+    </record>
+    <record name="Surface"
+            c:type="MyPaintSurface"
+            glib:type-name="MyPaintSurface"
+            glib:get-type="mypaint_surface_get_type"
+            c:symbol-prefix="surface">
+      <source-position filename="mypaint-surface.h" line="171"/>
+      <field name="draw_dab" writable="1">
+        <type name="SurfaceDrawDabFunction"
+              c:type="MyPaintSurfaceDrawDabFunction"/>
+      </field>
+      <field name="get_color" writable="1">
+        <type name="SurfaceGetColorFunction"
+              c:type="MyPaintSurfaceGetColorFunction"/>
+      </field>
+      <field name="begin_atomic" writable="1">
+        <type name="SurfaceBeginAtomicFunction"
+              c:type="MyPaintSurfaceBeginAtomicFunction"/>
+      </field>
+      <field name="end_atomic" writable="1">
+        <type name="SurfaceEndAtomicFunction"
+              c:type="MyPaintSurfaceEndAtomicFunction"/>
+      </field>
+      <field name="destroy" writable="1">
+        <type name="SurfaceDestroyFunction"
+              c:type="MyPaintSurfaceDestroyFunction"/>
+      </field>
+      <field name="save_png" writable="1">
+        <type name="SurfaceSavePngFunction"
+              c:type="MyPaintSurfaceSavePngFunction"/>
+      </field>
+      <field name="refcount" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <method name="begin_atomic" c:identifier="mypaint_surface_begin_atomic">
+        <source-position filename="mypaint-surface.h" line="217"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Surface" c:type="MyPaintSurface*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="draw_dab" c:identifier="mypaint_surface_draw_dab">
+        <doc xml:space="preserve"
+             filename="mypaint-surface.c"
+             line="32">Draw a dab onto the surface.</doc>
+        <source-position filename="mypaint-surface.h" line="179"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Surface" c:type="MyPaintSurface*"/>
+          </instance-parameter>
+          <parameter name="x" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="radius" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="color_r" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="color_g" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="color_b" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="opaque" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="hardness" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="alpha_eraser" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="aspect_ratio" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="angle" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="lock_alpha" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="colorize" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="end_atomic" c:identifier="mypaint_surface_end_atomic">
+        <source-position filename="mypaint-surface.h" line="225"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Surface" c:type="MyPaintSurface*"/>
+          </instance-parameter>
+          <parameter name="roi"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="mypaint-surface.c"
+                 line="129">Invalidation rectangle</doc>
+            <type name="Rectangle" c:type="MyPaintRectangle*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_alpha" c:identifier="mypaint_surface_get_alpha">
+        <source-position filename="mypaint-surface.h" line="199"/>
+        <return-value transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Surface" c:type="MyPaintSurface*"/>
+          </instance-parameter>
+          <parameter name="x" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="radius" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_color" c:identifier="mypaint_surface_get_color">
+        <source-position filename="mypaint-surface.h" line="189"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Surface" c:type="MyPaintSurface*"/>
+          </instance-parameter>
+          <parameter name="x" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="radius" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="color_r" transfer-ownership="none">
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+          <parameter name="color_g" transfer-ownership="none">
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+          <parameter name="color_b" transfer-ownership="none">
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+          <parameter name="color_a" transfer-ownership="none">
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="init"
+              c:identifier="mypaint_surface_init"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="mypaint-surface.c"
+             line="67">Initialize the surface. The reference count will be set to 1.
+Note: Only intended to be called from subclasses of #MyPaintSurface</doc>
+        <source-position filename="mypaint-surface.h" line="232"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Surface" c:type="MyPaintSurface*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="mypaint_surface_ref" introspectable="0">
+        <doc xml:space="preserve"
+             filename="mypaint-surface.c"
+             line="79">Increase the reference count.</doc>
+        <source-position filename="mypaint-surface.h" line="240"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Surface" c:type="MyPaintSurface*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="save_png" c:identifier="mypaint_surface_save_png">
+        <source-position filename="mypaint-surface.h" line="208"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Surface" c:type="MyPaintSurface*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="x" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="width" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unref"
+              c:identifier="mypaint_surface_unref"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="mypaint-surface.c"
+             line="90">Decrease the reference count.</doc>
+        <source-position filename="mypaint-surface.h" line="247"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Surface" c:type="MyPaintSurface*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="Surface2" c:type="MyPaintSurface2" introspectable="0">
+      <source-position filename="mypaint-surface.h" line="330"/>
+      <field name="parent" writable="1">
+        <type name="Surface" c:type="MyPaintSurface"/>
+      </field>
+      <field name="draw_dab_pigment" writable="1">
+        <type name="SurfaceDrawDabFunction2"
+              c:type="MyPaintSurfaceDrawDabFunction2"/>
+      </field>
+      <field name="get_color_pigment" writable="1">
+        <type name="SurfaceGetColorFunction2"
+              c:type="MyPaintSurfaceGetColorFunction2"/>
+      </field>
+      <field name="end_atomic_multi" writable="1">
+        <type name="SurfaceEndAtomicFunction2"
+              c:type="MyPaintSurfaceEndAtomicFunction2"/>
+      </field>
+      <method name="draw_dab"
+              c:identifier="mypaint_surface2_draw_dab"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="mypaint-surface.c"
+             line="178">Draw a dab with support for posterization and spectral blending.</doc>
+        <source-position filename="mypaint-surface.h" line="366"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Surface2" c:type="MyPaintSurface2*"/>
+          </instance-parameter>
+          <parameter name="x" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="radius" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="color_r" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="color_g" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="color_b" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="opaque" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="hardness" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="alpha_eraser" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="aspect_ratio" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="angle" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="lock_alpha" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="colorize" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="posterize" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="posterize_num" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="paint" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="end_atomic"
+              c:identifier="mypaint_surface2_end_atomic"
+              introspectable="0">
+        <source-position filename="mypaint-surface.h" line="357"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Surface2" c:type="MyPaintSurface2*"/>
+          </instance-parameter>
+          <parameter name="roi"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="mypaint-surface.c"
+                 line="210">Invalidated rectangles will be stored here.
+The value of roi-&gt;num_rectangles must be at least 1, and roi-&gt;rectangles must point to
+sufficient accessible memory to contain n = roi-&gt;num_rectangles of MyPaintRectangle structs.</doc>
+            <type name="Rectangles" c:type="MyPaintRectangles*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_color"
+              c:identifier="mypaint_surface2_get_color"
+              introspectable="0">
+        <source-position filename="mypaint-surface.h" line="346"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Surface2" c:type="MyPaintSurface2*"/>
+          </instance-parameter>
+          <parameter name="x" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="radius" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="color_r" transfer-ownership="none">
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+          <parameter name="color_g" transfer-ownership="none">
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+          <parameter name="color_b" transfer-ownership="none">
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+          <parameter name="color_a" transfer-ownership="none">
+            <type name="gfloat" c:type="float*"/>
+          </parameter>
+          <parameter name="paint" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="to_surface"
+              c:identifier="mypaint_surface2_to_surface"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="mypaint-surface.c"
+             line="151">Access the parent MyPaintSurface.</doc>
+        <source-position filename="mypaint-surface.h" line="337"/>
+        <return-value transfer-ownership="full">
+          <type name="Surface" c:type="MyPaintSurface*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Surface2" c:type="MyPaintSurface2*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <callback name="SurfaceBeginAtomicFunction"
+              c:type="MyPaintSurfaceBeginAtomicFunction">
+      <source-position filename="mypaint-surface.h" line="112"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <type name="Surface" c:type="MyPaintSurface*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="SurfaceDestroyFunction"
+              c:type="MyPaintSurfaceDestroyFunction">
+      <source-position filename="mypaint-surface.h" line="91"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <type name="Surface" c:type="MyPaintSurface*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="SurfaceDrawDabFunction"
+              c:type="MyPaintSurfaceDrawDabFunction">
+      <source-position filename="mypaint-surface.h" line="73"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <type name="Surface" c:type="MyPaintSurface*"/>
+        </parameter>
+        <parameter name="x" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="y" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="radius" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="color_r" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="color_g" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="color_b" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="opaque" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="hardness" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="alpha_eraser" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="aspect_ratio" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="angle" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="lock_alpha" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="colorize" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="SurfaceDrawDabFunction2"
+              c:type="MyPaintSurfaceDrawDabFunction2"
+              introspectable="0">
+      <source-position filename="mypaint-surface.h" line="264"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <type name="Surface2" c:type="MyPaintSurface2*"/>
+        </parameter>
+        <parameter name="x" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="y" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="radius" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="color_r" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="color_g" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="color_b" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="opaque" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="hardness" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="alpha_eraser" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="aspect_ratio" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="angle" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="lock_alpha" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="colorize" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="posterize" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="posterize_num" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="paint" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="SurfaceEndAtomicFunction"
+              c:type="MyPaintSurfaceEndAtomicFunction">
+      <source-position filename="mypaint-surface.h" line="122"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <type name="Surface" c:type="MyPaintSurface*"/>
+        </parameter>
+        <parameter name="roi" transfer-ownership="none">
+          <type name="Rectangle" c:type="MyPaintRectangle*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="SurfaceEndAtomicFunction2"
+              c:type="MyPaintSurfaceEndAtomicFunction2"
+              introspectable="0">
+      <source-position filename="mypaint-surface.h" line="303"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <type name="Surface2" c:type="MyPaintSurface2*"/>
+        </parameter>
+        <parameter name="roi" transfer-ownership="none">
+          <type name="Rectangles" c:type="MyPaintRectangles*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="SurfaceGetColorFunction"
+              c:type="MyPaintSurfaceGetColorFunction">
+      <source-position filename="mypaint-surface.h" line="42"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <type name="Surface" c:type="MyPaintSurface*"/>
+        </parameter>
+        <parameter name="x" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="y" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="radius" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="color_r" transfer-ownership="none">
+          <type name="gfloat" c:type="float*"/>
+        </parameter>
+        <parameter name="color_g" transfer-ownership="none">
+          <type name="gfloat" c:type="float*"/>
+        </parameter>
+        <parameter name="color_b" transfer-ownership="none">
+          <type name="gfloat" c:type="float*"/>
+        </parameter>
+        <parameter name="color_a" transfer-ownership="none">
+          <type name="gfloat" c:type="float*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="SurfaceGetColorFunction2"
+              c:type="MyPaintSurfaceGetColorFunction2"
+              introspectable="0">
+      <source-position filename="mypaint-surface.h" line="289"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <type name="Surface2" c:type="MyPaintSurface2*"/>
+        </parameter>
+        <parameter name="x" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="y" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="radius" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="color_r" transfer-ownership="none">
+          <type name="gfloat" c:type="float*"/>
+        </parameter>
+        <parameter name="color_g" transfer-ownership="none">
+          <type name="gfloat" c:type="float*"/>
+        </parameter>
+        <parameter name="color_b" transfer-ownership="none">
+          <type name="gfloat" c:type="float*"/>
+        </parameter>
+        <parameter name="color_a" transfer-ownership="none">
+          <type name="gfloat" c:type="float*"/>
+        </parameter>
+        <parameter name="paint" transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="SurfaceSavePngFunction"
+              c:type="MyPaintSurfaceSavePngFunction">
+      <source-position filename="mypaint-surface.h" line="102"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <type name="Surface" c:type="MyPaintSurface*"/>
+        </parameter>
+        <parameter name="path" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="x" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="y" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="width" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="height" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <record name="TileRequest" c:type="MyPaintTileRequest">
+      <source-position filename="mypaint-tiled-surface.h" line="37"/>
+      <field name="tx" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="ty" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="readonly" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="buffer" writable="1">
+        <type name="guint16" c:type="guint16*"/>
+      </field>
+      <field name="context" writable="1">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+      <field name="thread_id" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="mipmap_level" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <method name="init" c:identifier="mypaint_tile_request_init">
+        <doc xml:space="preserve"
+             filename="mypaint-tiled-surface.c"
+             line="136">Initialize a request for use with mypaint_tiled_surface_tile_request_start()
+and mypaint_tiled_surface_tile_request_end()</doc>
+        <source-position filename="mypaint-tiled-surface.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="data" transfer-ownership="none">
+            <type name="TileRequest" c:type="MyPaintTileRequest*"/>
+          </instance-parameter>
+          <parameter name="level" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="tx" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="ty" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="readonly" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+    </record>
+    <callback name="TileRequestEndFunction"
+              c:type="MyPaintTileRequestEndFunction">
+      <source-position filename="mypaint-tiled-surface.h" line="62"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <type name="TiledSurface" c:type="MyPaintTiledSurface*"/>
+        </parameter>
+        <parameter name="request" transfer-ownership="none">
+          <type name="TileRequest" c:type="MyPaintTileRequest*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="TileRequestEndFunction2"
+              c:type="MyPaintTileRequestEndFunction2"
+              introspectable="0">
+      <source-position filename="mypaint-tiled-surface.h" line="194"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <type name="TiledSurface2" c:type="MyPaintTiledSurface2*"/>
+        </parameter>
+        <parameter name="request" transfer-ownership="none">
+          <type name="TileRequest" c:type="MyPaintTileRequest*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="TileRequestStartFunction"
+              c:type="MyPaintTileRequestStartFunction">
+      <source-position filename="mypaint-tiled-surface.h" line="54"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <type name="TiledSurface" c:type="MyPaintTiledSurface*"/>
+        </parameter>
+        <parameter name="request" transfer-ownership="none">
+          <type name="TileRequest" c:type="MyPaintTileRequest*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="TileRequestStartFunction2"
+              c:type="MyPaintTileRequestStartFunction2"
+              introspectable="0">
+      <source-position filename="mypaint-tiled-surface.h" line="190"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="self" transfer-ownership="none">
+          <type name="TiledSurface2" c:type="MyPaintTiledSurface2*"/>
+        </parameter>
+        <parameter name="request" transfer-ownership="none">
+          <type name="TileRequest" c:type="MyPaintTileRequest*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <record name="TiledSurface" c:type="MyPaintTiledSurface">
+      <doc xml:space="preserve"
+           filename="mypaint-tiled-surface.c"
+           line="39">Testing if this comment ends up in the gir.</doc>
+      <source-position filename="mypaint-tiled-surface.h" line="98"/>
+      <field name="parent" writable="1">
+        <type name="Surface" c:type="MyPaintSurface"/>
+      </field>
+      <field name="tile_request_start" writable="1">
+        <type name="TileRequestStartFunction"
+              c:type="MyPaintTileRequestStartFunction"/>
+      </field>
+      <field name="tile_request_end" writable="1">
+        <type name="TileRequestEndFunction"
+              c:type="MyPaintTileRequestEndFunction"/>
+      </field>
+      <field name="surface_do_symmetry" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="surface_center_x" writable="1">
+        <type name="gfloat" c:type="float"/>
+      </field>
+      <field name="operation_queue" writable="1">
+        <type name="gpointer" c:type="OperationQueue*"/>
+      </field>
+      <field name="dirty_bbox" writable="1">
+        <type name="Rectangle" c:type="MyPaintRectangle"/>
+      </field>
+      <field name="threadsafe_tile_requests" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="tile_size" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <method name="begin_atomic"
+              c:identifier="mypaint_tiled_surface_begin_atomic"
+              introspectable="0">
+        <source-position filename="mypaint-tiled-surface.h" line="181"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TiledSurface" c:type="MyPaintTiledSurface*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="destroy"
+              c:identifier="mypaint_tiled_surface_destroy"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="mypaint-tiled-surface.c"
+             line="841">Deallocate resources set up by mypaint_tiled_surface_init()
+Does not free the #MyPaintTiledSurface itself.
+Note: Only intended to be called from subclasses of #MyPaintTiledSurface</doc>
+        <source-position filename="mypaint-tiled-surface.h" line="123"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TiledSurface" c:type="MyPaintTiledSurface*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="end_atomic"
+              c:identifier="mypaint_tiled_surface_end_atomic"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="mypaint-tiled-surface.c"
+             line="76">Implementation of #MyPaintSurface::end_atomic vfunc
+Note: Only intended to be used from #MyPaintTiledSurface subclasses, which should chain up to this
+if implementing their own #MyPaintSurface::end_atomic vfunc.
+Application code should only use mypaint_surface_end_atomic().</doc>
+        <source-position filename="mypaint-tiled-surface.h" line="182"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TiledSurface" c:type="MyPaintTiledSurface*"/>
+          </instance-parameter>
+          <parameter name="roi" transfer-ownership="none">
+            <type name="Rectangle" c:type="MyPaintRectangle*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_alpha" c:identifier="mypaint_tiled_surface_get_alpha">
+        <source-position filename="mypaint-tiled-surface.h" line="150"/>
+        <return-value transfer-ownership="none">
+          <type name="gfloat" c:type="float"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TiledSurface" c:type="MyPaintTiledSurface*"/>
+          </instance-parameter>
+          <parameter name="x" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="radius" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="init"
+              c:identifier="mypaint_tiled_surface_init"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="mypaint-tiled-surface.c"
+             line="808">Initialize the surface, passing in implementations of the tile backend.
+Note: Only intended to be called from subclasses of #MyPaintTiledSurface</doc>
+        <source-position filename="mypaint-tiled-surface.h" line="109"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TiledSurface" c:type="MyPaintTiledSurface*"/>
+          </instance-parameter>
+          <parameter name="tile_request_start" transfer-ownership="none">
+            <type name="TileRequestStartFunction"
+                  c:type="MyPaintTileRequestStartFunction"/>
+          </parameter>
+          <parameter name="tile_request_end" transfer-ownership="none">
+            <type name="TileRequestEndFunction"
+                  c:type="MyPaintTileRequestEndFunction"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_symmetry_state"
+              c:identifier="mypaint_tiled_surface_set_symmetry_state">
+        <doc xml:space="preserve"
+             filename="mypaint-tiled-surface.c"
+             line="122">Enable/Disable symmetric brush painting across an X axis.</doc>
+        <source-position filename="mypaint-tiled-surface.h" line="139"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TiledSurface" c:type="MyPaintTiledSurface*"/>
+          </instance-parameter>
+          <parameter name="active" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mypaint-tiled-surface.c"
+                 line="124">TRUE to enable, FALSE to disable.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="center_x" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mypaint-tiled-surface.c"
+                 line="125">X axis to mirror events across.</doc>
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="tile_request_end"
+              c:identifier="mypaint_tiled_surface_tile_request_end">
+        <source-position filename="mypaint-tiled-surface.h" line="171"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TiledSurface" c:type="MyPaintTiledSurface*"/>
+          </instance-parameter>
+          <parameter name="request" transfer-ownership="none">
+            <type name="TileRequest" c:type="MyPaintTileRequest*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="tile_request_start"
+              c:identifier="mypaint_tiled_surface_tile_request_start">
+        <source-position filename="mypaint-tiled-surface.h" line="161"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TiledSurface" c:type="MyPaintTiledSurface*"/>
+          </instance-parameter>
+          <parameter name="request" transfer-ownership="none">
+            <type name="TileRequest" c:type="MyPaintTileRequest*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="TiledSurface2"
+            c:type="MyPaintTiledSurface2"
+            introspectable="0">
+      <source-position filename="mypaint-tiled-surface.h" line="231"/>
+      <field name="parent" writable="1">
+        <type name="Surface2" c:type="MyPaintSurface2"/>
+      </field>
+      <field name="tile_request_start" writable="1">
+        <type name="TileRequestStartFunction2"
+              c:type="MyPaintTileRequestStartFunction2"/>
+      </field>
+      <field name="tile_request_end" writable="1">
+        <type name="TileRequestEndFunction2"
+              c:type="MyPaintTileRequestEndFunction2"/>
+      </field>
+      <field name="operation_queue" writable="1">
+        <type name="gpointer" c:type="OperationQueue*"/>
+      </field>
+      <field name="threadsafe_tile_requests" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="tile_size" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="symmetry_data" writable="1">
+        <type c:type="MyPaintSymmetryData"/>
+      </field>
+      <field name="num_bboxes" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="num_bboxes_dirtied" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="bboxes" writable="1">
+        <type name="Rectangle" c:type="MyPaintRectangle*"/>
+      </field>
+      <method name="begin_atomic"
+              c:identifier="mypaint_tiled_surface2_begin_atomic">
+        <source-position filename="mypaint-tiled-surface.h" line="253"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TiledSurface2" c:type="MyPaintTiledSurface2*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="destroy"
+              c:identifier="mypaint_tiled_surface2_destroy"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="mypaint-tiled-surface.c"
+             line="1212">Deallocate resources set up by mypaint_tiled_surface2_init()
+Does not free the #MyPaintTiledSurface itself.
+Note: Only intended to be called from subclasses of #MyPaintTiledSurface</doc>
+        <source-position filename="mypaint-tiled-surface.h" line="282"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TiledSurface2" c:type="MyPaintTiledSurface2*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="end_atomic"
+              c:identifier="mypaint_tiled_surface2_end_atomic">
+        <source-position filename="mypaint-tiled-surface.h" line="260"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TiledSurface2" c:type="MyPaintTiledSurface2*"/>
+          </instance-parameter>
+          <parameter name="roi" transfer-ownership="none">
+            <type name="Rectangles" c:type="MyPaintRectangles*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="init"
+              c:identifier="mypaint_tiled_surface2_init"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="mypaint-tiled-surface.c"
+             line="1095">Initialize the surface, passing in implementations of the tile backend.
+Note: Only intended to be called from subclasses of #MyPaintTiledSurface</doc>
+        <source-position filename="mypaint-tiled-surface.h" line="242"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TiledSurface2" c:type="MyPaintTiledSurface2*"/>
+          </instance-parameter>
+          <parameter name="tile_request_start" transfer-ownership="none">
+            <type name="TileRequestStartFunction2"
+                  c:type="MyPaintTileRequestStartFunction2"/>
+          </parameter>
+          <parameter name="tile_request_end" transfer-ownership="none">
+            <type name="TileRequestEndFunction2"
+                  c:type="MyPaintTileRequestEndFunction2"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_symmetry_state"
+              c:identifier="mypaint_tiled_surface2_set_symmetry_state">
+        <source-position filename="mypaint-tiled-surface.h" line="291"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TiledSurface2" c:type="MyPaintTiledSurface2*"/>
+          </instance-parameter>
+          <parameter name="active" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="center_x" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="center_y" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="symmetry_angle" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="symmetry_type" transfer-ownership="none">
+            <type c:type="MyPaintSymmetryType"/>
+          </parameter>
+          <parameter name="rot_symmetry_lines" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="tile_request_end"
+              c:identifier="mypaint_tiled_surface2_tile_request_end"
+              introspectable="0">
+        <source-position filename="mypaint-tiled-surface.h" line="274"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TiledSurface2" c:type="MyPaintTiledSurface2*"/>
+          </instance-parameter>
+          <parameter name="request" transfer-ownership="none">
+            <type name="TileRequest" c:type="MyPaintTileRequest*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="tile_request_start"
+              c:identifier="mypaint_tiled_surface2_tile_request_start"
+              introspectable="0">
+        <source-position filename="mypaint-tiled-surface.h" line="267"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TiledSurface2" c:type="MyPaintTiledSurface2*"/>
+          </instance-parameter>
+          <parameter name="request" transfer-ownership="none">
+            <type name="TileRequest" c:type="MyPaintTileRequest*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </record>
+    <function-macro name="VALUE_HOLDS_BRUSH"
+                    c:identifier="MYPAINT_VALUE_HOLDS_BRUSH"
+                    introspectable="0">
+      <source-position filename="glib/mypaint-brush.h" line="7"/>
+      <parameters>
+        <parameter name="value">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VALUE_HOLDS_FIXED_TILED_SURFACE"
+                    c:identifier="MYPAINT_VALUE_HOLDS_FIXED_TILED_SURFACE"
+                    introspectable="0">
+      <source-position filename="glib/mypaint-brush.h" line="15"/>
+      <parameters>
+        <parameter name="value">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VALUE_HOLDS_RECTANGLE"
+                    c:identifier="MYPAINT_VALUE_HOLDS_RECTANGLE"
+                    introspectable="0">
+      <source-position filename="glib/mypaint-brush.h" line="19"/>
+      <parameters>
+        <parameter name="value">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VALUE_HOLDS_SURFACE"
+                    c:identifier="MYPAINT_VALUE_HOLDS_SURFACE"
+                    introspectable="0">
+      <source-position filename="glib/mypaint-brush.h" line="11"/>
+      <parameters>
+        <parameter name="value">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function name="brush_input_from_cname"
+              c:identifier="mypaint_brush_input_from_cname"
+              moved-to="Brush.input_from_cname">
+      <source-position filename="mypaint-brush-settings.h" line="191"/>
+      <return-value transfer-ownership="none">
+        <type name="BrushInput" c:type="MyPaintBrushInput"/>
+      </return-value>
+      <parameters>
+        <parameter name="cname" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="brush_input_info" c:identifier="mypaint_brush_input_info">
+      <source-position filename="mypaint-brush-settings.h" line="156"/>
+      <return-value transfer-ownership="none">
+        <type name="BrushInputInfo" c:type="const MyPaintBrushInputInfo*"/>
+      </return-value>
+      <parameters>
+        <parameter name="id" transfer-ownership="none">
+          <type name="BrushInput" c:type="MyPaintBrushInput"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="brush_setting_from_cname"
+              c:identifier="mypaint_brush_setting_from_cname"
+              moved-to="Brush.setting_from_cname">
+      <source-position filename="mypaint-brush-settings.h" line="96"/>
+      <return-value transfer-ownership="none">
+        <type name="BrushSetting" c:type="MyPaintBrushSetting"/>
+      </return-value>
+      <parameters>
+        <parameter name="cname" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="brush_setting_info"
+              c:identifier="mypaint_brush_setting_info">
+      <source-position filename="mypaint-brush-settings.h" line="60"/>
+      <return-value transfer-ownership="none">
+        <type name="BrushSettingInfo" c:type="const MyPaintBrushSettingInfo*"/>
+      </return-value>
+      <parameters>
+        <parameter name="id" transfer-ownership="none">
+          <type name="BrushSetting" c:type="MyPaintBrushSetting"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

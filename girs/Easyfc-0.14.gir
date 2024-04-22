@@ -1,0 +1,2681 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="fontconfig" version="2.0"/>
+  <namespace name="Easyfc"
+             version="0.14"
+             shared-library="libeasyfc-gobject.so.0"
+             c:identifier-prefixes="Ezfc"
+             c:symbol-prefixes="ezfc">
+    <record name="Alias"
+            c:type="EzfcAlias"
+            opaque="1"
+            glib:type-name="EzfcAlias"
+            glib:get-type="ezfc_alias_get_type"
+            c:symbol-prefix="alias">
+      <doc xml:space="preserve"
+           filename="ezfc-alias.gir.h"
+           line="34">All the fields in the &lt;structname&gt;EzfcAlias&lt;/structname&gt;
+structure are private to the #EzfcAlias implementation.</doc>
+      <source-position filename="ezfc-alias.gir.h" line="40"/>
+      <constructor name="new" c:identifier="ezfc_alias_new">
+        <doc xml:space="preserve"
+             filename="ezfc-alias.gir.c"
+             line="51">Create an instance of #EzfcAlias.</doc>
+        <source-position filename="ezfc-alias.gir.h" line="43"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="ezfc-alias.gir.c"
+               line="59">a #EzfcAlias.</doc>
+          <type name="Alias" c:type="EzfcAlias*"/>
+        </return-value>
+        <parameters>
+          <parameter name="alias_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-alias.gir.c"
+                 line="53">the alias font name like sans-serif, serif and monospace.
+             This can be the usual font name. in this case, the font added by
+             ezfc_alias_set_font() behaves as the substitution font of it.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="check_font_existence"
+              c:identifier="ezfc_alias_check_font_existence">
+        <doc xml:space="preserve"
+             filename="ezfc-alias.gir.c"
+             line="220">Set a flag whether checking the font existence when invoking
+ezfc_alias_set_font().</doc>
+        <source-position filename="ezfc-alias.gir.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="alias" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-alias.gir.c"
+                 line="222">a #EzfcAlias.</doc>
+            <type name="Alias" c:type="EzfcAlias*"/>
+          </instance-parameter>
+          <parameter name="flag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-alias.gir.c"
+                 line="223">a boolean value.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_font" c:identifier="ezfc_alias_get_font">
+        <doc xml:space="preserve"
+             filename="ezfc-alias.gir.c"
+             line="163">Obtains the font that is set as the alias font for @alias.</doc>
+        <source-position filename="ezfc-alias.gir.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-alias.gir.c"
+               line="169">the font name.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="alias" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-alias.gir.c"
+                 line="165">a #EzfcAlias.</doc>
+            <type name="Alias" c:type="EzfcAlias*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_font_pattern"
+              c:identifier="ezfc_alias_get_font_pattern"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="ezfc-alias.gir.c"
+             line="125">Obtains #FcPattern in #EzfcAlias.</doc>
+        <source-position filename="ezfc-alias.gir.h" line="47"/>
+        <return-value>
+          <doc xml:space="preserve"
+               filename="ezfc-alias.gir.c"
+               line="131">a duplicate of #FcPattern in the instance. it has to be freed.
+         %NULL if @alias doesn't have any font pattern.</doc>
+          <type name="fontconfig.Pattern" c:type="FcPattern*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="alias" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-alias.gir.c"
+                 line="127">a #EzfcAlias.</doc>
+            <type name="Alias" c:type="EzfcAlias*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="ezfc_alias_get_name">
+        <doc xml:space="preserve"
+             filename="ezfc-alias.gir.c"
+             line="109">Obtains the alias font name in @alias object.</doc>
+        <source-position filename="ezfc-alias.gir.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-alias.gir.c"
+               line="115">the alias font name.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="alias" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-alias.gir.c"
+                 line="111">a #EzfcAlias.</doc>
+            <type name="Alias" c:type="EzfcAlias*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="ezfc_alias_ref">
+        <doc xml:space="preserve"
+             filename="ezfc-alias.gir.c"
+             line="79">Increases the reference count of @alias.</doc>
+        <source-position filename="ezfc-alias.gir.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-alias.gir.c"
+               line="85">the same @alias.</doc>
+          <type name="Alias" c:type="EzfcAlias*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="alias" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-alias.gir.c"
+                 line="81">a #EzfcAlias.</doc>
+            <type name="Alias" c:type="EzfcAlias*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_font" c:identifier="ezfc_alias_set_font" throws="1">
+        <doc xml:space="preserve"
+             filename="ezfc-alias.gir.c"
+             line="179">Set @font_name as the font family name used for the alias font.</doc>
+        <source-position filename="ezfc-alias.gir.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-alias.gir.c"
+               line="187">%TRUE if it successfully is set. otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="alias" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-alias.gir.c"
+                 line="181">a #EzfcAlias.</doc>
+            <type name="Alias" c:type="EzfcAlias*"/>
+          </instance-parameter>
+          <parameter name="font_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-alias.gir.c"
+                 line="182">a font name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_font_pattern"
+              c:identifier="ezfc_alias_set_font_pattern"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="ezfc-alias.gir.c"
+             line="142">Set @pattern as the font pattern. @alias keeps a duplicate instance of
+@pattern.</doc>
+        <source-position filename="ezfc-alias.gir.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-alias.gir.c"
+               line="151">%TRUE if it successfully is set. otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="alias" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-alias.gir.c"
+                 line="144">a #EzfcAlias.</doc>
+            <type name="Alias" c:type="EzfcAlias*"/>
+          </instance-parameter>
+          <parameter name="pattern" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-alias.gir.c"
+                 line="145">a #FcPattern.</doc>
+            <type name="fontconfig.Pattern" c:type="const FcPattern*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="ezfc_alias_unref">
+        <doc xml:space="preserve"
+             filename="ezfc-alias.gir.c"
+             line="95">Decreases the reference count of @alias. When its reference count
+drops to 0, the object is finalized (i.e. its memory is freed).</doc>
+        <source-position filename="ezfc-alias.gir.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="alias" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-alias.gir.c"
+                 line="97">a #EzfcAlias.</doc>
+            <type name="Alias" c:type="EzfcAlias*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="Config"
+            c:type="EzfcConfig"
+            opaque="1"
+            glib:type-name="EzfcConfig"
+            glib:get-type="ezfc_config_get_type"
+            c:symbol-prefix="config">
+      <doc xml:space="preserve"
+           filename="ezfc-config.gir.h"
+           line="34">All the fields in the &lt;structname&gt;EzfcConfig&lt;/structname&gt;
+structure are private to the #EzfcConfig implementation.</doc>
+      <source-position filename="ezfc-config.gir.h" line="40"/>
+      <constructor name="new" c:identifier="ezfc_config_new">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1033">Create a new instance of a #EzfcConfig.</doc>
+        <source-position filename="ezfc-config.gir.h" line="43"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1038">a new instance of #EzfcConfig.</doc>
+          <type name="Config" c:type="EzfcConfig*"/>
+        </return-value>
+      </constructor>
+      <method name="add_alias" c:identifier="ezfc_config_add_alias">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1175">Add a @alias font for @language language. if giving %NULL to @language,
+@alias takes effect for any languages.</doc>
+        <source-position filename="ezfc-config.gir.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1184">%TRUE if it's successfully completed, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1177">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+          <parameter name="language"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1178">a language name to add @alias for or %NULL for global settings.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="alias" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1179">a #EzfcAlias.</doc>
+            <type name="Alias" c:type="EzfcAlias*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_font" c:identifier="ezfc_config_add_font">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1330">Add a #font font to generate non-language-specific, non-alias-specific
+rules.</doc>
+        <source-position filename="ezfc-config.gir.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1338">%TRUE if it's successfully completed, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1332">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+          <parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1333">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_subst"
+              c:identifier="ezfc_config_add_subst"
+              version="0.11">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1392">Add a #subst font as a substitute font for @family_name.</doc>
+        <source-position filename="ezfc-config.gir.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1400">%TRUE if it's successfully completed, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1394">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+          <parameter name="family_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1395">a family name to be substituted.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="subst" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1396">a #EzfcFont for substitute font</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="dump" c:identifier="ezfc_config_dump">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1820">Output the object data to the standard output.</doc>
+        <source-position filename="ezfc-config.gir.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1822">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_aliases" c:identifier="ezfc_config_get_aliases">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1547">Obtains the list of #EzfcAlias in #EzfcConfig instance.</doc>
+        <source-position filename="ezfc-config.gir.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1554">a #GList contains #EzfcAlias or %NULL.</doc>
+          <type name="GLib.List" c:type="const GList*">
+            <type name="Alias"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1549">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+          <parameter name="language"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1550">a language name referenced to the alias</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_fonts" c:identifier="ezfc_config_get_fonts">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1580">Obtains the list of #EzfcFont in @config.</doc>
+        <source-position filename="ezfc-config.gir.h" line="76"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1586">a #GList contains #EzfcFont or %NULL.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Font"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1582">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_language_list"
+              c:identifier="ezfc_config_get_language_list">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1531">Obtains the list of languages registered by ezfc_config_add_alias() in @config.</doc>
+        <source-position filename="ezfc-config.gir.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1537">a #GList contains languages or %NULL.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1533">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="ezfc_config_get_name">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1159">Obtains the configuration name that is set by ezfc_config_set_name().</doc>
+        <source-position filename="ezfc-config.gir.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1165">the configuration name.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1161">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_priority" c:identifier="ezfc_config_get_priority">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1121">Obtains the priority number in @config.</doc>
+        <source-position filename="ezfc-config.gir.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1127">the priority number. if any errors happens, returns -1.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1123">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_subst_family"
+              c:identifier="ezfc_config_get_subst_family"
+              version="0.11">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1596">Obtains the list of the family name being substituted</doc>
+        <source-position filename="ezfc-config.gir.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1602">a #GList contains languages or %NULL.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1598">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_substs"
+              c:identifier="ezfc_config_get_substs"
+              version="0.11">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1614">Obtains the list of #EzfcFont to be substituted for @family_name.</doc>
+        <source-position filename="ezfc-config.gir.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1621">a #GList contains #EzfcFont or %NULL.</doc>
+          <type name="GLib.List" c:type="const GList*">
+            <type name="Font"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1616">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+          <parameter name="family_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1617">a family name being substituted.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load" c:identifier="ezfc_config_load" throws="1">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1644">Read the configuration file and rebuild the object.
+You have to invoke ezfc_config_set_priority() and ezfc_config_set_name()
+first to read the appropriate configuration file.</doc>
+        <source-position filename="ezfc-config.gir.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1653">%TRUE if it's successfully completed, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1646">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="ezfc_config_ref">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1073">Increases the refernce count of @config.</doc>
+        <source-position filename="ezfc-config.gir.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1079">the same @config object.</doc>
+          <type name="Config" c:type="EzfcConfig*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1075">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="remove_alias" c:identifier="ezfc_config_remove_alias">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1234">Removes @alias_name assigned for @language language from @config.</doc>
+        <source-position filename="ezfc-config.gir.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1242">%TRUE if it's successfully removed, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1236">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+          <parameter name="language"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1237">a language name to remove @alias_name from.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="alias_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1238">a alias font name to remove.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_aliases" c:identifier="ezfc_config_remove_aliases">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1301">Removes all of aliases assigned for @language language from @config.</doc>
+        <source-position filename="ezfc-config.gir.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1308">%TRUE if it's successfully removed, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1303">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+          <parameter name="language"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1304">a language name to remove @alias_name from.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_font" c:identifier="ezfc_config_remove_font">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1355">Remove a #EzfcFont instance corresponding to @family.</doc>
+        <source-position filename="ezfc-config.gir.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1362">%TRUE if it's successfully removed, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1357">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+          <parameter name="family" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1358">a family name to be removed.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_fonts" c:identifier="ezfc_config_remove_fonts">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1374">Remove all of fonts from @config, which added by ezfc_config_add_font().</doc>
+        <source-position filename="ezfc-config.gir.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1380">%TRUE if it's successfully removed, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1376">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="remove_subst"
+              c:identifier="ezfc_config_remove_subst"
+              version="0.11">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1446">Remove @subst_name from the substitute font list of @family_name.</doc>
+        <source-position filename="ezfc-config.gir.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1454">%TRUE if it's successfully completed, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1448">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+          <parameter name="family_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1449">a family name to be substituted.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="subst_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1450">a substitute font name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_substs"
+              c:identifier="ezfc_config_remove_substs"
+              version="0.11">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1506">Remove all of substitute font list of @family_name.</doc>
+        <source-position filename="ezfc-config.gir.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1513">%TRUE if it's successfully completed, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1508">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+          <parameter name="family_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1509">a family name to be substituted.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="save" c:identifier="ezfc_config_save" throws="1">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1697">Write the data to the configuration file. you may want to invoke
+ezfc_config_set_priority() and ezfc_config_set_name() first to
+write it to the appropriate configuration file.</doc>
+        <source-position filename="ezfc-config.gir.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1706">%TRUE if it's successfully completed, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1699">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="save_to_buffer"
+              c:identifier="ezfc_config_save_to_buffer"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1781">Write the data to the buffer.</doc>
+        <source-position filename="ezfc-config.gir.h" line="84"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="ezfc-config.gir.c"
+               line="1788">a #GString containing a xml data. %NULL if fails.</doc>
+          <type name="GLib.String" c:type="GString*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1783">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_migration"
+              c:identifier="ezfc_config_set_migration"
+              version="0.8">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1861">Set a flag to migrate the configuration file on the older place to
+the new one where XDG Base Directory Specification defines.
+If @flag is %TRUE, ezfc_config_load() will tries to read the config
+file from the old path prior to new place and the old file will be
+removed during ezfc_config_save().
+
+This feature is enabled by default.</doc>
+        <source-position filename="ezfc-config.gir.h" line="87"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1863">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+          <parameter name="flag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1864">a #gboolean.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_name" c:identifier="ezfc_config_set_name">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1137">Set @name as the additional configuration name. this is an optional to
+make the change in the filename for output.</doc>
+        <source-position filename="ezfc-config.gir.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1139">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+          <parameter name="name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1140">additional configuration name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_priority" c:identifier="ezfc_config_set_priority">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1103">Set @priority to @config instance.</doc>
+        <source-position filename="ezfc-config.gir.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1105">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+          <parameter name="priority" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1106">a priority number that is used for a filename. it has to be
+           within 3 digits. so the maximum value is 999.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="ezfc_config_unref">
+        <doc xml:space="preserve"
+             filename="ezfc-config.gir.c"
+             line="1089">Decreases the reference count of @config. when its reference count
+drops to 0, the object is finalized (i.e. its memory is freed).</doc>
+        <source-position filename="ezfc-config.gir.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-config.gir.c"
+                 line="1091">a #EzfcConfig.</doc>
+            <type name="Config" c:type="EzfcConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <function-macro name="DEPRECATED_FOR"
+                    c:identifier="EZFC_DEPRECATED_FOR"
+                    introspectable="0">
+      <source-position filename="ezfc-utils.gir.h" line="52"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <enumeration name="Error" c:type="EzfcError">
+      <doc xml:space="preserve"
+           filename="ezfc-error.gir.h"
+           line="48">Error code used in libeasyfc.</doc>
+      <source-position filename="ezfc-error.gir.h" line="78"/>
+      <member name="unknown" value="-1" c:identifier="EZFC_ERR_UNKNOWN">
+        <doc xml:space="preserve"
+             filename="ezfc-error.gir.h"
+             line="50">unknown error happened.</doc>
+      </member>
+      <member name="success" value="0" c:identifier="EZFC_ERR_SUCCESS">
+        <doc xml:space="preserve"
+             filename="ezfc-error.gir.h"
+             line="51">an operation is succeeded.</doc>
+      </member>
+      <member name="oom" value="1" c:identifier="EZFC_ERR_OOM">
+        <doc xml:space="preserve"
+             filename="ezfc-error.gir.h"
+             line="52">Out of memory occurred.</doc>
+      </member>
+      <member name="fail_on_fc" value="2" c:identifier="EZFC_ERR_FAIL_ON_FC">
+        <doc xml:space="preserve"
+             filename="ezfc-error.gir.h"
+             line="53">an error happened in fontconfig.</doc>
+      </member>
+      <member name="no_valid_font"
+              value="3"
+              c:identifier="EZFC_ERR_NO_VALID_FONT">
+        <doc xml:space="preserve"
+             filename="ezfc-error.gir.h"
+             line="54">no valid font is available on the system.</doc>
+      </member>
+      <member name="no_family" value="4" c:identifier="EZFC_ERR_NO_FAMILY">
+        <doc xml:space="preserve"
+             filename="ezfc-error.gir.h"
+             line="55">no font family name found in a class.</doc>
+      </member>
+      <member name="no_config_dir"
+              value="5"
+              c:identifier="EZFC_ERR_NO_CONFIG_DIR">
+        <doc xml:space="preserve"
+             filename="ezfc-error.gir.h"
+             line="56">no valid configuration directory found.</doc>
+      </member>
+      <member name="no_elements" value="6" c:identifier="EZFC_ERR_NO_ELEMENTS">
+        <doc xml:space="preserve"
+             filename="ezfc-error.gir.h"
+             line="57">no elements found to write.</doc>
+      </member>
+      <member name="no_config_file"
+              value="7"
+              c:identifier="EZFC_ERR_NO_CONFIG_FILE">
+        <doc xml:space="preserve"
+             filename="ezfc-error.gir.h"
+             line="58">no configuration file was available on the filesystem.</doc>
+      </member>
+      <member name="fail_on_xml" value="8" c:identifier="EZFC_ERR_FAIL_ON_XML">
+        <doc xml:space="preserve"
+             filename="ezfc-error.gir.h"
+             line="59">an error happened in libxml2.</doc>
+      </member>
+      <member name="fail_on_libc"
+              value="9"
+              c:identifier="EZFC_ERR_FAIL_ON_LIBC">
+        <doc xml:space="preserve"
+             filename="ezfc-error.gir.h"
+             line="60">an error happened in libc.</doc>
+      </member>
+      <member name="end" value="10" c:identifier="EZFC_ERR_END">
+        <doc xml:space="preserve"
+             filename="ezfc-error.gir.h"
+             line="61">No real error, but just a terminator.</doc>
+      </member>
+    </enumeration>
+    <record name="Font"
+            c:type="EzfcFont"
+            opaque="1"
+            glib:type-name="EzfcFont"
+            glib:get-type="ezfc_font_get_type"
+            c:symbol-prefix="font">
+      <doc xml:space="preserve"
+           filename="ezfc-font.gir.h"
+           line="35">All the fields in the &lt;structname&gt;EzfcFont&lt;/structname&gt;
+structure are private to the #EzfcFont implementation.</doc>
+      <source-position filename="ezfc-font.gir.h" line="41"/>
+      <constructor name="new" c:identifier="ezfc_font_new">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="471">Create an instance of #EzfcFont.</doc>
+        <source-position filename="ezfc-font.gir.h" line="94"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="476">a #EzfcFont.</doc>
+          <type name="Font" c:type="EzfcFont*"/>
+        </return-value>
+      </constructor>
+      <method name="add_family"
+              c:identifier="ezfc_font_add_family"
+              version="0.11"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="706">Add @font_name as the font family name used for the font font.</doc>
+        <source-position filename="ezfc-font.gir.h" line="105"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="714">%TRUE if it successfully is set. otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="708">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+          <parameter name="font_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="709">a font name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_feature"
+              c:identifier="ezfc_font_add_feature"
+              version="0.12">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="1274">Add @feature font feature to @font.</doc>
+        <source-position filename="ezfc-font.gir.h" line="137"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="1281">%TRUE if it's successfully completed, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1276">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+          <parameter name="feature" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1277">feature name to be added</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="canonicalize"
+              c:identifier="ezfc_font_canonicalize"
+              version="0.11"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="1437">Split up @font to #EzfcFont that has one family name only.</doc>
+        <source-position filename="ezfc-font.gir.h" line="143"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="1444">a #GList contains
+         #EzfcFont, otherwise %NULL.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Font"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1439">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="check_existence" c:identifier="ezfc_font_check_existence">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="891">Set a flag whether checking the font existence when invoking
+ezfc_font_set_family().</doc>
+        <source-position filename="ezfc-font.gir.h" line="113"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="893">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+          <parameter name="flag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="894">a boolean value.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find" c:identifier="ezfc_font_find" version="0.11">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="649">Check if @font contains @font_name.</doc>
+        <source-position filename="ezfc-font.gir.h" line="103"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="656">%TRUE if it contains, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="651">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+          <parameter name="font_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="652">a font name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_alias_name"
+              c:identifier="ezfc_font_get_alias_name"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="1499">Analize @font and returns a alias name string according to the result.</doc>
+        <source-position filename="ezfc-font.gir.h" line="145"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="1506">a #GList containing
+         a static string for the alias name.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1501">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_antialiasing"
+              c:identifier="ezfc_font_get_antialiasing">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="1059">Obtain a boolean value about the anti-aliasing usage in @font.</doc>
+        <source-position filename="ezfc-font.gir.h" line="124"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="1065">%TRUE if the antialiasing is enabled. otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1061">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_autohinting" c:identifier="ezfc_font_get_autohinting">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="984">Obtain a boolean value about the auto-hinting usage in @font.</doc>
+        <source-position filename="ezfc-font.gir.h" line="121"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="990">%TRUE if the auto-hinting is enabled. otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="986">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_available_features"
+              c:identifier="ezfc_font_get_available_features"
+              version="0.12">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="1381">Obtains available font features in @font.</doc>
+        <source-position filename="ezfc-font.gir.h" line="142"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="1387">a #GList containing
+         memory-allocated string of feature name that is available
+         in @font. strings in #GList has to be freed when it isn't
+         needed anymore.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1383">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_check_existence"
+              c:identifier="ezfc_font_get_check_existence">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="910">Obtain a flag in @font if it's supposed to check the font existence when invoking</doc>
+        <source-position filename="ezfc-font.gir.h" line="115"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="916">%TRUE if it does otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="912">a #EzfcFont</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_embedded_bitmap"
+              c:identifier="ezfc_font_get_embedded_bitmap">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="1097">Obtain a boolean value about the embedded bitmap usage in @font.</doc>
+        <source-position filename="ezfc-font.gir.h" line="130"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="1103">%TRUE if the embedded bitmap is enabled, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1099">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_families"
+              c:identifier="ezfc_font_get_families"
+              version="0.11">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="615">Obtains font family names in @font.</doc>
+        <source-position filename="ezfc-font.gir.h" line="102"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="621">a #GList containing
+         the static string of font family names</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="617">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_family" c:identifier="ezfc_font_get_family">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="592">Obtains the font family name in first place in @font.</doc>
+        <source-position filename="ezfc-font.gir.h" line="101"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="598">the font name.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="594">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_features"
+              c:identifier="ezfc_font_get_features"
+              version="0.12">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="1346">Obtains font features list that @font has.</doc>
+        <source-position filename="ezfc-font.gir.h" line="141"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="1352">a #GList containing
+         the static string of feature name.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1348">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_hinting" c:identifier="ezfc_font_get_hinting">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="947">Obtain a boolean value about the hinting usage in @font.</doc>
+        <source-position filename="ezfc-font.gir.h" line="118"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="953">%TRUE if the hinting is enabled. otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="949">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_hintstyle" c:identifier="ezfc_font_get_hintstyle">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="1022">Obtain the hintstyle in @font.</doc>
+        <source-position filename="ezfc-font.gir.h" line="127"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="1028">a #EzfcFontHintstyle.</doc>
+          <type name="FontHintstyle" c:type="EzfcFontHintstyle"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1024">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_pattern"
+              c:identifier="ezfc_font_get_pattern"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="522">Obtains #FcPattern in #EzfcFont.</doc>
+        <source-position filename="ezfc-font.gir.h" line="97"/>
+        <return-value>
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="528">a duplicate of #FcPattern in the instance. it has to be freed.
+         %NULL if @font doesn't have any font pattern.</doc>
+          <type name="fontconfig.Pattern" c:type="FcPattern*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="524">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_rgba" c:identifier="ezfc_font_get_rgba">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="1134">Obtains current sub-pixel ordering in @font.</doc>
+        <source-position filename="ezfc-font.gir.h" line="133"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="1140">the sub-pixel ordering value in the integer.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1136">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_subpixel_rendering"
+              c:identifier="ezfc_font_get_subpixel_rendering">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="1223">Obtain current status about the sub-pixel rendering in @font.</doc>
+        <source-position filename="ezfc-font.gir.h" line="136"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="1229">current mode in the sub-pixel rendering.</doc>
+          <type name="FontSubpixelRender" c:type="EzfcFontSubpixelRender"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1225">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="ezfc_font_ref">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="490">Increases the reference count of @font.</doc>
+        <source-position filename="ezfc-font.gir.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="496">the same @font object.</doc>
+          <type name="Font" c:type="EzfcFont*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="492">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="remove"
+              c:identifier="ezfc_font_remove"
+              version="0.11"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="802">Removes all of families in @font.</doc>
+        <source-position filename="ezfc-font.gir.h" line="108"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="809">%TRUE if it's successfully completed, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="804">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="remove_family"
+              c:identifier="ezfc_font_remove_family"
+              version="0.11"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="845">Removes @font_name from @font.</doc>
+        <source-position filename="ezfc-font.gir.h" line="110"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="853">%TRUE if it's successfully completed, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="847">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+          <parameter name="font_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="848">a font name to be removed.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_feature"
+              c:identifier="ezfc_font_remove_feature"
+              version="0.12">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="1308">Remove @feature from @font if available.</doc>
+        <source-position filename="ezfc-font.gir.h" line="139"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="1315">%TRUE if it's successfully completed, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1310">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+          <parameter name="feature" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1311">feature name to be removed</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_antialiasing"
+              c:identifier="ezfc_font_set_antialiasing">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="1040">Set a flag whether the font use the antialiasing.</doc>
+        <source-position filename="ezfc-font.gir.h" line="122"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1042">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+          <parameter name="flag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1043">a boolean value.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_autohinting" c:identifier="ezfc_font_set_autohinting">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="965">Set a flag whether the font use the auto-hinting for rendering</doc>
+        <source-position filename="ezfc-font.gir.h" line="119"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="967">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+          <parameter name="flag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="968">a boolean value.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_embedded_bitmap"
+              c:identifier="ezfc_font_set_embedded_bitmap">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="1077">Set a flag whether the font use the embedded bitmap.
+Note that Enabling the embedded bitmap may causes disabling the antialias.</doc>
+        <source-position filename="ezfc-font.gir.h" line="128"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1079">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+          <parameter name="flag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1080">a boolean value.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_family"
+              c:identifier="ezfc_font_set_family"
+              deprecated="1"
+              deprecated-version="0.11."
+              throws="1">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="686">Set @font_name as the font family name used for the font font.</doc>
+        <doc-deprecated xml:space="preserve">Use ezfc_font_add_family().</doc-deprecated>
+        <source-position filename="ezfc-font.gir.h" line="150"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="694">%TRUE if it successfully is set. otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="688">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+          <parameter name="font_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="689">a font name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_hinting" c:identifier="ezfc_font_set_hinting">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="928">Set a flag whether the font use the own hints for rendering</doc>
+        <source-position filename="ezfc-font.gir.h" line="116"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="930">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+          <parameter name="flag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="931">a boolean value.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_hintstyle" c:identifier="ezfc_font_set_hintstyle">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="1002">Set a hintstyle for @font.</doc>
+        <source-position filename="ezfc-font.gir.h" line="125"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1004">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+          <parameter name="hintstyle" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1005">a #EzfcFontHintstyle.</doc>
+            <type name="FontHintstyle" c:type="EzfcFontHintstyle"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_pattern"
+              c:identifier="ezfc_font_set_pattern"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="544">Set @pattern as the font pattern. @font keeps a duplicate instance of
+@pattern.</doc>
+        <source-position filename="ezfc-font.gir.h" line="98"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="553">%TRUE if it successfully is set. otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="546">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+          <parameter name="pattern" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="547">a #FcPattern.</doc>
+            <type name="fontconfig.Pattern" c:type="const FcPattern*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_rgba" c:identifier="ezfc_font_set_rgba">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="1115">Set @val as the sub-pixel ordering</doc>
+        <source-position filename="ezfc-font.gir.h" line="131"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1117">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+          <parameter name="val" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1118">an integer value corresponding to FC_RGBA_*.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_subpixel_rendering"
+              c:identifier="ezfc_font_set_subpixel_rendering">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="1172">This is just convenient to change the several configuration for subpixel
+rendering.</doc>
+        <source-position filename="ezfc-font.gir.h" line="134"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="1180">%TRUE if the sub-pixel rendering is enabled. otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1174">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+          <parameter name="mode" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="1175">a #EzfcFontSubpixelRender.</doc>
+            <type name="FontSubpixelRender" c:type="EzfcFontSubpixelRender"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="ezfc_font_unref">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="506">Decreases the reference count of @font. when its reference count
+drops to 0, the object is finalized (i.e. its memory is freed).</doc>
+        <source-position filename="ezfc-font.gir.h" line="96"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="font" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="508">a #EzfcFont.</doc>
+            <type name="Font" c:type="EzfcFont*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <function name="get_alias_name_from_pattern"
+                c:identifier="ezfc_font_get_alias_name_from_pattern">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="444">Analize @pattern and returns a alias name string according to the result.</doc>
+        <source-position filename="ezfc-font.gir.h" line="93"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="450">a #GList containing
+         a static string for the alias name.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="pattern" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="446">a #FcPattern.</doc>
+            <type name="fontconfig.Pattern" c:type="const FcPattern*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_list" c:identifier="ezfc_font_get_list">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="402">Obtains the fonts list being assigned to @alias_name for @language.
+
+Note that @localized_font_name doesn't take effect yet. this is just
+a reservation for future improvement.</doc>
+        <source-position filename="ezfc-font.gir.h" line="88"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="414">a #GList contains the font family name.
+         if no valid families, %NULL then.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="language"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="404">the language name fontconfig can deal with.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="alias_name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="405">the alias name to obtain the fonts list for.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="localized_font_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="406">%TRUE to include the localized font name if available,
+                      %FALSE for English font name only.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_pattern_list"
+                c:identifier="ezfc_font_get_pattern_list">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="427">Obtains #FcPattern list being assigned to @alias_name for @language.</doc>
+        <source-position filename="ezfc-font.gir.h" line="91"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="434">a #GList contains #FcPattern, otherwise %NULL.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="fontconfig.Pattern"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="language"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="429">the language name fontconfig can deal with.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="alias_name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="430">the alias name to obtain the fonts pettern list for.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="is_alias_font" c:identifier="ezfc_font_is_alias_font">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="385">Checks if @alias_name is one of sans-serif, serif, monospace, cursive, fantasy,
+emoji or math.</doc>
+        <source-position filename="ezfc-font.gir.h" line="87"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="392">%TRUE if @alias_name is an alias font name, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="alias_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font.gir.c"
+                 line="387">the alias font name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+    </record>
+    <record name="FontConfig"
+            c:type="EzfcFontConfig"
+            opaque="1"
+            glib:type-name="EzfcFontConfig"
+            glib:get-type="ezfc_font_config_get_type"
+            c:symbol-prefix="font_config">
+      <doc xml:space="preserve"
+           filename="ezfc-font-config.gir.h"
+           line="33">All the fields in the &lt;structname&gt;EzfcFontConfig&lt;/structname&gt;
+structure are private to the #EzfcFontConfig implementation.</doc>
+      <source-position filename="ezfc-font-config.gir.h" line="39"/>
+      <method name="get_description"
+              c:identifier="ezfc_font_config_get_description">
+        <doc xml:space="preserve"
+             filename="ezfc-font-config.gir.c"
+             line="172">Obtain the description for the configuration</doc>
+        <source-position filename="ezfc-font-config.gir.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font-config.gir.c"
+               line="178">the description string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font-config.gir.c"
+                 line="174">a #EzfcFontConfig.</doc>
+            <type name="FontConfig" c:type="EzfcFontConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="ezfc_font_config_get_name">
+        <doc xml:space="preserve"
+             filename="ezfc-font-config.gir.c"
+             line="154">Obtain the configuration name being stored in @info object.</doc>
+        <source-position filename="ezfc-font-config.gir.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font-config.gir.c"
+               line="160">the configuration filename</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font-config.gir.c"
+                 line="156">a #EzfcFontConfig.</doc>
+            <type name="FontConfig" c:type="EzfcFontConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_enabled" c:identifier="ezfc_font_config_is_enabled">
+        <doc xml:space="preserve"
+             filename="ezfc-font-config.gir.c"
+             line="190">Returns %TRUE if the configuration is enabled in fontconfig, otherwise %FALSE.</doc>
+        <source-position filename="ezfc-font-config.gir.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font-config.gir.c"
+               line="196">a boolean value</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font-config.gir.c"
+                 line="192">a #EzfcFontConfig</doc>
+            <type name="FontConfig" c:type="EzfcFontConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_system_conf"
+              c:identifier="ezfc_font_config_is_system_conf">
+        <doc xml:space="preserve"
+             filename="ezfc-font-config.gir.c"
+             line="342">Returns %TRUE if the configuration is a system config otherwise %FALSE.</doc>
+        <source-position filename="ezfc-font-config.gir.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font-config.gir.c"
+               line="348">a boolean value</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font-config.gir.c"
+                 line="344">a #EzfcFontConfig</doc>
+            <type name="FontConfig" c:type="EzfcFontConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_user_conf" c:identifier="ezfc_font_config_is_user_conf">
+        <doc xml:space="preserve"
+             filename="ezfc-font-config.gir.c"
+             line="324">Returns %TRUE if the configuration is an user config otherwise %FALSE.</doc>
+        <source-position filename="ezfc-font-config.gir.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font-config.gir.c"
+               line="330">a boolean value</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font-config.gir.c"
+                 line="326">a #EzfcFontConfig</doc>
+            <type name="FontConfig" c:type="EzfcFontConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_writable" c:identifier="ezfc_font_config_is_writable">
+        <doc xml:space="preserve"
+             filename="ezfc-font-config.gir.c"
+             line="360">Returns %TRUE if the configuration is writable to be disabled/enabled otherwise %FALSE</doc>
+        <source-position filename="ezfc-font-config.gir.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font-config.gir.c"
+               line="366">a boolean value</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font-config.gir.c"
+                 line="362">a #EzfcFontConfig</doc>
+            <type name="FontConfig" c:type="EzfcFontConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="ezfc_font_config_ref">
+        <doc xml:space="preserve"
+             filename="ezfc-font-config.gir.c"
+             line="122">Increases the reference count of @info.</doc>
+        <source-position filename="ezfc-font-config.gir.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font-config.gir.c"
+               line="128">the same @info object.</doc>
+          <type name="FontConfig" c:type="EzfcFontConfig*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font-config.gir.c"
+                 line="124">a #EzfcFontConfig.</doc>
+            <type name="FontConfig" c:type="EzfcFontConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_enable"
+              c:identifier="ezfc_font_config_set_enable"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="ezfc-font-config.gir.c"
+             line="208">Enable/Disable a configuration.</doc>
+        <source-position filename="ezfc-font-config.gir.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font-config.gir.c"
+               line="216">%TRUE if successfully enabled or disabled, otherwise %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font-config.gir.c"
+                 line="210">a #EzfcFontConfig</doc>
+            <type name="FontConfig" c:type="EzfcFontConfig*"/>
+          </instance-parameter>
+          <parameter name="flag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font-config.gir.c"
+                 line="211">a boolean value</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="ezfc_font_config_unref">
+        <doc xml:space="preserve"
+             filename="ezfc-font-config.gir.c"
+             line="138">Decreases the reference count of @info. when its reference count
+drops to 0, the object is finalized (i.e. its memory is freed).</doc>
+        <source-position filename="ezfc-font-config.gir.h" line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font-config.gir.c"
+                 line="140">a #EzfcFontConfig.</doc>
+            <type name="FontConfig" c:type="EzfcFontConfig*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <function name="get_config_dirs"
+                c:identifier="ezfc_font_config_get_config_dirs">
+        <doc xml:space="preserve"
+             filename="ezfc-font-config.gir.c"
+             line="488">Obtains the list of the config directories where fontconfig can recognizes
+and enables the configuration files.</doc>
+        <source-position filename="ezfc-font-config.gir.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font-config.gir.c"
+               line="494">a #GList contains a string</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+      </function>
+      <function name="get_config_dirs_from"
+                c:identifier="ezfc_font_config_get_config_dirs_from">
+        <doc xml:space="preserve"
+             filename="ezfc-font-config.gir.c"
+             line="507">Obtains the list of the config directories where fontconfig can recognizes
+and enables the configuration files from @config.</doc>
+        <source-position filename="ezfc-font-config.gir.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font-config.gir.c"
+               line="514">a #GList contains a string</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font-config.gir.c"
+                 line="509">a #FcConfig.</doc>
+            <type name="fontconfig.Config" c:type="FcConfig*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_list" c:identifier="ezfc_font_config_get_list">
+        <doc xml:space="preserve"
+             filename="ezfc-font-config.gir.c"
+             line="378">Obtains the list of #EzfcFontConfig to see what kind of configuration
+files for fontconfig are installed and enabled on the system.</doc>
+        <source-position filename="ezfc-font-config.gir.h" line="52"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="ezfc-font-config.gir.c"
+               line="384">a #GList contains #EzfcFontConfig.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="FontConfig"/>
+          </type>
+        </return-value>
+      </function>
+      <function name="get_list_from"
+                c:identifier="ezfc_font_config_get_list_from">
+        <doc xml:space="preserve"
+             filename="ezfc-font-config.gir.c"
+             line="397">Obtains the list of #EzfcFontConfig to see what kind of configuration
+files for fontconfig are installed and enabled on the system from @config.</doc>
+        <source-position filename="ezfc-font-config.gir.h" line="53"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="ezfc-font-config.gir.c"
+               line="404">a #GList contains #EzfcFontConfig.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="FontConfig"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="config" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="ezfc-font-config.gir.c"
+                 line="399">a #FcConfig.</doc>
+            <type name="fontconfig.Config" c:type="FcConfig*"/>
+          </parameter>
+        </parameters>
+      </function>
+    </record>
+    <enumeration name="FontHintstyle" c:type="EzfcFontHintstyle">
+      <doc xml:space="preserve"
+           filename="ezfc-font.gir.h"
+           line="67">The hintstyle option to be used for ezfc_font_set_hintstyle().</doc>
+      <source-position filename="ezfc-font.gir.h" line="85"/>
+      <member name="unknown"
+              value="0"
+              c:identifier="EZFC_FONT_HINTSTYLE_UNKNOWN">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.h"
+             line="69">unknown state in the hintstyle.</doc>
+      </member>
+      <member name="none" value="1" c:identifier="EZFC_FONT_HINTSTYLE_NONE">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.h"
+             line="70">No use of autohinting</doc>
+      </member>
+      <member name="slight"
+              value="2"
+              c:identifier="EZFC_FONT_HINTSTYLE_SLIGHT">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.h"
+             line="71">Use slight autohinting</doc>
+      </member>
+      <member name="medium"
+              value="3"
+              c:identifier="EZFC_FONT_HINTSTYLE_MEDIUM">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.h"
+             line="72">Use medium autohinting</doc>
+      </member>
+      <member name="full" value="4" c:identifier="EZFC_FONT_HINTSTYLE_FULL">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.h"
+             line="73">Use full autohinting</doc>
+      </member>
+      <member name="end" value="5" c:identifier="EZFC_FONT_HINTSTYLE_END">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.h"
+             line="74">No real value, but just a terminator.</doc>
+      </member>
+    </enumeration>
+    <enumeration name="FontSubpixelRender" c:type="EzfcFontSubpixelRender">
+      <doc xml:space="preserve"
+           filename="ezfc-font.gir.h"
+           line="43">The sub-pixel rendering option to be used in ezfc_font_set_subpixel_rendering().</doc>
+      <source-position filename="ezfc-font.gir.h" line="65"/>
+      <member name="unknown"
+              value="0"
+              c:identifier="EZFC_FONT_ANTIALIAS_UNKNOWN">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.h"
+             line="45">unknown state on using the sub-pixel rendering.</doc>
+      </member>
+      <member name="none" value="1" c:identifier="EZFC_FONT_ANTIALIAS_NONE">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.h"
+             line="46">no use of the sub-pixel rendering</doc>
+      </member>
+      <member name="gray" value="2" c:identifier="EZFC_FONT_ANTIALIAS_GRAY">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.h"
+             line="47">Use the gray-scaled sub-pixel rendering</doc>
+      </member>
+      <member name="rgb" value="3" c:identifier="EZFC_FONT_ANTIALIAS_RGB">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.h"
+             line="48">Use the sub-pixel rendering with the sub-pixel geometry RGB.</doc>
+      </member>
+      <member name="bgr" value="4" c:identifier="EZFC_FONT_ANTIALIAS_BGR">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.h"
+             line="49">Use the sub-pixel rendering with the sub-pixel geometry BGR.</doc>
+      </member>
+      <member name="vrgb" value="5" c:identifier="EZFC_FONT_ANTIALIAS_VRGB">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.h"
+             line="50">Use the sub-pixel rendering with the sub-pixel geometry VRGB.</doc>
+      </member>
+      <member name="vbgr" value="6" c:identifier="EZFC_FONT_ANTIALIAS_VBGR">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.h"
+             line="51">Use the sub-pixel rendering with the sub-pixel geometry VBGR.</doc>
+      </member>
+      <member name="end" value="7" c:identifier="EZFC_FONT_ANTIALIAS_END">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.h"
+             line="52">No real value, but just a terminator.</doc>
+      </member>
+    </enumeration>
+    <function name="error_get_quark" c:identifier="ezfc_error_get_quark">
+      <doc xml:space="preserve"
+           filename="ezfc.gir.c"
+           line="40">Obtains a #GQuark being used for #GError.</doc>
+      <source-position filename="ezfc-error.gir.h" line="81"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="ezfc.gir.c"
+             line="45">a #GQuark.</doc>
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <docsection name="ezfc-alias">
+      <doc xml:space="preserve"
+           filename="ezfc-alias.gir.c"
+           line="33">This class provides an easy access to the alias font name and the font
+that actually being assigned to it.</doc>
+    </docsection>
+    <docsection name="ezfc-config">
+      <doc xml:space="preserve"
+           filename="ezfc-config.gir.c"
+           line="38">This class provides an easy access to assign an instance of #EzfcAlias
+to a language and to read/write the configuration file.</doc>
+    </docsection>
+    <docsection name="ezfc-error">
+      <doc xml:space="preserve"
+           filename="ezfc-error.gir.h"
+           line="33">This type defines an error type being used for #GError.</doc>
+    </docsection>
+    <docsection name="ezfc-font">
+      <doc xml:space="preserve"
+           filename="ezfc-font.gir.c"
+           line="38">This class provides an easy access to the font properties</doc>
+    </docsection>
+    <docsection name="ezfc-font-config">
+      <doc xml:space="preserve"
+           filename="ezfc-font-config.gir.c"
+           line="33">This class provides an access to the font configuration information
+from fontconfig.</doc>
+    </docsection>
+    <docsection name="ezfc-utils">
+      <doc xml:space="preserve"
+           filename="ezfc-utils.gir.h"
+           line="33">This collects some utility functions.</doc>
+    </docsection>
+    <function name="finalize" c:identifier="ezfc_finalize">
+      <doc xml:space="preserve"
+           filename="ezfc.gir.c"
+           line="86">Finalize the library.</doc>
+      <source-position filename="ezfc-utils.gir.h" line="43"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="font_config_get_config_dirs"
+              c:identifier="ezfc_font_config_get_config_dirs"
+              moved-to="FontConfig.get_config_dirs">
+      <doc xml:space="preserve"
+           filename="ezfc-font-config.gir.c"
+           line="488">Obtains the list of the config directories where fontconfig can recognizes
+and enables the configuration files.</doc>
+      <source-position filename="ezfc-font-config.gir.h" line="54"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="ezfc-font-config.gir.c"
+             line="494">a #GList contains a string</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="utf8"/>
+        </type>
+      </return-value>
+    </function>
+    <function name="font_config_get_config_dirs_from"
+              c:identifier="ezfc_font_config_get_config_dirs_from"
+              moved-to="FontConfig.get_config_dirs_from">
+      <doc xml:space="preserve"
+           filename="ezfc-font-config.gir.c"
+           line="507">Obtains the list of the config directories where fontconfig can recognizes
+and enables the configuration files from @config.</doc>
+      <source-position filename="ezfc-font-config.gir.h" line="55"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="ezfc-font-config.gir.c"
+             line="514">a #GList contains a string</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="utf8"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="config" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font-config.gir.c"
+               line="509">a #FcConfig.</doc>
+          <type name="fontconfig.Config" c:type="FcConfig*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="font_config_get_list"
+              c:identifier="ezfc_font_config_get_list"
+              moved-to="FontConfig.get_list">
+      <doc xml:space="preserve"
+           filename="ezfc-font-config.gir.c"
+           line="378">Obtains the list of #EzfcFontConfig to see what kind of configuration
+files for fontconfig are installed and enabled on the system.</doc>
+      <source-position filename="ezfc-font-config.gir.h" line="52"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="ezfc-font-config.gir.c"
+             line="384">a #GList contains #EzfcFontConfig.</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="FontConfig"/>
+        </type>
+      </return-value>
+    </function>
+    <function name="font_config_get_list_from"
+              c:identifier="ezfc_font_config_get_list_from"
+              moved-to="FontConfig.get_list_from">
+      <doc xml:space="preserve"
+           filename="ezfc-font-config.gir.c"
+           line="397">Obtains the list of #EzfcFontConfig to see what kind of configuration
+files for fontconfig are installed and enabled on the system from @config.</doc>
+      <source-position filename="ezfc-font-config.gir.h" line="53"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="ezfc-font-config.gir.c"
+             line="404">a #GList contains #EzfcFontConfig.</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="FontConfig"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="config" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font-config.gir.c"
+               line="399">a #FcConfig.</doc>
+          <type name="fontconfig.Config" c:type="FcConfig*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="font_get_alias_name_from_pattern"
+              c:identifier="ezfc_font_get_alias_name_from_pattern"
+              moved-to="Font.get_alias_name_from_pattern">
+      <doc xml:space="preserve"
+           filename="ezfc-font.gir.c"
+           line="444">Analize @pattern and returns a alias name string according to the result.</doc>
+      <source-position filename="ezfc-font.gir.h" line="93"/>
+      <return-value transfer-ownership="container">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="450">a #GList containing
+         a static string for the alias name.</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="utf8"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="pattern" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="446">a #FcPattern.</doc>
+          <type name="fontconfig.Pattern" c:type="const FcPattern*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="font_get_list"
+              c:identifier="ezfc_font_get_list"
+              moved-to="Font.get_list">
+      <doc xml:space="preserve"
+           filename="ezfc-font.gir.c"
+           line="402">Obtains the fonts list being assigned to @alias_name for @language.
+
+Note that @localized_font_name doesn't take effect yet. this is just
+a reservation for future improvement.</doc>
+      <source-position filename="ezfc-font.gir.h" line="88"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="414">a #GList contains the font family name.
+         if no valid families, %NULL then.</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="utf8"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="language"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="404">the language name fontconfig can deal with.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="alias_name"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="405">the alias name to obtain the fonts list for.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="localized_font_name" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="406">%TRUE to include the localized font name if available,
+                      %FALSE for English font name only.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="font_get_pattern_list"
+              c:identifier="ezfc_font_get_pattern_list"
+              moved-to="Font.get_pattern_list">
+      <doc xml:space="preserve"
+           filename="ezfc-font.gir.c"
+           line="427">Obtains #FcPattern list being assigned to @alias_name for @language.</doc>
+      <source-position filename="ezfc-font.gir.h" line="91"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="434">a #GList contains #FcPattern, otherwise %NULL.</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="fontconfig.Pattern"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="language"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="429">the language name fontconfig can deal with.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="alias_name"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="430">the alias name to obtain the fonts pettern list for.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="font_is_alias_font"
+              c:identifier="ezfc_font_is_alias_font"
+              moved-to="Font.is_alias_font">
+      <doc xml:space="preserve"
+           filename="ezfc-font.gir.c"
+           line="385">Checks if @alias_name is one of sans-serif, serif, monospace, cursive, fantasy,
+emoji or math.</doc>
+      <source-position filename="ezfc-font.gir.h" line="87"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="ezfc-font.gir.c"
+             line="392">%TRUE if @alias_name is an alias font name, otherwise %FALSE.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="alias_name" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc-font.gir.c"
+               line="387">the alias font name</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_fonts_list"
+              c:identifier="ezfc_get_fonts_list"
+              deprecated="1"
+              deprecated-version="0.7">
+      <doc xml:space="preserve"
+           filename="ezfc.gir.c"
+           line="127">Obtains the fonts list being assigned to @alias_name for @language.</doc>
+      <doc-deprecated xml:space="preserve">Use ezfc_font_get_list().</doc-deprecated>
+      <source-position filename="ezfc-utils.gir.h" line="62"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="ezfc.gir.c"
+             line="134">a #GList contains the font family name.
+         if no valid families, %NULL then.</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="utf8"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="language"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="ezfc.gir.c"
+               line="129">the language name fontconfig can deal with.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="alias_name"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="ezfc.gir.c"
+               line="130">the alias name to obtain the fonts list for.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_fonts_pattern_list"
+              c:identifier="ezfc_get_fonts_pattern_list"
+              deprecated="1"
+              deprecated-version="0.7">
+      <doc xml:space="preserve"
+           filename="ezfc.gir.c"
+           line="146">Obtains #FcPattern list being assigned to @alias_name for @language.</doc>
+      <doc-deprecated xml:space="preserve">Use ezfc_font_get_pattern_list().</doc-deprecated>
+      <source-position filename="ezfc-utils.gir.h" line="66"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="ezfc.gir.c"
+             line="153">a #GList contains #FcPattern, otherwise %NULL.</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="fontconfig.Pattern"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="language"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="ezfc.gir.c"
+               line="148">the language name fontconfig can deal with.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="alias_name"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="ezfc.gir.c"
+               line="149">the alias name to obtain the fonts pettern list for.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="init" c:identifier="ezfc_init">
+      <doc xml:space="preserve"
+           filename="ezfc.gir.c"
+           line="71">Initialize the library.</doc>
+      <source-position filename="ezfc-utils.gir.h" line="42"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="is_alias_font"
+              c:identifier="ezfc_is_alias_font"
+              deprecated="1"
+              deprecated-version="0.7">
+      <doc xml:space="preserve"
+           filename="ezfc.gir.c"
+           line="110">Checks if @alias_name is one of sans-serif, serif, monospace, cursive, fantasy,
+emoji or math.</doc>
+      <doc-deprecated xml:space="preserve">Use ezfc_font_is_alias_font().</doc-deprecated>
+      <source-position filename="ezfc-utils.gir.h" line="59"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="ezfc.gir.c"
+             line="117">%TRUE if @alias_name is an alias font name, otherwise %FALSE.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="alias_name" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="ezfc.gir.c"
+               line="112">the alias font name</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="version" c:identifier="ezfc_version">
+      <doc xml:space="preserve"
+           filename="ezfc.gir.c"
+           line="58">Obtain the version of libeasyfc.</doc>
+      <source-position filename="ezfc-utils.gir.h" line="41"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="ezfc.gir.c"
+             line="63">a version string.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

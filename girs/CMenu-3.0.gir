@@ -1,0 +1,1746 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <package name="libcinnamon-menu-3.0"/>
+  <namespace name="CMenu"
+             version="3.0"
+             shared-library="libcinnamon-menu-3.so.0"
+             c:identifier-prefixes="GMenu"
+             c:symbol-prefixes="gmenu">
+    <function-macro name="DESKTOPAPPINFO"
+                    c:identifier="GMENU_DESKTOPAPPINFO"
+                    introspectable="0">
+      <source-position filename="libmenu/gmenu-desktopappinfo.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DESKTOPAPPINFO_CLASS"
+                    c:identifier="GMENU_DESKTOPAPPINFO_CLASS"
+                    introspectable="0">
+      <source-position filename="libmenu/gmenu-desktopappinfo.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="DESKTOPAPPINFO_FLATPAK_SUFFIX"
+              value=":flatpak"
+              c:type="GMENU_DESKTOPAPPINFO_FLATPAK_SUFFIX">
+      <source-position filename="libmenu/gmenu-desktopappinfo.h" line="48"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function-macro name="DESKTOPAPPINFO_GET_CLASS"
+                    c:identifier="GMENU_DESKTOPAPPINFO_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libmenu/gmenu-desktopappinfo.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="DesktopAppInfo"
+           c:symbol-prefix="desktopappinfo"
+           c:type="GMenuDesktopAppInfo"
+           parent="GObject.Object"
+           glib:type-name="GMenuDesktopAppInfo"
+           glib:get-type="gmenu_desktopappinfo_get_type"
+           glib:type-struct="DesktopAppInfoClass">
+      <source-position filename="libmenu/gmenu-desktopappinfo.h" line="46"/>
+      <implements name="Gio.AppInfo"/>
+      <constructor name="new" c:identifier="gmenu_desktopappinfo_new">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="377">This is currently unused in Cinnamon and does not make sense here
+because the desktop id as used here is not necessarily unique</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="62"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="384">%NULL</doc>
+          <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="desktop_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="379">the desktop file id</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_filename"
+                   c:identifier="gmenu_desktopappinfo_new_from_filename">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="392">Creates a new #GMenuDesktopAppInfo.</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="52"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="399">a new #GMenuDesktopAppInfo or %NULL on error.</doc>
+          <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="394">the path of a desktop file, in the GLib
+     filename encoding</doc>
+            <type name="filename" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_keyfile"
+                   c:identifier="gmenu_desktopappinfo_new_from_keyfile">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="419">Creates a new #GMenuDesktopAppInfo.</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="53"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="425">a new #GMenuDesktopAppInfo or %NULL on error.</doc>
+          <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="key_file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="421">an opened #GKeyFile</doc>
+            <type name="GLib.KeyFile" c:type="GKeyFile*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_action_name"
+              c:identifier="gmenu_desktopappinfo_get_action_name"
+              version="2.38">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="703">Gets the user-visible display name of the "additional application
+action" specified by @action_name.
+
+This corresponds to the "Name" key within the keyfile group for the
+action.</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="70"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="715">the locale-specific action name</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="appinfo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="705">a #GMenuDesktopAppInfo</doc>
+            <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="706">the name of the action as from
+  gmenu_desktopappinfo_list_actions()</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_boolean"
+              c:identifier="gmenu_desktopappinfo_get_boolean">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="638">Looks up a boolean value in the keyfile backing @info.
+
+The @key is looked up in the "Desktop Entry" group.</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="647">the boolean value, or %FALSE if the key
+    is not found</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="appinfo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="640">a #GMenuDesktopAppInfo</doc>
+            <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="641">the key to look up</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_categories"
+              c:identifier="gmenu_desktopappinfo_get_categories">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="477">Gets the categories from the desktop file.</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="483">The unparsed Categories key from the desktop file;
+    i.e. no attempt is made to split it by ';' or validate it.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="appinfo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="479">a #GMenuDesktopAppInfo</doc>
+            <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_filename"
+              c:identifier="gmenu_desktopappinfo_get_filename"
+              version="2.24">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="445">When @info was created from a known filename, return it.  In some
+situations such as the #GMenuDesktopAppInfo returned from
+gmenu_desktopappinfo_new_from_keyfile(), this function will return %NULL.</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="453">The full path to the file for @info,
+    or %NULL if not known.</doc>
+          <type name="filename" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="appinfo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="447">a #MenuGDesktopAppInfo</doc>
+            <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_flatpak_app_id"
+              c:identifier="gmenu_desktopappinfo_get_flatpak_app_id">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="789">This function looks up the "X-Flatpak" key of the [Desktop Entry] group,
+which contains the Flatpak App ID</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="82"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="796">the flatpak app id or %NULL</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="appinfo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="791">a #GMenuMenuDesktopAppInfo</doc>
+            <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_generic_name"
+              c:identifier="gmenu_desktopappinfo_get_generic_name">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="463">Gets the generic name from the destkop file.</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="469">The value of the GenericName key</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="appinfo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="465">a #MenuGDesktopAppInfo</doc>
+            <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_is_flatpak"
+              c:identifier="gmenu_desktopappinfo_get_is_flatpak">
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="782">%TRUE if @info specifies a flatpak app, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="appinfo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="780">a #GMenuMenuDesktopAppInfo</doc>
+            <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_is_hidden"
+              c:identifier="gmenu_desktopappinfo_get_is_hidden">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="570">A desktop file is hidden if the Hidden key in it is
+set to True.</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="577">%TRUE if hidden, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="appinfo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="572">a #GMenuDesktopAppInfo.</doc>
+            <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_keywords"
+              c:identifier="gmenu_desktopappinfo_get_keywords">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="492">Gets the keywords from the desktop file.</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="498">The value of the Keywords key</doc>
+          <array c:type="const char* const*">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="appinfo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="494">a #GMenuDesktopAppInfo</doc>
+            <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_locale_string"
+              c:identifier="gmenu_desktopappinfo_get_locale_string">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="619">Looks up a localized string value in the keyfile backing @info
+translated to the current locale.
+
+The @key is looked up in the "Desktop Entry" group.</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="66"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="629">a newly allocated string, or %NULL if the key
+    is not found</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="appinfo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="621">a #GMenuDesktopAppInfo</doc>
+            <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="622">the key to look up</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_nodisplay"
+              c:identifier="gmenu_desktopappinfo_get_nodisplay">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="506">Gets the value of the NoDisplay key, which helps determine if the
+application info should be shown in menus. See
+#G_KEY_FILE_DESKTOP_KEY_NO_DISPLAY and g_app_info_should_show().</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="514">The value of the NoDisplay key</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="appinfo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="508">a #GMenuDesktopAppInfo</doc>
+            <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_in"
+              c:identifier="gmenu_desktopappinfo_get_show_in">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="522">Checks if the application info should be shown in menus that list available
+applications for a specific name of the desktop, based on the
+`OnlyShowIn` and `NotShowIn` keys.
+
+@desktop_env should typically be given as %NULL, in which case the
+`XDG_CURRENT_DESKTOP` environment variable is consulted.  If you want
+to override the default mechanism then you may specify @desktop_env,
+but this is not recommended.
+
+Note that g_app_info_should_show() for @info will include this check (with
+%NULL for @desktop_env) as well as additional checks.</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="539">%TRUE if the @info should be shown in @desktop_env according to the
+`OnlyShowIn` and `NotShowIn` keys, %FALSE
+otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="appinfo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="524">a #GMenuDesktopAppInfo</doc>
+            <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+          </instance-parameter>
+          <parameter name="desktop_env"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="525">a string specifying a desktop name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_startup_wm_class"
+              c:identifier="gmenu_desktopappinfo_get_startup_wm_class">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="549">Retrieves the StartupWMClass field from @info. This represents the
+WM_CLASS property of the main window of the application, if launched
+through @info.
+
+Note: The returned value contain the suffix ":flatpak" if @info specifies a flatpak app
+and if the desktop file has a StartupWMClass</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="560">the startup WM class, or %NULL if none is set
+in the desktop file.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="appinfo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="551">a #GMenuDesktopAppInfo that supports startup notify</doc>
+            <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_string" c:identifier="gmenu_desktopappinfo_get_string">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="601">Looks up a string value in the keyfile backing @info.
+
+The @key is looked up in the "Desktop Entry" group.</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="65"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="610">a newly allocated string, or %NULL if the key
+    is not found</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="appinfo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="603">a #GMenuDesktopAppInfo</doc>
+            <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="604">the key to look up</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="has_key" c:identifier="gmenu_desktopappinfo_has_key">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="585">Returns whether @key exists in the "Desktop Entry" group
+of the keyfile backing @info.</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="593">%TRUE if the @key exists</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="appinfo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="587">a #GMenuDesktopAppInfo</doc>
+            <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="588">the key to look up</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="launch_action"
+              c:identifier="gmenu_desktopappinfo_launch_action">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="674">Activates the named application action.
+
+You may only call this function on action names that were
+returned from g_desktop_app_info_list_actions().
+
+Note that if the main entry of the desktop file indicates that the
+application supports startup notification, and @launch_context is
+non-%NULL, then startup notification will be used when activating the
+action (and as such, invocation of the action on the receiving side
+must signal the end of startup notification when it is completed).
+This is the expected behaviour of applications declaring additional
+actions, as per the desktop file specification.
+
+As with g_app_info_launch() there is no way to detect failures that
+occur while using this function.</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="appinfo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="676">a #GMenuDesktopAppInfo</doc>
+            <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="677">the name of the action as from
+  g_desktop_app_info_list_actions()</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="launch_context"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="679">a #GAppLaunchContext</doc>
+            <type name="Gio.AppLaunchContext" c:type="GAppLaunchContext*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="launch_uris_as_manager"
+              c:identifier="gmenu_desktopappinfo_launch_uris_as_manager"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="725">This function performs the equivalent of g_app_info_launch_uris(),
+but is intended primarily for operating system components that
+launch applications.  Ordinary applications should use
+g_app_info_launch_uris().
+
+If the application is launched via GSpawn, then @spawn_flags, @user_setup
+and @user_setup_data are used for the call to g_spawn_async().
+Additionally, @pid_callback (with @pid_callback_data) will be called to
+inform about the PID of the created process. See g_spawn_async_with_pipes()
+for information on certain parameter conditions that can enable an
+optimized posix_spawn() codepath to be used.
+
+If application launching occurs via some other mechanism (eg: D-Bus
+activation) then @spawn_flags, @user_setup, @user_setup_data,
+@pid_callback and @pid_callback_data are ignored.</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="754">%TRUE on successful launch, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="appinfo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="727">a #GMenuDesktopAppInfo</doc>
+            <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+          </instance-parameter>
+          <parameter name="uris" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="728">List of URIs</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="utf8"/>
+            </type>
+          </parameter>
+          <parameter name="launch_context"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="729">a #GAppLaunchContext</doc>
+            <type name="Gio.AppLaunchContext" c:type="GAppLaunchContext*"/>
+          </parameter>
+          <parameter name="spawn_flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="730">#GSpawnFlags, used for each process</doc>
+            <type name="GLib.SpawnFlags" c:type="GSpawnFlags"/>
+          </parameter>
+          <parameter name="user_setup"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="731">a #GSpawnChildSetupFunc, used once
+    for each process.</doc>
+            <type name="GLib.SpawnChildSetupFunc"
+                  c:type="GSpawnChildSetupFunc"/>
+          </parameter>
+          <parameter name="user_setup_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="733">User data for @user_setup</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="pid_callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="call"
+                     closure="6">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="734">Callback for child processes</doc>
+            <type name="Gio.DesktopAppLaunchCallback"
+                  c:type="GDesktopAppLaunchCallback"/>
+          </parameter>
+          <parameter name="pid_callback_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="5">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="735">User data for @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="list_actions"
+              c:identifier="gmenu_desktopappinfo_list_actions">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-desktopappinfo.c"
+             line="656">Returns the list of "additional application actions" supported on the
+desktop file, as per the desktop file specification.
+
+As per the specification, this is the list of actions that are
+explicitly listed in the "Actions" key of the [Desktop Entry] group.</doc>
+        <source-position filename="libmenu/gmenu-desktopappinfo.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-desktopappinfo.c"
+               line="666">a list of strings, always non-%NULL</doc>
+          <array c:type="const gchar* const*">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="appinfo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-desktopappinfo.c"
+                 line="658">a #GMenuDesktopAppInfo</doc>
+            <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="DesktopAppInfoClass"
+            c:type="GMenuDesktopAppInfoClass"
+            glib:is-gtype-struct-for="DesktopAppInfo">
+      <source-position filename="libmenu/gmenu-desktopappinfo.h" line="46"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <function-macro name="IS_DESKTOPAPPINFO"
+                    c:identifier="GMENU_IS_DESKTOPAPPINFO"
+                    introspectable="0">
+      <source-position filename="libmenu/gmenu-desktopappinfo.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DESKTOPAPPINFO_CLASS"
+                    c:identifier="GMENU_IS_DESKTOPAPPINFO_CLASS"
+                    introspectable="0">
+      <source-position filename="libmenu/gmenu-desktopappinfo.h" line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TREE"
+                    c:identifier="GMENU_IS_TREE"
+                    introspectable="0">
+      <source-position filename="libmenu/gmenu-tree.h" line="34"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TREE_CLASS"
+                    c:identifier="GMENU_IS_TREE_CLASS"
+                    introspectable="0">
+      <source-position filename="libmenu/gmenu-tree.h" line="35"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TREE" c:identifier="GMENU_TREE" introspectable="0">
+      <source-position filename="libmenu/gmenu-tree.h" line="32"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TREE_CLASS"
+                    c:identifier="GMENU_TREE_CLASS"
+                    introspectable="0">
+      <source-position filename="libmenu/gmenu-tree.h" line="33"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TREE_GET_CLASS"
+                    c:identifier="GMENU_TREE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="libmenu/gmenu-tree.h" line="36"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Tree"
+           c:symbol-prefix="tree"
+           c:type="GMenuTree"
+           parent="GObject.Object"
+           glib:type-name="GMenuTree"
+           glib:get-type="gmenu_tree_get_type"
+           glib:type-struct="TreeClass">
+      <source-position filename="libmenu/gmenu-tree.h" line="44"/>
+      <constructor name="new" c:identifier="gmenu_tree_new">
+        <source-position filename="libmenu/gmenu-tree.h" line="89"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="501">A new #GMenuTree instance</doc>
+          <type name="Tree" c:type="GMenuTree*"/>
+        </return-value>
+        <parameters>
+          <parameter name="menu_basename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="498">Basename of menu file</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="499">Flags controlling menu content</doc>
+            <type name="TreeFlags" c:type="GMenuTreeFlags"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_for_path" c:identifier="gmenu_tree_new_for_path">
+        <source-position filename="libmenu/gmenu-tree.h" line="92"/>
+        <return-value transfer-ownership="full">
+          <type name="Tree" c:type="GMenuTree*"/>
+        </return-value>
+        <parameters>
+          <parameter name="menu_path" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="TreeFlags" c:type="GMenuTreeFlags"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="item_ref" c:identifier="gmenu_tree_item_ref">
+        <source-position filename="libmenu/gmenu-tree.h" line="105"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="1705">The same @item, or %NULL if @item is not a valid #GMenuTreeItem</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </return-value>
+        <parameters>
+          <parameter name="item"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="1703">a #GMenuTreeItem</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="item_unref" c:identifier="gmenu_tree_item_unref">
+        <source-position filename="libmenu/gmenu-tree.h" line="106"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="item"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="get_canonical_menu_path"
+              c:identifier="gmenu_tree_get_canonical_menu_path">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="708">This function is only available if the tree has been loaded via
+gmenu_tree_load_sync() or a variant thereof.</doc>
+        <source-position filename="libmenu/gmenu-tree.h" line="98"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="715">The absolute and canonicalized path to the loaded menu file</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="tree" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="710">a #GMenuTree</doc>
+            <type name="Tree" c:type="GMenuTree*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_directory_from_path"
+              c:identifier="gmenu_tree_get_directory_from_path">
+        <source-position filename="libmenu/gmenu-tree.h" line="100"/>
+        <return-value transfer-ownership="full">
+          <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="tree" transfer-ownership="none">
+            <type name="Tree" c:type="GMenuTree*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_entry_by_id" c:identifier="gmenu_tree_get_entry_by_id">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="855">Look up the entry corresponding to the given "desktop file id".</doc>
+        <source-position filename="libmenu/gmenu-tree.h" line="102"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="862">A newly referenced #GMenuTreeEntry, or %NULL if none</doc>
+          <type name="TreeEntry" c:type="GMenuTreeEntry*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="tree" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="857">a #GMenuTree</doc>
+            <type name="Tree" c:type="GMenuTree*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="858">a desktop file ID</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_root_directory"
+              c:identifier="gmenu_tree_get_root_directory">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="758">Get the root directory; you must have loaded the tree first (at
+least once) via gmenu_tree_load_sync() or a variant thereof.</doc>
+        <source-position filename="libmenu/gmenu-tree.h" line="99"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="765">Root of the tree</doc>
+          <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="tree" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="760">a #GMenuTree</doc>
+            <type name="Tree" c:type="GMenuTree*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="load_sync" c:identifier="gmenu_tree_load_sync" throws="1">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="726">Synchronously load the menu contents.  This function
+performs a significant amount of blocking I/O if the
+tree has not been loaded yet.</doc>
+        <source-position filename="libmenu/gmenu-tree.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="735">%TRUE on success, %FALSE on error</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="tree" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="728">a #GMenuTree</doc>
+            <type name="Tree" c:type="GMenuTree*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="flags"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="GMENU_TREE_FLAGS_NONE">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="679">Flags controlling the content of the menu.</doc>
+        <type name="TreeFlags"/>
+      </property>
+      <property name="menu-basename"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="applications.menu">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="656">The name of the menu file; must be a basename or a relative path. The file
+will be looked up in $XDG_CONFIG_DIRS/menus/. See the Desktop Menu
+specification.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="menu-path"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="668">The full path of the menu file. If set, GMenuTree:menu-basename will get
+ignored.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <glib:signal name="changed" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="TreeAlias"
+            c:type="GMenuTreeAlias"
+            opaque="1"
+            glib:type-name="GMenuTreeAlias"
+            glib:get-type="gmenu_tree_alias_get_type"
+            c:symbol-prefix="tree_alias">
+      <source-position filename="libmenu/gmenu-tree.h" line="53"/>
+      <method name="get_aliased_directory"
+              c:identifier="gmenu_tree_alias_get_aliased_directory">
+        <source-position filename="libmenu/gmenu-tree.h" line="153"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="1440">The aliased directory entry</doc>
+          <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="alias" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="1438">alias</doc>
+            <type name="TreeAlias" c:type="GMenuTreeAlias*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_aliased_entry"
+              c:identifier="gmenu_tree_alias_get_aliased_entry">
+        <source-position filename="libmenu/gmenu-tree.h" line="154"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="1455">The aliased entry</doc>
+          <type name="TreeEntry" c:type="GMenuTreeEntry*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="alias" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="1453">alias</doc>
+            <type name="TreeAlias" c:type="GMenuTreeAlias*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_aliased_item_type"
+              c:identifier="gmenu_tree_alias_get_aliased_item_type">
+        <source-position filename="libmenu/gmenu-tree.h" line="152"/>
+        <return-value transfer-ownership="none">
+          <type name="TreeItemType" c:type="GMenuTreeItemType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="alias" transfer-ownership="none">
+            <type name="TreeAlias" c:type="GMenuTreeAlias*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_directory"
+              c:identifier="gmenu_tree_alias_get_directory">
+        <source-position filename="libmenu/gmenu-tree.h" line="151"/>
+        <return-value transfer-ownership="full">
+          <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="alias" transfer-ownership="none">
+            <type name="TreeAlias" c:type="GMenuTreeAlias*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parent" c:identifier="gmenu_tree_alias_get_parent">
+        <source-position filename="libmenu/gmenu-tree.h" line="156"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="920">The parent directory, or %NULL if none</doc>
+          <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="alias" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="918">a #GMenuTreeAlias</doc>
+            <type name="TreeAlias" c:type="GMenuTreeAlias*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tree" c:identifier="gmenu_tree_alias_get_tree">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="1404">Grab the tree associated with a #GMenuTreeAlias.</doc>
+        <source-position filename="libmenu/gmenu-tree.h" line="155"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="1410">The #GMenuTree</doc>
+          <type name="Tree" c:type="GMenuTree*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="alias" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="1406">A #GMenuTreeAlias</doc>
+            <type name="TreeAlias" c:type="GMenuTreeAlias*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="TreeClass"
+            c:type="GMenuTreeClass"
+            glib:is-gtype-struct-for="Tree">
+      <source-position filename="libmenu/gmenu-tree.h" line="44"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="TreeDirectory"
+            c:type="GMenuTreeDirectory"
+            opaque="1"
+            glib:type-name="GMenuTreeDirectory"
+            glib:get-type="gmenu_tree_directory_get_type"
+            c:symbol-prefix="tree_directory">
+      <source-position filename="libmenu/gmenu-tree.h" line="49"/>
+      <method name="get_comment"
+              c:identifier="gmenu_tree_directory_get_comment">
+        <source-position filename="libmenu/gmenu-tree.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_desktop_file_path"
+              c:identifier="gmenu_tree_directory_get_desktop_file_path">
+        <source-position filename="libmenu/gmenu-tree.h" line="113"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_generic_name"
+              c:identifier="gmenu_tree_directory_get_generic_name">
+        <source-position filename="libmenu/gmenu-tree.h" line="110"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon" c:identifier="gmenu_tree_directory_get_icon">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="1167">Gets the icon for the directory.</doc>
+        <source-position filename="libmenu/gmenu-tree.h" line="112"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="1173">The #GIcon for this directory</doc>
+          <type name="Gio.Icon" c:type="GIcon*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="1169">a #GMenuTreeDirectory</doc>
+            <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_is_nodisplay"
+              c:identifier="gmenu_tree_directory_get_is_nodisplay">
+        <source-position filename="libmenu/gmenu-tree.h" line="117"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_menu_id"
+              c:identifier="gmenu_tree_directory_get_menu_id">
+        <source-position filename="libmenu/gmenu-tree.h" line="114"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="gmenu_tree_directory_get_name">
+        <source-position filename="libmenu/gmenu-tree.h" line="109"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parent" c:identifier="gmenu_tree_directory_get_parent">
+        <source-position filename="libmenu/gmenu-tree.h" line="108"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="896">The parent directory, or %NULL if none</doc>
+          <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="894">a #GMenuTreeDirectory</doc>
+            <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tree" c:identifier="gmenu_tree_directory_get_tree">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="1213">Grab the tree associated with a #GMenuTreeItem.</doc>
+        <source-position filename="libmenu/gmenu-tree.h" line="115"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="1219">The #GMenuTree</doc>
+          <type name="Tree" c:type="GMenuTree*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="1215">A #GMenuTreeDirectory</doc>
+            <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="iter" c:identifier="gmenu_tree_directory_iter">
+        <source-position filename="libmenu/gmenu-tree.h" line="119"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="996">A new iterator over the directory contents</doc>
+          <type name="TreeIter" c:type="GMenuTreeIter*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="994">directory</doc>
+            <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="make_path" c:identifier="gmenu_tree_directory_make_path">
+        <source-position filename="libmenu/gmenu-tree.h" line="131"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="directory" transfer-ownership="none">
+            <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+          </instance-parameter>
+          <parameter name="entry" transfer-ownership="none">
+            <type name="TreeEntry" c:type="GMenuTreeEntry*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="TreeEntry"
+            c:type="GMenuTreeEntry"
+            opaque="1"
+            glib:type-name="GMenuTreeEntry"
+            glib:get-type="gmenu_tree_entry_get_type"
+            c:symbol-prefix="tree_entry">
+      <source-position filename="libmenu/gmenu-tree.h" line="50"/>
+      <method name="get_app_info" c:identifier="gmenu_tree_entry_get_app_info">
+        <source-position filename="libmenu/gmenu-tree.h" line="135"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="1269">The #GMenuDesktopAppInfo for this entry</doc>
+          <type name="DesktopAppInfo" c:type="GMenuDesktopAppInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="1267">a #GMenuTreeEntry</doc>
+            <type name="TreeEntry" c:type="GMenuTreeEntry*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_desktop_file_id"
+              c:identifier="gmenu_tree_entry_get_desktop_file_id">
+        <source-position filename="libmenu/gmenu-tree.h" line="140"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="TreeEntry" c:type="GMenuTreeEntry*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_desktop_file_path"
+              c:identifier="gmenu_tree_entry_get_desktop_file_path">
+        <source-position filename="libmenu/gmenu-tree.h" line="139"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="TreeEntry" c:type="GMenuTreeEntry*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_is_excluded"
+              c:identifier="gmenu_tree_entry_get_is_excluded">
+        <source-position filename="libmenu/gmenu-tree.h" line="143"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="TreeEntry" c:type="GMenuTreeEntry*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_is_flatpak"
+              c:identifier="gmenu_tree_entry_get_is_flatpak">
+        <source-position filename="libmenu/gmenu-tree.h" line="145"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="TreeEntry" c:type="GMenuTreeEntry*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_is_nodisplay_recurse"
+              c:identifier="gmenu_tree_entry_get_is_nodisplay_recurse">
+        <source-position filename="libmenu/gmenu-tree.h" line="142"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="TreeEntry" c:type="GMenuTreeEntry*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_is_unallocated"
+              c:identifier="gmenu_tree_entry_get_is_unallocated">
+        <source-position filename="libmenu/gmenu-tree.h" line="144"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="TreeEntry" c:type="GMenuTreeEntry*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parent" c:identifier="gmenu_tree_entry_get_parent">
+        <source-position filename="libmenu/gmenu-tree.h" line="136"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="908">The parent directory, or %NULL if none</doc>
+          <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="906">a #GMenuTreeEntry</doc>
+            <type name="TreeEntry" c:type="GMenuTreeEntry*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tree" c:identifier="gmenu_tree_entry_get_tree">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="1347">Grab the tree associated with a #GMenuTreeEntry.</doc>
+        <source-position filename="libmenu/gmenu-tree.h" line="137"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="1353">The #GMenuTree</doc>
+          <type name="Tree" c:type="GMenuTree*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="1349">A #GMenuTreeEntry</doc>
+            <type name="TreeEntry" c:type="GMenuTreeEntry*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <bitfield name="TreeFlags"
+              glib:type-name="GMenuTreeFlags"
+              glib:get-type="gmenu_tree_flags_get_type"
+              c:type="GMenuTreeFlags">
+      <member name="none"
+              value="0"
+              c:identifier="GMENU_TREE_FLAGS_NONE"
+              glib:nick="none"
+              glib:name="GMENU_TREE_FLAGS_NONE">
+      </member>
+      <member name="include_excluded"
+              value="1"
+              c:identifier="GMENU_TREE_FLAGS_INCLUDE_EXCLUDED"
+              glib:nick="include-excluded"
+              glib:name="GMENU_TREE_FLAGS_INCLUDE_EXCLUDED">
+      </member>
+      <member name="show_empty"
+              value="256"
+              c:identifier="GMENU_TREE_FLAGS_SHOW_EMPTY"
+              glib:nick="show-empty"
+              glib:name="GMENU_TREE_FLAGS_SHOW_EMPTY">
+      </member>
+      <member name="include_nodisplay"
+              value="2"
+              c:identifier="GMENU_TREE_FLAGS_INCLUDE_NODISPLAY"
+              glib:nick="include-nodisplay"
+              glib:name="GMENU_TREE_FLAGS_INCLUDE_NODISPLAY">
+      </member>
+      <member name="show_all_separators"
+              value="512"
+              c:identifier="GMENU_TREE_FLAGS_SHOW_ALL_SEPARATORS"
+              glib:nick="show-all-separators"
+              glib:name="GMENU_TREE_FLAGS_SHOW_ALL_SEPARATORS">
+      </member>
+      <member name="sort_display_name"
+              value="65536"
+              c:identifier="GMENU_TREE_FLAGS_SORT_DISPLAY_NAME"
+              glib:nick="sort-display-name"
+              glib:name="GMENU_TREE_FLAGS_SORT_DISPLAY_NAME">
+      </member>
+      <member name="include_unallocated"
+              value="4"
+              c:identifier="GMENU_TREE_FLAGS_INCLUDE_UNALLOCATED"
+              glib:nick="include-unallocated"
+              glib:name="GMENU_TREE_FLAGS_INCLUDE_UNALLOCATED,">
+      </member>
+    </bitfield>
+    <record name="TreeHeader"
+            c:type="GMenuTreeHeader"
+            opaque="1"
+            glib:type-name="GMenuTreeHeader"
+            glib:get-type="gmenu_tree_header_get_type"
+            c:symbol-prefix="tree_header">
+      <source-position filename="libmenu/gmenu-tree.h" line="52"/>
+      <method name="get_directory"
+              c:identifier="gmenu_tree_header_get_directory">
+        <source-position filename="libmenu/gmenu-tree.h" line="147"/>
+        <return-value transfer-ownership="full">
+          <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="header" transfer-ownership="none">
+            <type name="TreeHeader" c:type="GMenuTreeHeader*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parent" c:identifier="gmenu_tree_header_get_parent">
+        <source-position filename="libmenu/gmenu-tree.h" line="149"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="932">The parent directory, or %NULL if none</doc>
+          <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="header" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="930">a #GMenuTreeHeader</doc>
+            <type name="TreeHeader" c:type="GMenuTreeHeader*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tree" c:identifier="gmenu_tree_header_get_tree">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="1371">Grab the tree associated with a #GMenuTreeHeader.</doc>
+        <source-position filename="libmenu/gmenu-tree.h" line="148"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="1377">The #GMenuTree</doc>
+          <type name="Tree" c:type="GMenuTree*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="header" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="1373">A #GMenuTreeHeader</doc>
+            <type name="TreeHeader" c:type="GMenuTreeHeader*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <enumeration name="TreeItemType" c:type="GMenuTreeItemType">
+      <source-position filename="libmenu/gmenu-tree.h" line="63"/>
+      <member name="invalid" value="0" c:identifier="GMENU_TREE_ITEM_INVALID">
+      </member>
+      <member name="directory"
+              value="1"
+              c:identifier="GMENU_TREE_ITEM_DIRECTORY">
+      </member>
+      <member name="entry" value="2" c:identifier="GMENU_TREE_ITEM_ENTRY">
+      </member>
+      <member name="separator"
+              value="3"
+              c:identifier="GMENU_TREE_ITEM_SEPARATOR">
+      </member>
+      <member name="header" value="4" c:identifier="GMENU_TREE_ITEM_HEADER">
+      </member>
+      <member name="alias" value="5" c:identifier="GMENU_TREE_ITEM_ALIAS">
+      </member>
+    </enumeration>
+    <record name="TreeIter"
+            c:type="GMenuTreeIter"
+            opaque="1"
+            glib:type-name="GMenuTreeIter"
+            glib:get-type="gmenu_tree_iter_get_type"
+            c:symbol-prefix="tree_iter">
+      <source-position filename="libmenu/gmenu-tree.h" line="48"/>
+      <method name="get_alias" c:identifier="gmenu_tree_iter_get_alias">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="1096">This method may only be called if gmenu_tree_iter_next()
+returned GMENU_TREE_ITEM_ALIAS.</doc>
+        <source-position filename="libmenu/gmenu-tree.h" line="128"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="1103">An alias</doc>
+          <type name="TreeAlias" c:type="GMenuTreeAlias*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="1098">iter</doc>
+            <type name="TreeIter" c:type="GMenuTreeIter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_directory"
+              c:identifier="gmenu_tree_iter_get_directory">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="1039">This method may only be called if gmenu_tree_iter_next()
+returned GMENU_TREE_ITEM_DIRECTORY.</doc>
+        <source-position filename="libmenu/gmenu-tree.h" line="125"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="1046">A directory</doc>
+          <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="1041">iter</doc>
+            <type name="TreeIter" c:type="GMenuTreeIter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_entry" c:identifier="gmenu_tree_iter_get_entry">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="1058">This method may only be called if gmenu_tree_iter_next()
+returned GMENU_TREE_ITEM_ENTRY.</doc>
+        <source-position filename="libmenu/gmenu-tree.h" line="126"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="1065">An entry</doc>
+          <type name="TreeEntry" c:type="GMenuTreeEntry*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="1060">iter</doc>
+            <type name="TreeIter" c:type="GMenuTreeIter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_header" c:identifier="gmenu_tree_iter_get_header">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="1077">This method may only be called if gmenu_tree_iter_next()
+returned GMENU_TREE_ITEM_HEADER.</doc>
+        <source-position filename="libmenu/gmenu-tree.h" line="127"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="1084">A header</doc>
+          <type name="TreeHeader" c:type="GMenuTreeHeader*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="1079">iter</doc>
+            <type name="TreeIter" c:type="GMenuTreeIter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_separator"
+              c:identifier="gmenu_tree_iter_get_separator">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="1115">This method may only be called if gmenu_tree_iter_next()
+returned #GMENU_TREE_ITEM_SEPARATOR.</doc>
+        <source-position filename="libmenu/gmenu-tree.h" line="129"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="1122">A separator</doc>
+          <type name="TreeSeparator" c:type="GMenuTreeSeparator*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="1117">iter</doc>
+            <type name="TreeIter" c:type="GMenuTreeIter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="next" c:identifier="gmenu_tree_iter_next">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="1015">Change the iterator to the next item, and return its type.  If
+there are no more items, %GMENU_TREE_ITEM_INVALID is returned.</doc>
+        <source-position filename="libmenu/gmenu-tree.h" line="124"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="1022">The type of the next item that can be retrived from the iterator</doc>
+          <type name="TreeItemType" c:type="GMenuTreeItemType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="1017">iter</doc>
+            <type name="TreeIter" c:type="GMenuTreeIter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="gmenu_tree_iter_ref" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="961">Increment the reference count of @iter</doc>
+        <source-position filename="libmenu/gmenu-tree.h" line="121"/>
+        <return-value transfer-ownership="full">
+          <type name="TreeIter" c:type="GMenuTreeIter*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="963">iter</doc>
+            <type name="TreeIter" c:type="GMenuTreeIter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="unref"
+              c:identifier="gmenu_tree_iter_unref"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="974">Decrement the reference count of @iter</doc>
+        <source-position filename="libmenu/gmenu-tree.h" line="122"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="iter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="976">iter</doc>
+            <type name="TreeIter" c:type="GMenuTreeIter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="TreeSeparator"
+            c:type="GMenuTreeSeparator"
+            opaque="1"
+            glib:type-name="GMenuTreeSeparator"
+            glib:get-type="gmenu_tree_separator_get_type"
+            c:symbol-prefix="tree_separator">
+      <source-position filename="libmenu/gmenu-tree.h" line="51"/>
+      <method name="get_parent" c:identifier="gmenu_tree_separator_get_parent">
+        <source-position filename="libmenu/gmenu-tree.h" line="159"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="944">The parent directory, or %NULL if none</doc>
+          <type name="TreeDirectory" c:type="GMenuTreeDirectory*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="separator" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="942">a #GMenuTreeSeparator</doc>
+            <type name="TreeSeparator" c:type="GMenuTreeSeparator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tree" c:identifier="gmenu_tree_separator_get_tree">
+        <doc xml:space="preserve"
+             filename="libmenu/gmenu-tree.c"
+             line="1420">Grab the tree associated with a #GMenuTreeSeparator.</doc>
+        <source-position filename="libmenu/gmenu-tree.h" line="158"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmenu/gmenu-tree.c"
+               line="1426">The #GMenuTree</doc>
+          <type name="Tree" c:type="GMenuTree*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="separator" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmenu/gmenu-tree.c"
+                 line="1422">A #GMenuTreeSeparator</doc>
+            <type name="TreeSeparator" c:type="GMenuTreeSeparator*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+  </namespace>
+</repository>

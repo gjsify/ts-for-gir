@@ -1,0 +1,951 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="4.0"/>
+  <include name="GtkSource" version="5"/>
+  <c:include name="libspelling.h"/>
+  <namespace name="Spelling"
+             version="1"
+             shared-library="libspelling-1.so.1"
+             c:identifier-prefixes="Spelling"
+             c:symbol-prefixes="spelling">
+    <class name="Checker"
+           c:symbol-prefix="checker"
+           c:type="SpellingChecker"
+           parent="GObject.Object"
+           final="1"
+           glib:type-name="SpellingChecker"
+           glib:get-type="spelling_checker_get_type"
+           glib:type-struct="CheckerClass">
+      <source-position filename="lib/spelling-checker.h" line="38"/>
+      <constructor name="new" c:identifier="spelling_checker_new">
+        <doc xml:space="preserve"
+             filename="lib/spelling-checker.c"
+             line="48">Create a new #SpellingChecker.</doc>
+        <source-position filename="lib/spelling-checker.h" line="43"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/spelling-checker.c"
+               line="53">a newly created #SpellingChecker</doc>
+          <type name="Checker" c:type="SpellingChecker*"/>
+        </return-value>
+        <parameters>
+          <parameter name="provider" transfer-ownership="none">
+            <type name="Provider" c:type="SpellingProvider*"/>
+          </parameter>
+          <parameter name="language" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="get_default" c:identifier="spelling_checker_get_default">
+        <doc xml:space="preserve"
+             filename="lib/spelling-checker.c"
+             line="337">Gets a default #SpellingChecker using the default provider and language.</doc>
+        <source-position filename="lib/spelling-checker.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/spelling-checker.c"
+               line="342">a #SpellingChecker</doc>
+          <type name="Checker" c:type="SpellingChecker*"/>
+        </return-value>
+      </function>
+      <method name="add_word" c:identifier="spelling_checker_add_word">
+        <source-position filename="lib/spelling-checker.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Checker" c:type="SpellingChecker*"/>
+          </instance-parameter>
+          <parameter name="word" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="check_word" c:identifier="spelling_checker_check_word">
+        <source-position filename="lib/spelling-checker.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Checker" c:type="SpellingChecker*"/>
+          </instance-parameter>
+          <parameter name="word" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="word_len" transfer-ownership="none">
+            <type name="gssize" c:type="gssize"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_extra_word_chars"
+              c:identifier="spelling_checker_get_extra_word_chars">
+        <source-position filename="lib/spelling-checker.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Checker" c:type="SpellingChecker*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_language"
+              c:identifier="spelling_checker_get_language"
+              glib:get-property="language">
+        <doc xml:space="preserve"
+             filename="lib/spelling-checker.c"
+             line="191">Gets the language being used by the spell checker.</doc>
+        <source-position filename="lib/spelling-checker.h" line="48"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="lib/spelling-checker.c"
+               line="196">a string describing the current language.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Checker" c:type="SpellingChecker*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_provider"
+              c:identifier="spelling_checker_get_provider"
+              glib:get-property="provider">
+        <doc xml:space="preserve"
+             filename="lib/spelling-checker.c"
+             line="227">Gets the spell provider used by the spell checker.
+
+Currently, only Enchant-2 is supported.</doc>
+        <source-position filename="lib/spelling-checker.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/spelling-checker.c"
+               line="234">an #SpellingProvider</doc>
+          <type name="Provider" c:type="SpellingProvider*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Checker" c:type="SpellingChecker*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ignore_word" c:identifier="spelling_checker_ignore_word">
+        <source-position filename="lib/spelling-checker.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Checker" c:type="SpellingChecker*"/>
+          </instance-parameter>
+          <parameter name="word" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="list_corrections"
+              c:identifier="spelling_checker_list_corrections">
+        <doc xml:space="preserve"
+             filename="lib/spelling-checker.c"
+             line="281">Retrieves a list of possible corrections for @word.</doc>
+        <source-position filename="lib/spelling-checker.h" line="57"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="lib/spelling-checker.c"
+               line="288">
+  A list of possible corrections, or %NULL.</doc>
+          <array c:type="char**">
+            <type name="utf8" c:type="char*"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/spelling-checker.c"
+                 line="283">a #SpellingChecker</doc>
+            <type name="Checker" c:type="SpellingChecker*"/>
+          </instance-parameter>
+          <parameter name="word" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/spelling-checker.c"
+                 line="284">a word to be checked</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_language"
+              c:identifier="spelling_checker_set_language"
+              glib:set-property="language">
+        <doc xml:space="preserve"
+             filename="lib/spelling-checker.c"
+             line="206">Sets the language code to use when communicating with the provider,
+such as `en_US`.</doc>
+        <source-position filename="lib/spelling-checker.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/spelling-checker.c"
+                 line="208">an #SpellingChecker</doc>
+            <type name="Checker" c:type="SpellingChecker*"/>
+          </instance-parameter>
+          <parameter name="language" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/spelling-checker.c"
+                 line="209">the language to use</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="language"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_language"
+                getter="get_language"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="lib/spelling-checker.c"
+             line="153">The "language" to use when checking words with the configured
+#SpellingProvider. For example, `en_US`.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="provider"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_provider">
+        <doc xml:space="preserve"
+             filename="lib/spelling-checker.c"
+             line="166">The "provider" property contains the provider that is providing
+information to the spell checker.
+
+Currently, only Enchant is supported, and requires using the
+#SpellingEnchantProvider. Setting this to %NULL will get
+the default provider.</doc>
+        <type name="Provider"/>
+      </property>
+    </class>
+    <record name="CheckerClass"
+            c:type="SpellingCheckerClass"
+            glib:is-gtype-struct-for="Checker">
+      <source-position filename="lib/spelling-checker.h" line="38"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <function-macro name="DEPRECATED_FOR"
+                    c:identifier="SPELLING_DEPRECATED_FOR"
+                    introspectable="0">
+      <source-position filename="lib/spelling-version-macros.h" line="40"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_1_0_FOR"
+                    c:identifier="SPELLING_DEPRECATED_IN_1_0_FOR"
+                    introspectable="0">
+      <source-position filename="lib/spelling-version-macros.h" line="102"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_LANGUAGE"
+                    c:identifier="SPELLING_IS_LANGUAGE"
+                    introspectable="0">
+      <source-position filename="lib/spelling-language.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PROVIDER"
+                    c:identifier="SPELLING_IS_PROVIDER"
+                    introspectable="0">
+      <source-position filename="lib/spelling-provider.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LANGUAGE"
+                    c:identifier="SPELLING_LANGUAGE"
+                    introspectable="0">
+      <source-position filename="lib/spelling-language.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="LANGUAGE_CLASS"
+                    c:identifier="SPELLING_LANGUAGE_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/spelling-language.h" line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Language"
+           c:symbol-prefix="language"
+           c:type="SpellingLanguage"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="SpellingLanguage"
+           glib:get-type="spelling_language_get_type"
+           glib:type-struct="LanguageClass">
+      <source-position filename="lib/spelling-language.h" line="41"/>
+      <method name="add_word" c:identifier="spelling_language_add_word">
+        <source-position filename="lib/spelling-language.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Language" c:type="SpellingLanguage*"/>
+          </instance-parameter>
+          <parameter name="word" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="contains_word"
+              c:identifier="spelling_language_contains_word">
+        <source-position filename="lib/spelling-language.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Language" c:type="SpellingLanguage*"/>
+          </instance-parameter>
+          <parameter name="word" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="word_len" transfer-ownership="none">
+            <type name="gssize" c:type="gssize"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_code"
+              c:identifier="spelling_language_get_code"
+              glib:get-property="code">
+        <source-position filename="lib/spelling-language.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Language" c:type="SpellingLanguage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_extra_word_chars"
+              c:identifier="spelling_language_get_extra_word_chars">
+        <source-position filename="lib/spelling-language.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Language" c:type="SpellingLanguage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ignore_word" c:identifier="spelling_language_ignore_word">
+        <source-position filename="lib/spelling-language.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Language" c:type="SpellingLanguage*"/>
+          </instance-parameter>
+          <parameter name="word" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="list_corrections"
+              c:identifier="spelling_language_list_corrections">
+        <doc xml:space="preserve"
+             filename="lib/spelling-language.c"
+             line="120">Retrieves a list of possible corrections for @word.</doc>
+        <source-position filename="lib/spelling-language.h" line="52"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="lib/spelling-language.c"
+               line="128">
+  A list of possible corrections, or %NULL.</doc>
+          <array c:type="char**">
+            <type name="utf8" c:type="char*"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/spelling-language.c"
+                 line="122">a #SpellingLanguage</doc>
+            <type name="Language" c:type="SpellingLanguage*"/>
+          </instance-parameter>
+          <parameter name="word" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/spelling-language.c"
+                 line="123">a word to be checked</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="word_len" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/spelling-language.c"
+                 line="124">the length of @word, or -1 if @word is zero-terminated</doc>
+            <type name="gssize" c:type="gssize"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="code"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_code"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="LanguageClass"
+            c:type="SpellingLanguageClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="Language">
+      <source-position filename="lib/spelling-language.h" line="41"/>
+    </record>
+    <class name="LanguageInfo"
+           c:symbol-prefix="language_info"
+           c:type="SpellingLanguageInfo"
+           parent="GObject.Object"
+           final="1"
+           glib:type-name="SpellingLanguageInfo"
+           glib:get-type="spelling_language_info_get_type"
+           glib:type-struct="LanguageInfoClass">
+      <source-position filename="lib/spelling-language-info.h" line="37"/>
+      <method name="get_code"
+              c:identifier="spelling_language_info_get_code"
+              glib:get-property="code">
+        <source-position filename="lib/spelling-language-info.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="LanguageInfo" c:type="SpellingLanguageInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_group"
+              c:identifier="spelling_language_info_get_group"
+              glib:get-property="group">
+        <source-position filename="lib/spelling-language-info.h" line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="LanguageInfo" c:type="SpellingLanguageInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="spelling_language_info_get_name"
+              glib:get-property="name">
+        <source-position filename="lib/spelling-language-info.h" line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="LanguageInfo" c:type="SpellingLanguageInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="code"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_code"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="group"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_group"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_name"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="LanguageInfoClass"
+            c:type="SpellingLanguageInfoClass"
+            glib:is-gtype-struct-for="LanguageInfo">
+      <source-position filename="lib/spelling-language-info.h" line="37"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <function-macro name="PROVIDER"
+                    c:identifier="SPELLING_PROVIDER"
+                    introspectable="0">
+      <source-position filename="lib/spelling-provider.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PROVIDER_CLASS"
+                    c:identifier="SPELLING_PROVIDER_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/spelling-provider.h" line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Provider"
+           c:symbol-prefix="provider"
+           c:type="SpellingProvider"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="SpellingProvider"
+           glib:get-type="spelling_provider_get_type"
+           glib:type-struct="ProviderClass">
+      <source-position filename="lib/spelling-provider.h" line="41"/>
+      <function name="get_default"
+                c:identifier="spelling_provider_get_default">
+        <doc xml:space="preserve"
+             filename="lib/spelling-provider.c"
+             line="121">Gets the default spell provider.</doc>
+        <source-position filename="lib/spelling-provider.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/spelling-provider.c"
+               line="126">an #SpellingProvider</doc>
+          <type name="Provider" c:type="SpellingProvider*"/>
+        </return-value>
+      </function>
+      <method name="get_default_code"
+              c:identifier="spelling_provider_get_default_code">
+        <source-position filename="lib/spelling-provider.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Provider" c:type="SpellingProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_display_name"
+              c:identifier="spelling_provider_get_display_name"
+              glib:get-property="display-name">
+        <source-position filename="lib/spelling-provider.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Provider" c:type="SpellingProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_language"
+              c:identifier="spelling_provider_get_language">
+        <doc xml:space="preserve"
+             filename="lib/spelling-provider.c"
+             line="184">Gets an #SpellingLanguage for the requested language, or %NULL
+if the language is not supported.</doc>
+        <source-position filename="lib/spelling-provider.h" line="57"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="lib/spelling-provider.c"
+               line="192">an #SpellingProvider or %NULL</doc>
+          <type name="Language" c:type="SpellingLanguage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/spelling-provider.c"
+                 line="186">an #SpellingProvider</doc>
+            <type name="Provider" c:type="SpellingProvider*"/>
+          </instance-parameter>
+          <parameter name="language" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/spelling-provider.c"
+                 line="187">the language to load such as `en_US`.</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="list_languages"
+              c:identifier="spelling_provider_list_languages">
+        <doc xml:space="preserve"
+             filename="lib/spelling-provider.c"
+             line="167">Gets a list of the languages supported by the provider.</doc>
+        <source-position filename="lib/spelling-provider.h" line="55"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="lib/spelling-provider.c"
+               line="173">an array of
+  #SpellingLanguageInfo.</doc>
+          <array name="GLib.PtrArray" c:type="GPtrArray*">
+            <type name="LanguageInfo"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/spelling-provider.c"
+                 line="169">an #SpellingProvider</doc>
+            <type name="Provider" c:type="SpellingProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="supports_language"
+              c:identifier="spelling_provider_supports_language">
+        <doc xml:space="preserve"
+             filename="lib/spelling-provider.c"
+             line="148">Checks of @language is supported by the provider.</doc>
+        <source-position filename="lib/spelling-provider.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/spelling-provider.c"
+               line="155">%TRUE if @language is supported, otherwise %FALSE</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/spelling-provider.c"
+                 line="150">an #SpellingProvider</doc>
+            <type name="Provider" c:type="SpellingProvider*"/>
+          </instance-parameter>
+          <parameter name="language" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/spelling-provider.c"
+                 line="151">the language such as `en_US`.</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="display-name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_display_name"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="ProviderClass"
+            c:type="SpellingProviderClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="Provider">
+      <source-position filename="lib/spelling-provider.h" line="41"/>
+    </record>
+    <class name="TextBufferAdapter"
+           c:symbol-prefix="text_buffer_adapter"
+           c:type="SpellingTextBufferAdapter"
+           parent="GObject.Object"
+           final="1"
+           glib:type-name="SpellingTextBufferAdapter"
+           glib:get-type="spelling_text_buffer_adapter_get_type"
+           glib:type-struct="TextBufferAdapterClass">
+      <source-position filename="lib/spelling-text-buffer-adapter.h"
+                       line="34"/>
+      <implements name="Gio.ActionGroup"/>
+      <constructor name="new" c:identifier="spelling_text_buffer_adapter_new">
+        <source-position filename="lib/spelling-text-buffer-adapter.h"
+                         line="37"/>
+        <return-value transfer-ownership="full">
+          <type name="TextBufferAdapter" c:type="SpellingTextBufferAdapter*"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="GtkSource.Buffer" c:type="GtkSourceBuffer*"/>
+          </parameter>
+          <parameter name="checker" transfer-ownership="none">
+            <type name="Checker" c:type="SpellingChecker*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_buffer"
+              c:identifier="spelling_text_buffer_adapter_get_buffer"
+              glib:get-property="buffer">
+        <doc xml:space="preserve"
+             filename="lib/spelling-text-buffer-adapter.c"
+             line="1017">Gets the underlying buffer for the adapter.</doc>
+        <source-position filename="lib/spelling-text-buffer-adapter.h"
+                         line="40"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="lib/spelling-text-buffer-adapter.c"
+               line="1023">a #GtkSourceBuffer</doc>
+          <type name="GtkSource.Buffer" c:type="GtkSourceBuffer*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/spelling-text-buffer-adapter.c"
+                 line="1019">a #SpellingTextBufferAdapter</doc>
+            <type name="TextBufferAdapter"
+                  c:type="SpellingTextBufferAdapter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_checker"
+              c:identifier="spelling_text_buffer_adapter_get_checker"
+              glib:get-property="checker">
+        <doc xml:space="preserve"
+             filename="lib/spelling-text-buffer-adapter.c"
+             line="935">Gets the checker used by the adapter.</doc>
+        <source-position filename="lib/spelling-text-buffer-adapter.h"
+                         line="47"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="lib/spelling-text-buffer-adapter.c"
+               line="941">a #SpellingChecker or %NULL</doc>
+          <type name="Checker" c:type="SpellingChecker*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/spelling-text-buffer-adapter.c"
+                 line="937">a #SpellingTextBufferAdapter</doc>
+            <type name="TextBufferAdapter"
+                  c:type="SpellingTextBufferAdapter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_enabled"
+              c:identifier="spelling_text_buffer_adapter_get_enabled"
+              glib:get-property="enabled">
+        <source-position filename="lib/spelling-text-buffer-adapter.h"
+                         line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TextBufferAdapter"
+                  c:type="SpellingTextBufferAdapter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_language"
+              c:identifier="spelling_text_buffer_adapter_get_language"
+              glib:get-property="language">
+        <source-position filename="lib/spelling-text-buffer-adapter.h"
+                         line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TextBufferAdapter"
+                  c:type="SpellingTextBufferAdapter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_menu_model"
+              c:identifier="spelling_text_buffer_adapter_get_menu_model">
+        <doc xml:space="preserve"
+             filename="lib/spelling-text-buffer-adapter.c"
+             line="1087">Gets the menu model containing corrections</doc>
+        <source-position filename="lib/spelling-text-buffer-adapter.h"
+                         line="61"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/spelling-text-buffer-adapter.c"
+               line="1093">a #GMenuModel</doc>
+          <type name="Gio.MenuModel" c:type="GMenuModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/spelling-text-buffer-adapter.c"
+                 line="1089">a #SpellingTextBufferAdapter</doc>
+            <type name="TextBufferAdapter"
+                  c:type="SpellingTextBufferAdapter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tag"
+              c:identifier="spelling_text_buffer_adapter_get_tag">
+        <doc xml:space="preserve"
+             filename="lib/spelling-text-buffer-adapter.c"
+             line="1065">Gets the tag used for potentially misspelled words.</doc>
+        <source-position filename="lib/spelling-text-buffer-adapter.h"
+                         line="59"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="lib/spelling-text-buffer-adapter.c"
+               line="1071">a #GtkTextTag or %NULL</doc>
+          <type name="Gtk.TextTag" c:type="GtkTextTag*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/spelling-text-buffer-adapter.c"
+                 line="1067">a #SpellingTextBufferAdapter</doc>
+            <type name="TextBufferAdapter"
+                  c:type="SpellingTextBufferAdapter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="invalidate_all"
+              c:identifier="spelling_text_buffer_adapter_invalidate_all">
+        <source-position filename="lib/spelling-text-buffer-adapter.h"
+                         line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TextBufferAdapter"
+                  c:type="SpellingTextBufferAdapter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_checker"
+              c:identifier="spelling_text_buffer_adapter_set_checker"
+              glib:set-property="checker">
+        <source-position filename="lib/spelling-text-buffer-adapter.h"
+                         line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TextBufferAdapter"
+                  c:type="SpellingTextBufferAdapter*"/>
+          </instance-parameter>
+          <parameter name="checker" transfer-ownership="none">
+            <type name="Checker" c:type="SpellingChecker*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_enabled"
+              c:identifier="spelling_text_buffer_adapter_set_enabled"
+              glib:set-property="enabled">
+        <source-position filename="lib/spelling-text-buffer-adapter.h"
+                         line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TextBufferAdapter"
+                  c:type="SpellingTextBufferAdapter*"/>
+          </instance-parameter>
+          <parameter name="enabled" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_language"
+              c:identifier="spelling_text_buffer_adapter_set_language"
+              glib:set-property="language">
+        <source-position filename="lib/spelling-text-buffer-adapter.h"
+                         line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TextBufferAdapter"
+                  c:type="SpellingTextBufferAdapter*"/>
+          </instance-parameter>
+          <parameter name="language" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="buffer"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_buffer">
+        <type name="GtkSource.Buffer"/>
+      </property>
+      <property name="checker"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_checker"
+                getter="get_checker">
+        <type name="Checker"/>
+      </property>
+      <property name="enabled"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_enabled"
+                getter="get_enabled"
+                default-value="TRUE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="language"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_language"
+                getter="get_language"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="TextBufferAdapterClass"
+            c:type="SpellingTextBufferAdapterClass"
+            glib:is-gtype-struct-for="TextBufferAdapter">
+      <source-position filename="lib/spelling-text-buffer-adapter.h"
+                       line="34"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <function-macro name="UNAVAILABLE"
+                    c:identifier="SPELLING_UNAVAILABLE"
+                    introspectable="0">
+      <source-position filename="lib/spelling-version-macros.h" line="41"/>
+      <parameters>
+        <parameter name="maj">
+        </parameter>
+        <parameter name="min">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function name="init" c:identifier="spelling_init">
+      <source-position filename="lib/spelling-init.h" line="32"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

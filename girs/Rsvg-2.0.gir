@@ -736,7 +736,7 @@ URL's fragment ID.  Alternatively, pass `NULL` to use the whole SVG.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="rsvg-cairo.h"
-             line="287">Computes the ink rectangle and logical rectangle of a single SVG element.
+             line="291">Computes the ink rectangle and logical rectangle of a single SVG element.
 
 While `rsvg_handle_get_geometry_for_layer` computes the geometry of an SVG element subtree with
 its transformation matrix, this other function will compute the element's geometry
@@ -764,11 +764,11 @@ root element.
 
 This operation is not constant-time, as it involves going through all
 the child elements.</doc>
-        <source-position filename="rsvg-cairo.h" line="338"/>
+        <source-position filename="rsvg-cairo.h" line="342"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg-cairo.h"
-               line="327">`TRUE` if the geometry could be obtained, or `FALSE` on error.  Errors
+               line="331">`TRUE` if the geometry could be obtained, or `FALSE` on error.  Errors
 are returned in the @error argument.
 
 API ordering: This function must be called on a fully-loaded @handle.  See
@@ -781,7 +781,7 @@ Panics: this function will panic if the @handle is not fully-loaded.</doc>
           <instance-parameter name="handle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="289">An [class@Rsvg.Handle]</doc>
+                 line="293">An [class@Rsvg.Handle]</doc>
             <type name="Handle" c:type="RsvgHandle*"/>
           </instance-parameter>
           <parameter name="id"
@@ -790,7 +790,7 @@ Panics: this function will panic if the @handle is not fully-loaded.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="290">An element's id within the SVG, starting with "#" (a single
+                 line="294">An element's id within the SVG, starting with "#" (a single
 hash character), for example, `#layer1`.  This notation corresponds to a
 URL's fragment ID.  Alternatively, pass `NULL` to compute the geometry for the
 whole SVG.</doc>
@@ -804,7 +804,7 @@ whole SVG.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="294">Place to store the ink rectangle of the element.</doc>
+                 line="298">Place to store the ink rectangle of the element.</doc>
             <type name="Rectangle" c:type="RsvgRectangle*"/>
           </parameter>
           <parameter name="out_logical_rect"
@@ -815,7 +815,7 @@ whole SVG.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="295">Place to store the logical rectangle of the element.</doc>
+                 line="299">Place to store the logical rectangle of the element.</doc>
             <type name="Rectangle" c:type="RsvgRectangle*"/>
           </parameter>
         </parameters>
@@ -826,7 +826,7 @@ whole SVG.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="rsvg-cairo.h"
-             line="186">Computes the ink rectangle and logical rectangle of an SVG element, or the
+             line="190">Computes the ink rectangle and logical rectangle of an SVG element, or the
 whole SVG, as if the whole SVG were rendered to a specific viewport.
 
 Element IDs should look like an URL fragment identifier; for example, pass
@@ -848,11 +848,11 @@ root element.
 
 This operation is not constant-time, as it involves going through all
 the child elements.</doc>
-        <source-position filename="rsvg-cairo.h" line="232"/>
+        <source-position filename="rsvg-cairo.h" line="236"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg-cairo.h"
-               line="221">`TRUE` if the geometry could be obtained, or `FALSE` on error.  Errors
+               line="225">`TRUE` if the geometry could be obtained, or `FALSE` on error.  Errors
 are returned in the @error argument.
 
 API ordering: This function must be called on a fully-loaded @handle.  See
@@ -865,7 +865,7 @@ Panics: this function will panic if the @handle is not fully-loaded.</doc>
           <instance-parameter name="handle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="188">An [class@Rsvg.Handle]</doc>
+                 line="192">An [class@Rsvg.Handle]</doc>
             <type name="Handle" c:type="RsvgHandle*"/>
           </instance-parameter>
           <parameter name="id"
@@ -874,7 +874,7 @@ Panics: this function will panic if the @handle is not fully-loaded.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="189">An element's id within the SVG, starting with "#" (a single
+                 line="193">An element's id within the SVG, starting with "#" (a single
 hash character), for example, `#layer1`.  This notation corresponds to a
 URL's fragment ID.  Alternatively, pass `NULL` to compute the geometry for the
 whole SVG.</doc>
@@ -883,7 +883,7 @@ whole SVG.</doc>
           <parameter name="viewport" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="193">Viewport size at which the whole SVG would be fitted.</doc>
+                 line="197">Viewport size at which the whole SVG would be fitted.</doc>
             <type name="Rectangle" c:type="const RsvgRectangle*"/>
           </parameter>
           <parameter name="out_ink_rect"
@@ -894,7 +894,7 @@ whole SVG.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="194">Place to store the ink rectangle of the element.</doc>
+                 line="198">Place to store the ink rectangle of the element.</doc>
             <type name="Rectangle" c:type="RsvgRectangle*"/>
           </parameter>
           <parameter name="out_logical_rect"
@@ -905,7 +905,7 @@ whole SVG.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="195">Place to store the logical rectangle of the element.</doc>
+                 line="199">Place to store the logical rectangle of the element.</doc>
             <type name="Rectangle" c:type="RsvgRectangle*"/>
           </parameter>
         </parameters>
@@ -1471,11 +1471,12 @@ context to be in an error state in various situations, for example, if it was
 passed an invalid matrix or if it was created for an invalid surface.</doc>
         <doc-deprecated xml:space="preserve">Please use [method@Rsvg.Handle.render_document] instead; that function lets
 you pass a viewport and obtain a good error message.</doc-deprecated>
-        <source-position filename="rsvg-cairo.h" line="88"/>
+        <source-position filename="rsvg-cairo.h" line="90"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg-cairo.h"
-               line="81">`TRUE` if drawing succeeded; `FALSE` otherwise.</doc>
+               line="81">`TRUE` if drawing succeeded; `FALSE` otherwise.  This function will emit a g_warning()
+if a rendering error occurs.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -1500,7 +1501,7 @@ you pass a viewport and obtain a good error message.</doc-deprecated>
               deprecated-version="2.52.">
         <doc xml:space="preserve"
              filename="rsvg-cairo.h"
-             line="90">Renders a single SVG element in the same place as for a whole SVG document (a "subset"
+             line="92">Renders a single SVG element in the same place as for a whole SVG document (a "subset"
 of the document).  Please try to use [method@Rsvg.Handle.render_layer] instead, which allows
 you to pick the size at which the document with the layer will be rendered.
 
@@ -1549,24 +1550,25 @@ Element IDs should look like an URL fragment identifier; for example, pass
 has an `id="foo"` attribute.</doc>
         <doc-deprecated xml:space="preserve">Please use [method@Rsvg.Handle.render_layer] instead; that function lets
 you pass a viewport and obtain a good error message.</doc-deprecated>
-        <source-position filename="rsvg-cairo.h" line="153"/>
+        <source-position filename="rsvg-cairo.h" line="157"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg-cairo.h"
-               line="146">`TRUE` if drawing succeeded; `FALSE` otherwise.</doc>
+               line="148">`TRUE` if drawing succeeded; `FALSE` otherwise.  This function will emit a g_warning()
+if a rendering error occurs.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="handle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="92">A [class@Rsvg.Handle]</doc>
+                 line="94">A [class@Rsvg.Handle]</doc>
             <type name="Handle" c:type="RsvgHandle*"/>
           </instance-parameter>
           <parameter name="cr" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="93">A Cairo context</doc>
+                 line="95">A Cairo context</doc>
             <type name="cairo.Context" c:type="cairo_t*"/>
           </parameter>
           <parameter name="id"
@@ -1575,7 +1577,7 @@ you pass a viewport and obtain a good error message.</doc-deprecated>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="94">An element's id within the SVG, starting with "#" (a single
+                 line="96">An element's id within the SVG, starting with "#" (a single
 hash character), for example, `#layer1`.  This notation corresponds to a
 URL's fragment ID.  Alternatively, pass `NULL` to render the whole SVG.</doc>
             <type name="utf8" c:type="const char*"/>
@@ -1588,18 +1590,18 @@ URL's fragment ID.  Alternatively, pass `NULL` to render the whole SVG.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="rsvg-cairo.h"
-             line="155">Renders the whole SVG document fitted to a viewport.
+             line="159">Renders the whole SVG document fitted to a viewport.
 
 The @viewport gives the position and size at which the whole SVG document will be
 rendered.  The document is scaled proportionally to fit into this viewport.
 
 The @cr must be in a `CAIRO_STATUS_SUCCESS` state, or this function will not
 render anything, and instead will return an error.</doc>
-        <source-position filename="rsvg-cairo.h" line="181"/>
+        <source-position filename="rsvg-cairo.h" line="185"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg-cairo.h"
-               line="170">`TRUE` on success, `FALSE` on error.  Errors are returned
+               line="174">`TRUE` on success, `FALSE` on error.  Errors are returned
 in the @error argument.
 
 API ordering: This function must be called on a fully-loaded @handle.  See
@@ -1612,19 +1614,19 @@ Panics: this function will panic if the @handle is not fully-loaded.</doc>
           <instance-parameter name="handle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="157">An [class@Rsvg.Handle]</doc>
+                 line="161">An [class@Rsvg.Handle]</doc>
             <type name="Handle" c:type="RsvgHandle*"/>
           </instance-parameter>
           <parameter name="cr" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="158">A Cairo context</doc>
+                 line="162">A Cairo context</doc>
             <type name="cairo.Context" c:type="cairo_t*"/>
           </parameter>
           <parameter name="viewport" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="159">Viewport size at which the whole SVG would be fitted.</doc>
+                 line="163">Viewport size at which the whole SVG would be fitted.</doc>
             <type name="Rectangle" c:type="const RsvgRectangle*"/>
           </parameter>
         </parameters>
@@ -1635,7 +1637,7 @@ Panics: this function will panic if the @handle is not fully-loaded.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="rsvg-cairo.h"
-             line="344">Renders a single SVG element to a given viewport.
+             line="348">Renders a single SVG element to a given viewport.
 
 This function can be used to extract individual element subtrees and render them,
 scaled to a given @element_viewport.  This is useful for applications which have
@@ -1652,11 +1654,11 @@ root element.
 
 The `element_viewport` gives the position and size at which the named element will
 be rendered.  FIXME: mention proportional scaling.</doc>
-        <source-position filename="rsvg-cairo.h" line="383"/>
+        <source-position filename="rsvg-cairo.h" line="387"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg-cairo.h"
-               line="372">`TRUE` on success, `FALSE` on error.  Errors are returned
+               line="376">`TRUE` on success, `FALSE` on error.  Errors are returned
 in the @error argument.
 
 API ordering: This function must be called on a fully-loaded @handle.  See
@@ -1669,13 +1671,13 @@ Panics: this function will panic if the @handle is not fully-loaded.</doc>
           <instance-parameter name="handle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="346">An [class@Rsvg.Handle]</doc>
+                 line="350">An [class@Rsvg.Handle]</doc>
             <type name="Handle" c:type="RsvgHandle*"/>
           </instance-parameter>
           <parameter name="cr" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="347">A Cairo context</doc>
+                 line="351">A Cairo context</doc>
             <type name="cairo.Context" c:type="cairo_t*"/>
           </parameter>
           <parameter name="id"
@@ -1684,7 +1686,7 @@ Panics: this function will panic if the @handle is not fully-loaded.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="348">An element's id within the SVG, starting with "#" (a single
+                 line="352">An element's id within the SVG, starting with "#" (a single
 hash character), for example, `#layer1`.  This notation corresponds to a
 URL's fragment ID.  Alternatively, pass `NULL` to render the whole SVG document tree.</doc>
             <type name="utf8" c:type="const char*"/>
@@ -1692,7 +1694,7 @@ URL's fragment ID.  Alternatively, pass `NULL` to render the whole SVG document 
           <parameter name="element_viewport" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="351">Viewport size in which to fit the element</doc>
+                 line="355">Viewport size in which to fit the element</doc>
             <type name="Rectangle" c:type="const RsvgRectangle*"/>
           </parameter>
         </parameters>
@@ -1703,7 +1705,7 @@ URL's fragment ID.  Alternatively, pass `NULL` to render the whole SVG document 
               throws="1">
         <doc xml:space="preserve"
              filename="rsvg-cairo.h"
-             line="239">Renders a single SVG element in the same place as for a whole SVG document.
+             line="243">Renders a single SVG element in the same place as for a whole SVG document.
 
 The @viewport gives the position and size at which the whole SVG document would be
 rendered.  The document is scaled proportionally to fit into this viewport; hence the
@@ -1723,11 +1725,11 @@ has an `id="foo"` attribute.
 You can pass `NULL` for the @id if you want to render all
 the elements in the SVG, i.e. to render everything from the
 root element.</doc>
-        <source-position filename="rsvg-cairo.h" line="281"/>
+        <source-position filename="rsvg-cairo.h" line="285"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="rsvg-cairo.h"
-               line="270">`TRUE` on success, `FALSE` on error.  Errors are returned
+               line="274">`TRUE` on success, `FALSE` on error.  Errors are returned
 in the @error argument.
 
 API ordering: This function must be called on a fully-loaded @handle.  See
@@ -1740,13 +1742,13 @@ Panics: this function will panic if the @handle is not fully-loaded.</doc>
           <instance-parameter name="handle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="241">An [class@Rsvg.Handle]</doc>
+                 line="245">An [class@Rsvg.Handle]</doc>
             <type name="Handle" c:type="RsvgHandle*"/>
           </instance-parameter>
           <parameter name="cr" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="242">A Cairo context</doc>
+                 line="246">A Cairo context</doc>
             <type name="cairo.Context" c:type="cairo_t*"/>
           </parameter>
           <parameter name="id"
@@ -1755,7 +1757,7 @@ Panics: this function will panic if the @handle is not fully-loaded.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="243">An element's id within the SVG, starting with "#" (a single
+                 line="247">An element's id within the SVG, starting with "#" (a single
 hash character), for example, `#layer1`.  This notation corresponds to a
 URL's fragment ID.  Alternatively, pass `NULL` to render the whole SVG document tree.</doc>
             <type name="utf8" c:type="const char*"/>
@@ -1763,7 +1765,7 @@ URL's fragment ID.  Alternatively, pass `NULL` to render the whole SVG document 
           <parameter name="viewport" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="rsvg-cairo.h"
-                 line="246">Viewport size at which the whole SVG would be fitted.</doc>
+                 line="250">Viewport size at which the whole SVG would be fitted.</doc>
             <type name="Rectangle" c:type="const RsvgRectangle*"/>
           </parameter>
         </parameters>
@@ -2346,7 +2348,7 @@ your program), or for programs not written in C, use
       <source-position filename="rsvg-version.h" line="8"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="92" c:type="LIBRSVG_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="1" c:type="LIBRSVG_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="rsvg-features.h"
            line="64">This is a C macro that expands to a number with the micro version
@@ -2366,7 +2368,7 @@ your program), or for programs not written in C, use
       <source-position filename="rsvg-version.h" line="10"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="56" c:type="LIBRSVG_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="57" c:type="LIBRSVG_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="rsvg-features.h"
            line="45">This is a C macro that expands to a number with the minor version
@@ -2534,7 +2536,7 @@ units](https://www.w3.org/TR/CSS21/syndata.html#length-units).</doc>
              line="800">picas, or 1/6 inch (12 points)</doc>
       </member>
     </enumeration>
-    <constant name="VERSION" value="2.56.92" c:type="LIBRSVG_VERSION">
+    <constant name="VERSION" value="2.57.1" c:type="LIBRSVG_VERSION">
       <doc xml:space="preserve"
            filename="rsvg-features.h"
            line="83">This is a C macro that expands to a string with the version of

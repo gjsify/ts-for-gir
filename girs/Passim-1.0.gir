@@ -1,0 +1,1338 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <package name="passim"/>
+  <c:include name="passim.h"/>
+  <namespace name="Passim"
+             version="1.0"
+             shared-library="libpassim.so.1"
+             c:identifier-prefixes="Passim,passim"
+             c:symbol-prefixes="passim">
+    <alias name="ItemFlags" c:type="PassimItemFlags">
+      <doc xml:space="preserve"
+           filename="libpassim/passim-item.h"
+           line="66">Flags used to represent item attributes</doc>
+      <source-position filename="libpassim/passim-item.h" line="71"/>
+      <type name="guint64" c:type="guint64"/>
+    </alias>
+    <function-macro name="CHECK_VERSION"
+                    c:identifier="PASSIM_CHECK_VERSION"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="libpassim/passim-version.h"
+           line="38">Check whether a passim version equal to or greater than
+major.minor.micro.
+
+These compile time macros allow the user to enable parts of client code
+depending on the version of libpassim installed.</doc>
+      <source-position filename="libpassim/passim-version.h" line="50"/>
+      <parameters>
+        <parameter name="major">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-version.h"
+               line="40">Major version number</doc>
+        </parameter>
+        <parameter name="minor">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-version.h"
+               line="41">Minor version number</doc>
+        </parameter>
+        <parameter name="micro">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-version.h"
+               line="42">Micro version number</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Client"
+           c:symbol-prefix="client"
+           c:type="PassimClient"
+           parent="GObject.Object"
+           glib:type-name="PassimClient"
+           glib:get-type="passim_client_get_type"
+           glib:type-struct="ClientClass">
+      <doc xml:space="preserve"
+           filename="libpassim/passim-client.c"
+           line="22">A shared client.</doc>
+      <source-position filename="libpassim/passim-client.h" line="26"/>
+      <constructor name="new" c:identifier="passim_client_new" version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-client.c"
+             line="405">Creates a new client.</doc>
+        <source-position filename="libpassim/passim-client.h" line="41"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-client.c"
+               line="410">a new #PassimClient</doc>
+          <type name="Client" c:type="PassimClient*"/>
+        </return-value>
+      </constructor>
+      <method name="get_items"
+              c:identifier="passim_client_get_items"
+              version="0.1.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-client.c"
+             line="157">Get items currently published by the daemon.</doc>
+        <source-position filename="libpassim/passim-client.h" line="49"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-client.c"
+               line="164">items, or %NULL for error</doc>
+          <array name="GLib.PtrArray" c:type="GPtrArray*">
+            <type name="Item"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-client.c"
+                 line="159">a #PassimClient</doc>
+            <type name="Client" c:type="PassimClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_status"
+              c:identifier="passim_client_get_status"
+              version="0.1.2">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-client.c"
+             line="55">Gets the daemon status.</doc>
+        <source-position filename="libpassim/passim-client.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-client.c"
+               line="61">the #PassimStatus</doc>
+          <type name="Status" c:type="PassimStatus"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-client.c"
+                 line="57">a #PassimClient</doc>
+            <type name="Client" c:type="PassimClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_version"
+              c:identifier="passim_client_get_version"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-client.c"
+             line="37">Gets the daemon version.</doc>
+        <source-position filename="libpassim/passim-client.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-client.c"
+               line="43">the version string, or %NULL if unset</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-client.c"
+                 line="39">a #PassimClient</doc>
+            <type name="Client" c:type="PassimClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="load"
+              c:identifier="passim_client_load"
+              version="0.1.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-client.c"
+             line="102">Loads the client from a file on disk.</doc>
+        <source-position filename="libpassim/passim-client.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-client.c"
+               line="109">%TRUE for success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-client.c"
+                 line="104">a #PassimClient</doc>
+            <type name="Client" c:type="PassimClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="publish"
+              c:identifier="passim_client_publish"
+              version="0.1.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-client.c"
+             line="303">Connects to the remote server.</doc>
+        <source-position filename="libpassim/passim-client.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-client.c"
+               line="311">%TRUE for success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-client.c"
+                 line="305">a #PassimClient</doc>
+            <type name="Client" c:type="PassimClient*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-client.c"
+                 line="306">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unpublish"
+              c:identifier="passim_client_unpublish"
+              version="0.1.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-client.c"
+             line="195">Unpublish a file from the index.</doc>
+        <source-position filename="libpassim/passim-client.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-client.c"
+               line="203">%TRUE for success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-client.c"
+                 line="197">a #PassimClient</doc>
+            <type name="Client" c:type="PassimClient*"/>
+          </instance-parameter>
+          <parameter name="hash" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-client.c"
+                 line="198">an item hash value</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ClientClass"
+            c:type="PassimClientClass"
+            glib:is-gtype-struct-for="Client">
+      <source-position filename="libpassim/passim-client.h" line="26"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="_passim_reserved1" introspectable="0">
+        <callback name="_passim_reserved1">
+          <source-position filename="libpassim/passim-client.h" line="19"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_passim_reserved2" introspectable="0">
+        <callback name="_passim_reserved2">
+          <source-position filename="libpassim/passim-client.h" line="20"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_passim_reserved3" introspectable="0">
+        <callback name="_passim_reserved3">
+          <source-position filename="libpassim/passim-client.h" line="21"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_passim_reserved4" introspectable="0">
+        <callback name="_passim_reserved4">
+          <source-position filename="libpassim/passim-client.h" line="22"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_passim_reserved5" introspectable="0">
+        <callback name="_passim_reserved5">
+          <source-position filename="libpassim/passim-client.h" line="23"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_passim_reserved6" introspectable="0">
+        <callback name="_passim_reserved6">
+          <source-position filename="libpassim/passim-client.h" line="24"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_passim_reserved7" introspectable="0">
+        <callback name="_passim_reserved7">
+          <source-position filename="libpassim/passim-client.h" line="25"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <constant name="DBUS_INTERFACE"
+              value="org.freedesktop.Passim"
+              c:type="PASSIM_DBUS_INTERFACE">
+      <source-position filename="libpassim/passim-client.h" line="29"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="DBUS_PATH" value="/" c:type="PASSIM_DBUS_PATH">
+      <source-position filename="libpassim/passim-client.h" line="30"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="DBUS_SERVICE"
+              value="org.freedesktop.Passim"
+              c:type="PASSIM_DBUS_SERVICE">
+      <source-position filename="libpassim/passim-client.h" line="28"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="ITEM_FLAG_DISABLED"
+              value="1"
+              c:type="PASSIM_ITEM_FLAG_DISABLED"
+              version="0.1.0">
+      <doc xml:space="preserve"
+           filename="libpassim/passim-item.h"
+           line="37">The item is not active for some reason.</doc>
+      <source-position filename="libpassim/passim-item.h" line="44"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="ITEM_FLAG_NEXT_REBOOT"
+              value="2"
+              c:type="PASSIM_ITEM_FLAG_NEXT_REBOOT"
+              version="0.1.0">
+      <doc xml:space="preserve"
+           filename="libpassim/passim-item.h"
+           line="46">Only register the item when the machine has been rebooted.</doc>
+      <source-position filename="libpassim/passim-item.h" line="53"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="ITEM_FLAG_NONE"
+              value="0"
+              c:type="PASSIM_ITEM_FLAG_NONE"
+              version="0.1.0">
+      <doc xml:space="preserve"
+           filename="libpassim/passim-item.h"
+           line="28">No item flags are set.</doc>
+      <source-position filename="libpassim/passim-item.h" line="35"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <class name="Item"
+           c:symbol-prefix="item"
+           c:type="PassimItem"
+           parent="GObject.Object"
+           glib:type-name="PassimItem"
+           glib:get-type="passim_item_get_type"
+           glib:type-struct="ItemClass">
+      <doc xml:space="preserve"
+           filename="libpassim/passim-item.c"
+           line="13">A shared item.</doc>
+      <source-position filename="libpassim/passim-item.h" line="26"/>
+      <constructor name="new" c:identifier="passim_item_new" version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="912">Creates a new item.</doc>
+        <source-position filename="libpassim/passim-item.h" line="74"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="917">a new #PassimItem</doc>
+          <type name="Item" c:type="PassimItem*"/>
+        </return-value>
+      </constructor>
+      <function name="flag_from_string"
+                c:identifier="passim_item_flag_from_string"
+                version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="817">Converts a string to an enumerated item flag.</doc>
+        <source-position filename="libpassim/passim-item.h" line="141"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="823">enumerated value</doc>
+          <type name="ItemFlags" c:type="PassimItemFlags"/>
+        </return-value>
+        <parameters>
+          <parameter name="item_flag"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="819">a string, e.g. `next-reboot`</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="flag_to_string"
+                c:identifier="passim_item_flag_to_string"
+                version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="795">Converts an enumerated item flag to a string.</doc>
+        <source-position filename="libpassim/passim-item.h" line="139"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="801">identifier string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="item_flag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="797">item flags, e.g. %PASSIM_ITEM_FLAG_NEXT_REBOOT</doc>
+            <type name="ItemFlags" c:type="PassimItemFlags"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="from_variant"
+                c:identifier="passim_item_from_variant"
+                version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="618">Creates a new item using serialized data.</doc>
+        <source-position filename="libpassim/passim-item.h" line="147"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="624">a new #PassimItem, or %NULL if @value was invalid</doc>
+          <type name="Item" c:type="PassimItem*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="620">the serialized data</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="add_flag"
+              c:identifier="passim_item_add_flag"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="734">Adds a specific item flag to the item.</doc>
+        <source-position filename="libpassim/passim-item.h" line="132"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="736">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+          <parameter name="flag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="737">the #PassimItemFlags</doc>
+            <type name="ItemFlags" c:type="PassimItemFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_age"
+              c:identifier="passim_item_get_age"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="164">Gets the current file age.</doc>
+        <source-position filename="libpassim/passim-item.h" line="91"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="170">time in seconds, or 0 for invalid.</doc>
+          <type name="guint32" c:type="guint32"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="166">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_basename"
+              c:identifier="passim_item_get_basename"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="78">Gets the basename of the file that was published.</doc>
+        <source-position filename="libpassim/passim-item.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="84">the test basename, or %NULL if unset</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="80">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_bytes"
+              c:identifier="passim_item_get_bytes"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="365">Gets the local bytes in the cache.</doc>
+        <source-position filename="libpassim/passim-item.h" line="113"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="371">a #GBytes, or %NULL if unset</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="367">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_cmdline"
+              c:identifier="passim_item_get_cmdline"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="119">Gets the cmdline of the binary that published the item.</doc>
+        <source-position filename="libpassim/passim-item.h" line="87"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="125">the binary name, or %NULL if unset</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="121">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_ctime"
+              c:identifier="passim_item_get_ctime"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="453">Gets the creation time of the file.</doc>
+        <source-position filename="libpassim/passim-item.h" line="121"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="459">the creation time, or %NULL if unset</doc>
+          <type name="GLib.DateTime" c:type="GDateTime*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="455">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_file"
+              c:identifier="passim_item_get_file"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="325">Gets the local file in the cache.</doc>
+        <source-position filename="libpassim/passim-item.h" line="109"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="331">a #GFile, or %NULL if unset</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="327">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_flags"
+              c:identifier="passim_item_get_flags"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="667">Gets the item flags.</doc>
+        <source-position filename="libpassim/passim-item.h" line="126"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="673">item flags, or 0 if unset</doc>
+          <type name="guint64" c:type="guint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="669">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_flags_as_string"
+              c:identifier="passim_item_get_flags_as_string"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="685">Gets the item flags.</doc>
+        <source-position filename="libpassim/passim-item.h" line="128"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="691">string</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="687">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_hash"
+              c:identifier="passim_item_get_hash"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="37">Gets the file hash.</doc>
+        <source-position filename="libpassim/passim-item.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="43">the typically in SHA-256 lowercase form, or %NULL if unset</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="39">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_max_age"
+              c:identifier="passim_item_get_max_age"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="185">Gets the maximum permitted file age.</doc>
+        <source-position filename="libpassim/passim-item.h" line="93"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="191">time in seconds</doc>
+          <type name="guint32" c:type="guint32"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="187">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_share_count"
+              c:identifier="passim_item_get_share_count"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="255">Gets the current number of times the item has been shared to other machines.</doc>
+        <source-position filename="libpassim/passim-item.h" line="105"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="261">the count, or 0 if unset</doc>
+          <type name="guint32" c:type="guint32"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="257">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_share_limit"
+              c:identifier="passim_item_get_share_limit"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="220">Gets the maximum number of times that the file can be shared.</doc>
+        <source-position filename="libpassim/passim-item.h" line="97"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="226">share limit, or 0 if unset</doc>
+          <type name="guint32" c:type="guint32"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="222">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_size"
+              c:identifier="passim_item_get_size"
+              version="0.1.2">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="290">Gets the size of the file in bytes.</doc>
+        <source-position filename="libpassim/passim-item.h" line="101"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="296">share limit, or 0 if unset</doc>
+          <type name="guint64" c:type="guint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="292">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_stream"
+              c:identifier="passim_item_get_stream"
+              version="0.1.5">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="415">Gets the input stream for the item.</doc>
+        <source-position filename="libpassim/passim-item.h" line="117"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="421">a #GInputStream, or %NULL if unset</doc>
+          <type name="Gio.InputStream" c:type="GInputStream*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="417">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_flag"
+              c:identifier="passim_item_has_flag"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="776">Finds if the item has a specific item flag.</doc>
+        <source-position filename="libpassim/passim-item.h" line="136"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="783">%TRUE if the flag is set</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="778">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+          <parameter name="flag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="779">a item flag</doc>
+            <type name="ItemFlags" c:type="PassimItemFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_filename"
+              c:identifier="passim_item_load_filename"
+              version="0.1.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="506">Loads the item from a file on disk.</doc>
+        <source-position filename="libpassim/passim-item.h" line="144"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="508">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="509">a filename with full path</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_flag"
+              c:identifier="passim_item_remove_flag"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="755">Removes a specific item flag from the item.</doc>
+        <source-position filename="libpassim/passim-item.h" line="134"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="757">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+          <parameter name="flag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="758">a item flag</doc>
+            <type name="ItemFlags" c:type="PassimItemFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_basename"
+              c:identifier="passim_item_set_basename"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="96">Sets the basename of the file that was published.</doc>
+        <source-position filename="libpassim/passim-item.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="98">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+          <parameter name="basename"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="99">the basename name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_bytes"
+              c:identifier="passim_item_set_bytes"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="383">Sets the local bytes in the cache.</doc>
+        <source-position filename="libpassim/passim-item.h" line="115"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="385">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+          <parameter name="bytes"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="386">a #GBytes</doc>
+            <type name="GLib.Bytes" c:type="GBytes*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_cmdline"
+              c:identifier="passim_item_set_cmdline"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="137">Sets the cmdline of the binary that published the item.
+
+NOTE: this is desgined as a hint, and should not be used for security. The command line is
+obtained via /proc/&lt;pid&gt;/cmdline and it may be possible to falsify the data by a malicious
+binary running as root under certain conditions.</doc>
+        <source-position filename="libpassim/passim-item.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="139">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+          <parameter name="cmdline"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="140">the binary name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_ctime"
+              c:identifier="passim_item_set_ctime"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="471">Sets the creation time of the file.</doc>
+        <source-position filename="libpassim/passim-item.h" line="123"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="473">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+          <parameter name="ctime"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="474">a #GDateTime</doc>
+            <type name="GLib.DateTime" c:type="GDateTime*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_file"
+              c:identifier="passim_item_set_file"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="343">Sets the local file in the cache.</doc>
+        <source-position filename="libpassim/passim-item.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="345">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+          <parameter name="file"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="346">a #GFile</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_flags"
+              c:identifier="passim_item_set_flags"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="715">Sets the item flags.</doc>
+        <source-position filename="libpassim/passim-item.h" line="130"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="717">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="718">item flags, e.g. %PASSIM_ITEM_FLAG_NEXT_REBOOT</doc>
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_hash"
+              c:identifier="passim_item_set_hash"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="55">Sets the file hash.</doc>
+        <source-position filename="libpassim/passim-item.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="57">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+          <parameter name="hash"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="58">the hash, typically in SHA-256 lowercase form</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_max_age"
+              c:identifier="passim_item_set_max_age"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="203">Sets the maximum permitted file age.</doc>
+        <source-position filename="libpassim/passim-item.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="205">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+          <parameter name="max_age" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="206">time in seconds</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_share_count"
+              c:identifier="passim_item_set_share_count"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="273">Sets the current number of times the item has been shared to other machines.</doc>
+        <source-position filename="libpassim/passim-item.h" line="107"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="275">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+          <parameter name="share_count" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="276">the count, or 0 to unset</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_share_limit"
+              c:identifier="passim_item_set_share_limit"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="238">Sets the maximum number of times that the file can be shared.</doc>
+        <source-position filename="libpassim/passim-item.h" line="99"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="240">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+          <parameter name="share_limit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="241">the share limit, or 0</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_size"
+              c:identifier="passim_item_set_size"
+              version="0.1.2">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="308">Sets the size of the file in bytes.</doc>
+        <source-position filename="libpassim/passim-item.h" line="103"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="310">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="311">the share limit, or 0</doc>
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_stream"
+              c:identifier="passim_item_set_stream"
+              version="0.1.5">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="433">Sets the input stream stream for the item.
+
+NOTE: This *MUST* be a #GUnixInputStream, or subclass thereof.</doc>
+        <source-position filename="libpassim/passim-item.h" line="119"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="435">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+          <parameter name="stream"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="436">a #GInputStream</doc>
+            <type name="Gio.InputStream" c:type="GInputStream*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="to_string"
+              c:identifier="passim_item_to_string"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="839">Builds a text representation of the object.</doc>
+        <source-position filename="libpassim/passim-item.h" line="76"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="845">text, or %NULL for invalid</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="841">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="to_variant"
+              c:identifier="passim_item_to_variant"
+              version="0.1.0">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-item.c"
+             line="553">Serialize the item data.</doc>
+        <source-position filename="libpassim/passim-item.h" line="149"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libpassim/passim-item.c"
+               line="559">the serialized data, or %NULL for error</doc>
+          <type name="GLib.Variant" c:type="GVariant*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpassim/passim-item.c"
+                 line="555">a #PassimItem</doc>
+            <type name="Item" c:type="PassimItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ItemClass"
+            c:type="PassimItemClass"
+            glib:is-gtype-struct-for="Item">
+      <source-position filename="libpassim/passim-item.h" line="26"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="_passim_reserved1" introspectable="0">
+        <callback name="_passim_reserved1">
+          <source-position filename="libpassim/passim-item.h" line="19"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_passim_reserved2" introspectable="0">
+        <callback name="_passim_reserved2">
+          <source-position filename="libpassim/passim-item.h" line="20"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_passim_reserved3" introspectable="0">
+        <callback name="_passim_reserved3">
+          <source-position filename="libpassim/passim-item.h" line="21"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_passim_reserved4" introspectable="0">
+        <callback name="_passim_reserved4">
+          <source-position filename="libpassim/passim-item.h" line="22"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_passim_reserved5" introspectable="0">
+        <callback name="_passim_reserved5">
+          <source-position filename="libpassim/passim-item.h" line="23"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_passim_reserved6" introspectable="0">
+        <callback name="_passim_reserved6">
+          <source-position filename="libpassim/passim-item.h" line="24"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_passim_reserved7" introspectable="0">
+        <callback name="_passim_reserved7">
+          <source-position filename="libpassim/passim-item.h" line="25"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <constant name="MAJOR_VERSION" value="0" c:type="PASSIM_MAJOR_VERSION">
+      <doc xml:space="preserve"
+           filename="libpassim/passim-version.h"
+           line="16">The compile-time major version</doc>
+      <source-position filename="libpassim/passim-version.h" line="21"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MICRO_VERSION" value="5" c:type="PASSIM_MICRO_VERSION">
+      <doc xml:space="preserve"
+           filename="libpassim/passim-version.h"
+           line="30">The compile-time micro version</doc>
+      <source-position filename="libpassim/passim-version.h" line="35"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MINOR_VERSION" value="1" c:type="PASSIM_MINOR_VERSION">
+      <doc xml:space="preserve"
+           filename="libpassim/passim-version.h"
+           line="23">The compile-time minor version</doc>
+      <source-position filename="libpassim/passim-version.h" line="28"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <enumeration name="Status" c:type="PassimStatus">
+      <source-position filename="libpassim/passim-client.h" line="38"/>
+      <member name="unknown" value="0" c:identifier="PASSIM_STATUS_UNKNOWN">
+      </member>
+      <member name="starting" value="1" c:identifier="PASSIM_STATUS_STARTING">
+      </member>
+      <member name="loading" value="2" c:identifier="PASSIM_STATUS_LOADING">
+      </member>
+      <member name="running" value="3" c:identifier="PASSIM_STATUS_RUNNING">
+      </member>
+      <member name="disabled_metered"
+              value="4"
+              c:identifier="PASSIM_STATUS_DISABLED_METERED">
+      </member>
+    </enumeration>
+    <function name="version_string"
+              c:identifier="passim_version_string"
+              version="0.1.0">
+      <doc xml:space="preserve"
+           filename="libpassim/passim-version.c"
+           line="11">Gets the libpassim installed runtime version.
+
+This may be different to the *build-time* version if the daemon and library
+objects somehow get out of sync.</doc>
+      <source-position filename="libpassim/passim-version.h" line="57"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="libpassim/passim-version.c"
+             line="19">version string</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

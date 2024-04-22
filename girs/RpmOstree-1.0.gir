@@ -1,0 +1,541 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <include name="OSTree" version="1.0"/>
+  <package name="rpm-ostree-1"/>
+  <namespace name="RpmOstree"
+             version="1.0"
+             shared-library="librpmostree-1.so.1"
+             c:identifier-prefixes="RpmOstree"
+             c:symbol-prefixes="rpm_ostree">
+    <function-macro name="CHECK_VERSION"
+                    c:identifier="RPM_OSTREE_CHECK_VERSION"
+                    version="2017.8"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="rpmostree-version.h"
+           line="79">Compile-time version checking. Evaluates to %TRUE if the version
+of ostree is equal or greater than the required one.</doc>
+      <source-position filename="rpmostree-version.h" line="88"/>
+      <parameters>
+        <parameter name="year">
+          <doc xml:space="preserve"
+               filename="rpmostree-version.h"
+               line="81">required year version</doc>
+        </parameter>
+        <parameter name="release">
+          <doc xml:space="preserve"
+               filename="rpmostree-version.h"
+               line="82">required release version</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <bitfield name="DbDiffExtFlags" c:type="RpmOstreeDbDiffExtFlags">
+      <source-position filename="rpmostree-db.h" line="49"/>
+      <member name="none" value="0" c:identifier="RPM_OSTREE_DB_DIFF_EXT_NONE">
+      </member>
+      <member name="allow_noent"
+              value="1"
+              c:identifier="RPM_OSTREE_DB_DIFF_EXT_ALLOW_NOENT">
+      </member>
+    </bitfield>
+    <function-macro name="ENCODE_VERSION"
+                    c:identifier="RPM_OSTREE_ENCODE_VERSION"
+                    introspectable="0">
+      <source-position filename="rpmostree-version.h" line="65"/>
+      <parameters>
+        <parameter name="year">
+        </parameter>
+        <parameter name="release">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PACKAGE"
+                    c:identifier="RPM_OSTREE_IS_PACKAGE"
+                    introspectable="0">
+      <source-position filename="rpmostree-package.h" line="33"/>
+      <parameters>
+        <parameter name="inst">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PACKAGE"
+                    c:identifier="RPM_OSTREE_PACKAGE"
+                    introspectable="0">
+      <source-position filename="rpmostree-package.h" line="31"/>
+      <parameters>
+        <parameter name="inst">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Package"
+           c:symbol-prefix="package"
+           c:type="RpmOstreePackage"
+           parent="GObject.Object"
+           glib:type-name="RpmOstreePackage"
+           glib:get-type="rpm_ostree_package_get_type">
+      <method name="cmp" c:identifier="rpm_ostree_package_cmp">
+        <doc xml:space="preserve"
+             filename="rpmostree-package.c"
+             line="158">Compares two packages by name, epoch:version-release and architecture.</doc>
+        <source-position filename="rpmostree-package.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="rpmostree-package.c"
+               line="165">an integer suitable for sorting functions; negative if @p1 should
+         sort before @p2 in name or version, 0 if equal, positive if @p1
+         should sort after @p2</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="p1" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="rpmostree-package.c"
+                 line="160">Package</doc>
+            <type name="Package" c:type="RpmOstreePackage*"/>
+          </instance-parameter>
+          <parameter name="p2" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="rpmostree-package.c"
+                 line="161">Package</doc>
+            <type name="Package" c:type="RpmOstreePackage*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_arch" c:identifier="rpm_ostree_package_get_arch">
+        <source-position filename="rpmostree-package.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="rpmostree-package.c"
+               line="128">The package architecture</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="p" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="rpmostree-package.c"
+                 line="126">Package</doc>
+            <type name="Package" c:type="RpmOstreePackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_evr" c:identifier="rpm_ostree_package_get_evr">
+        <source-position filename="rpmostree-package.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="rpmostree-package.c"
+               line="116">The package epoch:version-release</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="p" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="rpmostree-package.c"
+                 line="114">Package</doc>
+            <type name="Package" c:type="RpmOstreePackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="rpm_ostree_package_get_name">
+        <source-position filename="rpmostree-package.h" line="42"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="rpmostree-package.c"
+               line="104">The package name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="p" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="rpmostree-package.c"
+                 line="102">Package</doc>
+            <type name="Package" c:type="RpmOstreePackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_nevra" c:identifier="rpm_ostree_package_get_nevra">
+        <source-position filename="rpmostree-package.h" line="39"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="rpmostree-package.c"
+               line="90">A formatted UTF-8 string containing the name, epoch, version,
+release, and architecture.  Avoid parsing this; instead use
+individual getters for more precise control.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="p" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="rpmostree-package.c"
+                 line="88">Package</doc>
+            <type name="Package" c:type="RpmOstreePackage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <constant name="RELEASE_VERSION"
+              value="4"
+              c:type="RPM_OSTREE_RELEASE_VERSION"
+              version="2017.8">
+      <doc xml:space="preserve"
+           filename="rpmostree-version.h"
+           line="40">Release version component (e.g. 9 if %RPM_OSTREE_VERSION is 2017.9)</doc>
+      <source-position filename="rpmostree-version.h" line="47"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="VERSION"
+              value="2024.400000"
+              c:type="RPM_OSTREE_VERSION"
+              version="2017.8">
+      <source-position filename="rpmostree-version.h" line="54"/>
+      <type name="gdouble" c:type="gdouble"/>
+    </constant>
+    <constant name="VERSION_S"
+              value="2024.4"
+              c:type="RPM_OSTREE_VERSION_S"
+              version="2017.8">
+      <doc xml:space="preserve"
+           filename="rpmostree-version.h"
+           line="56">Version encoded as a string, useful for printing and concatenation.</doc>
+      <source-position filename="rpmostree-version.h" line="63"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="YEAR_VERSION"
+              value="2024"
+              c:type="RPM_OSTREE_YEAR_VERSION"
+              version="2017.8">
+      <doc xml:space="preserve"
+           filename="rpmostree-version.h"
+           line="31">Year version component (e.g. 2017 if %RPM_OSTREE_VERSION is 2017.9)</doc>
+      <source-position filename="rpmostree-version.h" line="38"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <function name="check_version" c:identifier="rpm_ostree_check_version">
+      <doc xml:space="preserve"
+           filename="rpmostree.c"
+           line="143">The `RPM_OSTREE_CHECK_VERSION` macro operates at compile time, whereas
+this function operates at runtime.  The distinction is most useful for
+things that are dynamic, such as scripting language callers.</doc>
+      <source-position filename="rpmostree.h" line="40"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="rpmostree.c"
+             line="152">%TRUE if current library has at least the requested version, %FALSE otherwise</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="required_year" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="rpmostree.c"
+               line="145">Major/year required</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="required_release" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="rpmostree.c"
+               line="146">Release version required</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="db_diff" c:identifier="rpm_ostree_db_diff" throws="1">
+      <doc xml:space="preserve"
+           filename="rpmostree-db.c"
+           line="57">Compute the RPM package delta between two commits.
+
+If there are multiple packages with the same name, they are dealt
+with as follow:
+  - if there are N pkgs of the same name in @orig_ref, and 0 pkgs of the same name in
+    @new_ref, then there will be N entries in @out_removed (and vice-versa for
+    @new_ref/@out_added)
+  - if there are N pkgs of the same name in @orig_ref, and M pkgs of the same name in
+    @new_ref, then there will be M entries in @out_modified_new, where all M entries will
+    be paired with the same arbitrary pkg coming from one of the N entries.</doc>
+      <source-position filename="rpmostree-db.h" line="31"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="repo" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="rpmostree-db.c"
+               line="59">An OSTree repository</doc>
+          <type name="OSTree.Repo" c:type="OstreeRepo*"/>
+        </parameter>
+        <parameter name="orig_ref" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="rpmostree-db.c"
+               line="60">Original ref (branch or commit)</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="new_ref" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="rpmostree-db.c"
+               line="61">New ref (branch or commit)</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="out_removed"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="container"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="rpmostree-db.c"
+               line="62">Return
+location for removed packages</doc>
+          <array name="GLib.PtrArray" c:type="GPtrArray**">
+            <type name="Package"/>
+          </array>
+        </parameter>
+        <parameter name="out_added"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="container"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="rpmostree-db.c"
+               line="64">Return
+location for added packages</doc>
+          <array name="GLib.PtrArray" c:type="GPtrArray**">
+            <type name="Package"/>
+          </array>
+        </parameter>
+        <parameter name="out_modified_old"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="container"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="rpmostree-db.c"
+               line="66">
+Return location for modified old packages</doc>
+          <array name="GLib.PtrArray" c:type="GPtrArray**">
+            <type name="Package"/>
+          </array>
+        </parameter>
+        <parameter name="out_modified_new"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="container"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="rpmostree-db.c"
+               line="68">
+Return location for modified new packages</doc>
+          <array name="GLib.PtrArray" c:type="GPtrArray**">
+            <type name="Package"/>
+          </array>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="db_diff_ext"
+              c:identifier="rpm_ostree_db_diff_ext"
+              version="2017.12"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="rpmostree-db.c"
+           line="91">This function is identical to rpm_ostree_db_diff_ext(), but supports a @flags argument to
+further control behaviour. At least one of the @out parameters must not be NULL.</doc>
+      <source-position filename="rpmostree-db.h" line="51"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="repo" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="rpmostree-db.c"
+               line="93">An OSTree repository</doc>
+          <type name="OSTree.Repo" c:type="OstreeRepo*"/>
+        </parameter>
+        <parameter name="orig_ref" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="rpmostree-db.c"
+               line="94">Original ref (branch or commit)</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="new_ref" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="rpmostree-db.c"
+               line="95">New ref (branch or commit)</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="rpmostree-db.c"
+               line="96">Flags controlling diff behaviour</doc>
+          <type name="DbDiffExtFlags" c:type="RpmOstreeDbDiffExtFlags"/>
+        </parameter>
+        <parameter name="out_removed"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="container"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="rpmostree-db.c"
+               line="97">Return
+location for removed packages</doc>
+          <array name="GLib.PtrArray" c:type="GPtrArray**">
+            <type name="Package"/>
+          </array>
+        </parameter>
+        <parameter name="out_added"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="container"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="rpmostree-db.c"
+               line="99">Return
+location for added packages</doc>
+          <array name="GLib.PtrArray" c:type="GPtrArray**">
+            <type name="Package"/>
+          </array>
+        </parameter>
+        <parameter name="out_modified_old"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="container"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="rpmostree-db.c"
+               line="101">
+Return location for modified old packages</doc>
+          <array name="GLib.PtrArray" c:type="GPtrArray**">
+            <type name="Package"/>
+          </array>
+        </parameter>
+        <parameter name="out_modified_new"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="container"
+                   optional="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="rpmostree-db.c"
+               line="103">
+Return location for modified new packages</doc>
+          <array name="GLib.PtrArray" c:type="GPtrArray**">
+            <type name="Package"/>
+          </array>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="db_query_all"
+              c:identifier="rpm_ostree_db_query_all"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="rpmostree-db.c"
+           line="35">Return all of the RPM packages present in the @ref branch or commit
+in @repo.</doc>
+      <source-position filename="rpmostree-db.h" line="28"/>
+      <return-value transfer-ownership="container">
+        <doc xml:space="preserve"
+             filename="rpmostree-db.c"
+             line="45">A query result, or %NULL on error</doc>
+        <array name="GLib.PtrArray" c:type="GPtrArray*">
+          <type name="Package"/>
+        </array>
+      </return-value>
+      <parameters>
+        <parameter name="repo" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="rpmostree-db.c"
+               line="37">An OSTree repository</doc>
+          <type name="OSTree.Repo" c:type="OstreeRepo*"/>
+        </parameter>
+        <parameter name="ref" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="rpmostree-db.c"
+               line="38">A branch name or commit</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="rpmostree-db.c"
+               line="39">Cancellable</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_basearch"
+              c:identifier="rpm_ostree_get_basearch"
+              version="2017.8">
+      <source-position filename="rpmostree.h" line="34"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="rpmostree.c"
+             line="113">A string for RPM's architecture, commonly used for e.g. $basearch in URLs</doc>
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+    </function>
+    <docsection name="librpmostree">
+      <doc xml:space="preserve"
+           filename="rpmostree.c"
+           line="34">These APIs access generic global state.</doc>
+    </docsection>
+    <docsection name="librpmostree-dbquery">
+      <doc xml:space="preserve"
+           filename="rpmostree-db.c"
+           line="26">These APIs provide queryable access to the RPM database inside an
+OSTree repository.</doc>
+    </docsection>
+    <docsection name="rpm-ostree-version">
+      <doc xml:space="preserve"
+           filename="rpmostree-version.h"
+           line="24">Macros to check the version of the library at compile-time.</doc>
+    </docsection>
+    <docsection name="rpmostree-package">
+      <doc xml:space="preserve"
+           filename="rpmostree-package.c"
+           line="22">Represents an RPM package.</doc>
+    </docsection>
+    <function name="varsubst_basearch"
+              c:identifier="rpm_ostree_varsubst_basearch"
+              throws="1">
+      <source-position filename="rpmostree.h" line="37"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="rpmostree.c"
+             line="130">A copy of @src with all references for `${basearch}` replaced with
+`rpmostree_get_basearch()`, or %NULL on error Since: 2017.8</doc>
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="src" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="rpmostree.c"
+               line="128">String (commonly a URL)</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

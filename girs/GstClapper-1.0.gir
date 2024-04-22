@@ -1,0 +1,4000 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gst" version="1.0"/>
+  <include name="GstAudio" version="1.0"/>
+  <include name="GstBase" version="1.0"/>
+  <include name="GstPbutils" version="1.0"/>
+  <include name="GstTag" version="1.0"/>
+  <include name="GstVideo" version="1.0"/>
+  <package name="gstreamer-clapper-1.0"/>
+  <namespace name="GstClapper"
+             version="1.0"
+             shared-library="libgstclapper-1.0.so.0"
+             c:identifier-prefixes="Gst"
+             c:symbol-prefixes="gst">
+    <function-macro name="CLAPPER"
+                    c:identifier="GST_CLAPPER"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper.h" line="145"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_AUDIO_INFO"
+                    c:identifier="GST_CLAPPER_AUDIO_INFO"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="112"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_AUDIO_INFO_CLASS"
+                    c:identifier="GST_CLAPPER_AUDIO_INFO_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="114"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_CAST"
+                    c:identifier="GST_CLAPPER_CAST"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper.h" line="147"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_CLASS"
+                    c:identifier="GST_CLAPPER_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper.h" line="146"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_DEPRECATED_FOR"
+                    c:identifier="GST_CLAPPER_DEPRECATED_FOR"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/clapper-prelude.h" line="36"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_GET_CLASS"
+                    c:identifier="GST_CLAPPER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper.h" line="144"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_GTK4_PLUGIN"
+                    c:identifier="GST_CLAPPER_GTK4_PLUGIN"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-gtk4-plugin.h"
+                       line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_GTK4_PLUGIN_CAST"
+                    c:identifier="GST_CLAPPER_GTK4_PLUGIN_CAST"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-gtk4-plugin.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_GTK4_PLUGIN_CLASS"
+                    c:identifier="GST_CLAPPER_GTK4_PLUGIN_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-gtk4-plugin.h"
+                       line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_GTK4_PLUGIN_GET_CLASS"
+                    c:identifier="GST_CLAPPER_GTK4_PLUGIN_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-gtk4-plugin.h"
+                       line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_G_MAIN_CONTEXT_SIGNAL_DISPATCHER"
+                    c:identifier="GST_CLAPPER_G_MAIN_CONTEXT_SIGNAL_DISPATCHER"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-g-main-context-signal-dispatcher.h"
+                       line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_G_MAIN_CONTEXT_SIGNAL_DISPATCHER_CAST"
+                    c:identifier="GST_CLAPPER_G_MAIN_CONTEXT_SIGNAL_DISPATCHER_CAST"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-g-main-context-signal-dispatcher.h"
+                       line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_G_MAIN_CONTEXT_SIGNAL_DISPATCHER_CLASS"
+                    c:identifier="GST_CLAPPER_G_MAIN_CONTEXT_SIGNAL_DISPATCHER_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-g-main-context-signal-dispatcher.h"
+                       line="40"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_G_MAIN_CONTEXT_SIGNAL_DISPATCHER_GET_CLASS"
+                    c:identifier="GST_CLAPPER_G_MAIN_CONTEXT_SIGNAL_DISPATCHER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-g-main-context-signal-dispatcher.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_MEDIA_INFO"
+                    c:identifier="GST_CLAPPER_MEDIA_INFO"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="175"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_MEDIA_INFO_CLASS"
+                    c:identifier="GST_CLAPPER_MEDIA_INFO_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="177"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_MPRIS"
+                    c:identifier="GST_CLAPPER_MPRIS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-mpris.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_MPRIS_CAST"
+                    c:identifier="GST_CLAPPER_MPRIS_CAST"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-mpris.h"
+                       line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_MPRIS_CLASS"
+                    c:identifier="GST_CLAPPER_MPRIS_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-mpris.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_MPRIS_GET_CLASS"
+                    c:identifier="GST_CLAPPER_MPRIS_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-mpris.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_SIGNAL_DISPATCHER"
+                    c:identifier="GST_CLAPPER_SIGNAL_DISPATCHER"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-signal-dispatcher.h"
+                       line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_SIGNAL_DISPATCHER_GET_INTERFACE"
+                    c:identifier="GST_CLAPPER_SIGNAL_DISPATCHER_GET_INTERFACE"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-signal-dispatcher.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="inst">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_STREAM_INFO"
+                    c:identifier="GST_CLAPPER_STREAM_INFO"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_STREAM_INFO_CLASS"
+                    c:identifier="GST_CLAPPER_STREAM_INFO_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="33"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_SUBTITLE_INFO"
+                    c:identifier="GST_CLAPPER_SUBTITLE_INFO"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="148"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_SUBTITLE_INFO_CLASS"
+                    c:identifier="GST_CLAPPER_SUBTITLE_INFO_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="150"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_VIDEO_INFO"
+                    c:identifier="GST_CLAPPER_VIDEO_INFO"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="69"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_VIDEO_INFO_CLASS"
+                    c:identifier="GST_CLAPPER_VIDEO_INFO_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="71"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_VIDEO_OVERLAY_VIDEO_RENDERER"
+                    c:identifier="GST_CLAPPER_VIDEO_OVERLAY_VIDEO_RENDERER"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.h"
+                       line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_VIDEO_OVERLAY_VIDEO_RENDERER_CAST"
+                    c:identifier="GST_CLAPPER_VIDEO_OVERLAY_VIDEO_RENDERER_CAST"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.h"
+                       line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_VIDEO_OVERLAY_VIDEO_RENDERER_CLASS"
+                    c:identifier="GST_CLAPPER_VIDEO_OVERLAY_VIDEO_RENDERER_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.h"
+                       line="40"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_VIDEO_OVERLAY_VIDEO_RENDERER_GET_CLASS"
+                    c:identifier="GST_CLAPPER_VIDEO_OVERLAY_VIDEO_RENDERER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_VIDEO_RENDERER"
+                    c:identifier="GST_CLAPPER_VIDEO_RENDERER"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-video-renderer.h"
+                       line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLAPPER_VIDEO_RENDERER_GET_INTERFACE"
+                    c:identifier="GST_CLAPPER_VIDEO_RENDERER_GET_INTERFACE"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-video-renderer.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="inst">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Clapper"
+           c:symbol-prefix="clapper"
+           c:type="GstClapper"
+           parent="Gst.Object"
+           glib:type-name="GstClapper"
+           glib:get-type="gst_clapper_get_type"
+           glib:type-struct="ClapperClass">
+      <source-position filename="lib/gst/clapper/gstclapper-types.h"
+                       line="31"/>
+      <constructor name="new" c:identifier="gst_clapper_new">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="3600">Creates a new #GstClapper instance that uses @signal_dispatcher to dispatch
+signals to some event loop system, or emits signals directly if NULL is
+passed. See gst_clapper_g_main_context_signal_dispatcher_new().
+
+Video is going to be rendered by @video_renderer, or if %NULL is provided
+no special video set up will be done and some default handling will be
+performed.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="160"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="3614">a new #GstClapper instance</doc>
+          <type name="Clapper" c:type="GstClapper*"/>
+        </return-value>
+        <parameters>
+          <parameter name="video_renderer"
+                     transfer-ownership="full"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="3602">GstClapperVideoRenderer to use</doc>
+            <type name="ClapperVideoRenderer"
+                  c:type="GstClapperVideoRenderer*"/>
+          </parameter>
+          <parameter name="signal_dispatcher"
+                     transfer-ownership="full"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="3603">GstClapperSignalDispatcher to use</doc>
+            <type name="ClapperSignalDispatcher"
+                  c:type="GstClapperSignalDispatcher*"/>
+          </parameter>
+          <parameter name="mpris"
+                     transfer-ownership="full"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="3604">GstClapperMpris to use</doc>
+            <type name="ClapperMpris" c:type="GstClapperMpris*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="gst_init" c:identifier="gst_clapper_gst_init">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="3579">Automatically initializes GStreamer library if this was not done by the user yet
+and tweaks some of its defaults to our liking. It is recommended to use this
+function instead of plain gst_init().
+
+This also allows usage of GstClapper API alone without importing GStreamer
+on the implementation side.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="157"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="argc"
+                     direction="inout"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="3581">pointer to application's argc</doc>
+            <type name="gint" c:type="int*"/>
+          </parameter>
+          <parameter name="argv"
+                     direction="inout"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="3582">pointer to application's argv</doc>
+            <array length="0" zero-terminated="0" c:type="char***">
+              <type name="utf8" c:type="char**"/>
+            </array>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="visualizations_free"
+                c:identifier="gst_clapper_visualizations_free">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper-visualization.c"
+             line="85">Frees a %NULL terminated array of #GstClapperVisualization.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper-visualization.h"
+                         line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="viss" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-visualization.c"
+                 line="87">a %NULL terminated array of #GstClapperVisualization to free</doc>
+            <type name="ClapperVisualization"
+                  c:type="GstClapperVisualization**"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="visualizations_get"
+                c:identifier="gst_clapper_visualizations_get">
+        <source-position filename="lib/gst/clapper/gstclapper-visualization.h"
+                         line="54"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-visualization.c"
+               line="159">
+ a %NULL terminated array containing all available
+ visualizations. Use gst_clapper_visualizations_free() after
+ usage.</doc>
+          <array c:type="GstClapperVisualization**">
+            <type name="ClapperVisualization"/>
+          </array>
+        </return-value>
+      </function>
+      <method name="get_audio_video_offset"
+              c:identifier="gst_clapper_get_audio_video_offset"
+              glib:get-property="audio-video-offset">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4951">Retrieve the current value of audio-video-offset property</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="302"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4957">The current value of audio-video-offset in nanoseconds</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4953">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_color_balance"
+              c:identifier="gst_clapper_get_color_balance">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4844">Retrieve the current value of the indicated @type.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="285"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4851">The current value of @type, between [0,1]. In case of
+  error -1 is returned.</doc>
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4846">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4847">#GstClapperColorBalanceType</doc>
+            <type name="ClapperColorBalanceType"
+                  c:type="GstClapperColorBalanceType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_current_audio_track"
+              c:identifier="gst_clapper_get_current_audio_track"
+              glib:get-property="current-audio-track">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4351">A Function to get current audio #GstClapperAudioInfo instance.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="259"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4357">current audio track.
+
+The caller should free it with g_object_unref()</doc>
+          <type name="ClapperAudioInfo" c:type="GstClapperAudioInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4353">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_subtitle_track"
+              c:identifier="gst_clapper_get_current_subtitle_track"
+              glib:get-property="current-subtitle-track">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4415">A Function to get current subtitle #GstClapperSubtitleInfo instance.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="267"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4421">current subtitle track.
+
+The caller should free it with g_object_unref()</doc>
+          <type name="ClapperSubtitleInfo" c:type="GstClapperSubtitleInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4417">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_video_track"
+              c:identifier="gst_clapper_get_current_video_track"
+              glib:get-property="current-video-track">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4383">A Function to get current video #GstClapperVideoInfo instance.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="263"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4389">current video track.
+
+The caller should free it with g_object_unref()</doc>
+          <type name="ClapperVideoInfo" c:type="GstClapperVideoInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4385">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_visualization"
+              c:identifier="gst_clapper_get_current_visualization">
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="276"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4700">Name of the currently enabled visualization.
+  g_free() after usage.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4698">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_duration"
+              c:identifier="gst_clapper_get_duration"
+              glib:get-property="duration">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4192">Retrieves the duration of the media stream that self represents.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="214"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4198">the duration of the currently-playing media stream, in
+nanoseconds.</doc>
+          <type name="Gst.ClockTime" c:type="GstClockTime"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4194">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_media_info"
+              c:identifier="gst_clapper_get_media_info"
+              glib:get-property="media-info">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4324">A Function to get the current media info #GstClapperMediaInfo instance.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="255"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4330">media info instance.
+
+The caller should free it with g_object_unref()</doc>
+          <type name="ClapperMediaInfo" c:type="GstClapperMediaInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4326">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_mpris"
+              c:identifier="gst_clapper_get_mpris"
+              glib:get-property="mpris">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4302">A Function to get the #GstClapperMpris instance.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="233"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4308">mpris instance.
+
+The caller should free it with g_object_unref()</doc>
+          <type name="ClapperMpris" c:type="GstClapperMpris*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4304">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_multiview_flags"
+              c:identifier="gst_clapper_get_multiview_flags">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4915">Retrieve the current value of the indicated @type.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="296"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4921">The current value of @type, Default: 0x00000000 "none</doc>
+          <type name="GstVideo.VideoMultiviewFlags"
+                c:type="GstVideoMultiviewFlags"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4917">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_multiview_mode"
+              c:identifier="gst_clapper_get_multiview_mode">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4877">Retrieve the current value of the indicated @type.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="289"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4883">The current value of @type, Default: -1 "none"</doc>
+          <type name="GstVideo.VideoMultiviewFramePacking"
+                c:type="GstVideoMultiviewFramePacking"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4879">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_mute"
+              c:identifier="gst_clapper_get_mute"
+              glib:get-property="mute">
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="223"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4253">%TRUE if the currently-playing stream is muted.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4251">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_pipeline"
+              c:identifier="gst_clapper_get_pipeline"
+              glib:get-property="pipeline">
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="229"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4286">The internal playbin instance.
+
+The caller should free it with g_object_unref()</doc>
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4284">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_position"
+              c:identifier="gst_clapper_get_position"
+              glib:get-property="position">
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="211"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4177">the absolute position time, in nanoseconds, of the
+currently-playing stream.</doc>
+          <type name="Gst.ClockTime" c:type="GstClockTime"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4175">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_rate"
+              c:identifier="gst_clapper_get_rate"
+              glib:get-property="rate">
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="196"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="3976">current playback rate</doc>
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="3974">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_seek_mode"
+              c:identifier="gst_clapper_get_seek_mode"
+              glib:get-property="seek-mode">
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="187"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="5176">The currently used seek mode, Default: 0 "default"</doc>
+          <type name="ClapperSeekMode" c:type="GstClapperSeekMode"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="5174">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_state"
+              c:identifier="gst_clapper_get_state"
+              glib:get-property="state">
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="183"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4085">Current player state</doc>
+          <type name="ClapperState" c:type="GstClapperState"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4083">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_subtitle_uri"
+              c:identifier="gst_clapper_get_subtitle_uri">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4152">current subtitle URI</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="205"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4158">URI of the current external subtitle.
+  g_free() after usage.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4154">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_subtitle_video_offset"
+              c:identifier="gst_clapper_get_subtitle_video_offset"
+              glib:get-property="subtitle-video-offset">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4986">Retrieve the current value of subtitle-video-offset property</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="308"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4992">The current value of subtitle-video-offset in nanoseconds</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4988">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_uri"
+              c:identifier="gst_clapper_get_uri"
+              glib:get-property="uri">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4099">Gets the URI of the currently-playing stream.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="199"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4105">a string containing the URI of the
+currently-playing stream. g_free() after usage.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4101">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_video_snapshot"
+              c:identifier="gst_clapper_get_video_snapshot">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="5205">Get a snapshot of the currently selected video stream, if any. The format can be
+selected with @format and optional configuration is possible with @config
+Currently supported settings are:
+- width, height of type G_TYPE_INT
+- pixel-aspect-ratio of type GST_TYPE_FRACTION
+ Except for GST_CLAPPER_THUMBNAIL_RAW_NATIVE format, if no config is set, pixel-aspect-ratio would be 1/1</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="314"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="5218">Current video snapshot sample or %NULL on failure</doc>
+          <type name="Gst.Sample" c:type="GstSample*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="5207">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="format" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="5208">output format of the video snapshot</doc>
+            <type name="ClapperSnapshotFormat"
+                  c:type="GstClapperSnapshotFormat"/>
+          </parameter>
+          <parameter name="config"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="5209">Additional configuration</doc>
+            <type name="Gst.Structure" c:type="const GstStructure*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_volume"
+              c:identifier="gst_clapper_get_volume"
+              glib:get-property="volume">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4213">Returns the current volume level, as a percentage between 0 and 1.5</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="217"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4219">the cubic volume as percentage between 0 and 1.5</doc>
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4215">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_color_balance"
+              c:identifier="gst_clapper_has_color_balance">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4784">Checks whether the @clapper has color balance support available.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="279"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4790">%TRUE if @clapper has color balance support. Otherwise,
+  %FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4786">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="pause" c:identifier="gst_clapper_pause">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="3737">Pauses the current stream.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="167"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="3739">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="play" c:identifier="gst_clapper_play">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="3676">Request to play the loaded stream.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="164"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="3678">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="seek" c:identifier="gst_clapper_seek">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="3990">Seeks the currently-playing stream to the absolute @position time
+in nanoseconds.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="176"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="3992">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="position" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="3993">position to seek in nanoseconds</doc>
+            <type name="Gst.ClockTime" c:type="GstClockTime"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="seek_offset" c:identifier="gst_clapper_seek_offset">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4047">Seeks the currently-playing stream to the @offset time
+in nanoseconds.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="179"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4049">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4050">offset from current position to seek to in nanoseconds</doc>
+            <type name="Gst.ClockTime" c:type="GstClockTime"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_audio_track"
+              c:identifier="gst_clapper_set_audio_track">
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="245"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4479">%TRUE or %FALSE
+
+Sets the audio track @stream_idex.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4476">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="stream_index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4477">stream index</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_audio_track_enabled"
+              c:identifier="gst_clapper_set_audio_track_enabled">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4597">Enable or disable the current audio track.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="239"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4599">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="enabled" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4600">TRUE or FALSE</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_audio_video_offset"
+              c:identifier="gst_clapper_set_audio_video_offset"
+              glib:set-property="audio-video-offset">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4971">Sets audio-video-offset property by value of @offset</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="305"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4973">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4974">#gint64 in nanoseconds</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_color_balance"
+              c:identifier="gst_clapper_set_color_balance">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4808">Sets the current value of the indicated channel @type to the passed
+value.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="282"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4810">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4811">#GstClapperColorBalanceType</doc>
+            <type name="ClapperColorBalanceType"
+                  c:type="GstClapperColorBalanceType"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4812">The new value for the @type, ranged [0,1]</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_multiview_flags"
+              c:identifier="gst_clapper_set_multiview_flags">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4935">Sets the current value of the indicated mode @type to the passed
+value.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="299"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4937">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4938">The new value for the @type</doc>
+            <type name="GstVideo.VideoMultiviewFlags"
+                  c:type="GstVideoMultiviewFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_multiview_mode"
+              c:identifier="gst_clapper_set_multiview_mode">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4898">Sets the current value of the indicated mode @type to the passed
+value.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="292"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4900">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="mode" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4901">The new value for the @type</doc>
+            <type name="GstVideo.VideoMultiviewFramePacking"
+                  c:type="GstVideoMultiviewFramePacking"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_mute"
+              c:identifier="gst_clapper_set_mute"
+              glib:set-property="mute">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4267">%TRUE if the currently-playing stream should be muted.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="226"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4269">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="val" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4270">Mute state the should be set</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_rate"
+              c:identifier="gst_clapper_set_rate"
+              glib:set-property="rate">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="3956">Playback at specified rate</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="193"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="3958">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="rate" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="3959">playback rate</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_seek_mode"
+              c:identifier="gst_clapper_set_seek_mode"
+              glib:set-property="seek-mode">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="5190">Changes currently used clapper seek mode to the one of @mode</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="190"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="5192">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="mode" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="5193">#GstClapperSeekMode</doc>
+            <type name="ClapperSeekMode" c:type="GstClapperSeekMode"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_subtitle_track"
+              c:identifier="gst_clapper_set_subtitle_track">
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="251"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4562">%TRUE or %FALSE
+
+Sets the subtitle stack @stream_index.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4559">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="stream_index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4560">stream index</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_subtitle_track_enabled"
+              c:identifier="gst_clapper_set_subtitle_track_enabled">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4637">Enable or disable the current subtitle track.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="242"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4639">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="enabled" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4640">TRUE or FALSE</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_subtitle_uri"
+              c:identifier="gst_clapper_set_subtitle_uri">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4135">Sets the external subtitle URI. This should be combined with a call to
+gst_clapper_set_subtitle_track_enabled(@clapper, TRUE) so the subtitles are actually
+rendered.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="208"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4137">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4138">subtitle URI</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_subtitle_video_offset"
+              c:identifier="gst_clapper_set_subtitle_video_offset"
+              glib:set-property="subtitle-video-offset">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="5006">Sets subtitle-video-offset property by value of @offset</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="311"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="5008">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="5009">#gint64 in nanoseconds</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_uri"
+              c:identifier="gst_clapper_set_uri"
+              glib:set-property="uri">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4120">Sets the next URI to play.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="202"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4122">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4123">next URI to play.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_video_track"
+              c:identifier="gst_clapper_set_video_track">
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="248"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4520">%TRUE or %FALSE
+
+Sets the video track @stream_index.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4517">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="stream_index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4518">stream index</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_video_track_enabled"
+              c:identifier="gst_clapper_set_video_track_enabled">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4617">Enable or disable the current video track.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="236"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4619">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="enabled" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4620">TRUE or FALSE</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_visualization"
+              c:identifier="gst_clapper_set_visualization">
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="270"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="4663">%TRUE if the visualizations was set correctly. Otherwise,
+%FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4659">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4660">visualization element obtained from
+#gst_clapper_visualizations_get()</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_visualization_enabled"
+              c:identifier="gst_clapper_set_visualization_enabled">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4728">Enable or disable the visualization.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="273"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4730">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="enabled" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4731">TRUE or FALSE</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_volume"
+              c:identifier="gst_clapper_set_volume"
+              glib:set-property="volume">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="4233">Sets the volume level of the stream as a percentage between 0 and 1.5
+Volume operates on a cubic scale.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="220"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4235">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+          <parameter name="val" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="4236">the new volume level, as a percentage between 0 and 1.5</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="stop" c:identifier="gst_clapper_stop">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="3851">Stops playing the current stream and resets to the first position
+in the stream.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="173"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="3853">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="toggle_play" c:identifier="gst_clapper_toggle_play">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="3766">Toggle between play and pause on the loaded stream.
+This function does nothing if player is stopped.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="170"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="clapper" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="3768">#GstClapper instance</doc>
+            <type name="Clapper" c:type="GstClapper*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="audio-video-offset"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_audio_video_offset"
+                getter="get_audio_video_offset"
+                default-value="0">
+        <type name="gint64" c:type="gint64"/>
+      </property>
+      <property name="current-audio-track"
+                transfer-ownership="none"
+                getter="get_current_audio_track">
+        <type name="ClapperAudioInfo"/>
+      </property>
+      <property name="current-subtitle-track"
+                transfer-ownership="none"
+                getter="get_current_subtitle_track">
+        <type name="ClapperSubtitleInfo"/>
+      </property>
+      <property name="current-video-track"
+                transfer-ownership="none"
+                getter="get_current_video_track">
+        <type name="ClapperVideoInfo"/>
+      </property>
+      <property name="duration"
+                transfer-ownership="none"
+                getter="get_duration"
+                default-value="18446744073709551615">
+        <type name="guint64" c:type="guint64"/>
+      </property>
+      <property name="media-info"
+                transfer-ownership="none"
+                getter="get_media_info">
+        <type name="ClapperMediaInfo"/>
+      </property>
+      <property name="mpris"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_mpris">
+        <type name="ClapperMpris"/>
+      </property>
+      <property name="mute"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_mute"
+                getter="get_mute"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="pipeline"
+                transfer-ownership="none"
+                getter="get_pipeline">
+        <type name="Gst.Element"/>
+      </property>
+      <property name="position"
+                transfer-ownership="none"
+                getter="get_position"
+                default-value="18446744073709551615">
+        <type name="guint64" c:type="guint64"/>
+      </property>
+      <property name="rate"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_rate"
+                getter="get_rate"
+                default-value="1.000000">
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+      <property name="seek-mode"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_seek_mode"
+                getter="get_seek_mode"
+                default-value="GST_CLAPPER_SEEK_MODE_DEFAULT">
+        <type name="ClapperSeekMode"/>
+      </property>
+      <property name="signal-dispatcher"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="ClapperSignalDispatcher"/>
+      </property>
+      <property name="state"
+                transfer-ownership="none"
+                getter="get_state"
+                default-value="GST_CLAPPER_STATE_STOPPED">
+        <type name="ClapperState"/>
+      </property>
+      <property name="subtitle-video-offset"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_subtitle_video_offset"
+                getter="get_subtitle_video_offset"
+                default-value="0">
+        <type name="gint64" c:type="gint64"/>
+      </property>
+      <property name="suburi"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="uri"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_uri"
+                getter="get_uri"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="use-pipewire"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="use-playbin3"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="video-multiview-flags"
+                writable="1"
+                transfer-ownership="none"
+                default-value="GST_VIDEO_MULTIVIEW_FLAGS_NONE">
+        <type name="GstVideo.VideoMultiviewFlags"/>
+      </property>
+      <property name="video-multiview-mode"
+                writable="1"
+                transfer-ownership="none"
+                default-value="GST_VIDEO_MULTIVIEW_FRAME_PACKING_NONE">
+        <type name="GstVideo.VideoMultiviewFramePacking"/>
+      </property>
+      <property name="video-renderer"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="ClapperVideoRenderer"/>
+      </property>
+      <property name="volume"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_volume"
+                getter="get_volume"
+                default-value="1.000000">
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+      <glib:signal name="audio-decoder-changed"
+                   when="last"
+                   no-recurse="1"
+                   no-hooks="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="buffering" when="last" no-recurse="1" no-hooks="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="duration-changed"
+                   when="last"
+                   no-recurse="1"
+                   no-hooks="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="end-of-stream"
+                   when="last"
+                   no-recurse="1"
+                   no-hooks="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="error" when="last" no-recurse="1" no-hooks="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="GLib.Error"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="media-info-updated"
+                   when="last"
+                   no-recurse="1"
+                   no-hooks="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="ClapperMediaInfo"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="position-updated"
+                   when="last"
+                   no-recurse="1"
+                   no-hooks="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="state-changed"
+                   when="last"
+                   no-recurse="1"
+                   no-hooks="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="ClapperState"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="uri-loaded" when="last" no-recurse="1" no-hooks="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="video-decoder-changed"
+                   when="last"
+                   no-recurse="1"
+                   no-hooks="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="video-dimensions-changed"
+                   when="last"
+                   no-recurse="1"
+                   no-hooks="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="warning" when="last" no-recurse="1" no-hooks="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="GLib.Error"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <class name="ClapperAudioInfo"
+           c:symbol-prefix="clapper_audio_info"
+           c:type="GstClapperAudioInfo"
+           parent="ClapperStreamInfo"
+           glib:type-name="GstClapperAudioInfo"
+           glib:get-type="gst_clapper_audio_info_get_type"
+           glib:type-struct="ClapperAudioInfoClass">
+      <doc xml:space="preserve"
+           filename="lib/gst/clapper/gstclapper-media-info.h"
+           line="124">#GstClapperStreamInfo specific to audio streams.</doc>
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="130"/>
+      <method name="get_bitrate"
+              c:identifier="gst_clapper_audio_info_get_bitrate">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="142"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="343">the audio bitrate in #GstClapperAudioInfo.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="341">a #GstClapperAudioInfo</doc>
+            <type name="ClapperAudioInfo" c:type="const GstClapperAudioInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_channels"
+              c:identifier="gst_clapper_audio_info_get_channels">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="136"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="315">the number of audio channels in #GstClapperAudioInfo.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="313">a #GstClapperAudioInfo</doc>
+            <type name="ClapperAudioInfo" c:type="const GstClapperAudioInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_language"
+              c:identifier="gst_clapper_audio_info_get_language">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="148"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="301">the language of the stream, or NULL if unknown.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="299">a #GstClapperAudioInfo</doc>
+            <type name="ClapperAudioInfo" c:type="const GstClapperAudioInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_max_bitrate"
+              c:identifier="gst_clapper_audio_info_get_max_bitrate">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="145"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="357">the audio maximum bitrate in #GstClapperAudioInfo.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="355">a #GstClapperAudioInfo</doc>
+            <type name="ClapperAudioInfo" c:type="const GstClapperAudioInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_sample_rate"
+              c:identifier="gst_clapper_audio_info_get_sample_rate">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="139"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="329">the audio sample rate in #GstClapperAudioInfo.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="327">a #GstClapperAudioInfo</doc>
+            <type name="ClapperAudioInfo" c:type="const GstClapperAudioInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="ClapperAudioInfoClass"
+            c:type="GstClapperAudioInfoClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="ClapperAudioInfo">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="130"/>
+    </record>
+    <record name="ClapperClass"
+            c:type="GstClapperClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="Clapper">
+      <source-position filename="lib/gst/clapper/gstclapper-types.h"
+                       line="31"/>
+    </record>
+    <enumeration name="ClapperColorBalanceType"
+                 glib:type-name="GstClapperColorBalanceType"
+                 glib:get-type="gst_clapper_color_balance_type_get_type"
+                 c:type="GstClapperColorBalanceType">
+      <member name="hue"
+              value="3"
+              c:identifier="GST_CLAPPER_COLOR_BALANCE_HUE"
+              glib:nick="hue"
+              glib:name="GST_CLAPPER_COLOR_BALANCE_HUE">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.h"
+             line="109">hue or color balance.</doc>
+      </member>
+      <member name="brightness"
+              value="0"
+              c:identifier="GST_CLAPPER_COLOR_BALANCE_BRIGHTNESS"
+              glib:nick="brightness"
+              glib:name="GST_CLAPPER_COLOR_BALANCE_BRIGHTNESS">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.h"
+             line="105">brightness or black level.</doc>
+      </member>
+      <member name="saturation"
+              value="2"
+              c:identifier="GST_CLAPPER_COLOR_BALANCE_SATURATION"
+              glib:nick="saturation"
+              glib:name="GST_CLAPPER_COLOR_BALANCE_SATURATION">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.h"
+             line="107">color saturation or chroma
+gain.</doc>
+      </member>
+      <member name="contrast"
+              value="1"
+              c:identifier="GST_CLAPPER_COLOR_BALANCE_CONTRAST"
+              glib:nick="contrast"
+              glib:name="GST_CLAPPER_COLOR_BALANCE_CONTRAST">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.h"
+             line="106">contrast or luma gain.</doc>
+      </member>
+      <function name="get_name"
+                c:identifier="gst_clapper_color_balance_type_get_name">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="5049">Gets a string representing the given color balance type.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="120"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="5055">a string with the name of the color
+balance type.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="5051">a #GstClapperColorBalanceType</doc>
+            <type name="ClapperColorBalanceType"
+                  c:type="GstClapperColorBalanceType"/>
+          </parameter>
+        </parameters>
+      </function>
+    </enumeration>
+    <enumeration name="ClapperError"
+                 glib:type-name="GstClapperError"
+                 glib:get-type="gst_clapper_error_get_type"
+                 c:type="GstClapperError"
+                 glib:error-domain="gst-clapper-error-quark">
+      <member name="failed"
+              value="0"
+              c:identifier="GST_CLAPPER_ERROR_FAILED"
+              glib:nick="failed"
+              glib:name="GST_CLAPPER_ERROR_FAILED">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.h"
+             line="89">generic error.</doc>
+      </member>
+      <function name="get_name" c:identifier="gst_clapper_error_get_name">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="5131">Gets a string representing the given error.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="96"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="5137">a string with the given error.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="error" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="5133">a #GstClapperError</doc>
+            <type name="ClapperError" c:type="GstClapperError"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="quark" c:identifier="gst_clapper_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <class name="ClapperGMainContextSignalDispatcher"
+           c:symbol-prefix="clapper_g_main_context_signal_dispatcher"
+           c:type="GstClapperGMainContextSignalDispatcher"
+           parent="GObject.Object"
+           glib:type-name="GstClapperGMainContextSignalDispatcher"
+           glib:get-type="gst_clapper_g_main_context_signal_dispatcher_get_type"
+           glib:type-struct="ClapperGMainContextSignalDispatcherClass">
+      <source-position filename="lib/gst/clapper/gstclapper-g-main-context-signal-dispatcher.h"
+                       line="33"/>
+      <implements name="ClapperSignalDispatcher"/>
+      <function name="new"
+                c:identifier="gst_clapper_g_main_context_signal_dispatcher_new">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper-g-main-context-signal-dispatcher.c"
+             line="199">Creates a new GstClapperSignalDispatcher that uses @application_context,
+or the thread default one if %NULL is used. See gst_clapper_new().</doc>
+        <source-position filename="lib/gst/clapper/gstclapper-g-main-context-signal-dispatcher.h"
+                         line="47"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-g-main-context-signal-dispatcher.c"
+               line="206">the new GstClapperSignalDispatcher</doc>
+          <type name="ClapperSignalDispatcher"
+                c:type="GstClapperSignalDispatcher*"/>
+        </return-value>
+        <parameters>
+          <parameter name="application_context"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-g-main-context-signal-dispatcher.c"
+                 line="201">GMainContext to use or %NULL</doc>
+            <type name="GLib.MainContext" c:type="GMainContext*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <property name="application-context"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="GLib.MainContext"/>
+      </property>
+    </class>
+    <record name="ClapperGMainContextSignalDispatcherClass"
+            c:type="GstClapperGMainContextSignalDispatcherClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="ClapperGMainContextSignalDispatcher">
+      <source-position filename="lib/gst/clapper/gstclapper-g-main-context-signal-dispatcher.h"
+                       line="33"/>
+    </record>
+    <class name="ClapperGtk4Plugin"
+           c:symbol-prefix="clapper_gtk4_plugin"
+           c:type="GstClapperGtk4Plugin"
+           parent="GObject.Object"
+           glib:type-name="GstClapperGtk4Plugin"
+           glib:get-type="gst_clapper_gtk4_plugin_get_type"
+           glib:type-struct="ClapperGtk4PluginClass">
+      <doc xml:space="preserve"
+           filename="lib/gst/clapper/gstclapper-gtk4-plugin.h"
+           line="40">Opaque #GstClapperGtk4Plugin object</doc>
+      <source-position filename="lib/gst/clapper/gstclapper-gtk4-plugin.h"
+                       line="62"/>
+      <constructor name="new" c:identifier="gst_clapper_gtk4_plugin_new">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper-gtk4-plugin.c"
+             line="112">Creates a new GTK4 plugin.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper-gtk4-plugin.h"
+                         line="68"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-gtk4-plugin.c"
+               line="117">the new GstClapperGtk4Plugin</doc>
+          <type name="ClapperGtk4Plugin" c:type="GstClapperGtk4Plugin*"/>
+        </return-value>
+      </constructor>
+      <property name="video-sink" transfer-ownership="none">
+        <type name="Gst.Element"/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="video_sink" readable="0" private="1">
+        <type name="Gst.Element" c:type="GstElement*"/>
+      </field>
+    </class>
+    <record name="ClapperGtk4PluginClass"
+            c:type="GstClapperGtk4PluginClass"
+            glib:is-gtype-struct-for="ClapperGtk4Plugin">
+      <doc xml:space="preserve"
+           filename="lib/gst/clapper/gstclapper-gtk4-plugin.h"
+           line="53">The #GstClapperGtk4PluginClass struct only contains private data</doc>
+      <source-position filename="lib/gst/clapper/gstclapper-gtk4-plugin.h"
+                       line="62"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="Gst.ElementClass" c:type="GstElementClass"/>
+      </field>
+    </record>
+    <class name="ClapperMediaInfo"
+           c:symbol-prefix="clapper_media_info"
+           c:type="GstClapperMediaInfo"
+           parent="GObject.Object"
+           glib:type-name="GstClapperMediaInfo"
+           glib:get-type="gst_clapper_media_info_get_type"
+           glib:type-struct="ClapperMediaInfoClass">
+      <doc xml:space="preserve"
+           filename="lib/gst/clapper/gstclapper-media-info.h"
+           line="189">Structure containing the media information of a URI.</doc>
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="195"/>
+      <method name="get_audio_streams"
+              c:identifier="gst_clapper_media_info_get_audio_streams">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="225"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="730">A #GList of
+matching #GstClapperAudioInfo.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="ClapperAudioInfo"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="728">a #GstClapperMediaInfo</doc>
+            <type name="ClapperMediaInfo" c:type="const GstClapperMediaInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_container_format"
+              c:identifier="gst_clapper_media_info_get_container_format">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="246"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="802">the container format.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="800">a #GstClapperMediaInfo</doc>
+            <type name="ClapperMediaInfo" c:type="const GstClapperMediaInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_duration"
+              c:identifier="gst_clapper_media_info_get_duration">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="210"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="745">duration of the media.</doc>
+          <type name="Gst.ClockTime" c:type="GstClockTime"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="743">a #GstClapperMediaInfo</doc>
+            <type name="ClapperMediaInfo" c:type="const GstClapperMediaInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_image_sample"
+              c:identifier="gst_clapper_media_info_get_image_sample">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper-media-info.c"
+             line="812">Function to get the image (or preview-image) stored in taglist.
+Application can use `gst_sample_*_()` API's to get caps, buffer etc.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="249"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="819">GstSample or NULL.</doc>
+          <type name="Gst.Sample" c:type="GstSample*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="814">a #GstClapperMediaInfo</doc>
+            <type name="ClapperMediaInfo" c:type="const GstClapperMediaInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_number_of_audio_streams"
+              c:identifier="gst_clapper_media_info_get_number_of_audio_streams">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="228"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="862">number of audio streams.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="860">a #GstClapperMediaInfo</doc>
+            <type name="ClapperMediaInfo" c:type="const GstClapperMediaInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_number_of_streams"
+              c:identifier="gst_clapper_media_info_get_number_of_streams">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="216"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="833">number of total streams.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="831">a #GstClapperMediaInfo</doc>
+            <type name="ClapperMediaInfo" c:type="const GstClapperMediaInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_number_of_subtitle_streams"
+              c:identifier="gst_clapper_media_info_get_number_of_subtitle_streams">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="234"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="877">number of subtitle streams.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="875">a #GstClapperMediaInfo</doc>
+            <type name="ClapperMediaInfo" c:type="const GstClapperMediaInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_number_of_video_streams"
+              c:identifier="gst_clapper_media_info_get_number_of_video_streams">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="222"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="847">number of video streams.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="845">a #GstClapperMediaInfo</doc>
+            <type name="ClapperMediaInfo" c:type="const GstClapperMediaInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_stream_list"
+              c:identifier="gst_clapper_media_info_get_stream_list">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="213"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="685">A #GList of
+matching #GstClapperStreamInfo.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="ClapperStreamInfo"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="683">a #GstClapperMediaInfo</doc>
+            <type name="ClapperMediaInfo" c:type="const GstClapperMediaInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_subtitle_streams"
+              c:identifier="gst_clapper_media_info_get_subtitle_streams">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="231"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="715">A #GList of
+matching #GstClapperSubtitleInfo.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="ClapperSubtitleInfo"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="713">a #GstClapperMediaInfo</doc>
+            <type name="ClapperMediaInfo" c:type="const GstClapperMediaInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tags" c:identifier="gst_clapper_media_info_get_tags">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="237"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="759">the tags contained in media info.</doc>
+          <type name="Gst.TagList" c:type="GstTagList*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="757">a #GstClapperMediaInfo</doc>
+            <type name="ClapperMediaInfo" c:type="const GstClapperMediaInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_title" c:identifier="gst_clapper_media_info_get_title">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="243"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="787">the media title. When metadata does not contain title,
+returns title parsed from URI.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="785">a #GstClapperMediaInfo</doc>
+            <type name="ClapperMediaInfo" c:type="const GstClapperMediaInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_toc" c:identifier="gst_clapper_media_info_get_toc">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="240"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="773">the toc contained in media info.</doc>
+          <type name="Gst.Toc" c:type="GstToc*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="771">a #GstClapperMediaInfo</doc>
+            <type name="ClapperMediaInfo" c:type="const GstClapperMediaInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_uri" c:identifier="gst_clapper_media_info_get_uri">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="201"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="643">the URI associated with #GstClapperMediaInfo.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="641">a #GstClapperMediaInfo</doc>
+            <type name="ClapperMediaInfo" c:type="const GstClapperMediaInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_video_streams"
+              c:identifier="gst_clapper_media_info_get_video_streams">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="219"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="700">A #GList of
+matching #GstClapperVideoInfo.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="ClapperVideoInfo"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="698">a #GstClapperMediaInfo</doc>
+            <type name="ClapperMediaInfo" c:type="const GstClapperMediaInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_live" c:identifier="gst_clapper_media_info_is_live">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="207"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="671">%TRUE if the media is live.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="669">a #GstClapperMediaInfo</doc>
+            <type name="ClapperMediaInfo" c:type="const GstClapperMediaInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_seekable"
+              c:identifier="gst_clapper_media_info_is_seekable">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="204"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="657">%TRUE if the media is seekable.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="655">a #GstClapperMediaInfo</doc>
+            <type name="ClapperMediaInfo" c:type="const GstClapperMediaInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="ClapperMediaInfoClass"
+            c:type="GstClapperMediaInfoClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="ClapperMediaInfo">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="195"/>
+    </record>
+    <class name="ClapperMpris"
+           c:symbol-prefix="clapper_mpris"
+           c:type="GstClapperMpris"
+           parent="GObject.Object"
+           glib:type-name="GstClapperMpris"
+           glib:get-type="gst_clapper_mpris_get_type"
+           glib:type-struct="ClapperMprisClass">
+      <source-position filename="lib/gst/clapper/gstclapper-mpris.h"
+                       line="31"/>
+      <constructor name="new" c:identifier="gst_clapper_mpris_new">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper-mpris.c"
+             line="772">Creates a new #GstClapperMpris instance.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper-mpris.h"
+                         line="49"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-mpris.c"
+               line="782">a new #GstClapperMpris instance</doc>
+          <type name="ClapperMpris" c:type="GstClapperMpris*"/>
+        </return-value>
+        <parameters>
+          <parameter name="own_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-mpris.c"
+                 line="774">DBus own name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="id_path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-mpris.c"
+                 line="775">DBus id path used for prefix</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="identity"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-mpris.c"
+                 line="776">friendly name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="desktop_entry"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-mpris.c"
+                 line="777">Desktop entry filename</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="default_art_url"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-mpris.c"
+                 line="778">filepath to default art</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="default-art-url"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="desktop-entry"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="id-path"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="identity"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="own-name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="volume"
+                writable="1"
+                transfer-ownership="none"
+                default-value="1.000000">
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+    </class>
+    <record name="ClapperMprisClass"
+            c:type="GstClapperMprisClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="ClapperMpris">
+      <source-position filename="lib/gst/clapper/gstclapper-mpris.h"
+                       line="31"/>
+    </record>
+    <enumeration name="ClapperSeekMode"
+                 glib:type-name="GstClapperSeekMode"
+                 glib:get-type="gst_clapper_seek_mode_get_type"
+                 c:type="GstClapperSeekMode">
+      <member name="default"
+              value="0"
+              c:identifier="GST_CLAPPER_SEEK_MODE_DEFAULT"
+              glib:nick="default"
+              glib:name="GST_CLAPPER_SEEK_MODE_DEFAULT">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.h"
+             line="67">default seek method (flush only).</doc>
+      </member>
+      <member name="accurate"
+              value="1"
+              c:identifier="GST_CLAPPER_SEEK_MODE_ACCURATE"
+              glib:nick="accurate"
+              glib:name="GST_CLAPPER_SEEK_MODE_ACCURATE">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.h"
+             line="68">accurate seek method.</doc>
+      </member>
+      <member name="fast"
+              value="2"
+              c:identifier="GST_CLAPPER_SEEK_MODE_FAST"
+              glib:nick="fast"
+              glib:name="GST_CLAPPER_SEEK_MODE_FAST">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.h"
+             line="69">fast seek method (next keyframe).</doc>
+      </member>
+    </enumeration>
+    <interface name="ClapperSignalDispatcher"
+               c:symbol-prefix="clapper_signal_dispatcher"
+               c:type="GstClapperSignalDispatcher"
+               glib:type-name="GstClapperSignalDispatcher"
+               glib:get-type="gst_clapper_signal_dispatcher_get_type"
+               glib:type-struct="ClapperSignalDispatcherInterface">
+      <source-position filename="lib/gst/clapper/gstclapper-signal-dispatcher.h"
+                       line="46"/>
+      <virtual-method name="dispatch">
+        <source-position filename="lib/gst/clapper/gstclapper-signal-dispatcher.h"
+                         line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ClapperSignalDispatcher"
+                  c:type="GstClapperSignalDispatcher*"/>
+          </instance-parameter>
+          <parameter name="clapper" transfer-ownership="none">
+            <type name="Clapper" c:type="GstClapper*"/>
+          </parameter>
+          <parameter name="emitter"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="2"
+                     destroy="3">
+            <type name="ClapperSignalDispatcherFunc"
+                  c:type="GstClapperSignalDispatcherFunc"/>
+          </parameter>
+          <parameter name="data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="destroy" transfer-ownership="none" scope="async">
+            <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+    </interface>
+    <callback name="ClapperSignalDispatcherFunc"
+              c:type="GstClapperSignalDispatcherFunc">
+      <source-position filename="lib/gst/clapper/gstclapper-signal-dispatcher.h"
+                       line="38"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <record name="ClapperSignalDispatcherInterface"
+            c:type="GstClapperSignalDispatcherInterface"
+            glib:is-gtype-struct-for="ClapperSignalDispatcher">
+      <source-position filename="lib/gst/clapper/gstclapper-signal-dispatcher.h"
+                       line="46"/>
+      <field name="parent_iface">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="dispatch">
+        <callback name="dispatch">
+          <source-position filename="lib/gst/clapper/gstclapper-signal-dispatcher.h"
+                           line="43"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="ClapperSignalDispatcher"
+                    c:type="GstClapperSignalDispatcher*"/>
+            </parameter>
+            <parameter name="clapper" transfer-ownership="none">
+              <type name="Clapper" c:type="GstClapper*"/>
+            </parameter>
+            <parameter name="emitter"
+                       transfer-ownership="none"
+                       scope="notified"
+                       closure="3"
+                       destroy="4">
+              <type name="ClapperSignalDispatcherFunc"
+                    c:type="GstClapperSignalDispatcherFunc"/>
+            </parameter>
+            <parameter name="data"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+            <parameter name="destroy" transfer-ownership="none" scope="async">
+              <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="ClapperSnapshotFormat"
+                 c:type="GstClapperSnapshotFormat">
+      <source-position filename="lib/gst/clapper/gstclapper.h" line="139"/>
+      <member name="raw_native"
+              value="0"
+              c:identifier="GST_CLAPPER_THUMBNAIL_RAW_NATIVE">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.h"
+             line="126">RAW Native.</doc>
+      </member>
+      <member name="raw_xrgb"
+              value="1"
+              c:identifier="GST_CLAPPER_THUMBNAIL_RAW_xRGB">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.h"
+             line="127">RAW xRGB.</doc>
+      </member>
+      <member name="raw_bgrx"
+              value="2"
+              c:identifier="GST_CLAPPER_THUMBNAIL_RAW_BGRx">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.h"
+             line="128">RAW BGRx.</doc>
+      </member>
+      <member name="jpg" value="3" c:identifier="GST_CLAPPER_THUMBNAIL_JPG">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.h"
+             line="129">JPG.</doc>
+      </member>
+      <member name="png" value="4" c:identifier="GST_CLAPPER_THUMBNAIL_PNG">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.h"
+             line="130">PNG.</doc>
+      </member>
+    </enumeration>
+    <enumeration name="ClapperState"
+                 glib:type-name="GstClapperState"
+                 glib:get-type="gst_clapper_state_get_type"
+                 c:type="GstClapperState">
+      <member name="stopped"
+              value="0"
+              c:identifier="GST_CLAPPER_STATE_STOPPED"
+              glib:nick="stopped"
+              glib:name="GST_CLAPPER_STATE_STOPPED">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.h"
+             line="44">clapper is stopped.</doc>
+      </member>
+      <member name="buffering"
+              value="1"
+              c:identifier="GST_CLAPPER_STATE_BUFFERING"
+              glib:nick="buffering"
+              glib:name="GST_CLAPPER_STATE_BUFFERING">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.h"
+             line="45">clapper is buffering.</doc>
+      </member>
+      <member name="paused"
+              value="2"
+              c:identifier="GST_CLAPPER_STATE_PAUSED"
+              glib:nick="paused"
+              glib:name="GST_CLAPPER_STATE_PAUSED">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.h"
+             line="46">clapper is paused.</doc>
+      </member>
+      <member name="playing"
+              value="3"
+              c:identifier="GST_CLAPPER_STATE_PLAYING"
+              glib:nick="playing"
+              glib:name="GST_CLAPPER_STATE_PLAYING">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.h"
+             line="47">clapper is currently playing a stream.</doc>
+      </member>
+      <function name="get_name" c:identifier="gst_clapper_state_get_name">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="5088">Gets a string representing the given state.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="5094">a string with the name of the state.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="state" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper.c"
+                 line="5090">a #GstClapperState</doc>
+            <type name="ClapperState" c:type="GstClapperState"/>
+          </parameter>
+        </parameters>
+      </function>
+    </enumeration>
+    <class name="ClapperStreamInfo"
+           c:symbol-prefix="clapper_stream_info"
+           c:type="GstClapperStreamInfo"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="GstClapperStreamInfo"
+           glib:get-type="gst_clapper_stream_info_get_type"
+           glib:type-struct="ClapperStreamInfoClass">
+      <doc xml:space="preserve"
+           filename="lib/gst/clapper/gstclapper-media-info.h"
+           line="41">Base structure for information concerning a media stream. Depending on
+the stream type, one can find more media-specific information in
+#GstClapperVideoInfo, #GstClapperAudioInfo, #GstClapperSubtitleInfo.</doc>
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="49"/>
+      <method name="get_caps" c:identifier="gst_clapper_stream_info_get_caps">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="64"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="143">the #GstCaps of the stream.</doc>
+          <type name="Gst.Caps" c:type="GstCaps*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="141">a #GstClapperStreamInfo</doc>
+            <type name="ClapperStreamInfo"
+                  c:type="const GstClapperStreamInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_codec"
+              c:identifier="gst_clapper_stream_info_get_codec">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper-media-info.c"
+             line="123">A string describing codec used in #GstClapperStreamInfo.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="67"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="129">codec string or NULL on unknown.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="125">a #GstClapperStreamInfo</doc>
+            <type name="ClapperStreamInfo"
+                  c:type="const GstClapperStreamInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_index"
+              c:identifier="gst_clapper_stream_info_get_index">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper-media-info.c"
+             line="71">Function to get stream index from #GstClapperStreamInfo instance.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="55"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="77">the stream index of this stream.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="73">a #GstClapperStreamInfo</doc>
+            <type name="ClapperStreamInfo"
+                  c:type="const GstClapperStreamInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_stream_type"
+              c:identifier="gst_clapper_stream_info_get_stream_type">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper-media-info.c"
+             line="87">Function to return human readable name for the stream type
+of the given @info (ex: "audio", "video", "subtitle")</doc>
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="94">a human readable name</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="89">a #GstClapperStreamInfo</doc>
+            <type name="ClapperStreamInfo"
+                  c:type="const GstClapperStreamInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tags" c:identifier="gst_clapper_stream_info_get_tags">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="61"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="113">the tags contained in this stream.</doc>
+          <type name="Gst.TagList" c:type="GstTagList*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="111">a #GstClapperStreamInfo</doc>
+            <type name="ClapperStreamInfo"
+                  c:type="const GstClapperStreamInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="ClapperStreamInfoClass"
+            c:type="GstClapperStreamInfoClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="ClapperStreamInfo">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="49"/>
+    </record>
+    <class name="ClapperSubtitleInfo"
+           c:symbol-prefix="clapper_subtitle_info"
+           c:type="GstClapperSubtitleInfo"
+           parent="ClapperStreamInfo"
+           glib:type-name="GstClapperSubtitleInfo"
+           glib:get-type="gst_clapper_subtitle_info_get_type"
+           glib:type-struct="ClapperSubtitleInfoClass">
+      <doc xml:space="preserve"
+           filename="lib/gst/clapper/gstclapper-media-info.h"
+           line="161">#GstClapperStreamInfo specific to subtitle streams.</doc>
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="167"/>
+      <method name="get_language"
+              c:identifier="gst_clapper_subtitle_info_get_language">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="176"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="414">the language of the stream, or NULL if unknown.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="412">a #GstClapperSubtitleInfo</doc>
+            <type name="ClapperSubtitleInfo"
+                  c:type="const GstClapperSubtitleInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_title"
+              c:identifier="gst_clapper_subtitle_info_get_title">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="173"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="400">the title of the stream, or NULL if unknown.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="398">a #GstClapperSubtitleInfo</doc>
+            <type name="ClapperSubtitleInfo"
+                  c:type="const GstClapperSubtitleInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="ClapperSubtitleInfoClass"
+            c:type="GstClapperSubtitleInfoClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="ClapperSubtitleInfo">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="167"/>
+    </record>
+    <class name="ClapperVideoInfo"
+           c:symbol-prefix="clapper_video_info"
+           c:type="GstClapperVideoInfo"
+           parent="ClapperStreamInfo"
+           glib:type-name="GstClapperVideoInfo"
+           glib:get-type="gst_clapper_video_info_get_type"
+           glib:type-struct="ClapperVideoInfoClass">
+      <doc xml:space="preserve"
+           filename="lib/gst/clapper/gstclapper-media-info.h"
+           line="80">#GstClapperStreamInfo specific to video streams.</doc>
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="86"/>
+      <method name="get_bitrate"
+              c:identifier="gst_clapper_video_info_get_bitrate">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="92"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="242">the current bitrate of video in #GstClapperVideoInfo.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="240">a #GstClapperVideoInfo</doc>
+            <type name="ClapperVideoInfo" c:type="const GstClapperVideoInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_framerate"
+              c:identifier="gst_clapper_video_info_get_framerate">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="104"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="204">a #GstClapperVideoInfo</doc>
+            <type name="ClapperVideoInfo" c:type="const GstClapperVideoInfo*"/>
+          </instance-parameter>
+          <parameter name="fps_n"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="205">Numerator of frame rate</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+          <parameter name="fps_d"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="206">Denominator of frame rate</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_height"
+              c:identifier="gst_clapper_video_info_get_height">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="101"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="192">the height of video in #GstClapperVideoInfo.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="190">a #GstClapperVideoInfo</doc>
+            <type name="ClapperVideoInfo" c:type="const GstClapperVideoInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_max_bitrate"
+              c:identifier="gst_clapper_video_info_get_max_bitrate">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="95"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="256">the maximum bitrate of video in #GstClapperVideoInfo.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="254">a #GstClapperVideoInfo</doc>
+            <type name="ClapperVideoInfo" c:type="const GstClapperVideoInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_pixel_aspect_ratio"
+              c:identifier="gst_clapper_video_info_get_pixel_aspect_ratio">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper-media-info.c"
+             line="219">Returns the pixel aspect ratio in @par_n and @par_d</doc>
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="109"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="221">a #GstClapperVideoInfo</doc>
+            <type name="ClapperVideoInfo" c:type="const GstClapperVideoInfo*"/>
+          </instance-parameter>
+          <parameter name="par_n"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="222">numerator</doc>
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+          <parameter name="par_d"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="223">denominator</doc>
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_width" c:identifier="gst_clapper_video_info_get_width">
+        <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                         line="98"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-media-info.c"
+               line="178">the width of video in #GstClapperVideoInfo.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-media-info.c"
+                 line="176">a #GstClapperVideoInfo</doc>
+            <type name="ClapperVideoInfo" c:type="const GstClapperVideoInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="ClapperVideoInfoClass"
+            c:type="GstClapperVideoInfoClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="ClapperVideoInfo">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="86"/>
+    </record>
+    <class name="ClapperVideoOverlayVideoRenderer"
+           c:symbol-prefix="clapper_video_overlay_video_renderer"
+           c:type="GstClapperVideoOverlayVideoRenderer"
+           parent="GObject.Object"
+           glib:type-name="GstClapperVideoOverlayVideoRenderer"
+           glib:get-type="gst_clapper_video_overlay_video_renderer_get_type"
+           glib:type-struct="ClapperVideoOverlayVideoRendererClass">
+      <source-position filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.h"
+                       line="33"/>
+      <implements name="ClapperVideoRenderer"/>
+      <function name="new"
+                c:identifier="gst_clapper_video_overlay_video_renderer_new">
+        <source-position filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.h"
+                         line="48"/>
+        <return-value transfer-ownership="full">
+          <type name="ClapperVideoRenderer" c:type="GstClapperVideoRenderer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="window_handle"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+                 line="205">Window handle to use or %NULL</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="new_with_sink"
+                c:identifier="gst_clapper_video_overlay_video_renderer_new_with_sink">
+        <source-position filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.h"
+                         line="52"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+               line="221">clapper video renderer</doc>
+          <type name="ClapperVideoRenderer" c:type="GstClapperVideoRenderer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="window_handle"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+                 line="218">Window handle to use or %NULL</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="video_sink" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+                 line="219">the custom video_sink element to be set for the video renderer</doc>
+            <type name="Gst.Element" c:type="GstElement*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="expose"
+              c:identifier="gst_clapper_video_overlay_video_renderer_expose">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+             line="267">Tell an overlay that it has been exposed. This will redraw the current frame
+in the drawable even if the pipeline is PAUSED.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.h"
+                         line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+                 line="269">a #GstClapperVideoOverlayVideoRenderer instance.</doc>
+            <type name="ClapperVideoOverlayVideoRenderer"
+                  c:type="GstClapperVideoOverlayVideoRenderer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_render_rectangle"
+              c:identifier="gst_clapper_video_overlay_video_renderer_get_render_rectangle">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+             line="319">Return the currently configured render rectangle. See gst_clapper_video_overlay_video_renderer_set_render_rectangle()
+for details.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.h"
+                         line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+                 line="321">a #GstClapperVideoOverlayVideoRenderer instance</doc>
+            <type name="ClapperVideoOverlayVideoRenderer"
+                  c:type="GstClapperVideoOverlayVideoRenderer*"/>
+          </instance-parameter>
+          <parameter name="x"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+                 line="322">the horizontal offset of the render area inside the window</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+          <parameter name="y"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+                 line="323">the vertical offset of the render area inside the window</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+          <parameter name="width"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+                 line="324">the width of the render area inside the window</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+          <parameter name="height"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+                 line="325">the height of the render area inside the window</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_window_handle"
+              c:identifier="gst_clapper_video_overlay_video_renderer_get_window_handle"
+              glib:get-property="window-handle">
+        <source-position filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.h"
+                         line="58"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+               line="251">The currently set, platform specific window
+handle</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+                 line="249">#GstClapperVideoRenderer instance</doc>
+            <type name="ClapperVideoOverlayVideoRenderer"
+                  c:type="GstClapperVideoOverlayVideoRenderer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_render_rectangle"
+              c:identifier="gst_clapper_video_overlay_video_renderer_set_render_rectangle">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+             line="283">Configure a subregion as a video target within the window set by
+gst_clapper_video_overlay_video_renderer_set_window_handle(). If this is not
+used or not supported the video will fill the area of the window set as the
+overlay to 100%. By specifying the rectangle, the video can be overlaid to
+a specific region of that window only. After setting the new rectangle one
+should call gst_clapper_video_overlay_video_renderer_expose() to force a
+redraw. To unset the region pass -1 for the @width and @height parameters.
+
+This method is needed for non fullscreen video overlay in UI toolkits that
+do not support subwindows.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.h"
+                         line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+                 line="285">a #GstClapperVideoOverlayVideoRenderer instance</doc>
+            <type name="ClapperVideoOverlayVideoRenderer"
+                  c:type="GstClapperVideoOverlayVideoRenderer*"/>
+          </instance-parameter>
+          <parameter name="x" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+                 line="286">the horizontal offset of the render area inside the window</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+                 line="287">the vertical offset of the render area inside the window</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="width" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+                 line="288">the width of the render area inside the window</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+                 line="289">the height of the render area inside the window</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_window_handle"
+              c:identifier="gst_clapper_video_overlay_video_renderer_set_window_handle"
+              glib:set-property="window-handle">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+             line="231">Sets the platform specific window handle into which the video
+should be rendered</doc>
+        <source-position filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.h"
+                         line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+                 line="233">#GstClapperVideoRenderer instance</doc>
+            <type name="ClapperVideoOverlayVideoRenderer"
+                  c:type="GstClapperVideoOverlayVideoRenderer*"/>
+          </instance-parameter>
+          <parameter name="window_handle"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.c"
+                 line="234">handle referencing to the platform specific window</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="video-sink" writable="1" transfer-ownership="none">
+        <type name="Gst.Element"/>
+      </property>
+      <property name="window-handle"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_window_handle"
+                getter="get_window_handle">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+    </class>
+    <record name="ClapperVideoOverlayVideoRendererClass"
+            c:type="GstClapperVideoOverlayVideoRendererClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="ClapperVideoOverlayVideoRenderer">
+      <source-position filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.h"
+                       line="33"/>
+    </record>
+    <interface name="ClapperVideoRenderer"
+               c:symbol-prefix="clapper_video_renderer"
+               c:type="GstClapperVideoRenderer"
+               glib:type-name="GstClapperVideoRenderer"
+               glib:get-type="gst_clapper_video_renderer_get_type"
+               glib:type-struct="ClapperVideoRendererInterface">
+      <source-position filename="lib/gst/clapper/gstclapper-video-renderer.h"
+                       line="42"/>
+      <virtual-method name="create_video_sink" introspectable="0">
+        <source-position filename="lib/gst/clapper/gstclapper-video-renderer.h"
+                         line="41"/>
+        <return-value>
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ClapperVideoRenderer"
+                  c:type="GstClapperVideoRenderer*"/>
+          </instance-parameter>
+          <parameter name="clapper" transfer-ownership="none">
+            <type name="Clapper" c:type="GstClapper*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+    </interface>
+    <record name="ClapperVideoRendererInterface"
+            c:type="GstClapperVideoRendererInterface"
+            glib:is-gtype-struct-for="ClapperVideoRenderer">
+      <source-position filename="lib/gst/clapper/gstclapper-video-renderer.h"
+                       line="42"/>
+      <field name="parent_iface">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="create_video_sink" introspectable="0">
+        <callback name="create_video_sink" introspectable="0">
+          <source-position filename="lib/gst/clapper/gstclapper-video-renderer.h"
+                           line="41"/>
+          <return-value>
+            <type name="Gst.Element" c:type="GstElement*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="ClapperVideoRenderer"
+                    c:type="GstClapperVideoRenderer*"/>
+            </parameter>
+            <parameter name="clapper" transfer-ownership="none">
+              <type name="Clapper" c:type="GstClapper*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="ClapperVisualization"
+            c:type="GstClapperVisualization"
+            glib:type-name="GstClapperVisualization"
+            glib:get-type="gst_clapper_visualization_get_type"
+            c:symbol-prefix="clapper_visualization">
+      <doc xml:space="preserve"
+           filename="lib/gst/clapper/gstclapper-visualization.h"
+           line="32">A #GstClapperVisualization descriptor.</doc>
+      <source-position filename="lib/gst/clapper/gstclapper-visualization.h"
+                       line="42"/>
+      <field name="name" writable="1">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper-visualization.h"
+             line="34">name of the visualization.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="description" writable="1">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper-visualization.h"
+             line="35">description of the visualization.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <method name="copy" c:identifier="gst_clapper_visualization_copy">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper-visualization.c"
+             line="62">Makes a copy of the #GstClapperVisualization. The result must be
+freed using gst_clapper_visualization_free().</doc>
+        <source-position filename="lib/gst/clapper/gstclapper-visualization.h"
+                         line="48"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper-visualization.c"
+               line="69">an allocated copy of @vis.</doc>
+          <type name="ClapperVisualization" c:type="GstClapperVisualization*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="vis" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-visualization.c"
+                 line="64">#GstClapperVisualization instance</doc>
+            <type name="ClapperVisualization"
+                  c:type="const GstClapperVisualization*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="gst_clapper_visualization_free">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper-visualization.c"
+             line="46">Frees a #GstClapperVisualization.</doc>
+        <source-position filename="lib/gst/clapper/gstclapper-visualization.h"
+                         line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="vis" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/gst/clapper/gstclapper-visualization.c"
+                 line="48">#GstClapperVisualization instance</doc>
+            <type name="ClapperVisualization"
+                  c:type="GstClapperVisualization*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <function-macro name="IS_CLAPPER"
+                    c:identifier="GST_IS_CLAPPER"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper.h" line="142"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_AUDIO_INFO"
+                    c:identifier="GST_IS_CLAPPER_AUDIO_INFO"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="116"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_AUDIO_INFO_CLASS"
+                    c:identifier="GST_IS_CLAPPER_AUDIO_INFO_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="118"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_CLASS"
+                    c:identifier="GST_IS_CLAPPER_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper.h" line="143"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_GTK4_PLUGIN"
+                    c:identifier="GST_IS_CLAPPER_GTK4_PLUGIN"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-gtk4-plugin.h"
+                       line="30"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_GTK4_PLUGIN_CLASS"
+                    c:identifier="GST_IS_CLAPPER_GTK4_PLUGIN_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-gtk4-plugin.h"
+                       line="31"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_G_MAIN_CONTEXT_SIGNAL_DISPATCHER"
+                    c:identifier="GST_IS_CLAPPER_G_MAIN_CONTEXT_SIGNAL_DISPATCHER"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-g-main-context-signal-dispatcher.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_G_MAIN_CONTEXT_SIGNAL_DISPATCHER_CLASS"
+                    c:identifier="GST_IS_CLAPPER_G_MAIN_CONTEXT_SIGNAL_DISPATCHER_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-g-main-context-signal-dispatcher.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_MEDIA_INFO"
+                    c:identifier="GST_IS_CLAPPER_MEDIA_INFO"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="179"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_MEDIA_INFO_CLASS"
+                    c:identifier="GST_IS_CLAPPER_MEDIA_INFO_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="181"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_MPRIS"
+                    c:identifier="GST_IS_CLAPPER_MPRIS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-mpris.h"
+                       line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_MPRIS_CLASS"
+                    c:identifier="GST_IS_CLAPPER_MPRIS_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-mpris.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_SIGNAL_DISPATCHER"
+                    c:identifier="GST_IS_CLAPPER_SIGNAL_DISPATCHER"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-signal-dispatcher.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_STREAM_INFO"
+                    c:identifier="GST_IS_CLAPPER_STREAM_INFO"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_STREAM_INFO_CLASS"
+                    c:identifier="GST_IS_CLAPPER_STREAM_INFO_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_SUBTITLE_INFO"
+                    c:identifier="GST_IS_CLAPPER_SUBTITLE_INFO"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="152"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_SUBTITLE_INFO_CLASS"
+                    c:identifier="GST_IS_CLAPPER_SUBTITLE_INFO_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="154"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_VIDEO_INFO"
+                    c:identifier="GST_IS_CLAPPER_VIDEO_INFO"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="73"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_VIDEO_INFO_CLASS"
+                    c:identifier="GST_IS_CLAPPER_VIDEO_INFO_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-media-info.h"
+                       line="75"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_VIDEO_OVERLAY_VIDEO_RENDERER"
+                    c:identifier="GST_IS_CLAPPER_VIDEO_OVERLAY_VIDEO_RENDERER"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_VIDEO_OVERLAY_VIDEO_RENDERER_CLASS"
+                    c:identifier="GST_IS_CLAPPER_VIDEO_OVERLAY_VIDEO_RENDERER_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-video-overlay-video-renderer.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLAPPER_VIDEO_RENDERER"
+                    c:identifier="GST_IS_CLAPPER_VIDEO_RENDERER"
+                    introspectable="0">
+      <source-position filename="lib/gst/clapper/gstclapper-video-renderer.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function name="clapper_color_balance_type_get_name"
+              c:identifier="gst_clapper_color_balance_type_get_name"
+              moved-to="ClapperColorBalanceType.get_name">
+      <doc xml:space="preserve"
+           filename="lib/gst/clapper/gstclapper.c"
+           line="5049">Gets a string representing the given color balance type.</doc>
+      <source-position filename="lib/gst/clapper/gstclapper.h" line="120"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="5055">a string with the name of the color
+balance type.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="type" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="5051">a #GstClapperColorBalanceType</doc>
+          <type name="ClapperColorBalanceType"
+                c:type="GstClapperColorBalanceType"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="clapper_error_get_name"
+              c:identifier="gst_clapper_error_get_name"
+              moved-to="ClapperError.get_name">
+      <doc xml:space="preserve"
+           filename="lib/gst/clapper/gstclapper.c"
+           line="5131">Gets a string representing the given error.</doc>
+      <source-position filename="lib/gst/clapper/gstclapper.h" line="96"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="5137">a string with the given error.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="error" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="5133">a #GstClapperError</doc>
+          <type name="ClapperError" c:type="GstClapperError"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="clapper_error_quark"
+              c:identifier="gst_clapper_error_quark"
+              moved-to="ClapperError.quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="clapper_state_get_name"
+              c:identifier="gst_clapper_state_get_name"
+              moved-to="ClapperState.get_name">
+      <doc xml:space="preserve"
+           filename="lib/gst/clapper/gstclapper.c"
+           line="5088">Gets a string representing the given state.</doc>
+      <source-position filename="lib/gst/clapper/gstclapper.h" line="58"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="lib/gst/clapper/gstclapper.c"
+             line="5094">a string with the name of the state.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="state" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/gst/clapper/gstclapper.c"
+               line="5090">a #GstClapperState</doc>
+          <type name="ClapperState" c:type="GstClapperState"/>
+        </parameter>
+      </parameters>
+    </function>
+    <docsection name="gtkclapperglwidget">
+      <doc xml:space="preserve"
+           filename="lib/gst/clapper/gtk4/gtkclapperglwidget.c"
+           line="50">#GtkClapperGLWidget is a #GtkWidget that renders GStreamer video buffers.</doc>
+    </docsection>
+  </namespace>
+</repository>

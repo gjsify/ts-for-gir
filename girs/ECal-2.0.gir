@@ -15622,7 +15622,7 @@ Free the returned string with g_free(), when no longer needed.</doc>
               version="3.30">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-reminder-watcher.c"
-             line="3458">Asynchronously dismiss single reminder in the past or snoozed reminders.
+             line="3473">Asynchronously dismiss single reminder in the past or snoozed reminders.
 
 When the operation is finished, @callback will be called. You can
 then call e_reminder_watcher_dismiss_finish() to get the result of
@@ -15636,13 +15636,13 @@ the operation.</doc>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3460">an #EReminderWatcher</doc>
+                 line="3475">an #EReminderWatcher</doc>
             <type name="ReminderWatcher" c:type="EReminderWatcher*"/>
           </instance-parameter>
           <parameter name="rd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3461">an #EReminderData to dismiss</doc>
+                 line="3476">an #EReminderData to dismiss</doc>
             <type name="ReminderData" c:type="const EReminderData*"/>
           </parameter>
           <parameter name="cancellable"
@@ -15651,7 +15651,7 @@ the operation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3462">optional #GCancellable object, or %NULL</doc>
+                 line="3477">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -15662,7 +15662,7 @@ the operation.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3463">a #GAsyncReadyCallback to call when the request is satisfied</doc>
+                 line="3478">a #GAsyncReadyCallback to call when the request is satisfied</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -15671,7 +15671,7 @@ the operation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3464">data to pass to the callback function</doc>
+                 line="3479">data to pass to the callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -15681,7 +15681,7 @@ the operation.</doc>
               version="3.30">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-reminder-watcher.c"
-             line="3642">Asynchronously dismiss all past reminders.
+             line="3657">Asynchronously dismiss all past reminders.
 
 When the operation is finished, @callback will be called. You can
 then call e_reminder_watcher_dismiss_all_finish() to get the result
@@ -15695,7 +15695,7 @@ of the operation.</doc>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3644">an #EReminderWatcher</doc>
+                 line="3659">an #EReminderWatcher</doc>
             <type name="ReminderWatcher" c:type="EReminderWatcher*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -15704,7 +15704,7 @@ of the operation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3645">optional #GCancellable object, or %NULL</doc>
+                 line="3660">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -15715,7 +15715,7 @@ of the operation.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3646">a #GAsyncReadyCallback to call when the request is satisfied</doc>
+                 line="3661">a #GAsyncReadyCallback to call when the request is satisfied</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -15724,7 +15724,7 @@ of the operation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3647">data to pass to the callback function</doc>
+                 line="3662">data to pass to the callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -15735,26 +15735,26 @@ of the operation.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-reminder-watcher.c"
-             line="3675">Finishes the operation started with e_reminder_watcher_dismiss_all().</doc>
+             line="3690">Finishes the operation started with e_reminder_watcher_dismiss_all().</doc>
         <source-position filename="src/calendar/libecal/e-reminder-watcher.h"
                          line="190"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-reminder-watcher.c"
-               line="3683">whether succeeded</doc>
+               line="3698">whether succeeded</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3677">an #EReminderWatcher</doc>
+                 line="3692">an #EReminderWatcher</doc>
             <type name="ReminderWatcher" c:type="EReminderWatcher*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3678">a #GAsyncResult</doc>
+                 line="3693">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -15765,7 +15765,7 @@ of the operation.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-reminder-watcher.c"
-             line="3702">Synchronously dismiss all past reminders. The operation stops after
+             line="3717">Synchronously dismiss all past reminders. The operation stops after
 the first error is encountered, which can be before all the past
 reminders are dismissed.</doc>
         <source-position filename="src/calendar/libecal/e-reminder-watcher.h"
@@ -15773,14 +15773,14 @@ reminders are dismissed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-reminder-watcher.c"
-               line="3712">whether succeeded.</doc>
+               line="3727">whether succeeded.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3704">an #EReminderWatcher</doc>
+                 line="3719">an #EReminderWatcher</doc>
             <type name="ReminderWatcher" c:type="EReminderWatcher*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -15789,7 +15789,7 @@ reminders are dismissed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3705">optional #GCancellable object, or %NULL</doc>
+                 line="3720">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -15800,26 +15800,26 @@ reminders are dismissed.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-reminder-watcher.c"
-             line="3495">Finishes the operation started with e_reminder_watcher_dismiss().</doc>
+             line="3510">Finishes the operation started with e_reminder_watcher_dismiss().</doc>
         <source-position filename="src/calendar/libecal/e-reminder-watcher.h"
                          line="179"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-reminder-watcher.c"
-               line="3503">whether succeeded</doc>
+               line="3518">whether succeeded</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3497">an #EReminderWatcher</doc>
+                 line="3512">an #EReminderWatcher</doc>
             <type name="ReminderWatcher" c:type="EReminderWatcher*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3498">a #GAsyncResult</doc>
+                 line="3513">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -15830,26 +15830,26 @@ reminders are dismissed.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-reminder-watcher.c"
-             line="3566">Synchronously dismiss single reminder in the past or snoozed reminders.</doc>
+             line="3581">Synchronously dismiss single reminder in the past or snoozed reminders.</doc>
         <source-position filename="src/calendar/libecal/e-reminder-watcher.h"
                          line="182"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-reminder-watcher.c"
-               line="3575">whether succeeded</doc>
+               line="3590">whether succeeded</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3568">an #EReminderWatcher</doc>
+                 line="3583">an #EReminderWatcher</doc>
             <type name="ReminderWatcher" c:type="EReminderWatcher*"/>
           </instance-parameter>
           <parameter name="rd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3569">an #EReminderData to dismiss</doc>
+                 line="3584">an #EReminderData to dismiss</doc>
             <type name="ReminderData" c:type="const EReminderData*"/>
           </parameter>
           <parameter name="cancellable"
@@ -15858,7 +15858,7 @@ reminders are dismissed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3570">optional #GCancellable object, or %NULL</doc>
+                 line="3585">optional #GCancellable object, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -15889,7 +15889,7 @@ reminders are dismissed.</doc>
               version="3.30">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-reminder-watcher.c"
-             line="3311">Gathers a #GSList of all past reminders which had not been removed after
+             line="3326">Gathers a #GSList of all past reminders which had not been removed after
 EReminderWatcher::triggered signal. Such reminders are remembered
 across sessions, until they are dismissed by e_reminder_watcher_dismiss()
 or its synchronous variant. These reminders can be also snoozed
@@ -15904,7 +15904,7 @@ when no longer needed.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-reminder-watcher.c"
-               line="3326">a newly
+               line="3341">a newly
    allocated #GSList of the past reminders, or %NULL, when there are none</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="ReminderData"/>
@@ -15914,7 +15914,7 @@ when no longer needed.</doc>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3313">an #EReminderWatcher</doc>
+                 line="3328">an #EReminderWatcher</doc>
             <type name="ReminderWatcher" c:type="EReminderWatcher*"/>
           </instance-parameter>
         </parameters>
@@ -15924,7 +15924,7 @@ when no longer needed.</doc>
               version="3.30">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-reminder-watcher.c"
-             line="3339">Gathers a #GSList of currently snoozed reminder with e_reminder_watcher_snooze().
+             line="3354">Gathers a #GSList of currently snoozed reminder with e_reminder_watcher_snooze().
 The snoozed reminders are remembered across sessions and they are re-triggered
 when their snooze time elapses, which can move them back to the list of past reminders.
 
@@ -15936,7 +15936,7 @@ when no longer needed.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/calendar/libecal/e-reminder-watcher.c"
-               line="3351">a newly
+               line="3366">a newly
    allocated #GSList of the snoozed reminders, or %NULL, when there are none</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="ReminderData"/>
@@ -15946,7 +15946,7 @@ when no longer needed.</doc>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3341">an #EReminderWatcher</doc>
+                 line="3356">an #EReminderWatcher</doc>
             <type name="ReminderWatcher" c:type="EReminderWatcher*"/>
           </instance-parameter>
         </parameters>
@@ -16090,7 +16090,7 @@ will be less resources needed by the @watcher.</doc>
               version="3.30">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-reminder-watcher.c"
-             line="3372">Snoozes @rd until @until, which is an absolute time when the @rd
+             line="3387">Snoozes @rd until @until, which is an absolute time when the @rd
 should be retriggered. This moves the @rd from the list of past
 reminders into the list of snoozed reminders and invokes the "changed"
 signal.
@@ -16107,19 +16107,19 @@ is in the past.</doc>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3374">an #EReminderWatcher</doc>
+                 line="3389">an #EReminderWatcher</doc>
             <type name="ReminderWatcher" c:type="EReminderWatcher*"/>
           </instance-parameter>
           <parameter name="rd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3375">an #EReminderData identifying the reminder</doc>
+                 line="3390">an #EReminderData identifying the reminder</doc>
             <type name="ReminderData" c:type="const EReminderData*"/>
           </parameter>
           <parameter name="until" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3376">time_t as gint64, when the @rd should be retriggered</doc>
+                 line="3391">time_t as gint64, when the @rd should be retriggered</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -16129,7 +16129,7 @@ is in the past.</doc>
               version="3.30">
         <doc xml:space="preserve"
              filename="src/calendar/libecal/e-reminder-watcher.c"
-             line="3142">Notifies the #watcher that the timer previously scheduled
+             line="3157">Notifies the #watcher that the timer previously scheduled
 with EReminderWatcherClass::schedule_timer elapsed. This can
 be used by the descendants which override the default implementation
 of EReminderWatcherClass::schedule_timer. There is always scheduled
@@ -16147,7 +16147,7 @@ replaces any previously scheduled timer.</doc>
           <instance-parameter name="watcher" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/calendar/libecal/e-reminder-watcher.c"
-                 line="3144">an #EReminderWatcher</doc>
+                 line="3159">an #EReminderWatcher</doc>
             <type name="ReminderWatcher" c:type="EReminderWatcher*"/>
           </instance-parameter>
         </parameters>

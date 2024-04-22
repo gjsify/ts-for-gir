@@ -2454,6 +2454,13 @@ and longitude and can be used to specify location on the map.</doc>
       <source-position filename="shumate/shumate-location.h" line="57"/>
       <type name="gdouble" c:type="gdouble"/>
     </constant>
+    <constant name="MICRO_VERSION" value="2" c:type="SHUMATE_MICRO_VERSION">
+      <doc xml:space="preserve"
+           filename="shumate/shumate-version.h"
+           line="48">The micro version of libshumate (3, if %SHUMATE_VERSION is 1.2.3)</doc>
+      <source-position filename="shumate/shumate-version.h" line="53"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
     <constant name="MINOR_VERSION" value="1" c:type="SHUMATE_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="shumate/shumate-version.h"
@@ -3155,7 +3162,7 @@ and draws them as a grid.</doc>
       <glib:signal name="symbol-clicked" when="last" version="1.1">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-layer.c"
-             line="741">Emitted when a symbol in the map layer is clicked.</doc>
+             line="733">Emitted when a symbol in the map layer is clicked.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3163,7 +3170,7 @@ and draws them as a grid.</doc>
           <parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-layer.c"
-                 line="744">a [class@SymbolEvent] with details about the clicked symbol.</doc>
+                 line="736">a [class@SymbolEvent] with details about the clicked symbol.</doc>
             <type name="SymbolEvent"/>
           </parameter>
         </parameters>
@@ -6581,7 +6588,7 @@ clicked.</doc>
                  glib:error-domain="shumate-style-error-quark">
       <doc xml:space="preserve"
            filename="shumate/shumate-vector-renderer.h"
-           line="52">Error codes that occurs while parsing the style in [class@VectorRenderer].</doc>
+           line="57">Error codes that occurs while parsing the style in [class@VectorRenderer].</doc>
       <member name="failed"
               value="0"
               c:identifier="SHUMATE_STYLE_ERROR_FAILED"
@@ -6589,7 +6596,7 @@ clicked.</doc>
               glib:name="SHUMATE_STYLE_ERROR_FAILED">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.h"
-             line="54">An unspecified error occurred during the operation.</doc>
+             line="59">An unspecified error occurred during the operation.</doc>
       </member>
       <member name="malformed_style"
               value="1"
@@ -6598,7 +6605,7 @@ clicked.</doc>
               glib:name="SHUMATE_STYLE_ERROR_MALFORMED_STYLE">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.h"
-             line="55">A JSON node in the style has the wrong type (e.g. an object where there should be an array).</doc>
+             line="60">A JSON node in the style has the wrong type (e.g. an object where there should be an array).</doc>
       </member>
       <member name="unsupported_layer"
               value="2"
@@ -6607,7 +6614,7 @@ clicked.</doc>
               glib:name="SHUMATE_STYLE_ERROR_UNSUPPORTED_LAYER">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.h"
-             line="56">An unsupported layer type was encountered.</doc>
+             line="61">An unsupported layer type was encountered.</doc>
       </member>
       <member name="invalid_expression"
               value="3"
@@ -6616,7 +6623,7 @@ clicked.</doc>
               glib:name="SHUMATE_STYLE_ERROR_INVALID_EXPRESSION">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.h"
-             line="57">An invalid or unrecognized expression was encountered.</doc>
+             line="62">An invalid or unrecognized expression was encountered.</doc>
       </member>
       <member name="support_omitted"
               value="4"
@@ -6625,7 +6632,7 @@ clicked.</doc>
               glib:name="SHUMATE_STYLE_ERROR_SUPPORT_OMITTED">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.h"
-             line="58">Libshumate was compiled without vector tile support.</doc>
+             line="63">Libshumate was compiled without vector tile support.</doc>
       </member>
       <member name="unsupported"
               value="5"
@@ -6634,13 +6641,13 @@ clicked.</doc>
               glib:name="SHUMATE_STYLE_ERROR_UNSUPPORTED">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.h"
-             line="59">An unsupported style spec feature was encountered.</doc>
+             line="64">An unsupported style spec feature was encountered.</doc>
       </member>
       <function name="quark" c:identifier="shumate_style_error_quark">
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-renderer.c"
-               line="872">a #GQuark</doc>
+               line="953">a #GQuark</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </return-value>
       </function>
@@ -7605,7 +7612,7 @@ the bottom, rather than top, of the map)</doc>
       <doc xml:space="preserve"
            filename="shumate/shumate-vector-renderer.c"
            line="23">A [class@MapSource] that renders tiles from a given vector data source.</doc>
-      <source-position filename="shumate/shumate-vector-renderer.h" line="28"/>
+      <source-position filename="shumate/shumate-vector-renderer.h" line="29"/>
       <implements name="Gio.Initable"/>
       <constructor name="new"
                    c:identifier="shumate_vector_renderer_new"
@@ -7621,7 +7628,7 @@ See the [MapLibre Style Specification](https://maplibre.org/maplibre-gl-js-docs/
 for details on @style_json, but be aware that libshumate does not support
 every feature of the specification.</doc>
         <source-position filename="shumate/shumate-vector-renderer.h"
-                         line="34"/>
+                         line="35"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-renderer.c"
@@ -7650,7 +7657,7 @@ every feature of the specification.</doc>
              line="109">Checks whether libshumate was compiled with vector tile support. If it was
 not, vector renderers cannot be created or used.</doc>
         <source-position filename="shumate/shumate-vector-renderer.h"
-                         line="31"/>
+                         line="32"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-renderer.c"
@@ -7659,45 +7666,109 @@ not, vector renderers cannot be created or used.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
       </function>
-      <method name="set_sprite_sheet_data"
-              c:identifier="shumate_vector_renderer_set_sprite_sheet_data"
-              throws="1">
+      <method name="get_sprite_sheet"
+              c:identifier="shumate_vector_renderer_get_sprite_sheet"
+              glib:get-property="sprite-sheet"
+              version="1.1">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="483">Sets the sprite sheet used by the style JSON to render icons and textures.
-
-See &lt;https://maplibre.org/maplibre-gl-js-docs/style-spec/sprite/&gt; for
-details about the spritesheet format. Most stylesheets provide these files
-along with the main style JSON.</doc>
+             line="544">Gets the sprite sheet used to render icons and textures.</doc>
         <source-position filename="shumate/shumate-vector-renderer.h"
-                         line="38"/>
+                         line="44"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-renderer.c"
-               line="496">whether the sprite sheet was loaded successfully</doc>
+               line="550">the [class@VectorSpriteSheet]</doc>
+          <type name="VectorSpriteSheet" c:type="ShumateVectorSpriteSheet*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-renderer.c"
+                 line="546">a [class@VectorRenderer]</doc>
+            <type name="VectorRenderer" c:type="ShumateVectorRenderer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_sprite_sheet"
+              c:identifier="shumate_vector_renderer_set_sprite_sheet"
+              glib:set-property="sprite-sheet"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-renderer.c"
+             line="570">Sets the sprite sheet used to render icons and textures.</doc>
+        <source-position filename="shumate/shumate-vector-renderer.h"
+                         line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-renderer.c"
+                 line="572">a [class@VectorRenderer]</doc>
+            <type name="VectorRenderer" c:type="ShumateVectorRenderer*"/>
+          </instance-parameter>
+          <parameter name="sprites" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-renderer.c"
+                 line="573">a [class@VectorSpriteSheet]</doc>
+            <type name="VectorSpriteSheet" c:type="ShumateVectorSpriteSheet*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_sprite_sheet_data"
+              c:identifier="shumate_vector_renderer_set_sprite_sheet_data"
+              deprecated="1"
+              deprecated-version="1.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-renderer.c"
+             line="504">Sets the sprite sheet used by the style JSON to render icons and textures.
+
+The existing [property@VectorRenderer:sprite-sheet] property will be replaced
+with a new instance of [class@VectorSpriteSheet].</doc>
+        <doc-deprecated xml:space="preserve">Use the methods of [property@VectorRenderer:sprite-sheet] instead.</doc-deprecated>
+        <source-position filename="shumate/shumate-vector-renderer.h"
+                         line="39"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-renderer.c"
+               line="516">whether the sprite sheet was loaded successfully</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="485">a [class@VectorRenderer]</doc>
+                 line="506">a [class@VectorRenderer]</doc>
             <type name="VectorRenderer" c:type="ShumateVectorRenderer*"/>
           </instance-parameter>
           <parameter name="sprites_pixbuf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="486">a [class@GdkPixbuf.Pixbuf]</doc>
+                 line="507">a [class@GdkPixbuf.Pixbuf]</doc>
             <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
           </parameter>
           <parameter name="sprites_json" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="487">a JSON string</doc>
+                 line="508">a JSON string</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
+      <property name="sprite-sheet"
+                version="1.1"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_sprite_sheet"
+                getter="get_sprite_sheet">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-renderer.c"
+             line="230">The sprite sheet used to render icons and textures.</doc>
+        <type name="VectorSpriteSheet"/>
+      </property>
       <property name="style-json"
                 writable="1"
                 construct-only="1"
@@ -7705,7 +7776,7 @@ along with the main style JSON.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="209">A map style, in [Mapbox Style Specification](https://docs.mapbox.com/mapbox-gl-js/style-spec/)
+             line="215">A map style, in [Mapbox Style Specification](https://docs.mapbox.com/mapbox-gl-js/style-spec/)
 format.
 
 Note that not all features of the specification are supported.</doc>
@@ -7715,9 +7786,576 @@ Note that not all features of the specification are supported.</doc>
     <record name="VectorRendererClass"
             c:type="ShumateVectorRendererClass"
             glib:is-gtype-struct-for="VectorRenderer">
-      <source-position filename="shumate/shumate-vector-renderer.h" line="28"/>
+      <source-position filename="shumate/shumate-vector-renderer.h" line="29"/>
       <field name="parent_class">
         <type name="MapSourceClass" c:type="ShumateMapSourceClass"/>
+      </field>
+    </record>
+    <class name="VectorSprite"
+           c:symbol-prefix="vector_sprite"
+           c:type="ShumateVectorSprite"
+           version="1.1"
+           parent="GObject.Object"
+           glib:type-name="ShumateVectorSprite"
+           glib:get-type="shumate_vector_sprite_get_type"
+           glib:type-struct="VectorSpriteClass">
+      <doc xml:space="preserve"
+           filename="shumate/shumate-vector-sprite.c"
+           line="20">A sprite used to draw textures or icons.
+
+## Symbolic icons
+
+If a sprite is created from a [iface@Gtk.SymbolicPaintable] source, such
+as a symbolic icon, then when the sprite is part of a symbol layer it
+will be drawn using the icon-color property (or the text color, if the
+sprite is part of a formatted string).</doc>
+      <source-position filename="shumate/shumate-vector-sprite.h" line="25"/>
+      <implements name="Gdk.Paintable"/>
+      <implements name="Gtk.SymbolicPaintable"/>
+      <constructor name="new"
+                   c:identifier="shumate_vector_sprite_new"
+                   version="1.1">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-sprite.c"
+             line="67">Creates a new [class@VectorSprite] using the paintable's intrinsic size.</doc>
+        <source-position filename="shumate/shumate-vector-sprite.h" line="28"/>
+        <return-value transfer-ownership="full">
+          <type name="VectorSprite" c:type="ShumateVectorSprite*"/>
+        </return-value>
+        <parameters>
+          <parameter name="source_paintable" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite.c"
+                 line="69">a [iface@Gdk.Paintable]</doc>
+            <type name="Gdk.Paintable" c:type="GdkPaintable*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_full"
+                   c:identifier="shumate_vector_sprite_new_full"
+                   version="1.1">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-sprite.c"
+             line="85">Creates a new [class@VectorSprite] with the given size, scale factor,
+and area of the source paintable.</doc>
+        <source-position filename="shumate/shumate-vector-sprite.h" line="29"/>
+        <return-value transfer-ownership="full">
+          <type name="VectorSprite" c:type="ShumateVectorSprite*"/>
+        </return-value>
+        <parameters>
+          <parameter name="source_paintable" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite.c"
+                 line="87">a [iface@Gdk.Paintable]</doc>
+            <type name="Gdk.Paintable" c:type="GdkPaintable*"/>
+          </parameter>
+          <parameter name="width" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite.c"
+                 line="88">the width of the sprite in pixels</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite.c"
+                 line="89">the height of the sprite in pixels</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="scale_factor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite.c"
+                 line="90">the intended scale factor of the sprite</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="source_rect"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite.c"
+                 line="91">the source rectangle of the sprite, or %NULL to use the entire paintable</doc>
+            <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_height"
+              c:identifier="shumate_vector_sprite_get_height"
+              glib:get-property="height"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-sprite.c"
+             line="437">Gets the height at which the sprite should be drawn.</doc>
+        <source-position filename="shumate/shumate-vector-sprite.h" line="37"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-sprite.c"
+               line="443">the sprite's height in pixels</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite.c"
+                 line="439">a [class@VectorSprite]</doc>
+            <type name="VectorSprite" c:type="ShumateVectorSprite*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_scale_factor"
+              c:identifier="shumate_vector_sprite_get_scale_factor"
+              glib:get-property="scale-factor"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-sprite.c"
+             line="455">Gets the intended scale factor of the sprite.</doc>
+        <source-position filename="shumate/shumate-vector-sprite.h" line="38"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-sprite.c"
+               line="461">the sprite's scale factor</doc>
+          <type name="gdouble" c:type="double"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite.c"
+                 line="457">a [class@VectorSprite]</doc>
+            <type name="VectorSprite" c:type="ShumateVectorSprite*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_source_paintable"
+              c:identifier="shumate_vector_sprite_get_source_paintable"
+              glib:get-property="source-paintable"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-sprite.c"
+             line="398">Gets the source [iface@Gdk.Paintable] used to draw the sprite.
+
+Note that [class@VectorSprite] also implements [iface@Gdk.Paintable].
+In most cases, you should draw the sprite rather than the original paintable.</doc>
+        <source-position filename="shumate/shumate-vector-sprite.h" line="35"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-sprite.c"
+               line="407">the source paintable</doc>
+          <type name="Gdk.Paintable" c:type="GdkPaintable*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite.c"
+                 line="400">a [class@VectorSprite]</doc>
+            <type name="VectorSprite" c:type="ShumateVectorSprite*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_source_rect"
+              c:identifier="shumate_vector_sprite_get_source_rect"
+              glib:get-property="source-rect"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-sprite.c"
+             line="473">Gets the source rectangle of the sprite.</doc>
+        <source-position filename="shumate/shumate-vector-sprite.h" line="39"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-sprite.c"
+               line="479">the sprite's source rectangle, or %NULL if the entire paintable is used</doc>
+          <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite.c"
+                 line="475">a [class@VectorSprite]</doc>
+            <type name="VectorSprite" c:type="ShumateVectorSprite*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_width"
+              c:identifier="shumate_vector_sprite_get_width"
+              glib:get-property="width"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-sprite.c"
+             line="419">Gets the width at which the sprite should be drawn.</doc>
+        <source-position filename="shumate/shumate-vector-sprite.h" line="36"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-sprite.c"
+               line="425">the sprite's width in pixels</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite.c"
+                 line="421">a [class@VectorSprite]</doc>
+            <type name="VectorSprite" c:type="ShumateVectorSprite*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="height"
+                version="1.1"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_height"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-sprite.c"
+             line="332">The height at which the sprite should be drawn, in pixels.</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="scale-factor"
+                version="1.1"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_scale_factor"
+                default-value="1.000000">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-sprite.c"
+             line="346">The intended scale factor of the sprite.</doc>
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+      <property name="source-paintable"
+                version="1.1"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_source_paintable">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-sprite.c"
+             line="304">The [iface@Gdk.Paintable] used to draw the sprite.</doc>
+        <type name="Gdk.Paintable"/>
+      </property>
+      <property name="source-rect"
+                version="1.1"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_source_rect">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-sprite.c"
+             line="360">The area of the source rectangle to draw, or %NULL to use the entire paintable.</doc>
+        <type name="Gdk.Rectangle"/>
+      </property>
+      <property name="width"
+                version="1.1"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_width"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-sprite.c"
+             line="318">The width at which the sprite should be drawn, in pixels.</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+    </class>
+    <record name="VectorSpriteClass"
+            c:type="ShumateVectorSpriteClass"
+            glib:is-gtype-struct-for="VectorSprite">
+      <source-position filename="shumate/shumate-vector-sprite.h" line="25"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <callback name="VectorSpriteFallbackFunc"
+              c:type="ShumateVectorSpriteFallbackFunc"
+              version="1.1">
+      <doc xml:space="preserve"
+           filename="shumate/shumate-vector-sprite-sheet.c"
+           line="63">A function to generate sprites for a [class@VectorSpriteSheet].
+
+See [method@VectorSpriteSheet.set_fallback].</doc>
+      <source-position filename="shumate/shumate-vector-sprite-sheet.h"
+                       line="43"/>
+      <return-value transfer-ownership="full" nullable="1">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-sprite-sheet.c"
+             line="74">a [class@VectorSprite] or %NULL</doc>
+        <type name="VectorSprite" c:type="ShumateVectorSprite*"/>
+      </return-value>
+      <parameters>
+        <parameter name="sprite_sheet" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-sprite-sheet.c"
+               line="65">the [class@VectorSpriteSheet]</doc>
+          <type name="VectorSpriteSheet" c:type="ShumateVectorSpriteSheet*"/>
+        </parameter>
+        <parameter name="name" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-sprite-sheet.c"
+               line="66">the name of the sprite to generate</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="scale" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-sprite-sheet.c"
+               line="67">the scale factor of the sprite</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="3">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-sprite-sheet.c"
+               line="68">user data passed to [method@VectorSpriteSheet.set_fallback]</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <class name="VectorSpriteSheet"
+           c:symbol-prefix="vector_sprite_sheet"
+           c:type="ShumateVectorSpriteSheet"
+           version="1.1"
+           parent="GObject.Object"
+           final="1"
+           glib:type-name="ShumateVectorSpriteSheet"
+           glib:get-type="shumate_vector_sprite_sheet_get_type"
+           glib:type-struct="VectorSpriteSheetClass">
+      <doc xml:space="preserve"
+           filename="shumate/shumate-vector-sprite-sheet.c"
+           line="26">A collection of [class@VectorSprite]s.
+
+Sprites are used as icons in symbols or as the pattern for a fill layer.
+
+Most MapLibre stylesheets provide their spritesheet as a PNG image and a JSON
+description of the sprites. This spritesheet can be added using
+[method@VectorSpriteSheet.add_page]. Sprites can also be added individually
+using [method@VectorSpriteSheet.add_sprite].
+
+Some map styles rely on application code to provide some or all of their
+sprites. This is supported using a fallback function, which can be set using
+[method@VectorSpriteSheet.set_fallback]. This function can generate sprites
+on demand. For example, it could load a symbolic icon from the [class@Gtk.IconTheme]
+or render a custom highway shield.
+
+## HiDPI support
+
+Map styles should provide a double resolution spritesheet for high DPI
+displays. That spritesheet can be added as a separate page.
+The [class@VectorSpriteSheet] will pick the best sprites for the display's
+scale factor.
+
+If a fallback function is set, it receives the requested scale factor
+as an argument. It should use this to generate the sprite at the correct size.
+For example, if the scale factor is 2, the image should be twice as large
+(but the *sprite's* width and height should be the same).
+
+## Thread Safety
+
+[class@VectorSpriteSheet] is thread safe.</doc>
+      <source-position filename="shumate/shumate-vector-sprite-sheet.h"
+                       line="26"/>
+      <constructor name="new"
+                   c:identifier="shumate_vector_sprite_sheet_new"
+                   version="1.1">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-sprite-sheet.c"
+             line="99">Creates a new, empty [class@VectorSpriteSheet].</doc>
+        <source-position filename="shumate/shumate-vector-sprite-sheet.h"
+                         line="28"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-sprite-sheet.c"
+               line="104">a new [class@VectorSpriteSheet]</doc>
+          <type name="VectorSpriteSheet" c:type="ShumateVectorSpriteSheet*"/>
+        </return-value>
+      </constructor>
+      <method name="add_page"
+              c:identifier="shumate_vector_sprite_sheet_add_page"
+              version="1.1"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-sprite-sheet.c"
+             line="181">Adds a page to the spritesheet.
+
+See &lt;https://maplibre.org/maplibre-gl-js-docs/style-spec/sprite/&gt; for
+details about the spritesheet format. Most stylesheets provide these files
+along with the main style JSON.
+
+Map styles should provide a double resolution spritesheet for high DPI
+displays. That spritesheet should be added as its own page, with a
+@default_scale of 2.</doc>
+        <source-position filename="shumate/shumate-vector-sprite-sheet.h"
+                         line="33"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-sprite-sheet.c"
+               line="199">%TRUE if the page was added successfully, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite-sheet.c"
+                 line="183">a [class@VectorSpriteSheet]</doc>
+            <type name="VectorSpriteSheet" c:type="ShumateVectorSpriteSheet*"/>
+          </instance-parameter>
+          <parameter name="texture" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite-sheet.c"
+                 line="184">a [class@Gdk.Texture]</doc>
+            <type name="Gdk.Texture" c:type="GdkTexture*"/>
+          </parameter>
+          <parameter name="json" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite-sheet.c"
+                 line="185">a JSON string</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="default_scale" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite-sheet.c"
+                 line="186">the default scale factor of the page</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_sprite"
+              c:identifier="shumate_vector_sprite_sheet_add_sprite"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-sprite-sheet.c"
+             line="147">Adds a sprite to the spritesheet.</doc>
+        <source-position filename="shumate/shumate-vector-sprite-sheet.h"
+                         line="30"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite-sheet.c"
+                 line="149">a [class@VectorSpriteSheet]</doc>
+            <type name="VectorSpriteSheet" c:type="ShumateVectorSpriteSheet*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite-sheet.c"
+                 line="150">the name of the sprite</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="sprite" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite-sheet.c"
+                 line="151">a [class@VectorSprite]</doc>
+            <type name="VectorSprite" c:type="ShumateVectorSprite*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_sprite"
+              c:identifier="shumate_vector_sprite_sheet_get_sprite"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-sprite-sheet.c"
+             line="322">Gets a sprite from the spritesheet.
+
+The returned sprite might not be at the requested scale factor if an exact
+match is not found.</doc>
+        <source-position filename="shumate/shumate-vector-sprite-sheet.h"
+                         line="39"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-vector-sprite-sheet.c"
+               line="333">a [class@VectorSprite], or %NULL if the
+icon does not exist.</doc>
+          <type name="VectorSprite" c:type="ShumateVectorSprite*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite-sheet.c"
+                 line="324">a [class@VectorSpriteSheet]</doc>
+            <type name="VectorSpriteSheet" c:type="ShumateVectorSpriteSheet*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite-sheet.c"
+                 line="325">an icon name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="scale" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite-sheet.c"
+                 line="326">the scale factor of the icon</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_fallback"
+              c:identifier="shumate_vector_sprite_sheet_set_fallback"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-vector-sprite-sheet.c"
+             line="400">Sets a fallback function to generate sprites.
+
+The fallback function is called when a texture is not found in the sprite
+sheet. It receives the icon name and scale factor, and should return a
+[class@VectorSprite], or %NULL if the icon could not be generated.
+It may be called in a different thread, and it may be called multiple times
+for the same icon name.
+
+If a previous fallback function was set, it will be replaced and any sprites
+it generated will be cleared.
+
+@fallback may be %NULL to clear the fallback function.</doc>
+        <source-position filename="shumate/shumate-vector-sprite-sheet.h"
+                         line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite-sheet.c"
+                 line="402">a [class@VectorSpriteSheet]</doc>
+            <type name="VectorSpriteSheet" c:type="ShumateVectorSpriteSheet*"/>
+          </instance-parameter>
+          <parameter name="fallback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="notified"
+                     closure="1"
+                     destroy="2">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite-sheet.c"
+                 line="403">a [callback@ShumateVectorSpriteFallbackFunc] or %NULL</doc>
+            <type name="VectorSpriteFallbackFunc"
+                  c:type="ShumateVectorSpriteFallbackFunc"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite-sheet.c"
+                 line="404">user data to pass to @fallback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="notify" transfer-ownership="none" scope="async">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-vector-sprite-sheet.c"
+                 line="405">a [callback@GLib.DestroyNotify] for @user_data</doc>
+            <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="VectorSpriteSheetClass"
+            c:type="ShumateVectorSpriteSheetClass"
+            glib:is-gtype-struct-for="VectorSpriteSheet">
+      <source-position filename="shumate/shumate-vector-sprite-sheet.h"
+                       line="26"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
     <class name="Viewport"
@@ -7796,12 +8434,12 @@ accessible via the interface methods.</doc>
               glib:get-property="reference-map-source">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="463">Get the reference map source</doc>
+             line="470">Get the reference map source</doc>
         <source-position filename="shumate/shumate-viewport.h" line="54"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="shumate/shumate-viewport.c"
-               line="469">the reference #ShumateMapSource or %NULL
+               line="476">the reference #ShumateMapSource or %NULL
 when none has been set.</doc>
           <type name="MapSource" c:type="ShumateMapSource*"/>
         </return-value>
@@ -7809,7 +8447,7 @@ when none has been set.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="465">a #ShumateViewport</doc>
+                 line="472">a #ShumateViewport</doc>
             <type name="Viewport" c:type="ShumateViewport*"/>
           </instance-parameter>
         </parameters>
@@ -7819,19 +8457,19 @@ when none has been set.</doc>
               glib:get-property="rotation">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="504">Gets the current rotation</doc>
+             line="511">Gets the current rotation</doc>
         <source-position filename="shumate/shumate-viewport.h" line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-viewport.c"
-               line="510">the current rotation</doc>
+               line="517">the current rotation</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="506">a #ShumateViewport</doc>
+                 line="513">a #ShumateViewport</doc>
             <type name="Viewport" c:type="ShumateViewport*"/>
           </instance-parameter>
         </parameters>
@@ -7862,7 +8500,7 @@ when none has been set.</doc>
               c:identifier="shumate_viewport_location_to_widget_coords">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="593">Gets the position on @widget that correspond to the given latitude and
+             line="600">Gets the position on @widget that correspond to the given latitude and
 longitude.</doc>
         <source-position filename="shumate/shumate-viewport.h" line="66"/>
         <return-value transfer-ownership="none">
@@ -7872,25 +8510,25 @@ longitude.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="595">a #ShumateViewport</doc>
+                 line="602">a #ShumateViewport</doc>
             <type name="Viewport" c:type="ShumateViewport*"/>
           </instance-parameter>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="596">a #GtkWidget that uses @self as viewport</doc>
+                 line="603">a #GtkWidget that uses @self as viewport</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="latitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="597">the latitude</doc>
+                 line="604">the latitude</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="longitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="598">the longitude</doc>
+                 line="605">the longitude</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="x"
@@ -7899,7 +8537,7 @@ longitude.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="599">return value for the x coordinate</doc>
+                 line="606">return value for the x coordinate</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
           <parameter name="y"
@@ -7908,7 +8546,7 @@ longitude.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="600">return value for the y coordinate</doc>
+                 line="607">return value for the y coordinate</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
         </parameters>
@@ -7996,7 +8634,7 @@ longitude.</doc>
               glib:set-property="rotation">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="480">Sets the rotation</doc>
+             line="487">Sets the rotation</doc>
         <source-position filename="shumate/shumate-viewport.h" line="56"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8005,13 +8643,13 @@ longitude.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="482">a #ShumateViewport</doc>
+                 line="489">a #ShumateViewport</doc>
             <type name="Viewport" c:type="ShumateViewport*"/>
           </instance-parameter>
           <parameter name="rotation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="483">the rotation</doc>
+                 line="490">the rotation</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -8045,7 +8683,7 @@ longitude.</doc>
               c:identifier="shumate_viewport_widget_coords_to_location">
         <doc xml:space="preserve"
              filename="shumate/shumate-viewport.c"
-             line="540">Gets the latitude and longitude corresponding to a position on @widget.</doc>
+             line="547">Gets the latitude and longitude corresponding to a position on @widget.</doc>
         <source-position filename="shumate/shumate-viewport.h" line="60"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8054,25 +8692,25 @@ longitude.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="542">a #ShumateViewport</doc>
+                 line="549">a #ShumateViewport</doc>
             <type name="Viewport" c:type="ShumateViewport*"/>
           </instance-parameter>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="543">a #GtkWidget that uses @self as viewport</doc>
+                 line="550">a #GtkWidget that uses @self as viewport</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="544">the x coordinate</doc>
+                 line="551">the x coordinate</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="545">the y coordinate</doc>
+                 line="552">the y coordinate</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="latitude"
@@ -8081,7 +8719,7 @@ longitude.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="546">return location for the latitude</doc>
+                 line="553">return location for the latitude</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
           <parameter name="longitude"
@@ -8090,7 +8728,7 @@ longitude.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="shumate/shumate-viewport.c"
-                 line="547">return location for the longitude</doc>
+                 line="554">return location for the longitude</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
         </parameters>
@@ -8219,7 +8857,7 @@ an application was linked to.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="872">a #GQuark</doc>
+             line="953">a #GQuark</doc>
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
     </function>

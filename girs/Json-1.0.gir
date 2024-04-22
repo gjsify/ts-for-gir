@@ -2188,14 +2188,14 @@ stream.</doc>
       <source-position filename="json-glib/json-version.h" line="36"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="1" c:type="JSON_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="0" c:type="JSON_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="json-glib/json-version.h"
            line="45">Json micro version component (e.g. 3 if `JSON_VERSION` is "1.2.3")</doc>
       <source-position filename="json-glib/json-version.h" line="50"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="7" c:type="JSON_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="8" c:type="JSON_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="json-glib/json-version.h"
            line="38">Json minor version component (e.g. 2 if `JSON_VERSION` is "1.2.3")</doc>
@@ -7922,7 +7922,7 @@ sequence.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION_S" value="1.7.1" c:type="JSON_VERSION_S">
+    <constant name="VERSION_S" value="1.8.0" c:type="JSON_VERSION_S">
       <doc xml:space="preserve"
            filename="json-glib/json-version.h"
            line="59">The version of JSON-GLib, encoded as a string, useful for printing and

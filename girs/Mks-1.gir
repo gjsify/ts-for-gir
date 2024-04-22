@@ -1,0 +1,2931 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="4.0"/>
+  <package name="libmks-1"/>
+  <c:include name="libmks.h"/>
+  <namespace name="Mks"
+             version="1"
+             shared-library="libmks-1.so.0"
+             c:identifier-prefixes="Mks"
+             c:symbol-prefixes="mks">
+    <function-macro name="CHECK_VERSION"
+                    c:identifier="MKS_CHECK_VERSION"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="lib/mks-version.h"
+           line="83">Compile-time version checking. Evaluates to %TRUE if the version
+of mks is greater than the required one.</doc>
+      <source-position filename="lib/mks-version.h" line="91"/>
+      <parameters>
+        <parameter name="major">
+          <doc xml:space="preserve"
+               filename="lib/mks-version.h"
+               line="85">required major version</doc>
+        </parameter>
+        <parameter name="minor">
+          <doc xml:space="preserve"
+               filename="lib/mks-version.h"
+               line="86">required minor version</doc>
+        </parameter>
+        <parameter name="micro">
+          <doc xml:space="preserve"
+               filename="lib/mks-version.h"
+               line="87">required micro version</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_FOR"
+                    c:identifier="MKS_DEPRECATED_FOR"
+                    introspectable="0">
+      <source-position filename="lib/mks-version-macros.h" line="36"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_1_0_FOR"
+                    c:identifier="MKS_DEPRECATED_IN_1_0_FOR"
+                    introspectable="0">
+      <source-position filename="lib/mks-version-macros.h" line="98"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEVICE" c:identifier="MKS_DEVICE" introspectable="0">
+      <source-position filename="lib/mks-device.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEVICE_CLASS"
+                    c:identifier="MKS_DEVICE_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/mks-device.h" line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEVICE_CONST"
+                    c:identifier="MKS_DEVICE_CONST"
+                    introspectable="0">
+      <source-position filename="lib/mks-device.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEVICE_GET_CLASS"
+                    c:identifier="MKS_DEVICE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/mks-device.h" line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Device"
+           c:symbol-prefix="device"
+           c:type="MksDevice"
+           parent="GObject.Object"
+           glib:type-name="MksDevice"
+           glib:get-type="mks_device_get_type"
+           glib:type-struct="DeviceClass">
+      <doc xml:space="preserve"
+           filename="lib/mks-device.c"
+           line="26">An abstraction of a virtualized QEMU device.</doc>
+      <source-position filename="lib/mks-device.h" line="43"/>
+      <method name="get_name"
+              c:identifier="mks_device_get_name"
+              glib:get-property="name">
+        <doc xml:space="preserve"
+             filename="lib/mks-device.c"
+             line="111">Gets the device name.</doc>
+        <source-position filename="lib/mks-device.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-device.c"
+                 line="113">A `MksDevice`</doc>
+            <type name="Device" c:type="MksDevice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="name"
+                transfer-ownership="none"
+                getter="get_name"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="lib/mks-device.c"
+             line="93">The device name.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="DeviceClass"
+            c:type="MksDeviceClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="Device">
+      <source-position filename="lib/mks-device.h" line="43"/>
+    </record>
+    <class name="Display"
+           c:symbol-prefix="display"
+           c:type="MksDisplay"
+           parent="Gtk.Widget"
+           glib:type-name="MksDisplay"
+           glib:get-type="mks_display_get_type"
+           glib:type-struct="DisplayClass">
+      <source-position filename="lib/mks-display.h" line="42"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new" c:identifier="mks_display_new">
+        <source-position filename="lib/mks-display.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="get_auto_resize"
+              c:identifier="mks_display_get_auto_resize"
+              glib:get-property="auto-resize">
+        <doc xml:space="preserve"
+             filename="lib/mks-display.c"
+             line="492">Get whether the widget will reconfigure the VM whenever
+it gets a new size allocation.</doc>
+        <source-position filename="lib/mks-display.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-display.c"
+                 line="494">A `MksDisplay`</doc>
+            <type name="Display" c:type="MksDisplay*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_event_position_in_guest"
+              c:identifier="mks_display_get_event_position_in_guest">
+        <doc xml:space="preserve"
+             filename="lib/mks-display.c"
+             line="573">Retrieve the (`guest_x`, `guest_y`) position
+where the `event` happened.
+
+Could be useful for implementing touch support emulation.</doc>
+        <source-position filename="lib/mks-display.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-display.c"
+               line="585">Whether the event has an associated position</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-display.c"
+                 line="575">a #MksDisplay</doc>
+            <type name="Display" c:type="MksDisplay*"/>
+          </instance-parameter>
+          <parameter name="event" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-display.c"
+                 line="576">A #GdkEvent</doc>
+            <type name="Gdk.Event" c:type="GdkEvent*"/>
+          </parameter>
+          <parameter name="guest_x"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="lib/mks-display.c"
+                 line="577">Guest's X position</doc>
+            <type name="gdouble" c:type="double*"/>
+          </parameter>
+          <parameter name="guest_y"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="lib/mks-display.c"
+                 line="578">Guest's Y position</doc>
+            <type name="gdouble" c:type="double*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_screen"
+              c:identifier="mks_display_get_screen"
+              glib:get-property="screen">
+        <doc xml:space="preserve"
+             filename="lib/mks-display.c"
+             line="450">Gets the screen connected to the display.</doc>
+        <source-position filename="lib/mks-display.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-display.c"
+               line="456">a #MksScreen</doc>
+          <type name="Screen" c:type="MksScreen*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-display.c"
+                 line="452">a #MksDisplay</doc>
+            <type name="Display" c:type="MksDisplay*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_ungrab_trigger"
+              c:identifier="mks_display_get_ungrab_trigger"
+              glib:get-property="ungrab-trigger">
+        <doc xml:space="preserve"
+             filename="lib/mks-display.c"
+             line="534">Gets the #GtkShortcutTrigger that will ungrab the display.</doc>
+        <source-position filename="lib/mks-display.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-display.c"
+               line="540">a #GtkShortcutTrigger</doc>
+          <type name="Gtk.ShortcutTrigger" c:type="GtkShortcutTrigger*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-display.c"
+                 line="536">a #MksDisplay</doc>
+            <type name="Display" c:type="MksDisplay*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_auto_resize"
+              c:identifier="mks_display_set_auto_resize"
+              glib:set-property="auto-resize">
+        <doc xml:space="preserve"
+             filename="lib/mks-display.c"
+             line="509">Sets whether the widget should reconfigure the VM
+with the allocated size of the widget.</doc>
+        <source-position filename="lib/mks-display.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-display.c"
+                 line="511">A `MksDisplay`</doc>
+            <type name="Display" c:type="MksDisplay*"/>
+          </instance-parameter>
+          <parameter name="auto_resize" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-display.c"
+                 line="512">Whether to auto resize or not</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_screen"
+              c:identifier="mks_display_set_screen"
+              glib:set-property="screen">
+        <source-position filename="lib/mks-display.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Display" c:type="MksDisplay*"/>
+          </instance-parameter>
+          <parameter name="screen" transfer-ownership="none">
+            <type name="Screen" c:type="MksScreen*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_ungrab_trigger"
+              c:identifier="mks_display_set_ungrab_trigger"
+              glib:set-property="ungrab-trigger">
+        <source-position filename="lib/mks-display.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Display" c:type="MksDisplay*"/>
+          </instance-parameter>
+          <parameter name="trigger" transfer-ownership="none">
+            <type name="Gtk.ShortcutTrigger" c:type="GtkShortcutTrigger*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="auto-resize"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_auto_resize"
+                getter="get_auto_resize"
+                default-value="TRUE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="screen"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_screen"
+                getter="get_screen">
+        <type name="Screen"/>
+      </property>
+      <property name="ungrab-trigger"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_ungrab_trigger"
+                getter="get_ungrab_trigger">
+        <type name="Gtk.ShortcutTrigger"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Gtk.Widget" c:type="GtkWidget"/>
+      </field>
+    </class>
+    <record name="DisplayClass"
+            c:type="MksDisplayClass"
+            glib:is-gtype-struct-for="Display">
+      <source-position filename="lib/mks-display.h" line="42"/>
+      <field name="parent_class">
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+      <field name="_reserved" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="16">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <function-macro name="ENCODE_VERSION"
+                    c:identifier="MKS_ENCODE_VERSION"
+                    introspectable="0">
+      <source-position filename="lib/mks-version.h" line="71"/>
+      <parameters>
+        <parameter name="major">
+        </parameter>
+        <parameter name="minor">
+        </parameter>
+        <parameter name="micro">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DEVICE"
+                    c:identifier="MKS_IS_DEVICE"
+                    introspectable="0">
+      <source-position filename="lib/mks-device.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DEVICE_CLASS"
+                    c:identifier="MKS_IS_DEVICE_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/mks-device.h" line="40"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_KEYBOARD"
+                    c:identifier="MKS_IS_KEYBOARD"
+                    introspectable="0">
+      <source-position filename="lib/mks-keyboard.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_KEYBOARD_CLASS"
+                    c:identifier="MKS_IS_KEYBOARD_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/mks-keyboard.h" line="40"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MOUSE"
+                    c:identifier="MKS_IS_MOUSE"
+                    introspectable="0">
+      <source-position filename="lib/mks-mouse.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MOUSE_CLASS"
+                    c:identifier="MKS_IS_MOUSE_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/mks-mouse.h" line="40"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SCREEN"
+                    c:identifier="MKS_IS_SCREEN"
+                    introspectable="0">
+      <source-position filename="lib/mks-screen.h" line="40"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SCREEN_CLASS"
+                    c:identifier="MKS_IS_SCREEN_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/mks-screen.h" line="41"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TOUCHABLE"
+                    c:identifier="MKS_IS_TOUCHABLE"
+                    introspectable="0">
+      <source-position filename="lib/mks-touchable.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TOUCHABLE_CLASS"
+                    c:identifier="MKS_IS_TOUCHABLE_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/mks-touchable.h" line="40"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="KEYBOARD"
+                    c:identifier="MKS_KEYBOARD"
+                    introspectable="0">
+      <source-position filename="lib/mks-keyboard.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="KEYBOARD_CLASS"
+                    c:identifier="MKS_KEYBOARD_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/mks-keyboard.h" line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="KEYBOARD_CONST"
+                    c:identifier="MKS_KEYBOARD_CONST"
+                    introspectable="0">
+      <source-position filename="lib/mks-keyboard.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="KEYBOARD_GET_CLASS"
+                    c:identifier="MKS_KEYBOARD_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/mks-keyboard.h" line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Keyboard"
+           c:symbol-prefix="keyboard"
+           c:type="MksKeyboard"
+           parent="Device"
+           final="1"
+           glib:type-name="MksKeyboard"
+           glib:get-type="mks_keyboard_get_type"
+           glib:type-struct="KeyboardClass">
+      <doc xml:space="preserve"
+           filename="lib/mks-keyboard.c"
+           line="31">A virtualized QEMU keyboard.</doc>
+      <source-position filename="lib/mks-keyboard.h" line="43"/>
+      <function name="translate" c:identifier="mks_keyboard_translate">
+        <doc xml:space="preserve"
+             filename="lib/mks-keyboard.c"
+             line="469">Translate a keycode to a QEMU compatible one.</doc>
+        <source-position filename="lib/mks-keyboard.h" line="98"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="keyval" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="471">the keyval</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="keycode" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="472">the hardware keycode</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="translated"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="473">the translated keycode</doc>
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="get_modifiers"
+              c:identifier="mks_keyboard_get_modifiers"
+              glib:get-property="modifiers">
+        <doc xml:space="preserve"
+             filename="lib/mks-keyboard.c"
+             line="190">Get the active keyboard modifiers.</doc>
+        <source-position filename="lib/mks-keyboard.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="KeyboardModifier" c:type="MksKeyboardModifier"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="192">an #MksKeyboard</doc>
+            <type name="Keyboard" c:type="MksKeyboard*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="press" c:identifier="mks_keyboard_press">
+        <doc xml:space="preserve"
+             filename="lib/mks-keyboard.c"
+             line="243">Presses @keycode.</doc>
+        <source-position filename="lib/mks-keyboard.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="245">an #MksKeyboard</doc>
+            <type name="Keyboard" c:type="MksKeyboard*"/>
+          </instance-parameter>
+          <parameter name="keycode" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="246">the hardware keycode</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="247">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="248">a #GAsyncReadyCallback to execute upon completion</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="249">closure data for @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="press_finish"
+              c:identifier="mks_keyboard_press_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-keyboard.c"
+             line="283">Completes a call to [method@Mks.Keyboard.press].</doc>
+        <source-position filename="lib/mks-keyboard.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-keyboard.c"
+               line="291">%TRUE if the operation completed successfully; otherwise %FALSE
+  and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="285">a `MksKeyboard`</doc>
+            <type name="Keyboard" c:type="MksKeyboard*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="286">a #GAsyncResult provided to callback</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="press_sync"
+              c:identifier="mks_keyboard_press_sync"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-keyboard.c"
+             line="312">Synchronously press the `keycode`.</doc>
+        <source-position filename="lib/mks-keyboard.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-keyboard.c"
+               line="321">%TRUE if the operation was acknowledged by the QEMU instance;
+  otherwise %FALSE and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="314">an #MksKeyboard</doc>
+            <type name="Keyboard" c:type="MksKeyboard*"/>
+          </instance-parameter>
+          <parameter name="keycode" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="315">the hardware keycode</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="316">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="release" c:identifier="mks_keyboard_release">
+        <doc xml:space="preserve"
+             filename="lib/mks-keyboard.c"
+             line="368">Releases @keycode.</doc>
+        <source-position filename="lib/mks-keyboard.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="370">an #MksKeyboard</doc>
+            <type name="Keyboard" c:type="MksKeyboard*"/>
+          </instance-parameter>
+          <parameter name="keycode" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="371">the hardware keycode</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="372">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="373">a #GAsyncReadyCallback to execute upon completion</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="374">closure data for @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="release_finish"
+              c:identifier="mks_keyboard_release_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-keyboard.c"
+             line="408">Completes a call to [method@Mks.Keyboard.release].</doc>
+        <source-position filename="lib/mks-keyboard.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-keyboard.c"
+               line="416">%TRUE if the operation completed successfully; otherwise %FALSE
+  and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="410">a `MksKeyboard`</doc>
+            <type name="Keyboard" c:type="MksKeyboard*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="411">a #GAsyncResult provided to callback</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="release_sync"
+              c:identifier="mks_keyboard_release_sync"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-keyboard.c"
+             line="436">Synchronously release the `keycode`.</doc>
+        <source-position filename="lib/mks-keyboard.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-keyboard.c"
+               line="445">%TRUE if the operation was acknowledged by the QEMU instance;
+  otherwise %FALSE and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="438">an #MksKeyboard</doc>
+            <type name="Keyboard" c:type="MksKeyboard*"/>
+          </instance-parameter>
+          <parameter name="keycode" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="439">the hardware keycode</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-keyboard.c"
+                 line="440">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="modifiers"
+                transfer-ownership="none"
+                getter="get_modifiers"
+                default-value="MKS_KEYBOARD_MODIFIER_NONE">
+        <doc xml:space="preserve"
+             filename="lib/mks-keyboard.c"
+             line="171">Active keyboard modifiers.</doc>
+        <type name="KeyboardModifier"/>
+      </property>
+    </class>
+    <record name="KeyboardClass"
+            c:type="MksKeyboardClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="Keyboard">
+      <source-position filename="lib/mks-keyboard.h" line="43"/>
+    </record>
+    <bitfield name="KeyboardModifier"
+              glib:type-name="MksKeyboardModifier"
+              glib:get-type="mks_keyboard_modifier_get_type"
+              c:type="MksKeyboardModifier">
+      <doc xml:space="preserve"
+           filename="lib/mks-keyboard.h"
+           line="45">The active keyboard modifiers.</doc>
+      <member name="none"
+              value="0"
+              c:identifier="MKS_KEYBOARD_MODIFIER_NONE"
+              glib:nick="none"
+              glib:name="MKS_KEYBOARD_MODIFIER_NONE">
+        <doc xml:space="preserve"
+             filename="lib/mks-keyboard.h"
+             line="47">No modifier.</doc>
+      </member>
+      <member name="scroll_lock"
+              value="1"
+              c:identifier="MKS_KEYBOARD_MODIFIER_SCROLL_LOCK"
+              glib:nick="scroll-lock"
+              glib:name="MKS_KEYBOARD_MODIFIER_SCROLL_LOCK">
+        <doc xml:space="preserve"
+             filename="lib/mks-keyboard.h"
+             line="48">Scroll lock.</doc>
+      </member>
+      <member name="num_lock"
+              value="2"
+              c:identifier="MKS_KEYBOARD_MODIFIER_NUM_LOCK"
+              glib:nick="num-lock"
+              glib:name="MKS_KEYBOARD_MODIFIER_NUM_LOCK">
+        <doc xml:space="preserve"
+             filename="lib/mks-keyboard.h"
+             line="49">Numeric lock.</doc>
+      </member>
+      <member name="caps_lock"
+              value="4"
+              c:identifier="MKS_KEYBOARD_MODIFIER_CAPS_LOCK"
+              glib:nick="caps-lock"
+              glib:name="MKS_KEYBOARD_MODIFIER_CAPS_LOCK">
+        <doc xml:space="preserve"
+             filename="lib/mks-keyboard.h"
+             line="50">Caps lock.</doc>
+      </member>
+    </bitfield>
+    <constant name="MAJOR_VERSION" value="0" c:type="MKS_MAJOR_VERSION">
+      <doc xml:space="preserve"
+           filename="lib/mks-version.h"
+           line="35">mks major version component (e.g. 1 if %MKS_VERSION is 1.2.3)</doc>
+      <source-position filename="lib/mks-version.h" line="40"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MICRO_VERSION" value="5" c:type="MKS_MICRO_VERSION">
+      <doc xml:space="preserve"
+           filename="lib/mks-version.h"
+           line="49">mks micro version component (e.g. 3 if %MKS_VERSION is 1.2.3)</doc>
+      <source-position filename="lib/mks-version.h" line="54"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MINOR_VERSION" value="1" c:type="MKS_MINOR_VERSION">
+      <doc xml:space="preserve"
+           filename="lib/mks-version.h"
+           line="42">mks minor version component (e.g. 2 if %MKS_VERSION is 1.2.3)</doc>
+      <source-position filename="lib/mks-version.h" line="47"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <function-macro name="MOUSE" c:identifier="MKS_MOUSE" introspectable="0">
+      <source-position filename="lib/mks-mouse.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MOUSE_CLASS"
+                    c:identifier="MKS_MOUSE_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/mks-mouse.h" line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MOUSE_CONST"
+                    c:identifier="MKS_MOUSE_CONST"
+                    introspectable="0">
+      <source-position filename="lib/mks-mouse.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MOUSE_GET_CLASS"
+                    c:identifier="MKS_MOUSE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/mks-mouse.h" line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Mouse"
+           c:symbol-prefix="mouse"
+           c:type="MksMouse"
+           parent="Device"
+           final="1"
+           glib:type-name="MksMouse"
+           glib:get-type="mks_mouse_get_type"
+           glib:type-struct="MouseClass">
+      <doc xml:space="preserve"
+           filename="lib/mks-mouse.c"
+           line="28">A virtualized QEMU mouse.</doc>
+      <source-position filename="lib/mks-mouse.h" line="43"/>
+      <method name="get_is_absolute"
+              c:identifier="mks_mouse_get_is_absolute"
+              glib:get-property="is-absolute">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.c"
+             line="189">Whether the mouse is using absolute movements.</doc>
+        <source-position filename="lib/mks-mouse.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="191">A `MksMouse`.</doc>
+            <type name="Mouse" c:type="MksMouse*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="move_by" c:identifier="mks_mouse_move_by">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.c"
+             line="624">Moves the mouse by delta_x and delta_y.</doc>
+        <source-position filename="lib/mks-mouse.h" line="120"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="626">an #MksMouse</doc>
+            <type name="Mouse" c:type="MksMouse*"/>
+          </instance-parameter>
+          <parameter name="delta_x" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="627">the x coordinate delta</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="delta_y" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="628">the y coordinate delta</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="629">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="630">a #GAsyncReadyCallback to execute upon completion</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="631">closure data for @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="move_by_finish"
+              c:identifier="mks_mouse_move_by_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.c"
+             line="669">Completes a call to [method@Mks.Mouse.move_by].</doc>
+        <source-position filename="lib/mks-mouse.h" line="127"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-mouse.c"
+               line="677">%TRUE if the operation completed successfully; otherwise %FALSE
+  and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="671">a `MksMouse`</doc>
+            <type name="Mouse" c:type="MksMouse*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="672">a #GAsyncResult provided to callback</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="move_by_sync"
+              c:identifier="mks_mouse_move_by_sync"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.c"
+             line="697">Synchronously moves the mouse by delta_x and delta_y.</doc>
+        <source-position filename="lib/mks-mouse.h" line="131"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-mouse.c"
+               line="707">%TRUE if the operation was acknowledged by the QEMU instance;
+  otherwise %FALSE and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="699">an #MksMouse</doc>
+            <type name="Mouse" c:type="MksMouse*"/>
+          </instance-parameter>
+          <parameter name="delta_x" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="700">the x coordinate delta</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="delta_y" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="701">the y coordinate delta</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="702">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="move_to" c:identifier="mks_mouse_move_to">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.c"
+             line="490">Moves to the absolute position at coordinates (x,y).</doc>
+        <source-position filename="lib/mks-mouse.h" line="103"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="492">an #MksMouse</doc>
+            <type name="Mouse" c:type="MksMouse*"/>
+          </instance-parameter>
+          <parameter name="x" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="493">the x coordinate</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="494">the y coordinate</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="495">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="496">a #GAsyncReadyCallback to execute upon completion</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="497">closure data for @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="move_to_finish"
+              c:identifier="mks_mouse_move_to_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.c"
+             line="535">Completes a call to [method@Mks.Mouse.move_to].</doc>
+        <source-position filename="lib/mks-mouse.h" line="110"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-mouse.c"
+               line="543">%TRUE if the operation completed successfully; otherwise %FALSE
+  and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="537">a `MksMouse`</doc>
+            <type name="Mouse" c:type="MksMouse*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="538">a #GAsyncResult provided to callback</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="move_to_sync"
+              c:identifier="mks_mouse_move_to_sync"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.c"
+             line="563">Synchronously moves to the absolute position at coordinates (x,y).</doc>
+        <source-position filename="lib/mks-mouse.h" line="114"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-mouse.c"
+               line="573">%TRUE if the operation was acknowledged by the QEMU instance;
+  otherwise %FALSE and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="565">an #MksMouse</doc>
+            <type name="Mouse" c:type="MksMouse*"/>
+          </instance-parameter>
+          <parameter name="x" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="566">the x coordinate</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="567">the y coordinate</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="568">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="press" c:identifier="mks_mouse_press">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.c"
+             line="242">Presses a mouse button.</doc>
+        <source-position filename="lib/mks-mouse.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="244">an #MksMouse</doc>
+            <type name="Mouse" c:type="MksMouse*"/>
+          </instance-parameter>
+          <parameter name="button" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="245">the #MksMouseButton that was pressed</doc>
+            <type name="MouseButton" c:type="MksMouseButton"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="246">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="247">a #GAsyncReadyCallback to execute upon completion</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="248">closure data for @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="press_finish"
+              c:identifier="mks_mouse_press_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.c"
+             line="282">Completes a call to [method@Mks.Mouse.press].</doc>
+        <source-position filename="lib/mks-mouse.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-mouse.c"
+               line="290">%TRUE if the operation completed successfully; otherwise %FALSE
+  and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="284">a `MksMouse`</doc>
+            <type name="Mouse" c:type="MksMouse*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="285">a #GAsyncResult provided to callback</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="press_sync" c:identifier="mks_mouse_press_sync" throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.c"
+             line="310">Synchronously press a mouse button.</doc>
+        <source-position filename="lib/mks-mouse.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-mouse.c"
+               line="319">%TRUE if the operation was acknowledged by the QEMU instance;
+  otherwise %FALSE and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="312">an #MksMouse</doc>
+            <type name="Mouse" c:type="MksMouse*"/>
+          </instance-parameter>
+          <parameter name="button" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="313">the #MksMouseButton that was released</doc>
+            <type name="MouseButton" c:type="MksMouseButton"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="314">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="release" c:identifier="mks_mouse_release">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.c"
+             line="366">Releases a mouse button.</doc>
+        <source-position filename="lib/mks-mouse.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="368">an #MksMouse</doc>
+            <type name="Mouse" c:type="MksMouse*"/>
+          </instance-parameter>
+          <parameter name="button" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="369">the #MksMouseButton that was released</doc>
+            <type name="MouseButton" c:type="MksMouseButton"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="370">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="371">a #GAsyncReadyCallback to execute upon completion</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="372">closure data for @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="release_finish"
+              c:identifier="mks_mouse_release_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.c"
+             line="406">Completes a call to [method@Mks.Mouse.release].</doc>
+        <source-position filename="lib/mks-mouse.h" line="94"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-mouse.c"
+               line="414">%TRUE if the operation completed successfully; otherwise %FALSE
+  and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="408">a `MksMouse`</doc>
+            <type name="Mouse" c:type="MksMouse*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="409">a #GAsyncResult provided to callback</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="release_sync"
+              c:identifier="mks_mouse_release_sync"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.c"
+             line="434">Synchronously releases a mouse button.</doc>
+        <source-position filename="lib/mks-mouse.h" line="98"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-mouse.c"
+               line="443">%TRUE if the operation was acknowledged by the QEMU instance;
+  otherwise %FALSE and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="436">an #MksMouse</doc>
+            <type name="Mouse" c:type="MksMouse*"/>
+          </instance-parameter>
+          <parameter name="button" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="437">the #MksMouseButton that was released</doc>
+            <type name="MouseButton" c:type="MksMouseButton"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-mouse.c"
+                 line="438">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="is-absolute"
+                transfer-ownership="none"
+                getter="get_is_absolute"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.c"
+             line="171">Whether the mouse is using absolute movements.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+    </class>
+    <enumeration name="MouseButton"
+                 glib:type-name="MksMouseButton"
+                 glib:get-type="mks_mouse_button_get_type"
+                 c:type="MksMouseButton">
+      <doc xml:space="preserve"
+           filename="lib/mks-mouse.h"
+           line="45">A mouse button.</doc>
+      <member name="left"
+              value="0"
+              c:identifier="MKS_MOUSE_BUTTON_LEFT"
+              glib:nick="left"
+              glib:name="MKS_MOUSE_BUTTON_LEFT">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.h"
+             line="47">Left button.</doc>
+      </member>
+      <member name="middle"
+              value="1"
+              c:identifier="MKS_MOUSE_BUTTON_MIDDLE"
+              glib:nick="middle"
+              glib:name="MKS_MOUSE_BUTTON_MIDDLE">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.h"
+             line="48">Middle button.</doc>
+      </member>
+      <member name="right"
+              value="2"
+              c:identifier="MKS_MOUSE_BUTTON_RIGHT"
+              glib:nick="right"
+              glib:name="MKS_MOUSE_BUTTON_RIGHT">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.h"
+             line="49">Right button.</doc>
+      </member>
+      <member name="wheel_up"
+              value="3"
+              c:identifier="MKS_MOUSE_BUTTON_WHEEL_UP"
+              glib:nick="wheel-up"
+              glib:name="MKS_MOUSE_BUTTON_WHEEL_UP">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.h"
+             line="50">Wheel-up button.</doc>
+      </member>
+      <member name="wheel_down"
+              value="4"
+              c:identifier="MKS_MOUSE_BUTTON_WHEEL_DOWN"
+              glib:nick="wheel-down"
+              glib:name="MKS_MOUSE_BUTTON_WHEEL_DOWN">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.h"
+             line="51">Wheel-down button.</doc>
+      </member>
+      <member name="side"
+              value="5"
+              c:identifier="MKS_MOUSE_BUTTON_SIDE"
+              glib:nick="side"
+              glib:name="MKS_MOUSE_BUTTON_SIDE">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.h"
+             line="52">Side button.</doc>
+      </member>
+      <member name="extra"
+              value="6"
+              c:identifier="MKS_MOUSE_BUTTON_EXTRA"
+              glib:nick="extra"
+              glib:name="MKS_MOUSE_BUTTON_EXTRA">
+        <doc xml:space="preserve"
+             filename="lib/mks-mouse.h"
+             line="53">Extra button.</doc>
+      </member>
+    </enumeration>
+    <record name="MouseClass"
+            c:type="MksMouseClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="Mouse">
+      <source-position filename="lib/mks-mouse.h" line="43"/>
+    </record>
+    <function-macro name="SCREEN" c:identifier="MKS_SCREEN" introspectable="0">
+      <source-position filename="lib/mks-screen.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SCREEN_CLASS"
+                    c:identifier="MKS_SCREEN_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/mks-screen.h" line="39"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SCREEN_CONST"
+                    c:identifier="MKS_SCREEN_CONST"
+                    introspectable="0">
+      <source-position filename="lib/mks-screen.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SCREEN_GET_CLASS"
+                    c:identifier="MKS_SCREEN_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/mks-screen.h" line="42"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Screen"
+           c:symbol-prefix="screen"
+           c:type="MksScreen"
+           parent="Device"
+           final="1"
+           glib:type-name="MksScreen"
+           glib:get-type="mks_screen_get_type"
+           glib:type-struct="ScreenClass">
+      <source-position filename="lib/mks-screen.h" line="44"/>
+      <method name="attach" c:identifier="mks_screen_attach">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen.c"
+             line="623">Asynchronously creates a #GdkPaintable that is updated with the
+contents of the screen.
+
+This function registers a new `socketpair()` which is shared with
+the QEMU instance to receive rendering updates. Those updates are
+propagated to the resulting #GdkPainable which can be retrieved
+using mks_screen_attach_finish() from @callback.</doc>
+        <source-position filename="lib/mks-screen.h" line="93"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="625">an #MksScreen</doc>
+            <type name="Screen" c:type="MksScreen*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="626">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="627">a #GAsyncReadyCallback to execute upon completion</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="628">closure data for @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="attach_finish"
+              c:identifier="mks_screen_attach_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen.c"
+             line="676">Completes an asynchronous request to create a [iface@Gdk.Paintable] containing
+the contents of #MksScreen in the QEMU instance.
+
+The resulting [iface@Gdk.Paintable] will be updated as changes are delivered
+from QEMU over a private `socketpair()`. In the typical case, those
+changes are propagated using a DMA-BUF and damage notifications.</doc>
+        <source-position filename="lib/mks-screen.h" line="98"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/mks-screen.c"
+               line="689">a #GdkPainable if successful; otherwise %NULL
+  and @error is set.</doc>
+          <type name="Gdk.Paintable" c:type="GdkPaintable*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="678">an #MksScreen</doc>
+            <type name="Screen" c:type="MksScreen*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="679">a #GAsyncResult provided to callback</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="attach_sync"
+              c:identifier="mks_screen_attach_sync"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen.c"
+             line="703">Synchronous request to attach to screen, creating a paintable that can
+be used to update display as the QEMU instance updates.</doc>
+        <source-position filename="lib/mks-screen.h" line="102"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/mks-screen.c"
+               line="712">a #GdkPaintable if successful; otherwise %NULL
+  and @error is set.</doc>
+          <type name="Gdk.Paintable" c:type="GdkPaintable*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="705">a #MksScreen</doc>
+            <type name="Screen" c:type="MksScreen*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="706">a #GCancellable or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="configure" c:identifier="mks_screen_configure">
+        <source-position filename="lib/mks-screen.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Screen" c:type="MksScreen*"/>
+          </instance-parameter>
+          <parameter name="attributes" transfer-ownership="none">
+            <type name="ScreenAttributes" c:type="MksScreenAttributes*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="configure_finish"
+              c:identifier="mks_screen_configure_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen.c"
+             line="542">Completes a call to mks_screen_configure().</doc>
+        <source-position filename="lib/mks-screen.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-screen.c"
+               line="550">%TRUE if the operation completed successfully; otherwise %FALSE
+  and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="544">an #MksScreen</doc>
+            <type name="Screen" c:type="MksScreen*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="545">a #GAsyncResult provided to callback</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="configure_sync"
+              c:identifier="mks_screen_configure_sync"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen.c"
+             line="564">Requests the QEMU instance reconfigure the screen using @attributes.
+
+This function takes ownership of @attributes.</doc>
+        <source-position filename="lib/mks-screen.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-screen.c"
+               line="575">%TRUE if the operation completed successfully; otherwise %FALSE
+  and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="566">a #MksScreen</doc>
+            <type name="Screen" c:type="MksScreen*"/>
+          </instance-parameter>
+          <parameter name="attributes" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="567">a #MksScreenAttributes</doc>
+            <type name="ScreenAttributes" c:type="MksScreenAttributes*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="568">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_device_address"
+              c:identifier="mks_screen_get_device_address"
+              glib:get-property="device-address">
+        <source-position filename="lib/mks-screen.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Screen" c:type="MksScreen*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_height"
+              c:identifier="mks_screen_get_height"
+              glib:get-property="height">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen.c"
+             line="413">Gets the "height" property.</doc>
+        <source-position filename="lib/mks-screen.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-screen.c"
+               line="419">The height of the screen in pixels.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="415">a #MksScreen</doc>
+            <type name="Screen" c:type="MksScreen*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_keyboard"
+              c:identifier="mks_screen_get_keyboard"
+              glib:get-property="keyboard">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen.c"
+             line="333">Gets the #MksScreen:keyboard property.</doc>
+        <source-position filename="lib/mks-screen.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-screen.c"
+               line="339">a #MksKeyboard</doc>
+          <type name="Keyboard" c:type="MksKeyboard*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="335">a #MksScreen</doc>
+            <type name="Screen" c:type="MksScreen*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_kind"
+              c:identifier="mks_screen_get_kind"
+              glib:get-property="kind">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen.c"
+             line="381">Gets the "kind" property.</doc>
+        <source-position filename="lib/mks-screen.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-screen.c"
+               line="387">a #MksScreenKind</doc>
+          <type name="ScreenKind" c:type="MksScreenKind"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="383">a #MksScreen</doc>
+            <type name="Screen" c:type="MksScreen*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_mouse"
+              c:identifier="mks_screen_get_mouse"
+              glib:get-property="mouse">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen.c"
+             line="349">Gets the #MksScreen:mouse property.</doc>
+        <source-position filename="lib/mks-screen.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-screen.c"
+               line="355">a #MksMouse</doc>
+          <type name="Mouse" c:type="MksMouse*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="351">a #MksScreen</doc>
+            <type name="Screen" c:type="MksScreen*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_number"
+              c:identifier="mks_screen_get_number"
+              glib:get-property="number">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen.c"
+             line="429">Gets the "number" property.</doc>
+        <source-position filename="lib/mks-screen.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-screen.c"
+               line="435">the screen number</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="431">a #MksScreen</doc>
+            <type name="Screen" c:type="MksScreen*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_touchable" c:identifier="mks_screen_get_touchable">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen.c"
+             line="365">Gets the #MksScreen:touchable property.</doc>
+        <source-position filename="lib/mks-screen.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-screen.c"
+               line="371">a #MksTouchable</doc>
+          <type name="Touchable" c:type="MksTouchable*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="367">a #MksScreen</doc>
+            <type name="Screen" c:type="MksScreen*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_width"
+              c:identifier="mks_screen_get_width"
+              glib:get-property="width">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen.c"
+             line="397">Gets the "width" property.</doc>
+        <source-position filename="lib/mks-screen.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-screen.c"
+               line="403">The width of the screen in pixels.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen.c"
+                 line="399">a #MksScreen</doc>
+            <type name="Screen" c:type="MksScreen*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="device-address"
+                transfer-ownership="none"
+                getter="get_device_address"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="height"
+                transfer-ownership="none"
+                getter="get_height"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="keyboard"
+                transfer-ownership="none"
+                getter="get_keyboard">
+        <type name="Keyboard"/>
+      </property>
+      <property name="kind"
+                transfer-ownership="none"
+                getter="get_kind"
+                default-value="MKS_SCREEN_KIND_TEXT">
+        <type name="ScreenKind"/>
+      </property>
+      <property name="mouse" transfer-ownership="none" getter="get_mouse">
+        <type name="Mouse"/>
+      </property>
+      <property name="number"
+                transfer-ownership="none"
+                getter="get_number"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="width"
+                transfer-ownership="none"
+                getter="get_width"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+    </class>
+    <record name="ScreenAttributes"
+            c:type="MksScreenAttributes"
+            opaque="1"
+            glib:type-name="MksScreenAttributes"
+            glib:get-type="mks_screen_attributes_get_type"
+            c:symbol-prefix="screen_attributes">
+      <doc xml:space="preserve"
+           filename="lib/mks-screen-attributes.c"
+           line="26">Screen attributes.
+
+The attributes are used to reconfigure the QEMU instance with
+[method@Mks.Screen.configure] or [method@Mks.Screen.configure_sync].</doc>
+      <source-position filename="lib/mks-types.h" line="37"/>
+      <constructor name="new" c:identifier="mks_screen_attributes_new">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen-attributes.c"
+             line="40">Creates a new #MksScreenAttributes.</doc>
+        <source-position filename="lib/mks-screen-attributes.h" line="40"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/mks-screen-attributes.c"
+               line="45">A newly created #MksScreenAttributes</doc>
+          <type name="ScreenAttributes" c:type="MksScreenAttributes*"/>
+        </return-value>
+      </constructor>
+      <method name="copy" c:identifier="mks_screen_attributes_copy">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen-attributes.c"
+             line="53">Makes a deep copy of a #MksScreenAttributes.</doc>
+        <source-position filename="lib/mks-screen-attributes.h" line="42"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/mks-screen-attributes.c"
+               line="59">A newly created #MksScreenAttributes with the same
+  contents as @self. If @self is %NULL, %NULL is returned.</doc>
+          <type name="ScreenAttributes" c:type="MksScreenAttributes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self"
+                              transfer-ownership="none"
+                              nullable="1"
+                              allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen-attributes.c"
+                 line="55">a #MksScreenAttributes</doc>
+            <type name="ScreenAttributes" c:type="MksScreenAttributes*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="equal" c:identifier="mks_screen_attributes_equal">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen-attributes.c"
+             line="86">Returns `true` if the two attributes are equal, `false` otherwise.</doc>
+        <source-position filename="lib/mks-screen-attributes.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen-attributes.c"
+                 line="88">a #MksScreenAttributes</doc>
+            <type name="ScreenAttributes" c:type="MksScreenAttributes*"/>
+          </instance-parameter>
+          <parameter name="other" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen-attributes.c"
+                 line="89">a #MksScreenAttributes</doc>
+            <type name="ScreenAttributes" c:type="MksScreenAttributes*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="mks_screen_attributes_free">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen-attributes.c"
+             line="71">Frees a #MksScreenAttributes.
+
+Allocated using [ctor@Mks.ScreenAttributes.new]
+or [method@Mks.ScreenAttributes.copy].</doc>
+        <source-position filename="lib/mks-screen-attributes.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen-attributes.c"
+                 line="73">a #MksScreenAttributes</doc>
+            <type name="ScreenAttributes" c:type="MksScreenAttributes*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_height"
+              c:identifier="mks_screen_attributes_set_height">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen-attributes.c"
+             line="178">Set the screen height in pixels.</doc>
+        <source-position filename="lib/mks-screen-attributes.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen-attributes.c"
+                 line="180">A MksScreenAttributes.</doc>
+            <type name="ScreenAttributes" c:type="MksScreenAttributes*"/>
+          </instance-parameter>
+          <parameter name="height" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen-attributes.c"
+                 line="181">The screen height.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_height_mm"
+              c:identifier="mks_screen_attributes_set_height_mm">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen-attributes.c"
+             line="122">Set the screen height in millimeters.</doc>
+        <source-position filename="lib/mks-screen-attributes.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen-attributes.c"
+                 line="124">A MksScreenAttributes.</doc>
+            <type name="ScreenAttributes" c:type="MksScreenAttributes*"/>
+          </instance-parameter>
+          <parameter name="height_mm" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen-attributes.c"
+                 line="125">The screen height.</doc>
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_width" c:identifier="mks_screen_attributes_set_width">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen-attributes.c"
+             line="164">Set the screen width in pixels.</doc>
+        <source-position filename="lib/mks-screen-attributes.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen-attributes.c"
+                 line="166">A MksScreenAttributes.</doc>
+            <type name="ScreenAttributes" c:type="MksScreenAttributes*"/>
+          </instance-parameter>
+          <parameter name="width" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen-attributes.c"
+                 line="167">The screen width.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_width_mm"
+              c:identifier="mks_screen_attributes_set_width_mm">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen-attributes.c"
+             line="108">Set the screen width in millimeters.</doc>
+        <source-position filename="lib/mks-screen-attributes.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen-attributes.c"
+                 line="110">A MksScreenAttributes.</doc>
+            <type name="ScreenAttributes" c:type="MksScreenAttributes*"/>
+          </instance-parameter>
+          <parameter name="width_mm" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen-attributes.c"
+                 line="111">The screen width.</doc>
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_x_offset"
+              c:identifier="mks_screen_attributes_set_x_offset">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen-attributes.c"
+             line="136">Set the screen's horizontal offset in pixels.</doc>
+        <source-position filename="lib/mks-screen-attributes.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen-attributes.c"
+                 line="138">A MksScreenAttributes.</doc>
+            <type name="ScreenAttributes" c:type="MksScreenAttributes*"/>
+          </instance-parameter>
+          <parameter name="x_offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen-attributes.c"
+                 line="139">The screen's horizontal offset.</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_y_offset"
+              c:identifier="mks_screen_attributes_set_y_offset">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen-attributes.c"
+             line="150">Set the screen's vertical offset in pixels.</doc>
+        <source-position filename="lib/mks-screen-attributes.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen-attributes.c"
+                 line="152">A MksScreenAttributes.</doc>
+            <type name="ScreenAttributes" c:type="MksScreenAttributes*"/>
+          </instance-parameter>
+          <parameter name="y_offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-screen-attributes.c"
+                 line="153">The screen's vertical offset.</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="ScreenClass"
+            c:type="MksScreenClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="Screen">
+      <source-position filename="lib/mks-screen.h" line="44"/>
+    </record>
+    <enumeration name="ScreenKind"
+                 glib:type-name="MksScreenKind"
+                 glib:get-type="mks_screen_kind_get_type"
+                 c:type="MksScreenKind">
+      <doc xml:space="preserve"
+           filename="lib/mks-screen.h"
+           line="46">A screen kind.</doc>
+      <member name="text"
+              value="0"
+              c:identifier="MKS_SCREEN_KIND_TEXT"
+              glib:nick="text"
+              glib:name="MKS_SCREEN_KIND_TEXT">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen.h"
+             line="48">A text only screen.</doc>
+      </member>
+      <member name="graphic"
+              value="1"
+              c:identifier="MKS_SCREEN_KIND_GRAPHIC"
+              glib:nick="graphic"
+              glib:name="MKS_SCREEN_KIND_GRAPHIC">
+        <doc xml:space="preserve"
+             filename="lib/mks-screen.h"
+             line="49">A graphical screen.</doc>
+      </member>
+    </enumeration>
+    <class name="Session"
+           c:symbol-prefix="session"
+           c:type="MksSession"
+           parent="GObject.Object"
+           final="1"
+           glib:type-name="MksSession"
+           glib:get-type="mks_session_get_type"
+           glib:type-struct="SessionClass">
+      <doc xml:space="preserve"
+           filename="lib/mks-session.c"
+           line="30">Session connected to a QEMU VM
+
+The `MksSession` represents a connection to a QEMU VM instance. It contains
+devices such as the mouse, keyboard, and screen which can be used with GTK.
+
+You may monitor [property@Mks.Session:devices] using [signal@Gio.ListModel::items-changed] to be
+notified of changes to available devices in the session.
+
+# Connecting To QEMU
+
+To use `MksSession`, you should create your QEMU instance using `dbus` for
+the various devices that support it. You'll need to provide your P2P D-Bus
+address when connecting to QEMU.
+
+Using the same [class@Gio.DBusConnection], create a `MksSession` with
+[func@Mks.Session.new_for_connection]. The `MksSession` instance will negotiate
+with the peer to determine what devices are available and expose them
+via the [property@Mks.Session:devices] [iface@Gio.ListModel].
+
+# Creating Widgets
+
+You can create a new widget to embed in your application by calling
+[method@Mks.Session.ref_screen] and set the screen for the [class@Mks.Display]
+with [method@Mks.Display.set_screen].</doc>
+      <source-position filename="lib/mks-session.h" line="38"/>
+      <implements name="Gio.AsyncInitable"/>
+      <implements name="Gio.Initable"/>
+      <constructor name="new_for_connection_finish"
+                   c:identifier="mks_session_new_for_connection_finish"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-session.c"
+             line="628">Completes a request to create a #MksSession for a [class@Gio.DBusConnection].</doc>
+        <source-position filename="lib/mks-session.h" line="47"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/mks-session.c"
+               line="635">a #MksSession if successful; otherwise %NULL
+  and @error is set.</doc>
+          <type name="Session" c:type="MksSession*"/>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-session.c"
+                 line="630">a #GAsyncResult provided to callback</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_for_connection_sync"
+                   c:identifier="mks_session_new_for_connection_sync"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-session.c"
+             line="647">Synchronously creates a new #MksSession instance.
+
+This may block while the QEMU instance is contacted to query for
+initial devices and VM status.</doc>
+        <source-position filename="lib/mks-session.h" line="50"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/mks-session.c"
+               line="658">a #MksSession if successful; otherwise %NULL
+  and @error is set.</doc>
+          <type name="Session" c:type="MksSession*"/>
+        </return-value>
+        <parameters>
+          <parameter name="connection" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-session.c"
+                 line="649">a private #GDBusConnetion to a QEMU instance</doc>
+            <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-session.c"
+                 line="650">a #GCancellable, or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="new_for_connection"
+                c:identifier="mks_session_new_for_connection">
+        <doc xml:space="preserve"
+             filename="lib/mks-session.c"
+             line="579">Creates a #MksSession which communicates using @connection.
+
+The [class@Gio.DBusConnection] should be a private D-Bus connection to a QEMU
+instance which has devices created using the "dbus" backend.
+
+@callback will be executed when the session has been created or
+failed to create.
+
+This function will not block the calling thread.
+
+use [ctor@Mks.Session.new_for_connection_finish] to get the result of
+this operation.</doc>
+        <source-position filename="lib/mks-session.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="connection" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-session.c"
+                 line="581">a #GDBusConnection</doc>
+            <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
+          </parameter>
+          <parameter name="io_priority" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-session.c"
+                 line="582">priority for IO operations</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-session.c"
+                 line="583">a #GCancellable or %NULL</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="lib/mks-session.c"
+                 line="584">a callback to execute upon completion of the operation</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-session.c"
+                 line="585">closure data for @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="get_connection"
+              c:identifier="mks_session_get_connection"
+              glib:get-property="connection">
+        <doc xml:space="preserve"
+             filename="lib/mks-session.c"
+             line="680">Gets the DBus connection used for this session.</doc>
+        <source-position filename="lib/mks-session.h" line="54"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="lib/mks-session.c"
+               line="686">a #GDBusConnection or %NULL if
+  the connection has not been set, or was disposed.</doc>
+          <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-session.c"
+                 line="682">a #MksSession</doc>
+            <type name="Session" c:type="MksSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_devices"
+              c:identifier="mks_session_get_devices"
+              glib:get-property="devices">
+        <doc xml:space="preserve"
+             filename="lib/mks-session.c"
+             line="544">Gets a #GListModel of devices connected to the session.</doc>
+        <source-position filename="lib/mks-session.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-session.c"
+               line="550">a #GListModel of #MksDevice</doc>
+          <type name="Gio.ListModel" c:type="GListModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-session.c"
+                 line="546">a #MksSession</doc>
+            <type name="Session" c:type="MksSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="mks_session_get_name"
+              glib:get-property="name">
+        <doc xml:space="preserve"
+             filename="lib/mks-session.c"
+             line="711">Gets the name of the VM.</doc>
+        <source-position filename="lib/mks-session.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-session.c"
+                 line="713">a #MksSession</doc>
+            <type name="Session" c:type="MksSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_uuid"
+              c:identifier="mks_session_get_uuid"
+              glib:get-property="uuid">
+        <doc xml:space="preserve"
+             filename="lib/mks-session.c"
+             line="697">Gets the unique identifier of the VM.</doc>
+        <source-position filename="lib/mks-session.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-session.c"
+                 line="699">a #MksSession</doc>
+            <type name="Session" c:type="MksSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ref_screen" c:identifier="mks_session_ref_screen">
+        <doc xml:space="preserve"
+             filename="lib/mks-session.c"
+             line="725">Gets the main screen for the session.</doc>
+        <source-position filename="lib/mks-session.h" line="62"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="lib/mks-session.c"
+               line="731">a #MksScreen or %NULL</doc>
+          <type name="Screen" c:type="MksScreen*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-session.c"
+                 line="727">a #MksSession</doc>
+            <type name="Session" c:type="MksSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="connection"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_connection">
+        <doc xml:space="preserve"
+             filename="lib/mks-session.c"
+             line="388">The [class@Gio.DBusConnection] that is used to communicate with QEMU.</doc>
+        <type name="Gio.DBusConnection"/>
+      </property>
+      <property name="devices" transfer-ownership="none" getter="get_devices">
+        <doc xml:space="preserve"
+             filename="lib/mks-session.c"
+             line="398">A [iface@Gio.ListModel] of devices that have been
+discovered on the [class@Gio.DBusConnection] to QEMU.</doc>
+        <type name="Gio.ListModel"/>
+      </property>
+      <property name="name"
+                transfer-ownership="none"
+                getter="get_name"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="lib/mks-session.c"
+             line="409">The VM name as specified by the QEMU instance.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="uuid"
+                transfer-ownership="none"
+                getter="get_uuid"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="lib/mks-session.c"
+             line="419">The VM unique identifier specified by the QEMU instance.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="SessionClass"
+            c:type="MksSessionClass"
+            glib:is-gtype-struct-for="Session">
+      <source-position filename="lib/mks-session.h" line="38"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <function-macro name="TOUCHABLE"
+                    c:identifier="MKS_TOUCHABLE"
+                    introspectable="0">
+      <source-position filename="lib/mks-touchable.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TOUCHABLE_CLASS"
+                    c:identifier="MKS_TOUCHABLE_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/mks-touchable.h" line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TOUCHABLE_CONST"
+                    c:identifier="MKS_TOUCHABLE_CONST"
+                    introspectable="0">
+      <source-position filename="lib/mks-touchable.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TOUCHABLE_GET_CLASS"
+                    c:identifier="MKS_TOUCHABLE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/mks-touchable.h" line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <enumeration name="TouchEventKind"
+                 glib:type-name="MksTouchEventKind"
+                 glib:get-type="mks_touch_event_kind_get_type"
+                 c:type="MksTouchEventKind">
+      <doc xml:space="preserve"
+           filename="lib/mks-touchable.h"
+           line="45">The type of a touch event.</doc>
+      <member name="begin"
+              value="0"
+              c:identifier="MKS_TOUCH_EVENT_BEGIN"
+              glib:nick="begin"
+              glib:name="MKS_TOUCH_EVENT_BEGIN">
+        <doc xml:space="preserve"
+             filename="lib/mks-touchable.h"
+             line="47">The touch event has just started.</doc>
+      </member>
+      <member name="update"
+              value="1"
+              c:identifier="MKS_TOUCH_EVENT_UPDATE"
+              glib:nick="update"
+              glib:name="MKS_TOUCH_EVENT_UPDATE">
+        <doc xml:space="preserve"
+             filename="lib/mks-touchable.h"
+             line="48">The touch event has been updated.</doc>
+      </member>
+      <member name="end"
+              value="2"
+              c:identifier="MKS_TOUCH_EVENT_END"
+              glib:nick="end"
+              glib:name="MKS_TOUCH_EVENT_END">
+        <doc xml:space="preserve"
+             filename="lib/mks-touchable.h"
+             line="49">The touch event has finished.</doc>
+      </member>
+      <member name="cancel"
+              value="3"
+              c:identifier="MKS_TOUCH_EVENT_CANCEL"
+              glib:nick="cancel"
+              glib:name="MKS_TOUCH_EVENT_CANCEL">
+        <doc xml:space="preserve"
+             filename="lib/mks-touchable.h"
+             line="50">The touch event has been canceled.</doc>
+      </member>
+    </enumeration>
+    <class name="Touchable"
+           c:symbol-prefix="touchable"
+           c:type="MksTouchable"
+           parent="Device"
+           final="1"
+           glib:type-name="MksTouchable"
+           glib:get-type="mks_touchable_get_type"
+           glib:type-struct="TouchableClass">
+      <doc xml:space="preserve"
+           filename="lib/mks-touchable.c"
+           line="29">A virtualized QEMU touch device.</doc>
+      <source-position filename="lib/mks-touchable.h" line="43"/>
+      <method name="get_max_slots"
+              c:identifier="mks_touchable_get_max_slots"
+              glib:get-property="max-slots">
+        <doc xml:space="preserve"
+             filename="lib/mks-touchable.c"
+             line="343">Returns the maximum number of slots.</doc>
+        <source-position filename="lib/mks-touchable.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-touchable.c"
+                 line="345">A `MksTouchable`.</doc>
+            <type name="Touchable" c:type="MksTouchable*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="send_event" c:identifier="mks_touchable_send_event">
+        <doc xml:space="preserve"
+             filename="lib/mks-touchable.c"
+             line="228">Send a touch event.</doc>
+        <source-position filename="lib/mks-touchable.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-touchable.c"
+                 line="230">an #MksTouchable</doc>
+            <type name="Touchable" c:type="MksTouchable*"/>
+          </instance-parameter>
+          <parameter name="kind" transfer-ownership="none">
+            <type name="TouchEventKind" c:type="MksTouchEventKind"/>
+          </parameter>
+          <parameter name="num_slot" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-touchable.c"
+                 line="231">the slot number</doc>
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+          <parameter name="x" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-touchable.c"
+                 line="232">the x absolute coordinate</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-touchable.c"
+                 line="233">the y absolute coordinate</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-touchable.c"
+                 line="234">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="6">
+            <doc xml:space="preserve"
+                 filename="lib/mks-touchable.c"
+                 line="235">a #GAsyncReadyCallback to execute upon completion</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-touchable.c"
+                 line="236">closure data for @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="send_event_finish"
+              c:identifier="mks_touchable_send_event_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-touchable.c"
+             line="273">Completes a call to [method@Mks.Touchable.send_event].</doc>
+        <source-position filename="lib/mks-touchable.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-touchable.c"
+               line="281">%TRUE if the operation completed successfully; otherwise %FALSE
+  and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-touchable.c"
+                 line="275">a `MksTouchable`</doc>
+            <type name="Touchable" c:type="MksTouchable*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-touchable.c"
+                 line="276">a #GAsyncResult provided to callback</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="send_event_sync"
+              c:identifier="mks_touchable_send_event_sync"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="lib/mks-touchable.c"
+             line="302">Synchronously send a touch event.</doc>
+        <source-position filename="lib/mks-touchable.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/mks-touchable.c"
+               line="314">%TRUE if the operation was acknowledged by the QEMU instance;
+  otherwise %FALSE and @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-touchable.c"
+                 line="304">a `MksTouchable`</doc>
+            <type name="Touchable" c:type="MksTouchable*"/>
+          </instance-parameter>
+          <parameter name="kind" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-touchable.c"
+                 line="305">the event kind</doc>
+            <type name="TouchEventKind" c:type="MksTouchEventKind"/>
+          </parameter>
+          <parameter name="num_slot" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-touchable.c"
+                 line="306">the slot number</doc>
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+          <parameter name="x" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-touchable.c"
+                 line="307">the x absolute coordinate</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/mks-touchable.c"
+                 line="308">the y absolute coordinate</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lib/mks-touchable.c"
+                 line="309">a #GCancellable</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="max-slots"
+                transfer-ownership="none"
+                getter="get_max_slots"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="lib/mks-touchable.c"
+             line="171">The maximum number of slots.</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+    </class>
+    <record name="TouchableClass"
+            c:type="MksTouchableClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="Touchable">
+      <source-position filename="lib/mks-touchable.h" line="43"/>
+    </record>
+    <function-macro name="UNAVAILABLE"
+                    c:identifier="MKS_UNAVAILABLE"
+                    introspectable="0">
+      <source-position filename="lib/mks-version-macros.h" line="37"/>
+      <parameters>
+        <parameter name="maj">
+        </parameter>
+        <parameter name="min">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="VERSION_S" value="0.1.5" c:type="MKS_VERSION_S">
+      <doc xml:space="preserve"
+           filename="lib/mks-version.h"
+           line="63">mks version, encoded as a string, useful for printing and
+concatenation.</doc>
+      <source-position filename="lib/mks-version.h" line="69"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function name="get_major_version" c:identifier="mks_get_major_version">
+      <doc xml:space="preserve"
+           filename="lib/mks-init.c"
+           line="98">The major version the library.</doc>
+      <source-position filename="lib/mks-init.h" line="37"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+    </function>
+    <function name="get_micro_version" c:identifier="mks_get_micro_version">
+      <doc xml:space="preserve"
+           filename="lib/mks-init.c"
+           line="120">The micro version the library.</doc>
+      <source-position filename="lib/mks-init.h" line="41"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+    </function>
+    <function name="get_minor_version" c:identifier="mks_get_minor_version">
+      <doc xml:space="preserve"
+           filename="lib/mks-init.c"
+           line="109">The minor version the library.</doc>
+      <source-position filename="lib/mks-init.h" line="39"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+    </function>
+    <function name="init" c:identifier="mks_init">
+      <doc xml:space="preserve"
+           filename="lib/mks-init.c"
+           line="70">Initializes the library.
+
+The function must be called before using any of the library functions.</doc>
+      <source-position filename="lib/mks-init.h" line="35"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <docsection name="mksversion">
+      <doc xml:space="preserve"
+           filename="lib/mks-version.h"
+           line="27">mks provides macros to check the version of the library
+at compile-time</doc>
+    </docsection>
+  </namespace>
+</repository>

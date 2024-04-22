@@ -1,0 +1,2609 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <package name="libnemo-extension"/>
+  <namespace name="Nemo"
+             version="3.0"
+             shared-library="libnemo-extension.so.1"
+             c:identifier-prefixes="Nemo"
+             c:symbol-prefixes="nemo">
+    <alias name="ColumnProviderIface" c:type="NemoColumnProviderIface">
+      <source-position filename="libnemo-extension/nemo-column-provider.h"
+                       line="46"/>
+      <type name="ColumnProviderInterface"
+            c:type="NemoColumnProviderInterface"/>
+    </alias>
+    <alias name="InfoProviderIface" c:type="NemoInfoProviderIface">
+      <source-position filename="libnemo-extension/nemo-info-provider.h"
+                       line="45"/>
+      <type name="InfoProviderInterface" c:type="NemoInfoProviderInterface"/>
+    </alias>
+    <alias name="LocationWidgetProviderIface"
+           c:type="NemoLocationWidgetProviderIface">
+      <source-position filename="libnemo-extension/nemo-location-widget-provider.h"
+                       line="47"/>
+      <type name="LocationWidgetProviderInterface"
+            c:type="NemoLocationWidgetProviderInterface"/>
+    </alias>
+    <alias name="MenuProviderIface" c:type="NemoMenuProviderIface">
+      <source-position filename="libnemo-extension/nemo-menu-provider.h"
+                       line="47"/>
+      <type name="MenuProviderInterface" c:type="NemoMenuProviderInterface"/>
+    </alias>
+    <alias name="NameAndDescProviderIface"
+           c:type="NemoNameAndDescProviderIface">
+      <source-position filename="libnemo-extension/nemo-name-and-desc-provider.h"
+                       line="22"/>
+      <type name="NameAndDescProviderInterface"
+            c:type="NemoNameAndDescProviderInterface"/>
+    </alias>
+    <alias name="PropertyPageProviderIface"
+           c:type="NemoPropertyPageProviderIface">
+      <source-position filename="libnemo-extension/nemo-property-page-provider.h"
+                       line="47"/>
+      <type name="PropertyPageProviderInterface"
+            c:type="NemoPropertyPageProviderInterface"/>
+    </alias>
+    <class name="Column"
+           c:symbol-prefix="column"
+           c:type="NemoColumn"
+           parent="GObject.Object"
+           glib:type-name="NemoColumn"
+           glib:get-type="nemo_column_get_type"
+           glib:type-struct="ColumnClass">
+      <source-position filename="libnemo-extension/nemo-column.h" line="37"/>
+      <constructor name="new" c:identifier="nemo_column_new">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-column.c"
+             line="72">Creates a new column</doc>
+        <source-position filename="libnemo-extension/nemo-column.h" line="39"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-column.c"
+               line="81">a newly created #NemoColumn</doc>
+          <type name="Column" c:type="NemoColumn*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-column.c"
+                 line="74">identifier of the column</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="attribute" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-column.c"
+                 line="75">the file attribute to be displayed in the column</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="label" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-column.c"
+                 line="76">the user-visible label for the column</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="description" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-column.c"
+                 line="77">a user-visible description of the column</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="new2" c:identifier="nemo_column_new2">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-column.c"
+             line="107">Creates a new column</doc>
+        <source-position filename="libnemo-extension/nemo-column.h" line="43"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-column.c"
+               line="118">a newly created #NemoColumn</doc>
+          <type name="Column" c:type="NemoColumn*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-column.c"
+                 line="109">identifier of the column</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="attribute" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-column.c"
+                 line="110">the file attribute to be displayed in the column</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="label" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-column.c"
+                 line="111">the user-visible label for the column</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="description" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-column.c"
+                 line="112">a user-visible description of the column</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="width_chars" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-column.c"
+                 line="113">the default width of the column (-1 for auto-calc)</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="ellipsize" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-column.c"
+                 line="114">PangoEllipsizeMode to set when truncating column</doc>
+            <type name="Pango.EllipsizeMode" c:type="PangoEllipsizeMode"/>
+          </parameter>
+        </parameters>
+      </function>
+      <property name="attribute"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="attribute-q" transfer-ownership="none" default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="description"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="ellipsize"
+                writable="1"
+                transfer-ownership="none"
+                default-value="PANGO_ELLIPSIZE_NONE">
+        <type name="Pango.EllipsizeMode"/>
+      </property>
+      <property name="label"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="width-chars"
+                writable="1"
+                transfer-ownership="none"
+                default-value="-1">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="xalign"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
+        <type name="gfloat" c:type="gfloat"/>
+      </property>
+    </class>
+    <record name="ColumnClass"
+            c:type="NemoColumnClass"
+            glib:is-gtype-struct-for="Column">
+      <source-position filename="libnemo-extension/nemo-column.h" line="37"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <interface name="ColumnProvider"
+               c:symbol-prefix="column_provider"
+               c:type="NemoColumnProvider"
+               glib:type-name="NemoColumnProvider"
+               glib:get-type="nemo_column_provider_get_type">
+      <method name="get_columns"
+              c:identifier="nemo_column_provider_get_columns">
+        <source-position filename="libnemo-extension/nemo-column-provider.h"
+                         line="60"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-column-provider.c"
+               line="52">the provided #NemoColumn objects</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Column"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-column-provider.c"
+                 line="50">a #NemoColumnProvider</doc>
+            <type name="ColumnProvider" c:type="NemoColumnProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="ColumnProviderInterface"
+            c:type="NemoColumnProviderInterface">
+      <source-position filename="libnemo-extension/nemo-column-provider.h"
+                       line="57"/>
+      <field name="g_iface" writable="1">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-column-provider.h"
+             line="50">the parent class</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_columns" introspectable="0">
+        <callback name="get_columns" introspectable="0">
+          <source-position filename="libnemo-extension/nemo-column-provider.h"
+                           line="56"/>
+          <return-value>
+            <type name="GLib.List" c:type="GList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="ColumnProvider" c:type="NemoColumnProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="DesktopPreferences"
+           c:symbol-prefix="desktop_preferences"
+           c:type="NemoDesktopPreferences"
+           parent="Gtk.Bin"
+           glib:type-name="NemoDesktopPreferences"
+           glib:get-type="nemo_desktop_preferences_get_type"
+           glib:type-struct="DesktopPreferencesClass">
+      <source-position filename="libnemo-extension/nemo-desktop-preferences.h"
+                       line="11"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="nemo_desktop_preferences_new">
+        <source-position filename="libnemo-extension/nemo-desktop-preferences.h"
+                         line="13"/>
+        <return-value transfer-ownership="none">
+          <type name="DesktopPreferences" c:type="NemoDesktopPreferences*"/>
+        </return-value>
+      </constructor>
+    </class>
+    <record name="DesktopPreferencesClass"
+            c:type="NemoDesktopPreferencesClass"
+            glib:is-gtype-struct-for="DesktopPreferences">
+      <source-position filename="libnemo-extension/nemo-desktop-preferences.h"
+                       line="11"/>
+      <field name="parent_class">
+        <type name="Gtk.BinClass" c:type="GtkBinClass"/>
+      </field>
+    </record>
+    <function-macro name="FILE_INFO"
+                    c:identifier="NEMO_FILE_INFO"
+                    introspectable="0">
+      <source-position filename="libnemo-extension/nemo-file-info.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="FILE_INFO_GET_IFACE"
+                    c:identifier="NEMO_FILE_INFO_GET_IFACE"
+                    introspectable="0">
+      <source-position filename="libnemo-extension/nemo-file-info.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <record name="File" c:type="NemoFile" disguised="1" opaque="1">
+      <source-position filename="libnemo-extension/nemo-file-info.h"
+                       line="43"/>
+    </record>
+    <interface name="FileInfo"
+               c:symbol-prefix="file_info"
+               glib:type-name="NemoFileInfo"
+               glib:get-type="nemo_file_info_get_type"
+               glib:type-struct="FileInfoInterface">
+      <source-position filename="libnemo-extension/nemo-file-info.h"
+                       line="83"/>
+      <function name="create" c:identifier="nemo_file_info_create">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="128"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-file-info.c"
+               line="325">a #NemoFileInfo</doc>
+          <type name="FileInfo" c:type="NemoFileInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="location" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="323">the location to create the file info for</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="create_for_uri"
+                c:identifier="nemo_file_info_create_for_uri">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="130"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-file-info.c"
+               line="356">a #NemoFileInfo</doc>
+          <type name="FileInfo" c:type="NemoFileInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="354">the URI to lookup the file info for</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="list_copy" c:identifier="nemo_file_info_list_copy">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="85"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-file-info.c"
+               line="49">a copy of @files.
+ Use #nemo_file_info_list_free to free the list and unref its contents.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="FileInfo"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="files" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="47">the files to copy</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="list_free" c:identifier="nemo_file_info_list_free">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="86"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="files" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="68">a list created with
+  #nemo_file_info_list_copy</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="lookup" c:identifier="nemo_file_info_lookup">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="127"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-file-info.c"
+               line="313">a #NemoFileInfo</doc>
+          <type name="FileInfo" c:type="NemoFileInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="location" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="311">the location to lookup the file info for</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="lookup_for_uri"
+                c:identifier="nemo_file_info_lookup_for_uri">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="129"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-file-info.c"
+               line="337">a #NemoFileInfo</doc>
+          <type name="FileInfo" c:type="NemoFileInfo*"/>
+        </return-value>
+        <parameters>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="335">the URI to lookup the file info for</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="add_emblem" invoker="add_emblem">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+          <parameter name="emblem_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="add_string_attribute"
+                      invoker="add_string_attribute">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+          <parameter name="attribute_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="can_write" invoker="can_write">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_activation_uri" invoker="get_activation_uri">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="74"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_file_type" invoker="get_file_type">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="Gio.FileType" c:type="GFileType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_location" invoker="get_location">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="77"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-file-info.c"
+               line="115">a #GFile for the location of @file</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="113">a #NemoFileInfo</doc>
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_mime_type" invoker="get_mime_type">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="60"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_mount" invoker="get_mount">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="80"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-file-info.c"
+               line="188">a #GMount for the mount of @file,
+  or %NULL if @file has no mount</doc>
+          <type name="Gio.Mount" c:type="GMount*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="186">a #NemoFileInfo</doc>
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_name" invoker="get_name">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="55"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_parent_info" invoker="get_parent_info">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="79"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-file-info.c"
+               line="172">a #NemoFileInfo for the parent of @file,
+  or %NULL if @file has no parent</doc>
+          <type name="FileInfo" c:type="NemoFileInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="170">a #NemoFileInfo</doc>
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_parent_location" invoker="get_parent_location">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="78"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-file-info.c"
+               line="147">a #GFile for the parent location of @file,
+  or %NULL if @file has no parent</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="145">a #NemoFileInfo</doc>
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_parent_uri" invoker="get_parent_uri">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="57"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_string_attribute"
+                      invoker="get_string_attribute">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="67"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+          <parameter name="attribute_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_uri" invoker="get_uri">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="56"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_uri_scheme" invoker="get_uri_scheme">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="58"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="invalidate_extension_info"
+                      invoker="invalidate_extension_info">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-file-info.c"
+             line="284">Notifies nemo to re-run info provider extensions on the given file.
+
+This is useful if you have an extension that listens or responds to some external
+interface for changes to local file metadata (such as a cloud drive changing file emblems.)
+
+When a change such as this occurs, call this on the file in question, and nemo will
+schedule a call to extension-&gt;update_file_info to update its own internal metadata.
+
+NOTE: This does *not* need to be called on the tail end of a update_full/update_complete
+asynchronous extension.  Prior to Nemo 3.6 this was indeed the case, however, due to a
+recursion issue in nemo-directory-async.c (see nemo 9e67417f8f09.)</doc>
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="286">a #NemoFile</doc>
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="is_directory" invoker="is_directory">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="is_gone" invoker="is_gone">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="is_mime_type" invoker="is_mime_type">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+          <parameter name="mime_Type" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="add_emblem" c:identifier="nemo_file_info_add_emblem">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="116"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+          <parameter name="emblem_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_string_attribute"
+              c:identifier="nemo_file_info_add_string_attribute">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="120"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+          <parameter name="attribute_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_write" c:identifier="nemo_file_info_can_write">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="112"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_activation_uri"
+              c:identifier="nemo_file_info_get_activation_uri">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="97"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_file_type" c:identifier="nemo_file_info_get_file_type">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="93"/>
+        <return-value transfer-ownership="none">
+          <type name="Gio.FileType" c:type="GFileType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_location" c:identifier="nemo_file_info_get_location">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="94"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-file-info.c"
+               line="115">a #GFile for the location of @file</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="113">a #NemoFileInfo</doc>
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_mime_type" c:identifier="nemo_file_info_get_mime_type">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="108"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_mount" c:identifier="nemo_file_info_get_mount">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="100"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-file-info.c"
+               line="188">a #GMount for the mount of @file,
+  or %NULL if @file has no mount</doc>
+          <type name="Gio.Mount" c:type="GMount*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="186">a #NemoFileInfo</doc>
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="nemo_file_info_get_name">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="95"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parent_info"
+              c:identifier="nemo_file_info_get_parent_info">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="105"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-file-info.c"
+               line="172">a #NemoFileInfo for the parent of @file,
+  or %NULL if @file has no parent</doc>
+          <type name="FileInfo" c:type="NemoFileInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="170">a #NemoFileInfo</doc>
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parent_location"
+              c:identifier="nemo_file_info_get_parent_location">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="98"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-file-info.c"
+               line="147">a #GFile for the parent location of @file,
+  or %NULL if @file has no parent</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="145">a #NemoFileInfo</doc>
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parent_uri"
+              c:identifier="nemo_file_info_get_parent_uri">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="99"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_string_attribute"
+              c:identifier="nemo_file_info_get_string_attribute">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="118"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+          <parameter name="attribute_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_uri" c:identifier="nemo_file_info_get_uri">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="96"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_uri_scheme"
+              c:identifier="nemo_file_info_get_uri_scheme">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="101"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="invalidate_extension_info"
+              c:identifier="nemo_file_info_invalidate_extension_info">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-file-info.c"
+             line="284">Notifies nemo to re-run info provider extensions on the given file.
+
+This is useful if you have an extension that listens or responds to some external
+interface for changes to local file metadata (such as a cloud drive changing file emblems.)
+
+When a change such as this occurs, call this on the file in question, and nemo will
+schedule a call to extension-&gt;update_file_info to update its own internal metadata.
+
+NOTE: This does *not* need to be called on the tail end of a update_full/update_complete
+asynchronous extension.  Prior to Nemo 3.6 this was indeed the case, however, due to a
+recursion issue in nemo-directory-async.c (see nemo 9e67417f8f09.)</doc>
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="125"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="286">a #NemoFile</doc>
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_directory" c:identifier="nemo_file_info_is_directory">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="111"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_gone" c:identifier="nemo_file_info_is_gone">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="90"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_mime_type" c:identifier="nemo_file_info_is_mime_type">
+        <source-position filename="libnemo-extension/nemo-file-info.h"
+                         line="109"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </instance-parameter>
+          <parameter name="mime_type" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="FileInfoInterface"
+            c:type="NemoFileInfoInterface"
+            glib:is-gtype-struct-for="FileInfo">
+      <source-position filename="libnemo-extension/nemo-file-info.h"
+                       line="83"/>
+      <field name="g_iface">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="is_gone">
+        <callback name="is_gone">
+          <source-position filename="libnemo-extension/nemo-file-info.h"
+                           line="53"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_name">
+        <callback name="get_name">
+          <source-position filename="libnemo-extension/nemo-file-info.h"
+                           line="55"/>
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_uri">
+        <callback name="get_uri">
+          <source-position filename="libnemo-extension/nemo-file-info.h"
+                           line="56"/>
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_parent_uri">
+        <callback name="get_parent_uri">
+          <source-position filename="libnemo-extension/nemo-file-info.h"
+                           line="57"/>
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_uri_scheme">
+        <callback name="get_uri_scheme">
+          <source-position filename="libnemo-extension/nemo-file-info.h"
+                           line="58"/>
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_mime_type">
+        <callback name="get_mime_type">
+          <source-position filename="libnemo-extension/nemo-file-info.h"
+                           line="60"/>
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="is_mime_type">
+        <callback name="is_mime_type">
+          <source-position filename="libnemo-extension/nemo-file-info.h"
+                           line="61"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+            <parameter name="mime_Type" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="is_directory">
+        <callback name="is_directory">
+          <source-position filename="libnemo-extension/nemo-file-info.h"
+                           line="63"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="add_emblem">
+        <callback name="add_emblem">
+          <source-position filename="libnemo-extension/nemo-file-info.h"
+                           line="65"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+            <parameter name="emblem_name" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_string_attribute">
+        <callback name="get_string_attribute">
+          <source-position filename="libnemo-extension/nemo-file-info.h"
+                           line="67"/>
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+            <parameter name="attribute_name" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="add_string_attribute">
+        <callback name="add_string_attribute">
+          <source-position filename="libnemo-extension/nemo-file-info.h"
+                           line="69"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+            <parameter name="attribute_name" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="value" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="invalidate_extension_info">
+        <callback name="invalidate_extension_info">
+          <source-position filename="libnemo-extension/nemo-file-info.h"
+                           line="72"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnemo-extension/nemo-file-info.c"
+                   line="286">a #NemoFile</doc>
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_activation_uri">
+        <callback name="get_activation_uri">
+          <source-position filename="libnemo-extension/nemo-file-info.h"
+                           line="74"/>
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_file_type">
+        <callback name="get_file_type">
+          <source-position filename="libnemo-extension/nemo-file-info.h"
+                           line="76"/>
+          <return-value transfer-ownership="none">
+            <type name="Gio.FileType" c:type="GFileType"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_location">
+        <callback name="get_location">
+          <source-position filename="libnemo-extension/nemo-file-info.h"
+                           line="77"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="115">a #GFile for the location of @file</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnemo-extension/nemo-file-info.c"
+                   line="113">a #NemoFileInfo</doc>
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_parent_location">
+        <callback name="get_parent_location">
+          <source-position filename="libnemo-extension/nemo-file-info.h"
+                           line="78"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="147">a #GFile for the parent location of @file,
+  or %NULL if @file has no parent</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnemo-extension/nemo-file-info.c"
+                   line="145">a #NemoFileInfo</doc>
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_parent_info">
+        <callback name="get_parent_info">
+          <source-position filename="libnemo-extension/nemo-file-info.h"
+                           line="79"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="172">a #NemoFileInfo for the parent of @file,
+  or %NULL if @file has no parent</doc>
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnemo-extension/nemo-file-info.c"
+                   line="170">a #NemoFileInfo</doc>
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_mount">
+        <callback name="get_mount">
+          <source-position filename="libnemo-extension/nemo-file-info.h"
+                           line="80"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-file-info.c"
+                 line="188">a #GMount for the mount of @file,
+  or %NULL if @file has no mount</doc>
+            <type name="Gio.Mount" c:type="GMount*"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libnemo-extension/nemo-file-info.c"
+                   line="186">a #NemoFileInfo</doc>
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="can_write">
+        <callback name="can_write">
+          <source-position filename="libnemo-extension/nemo-file-info.h"
+                           line="81"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <function-macro name="IS_FILE_INFO"
+                    c:identifier="NEMO_IS_FILE_INFO"
+                    introspectable="0">
+      <source-position filename="libnemo-extension/nemo-file-info.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <interface name="InfoProvider"
+               c:symbol-prefix="info_provider"
+               c:type="NemoInfoProvider"
+               glib:type-name="NemoInfoProvider"
+               glib:get-type="nemo_info_provider_get_type">
+      <function name="update_complete_invoke"
+                c:identifier="nemo_info_provider_update_complete_invoke">
+        <source-position filename="libnemo-extension/nemo-info-provider.h"
+                         line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="update_complete" transfer-ownership="none">
+            <type name="GObject.Closure" c:type="GClosure*"/>
+          </parameter>
+          <parameter name="provider" transfer-ownership="none">
+            <type name="InfoProvider" c:type="NemoInfoProvider*"/>
+          </parameter>
+          <parameter name="handle" transfer-ownership="none">
+            <type name="OperationHandle" c:type="NemoOperationHandle*"/>
+          </parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="OperationResult" c:type="NemoOperationResult"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="cancel_update"
+              c:identifier="nemo_info_provider_cancel_update">
+        <source-position filename="libnemo-extension/nemo-info-provider.h"
+                         line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="InfoProvider" c:type="NemoInfoProvider*"/>
+          </instance-parameter>
+          <parameter name="handle" transfer-ownership="none">
+            <type name="OperationHandle" c:type="NemoOperationHandle*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="update_file_info"
+              c:identifier="nemo_info_provider_update_file_info">
+        <source-position filename="libnemo-extension/nemo-info-provider.h"
+                         line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="OperationResult" c:type="NemoOperationResult"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="InfoProvider" c:type="NemoInfoProvider*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </parameter>
+          <parameter name="update_complete" transfer-ownership="none">
+            <type name="GObject.Closure" c:type="GClosure*"/>
+          </parameter>
+          <parameter name="handle" transfer-ownership="none">
+            <type name="OperationHandle" c:type="NemoOperationHandle**"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="InfoProviderInterface" c:type="NemoInfoProviderInterface">
+      <source-position filename="libnemo-extension/nemo-info-provider.h"
+                       line="61"/>
+      <field name="g_iface" writable="1">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="update_file_info">
+        <callback name="update_file_info">
+          <source-position filename="libnemo-extension/nemo-info-provider.h"
+                           line="55"/>
+          <return-value transfer-ownership="none">
+            <type name="OperationResult" c:type="NemoOperationResult"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="InfoProvider" c:type="NemoInfoProvider*"/>
+            </parameter>
+            <parameter name="file" transfer-ownership="none">
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+            <parameter name="update_complete" transfer-ownership="none">
+              <type name="GObject.Closure" c:type="GClosure*"/>
+            </parameter>
+            <parameter name="handle" transfer-ownership="none">
+              <type name="OperationHandle" c:type="NemoOperationHandle**"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="cancel_update">
+        <callback name="cancel_update">
+          <source-position filename="libnemo-extension/nemo-info-provider.h"
+                           line="59"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="InfoProvider" c:type="NemoInfoProvider*"/>
+            </parameter>
+            <parameter name="handle" transfer-ownership="none">
+              <type name="OperationHandle" c:type="NemoOperationHandle*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <callback name="InfoProviderUpdateComplete"
+              c:type="NemoInfoProviderUpdateComplete">
+      <source-position filename="libnemo-extension/nemo-info-provider.h"
+                       line="47"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="provider" transfer-ownership="none">
+          <type name="InfoProvider" c:type="NemoInfoProvider*"/>
+        </parameter>
+        <parameter name="handle" transfer-ownership="none">
+          <type name="OperationHandle" c:type="NemoOperationHandle*"/>
+        </parameter>
+        <parameter name="result" transfer-ownership="none">
+          <type name="OperationResult" c:type="NemoOperationResult"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="3">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <interface name="LocationWidgetProvider"
+               c:symbol-prefix="location_widget_provider"
+               c:type="NemoLocationWidgetProvider"
+               glib:type-name="NemoLocationWidgetProvider"
+               glib:get-type="nemo_location_widget_provider_get_type">
+      <method name="get_widget"
+              c:identifier="nemo_location_widget_provider_get_widget">
+        <source-position filename="libnemo-extension/nemo-location-widget-provider.h"
+                         line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-location-widget-provider.c"
+               line="58">the location widget for @provider at @uri</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-location-widget-provider.c"
+                 line="54">a #NemoLocationWidgetProvider</doc>
+            <type name="LocationWidgetProvider"
+                  c:type="NemoLocationWidgetProvider*"/>
+          </instance-parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-location-widget-provider.c"
+                 line="55">the URI of the location</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-location-widget-provider.c"
+                 line="56">parent #GtkWindow</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="LocationWidgetProviderInterface"
+            c:type="NemoLocationWidgetProviderInterface">
+      <source-position filename="libnemo-extension/nemo-location-widget-provider.h"
+                       line="55"/>
+      <field name="g_iface" writable="1">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_widget" introspectable="0">
+        <callback name="get_widget" introspectable="0">
+          <source-position filename="libnemo-extension/nemo-location-widget-provider.h"
+                           line="52"/>
+          <return-value>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="LocationWidgetProvider"
+                    c:type="NemoLocationWidgetProvider*"/>
+            </parameter>
+            <parameter name="uri" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="window" transfer-ownership="none">
+              <type name="Gtk.Widget" c:type="GtkWidget*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="Menu"
+           c:symbol-prefix="menu"
+           c:type="NemoMenu"
+           parent="GObject.Object"
+           glib:type-name="NemoMenu"
+           glib:get-type="nemo_menu_get_type"
+           glib:type-struct="MenuClass">
+      <source-position filename="libnemo-extension/nemo-menu.h" line="37"/>
+      <constructor name="new" c:identifier="nemo_menu_new">
+        <source-position filename="libnemo-extension/nemo-menu.h" line="43"/>
+        <return-value transfer-ownership="full">
+          <type name="Menu" c:type="NemoMenu*"/>
+        </return-value>
+      </constructor>
+      <method name="append_item" c:identifier="nemo_menu_append_item">
+        <source-position filename="libnemo-extension/nemo-menu.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <type name="Menu" c:type="NemoMenu*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <type name="MenuItem" c:type="NemoMenuItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_items" c:identifier="nemo_menu_get_items">
+        <source-position filename="libnemo-extension/nemo-menu.h" line="47"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-menu.c"
+               line="66">the provided #NemoMenuItem list</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu.c"
+                 line="64">a #NemoMenu</doc>
+            <type name="Menu" c:type="NemoMenu*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="MenuClass"
+            c:type="NemoMenuClass"
+            glib:is-gtype-struct-for="Menu">
+      <source-position filename="libnemo-extension/nemo-menu.h" line="37"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="MenuItem"
+           c:symbol-prefix="menu_item"
+           c:type="NemoMenuItem"
+           parent="GObject.Object"
+           glib:type-name="NemoMenuItem"
+           glib:get-type="nemo_menu_item_get_type"
+           glib:type-struct="MenuItemClass">
+      <source-position filename="libnemo-extension/nemo-menu.h" line="40"/>
+      <constructor name="new" c:identifier="nemo_menu_item_new">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-menu-item.c"
+             line="73">Creates a new menu item that can be added to the toolbar or to a contextual menu.</doc>
+        <source-position filename="libnemo-extension/nemo-menu.h" line="51"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-menu-item.c"
+               line="82">a newly create #NemoMenuItem</doc>
+          <type name="MenuItem" c:type="NemoMenuItem*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-item.c"
+                 line="75">the identifier for the menu item</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="label" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-item.c"
+                 line="76">the user-visible label of the menu item</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="tip" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-item.c"
+                 line="77">the tooltip of the menu item</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="icon" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-item.c"
+                 line="78">the name of the icon to display in the menu item</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_separator"
+                   c:identifier="nemo_menu_item_new_separator">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-menu-item.c"
+             line="138">Creates a new menu item that represents a menu separator.</doc>
+        <source-position filename="libnemo-extension/nemo-menu.h" line="60"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-menu-item.c"
+               line="144">a newly created #NemoMenuItem</doc>
+          <type name="MenuItem" c:type="NemoMenuItem*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-item.c"
+                 line="140">the identifier for the menu item</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_widget" c:identifier="nemo_menu_item_new_widget">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-menu-item.c"
+             line="106">Creates a new widget-based menu item that can be added to the toolbar or to a contextual menu.</doc>
+        <source-position filename="libnemo-extension/nemo-menu.h" line="56"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-menu-item.c"
+               line="114">a newly created #NemoMenuItem that will pass widgets to an eventual NemoWidgetAction</doc>
+          <type name="MenuItem" c:type="NemoMenuItem*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-item.c"
+                 line="108">the identifier for the menu item</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="widget_a" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-item.c"
+                 line="109">the custom #GtkWidget to use for widget-a</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="widget_b" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-item.c"
+                 line="110">the custom #GtkWidget to use for widget-b</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="list_free" c:identifier="nemo_menu_item_list_free">
+        <source-position filename="libnemo-extension/nemo-menu.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="item_list" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu.c"
+                 line="83">a list of #NemoMenuItem</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="MenuItem"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="activate" c:identifier="nemo_menu_item_activate">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-menu-item.c"
+             line="162">emits the activate signal.</doc>
+        <source-position filename="libnemo-extension/nemo-menu.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-item.c"
+                 line="164">pointer to a #NemoMenuItem</doc>
+            <type name="MenuItem" c:type="NemoMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_submenu" c:identifier="nemo_menu_item_set_submenu">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-menu-item.c"
+             line="174">Attachs a menu to the given #NemoMenuItem.</doc>
+        <source-position filename="libnemo-extension/nemo-menu.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-item.c"
+                 line="176">pointer to a #NemoMenuItem</doc>
+            <type name="MenuItem" c:type="NemoMenuItem*"/>
+          </instance-parameter>
+          <parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-item.c"
+                 line="177">pointer to a #NemoMenu to attach to the button</doc>
+            <type name="Menu" c:type="NemoMenu*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_widget_a"
+              c:identifier="nemo_menu_item_set_widget_a"
+              glib:set-property="widget-a">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-menu-item.c"
+             line="187">Sets the custom widget A for this #NemoMenuItem</doc>
+        <source-position filename="libnemo-extension/nemo-menu.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-item.c"
+                 line="189">pointer to a #NemoMenuItem</doc>
+            <type name="MenuItem" c:type="NemoMenuItem*"/>
+          </instance-parameter>
+          <parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-item.c"
+                 line="190">pointer to a #GtkWidget use in place of text</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_widget_b"
+              c:identifier="nemo_menu_item_set_widget_b"
+              glib:set-property="widget-b">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-menu-item.c"
+             line="201">Sets the custom widget B for this #NemoMenuItem</doc>
+        <source-position filename="libnemo-extension/nemo-menu.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-item.c"
+                 line="203">pointer to a #NemoMenuItem</doc>
+            <type name="MenuItem" c:type="NemoMenuItem*"/>
+          </instance-parameter>
+          <parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-item.c"
+                 line="204">pointer to a #GtkWidget use in place of text</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="icon"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="label"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="menu" writable="1" transfer-ownership="none">
+        <type name="Menu"/>
+      </property>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="priority"
+                writable="1"
+                transfer-ownership="none"
+                default-value="TRUE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="sensitive"
+                writable="1"
+                transfer-ownership="none"
+                default-value="TRUE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="separator"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="tip"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="widget-a"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_widget_a">
+        <type name="Gtk.Widget"/>
+      </property>
+      <property name="widget-b"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_widget_b">
+        <type name="Gtk.Widget"/>
+      </property>
+      <glib:signal name="activate" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="MenuItemClass"
+            c:type="NemoMenuItemClass"
+            glib:is-gtype-struct-for="MenuItem">
+      <source-position filename="libnemo-extension/nemo-menu.h" line="40"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <interface name="MenuProvider"
+               c:symbol-prefix="menu_provider"
+               c:type="NemoMenuProvider"
+               glib:type-name="NemoMenuProvider"
+               glib:get-type="nemo_menu_provider_get_type">
+      <method name="emit_items_updated_signal"
+              c:identifier="nemo_menu_provider_emit_items_updated_signal">
+        <source-position filename="libnemo-extension/nemo-menu-provider.h"
+                         line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="MenuProvider" c:type="NemoMenuProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_background_items"
+              c:identifier="nemo_menu_provider_get_background_items">
+        <source-position filename="libnemo-extension/nemo-menu-provider.h"
+                         line="64"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-menu-provider.c"
+               line="96">the provided list of #NemoMenuItem</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-provider.c"
+                 line="92">a #NemoMenuProvider</doc>
+            <type name="MenuProvider" c:type="NemoMenuProvider*"/>
+          </instance-parameter>
+          <parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-provider.c"
+                 line="93">the parent #GtkWidget window</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="current_folder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-provider.c"
+                 line="94">the folder for which background items are requested</doc>
+            <type name="FileInfo" c:type="NemoFileInfo*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_file_items"
+              c:identifier="nemo_menu_provider_get_file_items">
+        <source-position filename="libnemo-extension/nemo-menu-provider.h"
+                         line="61"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-menu-provider.c"
+               line="69">the provided list of #NemoMenuItem</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="MenuItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-provider.c"
+                 line="65">a #NemoMenuProvider</doc>
+            <type name="MenuProvider" c:type="NemoMenuProvider*"/>
+          </instance-parameter>
+          <parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-provider.c"
+                 line="66">the parent #GtkWidget window</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="files" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-menu-provider.c"
+                 line="67">a list of #NemoFileInfo</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <glib:signal name="items-updated" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </interface>
+    <record name="MenuProviderInterface" c:type="NemoMenuProviderInterface">
+      <source-position filename="libnemo-extension/nemo-menu-provider.h"
+                       line="58"/>
+      <field name="g_iface" writable="1">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_file_items" introspectable="0">
+        <callback name="get_file_items" introspectable="0">
+          <source-position filename="libnemo-extension/nemo-menu-provider.h"
+                           line="52"/>
+          <return-value>
+            <type name="GLib.List" c:type="GList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="MenuProvider" c:type="NemoMenuProvider*"/>
+            </parameter>
+            <parameter name="window" transfer-ownership="none">
+              <type name="Gtk.Widget" c:type="GtkWidget*"/>
+            </parameter>
+            <parameter name="files" transfer-ownership="none">
+              <type name="GLib.List" c:type="GList*">
+                <type name="gpointer" c:type="gpointer"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_background_items" introspectable="0">
+        <callback name="get_background_items" introspectable="0">
+          <source-position filename="libnemo-extension/nemo-menu-provider.h"
+                           line="55"/>
+          <return-value>
+            <type name="GLib.List" c:type="GList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="MenuProvider" c:type="NemoMenuProvider*"/>
+            </parameter>
+            <parameter name="window" transfer-ownership="none">
+              <type name="Gtk.Widget" c:type="GtkWidget*"/>
+            </parameter>
+            <parameter name="current_folder" transfer-ownership="none">
+              <type name="FileInfo" c:type="NemoFileInfo*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <interface name="NameAndDescProvider"
+               c:symbol-prefix="name_and_desc_provider"
+               c:type="NemoNameAndDescProvider"
+               glib:type-name="NemoNameAndDescProvider"
+               glib:get-type="nemo_name_and_desc_provider_get_type">
+      <method name="get_name_and_desc"
+              c:identifier="nemo_name_and_desc_provider_get_name_and_desc">
+        <source-position filename="libnemo-extension/nemo-name-and-desc-provider.h"
+                         line="31"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-name-and-desc-provider.c"
+               line="24">a list of name:::desc
+strings.  Optionally, the name of a path executable can be appended as a
+third component of the list ('name:::desc:::foo-bar-preferences')</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="gchar"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-name-and-desc-provider.c"
+                 line="22">a #NemoNameAndDescProvider</doc>
+            <type name="NameAndDescProvider"
+                  c:type="NemoNameAndDescProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="NameAndDescProviderInterface"
+            c:type="NemoNameAndDescProviderInterface">
+      <source-position filename="libnemo-extension/nemo-name-and-desc-provider.h"
+                       line="28"/>
+      <field name="g_iface" writable="1">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_name_and_desc" introspectable="0">
+        <callback name="get_name_and_desc" introspectable="0">
+          <source-position filename="libnemo-extension/nemo-name-and-desc-provider.h"
+                           line="27"/>
+          <return-value>
+            <type name="GLib.List" c:type="GList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="NameAndDescProvider"
+                    c:type="NemoNameAndDescProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="OperationHandle"
+            c:type="NemoOperationHandle"
+            disguised="1"
+            opaque="1">
+      <doc xml:space="preserve"
+           filename="libnemo-extension/nemo-extension-types.h"
+           line="42">Handle for asynchronous interfaces.  These are opaque handles that must
+be unique within an extension object.  These are returned by operations
+that return NEMO_OPERATION_IN_PROGRESS.
+
+For python extensions, the handle is a dummy struct created by the nemo
+python bindings on the extension's behalf.  It can be used as a unique
+key for a dict, for instance, for keeping track of multiple operations
+at once.</doc>
+      <source-position filename="libnemo-extension/nemo-extension-types.h"
+                       line="54"/>
+    </record>
+    <enumeration name="OperationResult" c:type="NemoOperationResult">
+      <source-position filename="libnemo-extension/nemo-extension-types.h"
+                       line="71"/>
+      <member name="complete" value="0" c:identifier="NEMO_OPERATION_COMPLETE">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-extension-types.h"
+             line="58">Returned if the call succeeded, and the extension is done
+ with the request.</doc>
+      </member>
+      <member name="failed" value="1" c:identifier="NEMO_OPERATION_FAILED">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-extension-types.h"
+             line="60">Returned if the call failed.</doc>
+      </member>
+      <member name="in_progress"
+              value="2"
+              c:identifier="NEMO_OPERATION_IN_PROGRESS">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-extension-types.h"
+             line="61">Returned if the extension has begun an async operation.
+ For C extensions, if this is returned, the extension must set the handle parameter.
+ For python extensions, handle is already filled, and unique, and can be used for
+ identifying purposes within the extension.  In either case, the extension must call
+ the callback closure when the operation is complete (complete_invoke.)</doc>
+      </member>
+    </enumeration>
+    <class name="PropertyPage"
+           c:symbol-prefix="property_page"
+           c:type="NemoPropertyPage"
+           parent="GObject.Object"
+           glib:type-name="NemoPropertyPage"
+           glib:get-type="nemo_property_page_get_type"
+           glib:type-struct="PropertyPageClass">
+      <source-position filename="libnemo-extension/nemo-property-page.h"
+                       line="36"/>
+      <constructor name="new" c:identifier="nemo_property_page_new">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-property-page.c"
+             line="63">Creates a new #NemoPropertyPage from page_widget.</doc>
+        <source-position filename="libnemo-extension/nemo-property-page.h"
+                         line="38"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-property-page.c"
+               line="71">a newly created #NemoPropertyPage</doc>
+          <type name="PropertyPage" c:type="NemoPropertyPage*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-property-page.c"
+                 line="65">the identifier for the property page</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="label" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-property-page.c"
+                 line="66">the user-visible label of the property page</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-property-page.c"
+                 line="67">the property page to display</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="label" writable="1" transfer-ownership="none">
+        <type name="Gtk.Widget"/>
+      </property>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="page" writable="1" transfer-ownership="none">
+        <type name="Gtk.Widget"/>
+      </property>
+    </class>
+    <record name="PropertyPageClass"
+            c:type="NemoPropertyPageClass"
+            glib:is-gtype-struct-for="PropertyPage">
+      <source-position filename="libnemo-extension/nemo-property-page.h"
+                       line="36"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <interface name="PropertyPageProvider"
+               c:symbol-prefix="property_page_provider"
+               c:type="NemoPropertyPageProvider"
+               glib:type-name="NemoPropertyPageProvider"
+               glib:get-type="nemo_property_page_provider_get_type">
+      <method name="get_pages"
+              c:identifier="nemo_property_page_provider_get_pages">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-property-page-provider.c"
+             line="47">This function is called by Nemo when it wants property page
+items from the extension.
+
+This function is called in the main thread before a property page
+is shown, so it should return quickly.</doc>
+        <source-position filename="libnemo-extension/nemo-property-page-provider.h"
+                         line="57"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-property-page-provider.c"
+               line="58">A #GList of allocated #NemoPropertyPage items.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="PropertyPage"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-property-page-provider.c"
+                 line="49">a #NemoPropertyPageProvider</doc>
+            <type name="PropertyPageProvider"
+                  c:type="NemoPropertyPageProvider*"/>
+          </instance-parameter>
+          <parameter name="files" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libnemo-extension/nemo-property-page-provider.c"
+                 line="50">a #GList of #NemoFileInfo</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileInfo"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="PropertyPageProviderInterface"
+            c:type="NemoPropertyPageProviderInterface">
+      <source-position filename="libnemo-extension/nemo-property-page-provider.h"
+                       line="54"/>
+      <field name="g_iface" writable="1">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_pages" introspectable="0">
+        <callback name="get_pages" introspectable="0">
+          <source-position filename="libnemo-extension/nemo-property-page-provider.h"
+                           line="52"/>
+          <return-value>
+            <type name="GLib.List" c:type="GList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="PropertyPageProvider"
+                    c:type="NemoPropertyPageProvider*"/>
+            </parameter>
+            <parameter name="files" transfer-ownership="none">
+              <type name="GLib.List" c:type="GList*">
+                <type name="gpointer" c:type="gpointer"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="SimpleButton"
+           c:symbol-prefix="simple_button"
+           c:type="NemoSimpleButton"
+           parent="Gtk.Button"
+           glib:type-name="NemoSimpleButton"
+           glib:get-type="nemo_simple_button_get_type"
+           glib:type-struct="SimpleButtonClass">
+      <source-position filename="libnemo-extension/nemo-simple-button.h"
+                       line="14"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Actionable"/>
+      <implements name="Gtk.Activatable"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="nemo_simple_button_new">
+        <source-position filename="libnemo-extension/nemo-simple-button.h"
+                         line="16"/>
+        <return-value transfer-ownership="none">
+          <type name="SimpleButton" c:type="NemoSimpleButton*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_file"
+                   c:identifier="nemo_simple_button_new_from_file">
+        <source-position filename="libnemo-extension/nemo-simple-button.h"
+                         line="19"/>
+        <return-value transfer-ownership="none">
+          <type name="SimpleButton" c:type="NemoSimpleButton*"/>
+        </return-value>
+        <parameters>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="icon_size" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_icon_name"
+                   c:identifier="nemo_simple_button_new_from_icon_name">
+        <source-position filename="libnemo-extension/nemo-simple-button.h"
+                         line="17"/>
+        <return-value transfer-ownership="none">
+          <type name="SimpleButton" c:type="NemoSimpleButton*"/>
+        </return-value>
+        <parameters>
+          <parameter name="icon_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="icon_size" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_stock"
+                   c:identifier="nemo_simple_button_new_from_stock">
+        <source-position filename="libnemo-extension/nemo-simple-button.h"
+                         line="18"/>
+        <return-value transfer-ownership="none">
+          <type name="SimpleButton" c:type="NemoSimpleButton*"/>
+        </return-value>
+        <parameters>
+          <parameter name="stock_id" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="icon_size" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </constructor>
+    </class>
+    <record name="SimpleButtonClass"
+            c:type="NemoSimpleButtonClass"
+            glib:is-gtype-struct-for="SimpleButton">
+      <source-position filename="libnemo-extension/nemo-simple-button.h"
+                       line="14"/>
+      <field name="parent_class">
+        <type name="Gtk.ButtonClass" c:type="GtkButtonClass"/>
+      </field>
+    </record>
+    <function name="file_info_create"
+              c:identifier="nemo_file_info_create"
+              moved-to="FileInfo.create">
+      <source-position filename="libnemo-extension/nemo-file-info.h"
+                       line="128"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-file-info.c"
+             line="325">a #NemoFileInfo</doc>
+        <type name="FileInfo" c:type="NemoFileInfo*"/>
+      </return-value>
+      <parameters>
+        <parameter name="location" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-file-info.c"
+               line="323">the location to create the file info for</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_create_for_uri"
+              c:identifier="nemo_file_info_create_for_uri"
+              moved-to="FileInfo.create_for_uri">
+      <source-position filename="libnemo-extension/nemo-file-info.h"
+                       line="130"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-file-info.c"
+             line="356">a #NemoFileInfo</doc>
+        <type name="FileInfo" c:type="NemoFileInfo*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uri" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-file-info.c"
+               line="354">the URI to lookup the file info for</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_list_copy"
+              c:identifier="nemo_file_info_list_copy"
+              moved-to="FileInfo.list_copy">
+      <source-position filename="libnemo-extension/nemo-file-info.h"
+                       line="85"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-file-info.c"
+             line="49">a copy of @files.
+ Use #nemo_file_info_list_free to free the list and unref its contents.</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="FileInfo"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="files" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-file-info.c"
+               line="47">the files to copy</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="FileInfo"/>
+          </type>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_list_free"
+              c:identifier="nemo_file_info_list_free"
+              moved-to="FileInfo.list_free">
+      <source-position filename="libnemo-extension/nemo-file-info.h"
+                       line="86"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="files" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-file-info.c"
+               line="68">a list created with
+  #nemo_file_info_list_copy</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="FileInfo"/>
+          </type>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_lookup"
+              c:identifier="nemo_file_info_lookup"
+              moved-to="FileInfo.lookup">
+      <source-position filename="libnemo-extension/nemo-file-info.h"
+                       line="127"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-file-info.c"
+             line="313">a #NemoFileInfo</doc>
+        <type name="FileInfo" c:type="NemoFileInfo*"/>
+      </return-value>
+      <parameters>
+        <parameter name="location" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-file-info.c"
+               line="311">the location to lookup the file info for</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_info_lookup_for_uri"
+              c:identifier="nemo_file_info_lookup_for_uri"
+              moved-to="FileInfo.lookup_for_uri">
+      <source-position filename="libnemo-extension/nemo-file-info.h"
+                       line="129"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libnemo-extension/nemo-file-info.c"
+             line="337">a #NemoFileInfo</doc>
+        <type name="FileInfo" c:type="NemoFileInfo*"/>
+      </return-value>
+      <parameters>
+        <parameter name="uri" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libnemo-extension/nemo-file-info.c"
+               line="335">the URI to lookup the file info for</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_resource" c:identifier="nemo_get_resource">
+      <source-position filename="gresources/nemo-resources.h" line="6"/>
+      <return-value transfer-ownership="full">
+        <type name="Gio.Resource" c:type="GResource*"/>
+      </return-value>
+    </function>
+    <function name="info_provider_update_complete_invoke"
+              c:identifier="nemo_info_provider_update_complete_invoke"
+              moved-to="InfoProvider.update_complete_invoke">
+      <source-position filename="libnemo-extension/nemo-info-provider.h"
+                       line="75"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="update_complete" transfer-ownership="none">
+          <type name="GObject.Closure" c:type="GClosure*"/>
+        </parameter>
+        <parameter name="provider" transfer-ownership="none">
+          <type name="InfoProvider" c:type="NemoInfoProvider*"/>
+        </parameter>
+        <parameter name="handle" transfer-ownership="none">
+          <type name="OperationHandle" c:type="NemoOperationHandle*"/>
+        </parameter>
+        <parameter name="result" transfer-ownership="none">
+          <type name="OperationResult" c:type="NemoOperationResult"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="module_initialize" c:identifier="nemo_module_initialize">
+      <source-position filename="libnemo-extension/nemo-extension-types.h"
+                       line="73"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="module" transfer-ownership="none">
+          <type name="GObject.TypeModule" c:type="GTypeModule*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="module_list_types" c:identifier="nemo_module_list_types">
+      <source-position filename="libnemo-extension/nemo-extension-types.h"
+                       line="75"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="types" transfer-ownership="none">
+          <type name="GType" c:type="const GType**"/>
+        </parameter>
+        <parameter name="num_types" transfer-ownership="none">
+          <type name="gint" c:type="int*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="module_shutdown" c:identifier="nemo_module_shutdown">
+      <source-position filename="libnemo-extension/nemo-extension-types.h"
+                       line="74"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <docsection name="nemo-column">
+      <doc xml:space="preserve"
+           filename="libnemo-extension/nemo-column.c"
+           line="62">A column is linked to a particular file attribute to display in the view.
+Many of these are built in to Nemo, but they can also be provided by
+a #NemoColumnProvider/#NemoInfoProvider extension.</doc>
+    </docsection>
+    <docsection name="nemo-column-provider">
+      <doc xml:space="preserve"
+           filename="libnemo-extension/nemo-column-provider.c"
+           line="32">This allows additional columns to be shown in the list view.  This interface
+generally needs to be used in tandem with a #NemoInfoProvider, to feed file
+info back to populate the column(s).</doc>
+    </docsection>
+    <docsection name="nemo-file-info">
+      <doc xml:space="preserve"
+           filename="libnemo-extension/nemo-file-info.c"
+           line="30">This inteface is implemented by NemoFile and provides access to certain information
+regarding a given file object.  It is also used to add file attributes and notify
+a file of changes to those attribues when using a #NemoInfoProvider.</doc>
+    </docsection>
+    <docsection name="nemo-info-provider">
+      <doc xml:space="preserve"
+           filename="libnemo-extension/nemo-info-provider.c"
+           line="32">This interface can be used to collect additional file info, generally used
+together with a #NemoColumnProvider.  It can be used as a synchronous or async
+interface.
+
+Additional, it can act in the background and notify Nemo when information has
+changed from some external source.</doc>
+    </docsection>
+    <docsection name="nemo-location-widget-provider">
+      <doc xml:space="preserve"
+           filename="libnemo-extension/nemo-location-widget-provider.c"
+           line="33">This is an interface to allow the provision of a custom location widget
+embedded at the top of the Nemo view.  It receives the current location, and
+can then determine whether or not the location is appropriate for a widget, and
+its contents.
+
+Be aware that this extension is queried for a new widget any time a view loads a
+new location, or reloads the current one.</doc>
+    </docsection>
+    <docsection name="nemo-menu">
+      <doc xml:space="preserve"
+           filename="libnemo-extension/nemo-menu.c"
+           line="43">Menu items and submenus can be added to Nemo's selected item and background
+context menus by a #NemoMenuProvider.  Separators and embedded widgets are also
+possible (see #NemoSimpleButton.)</doc>
+    </docsection>
+    <docsection name="nemo-menu-provider">
+      <doc xml:space="preserve"
+           filename="libnemo-extension/nemo-menu-provider.c"
+           line="34">This interface allows custom menu entries to be inserted in the selection and
+background context menus.  Submenus and separators can also be generated.</doc>
+    </docsection>
+    <docsection name="nemo-property-page">
+      <doc xml:space="preserve"
+           filename="libnemo-extension/nemo-property-page.c"
+           line="53">Additional stack pages for a file's properties window can be provided by a
+#NemoPropertyPageProvider.  An appropriate parent #GtkWidget is created (usually
+a container type,) along with a label for the stack switcher.</doc>
+    </docsection>
+    <docsection name="nemo-property-page-provider">
+      <doc xml:space="preserve"
+           filename="libnemo-extension/nemo-property-page-provider.c"
+           line="33">This interface allows you to provide additional property pages for the right-click
+Properties menu item.  A new widget is requested each time the property page is opened.</doc>
+    </docsection>
+    <docsection name="nemo-simple-button">
+      <doc xml:space="preserve"
+           filename="libnemo-extension/nemo-simple-button.c"
+           line="14">This button class is intended to be used in a #NemoMenuItem to allow some
+advanced functionality within a single item row.</doc>
+    </docsection>
+  </namespace>
+</repository>

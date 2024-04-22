@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gegl" version="0.4"/>
+  <include name="MyPaint" version="1.6"/>
+  <package name="gegl-0.4"/>
+  <package name="glib-2.0"/>
+  <namespace name="MyPaintGegl"
+             version="1.6"
+             shared-library="libmypaint-gegl.so.0,libmypaint.so.0"
+             c:identifier-prefixes="MyPaintGegl"
+             c:symbol-prefixes="mypaint_gegl">
+    <record name="TiledSurface"
+            c:type="MyPaintGeglTiledSurface"
+            glib:type-name="MyPaintGeglTiledSurface"
+            glib:get-type="mypaint_gegl_tiled_surface_get_type"
+            c:symbol-prefix="tiled_surface">
+      <source-position filename="gegl/mypaint-gegl-surface.h" line="28"/>
+      <constructor name="new" c:identifier="mypaint_gegl_tiled_surface_new">
+        <source-position filename="gegl/mypaint-gegl-surface.h" line="40"/>
+        <return-value transfer-ownership="full">
+          <type name="TiledSurface" c:type="MyPaintGeglTiledSurface*"/>
+        </return-value>
+      </constructor>
+      <method name="get_buffer"
+              c:identifier="mypaint_gegl_tiled_surface_get_buffer">
+        <source-position filename="gegl/mypaint-gegl-surface.h" line="31"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gegl/mypaint-gegl-surface.c"
+               line="169">The buffer this surface is backed by.</doc>
+          <type name="Gegl.Buffer" c:type="GeglBuffer*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TiledSurface" c:type="MyPaintGeglTiledSurface*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="interface"
+              c:identifier="mypaint_gegl_tiled_surface_interface">
+        <source-position filename="gegl/mypaint-gegl-surface.h" line="37"/>
+        <return-value transfer-ownership="full">
+          <type name="MyPaint.Surface" c:type="MyPaintSurface*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TiledSurface" c:type="MyPaintGeglTiledSurface*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_buffer"
+              c:identifier="mypaint_gegl_tiled_surface_set_buffer">
+        <source-position filename="gegl/mypaint-gegl-surface.h" line="34"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="TiledSurface" c:type="MyPaintGeglTiledSurface*"/>
+          </instance-parameter>
+          <parameter name="buffer" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="gegl/mypaint-gegl-surface.c"
+                 line="179">The buffer which shall back this surface.</doc>
+            <type name="Gegl.Buffer" c:type="GeglBuffer*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </record>
+    <function-macro name="VALUE_HOLDS_TILED_SURFACE"
+                    c:identifier="MYPAINT_GEGL_VALUE_HOLDS_TILED_SURFACE"
+                    introspectable="0">
+      <source-position filename="glib/mypaint-gegl-glib.h" line="8"/>
+      <parameters>
+        <parameter name="value">
+        </parameter>
+      </parameters>
+    </function-macro>
+  </namespace>
+</repository>

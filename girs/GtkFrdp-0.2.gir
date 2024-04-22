@@ -1,0 +1,826 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <c:include name="gtk-frdp.h"/>
+  <namespace name="GtkFrdp"
+             version="0.2"
+             shared-library="libgtk-frdp-0.2.so"
+             c:identifier-prefixes="Frdp"
+             c:symbol-prefixes="frdp">
+    <class name="Display"
+           c:symbol-prefix="display"
+           c:type="FrdpDisplay"
+           parent="Gtk.DrawingArea"
+           glib:type-name="FrdpDisplay"
+           glib:get-type="frdp_display_get_type"
+           glib:type-struct="DisplayClass">
+      <source-position filename="src/frdp-display.h" line="36"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="frdp_display_new">
+        <source-position filename="src/frdp-display.h" line="38"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="authenticate" invoker="authenticate">
+        <source-position filename="src/frdp-display.h" line="35"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Display" c:type="FrdpDisplay*"/>
+          </instance-parameter>
+          <parameter name="username" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="password" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="authenticate" c:identifier="frdp_display_authenticate">
+        <source-position filename="src/frdp-display.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Display" c:type="FrdpDisplay*"/>
+          </instance-parameter>
+          <parameter name="username" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="password" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="authenticate_finish"
+              c:identifier="frdp_display_authenticate_finish">
+        <source-position filename="src/frdp-display.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Display" c:type="FrdpDisplay*"/>
+          </instance-parameter>
+          <parameter name="username" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="password" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="certificate_change_verify_ex"
+              c:identifier="frdp_display_certificate_change_verify_ex">
+        <source-position filename="src/frdp-display.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Display" c:type="FrdpDisplay*"/>
+          </instance-parameter>
+          <parameter name="host" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+          <parameter name="common_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="subject" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="issuer" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="fingerprint" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="old_subject" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="old_issuer" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="old_fingerprint" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="certificate_change_verify_ex_finish"
+              c:identifier="frdp_display_certificate_change_verify_ex_finish">
+        <source-position filename="src/frdp-display.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Display" c:type="FrdpDisplay*"/>
+          </instance-parameter>
+          <parameter name="verification" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="certificate_verify_ex"
+              c:identifier="frdp_display_certificate_verify_ex">
+        <source-position filename="src/frdp-display.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Display" c:type="FrdpDisplay*"/>
+          </instance-parameter>
+          <parameter name="host" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+          <parameter name="common_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="subject" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="issuer" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="fingerprint" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="certificate_verify_ex_finish"
+              c:identifier="frdp_display_certificate_verify_ex_finish">
+        <source-position filename="src/frdp-display.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Display" c:type="FrdpDisplay*"/>
+          </instance-parameter>
+          <parameter name="verification" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="close" c:identifier="frdp_display_close">
+        <doc xml:space="preserve"
+             filename="src/frdp-display.c"
+             line="556">Request the closing of the RDP session.</doc>
+        <source-position filename="src/frdp-display.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="display" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/frdp-display.c"
+                 line="558">the RDP display widget</doc>
+            <type name="Display" c:type="FrdpDisplay*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_pixbuf" c:identifier="frdp_display_get_pixbuf">
+        <doc xml:space="preserve"
+             filename="src/frdp-display.c"
+             line="819">Take a screenshot of the display.</doc>
+        <source-position filename="src/frdp-display.h" line="88"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/frdp-display.c"
+               line="825">a #GdkPixbuf with the screenshot image buffer</doc>
+          <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="display" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/frdp-display.c"
+                 line="821">the RDP display widget</doc>
+            <type name="Display" c:type="FrdpDisplay*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_open" c:identifier="frdp_display_is_open">
+        <doc xml:space="preserve"
+             filename="src/frdp-display.c"
+             line="540">Check if the connection for the display is currently open</doc>
+        <source-position filename="src/frdp-display.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/frdp-display.c"
+               line="546">TRUE if open, FALSE if closing/closed</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="display" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/frdp-display.c"
+                 line="542">the RDP display widget</doc>
+            <type name="Display" c:type="FrdpDisplay*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="open_host" c:identifier="frdp_display_open_host">
+        <doc xml:space="preserve"
+             filename="src/frdp-display.c"
+             line="502">Opens a TCP connection to the given @host litening on
+@port.</doc>
+        <source-position filename="src/frdp-display.h" line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="display" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/frdp-display.c"
+                 line="504">the RDP display widget</doc>
+            <type name="Display" c:type="FrdpDisplay*"/>
+          </instance-parameter>
+          <parameter name="host" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/frdp-display.c"
+                 line="505">the hostname or IP address</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/frdp-display.c"
+                 line="506">the service name or port number</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_scaling"
+              c:identifier="frdp_display_set_scaling"
+              glib:set-property="scaling">
+        <doc xml:space="preserve"
+             filename="src/frdp-display.c"
+             line="570">Set whether the remote desktop contents is automatically
+scaled to fit the available widget size, or whether it will
+be rendered at 1:1 size</doc>
+        <source-position filename="src/frdp-display.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="display" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/frdp-display.c"
+                 line="572">the RDP display widget</doc>
+            <type name="Display" c:type="FrdpDisplay*"/>
+          </instance-parameter>
+          <parameter name="scaling" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/frdp-display.c"
+                 line="573">TRUE to scale the desktop to fit, FALSE otherwise</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="allow-resize"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="domain"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="password"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="resize-supported"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="scaling"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_scaling"
+                default-value="TRUE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="username"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Gtk.DrawingArea" c:type="GtkDrawingArea"/>
+      </field>
+      <glib:signal name="rdp-auth-failure" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="rdp-connected" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="rdp-disconnected" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="rdp-error" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="rdp-needs-authentication" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="rdp-needs-certificate-change-verification"
+                   when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p2" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p3" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p4" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p5" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p6" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p7" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p8" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="rdp-needs-certificate-verification" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p2" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p3" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p4" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p5" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="DisplayClass"
+            c:type="FrdpDisplayClass"
+            glib:is-gtype-struct-for="Display">
+      <source-position filename="src/frdp-display.h" line="36"/>
+      <field name="parent_parent">
+        <type name="Gtk.DrawingAreaClass" c:type="GtkDrawingAreaClass"/>
+      </field>
+      <field name="authenticate">
+        <callback name="authenticate">
+          <source-position filename="src/frdp-display.h" line="35"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Display" c:type="FrdpDisplay*"/>
+            </parameter>
+            <parameter name="username" transfer-ownership="none">
+              <type name="utf8" c:type="gchar**"/>
+            </parameter>
+            <parameter name="password" transfer-ownership="none">
+              <type name="utf8" c:type="gchar**"/>
+            </parameter>
+            <parameter name="domain" transfer-ownership="none">
+              <type name="utf8" c:type="gchar**"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="DisplayPrivate"
+            c:type="FrdpDisplayPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="src/frdp-display.h" line="29"/>
+    </record>
+    <enumeration name="ErrConnect" c:type="FrdpErrConnect">
+      <source-position filename="src/frdp-session.h" line="102"/>
+      <member name="connect_cancelled"
+              value="131083"
+              c:identifier="FRDP_ERRCONNECT_CONNECT_CANCELLED">
+      </member>
+      <member name="authentication_failed"
+              value="131081"
+              c:identifier="FRDP_ERRCONNECT_AUTHENTICATION_FAILED">
+      </member>
+      <member name="security_nego_connect_failed"
+              value="131084"
+              c:identifier="FRDP_ERRCONNECT_SECURITY_NEGO_CONNECT_FAILED">
+      </member>
+    </enumeration>
+    <bitfield name="KeyEvent" c:type="FrdpKeyEvent">
+      <source-position filename="src/frdp-session.h" line="59"/>
+      <member name="press" value="1" c:identifier="FRDP_KEY_EVENT_PRESS">
+      </member>
+      <member name="release" value="2" c:identifier="FRDP_KEY_EVENT_RELEASE">
+      </member>
+    </bitfield>
+    <bitfield name="MouseEvent" c:type="FrdpMouseEvent">
+      <source-position filename="src/frdp-session.h" line="53"/>
+      <member name="move" value="1" c:identifier="FRDP_MOUSE_EVENT_MOVE">
+      </member>
+      <member name="down" value="2" c:identifier="FRDP_MOUSE_EVENT_DOWN">
+      </member>
+      <member name="wheel" value="4" c:identifier="FRDP_MOUSE_EVENT_WHEEL">
+      </member>
+      <member name="wheel_negative"
+              value="8"
+              c:identifier="FRDP_MOUSE_EVENT_WHEEL_NEGATIVE">
+      </member>
+      <member name="button1"
+              value="16"
+              c:identifier="FRDP_MOUSE_EVENT_BUTTON1">
+      </member>
+      <member name="button2"
+              value="32"
+              c:identifier="FRDP_MOUSE_EVENT_BUTTON2">
+      </member>
+      <member name="button3"
+              value="64"
+              c:identifier="FRDP_MOUSE_EVENT_BUTTON3">
+      </member>
+      <member name="button4"
+              value="128"
+              c:identifier="FRDP_MOUSE_EVENT_BUTTON4">
+      </member>
+      <member name="button5"
+              value="256"
+              c:identifier="FRDP_MOUSE_EVENT_BUTTON5">
+      </member>
+      <member name="hwheel" value="512" c:identifier="FRDP_MOUSE_EVENT_HWHEEL">
+      </member>
+    </bitfield>
+    <class name="Session"
+           c:symbol-prefix="session"
+           c:type="FrdpSession"
+           parent="GObject.Object"
+           glib:type-name="FrdpSession"
+           glib:get-type="frdp_session_get_type"
+           glib:type-struct="SessionClass">
+      <source-position filename="src/frdp-session.h" line="28"/>
+      <constructor name="new" c:identifier="frdp_session_new">
+        <source-position filename="src/frdp-session.h" line="61"/>
+        <return-value transfer-ownership="full">
+          <type name="Session" c:type="FrdpSession*"/>
+        </return-value>
+        <parameters>
+          <parameter name="display" transfer-ownership="none">
+            <type name="Display" c:type="FrdpDisplay*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="close" c:identifier="frdp_session_close">
+        <source-position filename="src/frdp-session.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Session" c:type="FrdpSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="connect"
+              c:identifier="frdp_session_connect"
+              glib:finish-func="connect_finish">
+        <source-position filename="src/frdp-session.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Session" c:type="FrdpSession*"/>
+          </instance-parameter>
+          <parameter name="hostname" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="connect_finish"
+              c:identifier="frdp_session_connect_finish"
+              throws="1">
+        <source-position filename="src/frdp-session.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Session" c:type="FrdpSession*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_pixbuf"
+              c:identifier="frdp_session_get_pixbuf"
+              introspectable="0">
+        <source-position filename="src/frdp-session.h" line="95"/>
+        <return-value>
+          <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Session" c:type="FrdpSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_open" c:identifier="frdp_session_is_open">
+        <source-position filename="src/frdp-session.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Session" c:type="FrdpSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="mouse_event" c:identifier="frdp_session_mouse_event">
+        <source-position filename="src/frdp-session.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Session" c:type="FrdpSession*"/>
+          </instance-parameter>
+          <parameter name="event" transfer-ownership="none">
+            <type name="MouseEvent" c:type="FrdpMouseEvent"/>
+          </parameter>
+          <parameter name="x" transfer-ownership="none">
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="mouse_pointer" c:identifier="frdp_session_mouse_pointer">
+        <source-position filename="src/frdp-session.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Session" c:type="FrdpSession*"/>
+          </instance-parameter>
+          <parameter name="enter" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="mouse_smooth_scroll_event"
+              c:identifier="frdp_session_mouse_smooth_scroll_event">
+        <source-position filename="src/frdp-session.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Session" c:type="FrdpSession*"/>
+          </instance-parameter>
+          <parameter name="x" transfer-ownership="none">
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+          <parameter name="delta_x" transfer-ownership="none">
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="delta_y" transfer-ownership="none">
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="send_key" c:identifier="frdp_session_send_key">
+        <source-position filename="src/frdp-session.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Session" c:type="FrdpSession*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <type name="Gdk.EventKey" c:type="GdkEventKey*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="display" writable="1" transfer-ownership="none">
+        <type name="Gtk.Widget"/>
+      </property>
+      <property name="domain"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="hostname"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="monitor-layout-supported"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="password"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="port"
+                writable="1"
+                transfer-ownership="none"
+                default-value="3389">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="scaling"
+                writable="1"
+                transfer-ownership="none"
+                default-value="TRUE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="username"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="SessionPrivate" c:type="FrdpSessionPrivate*"/>
+      </field>
+      <glib:signal name="rdp-auth-failure" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="rdp-connected" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="rdp-disconnected" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="rdp-error" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="SessionClass"
+            c:type="FrdpSessionClass"
+            glib:is-gtype-struct-for="Session">
+      <source-position filename="src/frdp-session.h" line="28"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="SessionPrivate"
+            c:type="FrdpSessionPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="src/frdp-session.h" line="30"/>
+    </record>
+  </namespace>
+</repository>

@@ -11389,6 +11389,14 @@ the given line in the source file. It must be free with g_free when done</doc>
         </parameter>
       </parameters>
     </function-macro>
+    <constant name="MINOR_VERSION" value="0" c:type="EV_MINOR_VERSION">
+      <doc xml:space="preserve"
+           filename="libdocument/ev-version.h"
+           line="37">The minor version number of the EV library
+(e.g. in version 3.1.4 this is 1).</doc>
+      <source-position filename="libdocument/ev-version.h" line="43"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
     <record name="Mapping" c:type="EvMapping">
       <source-position filename="libdocument/ev-document.h" line="289"/>
       <field name="area" writable="1">

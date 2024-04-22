@@ -1641,13 +1641,13 @@ functions below.</doc>
                    version="3.28">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter-impl-oauth2.c"
-             line="1588">Creates a new instance of an #ECredentialsPrompterImplOAuth2.</doc>
+             line="1707">Creates a new instance of an #ECredentialsPrompterImplOAuth2.</doc>
         <source-position filename="src/libedataserverui/e-credentials-prompter-impl-oauth2.h"
                          line="84"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libedataserverui/e-credentials-prompter-impl-oauth2.c"
-               line="1593">a newly created #ECredentialsPrompterImplOAuth2,
+               line="1712">a newly created #ECredentialsPrompterImplOAuth2,
    which should be freed with g_object_unref() when no longer needed.</doc>
           <type name="CredentialsPrompterImpl"
                 c:type="ECredentialsPrompterImpl*"/>

@@ -1,0 +1,455 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Garcon" version="1.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <include name="Libxfce4ui" version="2.0"/>
+  <include name="Libxfce4util" version="1.0"/>
+  <package name="garcon-gtk3-1"/>
+  <c:include name="garcon-gtk/garcon-gtk.h"/>
+  <namespace name="GarconGtk"
+             version="1.0"
+             shared-library="libgarcon-gtk3-1.so.0,libgarcon-1.so.0"
+             c:identifier-prefixes="GarconGtk"
+             c:symbol-prefixes="garcon_gtk">
+    <function-macro name="IS_MENU"
+                    c:identifier="GARCON_GTK_IS_MENU"
+                    introspectable="0">
+      <source-position filename="garcon-gtk-menu.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MENU_CLASS"
+                    c:identifier="GARCON_GTK_IS_MENU_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-gtk-menu.h" line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU"
+                    c:identifier="GARCON_GTK_MENU"
+                    introspectable="0">
+      <source-position filename="garcon-gtk-menu.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_CLASS"
+                    c:identifier="GARCON_GTK_MENU_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-gtk-menu.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MENU_GET_CLASS"
+                    c:identifier="GARCON_GTK_MENU_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="garcon-gtk-menu.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Menu"
+           c:symbol-prefix="menu"
+           c:type="GarconGtkMenu"
+           parent="Gtk.Menu"
+           glib:type-name="GarconGtkMenu"
+           glib:get-type="garcon_gtk_menu_get_type"
+           glib:type-struct="MenuClass">
+      <source-position filename="garcon-gtk-menu.h" line="47"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="garcon_gtk_menu_new">
+        <doc xml:space="preserve"
+             filename="garcon-gtk-menu.c"
+             line="1084">Creates a new #GarconGtkMenu for the .menu file referred to by @garcon_menu.
+This operation only fails if @garcon_menu is invalid.
+
+The caller is responsible to destroy the returned #GarconGtkMenu
+using g_object_unref().</doc>
+        <source-position filename="garcon-gtk-menu.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-gtk-menu.c"
+               line="1095">a new #GarconGtkMenu for @garcon_menu.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="garcon_menu"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1086">The #GarconMenu to be associated with the
+                          #GarconGtkMenu, or %NULL.</doc>
+            <type name="Garcon.Menu" c:type="GarconMenu*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="get_desktop_actions_menu"
+                c:identifier="garcon_gtk_menu_get_desktop_actions_menu">
+        <doc xml:space="preserve"
+             filename="garcon-gtk-menu.c"
+             line="1331">Application icons are never shown on the action menu items.</doc>
+        <source-position filename="garcon-gtk-menu.h" line="82"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="garcon-gtk-menu.c"
+               line="1337">a #GtkMenu holding all actions described
+in the desktop file as menu items.</doc>
+          <type name="Gtk.Menu" c:type="GtkMenu*"/>
+        </return-value>
+        <parameters>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1333">A #GarconMenuItem</doc>
+            <type name="Garcon.MenuItem" c:type="GarconMenuItem*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="get_menu"
+              c:identifier="garcon_gtk_menu_get_menu"
+              glib:get-property="menu">
+        <doc xml:space="preserve"
+             filename="garcon-gtk-menu.c"
+             line="1155">The #GarconMenu used to create the #GtkMenu.
+
+The caller is responsible to releasing the returned #GarconMenu
+using g_object_unref().</doc>
+        <source-position filename="garcon-gtk-menu.h" line="64"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="garcon-gtk-menu.c"
+               line="1164">the #GarconMenu for @menu.</doc>
+          <type name="Garcon.Menu" c:type="GarconMenu*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1157">A #GarconGtkMenu</doc>
+            <type name="Menu" c:type="GarconGtkMenu*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_right_click_edits"
+              c:identifier="garcon_gtk_menu_get_right_click_edits"
+              glib:get-property="right-click-edits">
+        <source-position filename="garcon-gtk-menu.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-gtk-menu.c"
+               line="1389">Whether an editor will be launched on secondary mouse clicks</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1387">A #GarconGtkMenu</doc>
+            <type name="Menu" c:type="GarconGtkMenu*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_desktop_actions"
+              c:identifier="garcon_gtk_menu_get_show_desktop_actions"
+              glib:get-property="show-desktop-actions">
+        <source-position filename="garcon-gtk-menu.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-gtk-menu.c"
+               line="1320">Whether desktop actions are shown in a submenu.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1318">A #GarconGtkMenu</doc>
+            <type name="Menu" c:type="GarconGtkMenu*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_generic_names"
+              c:identifier="garcon_gtk_menu_get_show_generic_names"
+              glib:get-property="show-generic-names">
+        <source-position filename="garcon-gtk-menu.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-gtk-menu.c"
+               line="1204">if generic names are shown</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1202">A #GarconGtkMenu</doc>
+            <type name="Menu" c:type="GarconGtkMenu*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_menu_icons"
+              c:identifier="garcon_gtk_menu_get_show_menu_icons"
+              glib:get-property="show-menu-icons">
+        <source-position filename="garcon-gtk-menu.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-gtk-menu.c"
+               line="1243">if menu icons are shown</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1241">A #GarconGtkMenu</doc>
+            <type name="Menu" c:type="GarconGtkMenu*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_tooltips"
+              c:identifier="garcon_gtk_menu_get_show_tooltips"
+              glib:get-property="show-tooltips">
+        <source-position filename="garcon-gtk-menu.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="garcon-gtk-menu.c"
+               line="1282">Whether descriptions are shown in the tooltip.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1280">A #GarconGtkMenu</doc>
+            <type name="Menu" c:type="GarconGtkMenu*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_menu"
+              c:identifier="garcon_gtk_menu_set_menu"
+              glib:set-property="menu">
+        <source-position filename="garcon-gtk-menu.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1118">A #GarconGtkMenu</doc>
+            <type name="Menu" c:type="GarconGtkMenu*"/>
+          </instance-parameter>
+          <parameter name="garcon_menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1119">The #GarconMenu to use</doc>
+            <type name="Garcon.Menu" c:type="GarconMenu*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_right_click_edits"
+              c:identifier="garcon_gtk_menu_set_right_click_edits"
+              glib:set-property="right-click-edits">
+        <source-position filename="garcon-gtk-menu.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1363">A #GarconGtkMenu</doc>
+            <type name="Menu" c:type="GarconGtkMenu*"/>
+          </instance-parameter>
+          <parameter name="enable_right_click_edits" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1364">Toggle showing whether to launch an editor
+when the menu is clicked with the secondary mouse button.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_show_desktop_actions"
+              c:identifier="garcon_gtk_menu_set_show_desktop_actions"
+              glib:set-property="show-desktop-actions">
+        <source-position filename="garcon-gtk-menu.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1295">A #GarconGtkMenu</doc>
+            <type name="Menu" c:type="GarconGtkMenu*"/>
+          </instance-parameter>
+          <parameter name="show_desktop_actions" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1296">Toggle showing the desktop actions in a submenu.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_show_generic_names"
+              c:identifier="garcon_gtk_menu_set_show_generic_names"
+              glib:set-property="show-generic-names">
+        <source-position filename="garcon-gtk-menu.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1179">A #GarconGtkMenu</doc>
+            <type name="Menu" c:type="GarconGtkMenu*"/>
+          </instance-parameter>
+          <parameter name="show_generic_names" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1180">new value</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_show_menu_icons"
+              c:identifier="garcon_gtk_menu_set_show_menu_icons"
+              glib:set-property="show-menu-icons">
+        <source-position filename="garcon-gtk-menu.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1217">A #GarconGtkMenu</doc>
+            <type name="Menu" c:type="GarconGtkMenu*"/>
+          </instance-parameter>
+          <parameter name="show_menu_icons" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1218">new value</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_show_tooltips"
+              c:identifier="garcon_gtk_menu_set_show_tooltips"
+              glib:set-property="show-tooltips">
+        <source-position filename="garcon-gtk-menu.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1256">A #GarconGtkMenu</doc>
+            <type name="Menu" c:type="GarconGtkMenu*"/>
+          </instance-parameter>
+          <parameter name="show_tooltips" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="garcon-gtk-menu.c"
+                 line="1257">new value</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="menu"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_menu"
+                getter="get_menu">
+        <type name="Garcon.Menu"/>
+      </property>
+      <property name="right-click-edits"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_right_click_edits"
+                getter="get_right_click_edits"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="show-desktop-actions"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_show_desktop_actions"
+                getter="get_show_desktop_actions"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="show-generic-names"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_show_generic_names"
+                getter="get_show_generic_names"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="show-menu-icons"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_show_menu_icons"
+                getter="get_show_menu_icons"
+                default-value="TRUE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="show-tooltips"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_show_tooltips"
+                getter="get_show_tooltips"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <field name="__parent__">
+        <type name="Gtk.Menu" c:type="GtkMenu"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="MenuPrivate" c:type="GarconGtkMenuPrivate*"/>
+      </field>
+    </class>
+    <record name="MenuClass"
+            c:type="GarconGtkMenuClass"
+            glib:is-gtype-struct-for="Menu">
+      <source-position filename="garcon-gtk-menu.h" line="47"/>
+      <field name="__parent__">
+        <type name="Gtk.MenuClass" c:type="GtkMenuClass"/>
+      </field>
+    </record>
+    <record name="MenuPrivate"
+            c:type="GarconGtkMenuPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="garcon-gtk-menu.h" line="40"/>
+    </record>
+    <docsection name="garcon-gtk-menu">
+      <doc xml:space="preserve"
+           filename="garcon-gtk-menu.c"
+           line="31">Create a complete GtkMenu for the given GarconMenu</doc>
+    </docsection>
+  </namespace>
+</repository>

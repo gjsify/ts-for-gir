@@ -1,0 +1,2213 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <package name="libfeedback-0.0"/>
+  <c:include name="libfeedback.h"/>
+  <namespace name="Lfb"
+             version="0.0"
+             shared-library="libfeedback-0.0.so.0"
+             c:identifier-prefixes="Lfb"
+             c:symbol-prefixes="lfb">
+    <class name="Event"
+           c:symbol-prefix="event"
+           c:type="LfbEvent"
+           parent="GObject.Object"
+           glib:type-name="LfbEvent"
+           glib:get-type="lfb_event_get_type"
+           glib:type-struct="EventClass">
+      <doc xml:space="preserve"
+           filename="libfeedback/lfb-event.c"
+           line="12">An event triggering feedback to the user
+
+#LfbEvent represents an event that should trigger
+audio, haptic and/or visual feedback to the user by triggering
+feedback on a feedback daemon. Valid event names are specified
+in the
+[Event naming specification](Event-naming-spec-0.0.0.html).
+
+One event can trigger multiple feedbacks at once (e.g. audio and
+haptic feedback). This is determined by the feedback theme in
+use (which is not under the appliction's control) and the active
+feedback profile (see [func@Lfb.set_feedback_profile]().
+
+After initializing the library via [func@Lfb.init]() feedback can be
+triggered like:
+
+```c
+  g_autoptr (GError) err = NULL;
+  LfbEvent *event = lfb_event_new ("message-new-instant");
+  lfb_event_set_timeout (event, 0);
+  if (!lfb_event_trigger_feedback (event, &amp;err))
+    g_warning ("Failed to trigger feedback: %s", err-&gt;message);
+```
+
+When all feedback for this event has ended the [signal@LfbEvent::feedback-ended]
+signal is emitted. If you want to end the feedback ahead of time use
+[method@LfbEvent.end_feedback]():
+
+```c
+  if (!lfb_event_end_feedback (event, &amp;err))
+    g_warning ("Failed to end feedback: %s", err-&gt;message);
+```
+
+Since these methods involve DBus calls there are asynchronous variants
+available, e.g. [method@LfbEvent.trigger_feedback_async]():
+
+```c
+  static void
+  on_feedback_triggered (LfbEvent      *event,
+                         GAsyncResult  *res,
+                         gpointer      unused)
+  {
+     g_autoptr (GError) err = NULL;
+     if (!lfb_event_trigger_feedback_finish (event, res, &amp;err)) {
+        g_warning ("Failed to trigger feedback for %s: %s",
+                   lfb_event_get_event (event), err-&gt;message);
+     }
+  }
+
+  static void
+  my_function ()
+  {
+    LfbEvent *event = lfb_event_new ("message-new-instant");
+    lfb_event_trigger_feedback_async (event, NULL,
+                                     (GAsyncReadyCallback)on_feedback_triggered,
+                                     NULL);
+  }
+```</doc>
+      <source-position filename="libfeedback/lfb-event.h" line="55"/>
+      <constructor name="new" c:identifier="lfb_event_new">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="385">Creates a new [class@Lfb.Event] based on the given event
+name. See [property@Lfb.Event:event] for details.</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="57"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfeedback/lfb-event.c"
+               line="392">The [class@Lfb.Event].</doc>
+          <type name="Event" c:type="LfbEvent*"/>
+        </return-value>
+        <parameters>
+          <parameter name="event" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="387">The event's name.</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="end_feedback"
+              c:identifier="lfb_event_end_feedback"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="544">Tells the feedback server to end all feedback for the given event as
+soon as possible.</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfeedback/lfb-event.c"
+               line="552">%TRUE if successful. On error, this will return %FALSE and set
+         @error.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="546">The event to end feedback for.</doc>
+            <type name="Event" c:type="LfbEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="end_feedback_async"
+              c:identifier="lfb_event_end_feedback_async">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="596">Tells the feedback server to end all feedback for the given event as
+soon as possible.</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="598">The event to end feedback for.</doc>
+            <type name="Event" c:type="LfbEvent*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="599">A #GCancellable to cancel the operation or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="600">A #GAsyncReadyCallback to call when the request is satisfied or %NULL.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="601">User data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="end_feedback_finish"
+              c:identifier="lfb_event_end_feedback_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="571">Finish an async operation started by lfb_event_end_feedback_async. You
+must call this function in the callback to free memory and receive any
+errors which occurred.
+
+This does not mean that the feedbacks finished right away. Connect to the
+[@signal@LfbEvent::feedback-ended] signal for this.</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfeedback/lfb-event.c"
+               line="584">%TRUE if ending the feedbacks was successful</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="573">the event</doc>
+            <type name="Event" c:type="LfbEvent*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="574">Result object passed to the callback of [method@LfbEvent.end_feedback_async]()</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_app_id"
+              c:identifier="lfb_event_get_app_id"
+              glib:get-property="app-id">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="787">Returns the app-id for this event. If no app-id has been explicitly
+set, %NULL is returned. The event uses the app-id returns by
+[func@lfb_get_app_id] in this case.</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfeedback/lfb-event.c"
+               line="795">The set app-id for this event or %NULL.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="789">The event</doc>
+            <type name="Event" c:type="LfbEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_end_reason"
+              c:identifier="lfb_event_get_end_reason"
+              glib:get-property="end-reason">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="703">Get the reason why the feadback ended.</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfeedback/lfb-event.c"
+               line="709">The reason why feedback ended.</doc>
+          <type name="EventEndReason" c:type="LfbEventEndReason"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="705">The event</doc>
+            <type name="Event" c:type="LfbEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_event"
+              c:identifier="lfb_event_get_event"
+              glib:get-property="event">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="657">Get the event's name according to the event naming spec.</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfeedback/lfb-event.c"
+               line="663">The event name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="659">The event</doc>
+            <type name="Event" c:type="LfbEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_feedback_profile"
+              c:identifier="lfb_event_get_feedback_profile"
+              glib:get-property="feedback-profile">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="743">Gets the set feedback profile. If no profile was set it returns
+%NULL. The event uses the system wide profile in this case.</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfeedback/lfb-event.c"
+               line="750">The set feedback profile to use for this event or %NULL.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="745">The event</doc>
+            <type name="Event" c:type="LfbEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_state"
+              c:identifier="lfb_event_get_state"
+              glib:get-property="state">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="687">Get the current event state (e.g. if triggered feeedback is
+currently running.</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfeedback/lfb-event.c"
+               line="694">The state of the feedback triggered by event.</doc>
+          <type name="EventState" c:type="LfbEventState"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="689">The event</doc>
+            <type name="Event" c:type="LfbEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_timeout"
+              c:identifier="lfb_event_get_timeout"
+              glib:get-property="timeout">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="672">Get the currently set timeout.</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfeedback/lfb-event.c"
+               line="678">The event timeout in milliseconds</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="674">The event</doc>
+            <type name="Event" c:type="LfbEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_app_id"
+              c:identifier="lfb_event_set_app_id"
+              glib:set-property="app-id">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="760">Tells the feedback server to use the given application id for
+this event when it is submitted. The server might ignore this
+request. This can be used by notification daemons to honor per
+application settings automatically.
+
+The functions is usually not used by applications.
+
+A value of %NULL (the default) lets the server pick the profile.</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="762">The event</doc>
+            <type name="Event" c:type="LfbEvent*"/>
+          </instance-parameter>
+          <parameter name="app_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="763">The application id to use</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_feedback_profile"
+              c:identifier="lfb_event_set_feedback_profile"
+              glib:set-property="feedback-profile">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="718">Tells the feedback server to use the given feedback profile for
+this event when it is submitted. The server might ignore this
+request.  Valid profile names and their 'noisiness' are specified
+in the [Feedback theme specification](Feedback-theme-spec-0.0.0.html).
+
+A value of %NULL (the default) lets the server pick the profile.</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="720">The event</doc>
+            <type name="Event" c:type="LfbEvent*"/>
+          </instance-parameter>
+          <parameter name="profile" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="721">The feedback profile to use</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_timeout"
+              c:identifier="lfb_event_set_timeout"
+              glib:set-property="timeout">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="632">Tells the feedback server to end feedack after #timeout seconds.
+The value -1 indicates to not set a timeout and let feedbacks stop
+on their own while 0 indicates to loop all feedbacks endlessly.
+They must be stopped via [method@LfbEvent.end_feedback]() in this case.
+
+It is an error to change the timeout after the feedback has been triggered
+via [method@LfbEvent.trigger_feedback]().</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="634">The event</doc>
+            <type name="Event" c:type="LfbEvent*"/>
+          </instance-parameter>
+          <parameter name="timeout" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="635">The timeout</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="trigger_feedback"
+              c:identifier="lfb_event_trigger_feedback"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="421">Tells the feedback server to provide proper feedback for the give
+event to the user.</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfeedback/lfb-event.c"
+               line="429">%TRUE if successful. On error, this will return %FALSE and set
+         @error.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="423">The event to trigger feedback for.</doc>
+            <type name="Event" c:type="LfbEvent*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="trigger_feedback_async"
+              c:identifier="lfb_event_trigger_feedback_async">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="471">Tells the feedback server to provide proper feedback for the give
+event to the user. This is the sync version of
+[method@LfbEvent.trigger_feedback]().</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="473">The event to trigger feedback for.</doc>
+            <type name="Event" c:type="LfbEvent*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="474">A #GCancellable to cancel the operation or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="475">A #GAsyncReadyCallback to call when the request is satisfied or %NULL.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="476">User data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="trigger_feedback_finish"
+              c:identifier="lfb_event_trigger_feedback_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="522">Finish an async operation started by [method@LfbEvent.trigger_feedback_async](). You
+must call this function in the callback to free memory and receive any
+errors which occurred.</doc>
+        <source-position filename="libfeedback/lfb-event.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfeedback/lfb-event.c"
+               line="532">%TRUE if triggering the feedbacks was successful</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="524">the event</doc>
+            <type name="Event" c:type="LfbEvent*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfeedback/lfb-event.c"
+                 line="525">Result object passed to the callback of [method@LfbEvent.trigger_feedback_async]</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="app-id"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_app_id"
+                getter="get_app_id"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="348">The application id to use for the event.
+[method@LfbEvent.set_feedback_profile]() for details.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="end-reason"
+                transfer-ownership="none"
+                getter="get_end_reason"
+                default-value="LFB_EVENT_END_REASON_NATURAL">
+        <type name="EventEndReason"/>
+      </property>
+      <property name="event"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_event"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="288">The type of event from the Event naming spec, e.g. 'message-new-instant'.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="feedback-profile"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_feedback_profile"
+                getter="get_feedback_profile"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="334">The name of the feedback profile to use for this event. See
+[method@LfbEvent.set_feedback_profile]() for details.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="state"
+                transfer-ownership="none"
+                getter="get_state"
+                default-value="LFB_EVENT_STATE_NONE">
+        <type name="EventState"/>
+      </property>
+      <property name="timeout"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_timeout"
+                getter="get_timeout"
+                default-value="-1">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="301">How long feedback should be provided in seconds. The special value
+%-1 uses the natural length of each feedback while %0 plays each feedback
+in a loop until ended explicitly via e.g. [method@LfbEvent.end_feedback]().</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+      <glib:signal name="feedback-ended" when="last">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.c"
+             line="364">Emitted when all feedbacks triggered by the event have ended.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="EventClass"
+            c:type="LfbEventClass"
+            glib:is-gtype-struct-for="Event">
+      <source-position filename="libfeedback/lfb-event.h" line="55"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="EventEndReason"
+                 glib:type-name="LfbEventEndReason"
+                 glib:get-type="lfb_event_end_reason_get_type"
+                 c:type="LfbEventEndReason">
+      <doc xml:space="preserve"
+           filename="libfeedback/lfb-event.h"
+           line="35">Enum values used to indicate why the feedbacks for an event ended.</doc>
+      <member name="not_found"
+              value="-1"
+              c:identifier="LFB_EVENT_END_REASON_NOT_FOUND"
+              glib:nick="not-found"
+              glib:name="LFB_EVENT_END_REASON_NOT_FOUND">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.h"
+             line="37">There was no feedback in the current theme for this event
+                                 so no feedback was provided to the user.</doc>
+      </member>
+      <member name="natural"
+              value="0"
+              c:identifier="LFB_EVENT_END_REASON_NATURAL"
+              glib:nick="natural"
+              glib:name="LFB_EVENT_END_REASON_NATURAL">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.h"
+             line="39">All feedbacks finished playing their natural length</doc>
+      </member>
+      <member name="expired"
+              value="1"
+              c:identifier="LFB_EVENT_END_REASON_EXPIRED"
+              glib:nick="expired"
+              glib:name="LFB_EVENT_END_REASON_EXPIRED">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.h"
+             line="40">Feedbacks ran until the set timeout expired</doc>
+      </member>
+      <member name="explicit"
+              value="2"
+              c:identifier="LFB_EVENT_END_REASON_EXPLICIT"
+              glib:nick="explicit"
+              glib:name="LFB_EVENT_END_REASON_EXPLICIT">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.h"
+             line="41">The feedbacks were ended explicitly</doc>
+      </member>
+    </enumeration>
+    <enumeration name="EventState"
+                 glib:type-name="LfbEventState"
+                 glib:get-type="lfb_event_state_get_type"
+                 c:type="LfbEventState">
+      <doc xml:space="preserve"
+           filename="libfeedback/lfb-event.h"
+           line="17">Enum values to indicate the current state of the feedbacks
+triggered by an event.</doc>
+      <member name="errored"
+              value="-1"
+              c:identifier="LFB_EVENT_STATE_ERRORED"
+              glib:nick="errored"
+              glib:name="LFB_EVENT_STATE_ERRORED">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.h"
+             line="19">An error occurred triggering feedbacks</doc>
+      </member>
+      <member name="none"
+              value="0"
+              c:identifier="LFB_EVENT_STATE_NONE"
+              glib:nick="none"
+              glib:name="LFB_EVENT_STATE_NONE">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.h"
+             line="20">No state information yet</doc>
+      </member>
+      <member name="running"
+              value="1"
+              c:identifier="LFB_EVENT_STATE_RUNNING"
+              glib:nick="running"
+              glib:name="LFB_EVENT_STATE_RUNNING">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.h"
+             line="21">The feedbacks for this event are currently running</doc>
+      </member>
+      <member name="ended"
+              value="2"
+              c:identifier="LFB_EVENT_STATE_ENDED"
+              glib:nick="ended"
+              glib:name="LFB_EVENT_STATE_ENDED">
+        <doc xml:space="preserve"
+             filename="libfeedback/lfb-event.h"
+             line="22">All feedbacks for this event ended</doc>
+      </member>
+    </enumeration>
+    <function-macro name="GDBUS_FEEDBACK"
+                    c:identifier="LFB_GDBUS_FEEDBACK"
+                    introspectable="0">
+      <source-position filename="data/lfb-gdbus.h" line="21"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GDBUS_FEEDBACK_GET_IFACE"
+                    c:identifier="LFB_GDBUS_FEEDBACK_GET_IFACE"
+                    introspectable="0">
+      <source-position filename="data/lfb-gdbus.h" line="23"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GDBUS_FEEDBACK_PROXY"
+                    c:identifier="LFB_GDBUS_FEEDBACK_PROXY"
+                    introspectable="0">
+      <source-position filename="data/lfb-gdbus.h" line="143"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GDBUS_FEEDBACK_PROXY_CLASS"
+                    c:identifier="LFB_GDBUS_FEEDBACK_PROXY_CLASS"
+                    introspectable="0">
+      <source-position filename="data/lfb-gdbus.h" line="144"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GDBUS_FEEDBACK_PROXY_GET_CLASS"
+                    c:identifier="LFB_GDBUS_FEEDBACK_PROXY_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="data/lfb-gdbus.h" line="145"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GDBUS_FEEDBACK_SKELETON"
+                    c:identifier="LFB_GDBUS_FEEDBACK_SKELETON"
+                    introspectable="0">
+      <source-position filename="data/lfb-gdbus.h" line="213"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GDBUS_FEEDBACK_SKELETON_CLASS"
+                    c:identifier="LFB_GDBUS_FEEDBACK_SKELETON_CLASS"
+                    introspectable="0">
+      <source-position filename="data/lfb-gdbus.h" line="214"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GDBUS_FEEDBACK_SKELETON_GET_CLASS"
+                    c:identifier="LFB_GDBUS_FEEDBACK_SKELETON_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="data/lfb-gdbus.h" line="215"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GDBUS_IS_FEEDBACK"
+                    c:identifier="LFB_GDBUS_IS_FEEDBACK"
+                    introspectable="0">
+      <source-position filename="data/lfb-gdbus.h" line="22"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GDBUS_IS_FEEDBACK_PROXY"
+                    c:identifier="LFB_GDBUS_IS_FEEDBACK_PROXY"
+                    introspectable="0">
+      <source-position filename="data/lfb-gdbus.h" line="146"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GDBUS_IS_FEEDBACK_PROXY_CLASS"
+                    c:identifier="LFB_GDBUS_IS_FEEDBACK_PROXY_CLASS"
+                    introspectable="0">
+      <source-position filename="data/lfb-gdbus.h" line="147"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GDBUS_IS_FEEDBACK_SKELETON"
+                    c:identifier="LFB_GDBUS_IS_FEEDBACK_SKELETON"
+                    introspectable="0">
+      <source-position filename="data/lfb-gdbus.h" line="216"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GDBUS_IS_FEEDBACK_SKELETON_CLASS"
+                    c:identifier="LFB_GDBUS_IS_FEEDBACK_SKELETON_CLASS"
+                    introspectable="0">
+      <source-position filename="data/lfb-gdbus.h" line="217"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <interface name="GdbusFeedback"
+               c:symbol-prefix="gdbus_feedback"
+               c:type="LfbGdbusFeedback"
+               glib:type-name="LfbGdbusFeedback"
+               glib:get-type="lfb_gdbus_feedback_get_type"
+               glib:type-struct="GdbusFeedbackIface">
+      <doc xml:space="preserve"
+           filename="data/lfb-gdbus.c"
+           line="629">Abstract interface type for the D-Bus interface &lt;link linkend="gdbus-interface-org-sigxcpu-Feedback.top_of_page"&gt;org.sigxcpu.Feedback&lt;/link&gt;.</doc>
+      <source-position filename="data/lfb-gdbus.h" line="55"/>
+      <function name="interface_info"
+                c:identifier="lfb_gdbus_feedback_interface_info">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="558">Gets a machine-readable description of the &lt;link linkend="gdbus-interface-org-sigxcpu-Feedback.top_of_page"&gt;org.sigxcpu.Feedback&lt;/link&gt; D-Bus interface.</doc>
+        <source-position filename="data/lfb-gdbus.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="data/lfb-gdbus.c"
+               line="563">A #GDBusInterfaceInfo. Do not free.</doc>
+          <type name="Gio.DBusInterfaceInfo" c:type="GDBusInterfaceInfo*"/>
+        </return-value>
+      </function>
+      <function name="override_properties"
+                c:identifier="lfb_gdbus_feedback_override_properties">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="571">Overrides all #GObject properties in the #LfbGdbusFeedback interface for a concrete class.
+The properties are overridden in the order they are defined.</doc>
+        <source-position filename="data/lfb-gdbus.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="data/lfb-gdbus.c"
+               line="579">The last property id.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <parameter name="klass" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="573">The class structure for a #GObject derived class.</doc>
+            <type name="GObject.ObjectClass" c:type="GObjectClass*"/>
+          </parameter>
+          <parameter name="property_id_begin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="574">The property id to assign to the first overridden property.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="feedback_ended">
+        <source-position filename="data/lfb-gdbus.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="object" transfer-ownership="none">
+            <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+          </instance-parameter>
+          <parameter name="arg_id" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="arg_reason" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_profile"
+                      invoker="get_profile"
+                      introspectable="0">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="736">Gets the value of the &lt;link linkend="gdbus-property-org-sigxcpu-Feedback.Profile"&gt;"Profile"&lt;/link&gt; D-Bus property.
+
+Since this D-Bus property is both readable and writable, it is meaningful to use this function on both the client- and service-side.
+
+The returned value is only valid until the property changes so on the client-side it is only safe to use this function on the thread where @object was constructed. Use lfb_gdbus_feedback_dup_profile() if on another thread.</doc>
+        <source-position filename="data/lfb-gdbus.h" line="48"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="data/lfb-gdbus.c"
+               line="746">The property value or %NULL if the property is not set. Do not free the returned value, it belongs to @object.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="738">A #LfbGdbusFeedback.</doc>
+            <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="handle_end_feedback">
+        <source-position filename="data/lfb-gdbus.h" line="35"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="object" transfer-ownership="none">
+            <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+          </instance-parameter>
+          <parameter name="invocation" transfer-ownership="none">
+            <type name="Gio.DBusMethodInvocation"
+                  c:type="GDBusMethodInvocation*"/>
+          </parameter>
+          <parameter name="arg_id" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="handle_trigger_feedback">
+        <source-position filename="data/lfb-gdbus.h" line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="object" transfer-ownership="none">
+            <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+          </instance-parameter>
+          <parameter name="invocation" transfer-ownership="none">
+            <type name="Gio.DBusMethodInvocation"
+                  c:type="GDBusMethodInvocation*"/>
+          </parameter>
+          <parameter name="arg_app_id" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="arg_event" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="arg_hints" transfer-ownership="none">
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="arg_timeout" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="call_end_feedback"
+              c:identifier="lfb_gdbus_feedback_call_end_feedback">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="928">Asynchronously invokes the &lt;link linkend="gdbus-method-org-sigxcpu-Feedback.EndFeedback"&gt;EndFeedback()&lt;/link&gt; D-Bus method on @proxy.
+When the operation is finished, @callback will be invoked in the thread-default main loop of the thread you are calling this method from (see g_main_context_push_thread_default()).
+You can then call lfb_gdbus_feedback_call_end_feedback_finish() to get the result of the operation.
+
+See lfb_gdbus_feedback_call_end_feedback_sync() for the synchronous, blocking version of this method.</doc>
+        <source-position filename="data/lfb-gdbus.h" line="114"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="930">A #LfbGdbusFeedbackProxy.</doc>
+            <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+          </instance-parameter>
+          <parameter name="arg_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="931">Argument to pass with the method invocation.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="932">A #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="933">A #GAsyncReadyCallback to call when the request is satisfied or %NULL.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="934">User data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="call_end_feedback_finish"
+              c:identifier="lfb_gdbus_feedback_call_end_feedback_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="961">Finishes an operation started with lfb_gdbus_feedback_call_end_feedback().</doc>
+        <source-position filename="data/lfb-gdbus.h" line="121"/>
+        <return-value transfer-ownership="none" skip="1">
+          <doc xml:space="preserve"
+               filename="data/lfb-gdbus.c"
+               line="969">%TRUE if the call succeeded, %FALSE if @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="963">A #LfbGdbusFeedbackProxy.</doc>
+            <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="964">The #GAsyncResult obtained from the #GAsyncReadyCallback passed to lfb_gdbus_feedback_call_end_feedback().</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="call_end_feedback_sync"
+              c:identifier="lfb_gdbus_feedback_call_end_feedback_sync"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="988">Synchronously invokes the &lt;link linkend="gdbus-method-org-sigxcpu-Feedback.EndFeedback"&gt;EndFeedback()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
+
+See lfb_gdbus_feedback_call_end_feedback() for the asynchronous version of this method.</doc>
+        <source-position filename="data/lfb-gdbus.h" line="126"/>
+        <return-value transfer-ownership="none" skip="1">
+          <doc xml:space="preserve"
+               filename="data/lfb-gdbus.c"
+               line="999">%TRUE if the call succeeded, %FALSE if @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="990">A #LfbGdbusFeedbackProxy.</doc>
+            <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+          </instance-parameter>
+          <parameter name="arg_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="991">Argument to pass with the method invocation.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="992">A #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="call_trigger_feedback"
+              c:identifier="lfb_gdbus_feedback_call_trigger_feedback">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="806">Asynchronously invokes the &lt;link linkend="gdbus-method-org-sigxcpu-Feedback.TriggerFeedback"&gt;TriggerFeedback()&lt;/link&gt; D-Bus method on @proxy.
+When the operation is finished, @callback will be invoked in the thread-default main loop of the thread you are calling this method from (see g_main_context_push_thread_default()).
+You can then call lfb_gdbus_feedback_call_trigger_feedback_finish() to get the result of the operation.
+
+See lfb_gdbus_feedback_call_trigger_feedback_sync() for the synchronous, blocking version of this method.</doc>
+        <source-position filename="data/lfb-gdbus.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="808">A #LfbGdbusFeedbackProxy.</doc>
+            <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+          </instance-parameter>
+          <parameter name="arg_app_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="809">Argument to pass with the method invocation.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="arg_event" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="810">Argument to pass with the method invocation.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="arg_hints" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="811">Argument to pass with the method invocation.</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="arg_timeout" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="812">Argument to pass with the method invocation.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="813">A #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="6">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="814">A #GAsyncReadyCallback to call when the request is satisfied or %NULL.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="815">User data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="call_trigger_feedback_finish"
+              c:identifier="lfb_gdbus_feedback_call_trigger_feedback_finish"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="848">Finishes an operation started with lfb_gdbus_feedback_call_trigger_feedback().</doc>
+        <source-position filename="data/lfb-gdbus.h" line="98"/>
+        <return-value transfer-ownership="none" skip="1">
+          <doc xml:space="preserve"
+               filename="data/lfb-gdbus.c"
+               line="857">%TRUE if the call succeeded, %FALSE if @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="850">A #LfbGdbusFeedbackProxy.</doc>
+            <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+          </instance-parameter>
+          <parameter name="out_id"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="851">Return location for return parameter or %NULL to ignore.</doc>
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+          <parameter name="res" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="852">The #GAsyncResult obtained from the #GAsyncReadyCallback passed to lfb_gdbus_feedback_call_trigger_feedback().</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="call_trigger_feedback_sync"
+              c:identifier="lfb_gdbus_feedback_call_trigger_feedback_sync"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="878">Synchronously invokes the &lt;link linkend="gdbus-method-org-sigxcpu-Feedback.TriggerFeedback"&gt;TriggerFeedback()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
+
+See lfb_gdbus_feedback_call_trigger_feedback() for the asynchronous version of this method.</doc>
+        <source-position filename="data/lfb-gdbus.h" line="104"/>
+        <return-value transfer-ownership="none" skip="1">
+          <doc xml:space="preserve"
+               filename="data/lfb-gdbus.c"
+               line="893">%TRUE if the call succeeded, %FALSE if @error is set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="proxy" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="880">A #LfbGdbusFeedbackProxy.</doc>
+            <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+          </instance-parameter>
+          <parameter name="arg_app_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="881">Argument to pass with the method invocation.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="arg_event" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="882">Argument to pass with the method invocation.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="arg_hints" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="883">Argument to pass with the method invocation.</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="arg_timeout" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="884">Argument to pass with the method invocation.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="out_id"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="885">Return location for return parameter or %NULL to ignore.</doc>
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="886">A #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="complete_end_feedback"
+              c:identifier="lfb_gdbus_feedback_complete_end_feedback">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="1047">Helper function used in service implementations to finish handling invocations of the &lt;link linkend="gdbus-method-org-sigxcpu-Feedback.EndFeedback"&gt;EndFeedback()&lt;/link&gt; D-Bus method. If you instead want to finish handling an invocation by returning an error, use g_dbus_method_invocation_return_error() or similar.
+
+This method will free @invocation, you cannot use it afterwards.</doc>
+        <source-position filename="data/lfb-gdbus.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1049">A #LfbGdbusFeedback.</doc>
+            <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+          </instance-parameter>
+          <parameter name="invocation" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1050">A #GDBusMethodInvocation.</doc>
+            <type name="Gio.DBusMethodInvocation"
+                  c:type="GDBusMethodInvocation*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="complete_trigger_feedback"
+              c:identifier="lfb_gdbus_feedback_complete_trigger_feedback">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="1026">Helper function used in service implementations to finish handling invocations of the &lt;link linkend="gdbus-method-org-sigxcpu-Feedback.TriggerFeedback"&gt;TriggerFeedback()&lt;/link&gt; D-Bus method. If you instead want to finish handling an invocation by returning an error, use g_dbus_method_invocation_return_error() or similar.
+
+This method will free @invocation, you cannot use it afterwards.</doc>
+        <source-position filename="data/lfb-gdbus.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1028">A #LfbGdbusFeedback.</doc>
+            <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+          </instance-parameter>
+          <parameter name="invocation" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1029">A #GDBusMethodInvocation.</doc>
+            <type name="Gio.DBusMethodInvocation"
+                  c:type="GDBusMethodInvocation*"/>
+          </parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1030">Parameter to return.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="dup_profile"
+              c:identifier="lfb_gdbus_feedback_dup_profile"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="756">Gets a copy of the &lt;link linkend="gdbus-property-org-sigxcpu-Feedback.Profile"&gt;"Profile"&lt;/link&gt; D-Bus property.
+
+Since this D-Bus property is both readable and writable, it is meaningful to use this function on both the client- and service-side.</doc>
+        <source-position filename="data/lfb-gdbus.h" line="136"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="data/lfb-gdbus.c"
+               line="764">The property value or %NULL if the property is not set. The returned value should be freed with g_free().</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="758">A #LfbGdbusFeedback.</doc>
+            <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="emit_feedback_ended"
+              c:identifier="lfb_gdbus_feedback_emit_feedback_ended">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="789">Emits the &lt;link linkend="gdbus-signal-org-sigxcpu-Feedback.FeedbackEnded"&gt;"FeedbackEnded"&lt;/link&gt; D-Bus signal.</doc>
+        <source-position filename="data/lfb-gdbus.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="791">A #LfbGdbusFeedback.</doc>
+            <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+          </instance-parameter>
+          <parameter name="arg_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="792">Argument to pass with the signal.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="arg_reason" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="793">Argument to pass with the signal.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_profile"
+              c:identifier="lfb_gdbus_feedback_get_profile"
+              glib:get-property="profile"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="736">Gets the value of the &lt;link linkend="gdbus-property-org-sigxcpu-Feedback.Profile"&gt;"Profile"&lt;/link&gt; D-Bus property.
+
+Since this D-Bus property is both readable and writable, it is meaningful to use this function on both the client- and service-side.
+
+The returned value is only valid until the property changes so on the client-side it is only safe to use this function on the thread where @object was constructed. Use lfb_gdbus_feedback_dup_profile() if on another thread.</doc>
+        <source-position filename="data/lfb-gdbus.h" line="135"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="data/lfb-gdbus.c"
+               line="746">The property value or %NULL if the property is not set. Do not free the returned value, it belongs to @object.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="738">A #LfbGdbusFeedback.</doc>
+            <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_profile"
+              c:identifier="lfb_gdbus_feedback_set_profile"
+              glib:set-property="profile"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="774">Sets the &lt;link linkend="gdbus-property-org-sigxcpu-Feedback.Profile"&gt;"Profile"&lt;/link&gt; D-Bus property to @value.
+
+Since this D-Bus property is both readable and writable, it is meaningful to use this function on both the client- and service-side.</doc>
+        <source-position filename="data/lfb-gdbus.h" line="137"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="object" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="776">A #LfbGdbusFeedback.</doc>
+            <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+          </instance-parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="777">The value to set.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="profile"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_profile"
+                getter="get_profile"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="725">Represents the D-Bus property &lt;link linkend="gdbus-property-org-sigxcpu-Feedback.Profile"&gt;"Profile"&lt;/link&gt;.
+
+Since the D-Bus property for this #GObject property is both readable and writable, it is meaningful to both read from it and write to it on both the service- and client-side.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <glib:signal name="feedback-ended" when="last">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="703">On the client-side, this signal is emitted whenever the D-Bus signal &lt;link linkend="gdbus-signal-org-sigxcpu-Feedback.FeedbackEnded"&gt;"FeedbackEnded"&lt;/link&gt; is received.
+
+On the service-side, this signal can be used with e.g. g_signal_emit_by_name() to make the object emit the D-Bus signal.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="arg_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="706">Argument.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="arg_reason" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="707">Argument.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="handle-end-feedback" when="last">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="679">Signal emitted when a remote caller is invoking the &lt;link linkend="gdbus-method-org-sigxcpu-Feedback.EndFeedback"&gt;EndFeedback()&lt;/link&gt; D-Bus method.
+
+If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call lfb_gdbus_feedback_complete_end_feedback() or e.g. g_dbus_method_invocation_return_error() on it) and no other signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="data/lfb-gdbus.c"
+               line="689">%G_DBUS_METHOD_INVOCATION_HANDLED or %TRUE if the invocation was handled, %G_DBUS_METHOD_INVOCATION_UNHANDLED or %FALSE to let other signal handlers run.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="invocation" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="682">A #GDBusMethodInvocation.</doc>
+            <type name="Gio.DBusMethodInvocation"/>
+          </parameter>
+          <parameter name="arg_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="683">Argument passed by remote caller.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="handle-trigger-feedback" when="last">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="653">Signal emitted when a remote caller is invoking the &lt;link linkend="gdbus-method-org-sigxcpu-Feedback.TriggerFeedback"&gt;TriggerFeedback()&lt;/link&gt; D-Bus method.
+
+If a signal handler returns %TRUE, it means the signal handler will handle the invocation (e.g. take a reference to @invocation and eventually call lfb_gdbus_feedback_complete_trigger_feedback() or e.g. g_dbus_method_invocation_return_error() on it) and no other signal handlers will run. If no signal handler handles the invocation, the %G_DBUS_ERROR_UNKNOWN_METHOD error is returned.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="data/lfb-gdbus.c"
+               line="666">%G_DBUS_METHOD_INVOCATION_HANDLED or %TRUE if the invocation was handled, %G_DBUS_METHOD_INVOCATION_UNHANDLED or %FALSE to let other signal handlers run.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="invocation" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="656">A #GDBusMethodInvocation.</doc>
+            <type name="Gio.DBusMethodInvocation"/>
+          </parameter>
+          <parameter name="arg_app_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="657">Argument passed by remote caller.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="arg_event" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="658">Argument passed by remote caller.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="arg_hints" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="659">Argument passed by remote caller.</doc>
+            <type name="GLib.Variant"/>
+          </parameter>
+          <parameter name="arg_timeout" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="660">Argument passed by remote caller.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </interface>
+    <record name="GdbusFeedbackIface"
+            c:type="LfbGdbusFeedbackIface"
+            glib:is-gtype-struct-for="GdbusFeedback">
+      <doc xml:space="preserve"
+           filename="data/lfb-gdbus.c"
+           line="635">Virtual table for the D-Bus interface &lt;link linkend="gdbus-interface-org-sigxcpu-Feedback.top_of_page"&gt;org.sigxcpu.Feedback&lt;/link&gt;.</doc>
+      <source-position filename="data/lfb-gdbus.h" line="55"/>
+      <field name="parent_iface">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="637">The parent interface.</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="handle_end_feedback">
+        <callback name="handle_end_feedback">
+          <source-position filename="data/lfb-gdbus.h" line="35"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="object" transfer-ownership="none">
+              <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+            </parameter>
+            <parameter name="invocation" transfer-ownership="none">
+              <type name="Gio.DBusMethodInvocation"
+                    c:type="GDBusMethodInvocation*"/>
+            </parameter>
+            <parameter name="arg_id" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="handle_trigger_feedback">
+        <callback name="handle_trigger_feedback">
+          <source-position filename="data/lfb-gdbus.h" line="40"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="object" transfer-ownership="none">
+              <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+            </parameter>
+            <parameter name="invocation" transfer-ownership="none">
+              <type name="Gio.DBusMethodInvocation"
+                    c:type="GDBusMethodInvocation*"/>
+            </parameter>
+            <parameter name="arg_app_id" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="arg_event" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="arg_hints" transfer-ownership="none">
+              <type name="GLib.Variant" c:type="GVariant*"/>
+            </parameter>
+            <parameter name="arg_timeout" transfer-ownership="none">
+              <type name="gint" c:type="gint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_profile">
+        <callback name="get_profile">
+          <source-position filename="data/lfb-gdbus.h" line="48"/>
+          <return-value transfer-ownership="none" nullable="1">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="746">The property value or %NULL if the property is not set. Do not free the returned value, it belongs to @object.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </return-value>
+          <parameters>
+            <parameter name="object" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="data/lfb-gdbus.c"
+                   line="738">A #LfbGdbusFeedback.</doc>
+              <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="feedback_ended">
+        <callback name="feedback_ended">
+          <source-position filename="data/lfb-gdbus.h" line="50"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="object" transfer-ownership="none">
+              <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+            </parameter>
+            <parameter name="arg_id" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+            <parameter name="arg_reason" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="GdbusFeedbackProxy"
+           c:symbol-prefix="gdbus_feedback_proxy"
+           c:type="LfbGdbusFeedbackProxy"
+           parent="Gio.DBusProxy"
+           glib:type-name="LfbGdbusFeedbackProxy"
+           glib:get-type="lfb_gdbus_feedback_proxy_get_type"
+           glib:type-struct="GdbusFeedbackProxyClass">
+      <doc xml:space="preserve"
+           filename="data/lfb-gdbus.c"
+           line="1067">The #LfbGdbusFeedbackProxy structure contains only private data and should only be accessed using the provided API.</doc>
+      <source-position filename="data/lfb-gdbus.h" line="163"/>
+      <implements name="Gio.AsyncInitable"/>
+      <implements name="Gio.DBusInterface"/>
+      <implements name="Gio.Initable"/>
+      <implements name="GdbusFeedback"/>
+      <constructor name="new_finish"
+                   c:identifier="lfb_gdbus_feedback_proxy_new_finish"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="1327">Finishes an operation started with lfb_gdbus_feedback_proxy_new().</doc>
+        <source-position filename="data/lfb-gdbus.h" line="179"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="data/lfb-gdbus.c"
+               line="1334">The constructed proxy object or %NULL if @error is set.</doc>
+          <type name="GdbusFeedbackProxy" c:type="LfbGdbusFeedback*"/>
+        </return-value>
+        <parameters>
+          <parameter name="res" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1329">The #GAsyncResult obtained from the #GAsyncReadyCallback passed to lfb_gdbus_feedback_proxy_new().</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_for_bus_finish"
+                   c:identifier="lfb_gdbus_feedback_proxy_new_for_bus_finish"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="1417">Finishes an operation started with lfb_gdbus_feedback_proxy_new_for_bus().</doc>
+        <source-position filename="data/lfb-gdbus.h" line="198"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="data/lfb-gdbus.c"
+               line="1424">The constructed proxy object or %NULL if @error is set.</doc>
+          <type name="GdbusFeedbackProxy" c:type="LfbGdbusFeedback*"/>
+        </return-value>
+        <parameters>
+          <parameter name="res" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1419">The #GAsyncResult obtained from the #GAsyncReadyCallback passed to lfb_gdbus_feedback_proxy_new_for_bus().</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_for_bus_sync"
+                   c:identifier="lfb_gdbus_feedback_proxy_new_for_bus_sync"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="1442">Like lfb_gdbus_feedback_proxy_new_sync() but takes a #GBusType instead of a #GDBusConnection.
+
+The calling thread is blocked until a reply is received.
+
+See lfb_gdbus_feedback_proxy_new_for_bus() for the asynchronous version of this constructor.</doc>
+        <source-position filename="data/lfb-gdbus.h" line="201"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="data/lfb-gdbus.c"
+               line="1457">The constructed proxy object or %NULL if @error is set.</doc>
+          <type name="GdbusFeedbackProxy" c:type="LfbGdbusFeedback*"/>
+        </return-value>
+        <parameters>
+          <parameter name="bus_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1444">A #GBusType.</doc>
+            <type name="Gio.BusType" c:type="GBusType"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1445">Flags from the #GDBusProxyFlags enumeration.</doc>
+            <type name="Gio.DBusProxyFlags" c:type="GDBusProxyFlags"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1446">A bus name (well-known or unique).</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="object_path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1447">An object path.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1448">A #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_sync"
+                   c:identifier="lfb_gdbus_feedback_proxy_new_sync"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="1352">Synchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-sigxcpu-Feedback.top_of_page"&gt;org.sigxcpu.Feedback&lt;/link&gt;. See g_dbus_proxy_new_sync() for more details.
+
+The calling thread is blocked until a reply is received.
+
+See lfb_gdbus_feedback_proxy_new() for the asynchronous version of this constructor.</doc>
+        <source-position filename="data/lfb-gdbus.h" line="182"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="data/lfb-gdbus.c"
+               line="1367">The constructed proxy object or %NULL if @error is set.</doc>
+          <type name="GdbusFeedbackProxy" c:type="LfbGdbusFeedback*"/>
+        </return-value>
+        <parameters>
+          <parameter name="connection" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1354">A #GDBusConnection.</doc>
+            <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1355">Flags from the #GDBusProxyFlags enumeration.</doc>
+            <type name="Gio.DBusProxyFlags" c:type="GDBusProxyFlags"/>
+          </parameter>
+          <parameter name="name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1356">A bus name (well-known or unique) or %NULL if @connection is not a message bus connection.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="object_path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1357">An object path.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1358">A #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="new" c:identifier="lfb_gdbus_feedback_proxy_new">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="1297">Asynchronously creates a proxy for the D-Bus interface &lt;link linkend="gdbus-interface-org-sigxcpu-Feedback.top_of_page"&gt;org.sigxcpu.Feedback&lt;/link&gt;. See g_dbus_proxy_new() for more details.
+
+When the operation is finished, @callback will be invoked in the thread-default main loop of the thread you are calling this method from (see g_main_context_push_thread_default()).
+You can then call lfb_gdbus_feedback_proxy_new_finish() to get the result of the operation.
+
+See lfb_gdbus_feedback_proxy_new_sync() for the synchronous, blocking version of this constructor.</doc>
+        <source-position filename="data/lfb-gdbus.h" line="171"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="connection" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1299">A #GDBusConnection.</doc>
+            <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1300">Flags from the #GDBusProxyFlags enumeration.</doc>
+            <type name="Gio.DBusProxyFlags" c:type="GDBusProxyFlags"/>
+          </parameter>
+          <parameter name="name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1301">A bus name (well-known or unique) or %NULL if @connection is not a message bus connection.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="object_path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1302">An object path.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1303">A #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="6">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1304">A #GAsyncReadyCallback to call when the request is satisfied.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1305">User data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="new_for_bus"
+                c:identifier="lfb_gdbus_feedback_proxy_new_for_bus">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="1387">Like lfb_gdbus_feedback_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
+
+When the operation is finished, @callback will be invoked in the thread-default main loop of the thread you are calling this method from (see g_main_context_push_thread_default()).
+You can then call lfb_gdbus_feedback_proxy_new_for_bus_finish() to get the result of the operation.
+
+See lfb_gdbus_feedback_proxy_new_for_bus_sync() for the synchronous, blocking version of this constructor.</doc>
+        <source-position filename="data/lfb-gdbus.h" line="190"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="bus_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1389">A #GBusType.</doc>
+            <type name="Gio.BusType" c:type="GBusType"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1390">Flags from the #GDBusProxyFlags enumeration.</doc>
+            <type name="Gio.DBusProxyFlags" c:type="GDBusProxyFlags"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1391">A bus name (well-known or unique).</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="object_path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1392">An object path.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1393">A #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="6">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1394">A #GAsyncReadyCallback to call when the request is satisfied.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="data/lfb-gdbus.c"
+                 line="1395">User data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <field name="parent_instance" readable="0" private="1">
+        <type name="Gio.DBusProxy" c:type="GDBusProxy"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="GdbusFeedbackProxyPrivate"
+              c:type="LfbGdbusFeedbackProxyPrivate*"/>
+      </field>
+    </class>
+    <record name="GdbusFeedbackProxyClass"
+            c:type="LfbGdbusFeedbackProxyClass"
+            glib:is-gtype-struct-for="GdbusFeedbackProxy">
+      <doc xml:space="preserve"
+           filename="data/lfb-gdbus.c"
+           line="1073">Class structure for #LfbGdbusFeedbackProxy.</doc>
+      <source-position filename="data/lfb-gdbus.h" line="163"/>
+      <field name="parent_class">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="1075">The parent class.</doc>
+        <type name="Gio.DBusProxyClass" c:type="GDBusProxyClass"/>
+      </field>
+    </record>
+    <record name="GdbusFeedbackProxyPrivate"
+            c:type="LfbGdbusFeedbackProxyPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="data/lfb-gdbus.h" line="151"/>
+    </record>
+    <class name="GdbusFeedbackSkeleton"
+           c:symbol-prefix="gdbus_feedback_skeleton"
+           c:type="LfbGdbusFeedbackSkeleton"
+           parent="Gio.DBusInterfaceSkeleton"
+           glib:type-name="LfbGdbusFeedbackSkeleton"
+           glib:get-type="lfb_gdbus_feedback_skeleton_get_type"
+           glib:type-struct="GdbusFeedbackSkeletonClass">
+      <doc xml:space="preserve"
+           filename="data/lfb-gdbus.c"
+           line="1479">The #LfbGdbusFeedbackSkeleton structure contains only private data and should only be accessed using the provided API.</doc>
+      <source-position filename="data/lfb-gdbus.h" line="233"/>
+      <implements name="Gio.DBusInterface"/>
+      <implements name="GdbusFeedback"/>
+      <constructor name="new" c:identifier="lfb_gdbus_feedback_skeleton_new">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="1959">Creates a skeleton object for the D-Bus interface &lt;link linkend="gdbus-interface-org-sigxcpu-Feedback.top_of_page"&gt;org.sigxcpu.Feedback&lt;/link&gt;.</doc>
+        <source-position filename="data/lfb-gdbus.h" line="241"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="data/lfb-gdbus.c"
+               line="1964">The skeleton object.</doc>
+          <type name="GdbusFeedbackSkeleton" c:type="LfbGdbusFeedback*"/>
+        </return-value>
+      </constructor>
+      <field name="parent_instance" readable="0" private="1">
+        <type name="Gio.DBusInterfaceSkeleton"
+              c:type="GDBusInterfaceSkeleton"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="GdbusFeedbackSkeletonPrivate"
+              c:type="LfbGdbusFeedbackSkeletonPrivate*"/>
+      </field>
+    </class>
+    <record name="GdbusFeedbackSkeletonClass"
+            c:type="LfbGdbusFeedbackSkeletonClass"
+            glib:is-gtype-struct-for="GdbusFeedbackSkeleton">
+      <doc xml:space="preserve"
+           filename="data/lfb-gdbus.c"
+           line="1485">Class structure for #LfbGdbusFeedbackSkeleton.</doc>
+      <source-position filename="data/lfb-gdbus.h" line="233"/>
+      <field name="parent_class">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="1487">The parent class.</doc>
+        <type name="Gio.DBusInterfaceSkeletonClass"
+              c:type="GDBusInterfaceSkeletonClass"/>
+      </field>
+    </record>
+    <record name="GdbusFeedbackSkeletonPrivate"
+            c:type="LfbGdbusFeedbackSkeletonPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="data/lfb-gdbus.h" line="221"/>
+    </record>
+    <docsection name="LfbGdbusFeedback">
+      <doc xml:space="preserve"
+           filename="data/lfb-gdbus.c"
+           line="341">This section contains code for working with the &lt;link linkend="gdbus-interface-org-sigxcpu-Feedback.top_of_page"&gt;org.sigxcpu.Feedback&lt;/link&gt; D-Bus interface in C.</doc>
+    </docsection>
+    <function name="gdbus_feedback_interface_info"
+              c:identifier="lfb_gdbus_feedback_interface_info"
+              moved-to="GdbusFeedback.interface_info">
+      <doc xml:space="preserve"
+           filename="data/lfb-gdbus.c"
+           line="558">Gets a machine-readable description of the &lt;link linkend="gdbus-interface-org-sigxcpu-Feedback.top_of_page"&gt;org.sigxcpu.Feedback&lt;/link&gt; D-Bus interface.</doc>
+      <source-position filename="data/lfb-gdbus.h" line="63"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="563">A #GDBusInterfaceInfo. Do not free.</doc>
+        <type name="Gio.DBusInterfaceInfo" c:type="GDBusInterfaceInfo*"/>
+      </return-value>
+    </function>
+    <function name="gdbus_feedback_override_properties"
+              c:identifier="lfb_gdbus_feedback_override_properties"
+              moved-to="GdbusFeedback.override_properties">
+      <doc xml:space="preserve"
+           filename="data/lfb-gdbus.c"
+           line="571">Overrides all #GObject properties in the #LfbGdbusFeedback interface for a concrete class.
+The properties are overridden in the order they are defined.</doc>
+      <source-position filename="data/lfb-gdbus.h" line="64"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="data/lfb-gdbus.c"
+             line="579">The last property id.</doc>
+        <type name="guint" c:type="guint"/>
+      </return-value>
+      <parameters>
+        <parameter name="klass" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="data/lfb-gdbus.c"
+               line="573">The class structure for a #GObject derived class.</doc>
+          <type name="GObject.ObjectClass" c:type="GObjectClass*"/>
+        </parameter>
+        <parameter name="property_id_begin" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="data/lfb-gdbus.c"
+               line="574">The property id to assign to the first overridden property.</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_app_id" c:identifier="lfb_get_app_id">
+      <doc xml:space="preserve"
+           filename="libfeedback/libfeedback.c"
+           line="131">Get the application id set via [func@Lfb.set_app_id]().</doc>
+      <source-position filename="libfeedback/libfeedback.h" line="25"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="libfeedback/libfeedback.c"
+             line="136">the application id.</doc>
+        <type name="utf8" c:type="const char*"/>
+      </return-value>
+    </function>
+    <function name="get_feedback_profile"
+              c:identifier="lfb_get_feedback_profile">
+      <doc xml:space="preserve"
+           filename="libfeedback/libfeedback.c"
+           line="157">Gets the currently set feedback profile.</doc>
+      <source-position filename="libfeedback/libfeedback.h" line="28"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="libfeedback/libfeedback.c"
+             line="162">The current profile or %NULL on error.</doc>
+        <type name="utf8" c:type="const char*"/>
+      </return-value>
+    </function>
+    <function name="get_proxy" c:identifier="lfb_get_proxy">
+      <doc xml:space="preserve"
+           filename="libfeedback/libfeedback.c"
+           line="202">This can be used to access the lower level API e.g. to listen to
+property changes. The object is not owned by the caller. Don't
+unref it after use.</doc>
+      <source-position filename="libfeedback/libfeedback.h" line="29"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="libfeedback/libfeedback.c"
+             line="209">The DBus proxy.</doc>
+        <type name="GdbusFeedback" c:type="LfbGdbusFeedback*"/>
+      </return-value>
+    </function>
+    <function name="init" c:identifier="lfb_init" throws="1">
+      <doc xml:space="preserve"
+           filename="libfeedback/libfeedback.c"
+           line="69">Initialize libfeedback. This must be called before any other of libfeedback's functions.</doc>
+      <source-position filename="libfeedback/libfeedback.h" line="22"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="libfeedback/libfeedback.c"
+             line="76">%TRUE if successful, or %FALSE on error.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="app_id" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfeedback/libfeedback.c"
+               line="71">The application id</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="is_initted" c:identifier="lfb_is_initted">
+      <doc xml:space="preserve"
+           filename="libfeedback/libfeedback.c"
+           line="144">Gets whether or not libfeedback is initialized.</doc>
+      <source-position filename="libfeedback/libfeedback.h" line="26"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="libfeedback/libfeedback.c"
+             line="149">%TRUE if libfeedback is initialized, or %FALSE otherwise.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+    </function>
+    <function name="set_app_id" c:identifier="lfb_set_app_id">
+      <doc xml:space="preserve"
+           filename="libfeedback/libfeedback.c"
+           line="118">Sets the application id.</doc>
+      <source-position filename="libfeedback/libfeedback.h" line="24"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="app_id" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfeedback/libfeedback.c"
+               line="120">The application id</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="set_feedback_profile"
+              c:identifier="lfb_set_feedback_profile">
+      <doc xml:space="preserve"
+           filename="libfeedback/libfeedback.c"
+           line="179">Sets the active feedback profile to #profile. It is up to the feedback
+daemon to ignore this request. The new profile might not become active
+immediately. You can listen to changes #LfbGdbusFeedback's ::profile
+property to get notified when it takes effect.</doc>
+      <source-position filename="libfeedback/libfeedback.h" line="27"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="profile" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libfeedback/libfeedback.c"
+               line="181">The profile to set</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="uninit" c:identifier="lfb_uninit">
+      <doc xml:space="preserve"
+           filename="libfeedback/libfeedback.c"
+           line="100">Uninitialize the library when no longer used. Usually called
+on program shutdown.</doc>
+      <source-position filename="libfeedback/libfeedback.h" line="23"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

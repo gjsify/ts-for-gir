@@ -196,9 +196,7 @@ except on checkout, where it uses @GGIT_ATTRIBUTE_CHECK_INDEX_THEN_FILE.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="BUILD_TYPE"
-              value="debugoptimized"
-              c:type="GGIT_BUILD_TYPE">
+    <constant name="BUILD_TYPE" value="plain" c:type="GGIT_BUILD_TYPE">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-version.h"
            line="52">The build type of the installed build.</doc>
@@ -10683,7 +10681,7 @@ If the reference count drops to 0, @entry is freed.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MINOR_VERSION" value="1" c:type="GGIT_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="2" c:type="GGIT_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-version.h"
            line="26">libgit2-glib minor version component (e.g. 2 if %GGIT_VERSION is 1.2.3)</doc>
@@ -22075,7 +22073,7 @@ See ggit_tree_walk().</doc>
              line="894">walk tree in post-order</doc>
       </member>
     </enumeration>
-    <constant name="VERSION_S" value="1.1.0" c:type="GGIT_VERSION_S">
+    <constant name="VERSION_S" value="1.2.0" c:type="GGIT_VERSION_S">
       <doc xml:space="preserve"
            filename="libgit2-glib/ggit-version.h"
            line="11">libgit2-glib version, encoded as a string, useful for printing and

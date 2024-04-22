@@ -1,0 +1,455 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <namespace name="MPID"
+             version="3.0"
+             shared-library=""
+             c:identifier-prefixes="MPID"
+             c:symbol-prefixes="mpid_">
+    <function-macro name="DEVICE"
+                    c:identifier="MPID_DEVICE"
+                    introspectable="0">
+      <source-position filename="lib/libmediaplayerid/mediaplayerid.h"
+                       line="55"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEVICE_CLASS"
+                    c:identifier="MPID_DEVICE_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/libmediaplayerid/mediaplayerid.h"
+                       line="56"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEVICE_GET_CLASS"
+                    c:identifier="MPID_DEVICE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/libmediaplayerid/mediaplayerid.h"
+                       line="59"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Device"
+           c:symbol-prefix="device"
+           c:type="MPIDDevice"
+           parent="GObject.Object"
+           glib:type-name="MPIDDevice"
+           glib:get-type="mpid_device_get_type"
+           glib:type-struct="DeviceClass">
+      <doc xml:space="preserve"
+           filename="lib/libmediaplayerid/mpid-device.c"
+           line="38">An #MPIDDevice stores a set of information for a particular attached device,
+identified by either a mount point (e.g. /media/device) or a device node
+(e.g. /dev/sdb).</doc>
+      <source-position filename="lib/libmediaplayerid/mediaplayerid.h"
+                       line="68"/>
+      <constructor name="new" c:identifier="mpid_device_new">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-device.c"
+             line="565">Creates a new #MPIDDevice and reads device information for the specified
+device node path or mount point path.</doc>
+        <source-position filename="lib/libmediaplayerid/mediaplayerid.h"
+                         line="103"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/libmediaplayerid/mpid-device.c"
+               line="572">new #MPIDDevice instance</doc>
+          <type name="Device" c:type="MPIDDevice*"/>
+        </return-value>
+        <parameters>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/libmediaplayerid/mpid-device.c"
+                 line="567">the input path (either device node path or mount point)</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_mpi_file"
+                   c:identifier="mpid_device_new_from_mpi_file">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-device.c"
+             line="580">Creates a new #MPIDDevice populated with information read from the specified
+.mpi file</doc>
+        <source-position filename="lib/libmediaplayerid/mediaplayerid.h"
+                         line="104"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lib/libmediaplayerid/mpid-device.c"
+               line="587">new #MPIDDevice instance</doc>
+          <type name="Device" c:type="MPIDDevice*"/>
+        </return-value>
+        <parameters>
+          <parameter name="path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lib/libmediaplayerid/mpid-device.c"
+                 line="582">path to a .mpi file describing the device</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <property name="access-protocols" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-device.c"
+             line="477">Names of access protocols that can be used to access the device contents</doc>
+        <array>
+          <type name="utf8"/>
+        </array>
+      </property>
+      <property name="audio-folders" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-device.c"
+             line="538">A set of folders (relative to the root of the device) containing audio
+folders.</doc>
+        <array>
+          <type name="utf8"/>
+        </array>
+      </property>
+      <property name="drive-type"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-device.c"
+             line="453">The device drive type</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="error"
+                transfer-ownership="none"
+                default-value="MPID_ERROR_NONE">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-device.c"
+             line="379">MPID error code resulting from device detection (see #MPIDError)</doc>
+        <type name="Error"/>
+      </property>
+      <property name="folder-depth"
+                transfer-ownership="none"
+                default-value="-1">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-device.c"
+             line="551">The folder nesting level supported by the device.  -1 indicates there is no limit.</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="fs-uuid" transfer-ownership="none" default-value="NULL">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-device.c"
+             line="429">The device filesystem UUID</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="input-formats" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-device.c"
+             line="501">A set of MIME types that the device can record</doc>
+        <array>
+          <type name="utf8"/>
+        </array>
+      </property>
+      <property name="input-path"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-device.c"
+             line="355">Either the device node path or the mount point path for the device.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="model" transfer-ownership="none" default-value="NULL">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-device.c"
+             line="405">The device model name</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="mpi-file"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-device.c"
+             line="367">Path to a .mpi file describing the device</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="output-formats" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-device.c"
+             line="489">A set of MIME types that the device can play</doc>
+        <array>
+          <type name="utf8"/>
+        </array>
+      </property>
+      <property name="playlist-formats" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-device.c"
+             line="513">A set of playlist format MIME types suppored by the device</doc>
+        <array>
+          <type name="utf8"/>
+        </array>
+      </property>
+      <property name="playlist-path"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-device.c"
+             line="525">Path to playlist files on the device.  May include '%File' to indicate a directory
+containing any number of playlist files.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="requires-eject"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-device.c"
+             line="465">If %TRUE, the device must be ejected rather than unmounted</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="serial" transfer-ownership="none" default-value="NULL">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-device.c"
+             line="441">The device serial ID</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="source"
+                transfer-ownership="none"
+                default-value="MPID_SOURCE_NONE">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-device.c"
+             line="392">The information source used to provide device information (see #MPIDSource)</doc>
+        <type name="SourceType"/>
+      </property>
+      <property name="vendor" transfer-ownership="none" default-value="NULL">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-device.c"
+             line="417">The device vendor name</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent" readable="0" private="1">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="input_path" readable="0" private="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="mpi_file" readable="0" private="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="error" readable="0" private="1">
+        <type name="Error" c:type="MPIDError"/>
+      </field>
+      <field name="source" readable="0" private="1">
+        <type name="Source" c:type="MPIDSource"/>
+      </field>
+      <field name="model" readable="0" private="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="vendor" readable="0" private="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="fs_uuid" readable="0" private="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="serial" readable="0" private="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="drive_type" readable="0" private="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="requires_eject" readable="0" private="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="access_protocols" readable="0" private="1">
+        <type name="utf8" c:type="char**"/>
+      </field>
+      <field name="output_formats" readable="0" private="1">
+        <type name="utf8" c:type="char**"/>
+      </field>
+      <field name="input_formats" readable="0" private="1">
+        <type name="utf8" c:type="char**"/>
+      </field>
+      <field name="playlist_formats" readable="0" private="1">
+        <type name="utf8" c:type="char**"/>
+      </field>
+      <field name="playlist_path" readable="0" private="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="audio_folders" readable="0" private="1">
+        <type name="utf8" c:type="char**"/>
+      </field>
+      <field name="folder_depth" readable="0" private="1">
+        <type name="gint" c:type="int"/>
+      </field>
+    </class>
+    <record name="DeviceClass"
+            c:type="MPIDDeviceClass"
+            glib:is-gtype-struct-for="Device">
+      <source-position filename="lib/libmediaplayerid/mediaplayerid.h"
+                       line="68"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="Error"
+                 glib:type-name="MPIDError"
+                 glib:get-type="mpid_error_get_type"
+                 c:type="MPIDError">
+      <member name="OK"
+              value="0"
+              c:identifier="MPID_ERROR_NONE"
+              glib:nick="OK"
+              glib:name="MPID_ERROR_NONE">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-util.c"
+             line="32">Indicates no error has occurred</doc>
+      </member>
+      <member name="no_such_device"
+              value="1"
+              c:identifier="MPID_ERROR_NO_DEVICE_PATH"
+              glib:nick="no-such-device"
+              glib:name="MPID_ERROR_NO_DEVICE_PATH">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-util.c"
+             line="33">Unable to find the device path</doc>
+      </member>
+      <member name="device_db_failed"
+              value="2"
+              c:identifier="MPID_ERROR_MECHANISM_FAILED"
+              glib:nick="device-db-failed"
+              glib:name="MPID_ERROR_MECHANISM_FAILED">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-util.c"
+             line="34">The device detection mechanism (e.g. udev) failed</doc>
+      </member>
+      <member name="not_media_player"
+              value="3"
+              c:identifier="MPID_ERROR_NOT_MEDIA_PLAYER"
+              glib:nick="not-media-player"
+              glib:name="MPID_ERROR_NOT_MEDIA_PLAYER">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-util.c"
+             line="35">The device is not a media player</doc>
+      </member>
+      <member name="device_info_missing"
+              value="4"
+              c:identifier="MPID_ERROR_DEVICE_INFO_MISSING"
+              glib:nick="device-info-missing"
+              glib:name="MPID_ERROR_DEVICE_INFO_MISSING">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-util.c"
+             line="36">The device detection mechanism identified the device
+  but was unable to locate its device information</doc>
+      </member>
+    </enumeration>
+    <function-macro name="IS_DEVICE"
+                    c:identifier="MPID_IS_DEVICE"
+                    introspectable="0">
+      <source-position filename="lib/libmediaplayerid/mediaplayerid.h"
+                       line="57"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DEVICE_CLASS"
+                    c:identifier="MPID_IS_DEVICE_CLASS"
+                    introspectable="0">
+      <source-position filename="lib/libmediaplayerid/mediaplayerid.h"
+                       line="58"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="PROTOCOL_GENERIC"
+              value="storage"
+              c:type="MPID_PROTOCOL_GENERIC">
+      <source-position filename="lib/libmediaplayerid/mediaplayerid.h"
+                       line="27"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="PROTOCOL_IPOD" value="ipod" c:type="MPID_PROTOCOL_IPOD">
+      <source-position filename="lib/libmediaplayerid/mediaplayerid.h"
+                       line="26"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <enumeration name="Source" c:type="MPIDSource">
+      <source-position filename="lib/libmediaplayerid/mediaplayerid.h"
+                       line="43"/>
+      <member name="none" value="0" c:identifier="MPID_SOURCE_NONE">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-util.c"
+             line="63">No device information is available</doc>
+      </member>
+      <member name="system" value="1" c:identifier="MPID_SOURCE_SYSTEM">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-util.c"
+             line="64">Device information provided by the operating system (e.g. udev)</doc>
+      </member>
+      <member name="override" value="2" c:identifier="MPID_SOURCE_OVERRIDE">
+        <doc xml:space="preserve"
+             filename="lib/libmediaplayerid/mpid-util.c"
+             line="65">Device information provided by an override file on the device itself.</doc>
+      </member>
+    </enumeration>
+    <enumeration name="SourceType"
+                 glib:type-name="MPIDSourceType"
+                 glib:get-type="mpid_source_get_type"
+                 c:type="MPIDSourceType">
+      <member name="no_device_info"
+              value="0"
+              c:identifier="MPID_SOURCE_NONE"
+              glib:nick="no-device-info"
+              glib:name="MPID_SOURCE_NONE">
+      </member>
+      <member name="system_device_info"
+              value="1"
+              c:identifier="MPID_SOURCE_SYSTEM"
+              glib:nick="system-device-info"
+              glib:name="MPID_SOURCE_SYSTEM">
+      </member>
+      <member name="override_device_info"
+              value="2"
+              c:identifier="MPID_SOURCE_OVERRIDE"
+              glib:nick="override-device-info"
+              glib:name="MPID_SOURCE_OVERRIDE">
+      </member>
+    </enumeration>
+    <function name="enable_debug" c:identifier="mpid_enable_debug">
+      <doc xml:space="preserve"
+           filename="lib/libmediaplayerid/mpid-util.c"
+           line="87">Enables or disables debug output from the MPID library</doc>
+      <source-position filename="lib/libmediaplayerid/mediaplayerid.h"
+                       line="101"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="debug" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lib/libmediaplayerid/mpid-util.c"
+               line="89">whether to enable debug output</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+      </parameters>
+    </function>
+    <docsection name="mediaplayerid">
+      <doc xml:space="preserve"
+           filename="lib/libmediaplayerid/mpid-device.c"
+           line="27">MPID provides access to device information, such as device and vendor names,
+supported formats, and audio folder locations, for USB mass storage media
+player devices.  It queries the operating system (udev) and reads
+override files from the device filesystem and provides a simple set of
+properties.</doc>
+    </docsection>
+  </namespace>
+</repository>

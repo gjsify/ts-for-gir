@@ -1,0 +1,1368 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <namespace name="Libinsane"
+             version="1.0"
+             shared-library="libinsane_gobject.so.1"
+             c:identifier-prefixes="Libinsane"
+             c:symbol-prefixes="libinsane">
+    <function-macro name="API" c:identifier="LIBINSANE_API" introspectable="0">
+      <source-position filename="include/libinsane-gobject/libinsane-api.h"
+                       line="16"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="API_CLASS"
+                    c:identifier="LIBINSANE_API_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/libinsane-api.h"
+                       line="18"/>
+      <parameters>
+        <parameter name="cls">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="API_GET_CLASS"
+                    c:identifier="LIBINSANE_API_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/libinsane-api.h"
+                       line="22"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Api"
+           c:symbol-prefix="api"
+           c:type="LibinsaneApi"
+           parent="GObject.Object"
+           glib:type-name="LibinsaneApi"
+           glib:get-type="libinsane_api_get_type"
+           glib:type-struct="ApiClass">
+      <source-position filename="include/libinsane-gobject/libinsane-api.h"
+                       line="36"/>
+      <constructor name="new_from_string"
+                   c:identifier="libinsane_api_new_from_string"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="src/libinsane-api.c"
+             line="119">Instantiate a new list of API based on a provided string.
+
+@param desc see [lis_str2impls()](../doxygen/html/str2impls_8h.html)</doc>
+        <source-position filename="include/libinsane-gobject/libinsane-api.h"
+                         line="42"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/libinsane-api.c"
+               line="126">the new reference to @self.</doc>
+          <type name="Api" c:type="LibinsaneApi*"/>
+        </return-value>
+        <parameters>
+          <parameter name="desc" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_safebet"
+                   c:identifier="libinsane_api_new_safebet"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="src/libinsane-api.c"
+             line="86">Instantiate the safest list of API for most cases.
+See [lis_safebet](../doxygen/html/safebet_8h.html)</doc>
+        <source-position filename="include/libinsane-gobject/libinsane-api.h"
+                         line="41"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/libinsane-api.c"
+               line="92">the new reference to @self.</doc>
+          <type name="Api" c:type="LibinsaneApi*"/>
+        </return-value>
+      </constructor>
+      <function name="get_version" c:identifier="libinsane_api_get_version">
+        <source-position filename="include/libinsane-gobject/libinsane-api.h"
+                         line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+      </function>
+      <method name="cleanup" c:identifier="libinsane_api_cleanup">
+        <source-position filename="include/libinsane-gobject/libinsane-api.h"
+                         line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Api" c:type="LibinsaneApi*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_device"
+              c:identifier="libinsane_api_get_device"
+              throws="1">
+        <source-position filename="include/libinsane-gobject/libinsane-api.h"
+                         line="46"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/libinsane-api.c"
+               line="228">LibinsaneItem object</doc>
+          <type name="Item" c:type="LibinsaneItem*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Api" c:type="LibinsaneApi*"/>
+          </instance-parameter>
+          <parameter name="dev_id" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="list_devices"
+              c:identifier="libinsane_api_list_devices"
+              throws="1">
+        <source-position filename="include/libinsane-gobject/libinsane-api.h"
+                         line="43"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/libinsane-api.c"
+               line="167">
+  list of available devices (LibinsaneDeviceDescriptors objects)</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="DeviceDescriptor"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Api" c:type="LibinsaneApi*"/>
+          </instance-parameter>
+          <parameter name="locations" transfer-ownership="none">
+            <type name="DeviceLocations" c:type="LibinsaneDeviceLocations"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ApiClass"
+            c:type="LibinsaneApiClass"
+            glib:is-gtype-struct-for="Api">
+      <source-position filename="include/libinsane-gobject/libinsane-api.h"
+                       line="36"/>
+      <field name="parent">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="ApiPrivate"
+            c:type="LibinsaneApiPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="include/libinsane-gobject/libinsane-api.h"
+                       line="27"/>
+    </record>
+    <bitfield name="Capability" c:type="LibinsaneCapability">
+      <doc xml:space="preserve"
+           filename="include/libinsane-gobject/capability.h"
+           line="4">Not actually an enum but a bit field.</doc>
+      <source-position filename="include/libinsane-gobject/capability.h"
+                       line="16"/>
+      <member name="none" value="0" c:identifier="LIBINSANE_CAPABILITY_NONE">
+      </member>
+      <member name="emulated"
+              value="1"
+              c:identifier="LIBINSANE_CAPABILITY_EMULATED">
+      </member>
+      <member name="automatic"
+              value="2"
+              c:identifier="LIBINSANE_CAPABILITY_AUTOMATIC">
+      </member>
+      <member name="hw_select"
+              value="4"
+              c:identifier="LIBINSANE_CAPABILITY_HW_SELECT">
+      </member>
+      <member name="sw_select"
+              value="8"
+              c:identifier="LIBINSANE_CAPABILITY_SW_SELECT">
+      </member>
+      <member name="inactive"
+              value="16"
+              c:identifier="LIBINSANE_CAPABILITY_INACTIVE">
+      </member>
+    </bitfield>
+    <enumeration name="ConstraintType" c:type="LibinsaneConstraintType">
+      <source-position filename="include/libinsane-gobject/constraint.h"
+                       line="13"/>
+      <member name="none"
+              value="0"
+              c:identifier="LIBINSANE_CONSTRAINT_TYPE_NONE">
+      </member>
+      <member name="range"
+              value="1"
+              c:identifier="LIBINSANE_CONSTRAINT_TYPE_RANGE">
+      </member>
+      <member name="list"
+              value="2"
+              c:identifier="LIBINSANE_CONSTRAINT_TYPE_LIST">
+      </member>
+    </enumeration>
+    <function-macro name="DEVICE_DESCRIPTOR"
+                    c:identifier="LIBINSANE_DEVICE_DESCRIPTOR"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/device_descriptor.h"
+                       line="9"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEVICE_DESCRIPTOR_CLASS"
+                    c:identifier="LIBINSANE_DEVICE_DESCRIPTOR_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/device_descriptor.h"
+                       line="11"/>
+      <parameters>
+        <parameter name="cls">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEVICE_DESCRIPTOR_GET_CLASS"
+                    c:identifier="LIBINSANE_DEVICE_DESCRIPTOR_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/device_descriptor.h"
+                       line="15"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="DeviceDescriptor"
+           c:symbol-prefix="device_descriptor"
+           c:type="LibinsaneDeviceDescriptor"
+           parent="GObject.Object"
+           glib:type-name="LibinsaneDeviceDescriptor"
+           glib:get-type="libinsane_device_descriptor_get_type"
+           glib:type-struct="DeviceDescriptorClass">
+      <source-position filename="include/libinsane-gobject/device_descriptor.h"
+                       line="29"/>
+      <method name="get_dev_id"
+              c:identifier="libinsane_device_descriptor_get_dev_id">
+        <source-position filename="include/libinsane-gobject/device_descriptor.h"
+                         line="35"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DeviceDescriptor" c:type="LibinsaneDeviceDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_dev_model"
+              c:identifier="libinsane_device_descriptor_get_dev_model">
+        <source-position filename="include/libinsane-gobject/device_descriptor.h"
+                         line="37"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DeviceDescriptor" c:type="LibinsaneDeviceDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_dev_type"
+              c:identifier="libinsane_device_descriptor_get_dev_type">
+        <source-position filename="include/libinsane-gobject/device_descriptor.h"
+                         line="38"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DeviceDescriptor" c:type="LibinsaneDeviceDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_dev_vendor"
+              c:identifier="libinsane_device_descriptor_get_dev_vendor">
+        <source-position filename="include/libinsane-gobject/device_descriptor.h"
+                         line="36"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DeviceDescriptor" c:type="LibinsaneDeviceDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="to_string"
+              c:identifier="libinsane_device_descriptor_to_string">
+        <doc xml:space="preserve"
+             filename="src/device_descriptor.c"
+             line="103">Convenience method: allow to see quickly which device is designated by this object.
+Do not use in production code.</doc>
+        <source-position filename="include/libinsane-gobject/device_descriptor.h"
+                         line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DeviceDescriptor" c:type="LibinsaneDeviceDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="DeviceDescriptorClass"
+            c:type="LibinsaneDeviceDescriptorClass"
+            glib:is-gtype-struct-for="DeviceDescriptor">
+      <source-position filename="include/libinsane-gobject/device_descriptor.h"
+                       line="29"/>
+      <field name="parent">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="DeviceDescriptorPrivate"
+            c:type="LibinsaneDeviceDescriptorPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="include/libinsane-gobject/device_descriptor.h"
+                       line="20"/>
+    </record>
+    <enumeration name="DeviceLocations" c:type="LibinsaneDeviceLocations">
+      <source-position filename="include/libinsane-gobject/libinsane-api.h"
+                       line="13"/>
+      <member name="any"
+              value="0"
+              c:identifier="LIBINSANE_DEVICE_LOCATIONS_ANY">
+      </member>
+      <member name="local_only"
+              value="1"
+              c:identifier="LIBINSANE_DEVICE_LOCATIONS_LOCAL_ONLY">
+      </member>
+    </enumeration>
+    <enumeration name="Error"
+                 c:type="LibinsaneError"
+                 glib:error-domain="libinsane-quark">
+      <source-position filename="include/libinsane-gobject/error.h" line="28"/>
+      <member name="ok" value="0" c:identifier="LIBINSANE_ERROR_OK">
+      </member>
+      <member name="cancelled"
+              value="1"
+              c:identifier="LIBINSANE_ERROR_CANCELLED">
+      </member>
+      <member name="device_busy"
+              value="2"
+              c:identifier="LIBINSANE_ERROR_DEVICE_BUSY">
+      </member>
+      <member name="unsupported"
+              value="3"
+              c:identifier="LIBINSANE_ERROR_UNSUPPORTED">
+      </member>
+      <member name="invalid_value"
+              value="4"
+              c:identifier="LIBINSANE_ERROR_INVALID_VALUE">
+      </member>
+      <member name="jammed" value="5" c:identifier="LIBINSANE_ERROR_JAMMED">
+      </member>
+      <member name="cover_open"
+              value="6"
+              c:identifier="LIBINSANE_ERROR_COVER_OPEN">
+      </member>
+      <member name="io_error"
+              value="7"
+              c:identifier="LIBINSANE_ERROR_IO_ERROR">
+      </member>
+      <member name="no_mem" value="8" c:identifier="LIBINSANE_ERROR_NO_MEM">
+      </member>
+      <member name="access_denied"
+              value="9"
+              c:identifier="LIBINSANE_ERROR_ACCESS_DENIED">
+      </member>
+      <member name="hw_is_locked"
+              value="10"
+              c:identifier="LIBINSANE_ERROR_HW_IS_LOCKED">
+      </member>
+      <member name="internal_img_format_not_supported"
+              value="11"
+              c:identifier="LIBINSANE_ERROR_INTERNAL_IMG_FORMAT_NOT_SUPPORTED">
+      </member>
+      <member name="internal_not_implemented"
+              value="12"
+              c:identifier="LIBINSANE_ERROR_INTERNAL_NOT_IMPLEMENTED">
+      </member>
+      <member name="internal_unknown_error"
+              value="13"
+              c:identifier="LIBINSANE_ERROR_INTERNAL_UNKNOWN_ERROR">
+      </member>
+      <member name="offline" value="14" c:identifier="LIBINSANE_ERROR_OFFLINE">
+      </member>
+    </enumeration>
+    <function-macro name="IS_API"
+                    c:identifier="LIBINSANE_IS_API"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/libinsane-api.h"
+                       line="20"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DEVICE_DESCRIPTOR"
+                    c:identifier="LIBINSANE_IS_DEVICE_DESCRIPTOR"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/device_descriptor.h"
+                       line="13"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_ITEM"
+                    c:identifier="LIBINSANE_IS_ITEM"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/item.h" line="16"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_OPTION_DESCRIPTOR"
+                    c:identifier="LIBINSANE_IS_OPTION_DESCRIPTOR"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                       line="24"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SCAN_PARAMETERS"
+                    c:identifier="LIBINSANE_IS_SCAN_PARAMETERS"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/scan_parameters.h"
+                       line="15"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SCAN_SESSION"
+                    c:identifier="LIBINSANE_IS_SCAN_SESSION"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/scan_session.h"
+                       line="16"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ITEM"
+                    c:identifier="LIBINSANE_ITEM"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/item.h" line="12"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ITEM_CLASS"
+                    c:identifier="LIBINSANE_ITEM_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/item.h" line="14"/>
+      <parameters>
+        <parameter name="cls">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ITEM_GET_CLASS"
+                    c:identifier="LIBINSANE_ITEM_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/item.h" line="18"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <enumeration name="ImgFormat" c:type="LibinsaneImgFormat">
+      <source-position filename="include/libinsane-gobject/img_format.h"
+                       line="24"/>
+      <member name="raw_rgb_24"
+              value="0"
+              c:identifier="LIBINSANE_IMG_FORMAT_RAW_RGB_24">
+      </member>
+      <member name="grayscale_8"
+              value="1"
+              c:identifier="LIBINSANE_IMG_FORMAT_GRAYSCALE_8">
+      </member>
+      <member name="bw_1" value="2" c:identifier="LIBINSANE_IMG_FORMAT_BW_1">
+      </member>
+      <member name="bmp" value="3" c:identifier="LIBINSANE_IMG_FORMAT_BMP">
+      </member>
+      <member name="gif" value="4" c:identifier="LIBINSANE_IMG_FORMAT_GIF">
+      </member>
+      <member name="jpeg" value="5" c:identifier="LIBINSANE_IMG_FORMAT_JPEG">
+      </member>
+      <member name="png" value="6" c:identifier="LIBINSANE_IMG_FORMAT_PNG">
+      </member>
+      <member name="ciff" value="7" c:identifier="LIBINSANE_IMG_FORMAT_CIFF">
+      </member>
+      <member name="exif" value="8" c:identifier="LIBINSANE_IMG_FORMAT_EXIF">
+      </member>
+      <member name="flashpix"
+              value="9"
+              c:identifier="LIBINSANE_IMG_FORMAT_FLASHPIX">
+      </member>
+      <member name="ico" value="10" c:identifier="LIBINSANE_IMG_FORMAT_ICO">
+      </member>
+      <member name="jpeg2k"
+              value="11"
+              c:identifier="LIBINSANE_IMG_FORMAT_JPEG2K">
+      </member>
+      <member name="jpeg2kx"
+              value="12"
+              c:identifier="LIBINSANE_IMG_FORMAT_JPEG2KX">
+      </member>
+      <member name="memorybmp"
+              value="13"
+              c:identifier="LIBINSANE_IMG_FORMAT_MEMORYBMP">
+      </member>
+      <member name="photocd"
+              value="14"
+              c:identifier="LIBINSANE_IMG_FORMAT_PHOTOCD">
+      </member>
+      <member name="pict" value="15" c:identifier="LIBINSANE_IMG_FORMAT_PICT">
+      </member>
+      <member name="tiff" value="16" c:identifier="LIBINSANE_IMG_FORMAT_TIFF">
+      </member>
+    </enumeration>
+    <class name="Item"
+           c:symbol-prefix="item"
+           c:type="LibinsaneItem"
+           parent="GObject.Object"
+           glib:type-name="LibinsaneItem"
+           glib:get-type="libinsane_item_get_type"
+           glib:type-struct="ItemClass">
+      <source-position filename="include/libinsane-gobject/item.h" line="32"/>
+      <method name="close" c:identifier="libinsane_item_close" throws="1">
+        <source-position filename="include/libinsane-gobject/item.h"
+                         line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Item" c:type="LibinsaneItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_children"
+              c:identifier="libinsane_item_get_children"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/item.c"
+             line="130">See [C-API](../doxygen/html/structlis__item.html#ae4039acefa6acf85a110dec491340411)</doc>
+        <source-position filename="include/libinsane-gobject/item.h"
+                         line="41"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/item.c"
+               line="138">
+  list of children items (usually scan sources)</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Item"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/item.c"
+                 line="132">current item. Should be a root item (not a result #libinsane_item_get_children()),
+    not a children.</doc>
+            <type name="Item" c:type="LibinsaneItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_item_type" c:identifier="libinsane_item_get_item_type">
+        <source-position filename="include/libinsane-gobject/item.h"
+                         line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="ItemType" c:type="LibinsaneItemType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Item" c:type="LibinsaneItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="libinsane_item_get_name">
+        <source-position filename="include/libinsane-gobject/item.h"
+                         line="38"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/item.c"
+               line="80">Item's name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/item.c"
+                 line="78">current item</doc>
+            <type name="Item" c:type="LibinsaneItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_options"
+              c:identifier="libinsane_item_get_options"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/item.c"
+             line="177">See [C-API](../doxygen/html/structlis__item.html#aa2e301604accfe64461b36e28365bf9e)</doc>
+        <source-position filename="include/libinsane-gobject/item.h"
+                         line="42"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/item.c"
+               line="184">item scan options.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="OptionDescriptor"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/item.c"
+                 line="179">current item. Can be either a root or child item.</doc>
+            <type name="Item" c:type="LibinsaneItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="scan_start"
+              c:identifier="libinsane_item_scan_start"
+              throws="1">
+        <source-position filename="include/libinsane-gobject/item.h"
+                         line="43"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/item.c"
+               line="224">item scan parameters.</doc>
+          <type name="ScanSession" c:type="LibinsaneScanSession*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Item" c:type="LibinsaneItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ItemClass"
+            c:type="LibinsaneItemClass"
+            glib:is-gtype-struct-for="Item">
+      <source-position filename="include/libinsane-gobject/item.h" line="32"/>
+      <field name="parent">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="ItemPrivate"
+            c:type="LibinsaneItemPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="include/libinsane-gobject/item.h" line="23"/>
+    </record>
+    <enumeration name="ItemType" c:type="LibinsaneItemType">
+      <source-position filename="include/libinsane-gobject/item_type.h"
+                       line="10"/>
+      <member name="device"
+              value="0"
+              c:identifier="LIBINSANE_ITEM_TYPE_DEVICE">
+      </member>
+      <member name="flatbed"
+              value="1"
+              c:identifier="LIBINSANE_ITEM_TYPE_FLATBED">
+      </member>
+      <member name="adf" value="2" c:identifier="LIBINSANE_ITEM_TYPE_ADF">
+      </member>
+      <member name="unidentified"
+              value="-1"
+              c:identifier="LIBINSANE_ITEM_TYPE_UNIDENTIFIED">
+      </member>
+    </enumeration>
+    <enumeration name="LogLevel" c:type="LibinsaneLogLevel">
+      <source-position filename="include/libinsane-gobject/log.h" line="13"/>
+      <member name="debug" value="0" c:identifier="LIBINSANE_LOG_LEVEL_DEBUG">
+      </member>
+      <member name="info" value="1" c:identifier="LIBINSANE_LOG_LEVEL_INFO">
+      </member>
+      <member name="warning"
+              value="2"
+              c:identifier="LIBINSANE_LOG_LEVEL_WARNING">
+      </member>
+      <member name="error" value="3" c:identifier="LIBINSANE_LOG_LEVEL_ERROR">
+      </member>
+    </enumeration>
+    <interface name="Logger"
+               c:symbol-prefix="logger"
+               c:type="LibinsaneLogger"
+               glib:type-name="LibinsaneLogger"
+               glib:get-type="libinsane_logger_get_type"
+               glib:type-struct="LoggerInterface">
+      <source-position filename="include/libinsane-gobject/log.h" line="22"/>
+      <virtual-method name="log" invoker="log">
+        <source-position filename="include/libinsane-gobject/log.h" line="21"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Logger" c:type="LibinsaneLogger*"/>
+          </instance-parameter>
+          <parameter name="lvl" transfer-ownership="none">
+            <type name="LogLevel" c:type="LibinsaneLogLevel"/>
+          </parameter>
+          <parameter name="msg" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="log" c:identifier="libinsane_logger_log">
+        <source-position filename="include/libinsane-gobject/log.h" line="24"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Logger" c:type="LibinsaneLogger*"/>
+          </instance-parameter>
+          <parameter name="lvl" transfer-ownership="none">
+            <type name="LogLevel" c:type="LibinsaneLogLevel"/>
+          </parameter>
+          <parameter name="msg" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="LoggerInterface"
+            c:type="LibinsaneLoggerInterface"
+            glib:is-gtype-struct-for="Logger">
+      <source-position filename="include/libinsane-gobject/log.h" line="22"/>
+      <field name="parent">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="log">
+        <callback name="log">
+          <source-position filename="include/libinsane-gobject/log.h"
+                           line="21"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Logger" c:type="LibinsaneLogger*"/>
+            </parameter>
+            <parameter name="lvl" transfer-ownership="none">
+              <type name="LogLevel" c:type="LibinsaneLogLevel"/>
+            </parameter>
+            <parameter name="msg" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <function-macro name="OPTION_DESCRIPTOR"
+                    c:identifier="LIBINSANE_OPTION_DESCRIPTOR"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                       line="20"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="OPTION_DESCRIPTOR_CLASS"
+                    c:identifier="LIBINSANE_OPTION_DESCRIPTOR_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                       line="22"/>
+      <parameters>
+        <parameter name="cls">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="OPTION_DESCRIPTOR_GET_CLASS"
+                    c:identifier="LIBINSANE_OPTION_DESCRIPTOR_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                       line="26"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="OptionDescriptor"
+           c:symbol-prefix="option_descriptor"
+           c:type="LibinsaneOptionDescriptor"
+           parent="GObject.Object"
+           glib:type-name="LibinsaneOptionDescriptor"
+           glib:get-type="libinsane_option_descriptor_get_type"
+           glib:type-struct="OptionDescriptorClass">
+      <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                       line="40"/>
+      <method name="get_capabilities"
+              c:identifier="libinsane_option_descriptor_get_capabilities">
+        <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                         line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="Capability" c:type="LibinsaneCapability"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OptionDescriptor" c:type="LibinsaneOptionDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_constraint"
+              c:identifier="libinsane_option_descriptor_get_constraint">
+        <doc xml:space="preserve"
+             filename="src/option_descriptor.c"
+             line="267">@self option for which we want the constraint</doc>
+        <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                         line="51"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="src/option_descriptor.c"
+               line="271">item scan options.</doc>
+          <array name="GLib.Array" c:type="GArray*">
+            <type name="GObject.Value"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OptionDescriptor" c:type="LibinsaneOptionDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_constraint_type"
+              c:identifier="libinsane_option_descriptor_get_constraint_type">
+        <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                         line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="ConstraintType" c:type="LibinsaneConstraintType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OptionDescriptor" c:type="LibinsaneOptionDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_desc"
+              c:identifier="libinsane_option_descriptor_get_desc">
+        <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                         line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OptionDescriptor" c:type="LibinsaneOptionDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="libinsane_option_descriptor_get_name">
+        <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                         line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OptionDescriptor" c:type="LibinsaneOptionDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_title"
+              c:identifier="libinsane_option_descriptor_get_title">
+        <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                         line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OptionDescriptor" c:type="LibinsaneOptionDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_value"
+              c:identifier="libinsane_option_descriptor_get_value"
+              throws="1">
+        <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                         line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="GObject.Value" c:type="const GValue*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OptionDescriptor" c:type="LibinsaneOptionDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_value_type"
+              c:identifier="libinsane_option_descriptor_get_value_type">
+        <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                         line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="GType" c:type="GType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OptionDescriptor" c:type="LibinsaneOptionDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_value_unit"
+              c:identifier="libinsane_option_descriptor_get_value_unit">
+        <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                         line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="Unit" c:type="LibinsaneUnit"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OptionDescriptor" c:type="LibinsaneOptionDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_readable"
+              c:identifier="libinsane_option_descriptor_is_readable">
+        <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                         line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OptionDescriptor" c:type="LibinsaneOptionDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_writable"
+              c:identifier="libinsane_option_descriptor_is_writable">
+        <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                         line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OptionDescriptor" c:type="LibinsaneOptionDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_value"
+              c:identifier="libinsane_option_descriptor_set_value"
+              throws="1">
+        <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                         line="56"/>
+        <return-value transfer-ownership="none">
+          <type name="SetFlag" c:type="LibinsaneSetFlag"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OptionDescriptor" c:type="LibinsaneOptionDescriptor*"/>
+          </instance-parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="GObject.Value" c:type="GValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="OptionDescriptorClass"
+            c:type="LibinsaneOptionDescriptorClass"
+            glib:is-gtype-struct-for="OptionDescriptor">
+      <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                       line="40"/>
+      <field name="parent">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="OptionDescriptorPrivate"
+            c:type="LibinsaneOptionDescriptorPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                       line="31"/>
+    </record>
+    <function-macro name="SCAN_PARAMETERS"
+                    c:identifier="LIBINSANE_SCAN_PARAMETERS"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/scan_parameters.h"
+                       line="11"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SCAN_PARAMETERS_CLASS"
+                    c:identifier="LIBINSANE_SCAN_PARAMETERS_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/scan_parameters.h"
+                       line="13"/>
+      <parameters>
+        <parameter name="cls">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SCAN_PARAMETERS_GET_CLASS"
+                    c:identifier="LIBINSANE_SCAN_PARAMETERS_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/scan_parameters.h"
+                       line="17"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SCAN_SESSION"
+                    c:identifier="LIBINSANE_SCAN_SESSION"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/scan_session.h"
+                       line="12"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SCAN_SESSION_CLASS"
+                    c:identifier="LIBINSANE_SCAN_SESSION_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/scan_session.h"
+                       line="14"/>
+      <parameters>
+        <parameter name="cls">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SCAN_SESSION_GET_CLASS"
+                    c:identifier="LIBINSANE_SCAN_SESSION_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="include/libinsane-gobject/scan_session.h"
+                       line="18"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="ScanParameters"
+           c:symbol-prefix="scan_parameters"
+           c:type="LibinsaneScanParameters"
+           parent="GObject.Object"
+           glib:type-name="LibinsaneScanParameters"
+           glib:get-type="libinsane_scan_parameters_get_type"
+           glib:type-struct="ScanParametersClass">
+      <source-position filename="include/libinsane-gobject/scan_parameters.h"
+                       line="31"/>
+      <method name="get_format"
+              c:identifier="libinsane_scan_parameters_get_format">
+        <source-position filename="include/libinsane-gobject/scan_parameters.h"
+                         line="37"/>
+        <return-value transfer-ownership="none">
+          <type name="ImgFormat" c:type="LibinsaneImgFormat"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ScanParameters" c:type="LibinsaneScanParameters*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_height"
+              c:identifier="libinsane_scan_parameters_get_height">
+        <source-position filename="include/libinsane-gobject/scan_parameters.h"
+                         line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ScanParameters" c:type="LibinsaneScanParameters*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_image_size"
+              c:identifier="libinsane_scan_parameters_get_image_size">
+        <source-position filename="include/libinsane-gobject/scan_parameters.h"
+                         line="41"/>
+        <return-value transfer-ownership="none">
+          <type name="gsize" c:type="gsize"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ScanParameters" c:type="LibinsaneScanParameters*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_width"
+              c:identifier="libinsane_scan_parameters_get_width">
+        <source-position filename="include/libinsane-gobject/scan_parameters.h"
+                         line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ScanParameters" c:type="LibinsaneScanParameters*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ScanParametersClass"
+            c:type="LibinsaneScanParametersClass"
+            glib:is-gtype-struct-for="ScanParameters">
+      <source-position filename="include/libinsane-gobject/scan_parameters.h"
+                       line="31"/>
+      <field name="parent">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="ScanParametersPrivate"
+            c:type="LibinsaneScanParametersPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="include/libinsane-gobject/scan_parameters.h"
+                       line="22"/>
+    </record>
+    <class name="ScanSession"
+           c:symbol-prefix="scan_session"
+           c:type="LibinsaneScanSession"
+           parent="GObject.Object"
+           glib:type-name="LibinsaneScanSession"
+           glib:get-type="libinsane_scan_session_get_type"
+           glib:type-struct="ScanSessionClass">
+      <source-position filename="include/libinsane-gobject/scan_session.h"
+                       line="32"/>
+      <method name="cancel" c:identifier="libinsane_scan_session_cancel">
+        <source-position filename="include/libinsane-gobject/scan_session.h"
+                         line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ScanSession" c:type="LibinsaneScanSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="end_of_feed"
+              c:identifier="libinsane_scan_session_end_of_feed">
+        <source-position filename="include/libinsane-gobject/scan_session.h"
+                         line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ScanSession" c:type="LibinsaneScanSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="end_of_page"
+              c:identifier="libinsane_scan_session_end_of_page">
+        <source-position filename="include/libinsane-gobject/scan_session.h"
+                         line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ScanSession" c:type="LibinsaneScanSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_scan_parameters"
+              c:identifier="libinsane_scan_session_get_scan_parameters"
+              throws="1">
+        <source-position filename="include/libinsane-gobject/scan_session.h"
+                         line="38"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/scan_session.c"
+               line="74">item scan parameters.</doc>
+          <type name="ScanParameters" c:type="LibinsaneScanParameters*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="ScanSession" c:type="LibinsaneScanSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="read"
+              c:identifier="libinsane_scan_session_read"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="src/scan_session.c"
+             line="116">You must call libinsane_scan_session_end_of_feed() and libinsane_scan_session_end_of_page()
+after each call to this function before calling it again.</doc>
+        <source-position filename="include/libinsane-gobject/scan_session.h"
+                         line="41"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/scan_session.c"
+               line="126">Number of bytes read, or -1 on error</doc>
+          <type name="gssize" c:type="gssize"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/scan_session.c"
+                 line="118">Scan session</doc>
+            <type name="ScanSession" c:type="LibinsaneScanSession*"/>
+          </instance-parameter>
+          <parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/scan_session.c"
+                 line="119">buffer to read data</doc>
+            <array length="1" zero-terminated="0" c:type="void*">
+              <type name="guint8"/>
+            </array>
+          </parameter>
+          <parameter name="lng" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/scan_session.c"
+                 line="120">length of buffer</doc>
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="read_bytes"
+              c:identifier="libinsane_scan_session_read_bytes"
+              throws="1">
+        <source-position filename="include/libinsane-gobject/scan_session.h"
+                         line="42"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/scan_session.c"
+               line="154">a new #GBytes, or %NULL if an error occured</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/scan_session.c"
+                 line="150">scan session</doc>
+            <type name="ScanSession" c:type="LibinsaneScanSession*"/>
+          </instance-parameter>
+          <parameter name="lng" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/scan_session.c"
+                 line="151">number of bytes wanted</doc>
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent" introspectable="0">
+        <type c:type="GInputStream"/>
+      </field>
+    </class>
+    <record name="ScanSessionClass"
+            c:type="LibinsaneScanSessionClass"
+            glib:is-gtype-struct-for="ScanSession">
+      <source-position filename="include/libinsane-gobject/scan_session.h"
+                       line="32"/>
+      <field name="parent" introspectable="0">
+        <type c:type="GInputStreamClass"/>
+      </field>
+    </record>
+    <record name="ScanSessionPrivate"
+            c:type="LibinsaneScanSessionPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="include/libinsane-gobject/scan_session.h"
+                       line="23"/>
+    </record>
+    <bitfield name="SetFlag" c:type="LibinsaneSetFlag">
+      <source-position filename="include/libinsane-gobject/option_descriptor.h"
+                       line="17"/>
+      <member name="none" value="0" c:identifier="LIBINSANE_SET_FLAG_NONE">
+      </member>
+      <member name="inexact"
+              value="1"
+              c:identifier="LIBINSANE_SET_FLAG_INEXACT">
+      </member>
+      <member name="must_reload_options"
+              value="2"
+              c:identifier="LIBINSANE_SET_FLAG_MUST_RELOAD_OPTIONS">
+      </member>
+      <member name="must_reload_params"
+              value="4"
+              c:identifier="LIBINSANE_SET_FLAG_MUST_RELOAD_PARAMS">
+      </member>
+    </bitfield>
+    <enumeration name="Unit" c:type="LibinsaneUnit">
+      <source-position filename="include/libinsane-gobject/unit.h" line="13"/>
+      <member name="none" value="0" c:identifier="LIBINSANE_UNIT_NONE">
+      </member>
+      <member name="pixel" value="1" c:identifier="LIBINSANE_UNIT_PIXEL">
+      </member>
+      <member name="bit" value="2" c:identifier="LIBINSANE_UNIT_BIT">
+      </member>
+      <member name="mm" value="3" c:identifier="LIBINSANE_UNIT_MM">
+      </member>
+      <member name="dpi" value="4" c:identifier="LIBINSANE_UNIT_DPI">
+      </member>
+      <member name="percent" value="5" c:identifier="LIBINSANE_UNIT_PERCENT">
+      </member>
+      <member name="microsecond"
+              value="6"
+              c:identifier="LIBINSANE_UNIT_MICROSECOND">
+      </member>
+    </enumeration>
+    <function name="error_quark" c:identifier="libinsane_error_quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="register_logger" c:identifier="libinsane_register_logger">
+      <source-position filename="include/libinsane-gobject/log.h" line="27"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="logger" transfer-ownership="none">
+          <type name="Logger" c:type="LibinsaneLogger*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="unregister_logger"
+              c:identifier="libinsane_unregister_logger">
+      <source-position filename="include/libinsane-gobject/log.h" line="28"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

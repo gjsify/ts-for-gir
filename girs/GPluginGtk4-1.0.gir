@@ -1,0 +1,960 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GPlugin" version="1.0"/>
+  <include name="Gtk" version="4.0"/>
+  <package name="gplugin-gtk4"/>
+  <c:include name="gplugin-gtk.h"/>
+  <namespace name="GPluginGtk4"
+             version="1.0"
+             shared-library="libgplugin-gtk4.so.0"
+             c:identifier-prefixes="GPluginGtk"
+             c:symbol-prefixes="gplugin_gtk">
+    <function-macro name="DEPRECATED_FOR"
+                    c:identifier="GPLUGIN_GTK_DEPRECATED_FOR"
+                    introspectable="0">
+      <source-position filename="gplugin-gtk4/gplugin-gtk-version.h"
+                       line="55"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_0_39_FOR"
+                    c:identifier="GPLUGIN_GTK_DEPRECATED_IN_0_39_FOR"
+                    introspectable="0">
+      <source-position filename="gplugin-gtk4/gplugin-gtk-version.h"
+                       line="243"/>
+      <parameters>
+        <parameter name="f">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="EXTRA_VERSION" value="" c:type="GPLUGIN_GTK_EXTRA_VERSION">
+      <doc xml:space="preserve"
+           filename="gplugin-gtk4/gplugin-gtk-version.c"
+           line="42">This is the extra version string of GPluginGtk that was compiled against.</doc>
+      <source-position filename="gplugin-gtk4/gplugin-gtk-version-defs.h"
+                       line="28"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="MAJOR_VERSION"
+              value="0"
+              c:type="GPLUGIN_GTK_MAJOR_VERSION">
+      <doc xml:space="preserve"
+           filename="gplugin-gtk4/gplugin-gtk-version.c"
+           line="24">This is the major version number of GPluginGtk that was compiled against.</doc>
+      <source-position filename="gplugin-gtk4/gplugin-gtk-version-defs.h"
+                       line="25"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MICRO_VERSION"
+              value="1"
+              c:type="GPLUGIN_GTK_MICRO_VERSION">
+      <doc xml:space="preserve"
+           filename="gplugin-gtk4/gplugin-gtk-version.c"
+           line="36">This is the micro version number of GPluginGtk that was compiled against.</doc>
+      <source-position filename="gplugin-gtk4/gplugin-gtk-version-defs.h"
+                       line="27"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MINOR_VERSION"
+              value="42"
+              c:type="GPLUGIN_GTK_MINOR_VERSION">
+      <doc xml:space="preserve"
+           filename="gplugin-gtk4/gplugin-gtk-version.c"
+           line="30">This is the minor version number of GPluginGtk that was compiled against.</doc>
+      <source-position filename="gplugin-gtk4/gplugin-gtk-version-defs.h"
+                       line="26"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <class name="PluginPage"
+           c:symbol-prefix="plugin_page"
+           c:type="GPluginGtkPluginPage"
+           version="0.39.0"
+           parent="Gtk.Box"
+           glib:type-name="GPluginGtkPluginPage"
+           glib:get-type="gplugin_gtk_plugin_page_get_type"
+           glib:type-struct="PluginPageClass">
+      <doc xml:space="preserve"
+           filename="gplugin-gtk4/gplugin-gtk-plugin-page.c"
+           line="29">A widget that displays a single [iface@GPlugin.Plugin] in a user friendly
+way, intended to be placed in a [class@GPluginGtk4.View].</doc>
+      <source-position filename="gplugin-gtk4/gplugin-gtk-plugin-page.h"
+                       line="40"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <implements name="Gtk.Orientable"/>
+      <constructor name="new"
+                   c:identifier="gplugin_gtk_plugin_page_new"
+                   version="0.39.0">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-plugin-page.c"
+             line="359">Create a new [class@GPluginGtk4.PluginPage] which can be used to display
+info about a [iface@GPlugin.Plugin].</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-plugin-page.h"
+                         line="48"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gplugin-gtk4/gplugin-gtk-plugin-page.c"
+               line="365">The new widget.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="get_plugin"
+              c:identifier="gplugin_gtk_plugin_page_get_plugin"
+              glib:get-property="plugin"
+              version="0.39.0">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-plugin-page.c"
+             line="400">Gets the [iface@GPlugin.Plugin] that's being displayed.</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-plugin-page.h"
+                         line="55"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="gplugin-gtk4/gplugin-gtk-plugin-page.c"
+               line="406">The plugin that's being displayed, or
+         %NULL if the page is empty.</doc>
+          <type name="GPlugin.Plugin" c:type="GPluginPlugin*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-plugin-page.c"
+                 line="402">The plugin page instance.</doc>
+            <type name="PluginPage" c:type="GPluginGtkPluginPage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_settings_backend"
+              c:identifier="gplugin_gtk_plugin_page_get_settings_backend"
+              glib:get-property="settings-backend"
+              version="0.40.0">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-plugin-page.c"
+             line="450">Gets the settings backend used when displaying plugin settings.
+
+Note, because we do not want to leak `G_SETTINGS_ENABLE_BACKEND` into
+GPlugin users, this function returns a `gpointer`, and you should cast to
+`GSettingsBackend *` after setting `G_SETTINGS_ENABLE_BACKEND` for the files
+where you need it.</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-plugin-page.h"
+                         line="62"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="gplugin-gtk4/gplugin-gtk-plugin-page.c"
+               line="461">The settings backend in use.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-plugin-page.c"
+                 line="452">The plugin page instance.</doc>
+            <type name="PluginPage" c:type="GPluginGtkPluginPage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_plugin"
+              c:identifier="gplugin_gtk_plugin_page_set_plugin"
+              glib:set-property="plugin"
+              version="0.39.0">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-plugin-page.c"
+             line="375">Sets the [iface@GPlugin.Plugin] that should be displayed.
+
+A @plugin value of %NULL will clear the widget.</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-plugin-page.h"
+                         line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-plugin-page.c"
+                 line="377">The plugin page instance.</doc>
+            <type name="PluginPage" c:type="GPluginGtkPluginPage*"/>
+          </instance-parameter>
+          <parameter name="plugin"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-plugin-page.c"
+                 line="378">The plugin instance.</doc>
+            <type name="GPlugin.Plugin" c:type="GPluginPlugin*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_settings_backend"
+              c:identifier="gplugin_gtk_plugin_page_set_settings_backend"
+              glib:set-property="settings-backend"
+              version="0.40.0">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-plugin-page.c"
+             line="419">Sets the settings backend to use when displaying plugin settings.
+
+Note, because we do not want to leak `G_SETTINGS_ENABLE_BACKEND` into
+GPlugin users, this function takes a `gpointer` instead of a
+`GSettingsBackend *` but the type will be checked internally.</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-plugin-page.h"
+                         line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-plugin-page.c"
+                 line="421">The plugin page instance.</doc>
+            <type name="PluginPage" c:type="GPluginGtkPluginPage*"/>
+          </instance-parameter>
+          <parameter name="backend"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-plugin-page.c"
+                 line="422">The settings backend to use. If %NULL,
+          the default GSettings backend will be used.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="plugin"
+                version="0.39.0"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_plugin"
+                getter="get_plugin">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-plugin-page.c"
+             line="263">The [iface@GPlugin.Plugin] whose info should be displayed.</doc>
+        <type name="GObject.Object"/>
+      </property>
+      <property name="settings-backend"
+                version="0.40.0"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_settings_backend"
+                getter="get_settings_backend">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-plugin-page.c"
+             line="277">The [class@Gio.SettingsBackend] to use when viewing plugin settings.</doc>
+        <type name="Gio.SettingsBackend"/>
+      </property>
+      <glib:signal name="plugin-state-set" when="last" version="0.39.0">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-plugin-page.c"
+             line="295">Emitted when the plugin page enable switch is toggled.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="enabled" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-plugin-page.c"
+                 line="298">Whether the plugin was requested to be enabled or disabled.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="PluginPageClass"
+            c:type="GPluginGtkPluginPageClass"
+            glib:is-gtype-struct-for="PluginPage">
+      <source-position filename="gplugin-gtk4/gplugin-gtk-plugin-page.h"
+                       line="40"/>
+      <field name="parent_class">
+        <type name="Gtk.BoxClass" c:type="GtkBoxClass"/>
+      </field>
+    </record>
+    <class name="PluginRow"
+           c:symbol-prefix="plugin_row"
+           c:type="GPluginGtkPluginRow"
+           version="0.38.0"
+           parent="Gtk.ListBoxRow"
+           glib:type-name="GPluginGtkPluginRow"
+           glib:get-type="gplugin_gtk_plugin_row_get_type"
+           glib:type-struct="PluginRowClass">
+      <doc xml:space="preserve"
+           filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
+           line="25">A widget that displays a [iface@GPlugin.Plugin] in a user friendly way,
+intended to be placed in a [class@Gtk.ListBox].</doc>
+      <source-position filename="gplugin-gtk4/gplugin-gtk-plugin-row.h"
+                       line="40"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Actionable"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new"
+                   c:identifier="gplugin_gtk_plugin_row_new"
+                   version="0.38.0">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
+             line="228">Create a new [class@GPluginGtk4.PluginRow] which can be used to display info
+about a [iface@GPlugin.Plugin].</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-plugin-row.h"
+                         line="48"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
+               line="234">The new widget.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="get_plugin"
+              c:identifier="gplugin_gtk_plugin_row_get_plugin"
+              glib:get-property="plugin"
+              version="0.38.0">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
+             line="267">Returns the [iface@GPlugin.Plugin] that's being displayed.</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-plugin-row.h"
+                         line="55"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
+               line="273">The plugin that's being displayed, or
+         %NULL if the row is empty.</doc>
+          <type name="GPlugin.Plugin" c:type="GPluginPlugin*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="row" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
+                 line="269">The plugin row instance.</doc>
+            <type name="PluginRow" c:type="GPluginGtkPluginRow*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_sort_key"
+              c:identifier="gplugin_gtk_plugin_row_get_sort_key"
+              version="0.38.0">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
+             line="286">Returns a key that can be used to sort this row.</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-plugin-row.h"
+                         line="57"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
+               line="292">The sort key.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="row" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
+                 line="288">The plugin row instance.</doc>
+            <type name="PluginRow" c:type="GPluginGtkPluginRow*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="matches_search"
+              c:identifier="gplugin_gtk_plugin_row_matches_search"
+              version="0.38.0">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
+             line="304">Matches this row instance against some text to be searched for.</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-plugin-row.h"
+                         line="59"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
+               line="311">Whether the row matches the text or not.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="row" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
+                 line="306">The plugin row instance.</doc>
+            <type name="PluginRow" c:type="GPluginGtkPluginRow*"/>
+          </instance-parameter>
+          <parameter name="text" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
+                 line="307">The text to search for.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_plugin"
+              c:identifier="gplugin_gtk_plugin_row_set_plugin"
+              glib:set-property="plugin"
+              version="0.38.0">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
+             line="244">Sets the [iface@GPlugin.Plugin] that should be displayed.
+
+A @plugin value of %NULL will clear the widget.</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-plugin-row.h"
+                         line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="row" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
+                 line="246">The plugin row instance.</doc>
+            <type name="PluginRow" c:type="GPluginGtkPluginRow*"/>
+          </instance-parameter>
+          <parameter name="plugin"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
+                 line="247">The plugin instance.</doc>
+            <type name="GPlugin.Plugin" c:type="GPluginPlugin*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="plugin"
+                version="0.38.0"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_plugin"
+                getter="get_plugin">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
+             line="157">The [iface@GPlugin.Plugin] whose info should be displayed.</doc>
+        <type name="GObject.Object"/>
+      </property>
+      <glib:signal name="plugin-state-set" when="last" version="0.38.0">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
+             line="175">Emitted when the plugin row enable switch is toggled.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="enabled" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-plugin-row.c"
+                 line="178">Whether the plugin was requested to be enabled or disabled.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="PluginRowClass"
+            c:type="GPluginGtkPluginRowClass"
+            glib:is-gtype-struct-for="PluginRow">
+      <source-position filename="gplugin-gtk4/gplugin-gtk-plugin-row.h"
+                       line="40"/>
+      <field name="parent_class">
+        <type name="Gtk.ListBoxRowClass" c:type="GtkListBoxRowClass"/>
+      </field>
+    </record>
+    <class name="PluginSettingsList"
+           c:symbol-prefix="plugin_settings_list"
+           c:type="GPluginGtkPluginSettingsList"
+           version="0.40.0"
+           parent="Gtk.Box"
+           glib:type-name="GPluginGtkPluginSettingsList"
+           glib:get-type="gplugin_gtk_plugin_settings_list_get_type"
+           glib:type-struct="PluginSettingsListClass">
+      <doc xml:space="preserve"
+           filename="gplugin-gtk4/gplugin-gtk-plugin-settings-list.c"
+           line="24">A [class@Gtk.ListBox] widget that displays all the settings from a plugin.</doc>
+      <source-position filename="gplugin-gtk4/gplugin-gtk-plugin-settings-list.h"
+                       line="41"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <implements name="Gtk.Orientable"/>
+      <constructor name="new"
+                   c:identifier="gplugin_gtk_plugin_settings_list_new"
+                   version="0.40.0">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-plugin-settings-list.c"
+             line="630">Creates a new [class@GPluginGtk4.PluginSettingsList].</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-plugin-settings-list.h"
+                         line="49"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gplugin-gtk4/gplugin-gtk-plugin-settings-list.c"
+               line="635">The new list.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="get_settings"
+              c:identifier="gplugin_gtk_plugin_settings_list_get_settings"
+              glib:get-property="settings"
+              version="0.40.0">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-plugin-settings-list.c"
+             line="669">Returns the plugin settings that are being displayed.</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-plugin-settings-list.h"
+                         line="56"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gplugin-gtk4/gplugin-gtk-plugin-settings-list.c"
+               line="675">The settings being displayed.</doc>
+          <type name="Gio.Settings" c:type="GSettings*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="list" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-plugin-settings-list.c"
+                 line="671">The instance.</doc>
+            <type name="PluginSettingsList"
+                  c:type="GPluginGtkPluginSettingsList*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_settings"
+              c:identifier="gplugin_gtk_plugin_settings_list_set_settings"
+              glib:set-property="settings"
+              version="0.40.0">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-plugin-settings-list.c"
+             line="645">This function will set which plugin settings to display.</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-plugin-settings-list.h"
+                         line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="list" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-plugin-settings-list.c"
+                 line="647">The instance.</doc>
+            <type name="PluginSettingsList"
+                  c:type="GPluginGtkPluginSettingsList*"/>
+          </instance-parameter>
+          <parameter name="settings"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-plugin-settings-list.c"
+                 line="648">The plugin settings to display.</doc>
+            <type name="Gio.Settings" c:type="GSettings*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="settings"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_settings"
+                getter="get_settings">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-plugin-settings-list.c"
+             line="605">The [class@Gio.Settings] to display.</doc>
+        <type name="Gio.Settings"/>
+      </property>
+    </class>
+    <record name="PluginSettingsListClass"
+            c:type="GPluginGtkPluginSettingsListClass"
+            glib:is-gtype-struct-for="PluginSettingsList">
+      <source-position filename="gplugin-gtk4/gplugin-gtk-plugin-settings-list.h"
+                       line="41"/>
+      <field name="parent_class">
+        <type name="Gtk.BoxClass" c:type="GtkBoxClass"/>
+      </field>
+    </record>
+    <function-macro name="UNAVAILABLE"
+                    c:identifier="GPLUGIN_GTK_UNAVAILABLE"
+                    introspectable="0">
+      <source-position filename="gplugin-gtk4/gplugin-gtk-version.h"
+                       line="56"/>
+      <parameters>
+        <parameter name="maj">
+        </parameter>
+        <parameter name="min">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="UNAVAILABLE_STATIC_INLINE"
+                    c:identifier="GPLUGIN_GTK_UNAVAILABLE_STATIC_INLINE"
+                    introspectable="0">
+      <source-position filename="gplugin-gtk4/gplugin-gtk-version.h"
+                       line="57"/>
+      <parameters>
+        <parameter name="maj">
+        </parameter>
+        <parameter name="min">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="UNAVAILABLE_TYPE"
+                    c:identifier="GPLUGIN_GTK_UNAVAILABLE_TYPE"
+                    introspectable="0">
+      <source-position filename="gplugin-gtk4/gplugin-gtk-version.h"
+                       line="58"/>
+      <parameters>
+        <parameter name="maj">
+        </parameter>
+        <parameter name="min">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="VERSION" value="0.42.1" c:type="GPLUGIN_GTK_VERSION">
+      <doc xml:space="preserve"
+           filename="gplugin-gtk4/gplugin-gtk-version.c"
+           line="48">This is the string version number of GPluginGtk that was compiled against.</doc>
+      <source-position filename="gplugin-gtk4/gplugin-gtk-version-defs.h"
+                       line="30"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function-macro name="VERSION_CHECK"
+                    c:identifier="GPLUGIN_GTK_VERSION_CHECK"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="gplugin-gtk4/gplugin-gtk-version.c"
+           line="54">Checks the version of the GPluginGtk library that is being compiled
+against.</doc>
+      <source-position filename="gplugin-gtk4/gplugin-gtk-version.h"
+                       line="302"/>
+      <parameters>
+        <parameter name="major">
+          <doc xml:space="preserve"
+               filename="gplugin-gtk4/gplugin-gtk-version.c"
+               line="56">The major version to compare for.</doc>
+        </parameter>
+        <parameter name="minor">
+          <doc xml:space="preserve"
+               filename="gplugin-gtk4/gplugin-gtk-version.c"
+               line="57">The minor version to compare for.</doc>
+        </parameter>
+        <parameter name="micro">
+          <doc xml:space="preserve"
+               filename="gplugin-gtk4/gplugin-gtk-version.c"
+               line="58">The micro version to compare for.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="VERSION_MIN_REQUIRED"
+              value="1"
+              c:type="GPLUGIN_GTK_VERSION_MIN_REQUIRED">
+      <source-position filename="gplugin-gtk4/gplugin-gtk-version.h"
+                       line="86"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <class name="View"
+           c:symbol-prefix="view"
+           c:type="GPluginGtkView"
+           parent="Gtk.Box"
+           glib:type-name="GPluginGtkView"
+           glib:get-type="gplugin_gtk_view_get_type"
+           glib:type-struct="ViewClass">
+      <doc xml:space="preserve"
+           filename="gplugin-gtk4/gplugin-gtk-view.c"
+           line="27">A widget that displays all the plugins and some basic information about
+them.</doc>
+      <source-position filename="gplugin-gtk4/gplugin-gtk-view.h" line="40"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <implements name="Gtk.Orientable"/>
+      <constructor name="new" c:identifier="gplugin_gtk_view_new">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-view.c"
+             line="381">Creates a new [class@GPluginGtk4.View].</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-view.h" line="48"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gplugin-gtk4/gplugin-gtk-view.c"
+               line="386">The new view.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="get_manager"
+              c:identifier="gplugin_gtk_view_get_manager"
+              glib:get-property="manager">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-view.c"
+             line="432">Returns the plugin manager that is being displayed.</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-view.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gplugin-gtk4/gplugin-gtk-view.c"
+               line="438">The plugin manager to display.</doc>
+          <type name="GPlugin.Manager" c:type="GPluginManager*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-view.c"
+                 line="434">The GTK view instance.</doc>
+            <type name="View" c:type="GPluginGtkView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_settings_backend"
+              c:identifier="gplugin_gtk_view_get_settings_backend"
+              glib:get-property="settings-backend"
+              version="0.40.0">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-view.c"
+             line="510">Gets the settings backend used when displaying plugin settings.
+
+Note, because we do not want to leak `G_SETTINGS_ENABLE_BACKEND` into
+GPlugin users, this function returns a `gpointer`, and you should cast to
+`GSettingsBackend *` after setting `G_SETTINGS_ENABLE_BACKEND` for the files
+where you need it.</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-view.h" line="69"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="gplugin-gtk4/gplugin-gtk-view.c"
+               line="521">The settings backend.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-view.c"
+                 line="512">The GTK view instance.</doc>
+            <type name="View" c:type="GPluginGtkView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_internal"
+              c:identifier="gplugin_gtk_view_get_show_internal"
+              glib:get-property="show-internal">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-view.c"
+             line="466">Returns whether or not @view is showing internal plugins.</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-view.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-view.c"
+                 line="468">The GTK view instance.</doc>
+            <type name="View" c:type="GPluginGtkView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_manager"
+              c:identifier="gplugin_gtk_view_set_manager"
+              glib:set-property="manager">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-view.c"
+             line="402">This function will set which plugin manager to display.</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-view.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-view.c"
+                 line="404">The GTK view instance.</doc>
+            <type name="View" c:type="GPluginGtkView*"/>
+          </instance-parameter>
+          <parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-view.c"
+                 line="405">The plugin manager to display.</doc>
+            <type name="GPlugin.Manager" c:type="GPluginManager*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_settings_backend"
+              c:identifier="gplugin_gtk_view_set_settings_backend"
+              glib:set-property="settings-backend"
+              version="0.40.0">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-view.c"
+             line="480">Sets the settings backend to use when displaying plugin settings.
+
+Note, because we do not want to leak `G_SETTINGS_ENABLE_BACKEND` into
+GPlugin users, this function takes a `gpointer` instead of a
+`GSettingsBackend *` but the type will be checked internally.</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-view.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-view.c"
+                 line="482">The GTK view instance.</doc>
+            <type name="View" c:type="GPluginGtkView*"/>
+          </instance-parameter>
+          <parameter name="backend"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-view.c"
+                 line="483">The settings backend to use. If %NULL,
+          the default GSettings backend will be used.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_show_internal"
+              c:identifier="gplugin_gtk_view_set_show_internal"
+              glib:set-property="show-internal">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-view.c"
+             line="448">This function will toggle whether or not the widget will show internal
+plugins.</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-view.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-view.c"
+                 line="450">The GTK view instance.</doc>
+            <type name="View" c:type="GPluginGtkView*"/>
+          </instance-parameter>
+          <parameter name="show_internal" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-view.c"
+                 line="451">Whether or not to show internal plugins.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="show_overview"
+              c:identifier="gplugin_gtk_view_show_overview"
+              version="0.39.0">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-view.c"
+             line="533">Shows the plugin list overview.</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-view.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-view.c"
+                 line="535">The GTK view instance.</doc>
+            <type name="View" c:type="GPluginGtkView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="show_plugin"
+              c:identifier="gplugin_gtk_view_show_plugin"
+              version="0.39.0">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-view.c"
+             line="552">Shows a page for a single plugin.</doc>
+        <source-position filename="gplugin-gtk4/gplugin-gtk-view.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-view.c"
+                 line="554">The GTK view instance.</doc>
+            <type name="View" c:type="GPluginGtkView*"/>
+          </instance-parameter>
+          <parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gplugin-gtk4/gplugin-gtk-view.c"
+                 line="555">The plugin to show.</doc>
+            <type name="GPlugin.Plugin" c:type="GPluginPlugin*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="manager"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_manager"
+                getter="get_manager">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-view.c"
+             line="321">The plugin manager to display.</doc>
+        <type name="GPlugin.Manager"/>
+      </property>
+      <property name="settings-backend"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_settings_backend"
+                getter="get_settings_backend">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-view.c"
+             line="345">The [class@Gio.SettingsBackend] to use when viewing plugin settings.</doc>
+        <type name="Gio.SettingsBackend"/>
+      </property>
+      <property name="show-internal"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_show_internal"
+                getter="get_show_internal"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-view.c"
+             line="333">Whether or not to show internal plugins.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+    </class>
+    <record name="ViewClass"
+            c:type="GPluginGtkViewClass"
+            glib:is-gtype-struct-for="View">
+      <source-position filename="gplugin-gtk4/gplugin-gtk-view.h" line="40"/>
+      <field name="parent_class">
+        <type name="Gtk.BoxClass" c:type="GtkBoxClass"/>
+      </field>
+    </record>
+    <function name="version_check" c:identifier="gplugin_gtk_version_check">
+      <doc xml:space="preserve"
+           filename="gplugin-gtk4/gplugin-gtk-version.c"
+           line="67">Checks that the GPluginGtk library in use is compatible with the given
+version.
+
+Generally you would pass in the constants [const@MAJOR_VERSION],
+[const@MINOR_VERSION], [const@MICRO_VERSION] as the three arguments to this
+function; that produces a check that the library in use is compatible with
+the version of GPluginGtk the application or module was compiled against.
+
+Compatibility is defined by two things: first the version of the running
+library is newer than the version @major.@minor.@micro. Second the running
+library must be binary compatible with the version @major.@minor.@micro
+(same major version).</doc>
+      <source-position filename="gplugin-gtk4/gplugin-gtk-version.h"
+                       line="312"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="gplugin-gtk4/gplugin-gtk-version.c"
+             line="86">%NULL if the GPluginGtk library is compatible with the given
+         version, or a string describing the version mismatch. The returned
+         string is owned by GPluginGtk and must not be modified or freed.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="major" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gplugin-gtk4/gplugin-gtk-version.c"
+               line="69">The required major version.</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="minor" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gplugin-gtk4/gplugin-gtk-version.c"
+               line="70">The required minor version.</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="micro" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gplugin-gtk4/gplugin-gtk-version.c"
+               line="71">The required micro version.</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

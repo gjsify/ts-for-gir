@@ -1,0 +1,4120 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="GdkPixbuf" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Pango" version="1.0"/>
+  <include name="cairo" version="1.0"/>
+  <namespace name="Lasem"
+             version="0.4"
+             shared-library="liblasem-0.4.so.4"
+             c:identifier-prefixes="Lsm"
+             c:symbol-prefixes="lsm">
+    <alias name="Trait" c:type="LsmTrait">
+      <source-position filename="lsmtraits.h" line="31"/>
+      <type name="none" c:type="void"/>
+    </alias>
+    <record name="Attribute" c:type="LsmAttribute">
+      <source-position filename="lsmattributes.h" line="34"/>
+      <field name="value" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <method name="is_defined" c:identifier="lsm_attribute_is_defined">
+        <source-position filename="lsmattributes.h" line="36"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="attribute" transfer-ownership="none">
+            <type name="Attribute" c:type="const LsmAttribute*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="AttributeInfos" c:type="LsmAttributeInfos">
+      <source-position filename="lsmattributes.h" line="43"/>
+      <field name="name" writable="1">
+        <type name="utf8" c:type="const char*"/>
+      </field>
+      <field name="attribute_offset" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="trait_class" writable="1">
+        <type name="TraitClass" c:type="const LsmTraitClass*"/>
+      </field>
+      <field name="trait_default" writable="1">
+        <type name="gpointer" c:type="void*"/>
+      </field>
+    </record>
+    <record name="AttributeManager"
+            c:type="LsmAttributeManager"
+            opaque="1"
+            glib:type-name="LsmAttributeManager"
+            glib:get-type="lsm_attribute_manager_get_type"
+            c:symbol-prefix="attribute_manager">
+      <source-position filename="lsmattributes.h" line="45"/>
+      <constructor name="new" c:identifier="lsm_attribute_manager_new">
+        <source-position filename="lsmattributes.h" line="51"/>
+        <return-value transfer-ownership="full">
+          <type name="AttributeManager" c:type="LsmAttributeManager*"/>
+        </return-value>
+        <parameters>
+          <parameter name="n_attributes" transfer-ownership="none">
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+          <parameter name="attribute_infos" transfer-ownership="none">
+            <type name="AttributeInfos" c:type="const LsmAttributeInfos*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="add_attributes"
+              c:identifier="lsm_attribute_manager_add_attributes">
+        <source-position filename="lsmattributes.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="AttributeManager" c:type="LsmAttributeManager*"/>
+          </instance-parameter>
+          <parameter name="n_attributes" transfer-ownership="none">
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+          <parameter name="attribute_infos" transfer-ownership="none">
+            <type name="AttributeInfos" c:type="const LsmAttributeInfos*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="clean_attributes"
+              c:identifier="lsm_attribute_manager_clean_attributes">
+        <source-position filename="lsmattributes.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="AttributeManager" c:type="LsmAttributeManager*"/>
+          </instance-parameter>
+          <parameter name="instance"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="void*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="duplicate" c:identifier="lsm_attribute_manager_duplicate">
+        <source-position filename="lsmattributes.h" line="53"/>
+        <return-value transfer-ownership="full">
+          <type name="AttributeManager" c:type="LsmAttributeManager*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="origin" transfer-ownership="none">
+            <type name="AttributeManager" c:type="const LsmAttributeManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_attribute"
+              c:identifier="lsm_attribute_manager_get_attribute">
+        <source-position filename="lsmattributes.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="AttributeManager" c:type="LsmAttributeManager*"/>
+          </instance-parameter>
+          <parameter name="instance"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="void*"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="lsm_attribute_manager_ref">
+        <source-position filename="lsmattributes.h" line="54"/>
+        <return-value transfer-ownership="full">
+          <type name="AttributeManager" c:type="LsmAttributeManager*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="AttributeManager" c:type="LsmAttributeManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="serialize" c:identifier="lsm_attribute_manager_serialize">
+        <source-position filename="lsmattributes.h" line="70"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="AttributeManager" c:type="LsmAttributeManager*"/>
+          </instance-parameter>
+          <parameter name="instance"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="void*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_attribute"
+              c:identifier="lsm_attribute_manager_set_attribute">
+        <source-position filename="lsmattributes.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="AttributeManager" c:type="LsmAttributeManager*"/>
+          </instance-parameter>
+          <parameter name="instance"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="void*"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="lsm_attribute_manager_unref">
+        <source-position filename="lsmattributes.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="AttributeManager" c:type="LsmAttributeManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="Box"
+            c:type="LsmBox"
+            glib:type-name="LsmBox"
+            glib:get-type="lsm_box_get_type"
+            c:symbol-prefix="box">
+      <source-position filename="lsmutils.h" line="47"/>
+      <field name="x" writable="1">
+        <type name="gdouble" c:type="double"/>
+      </field>
+      <field name="y" writable="1">
+        <type name="gdouble" c:type="double"/>
+      </field>
+      <field name="width" writable="1">
+        <type name="gdouble" c:type="double"/>
+      </field>
+      <field name="height" writable="1">
+        <type name="gdouble" c:type="double"/>
+      </field>
+    </record>
+    <function-macro name="DOM_CHARACTER_DATA"
+                    c:identifier="LSM_DOM_CHARACTER_DATA"
+                    introspectable="0">
+      <source-position filename="lsmdomcharacterdata.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_CHARACTER_DATA_CLASS"
+                    c:identifier="LSM_DOM_CHARACTER_DATA_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomcharacterdata.h" line="33"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_CHARACTER_DATA_GET_CLASS"
+                    c:identifier="LSM_DOM_CHARACTER_DATA_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomcharacterdata.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_DOCUMENT"
+                    c:identifier="LSM_DOM_DOCUMENT"
+                    introspectable="0">
+      <source-position filename="lsmdomdocument.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_DOCUMENT_CLASS"
+                    c:identifier="LSM_DOM_DOCUMENT_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomdocument.h" line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_DOCUMENT_FRAGMENT"
+                    c:identifier="LSM_DOM_DOCUMENT_FRAGMENT"
+                    introspectable="0">
+      <source-position filename="lsmdomdocumentfragment.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_DOCUMENT_FRAGMENT_CLASS"
+                    c:identifier="LSM_DOM_DOCUMENT_FRAGMENT_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomdocumentfragment.h" line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_DOCUMENT_FRAGMENT_GET_CLASS"
+                    c:identifier="LSM_DOM_DOCUMENT_FRAGMENT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomdocumentfragment.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_DOCUMENT_GET_CLASS"
+                    c:identifier="LSM_DOM_DOCUMENT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomdocument.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_ELEMENT"
+                    c:identifier="LSM_DOM_ELEMENT"
+                    introspectable="0">
+      <source-position filename="lsmdomelement.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_ELEMENT_CLASS"
+                    c:identifier="LSM_DOM_ELEMENT_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomelement.h" line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_ELEMENT_GET_CLASS"
+                    c:identifier="LSM_DOM_ELEMENT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomelement.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_NAMED_NODE_MAP"
+                    c:identifier="LSM_DOM_NAMED_NODE_MAP"
+                    introspectable="0">
+      <source-position filename="lsmdomnamednodemap.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_NAMED_NODE_MAP_CLASS"
+                    c:identifier="LSM_DOM_NAMED_NODE_MAP_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomnamednodemap.h" line="33"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_NAMED_NODE_MAP_GET_CLASS"
+                    c:identifier="LSM_DOM_NAMED_NODE_MAP_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomnamednodemap.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_NODE"
+                    c:identifier="LSM_DOM_NODE"
+                    introspectable="0">
+      <source-position filename="lsmdomnode.h" line="48"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_NODE_CLASS"
+                    c:identifier="LSM_DOM_NODE_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomnode.h" line="49"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_NODE_GET_CLASS"
+                    c:identifier="LSM_DOM_NODE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomnode.h" line="52"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_NODE_LIST"
+                    c:identifier="LSM_DOM_NODE_LIST"
+                    introspectable="0">
+      <source-position filename="lsmdomnodelist.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_NODE_LIST_CLASS"
+                    c:identifier="LSM_DOM_NODE_LIST_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomnodelist.h" line="33"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_NODE_LIST_GET_CLASS"
+                    c:identifier="LSM_DOM_NODE_LIST_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomnodelist.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_TEXT"
+                    c:identifier="LSM_DOM_TEXT"
+                    introspectable="0">
+      <source-position filename="lsmdomtext.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_TEXT_CLASS"
+                    c:identifier="LSM_DOM_TEXT_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomtext.h" line="33"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_TEXT_GET_CLASS"
+                    c:identifier="LSM_DOM_TEXT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomtext.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_VIEW"
+                    c:identifier="LSM_DOM_VIEW"
+                    introspectable="0">
+      <source-position filename="lsmdomview.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DOM_VIEW_CLASS"
+                    c:identifier="LSM_DOM_VIEW_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomview.h" line="40"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="DOM_VIEW_DEFAULT_RESOLUTION"
+              value="72.000000"
+              c:type="LSM_DOM_VIEW_DEFAULT_RESOLUTION">
+      <source-position filename="lsmdomview.h" line="34"/>
+      <type name="gdouble" c:type="gdouble"/>
+    </constant>
+    <constant name="DOM_VIEW_DEFAULT_VIEWBOX_HEIGHT"
+              value="200.000000"
+              c:type="LSM_DOM_VIEW_DEFAULT_VIEWBOX_HEIGHT">
+      <source-position filename="lsmdomview.h" line="36"/>
+      <type name="gdouble" c:type="gdouble"/>
+    </constant>
+    <constant name="DOM_VIEW_DEFAULT_VIEWBOX_WIDTH"
+              value="320.000000"
+              c:type="LSM_DOM_VIEW_DEFAULT_VIEWBOX_WIDTH">
+      <source-position filename="lsmdomview.h" line="35"/>
+      <type name="gdouble" c:type="gdouble"/>
+    </constant>
+    <function-macro name="DOM_VIEW_GET_CLASS"
+                    c:identifier="LSM_DOM_VIEW_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomview.h" line="43"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <record name="DebugCategory"
+            c:type="LsmDebugCategory"
+            disguised="1"
+            opaque="1">
+      <source-position filename="lsmdebug.h" line="39"/>
+    </record>
+    <enumeration name="DebugLevel"
+                 glib:type-name="LsmDebugLevel"
+                 glib:get-type="lsm_debug_level_get_type"
+                 c:type="LsmDebugLevel">
+      <member name="none"
+              value="0"
+              c:identifier="LSM_DEBUG_LEVEL_NONE"
+              glib:nick="none"
+              glib:name="LSM_DEBUG_LEVEL_NONE">
+      </member>
+      <member name="warning"
+              value="1"
+              c:identifier="LSM_DEBUG_LEVEL_WARNING"
+              glib:nick="warning"
+              glib:name="LSM_DEBUG_LEVEL_WARNING">
+      </member>
+      <member name="debug"
+              value="2"
+              c:identifier="LSM_DEBUG_LEVEL_DEBUG"
+              glib:nick="debug"
+              glib:name="LSM_DEBUG_LEVEL_DEBUG">
+      </member>
+      <member name="log"
+              value="3"
+              c:identifier="LSM_DEBUG_LEVEL_LOG"
+              glib:nick="log"
+              glib:name="LSM_DEBUG_LEVEL_LOG">
+      </member>
+      <member name="count"
+              value="4"
+              c:identifier="LSM_DEBUG_LEVEL_COUNT"
+              glib:nick="count"
+              glib:name="LSM_DEBUG_LEVEL_COUNT">
+      </member>
+    </enumeration>
+    <class name="DomCharacterData"
+           c:symbol-prefix="dom_character_data"
+           c:type="LsmDomCharacterData"
+           parent="DomNode"
+           abstract="1"
+           glib:type-name="LsmDomCharacterData"
+           glib:get-type="lsm_dom_character_data_get_type"
+           glib:type-struct="DomCharacterDataClass">
+      <source-position filename="lsmdomcharacterdata.h" line="49"/>
+      <method name="get_data" c:identifier="lsm_dom_character_data_get_data">
+        <source-position filename="lsmdomcharacterdata.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DomCharacterData" c:type="LsmDomCharacterData*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_data" c:identifier="lsm_dom_character_data_set_data">
+        <source-position filename="lsmdomcharacterdata.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DomCharacterData" c:type="LsmDomCharacterData*"/>
+          </instance-parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="node">
+        <type name="DomNode" c:type="LsmDomNode"/>
+      </field>
+      <field name="data">
+        <type name="utf8" c:type="char*"/>
+      </field>
+    </class>
+    <record name="DomCharacterDataClass"
+            c:type="LsmDomCharacterDataClass"
+            glib:is-gtype-struct-for="DomCharacterData">
+      <source-position filename="lsmdomcharacterdata.h" line="49"/>
+      <field name="parent_class">
+        <type name="DomNodeClass" c:type="LsmDomNodeClass"/>
+      </field>
+    </record>
+    <class name="DomDocument"
+           c:symbol-prefix="dom_document"
+           c:type="LsmDomDocument"
+           parent="DomNode"
+           abstract="1"
+           glib:type-name="LsmDomDocument"
+           glib:get-type="lsm_dom_document_get_type"
+           glib:type-struct="DomDocumentClass">
+      <source-position filename="lsmdomdocument.h" line="61"/>
+      <constructor name="new_from_memory"
+                   c:identifier="lsm_dom_document_new_from_memory"
+                   throws="1">
+        <source-position filename="lsmdomparser.h" line="34"/>
+        <return-value transfer-ownership="full">
+          <type name="DomDocument" c:type="LsmDomDocument*"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="void*"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_path"
+                   c:identifier="lsm_dom_document_new_from_path"
+                   throws="1">
+        <source-position filename="lsmdomparser.h" line="35"/>
+        <return-value transfer-ownership="full">
+          <type name="DomDocument" c:type="LsmDomDocument*"/>
+        </return-value>
+        <parameters>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_url"
+                   c:identifier="lsm_dom_document_new_from_url"
+                   throws="1">
+        <source-position filename="lsmdomparser.h" line="36"/>
+        <return-value transfer-ownership="full">
+          <type name="DomDocument" c:type="LsmDomDocument*"/>
+        </return-value>
+        <parameters>
+          <parameter name="url" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="create_element" invoker="create_element">
+        <source-position filename="lsmdomdocument.h" line="57"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lsmdomdocument.c"
+               line="76">a newly created #LsmDomElement</doc>
+          <type name="DomElement" c:type="LsmDomElement*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="73">a #LsmDomDocument</doc>
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </instance-parameter>
+          <parameter name="tag_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="74">name of the element to create</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="create_text_node" invoker="create_text_node">
+        <source-position filename="lsmdomdocument.h" line="58"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lsmdomdocument.c"
+               line="104">a newly created #LsmDomText</doc>
+          <type name="DomText" c:type="LsmDomText*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="101">a #LsmDomDocument</doc>
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </instance-parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="102">content of the text node</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="create_view" invoker="create_view">
+        <source-position filename="lsmdomdocument.h" line="60"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lsmdomdocument.c"
+               line="119">a new #LsmDomView</doc>
+          <type name="DomView" c:type="LsmDomView*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="117">a #LsmDomDocument</doc>
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_document_element"
+                      invoker="get_document_element">
+        <source-position filename="lsmdomdocument.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomdocument.c"
+               line="60">document element</doc>
+          <type name="DomElement" c:type="LsmDomElement*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="58">a #LsmDomElement</doc>
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="append_from_memory"
+              c:identifier="lsm_dom_document_append_from_memory"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="lsmdomparser.c"
+             line="291">Append a chunk of xml tree to an existing document. The resulting nodes will be appended to
+@node, or to @document if @node == NULL.
+
+Size set to a negative value indicated an unknow xml data size.</doc>
+        <source-position filename="lsmdomparser.h" line="32"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomparser.c"
+                 line="293">a #LsmDomDocument</doc>
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </instance-parameter>
+          <parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomparser.c"
+                 line="294">a #LsmDomNode</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </parameter>
+          <parameter name="buffer"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="lsmdomparser.c"
+                 line="295">a memory buffer holding xml data</doc>
+            <type name="gpointer" c:type="void*"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomparser.c"
+                 line="296">size of the xml data, in bytes</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="create_element"
+              c:identifier="lsm_dom_document_create_element">
+        <source-position filename="lsmdomdocument.h" line="66"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lsmdomdocument.c"
+               line="76">a newly created #LsmDomElement</doc>
+          <type name="DomElement" c:type="LsmDomElement*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="73">a #LsmDomDocument</doc>
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </instance-parameter>
+          <parameter name="tag_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="74">name of the element to create</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="create_text_node"
+              c:identifier="lsm_dom_document_create_text_node">
+        <source-position filename="lsmdomdocument.h" line="67"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lsmdomdocument.c"
+               line="104">a newly created #LsmDomText</doc>
+          <type name="DomText" c:type="LsmDomText*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="101">a #LsmDomDocument</doc>
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </instance-parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="102">content of the text node</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="create_view" c:identifier="lsm_dom_document_create_view">
+        <source-position filename="lsmdomdocument.h" line="72"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lsmdomdocument.c"
+               line="119">a new #LsmDomView</doc>
+          <type name="DomView" c:type="LsmDomView*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="117">a #LsmDomDocument</doc>
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_document_element"
+              c:identifier="lsm_dom_document_get_document_element">
+        <source-position filename="lsmdomdocument.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomdocument.c"
+               line="60">document element</doc>
+          <type name="DomElement" c:type="LsmDomElement*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="58">a #LsmDomElement</doc>
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_element_by_id"
+              c:identifier="lsm_dom_document_get_element_by_id">
+        <source-position filename="lsmdomdocument.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomdocument.c"
+               line="135">the requested element, NULL if not found.</doc>
+          <type name="DomElement" c:type="LsmDomElement*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="132">a #LsmDomDocument</doc>
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </instance-parameter>
+          <parameter name="id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="133">id of the element to find</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_href_data"
+              c:identifier="lsm_dom_document_get_href_data">
+        <source-position filename="lsmdomdocument.h" line="78"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="lsmdomdocument.c"
+               line="213">a newly allocated buffer containing the requested data.</doc>
+          <type name="gpointer" c:type="void*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="209">a #LsmDomDocument</doc>
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </instance-parameter>
+          <parameter name="href" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="210">href</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="211">placeholder for the size of the returned data</doc>
+            <type name="gsize" c:type="gsize*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_url" c:identifier="lsm_dom_document_get_url">
+        <source-position filename="lsmdomdocument.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="register_element"
+              c:identifier="lsm_dom_document_register_element">
+        <source-position filename="lsmdomdocument.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </instance-parameter>
+          <parameter name="element" transfer-ownership="none">
+            <type name="DomElement" c:type="LsmDomElement*"/>
+          </parameter>
+          <parameter name="id" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="save_to_memory"
+              c:identifier="lsm_dom_document_save_to_memory"
+              throws="1">
+        <source-position filename="lsmdomparser.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="documennt" transfer-ownership="none">
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </instance-parameter>
+          <parameter name="buffer"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="void**"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gint" c:type="int*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="save_to_path"
+              c:identifier="lsm_dom_document_save_to_path"
+              throws="1">
+        <source-position filename="lsmdomparser.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="documennt" transfer-ownership="none">
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="save_to_stream"
+              c:identifier="lsm_dom_document_save_to_stream"
+              throws="1">
+        <source-position filename="lsmdomparser.h" line="38"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="document" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomparser.c"
+                 line="384">a #LsmDomDocument</doc>
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </instance-parameter>
+          <parameter name="stream" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomparser.c"
+                 line="385">stream to save to</doc>
+            <type name="Gio.OutputStream" c:type="GOutputStream*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="save_to_url"
+              c:identifier="lsm_dom_document_save_to_url"
+              throws="1">
+        <source-position filename="lsmdomparser.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="documennt" transfer-ownership="none">
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_path" c:identifier="lsm_dom_document_set_path">
+        <source-position filename="lsmdomdocument.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_url" c:identifier="lsm_dom_document_set_url">
+        <source-position filename="lsmdomdocument.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </instance-parameter>
+          <parameter name="url" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="node">
+        <type name="DomNode" c:type="LsmDomNode"/>
+      </field>
+      <field name="ids">
+        <type name="GLib.HashTable" c:type="GHashTable*">
+          <type name="gpointer" c:type="gpointer"/>
+          <type name="gpointer" c:type="gpointer"/>
+        </type>
+      </field>
+      <field name="elements">
+        <type name="GLib.HashTable" c:type="GHashTable*">
+          <type name="gpointer" c:type="gpointer"/>
+          <type name="gpointer" c:type="gpointer"/>
+        </type>
+      </field>
+      <field name="url">
+        <type name="utf8" c:type="char*"/>
+      </field>
+    </class>
+    <record name="DomDocumentClass"
+            c:type="LsmDomDocumentClass"
+            glib:is-gtype-struct-for="DomDocument">
+      <source-position filename="lsmdomdocument.h" line="61"/>
+      <field name="parent_class">
+        <type name="DomNodeClass" c:type="LsmDomNodeClass"/>
+      </field>
+      <field name="get_document_element">
+        <callback name="get_document_element">
+          <source-position filename="lsmdomdocument.h" line="56"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="60">document element</doc>
+            <type name="DomElement" c:type="LsmDomElement*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomdocument.c"
+                   line="58">a #LsmDomElement</doc>
+              <type name="DomDocument" c:type="LsmDomDocument*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="create_element">
+        <callback name="create_element">
+          <source-position filename="lsmdomdocument.h" line="57"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="76">a newly created #LsmDomElement</doc>
+            <type name="DomElement" c:type="LsmDomElement*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomdocument.c"
+                   line="73">a #LsmDomDocument</doc>
+              <type name="DomDocument" c:type="LsmDomDocument*"/>
+            </parameter>
+            <parameter name="tag_name" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomdocument.c"
+                   line="74">name of the element to create</doc>
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="create_text_node">
+        <callback name="create_text_node">
+          <source-position filename="lsmdomdocument.h" line="58"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="104">a newly created #LsmDomText</doc>
+            <type name="DomText" c:type="LsmDomText*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomdocument.c"
+                   line="101">a #LsmDomDocument</doc>
+              <type name="DomDocument" c:type="LsmDomDocument*"/>
+            </parameter>
+            <parameter name="data" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomdocument.c"
+                   line="102">content of the text node</doc>
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="create_view">
+        <callback name="create_view">
+          <source-position filename="lsmdomdocument.h" line="60"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="lsmdomdocument.c"
+                 line="119">a new #LsmDomView</doc>
+            <type name="DomView" c:type="LsmDomView*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomdocument.c"
+                   line="117">a #LsmDomDocument</doc>
+              <type name="DomDocument" c:type="LsmDomDocument*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <callback name="DomDocumentCreateFunction"
+              c:type="LsmDomDocumentCreateFunction"
+              introspectable="0">
+      <source-position filename="lsmdomimplementation.h" line="32"/>
+      <return-value>
+        <type name="DomDocument" c:type="LsmDomDocument*"/>
+      </return-value>
+    </callback>
+    <class name="DomDocumentFragment"
+           c:symbol-prefix="dom_document_fragment"
+           c:type="LsmDomDocumentFragment"
+           parent="DomNode"
+           abstract="1"
+           glib:type-name="LsmDomDocumentFragment"
+           glib:get-type="lsm_dom_document_fragment_get_type"
+           glib:type-struct="DomDocumentFragmentClass">
+      <source-position filename="lsmdomdocumentfragment.h" line="47"/>
+      <constructor name="new" c:identifier="lsm_dom_document_fragment_new">
+        <source-position filename="lsmdomdocumentfragment.h" line="51"/>
+        <return-value transfer-ownership="full">
+          <type name="DomDocumentFragment" c:type="LsmDomDocumentFragment*"/>
+        </return-value>
+      </constructor>
+      <field name="node">
+        <type name="DomNode" c:type="LsmDomNode"/>
+      </field>
+    </class>
+    <record name="DomDocumentFragmentClass"
+            c:type="LsmDomDocumentFragmentClass"
+            glib:is-gtype-struct-for="DomDocumentFragment">
+      <source-position filename="lsmdomdocumentfragment.h" line="47"/>
+      <field name="parent_class">
+        <type name="DomNodeClass" c:type="LsmDomNodeClass"/>
+      </field>
+    </record>
+    <class name="DomElement"
+           c:symbol-prefix="dom_element"
+           c:type="LsmDomElement"
+           parent="DomNode"
+           abstract="1"
+           glib:type-name="LsmDomElement"
+           glib:get-type="lsm_dom_element_get_type"
+           glib:type-struct="DomElementClass">
+      <source-position filename="lsmdomelement.h" line="51"/>
+      <virtual-method name="get_attribute" invoker="get_attribute">
+        <source-position filename="lsmdomelement.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomelement.c"
+               line="82">attribute value, as string.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomelement.c"
+                 line="79">a #LsmDomElement</doc>
+            <type name="DomElement" c:type="LsmDomElement*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomelement.c"
+                 line="80">attribute name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_serialized_attributes">
+        <source-position filename="lsmdomelement.h" line="50"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DomElement" c:type="LsmDomElement*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_attribute" invoker="set_attribute">
+        <doc xml:space="preserve"
+             filename="lsmdomelement.c"
+             line="94">Set the atribute value.</doc>
+        <source-position filename="lsmdomelement.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomelement.c"
+                 line="96">a #LsmDomElement</doc>
+            <type name="DomElement" c:type="LsmDomElement*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomelement.c"
+                 line="97">attribute name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="attribute_value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomelement.c"
+                 line="98">attribute value as string</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_attribute"
+              c:identifier="lsm_dom_element_get_attribute">
+        <source-position filename="lsmdomelement.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomelement.c"
+               line="82">attribute value, as string.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomelement.c"
+                 line="79">a #LsmDomElement</doc>
+            <type name="DomElement" c:type="LsmDomElement*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomelement.c"
+                 line="80">attribute name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_tag_name" c:identifier="lsm_dom_element_get_tag_name">
+        <source-position filename="lsmdomelement.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomelement.c"
+               line="118">element tag name.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomelement.c"
+                 line="116">a #LsmDomElement</doc>
+            <type name="DomElement" c:type="LsmDomElement*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_attribute"
+              c:identifier="lsm_dom_element_set_attribute">
+        <doc xml:space="preserve"
+             filename="lsmdomelement.c"
+             line="94">Set the atribute value.</doc>
+        <source-position filename="lsmdomelement.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomelement.c"
+                 line="96">a #LsmDomElement</doc>
+            <type name="DomElement" c:type="LsmDomElement*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomelement.c"
+                 line="97">attribute name</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="attribute_value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomelement.c"
+                 line="98">attribute value as string</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="node">
+        <type name="DomNode" c:type="LsmDomNode"/>
+      </field>
+    </class>
+    <record name="DomElementClass"
+            c:type="LsmDomElementClass"
+            glib:is-gtype-struct-for="DomElement">
+      <source-position filename="lsmdomelement.h" line="51"/>
+      <field name="parent_class">
+        <type name="DomNodeClass" c:type="LsmDomNodeClass"/>
+      </field>
+      <field name="get_attribute">
+        <callback name="get_attribute">
+          <source-position filename="lsmdomelement.h" line="48"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomelement.c"
+                 line="82">attribute value, as string.</doc>
+            <type name="utf8" c:type="const char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomelement.c"
+                   line="79">a #LsmDomElement</doc>
+              <type name="DomElement" c:type="LsmDomElement*"/>
+            </parameter>
+            <parameter name="name" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomelement.c"
+                   line="80">attribute name</doc>
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_attribute">
+        <callback name="set_attribute">
+          <source-position filename="lsmdomelement.h" line="49"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomelement.c"
+                   line="96">a #LsmDomElement</doc>
+              <type name="DomElement" c:type="LsmDomElement*"/>
+            </parameter>
+            <parameter name="name" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomelement.c"
+                   line="97">attribute name</doc>
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="attribute_value" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomelement.c"
+                   line="98">attribute value as string</doc>
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_serialized_attributes">
+        <callback name="get_serialized_attributes">
+          <source-position filename="lsmdomelement.h" line="50"/>
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="DomElement" c:type="LsmDomElement*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="DomNamedNodeMap"
+           c:symbol-prefix="dom_named_node_map"
+           c:type="LsmDomNamedNodeMap"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="LsmDomNamedNodeMap"
+           glib:get-type="lsm_dom_named_node_map_get_type"
+           glib:type-struct="DomNamedNodeMapClass">
+      <source-position filename="lsmdomnamednodemap.h" line="52"/>
+      <virtual-method name="get" introspectable="0">
+        <source-position filename="lsmdomnamednodemap.h" line="47"/>
+        <return-value>
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <type name="DomNamedNodeMap" c:type="LsmDomNamedNodeMap*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_item" invoker="get_item">
+        <source-position filename="lsmdomnamednodemap.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomnamednodemap.c"
+               line="87">The node corresponding to @index, NULL on error.</doc>
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnamednodemap.c"
+                 line="84">a #LsmDomNamedNodeMap</doc>
+            <type name="DomNamedNodeMap" c:type="LsmDomNamedNodeMap*"/>
+          </instance-parameter>
+          <parameter name="index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnamednodemap.c"
+                 line="85">item index</doc>
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_length" invoker="get_length">
+        <source-position filename="lsmdomnamednodemap.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="unsigned int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <type name="DomNamedNodeMap" c:type="LsmDomNamedNodeMap*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="remove" introspectable="0">
+        <source-position filename="lsmdomnamednodemap.h" line="49"/>
+        <return-value>
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <type name="DomNamedNodeMap" c:type="LsmDomNamedNodeMap*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set" introspectable="0">
+        <source-position filename="lsmdomnamednodemap.h" line="48"/>
+        <return-value>
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <type name="DomNamedNodeMap" c:type="LsmDomNamedNodeMap*"/>
+          </instance-parameter>
+          <parameter name="node" transfer-ownership="none">
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_item" c:identifier="lsm_dom_named_node_map_get_item">
+        <source-position filename="lsmdomnamednodemap.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomnamednodemap.c"
+               line="87">The node corresponding to @index, NULL on error.</doc>
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnamednodemap.c"
+                 line="84">a #LsmDomNamedNodeMap</doc>
+            <type name="DomNamedNodeMap" c:type="LsmDomNamedNodeMap*"/>
+          </instance-parameter>
+          <parameter name="index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnamednodemap.c"
+                 line="85">item index</doc>
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_length"
+              c:identifier="lsm_dom_named_node_map_get_length">
+        <source-position filename="lsmdomnamednodemap.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="unsigned int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <type name="DomNamedNodeMap" c:type="LsmDomNamedNodeMap*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_named_item"
+              c:identifier="lsm_dom_named_node_map_get_named_item">
+        <source-position filename="lsmdomnamednodemap.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomnamednodemap.c"
+               line="39">The corresponding node, NULL if not found.</doc>
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnamednodemap.c"
+                 line="36">a #LsmDomNamedNodeMap</doc>
+            <type name="DomNamedNodeMap" c:type="LsmDomNamedNodeMap*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnamednodemap.c"
+                 line="37">name of the requested item</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_named_item"
+              c:identifier="lsm_dom_named_node_map_remove_named_item">
+        <source-position filename="lsmdomnamednodemap.h" line="58"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lsmdomnamednodemap.c"
+               line="71">removed node, NULL on error.</doc>
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnamednodemap.c"
+                 line="68">a #LsmDomNamedNodeMap</doc>
+            <type name="DomNamedNodeMap" c:type="LsmDomNamedNodeMap*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnamednodemap.c"
+                 line="69">name of the item to remove</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_named_item"
+              c:identifier="lsm_dom_named_node_map_set_named_item">
+        <source-position filename="lsmdomnamednodemap.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomnamednodemap.c"
+               line="55">same as @node, NULL on error.</doc>
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnamednodemap.c"
+                 line="52">a #LsmDomNamedNodeMap</doc>
+            <type name="DomNamedNodeMap" c:type="LsmDomNamedNodeMap*"/>
+          </instance-parameter>
+          <parameter name="node" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnamednodemap.c"
+                 line="53">a #LsmDomNode</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="object">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="DomNamedNodeMapClass"
+            c:type="LsmDomNamedNodeMapClass"
+            glib:is-gtype-struct-for="DomNamedNodeMap">
+      <source-position filename="lsmdomnamednodemap.h" line="52"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="get" introspectable="0">
+        <callback name="get" introspectable="0">
+          <source-position filename="lsmdomnamednodemap.h" line="47"/>
+          <return-value>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </return-value>
+          <parameters>
+            <parameter name="map" transfer-ownership="none">
+              <type name="DomNamedNodeMap" c:type="LsmDomNamedNodeMap*"/>
+            </parameter>
+            <parameter name="name" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set" introspectable="0">
+        <callback name="set" introspectable="0">
+          <source-position filename="lsmdomnamednodemap.h" line="48"/>
+          <return-value>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </return-value>
+          <parameters>
+            <parameter name="map" transfer-ownership="none">
+              <type name="DomNamedNodeMap" c:type="LsmDomNamedNodeMap*"/>
+            </parameter>
+            <parameter name="node" transfer-ownership="none">
+              <type name="DomNode" c:type="LsmDomNode*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="remove" introspectable="0">
+        <callback name="remove" introspectable="0">
+          <source-position filename="lsmdomnamednodemap.h" line="49"/>
+          <return-value>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </return-value>
+          <parameters>
+            <parameter name="map" transfer-ownership="none">
+              <type name="DomNamedNodeMap" c:type="LsmDomNamedNodeMap*"/>
+            </parameter>
+            <parameter name="name" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_item">
+        <callback name="get_item">
+          <source-position filename="lsmdomnamednodemap.h" line="50"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnamednodemap.c"
+                 line="87">The node corresponding to @index, NULL on error.</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </return-value>
+          <parameters>
+            <parameter name="map" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomnamednodemap.c"
+                   line="84">a #LsmDomNamedNodeMap</doc>
+              <type name="DomNamedNodeMap" c:type="LsmDomNamedNodeMap*"/>
+            </parameter>
+            <parameter name="index" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomnamednodemap.c"
+                   line="85">item index</doc>
+              <type name="guint" c:type="unsigned int"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_length">
+        <callback name="get_length">
+          <source-position filename="lsmdomnamednodemap.h" line="51"/>
+          <return-value transfer-ownership="none">
+            <type name="guint" c:type="unsigned int"/>
+          </return-value>
+          <parameters>
+            <parameter name="map" transfer-ownership="none">
+              <type name="DomNamedNodeMap" c:type="LsmDomNamedNodeMap*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="DomNode"
+           c:symbol-prefix="dom_node"
+           c:type="LsmDomNode"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="LsmDomNode"
+           glib:get-type="lsm_dom_node_get_type"
+           glib:type-struct="DomNodeClass">
+      <source-position filename="lsmdomnode.h" line="88"/>
+      <virtual-method name="can_append_child">
+        <source-position filename="lsmdomnode.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+          <parameter name="new_child" transfer-ownership="none">
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="changed" invoker="changed">
+        <source-position filename="lsmdomnode.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="child_changed">
+        <source-position filename="lsmdomnode.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+          <parameter name="child" transfer-ownership="none">
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_node_name" invoker="get_node_name">
+        <doc xml:space="preserve"
+             filename="lsmdomnode.c"
+             line="159">Gets the node name.</doc>
+        <source-position filename="lsmdomnode.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomnode.c"
+               line="165">the node name.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="161">a #LsmDomNode</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_node_type" invoker="get_node_type">
+        <source-position filename="lsmdomnode.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="DomNodeType" c:type="LsmDomNodeType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_node_value" invoker="get_node_value">
+        <doc xml:space="preserve"
+             filename="lsmdomnode.c"
+             line="181">Gets the node value.</doc>
+        <source-position filename="lsmdomnode.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomnode.c"
+               line="187">the node value.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="183">a #LsmDomNode</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="post_new_child">
+        <source-position filename="lsmdomnode.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="parent" transfer-ownership="none">
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+          <parameter name="child" transfer-ownership="none">
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="pre_remove_child">
+        <source-position filename="lsmdomnode.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="parent" transfer-ownership="none">
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+          <parameter name="child" transfer-ownership="none">
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_node_value" invoker="set_node_value">
+        <source-position filename="lsmdomnode.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+          <parameter name="new_value" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="write_to_stream"
+                      invoker="write_to_stream"
+                      throws="1">
+        <source-position filename="lsmdomnode.h" line="87"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+          <parameter name="stream" transfer-ownership="none">
+            <type name="Gio.OutputStream" c:type="GOutputStream*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="append_child" c:identifier="lsm_dom_node_append_child">
+        <doc xml:space="preserve"
+             filename="lsmdomnode.c"
+             line="569">Adds the node @new_child to the end of the list of children of this node.
+If the @new_child is already in the tree, it is first removed.</doc>
+        <source-position filename="lsmdomnode.h" line="107"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomnode.c"
+               line="577">the added node.</doc>
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="571">a #LsmDomNode</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+          <parameter name="new_child" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="572">node to append</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="changed" c:identifier="lsm_dom_node_changed">
+        <source-position filename="lsmdomnode.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_child_nodes"
+              c:identifier="lsm_dom_node_get_child_nodes">
+        <source-position filename="lsmdomnode.h" line="97"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomnode.c"
+               line="246">node child list</doc>
+          <type name="DomNodeList" c:type="LsmDomNodeList*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="244">a #LsmDomNode</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_first_child"
+              c:identifier="lsm_dom_node_get_first_child">
+        <source-position filename="lsmdomnode.h" line="98"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomnode.c"
+               line="270">node first child</doc>
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="268">a #LsmDomNode</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_last_child" c:identifier="lsm_dom_node_get_last_child">
+        <source-position filename="lsmdomnode.h" line="99"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomnode.c"
+               line="285">node last child</doc>
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="283">a #LsmDomNode</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_next_sibling"
+              c:identifier="lsm_dom_node_get_next_sibling">
+        <source-position filename="lsmdomnode.h" line="101"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomnode.c"
+               line="315">node next sibling</doc>
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="313">a #LsmDomNode</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_node_name" c:identifier="lsm_dom_node_get_node_name">
+        <doc xml:space="preserve"
+             filename="lsmdomnode.c"
+             line="159">Gets the node name.</doc>
+        <source-position filename="lsmdomnode.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomnode.c"
+               line="165">the node name.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="161">a #LsmDomNode</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_node_type" c:identifier="lsm_dom_node_get_node_type">
+        <source-position filename="lsmdomnode.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <type name="DomNodeType" c:type="LsmDomNodeType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_node_value" c:identifier="lsm_dom_node_get_node_value">
+        <doc xml:space="preserve"
+             filename="lsmdomnode.c"
+             line="181">Gets the node value.</doc>
+        <source-position filename="lsmdomnode.h" line="93"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomnode.c"
+               line="187">the node value.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="183">a #LsmDomNode</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_owner_document"
+              c:identifier="lsm_dom_node_get_owner_document">
+        <source-position filename="lsmdomnode.h" line="113"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomnode.c"
+               line="338">node owner document</doc>
+          <type name="DomDocument" c:type="LsmDomDocument*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="336">a #LsmDomNode</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_parent_node"
+              c:identifier="lsm_dom_node_get_parent_node">
+        <source-position filename="lsmdomnode.h" line="96"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomnode.c"
+               line="231">node parent</doc>
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="229">a #LsmDomNode</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_previous_sibling"
+              c:identifier="lsm_dom_node_get_previous_sibling">
+        <source-position filename="lsmdomnode.h" line="100"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomnode.c"
+               line="300">node previous sibling</doc>
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="298">a #LsmDomNode</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_child_nodes"
+              c:identifier="lsm_dom_node_has_child_nodes">
+        <source-position filename="lsmdomnode.h" line="109"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="insert_before" c:identifier="lsm_dom_node_insert_before">
+        <doc xml:space="preserve"
+             filename="lsmdomnode.c"
+             line="356">Inserts the node @new_child before the existing child node @ref_child. If
+@ref_child is null, insert @new_child at the end of the list of children.
+If the @new_child is already in the tree, it is first removed.</doc>
+        <source-position filename="lsmdomnode.h" line="105"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomnode.c"
+               line="366">the inserted node.</doc>
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="358">a #LsmDomNode</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+          <parameter name="new_child" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="359">node to insert</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </parameter>
+          <parameter name="ref_child" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="360">reference node, i.e., the node before which the new node must be inserted.</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_child" c:identifier="lsm_dom_node_remove_child">
+        <doc xml:space="preserve"
+             filename="lsmdomnode.c"
+             line="515">Removes the child node indicated by @old_child from the list of children, and returns it.</doc>
+        <source-position filename="lsmdomnode.h" line="108"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lsmdomnode.c"
+               line="522">the removed node.</doc>
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="517">a #LsmDomNode</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+          <parameter name="old_child" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="518">node to remove.</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="replace_child" c:identifier="lsm_dom_node_replace_child">
+        <doc xml:space="preserve"
+             filename="lsmdomnode.c"
+             line="437">Replaces the child node @old_child with @new_child in the list of children,
+and returns the @old_child node.
+If the @new_child is already in the tree, it is first removed.</doc>
+        <source-position filename="lsmdomnode.h" line="106"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lsmdomnode.c"
+               line="447">the replaced node.</doc>
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="439">a #LsmDomNode</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+          <parameter name="new_child" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="440">a replacement node</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </parameter>
+          <parameter name="old_child" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="441">node to replace</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_node_value" c:identifier="lsm_dom_node_set_node_value">
+        <source-position filename="lsmdomnode.h" line="94"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+          <parameter name="new_value" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="write_to_stream"
+              c:identifier="lsm_dom_node_write_to_stream"
+              throws="1">
+        <source-position filename="lsmdomnode.h" line="115"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </instance-parameter>
+          <parameter name="stream" transfer-ownership="none">
+            <type name="Gio.OutputStream" c:type="GOutputStream*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="object">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="next_sibling">
+        <type name="DomNode" c:type="LsmDomNode*"/>
+      </field>
+      <field name="previous_sibling">
+        <type name="DomNode" c:type="LsmDomNode*"/>
+      </field>
+      <field name="parent_node">
+        <type name="DomNode" c:type="LsmDomNode*"/>
+      </field>
+      <field name="first_child">
+        <type name="DomNode" c:type="LsmDomNode*"/>
+      </field>
+      <field name="last_child">
+        <type name="DomNode" c:type="LsmDomNode*"/>
+      </field>
+    </class>
+    <record name="DomNodeClass"
+            c:type="LsmDomNodeClass"
+            glib:is-gtype-struct-for="DomNode">
+      <source-position filename="lsmdomnode.h" line="88"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="get_node_name">
+        <callback name="get_node_name">
+          <source-position filename="lsmdomnode.h" line="71"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="165">the node name.</doc>
+            <type name="utf8" c:type="const char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomnode.c"
+                   line="161">a #LsmDomNode</doc>
+              <type name="DomNode" c:type="LsmDomNode*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_node_value">
+        <callback name="get_node_value">
+          <source-position filename="lsmdomnode.h" line="72"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnode.c"
+                 line="187">the node value.</doc>
+            <type name="utf8" c:type="const char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomnode.c"
+                   line="183">a #LsmDomNode</doc>
+              <type name="DomNode" c:type="LsmDomNode*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_node_value">
+        <callback name="set_node_value">
+          <source-position filename="lsmdomnode.h" line="73"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="DomNode" c:type="LsmDomNode*"/>
+            </parameter>
+            <parameter name="new_value" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_node_type">
+        <callback name="get_node_type">
+          <source-position filename="lsmdomnode.h" line="74"/>
+          <return-value transfer-ownership="none">
+            <type name="DomNodeType" c:type="LsmDomNodeType"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="DomNode" c:type="LsmDomNode*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="can_append_child">
+        <callback name="can_append_child">
+          <source-position filename="lsmdomnode.h" line="78"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="DomNode" c:type="LsmDomNode*"/>
+            </parameter>
+            <parameter name="new_child" transfer-ownership="none">
+              <type name="DomNode" c:type="LsmDomNode*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="post_new_child">
+        <callback name="post_new_child">
+          <source-position filename="lsmdomnode.h" line="82"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="parent" transfer-ownership="none">
+              <type name="DomNode" c:type="LsmDomNode*"/>
+            </parameter>
+            <parameter name="child" transfer-ownership="none">
+              <type name="DomNode" c:type="LsmDomNode*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="pre_remove_child">
+        <callback name="pre_remove_child">
+          <source-position filename="lsmdomnode.h" line="83"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="parent" transfer-ownership="none">
+              <type name="DomNode" c:type="LsmDomNode*"/>
+            </parameter>
+            <parameter name="child" transfer-ownership="none">
+              <type name="DomNode" c:type="LsmDomNode*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="changed">
+        <callback name="changed">
+          <source-position filename="lsmdomnode.h" line="84"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="DomNode" c:type="LsmDomNode*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="child_changed">
+        <callback name="child_changed">
+          <source-position filename="lsmdomnode.h" line="85"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="DomNode" c:type="LsmDomNode*"/>
+            </parameter>
+            <parameter name="child" transfer-ownership="none">
+              <type name="DomNode" c:type="LsmDomNode*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="write_to_stream">
+        <callback name="write_to_stream" throws="1">
+          <source-position filename="lsmdomnode.h" line="87"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="DomNode" c:type="LsmDomNode*"/>
+            </parameter>
+            <parameter name="stream" transfer-ownership="none">
+              <type name="Gio.OutputStream" c:type="GOutputStream*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="DomNodeList"
+           c:symbol-prefix="dom_node_list"
+           c:type="LsmDomNodeList"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="LsmDomNodeList"
+           glib:get-type="lsm_dom_node_list_get_type"
+           glib:type-struct="DomNodeListClass">
+      <source-position filename="lsmdomnodelist.h" line="49"/>
+      <virtual-method name="get_item" invoker="get_item">
+        <source-position filename="lsmdomnodelist.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomnodelist.c"
+               line="39">the node corresponding to index, NULL on error.</doc>
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="list" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnodelist.c"
+                 line="36">a #LsmDomNodeList</doc>
+            <type name="DomNodeList" c:type="LsmDomNodeList*"/>
+          </instance-parameter>
+          <parameter name="index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnodelist.c"
+                 line="37">id of the item to retrieve</doc>
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_length" invoker="get_length">
+        <source-position filename="lsmdomnodelist.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="unsigned int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="list" transfer-ownership="none">
+            <type name="DomNodeList" c:type="LsmDomNodeList*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_item" c:identifier="lsm_dom_node_list_get_item">
+        <source-position filename="lsmdomnodelist.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomnodelist.c"
+               line="39">the node corresponding to index, NULL on error.</doc>
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="list" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnodelist.c"
+                 line="36">a #LsmDomNodeList</doc>
+            <type name="DomNodeList" c:type="LsmDomNodeList*"/>
+          </instance-parameter>
+          <parameter name="index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnodelist.c"
+                 line="37">id of the item to retrieve</doc>
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_length" c:identifier="lsm_dom_node_list_get_length">
+        <source-position filename="lsmdomnodelist.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="unsigned int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="list" transfer-ownership="none">
+            <type name="DomNodeList" c:type="LsmDomNodeList*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="object">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="DomNodeListClass"
+            c:type="LsmDomNodeListClass"
+            glib:is-gtype-struct-for="DomNodeList">
+      <source-position filename="lsmdomnodelist.h" line="49"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="get_item">
+        <callback name="get_item">
+          <source-position filename="lsmdomnodelist.h" line="47"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomnodelist.c"
+                 line="39">the node corresponding to index, NULL on error.</doc>
+            <type name="DomNode" c:type="LsmDomNode*"/>
+          </return-value>
+          <parameters>
+            <parameter name="list" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomnodelist.c"
+                   line="36">a #LsmDomNodeList</doc>
+              <type name="DomNodeList" c:type="LsmDomNodeList*"/>
+            </parameter>
+            <parameter name="index" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomnodelist.c"
+                   line="37">id of the item to retrieve</doc>
+              <type name="guint" c:type="unsigned int"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_length">
+        <callback name="get_length">
+          <source-position filename="lsmdomnodelist.h" line="48"/>
+          <return-value transfer-ownership="none">
+            <type name="guint" c:type="unsigned int"/>
+          </return-value>
+          <parameters>
+            <parameter name="list" transfer-ownership="none">
+              <type name="DomNodeList" c:type="LsmDomNodeList*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="DomNodeType"
+                 glib:type-name="LsmDomNodeType"
+                 glib:get-type="lsm_dom_node_type_get_type"
+                 c:type="LsmDomNodeType">
+      <member name="element_node"
+              value="1"
+              c:identifier="LSM_DOM_NODE_TYPE_ELEMENT_NODE"
+              glib:nick="element-node"
+              glib:name="LSM_DOM_NODE_TYPE_ELEMENT_NODE">
+      </member>
+      <member name="attribute_node"
+              value="2"
+              c:identifier="LSM_DOM_NODE_TYPE_ATTRIBUTE_NODE"
+              glib:nick="attribute-node"
+              glib:name="LSM_DOM_NODE_TYPE_ATTRIBUTE_NODE">
+      </member>
+      <member name="text_node"
+              value="3"
+              c:identifier="LSM_DOM_NODE_TYPE_TEXT_NODE"
+              glib:nick="text-node"
+              glib:name="LSM_DOM_NODE_TYPE_TEXT_NODE">
+      </member>
+      <member name="cdata_section_node"
+              value="4"
+              c:identifier="LSM_DOM_NODE_TYPE_CDATA_SECTION_NODE"
+              glib:nick="cdata-section-node"
+              glib:name="LSM_DOM_NODE_TYPE_CDATA_SECTION_NODE">
+      </member>
+      <member name="entity_reference_node"
+              value="5"
+              c:identifier="LSM_DOM_NODE_TYPE_ENTITY_REFERENCE_NODE"
+              glib:nick="entity-reference-node"
+              glib:name="LSM_DOM_NODE_TYPE_ENTITY_REFERENCE_NODE">
+      </member>
+      <member name="entity_node"
+              value="6"
+              c:identifier="LSM_DOM_NODE_TYPE_ENTITY_NODE"
+              glib:nick="entity-node"
+              glib:name="LSM_DOM_NODE_TYPE_ENTITY_NODE">
+      </member>
+      <member name="processing_instruction_node"
+              value="7"
+              c:identifier="LSM_DOM_NODE_TYPE_PROCESSING_INSTRUCTION_NODE"
+              glib:nick="processing-instruction-node"
+              glib:name="LSM_DOM_NODE_TYPE_PROCESSING_INSTRUCTION_NODE">
+      </member>
+      <member name="comment_node"
+              value="8"
+              c:identifier="LSM_DOM_NODE_TYPE_COMMENT_NODE"
+              glib:nick="comment-node"
+              glib:name="LSM_DOM_NODE_TYPE_COMMENT_NODE">
+      </member>
+      <member name="document_node"
+              value="9"
+              c:identifier="LSM_DOM_NODE_TYPE_DOCUMENT_NODE"
+              glib:nick="document-node"
+              glib:name="LSM_DOM_NODE_TYPE_DOCUMENT_NODE">
+      </member>
+      <member name="document_type_node"
+              value="10"
+              c:identifier="LSM_DOM_NODE_TYPE_DOCUMENT_TYPE_NODE"
+              glib:nick="document-type-node"
+              glib:name="LSM_DOM_NODE_TYPE_DOCUMENT_TYPE_NODE">
+      </member>
+      <member name="document_fragment_node"
+              value="11"
+              c:identifier="LSM_DOM_NODE_TYPE_DOCUMENT_FRAGMENT_NODE"
+              glib:nick="document-fragment-node"
+              glib:name="LSM_DOM_NODE_TYPE_DOCUMENT_FRAGMENT_NODE">
+      </member>
+      <member name="notation_node"
+              value="12"
+              c:identifier="LSM_DOM_NODE_TYPE_NOTATION_NODE"
+              glib:nick="notation-node"
+              glib:name="LSM_DOM_NODE_TYPE_NOTATION_NODE">
+      </member>
+    </enumeration>
+    <class name="DomText"
+           c:symbol-prefix="dom_text"
+           c:type="LsmDomText"
+           parent="DomCharacterData"
+           glib:type-name="LsmDomText"
+           glib:get-type="lsm_dom_text_get_type"
+           glib:type-struct="DomTextClass">
+      <source-position filename="lsmdomtext.h" line="46"/>
+      <constructor name="new" c:identifier="lsm_dom_text_new">
+        <source-position filename="lsmdomtext.h" line="50"/>
+        <return-value transfer-ownership="full">
+          <type name="DomNode" c:type="LsmDomNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="data" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="character_data">
+        <type name="DomCharacterData" c:type="LsmDomCharacterData"/>
+      </field>
+    </class>
+    <record name="DomTextClass"
+            c:type="LsmDomTextClass"
+            glib:is-gtype-struct-for="DomText">
+      <source-position filename="lsmdomtext.h" line="46"/>
+      <field name="parent_class">
+        <type name="DomCharacterDataClass" c:type="LsmDomCharacterDataClass"/>
+      </field>
+    </record>
+    <class name="DomView"
+           c:symbol-prefix="dom_view"
+           c:type="LsmDomView"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="LsmDomView"
+           glib:get-type="lsm_dom_view_get_type"
+           glib:type-struct="DomViewClass">
+      <source-position filename="lsmdomview.h" line="70"/>
+      <virtual-method name="measure">
+        <source-position filename="lsmdomview.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="DomView" c:type="LsmDomView*"/>
+          </instance-parameter>
+          <parameter name="width" transfer-ownership="none">
+            <type name="gdouble" c:type="double*"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <type name="gdouble" c:type="double*"/>
+          </parameter>
+          <parameter name="baseline" transfer-ownership="none">
+            <type name="gdouble" c:type="double*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="render">
+        <source-position filename="lsmdomview.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="DomView" c:type="LsmDomView*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_debug" invoker="set_debug">
+        <doc xml:space="preserve"
+             filename="lsmdomview.c"
+             line="328">Configure feature debug.</doc>
+        <source-position filename="lsmdomview.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="330">a #LsmDomView</doc>
+            <type name="DomView" c:type="LsmDomView*"/>
+          </instance-parameter>
+          <parameter name="feature" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="331">name of the feature to debug</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="enable" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="332">wether to enable debugging</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_resolution" c:identifier="lsm_dom_view_get_resolution">
+        <source-position filename="lsmdomview.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomview.c"
+               line="39">view resolution, in pixel per inch.</doc>
+          <type name="gdouble" c:type="double"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="37">A #LsmDomView</doc>
+            <type name="DomView" c:type="LsmDomView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_size" c:identifier="lsm_dom_view_get_size">
+        <doc xml:space="preserve"
+             filename="lsmdomview.c"
+             line="145">Get the view size and baseline. Baseline is for use of view inside bloc of text.</doc>
+        <source-position filename="lsmdomview.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="147">a #LsmDomView</doc>
+            <type name="DomView" c:type="LsmDomView*"/>
+          </instance-parameter>
+          <parameter name="width" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="148">view width placeholder, in points</doc>
+            <type name="gdouble" c:type="double*"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="149">view height placeholder, in points</doc>
+            <type name="gdouble" c:type="double*"/>
+          </parameter>
+          <parameter name="baseline" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="150">view baseline, in points</doc>
+            <type name="gdouble" c:type="double*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_size_pixels"
+              c:identifier="lsm_dom_view_get_size_pixels">
+        <doc xml:space="preserve"
+             filename="lsmdomview.c"
+             line="175">Get the view size and baseline. Baseline is for use of view inside bloc of text.</doc>
+        <source-position filename="lsmdomview.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="177">a #LsmDomView</doc>
+            <type name="DomView" c:type="LsmDomView*"/>
+          </instance-parameter>
+          <parameter name="width" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="178">view width placeholder, in pixels</doc>
+            <type name="guint" c:type="unsigned int*"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="179">view height placeholder, in pixels</doc>
+            <type name="guint" c:type="unsigned int*"/>
+          </parameter>
+          <parameter name="baseline" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="180">view baseline, in pixels</doc>
+            <type name="guint" c:type="unsigned int*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_viewport" c:identifier="lsm_dom_view_get_viewport">
+        <source-position filename="lsmdomview.h" line="79"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lsmdomview.c"
+               line="110">viewport size, in points.</doc>
+          <type name="Box" c:type="LsmBox"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="108">a #LsmDomView</doc>
+            <type name="DomView" c:type="LsmDomView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_viewport_pixels"
+              c:identifier="lsm_dom_view_get_viewport_pixels">
+        <source-position filename="lsmdomview.h" line="80"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="lsmdomview.c"
+               line="127">viewport size, in pixels.</doc>
+          <type name="Box" c:type="LsmBox"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="125">a #LsmDomView</doc>
+            <type name="DomView" c:type="LsmDomView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="render" c:identifier="lsm_dom_view_render">
+        <doc xml:space="preserve"
+             filename="lsmdomview.c"
+             line="264">Render @view in the @cairo context.</doc>
+        <source-position filename="lsmdomview.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="266">a #LsmDomView</doc>
+            <type name="DomView" c:type="LsmDomView*"/>
+          </instance-parameter>
+          <parameter name="cairo" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="267">cairo context</doc>
+            <type name="cairo.Context" c:type="cairo_t*"/>
+          </parameter>
+          <parameter name="x" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="268">x posiiton for rendering</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="269">y position for rendering</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_debug" c:identifier="lsm_dom_view_set_debug">
+        <doc xml:space="preserve"
+             filename="lsmdomview.c"
+             line="328">Configure feature debug.</doc>
+        <source-position filename="lsmdomview.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="330">a #LsmDomView</doc>
+            <type name="DomView" c:type="LsmDomView*"/>
+          </instance-parameter>
+          <parameter name="feature" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="331">name of the feature to debug</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="enable" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="332">wether to enable debugging</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_document" c:identifier="lsm_dom_view_set_document">
+        <doc xml:space="preserve"
+             filename="lsmdomview.c"
+             line="302">Change the document attached to @view. The previously attached document is unreferenced.</doc>
+        <source-position filename="lsmdomview.h" line="90"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="304">a #LsmDomView</doc>
+            <type name="DomView" c:type="LsmDomView*"/>
+          </instance-parameter>
+          <parameter name="document" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="305">a #LsmDomDocument</doc>
+            <type name="DomDocument" c:type="LsmDomDocument*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_resolution" c:identifier="lsm_dom_view_set_resolution">
+        <doc xml:space="preserve"
+             filename="lsmdomview.c"
+             line="50">Set the view resolution, in pixel per inch.</doc>
+        <source-position filename="lsmdomview.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="52">a #LsmDomView</doc>
+            <type name="DomView" c:type="LsmDomView*"/>
+          </instance-parameter>
+          <parameter name="ppi" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="53">resolution, in pixel per inch.</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_viewport" c:identifier="lsm_dom_view_set_viewport">
+        <doc xml:space="preserve"
+             filename="lsmdomview.c"
+             line="69">Set the viewport size.</doc>
+        <source-position filename="lsmdomview.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="71">a #LsmDomView</doc>
+            <type name="DomView" c:type="LsmDomView*"/>
+          </instance-parameter>
+          <parameter name="viewport_pt" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="72">viewport size, in points</doc>
+            <type name="Box" c:type="const LsmBox*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_viewport_pixels"
+              c:identifier="lsm_dom_view_set_viewport_pixels">
+        <doc xml:space="preserve"
+             filename="lsmdomview.c"
+             line="86">Set the viewport size.</doc>
+        <source-position filename="lsmdomview.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="88">a #LsmDomView</doc>
+            <type name="DomView" c:type="LsmDomView*"/>
+          </instance-parameter>
+          <parameter name="viewport" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="lsmdomview.c"
+                 line="89">viewport size, in pixels</doc>
+            <type name="Box" c:type="const LsmBox*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="object">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="document">
+        <type name="DomDocument" c:type="LsmDomDocument*"/>
+      </field>
+      <field name="font_description">
+        <type name="Pango.FontDescription" c:type="PangoFontDescription*"/>
+      </field>
+      <field name="pango_layout">
+        <type name="Pango.Layout" c:type="PangoLayout*"/>
+      </field>
+      <field name="measure_pango_layout">
+        <type name="Pango.Layout" c:type="PangoLayout*"/>
+      </field>
+      <field name="cairo">
+        <type name="cairo.Context" c:type="cairo_t*"/>
+      </field>
+      <field name="is_vector">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="resolution_ppi">
+        <type name="gdouble" c:type="double"/>
+      </field>
+      <field name="viewport_pt">
+        <type name="Box" c:type="LsmBox"/>
+      </field>
+    </class>
+    <record name="DomViewClass"
+            c:type="LsmDomViewClass"
+            glib:is-gtype-struct-for="DomView">
+      <source-position filename="lsmdomview.h" line="70"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="document_type">
+        <type name="GType" c:type="GType"/>
+      </field>
+      <field name="measure">
+        <callback name="measure">
+          <source-position filename="lsmdomview.h" line="67"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="view" transfer-ownership="none">
+              <type name="DomView" c:type="LsmDomView*"/>
+            </parameter>
+            <parameter name="width" transfer-ownership="none">
+              <type name="gdouble" c:type="double*"/>
+            </parameter>
+            <parameter name="height" transfer-ownership="none">
+              <type name="gdouble" c:type="double*"/>
+            </parameter>
+            <parameter name="baseline" transfer-ownership="none">
+              <type name="gdouble" c:type="double*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="render">
+        <callback name="render">
+          <source-position filename="lsmdomview.h" line="68"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="view" transfer-ownership="none">
+              <type name="DomView" c:type="LsmDomView*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_debug">
+        <callback name="set_debug">
+          <source-position filename="lsmdomview.h" line="69"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="view" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomview.c"
+                   line="330">a #LsmDomView</doc>
+              <type name="DomView" c:type="LsmDomView*"/>
+            </parameter>
+            <parameter name="feature" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomview.c"
+                   line="331">name of the feature to debug</doc>
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+            <parameter name="enable" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="lsmdomview.c"
+                   line="332">wether to enable debugging</doc>
+              <type name="gboolean" c:type="gboolean"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="Extents"
+            c:type="LsmExtents"
+            glib:type-name="LsmExtents"
+            glib:get-type="lsm_extents_get_type"
+            c:symbol-prefix="extents">
+      <source-position filename="lsmutils.h" line="36"/>
+      <field name="x1" writable="1">
+        <type name="gdouble" c:type="double"/>
+      </field>
+      <field name="y1" writable="1">
+        <type name="gdouble" c:type="double"/>
+      </field>
+      <field name="x2" writable="1">
+        <type name="gdouble" c:type="double"/>
+      </field>
+      <field name="y2" writable="1">
+        <type name="gdouble" c:type="double"/>
+      </field>
+    </record>
+    <function-macro name="IS_DOM_CHARACTER_DATA"
+                    c:identifier="LSM_IS_DOM_CHARACTER_DATA"
+                    introspectable="0">
+      <source-position filename="lsmdomcharacterdata.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOM_CHARACTER_DATA_CLASS"
+                    c:identifier="LSM_IS_DOM_CHARACTER_DATA_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomcharacterdata.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOM_DOCUMENT"
+                    c:identifier="LSM_IS_DOM_DOCUMENT"
+                    introspectable="0">
+      <source-position filename="lsmdomdocument.h" line="37"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOM_DOCUMENT_CLASS"
+                    c:identifier="LSM_IS_DOM_DOCUMENT_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomdocument.h" line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOM_DOCUMENT_FRAGMENT"
+                    c:identifier="LSM_IS_DOM_DOCUMENT_FRAGMENT"
+                    introspectable="0">
+      <source-position filename="lsmdomdocumentfragment.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOM_DOCUMENT_FRAGMENT_CLASS"
+                    c:identifier="LSM_IS_DOM_DOCUMENT_FRAGMENT_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomdocumentfragment.h" line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOM_ELEMENT"
+                    c:identifier="LSM_IS_DOM_ELEMENT"
+                    introspectable="0">
+      <source-position filename="lsmdomelement.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOM_ELEMENT_CLASS"
+                    c:identifier="LSM_IS_DOM_ELEMENT_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomelement.h" line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOM_NAMED_NODE_MAP"
+                    c:identifier="LSM_IS_DOM_NAMED_NODE_MAP"
+                    introspectable="0">
+      <source-position filename="lsmdomnamednodemap.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOM_NAMED_NODE_MAP_CLASS"
+                    c:identifier="LSM_IS_DOM_NAMED_NODE_MAP_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomnamednodemap.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOM_NODE"
+                    c:identifier="LSM_IS_DOM_NODE"
+                    introspectable="0">
+      <source-position filename="lsmdomnode.h" line="50"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOM_NODE_CLASS"
+                    c:identifier="LSM_IS_DOM_NODE_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomnode.h" line="51"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOM_NODE_LIST"
+                    c:identifier="LSM_IS_DOM_NODE_LIST"
+                    introspectable="0">
+      <source-position filename="lsmdomnodelist.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOM_NODE_LIST_CLASS"
+                    c:identifier="LSM_IS_DOM_NODE_LIST_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomnodelist.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOM_TEXT"
+                    c:identifier="LSM_IS_DOM_TEXT"
+                    introspectable="0">
+      <source-position filename="lsmdomtext.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOM_TEXT_CLASS"
+                    c:identifier="LSM_IS_DOM_TEXT_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomtext.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOM_VIEW"
+                    c:identifier="LSM_IS_DOM_VIEW"
+                    introspectable="0">
+      <source-position filename="lsmdomview.h" line="41"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_DOM_VIEW_CLASS"
+                    c:identifier="LSM_IS_DOM_VIEW_CLASS"
+                    introspectable="0">
+      <source-position filename="lsmdomview.h" line="42"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PROPERTY_ID_TO_OFFSET"
+                    c:identifier="LSM_PROPERTY_ID_TO_OFFSET"
+                    introspectable="0">
+      <source-position filename="lsmproperties.h" line="33"/>
+      <parameters>
+        <parameter name="id">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PROPERTY_OFFSET_TO_ID"
+                    c:identifier="LSM_PROPERTY_OFFSET_TO_ID"
+                    introspectable="0">
+      <source-position filename="lsmproperties.h" line="32"/>
+      <parameters>
+        <parameter name="structure">
+        </parameter>
+        <parameter name="member">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <record name="Property" c:type="LsmProperty">
+      <source-position filename="lsmproperties.h" line="39"/>
+      <field name="id" writable="1">
+        <type name="guint16" c:type="guint16"/>
+      </field>
+      <field name="flags" writable="1">
+        <type name="guint16" c:type="guint16"/>
+      </field>
+      <field name="value" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+    </record>
+    <record name="PropertyBag" c:type="LsmPropertyBag">
+      <source-position filename="lsmproperties.h" line="50"/>
+      <field name="properties" writable="1">
+        <type name="GLib.SList" c:type="GSList*">
+          <type name="gpointer" c:type="gpointer"/>
+        </type>
+      </field>
+      <method name="init" c:identifier="lsm_property_bag_init">
+        <source-position filename="lsmproperties.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="bag" transfer-ownership="none">
+            <type name="PropertyBag" c:type="LsmPropertyBag*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="PropertyInfos" c:type="LsmPropertyInfos">
+      <source-position filename="lsmproperties.h" line="46"/>
+      <field name="name" writable="1">
+        <type name="utf8" c:type="const char*"/>
+      </field>
+      <field name="id" writable="1">
+        <type name="guint16" c:type="guint16"/>
+      </field>
+      <field name="trait_class" writable="1">
+        <type name="TraitClass" c:type="const LsmTraitClass*"/>
+      </field>
+      <field name="trait_default" writable="1">
+        <type name="utf8" c:type="const char*"/>
+      </field>
+    </record>
+    <record name="PropertyManager"
+            c:type="LsmPropertyManager"
+            opaque="1"
+            glib:type-name="LsmPropertyManager"
+            glib:get-type="lsm_property_manager_get_type"
+            c:symbol-prefix="property_manager">
+      <source-position filename="lsmproperties.h" line="52"/>
+      <constructor name="new" c:identifier="lsm_property_manager_new">
+        <source-position filename="lsmproperties.h" line="58"/>
+        <return-value transfer-ownership="full">
+          <type name="PropertyManager" c:type="LsmPropertyManager*"/>
+        </return-value>
+        <parameters>
+          <parameter name="n_properties" transfer-ownership="none">
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+          <parameter name="property_infos" transfer-ownership="none">
+            <type name="PropertyInfos" c:type="const LsmPropertyInfos*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="apply_property_bag"
+              c:identifier="lsm_property_manager_apply_property_bag">
+        <source-position filename="lsmproperties.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="property_manager"
+                              transfer-ownership="none">
+            <type name="PropertyManager" c:type="LsmPropertyManager*"/>
+          </instance-parameter>
+          <parameter name="property_bag" transfer-ownership="none">
+            <type name="PropertyBag" c:type="LsmPropertyBag*"/>
+          </parameter>
+          <parameter name="style"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="void*"/>
+          </parameter>
+          <parameter name="parent_style"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="void*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="clean_properties"
+              c:identifier="lsm_property_manager_clean_properties">
+        <source-position filename="lsmproperties.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="PropertyManager" c:type="LsmPropertyManager*"/>
+          </instance-parameter>
+          <parameter name="property_bag" transfer-ownership="none">
+            <type name="PropertyBag" c:type="LsmPropertyBag*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_property"
+              c:identifier="lsm_property_manager_get_property">
+        <source-position filename="lsmproperties.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="PropertyManager" c:type="LsmPropertyManager*"/>
+          </instance-parameter>
+          <parameter name="property_bag" transfer-ownership="none">
+            <type name="PropertyBag" c:type="LsmPropertyBag*"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="init_default_style"
+              c:identifier="lsm_property_manager_init_default_style">
+        <source-position filename="lsmproperties.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="property_manager"
+                              transfer-ownership="none">
+            <type name="PropertyManager" c:type="LsmPropertyManager*"/>
+          </instance-parameter>
+          <parameter name="style"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="void*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="lsm_property_manager_ref">
+        <source-position filename="lsmproperties.h" line="60"/>
+        <return-value transfer-ownership="full">
+          <type name="PropertyManager" c:type="LsmPropertyManager*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="PropertyManager" c:type="LsmPropertyManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="serialize" c:identifier="lsm_property_manager_serialize">
+        <source-position filename="lsmproperties.h" line="72"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="property_manager"
+                              transfer-ownership="none">
+            <type name="PropertyManager" c:type="LsmPropertyManager*"/>
+          </instance-parameter>
+          <parameter name="property_bag" transfer-ownership="none">
+            <type name="PropertyBag" c:type="LsmPropertyBag*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_property"
+              c:identifier="lsm_property_manager_set_property">
+        <source-position filename="lsmproperties.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="PropertyManager" c:type="LsmPropertyManager*"/>
+          </instance-parameter>
+          <parameter name="property_bag" transfer-ownership="none">
+            <type name="PropertyBag" c:type="LsmPropertyBag*"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="lsm_property_manager_unref">
+        <source-position filename="lsmproperties.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <type name="PropertyManager" c:type="LsmPropertyManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="TraitClass" c:type="LsmTraitClass">
+      <source-position filename="lsmtraits.h" line="39"/>
+      <field name="size" writable="1">
+        <type name="gsize" c:type="size_t"/>
+      </field>
+      <field name="init">
+        <callback name="init">
+          <source-position filename="lsmtraits.h" line="35"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="abstract_trait" transfer-ownership="none">
+              <type name="Trait" c:type="LsmTrait*"/>
+            </parameter>
+            <parameter name="trait_default" transfer-ownership="none">
+              <type name="Trait" c:type="const LsmTrait*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="finalize">
+        <callback name="finalize">
+          <source-position filename="lsmtraits.h" line="36"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="abstract_trait" transfer-ownership="none">
+              <type name="Trait" c:type="LsmTrait*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="from_string">
+        <callback name="from_string">
+          <source-position filename="lsmtraits.h" line="37"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="abstract_trait" transfer-ownership="none">
+              <type name="Trait" c:type="LsmTrait*"/>
+            </parameter>
+            <parameter name="string" transfer-ownership="none">
+              <type name="utf8" c:type="char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="to_string">
+        <callback name="to_string">
+          <source-position filename="lsmtraits.h" line="38"/>
+          <return-value transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="abstract_trait" transfer-ownership="none">
+              <type name="Trait" c:type="LsmTrait*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <function name="cairo_box_device_to_user"
+              c:identifier="lsm_cairo_box_device_to_user">
+      <source-position filename="lsmcairo.h" line="45"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="cairo" transfer-ownership="none">
+          <type name="cairo.Context" c:type="cairo_t*"/>
+        </parameter>
+        <parameter name="to" transfer-ownership="none">
+          <type name="Box" c:type="LsmBox*"/>
+        </parameter>
+        <parameter name="from" transfer-ownership="none">
+          <type name="Box" c:type="const LsmBox*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="cairo_box_user_to_device"
+              c:identifier="lsm_cairo_box_user_to_device">
+      <source-position filename="lsmcairo.h" line="44"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="cairo" transfer-ownership="none">
+          <type name="cairo.Context" c:type="cairo_t*"/>
+        </parameter>
+        <parameter name="to" transfer-ownership="none">
+          <type name="Box" c:type="LsmBox*"/>
+        </parameter>
+        <parameter name="from" transfer-ownership="none">
+          <type name="Box" c:type="const LsmBox*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="cairo_elliptical_arc"
+              c:identifier="lsm_cairo_elliptical_arc">
+      <source-position filename="lsmcairo.h" line="35"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="cairo" transfer-ownership="none">
+          <type name="cairo.Context" c:type="cairo_t*"/>
+        </parameter>
+        <parameter name="rx" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="ry" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="x_axis_rotation" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="large_arc_flag" transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="sweep_flag" transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="x" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="y" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="cairo_emit_svg_path"
+              c:identifier="lsm_cairo_emit_svg_path">
+      <source-position filename="lsmcairo.h" line="43"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="cr" transfer-ownership="none">
+          <type name="cairo.Context" c:type="cairo_t*"/>
+        </parameter>
+        <parameter name="path" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="cairo_horizontal" c:identifier="lsm_cairo_horizontal">
+      <source-position filename="lsmcairo.h" line="41"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="cairo" transfer-ownership="none">
+          <type name="cairo.Context" c:type="cairo_t*"/>
+        </parameter>
+        <parameter name="x" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="cairo_quadratic_curve_to"
+              c:identifier="lsm_cairo_quadratic_curve_to">
+      <source-position filename="lsmcairo.h" line="33"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="cr" transfer-ownership="none">
+          <type name="cairo.Context" c:type="cairo_t*"/>
+        </parameter>
+        <parameter name="x1" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="y1" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="x" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="y" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="cairo_rel_elliptical_arc"
+              c:identifier="lsm_cairo_rel_elliptical_arc">
+      <source-position filename="lsmcairo.h" line="37"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="cairo" transfer-ownership="none">
+          <type name="cairo.Context" c:type="cairo_t*"/>
+        </parameter>
+        <parameter name="rx" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="ry" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="x_axis_rotation" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="large_arc_flag" transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="sweep_flag" transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="dx" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="dy" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="cairo_rel_horizontal"
+              c:identifier="lsm_cairo_rel_horizontal">
+      <source-position filename="lsmcairo.h" line="42"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="cairo" transfer-ownership="none">
+          <type name="cairo.Context" c:type="cairo_t*"/>
+        </parameter>
+        <parameter name="dx" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="cairo_rel_quadratic_curve_to"
+              c:identifier="lsm_cairo_rel_quadratic_curve_to">
+      <source-position filename="lsmcairo.h" line="34"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="cr" transfer-ownership="none">
+          <type name="cairo.Context" c:type="cairo_t*"/>
+        </parameter>
+        <parameter name="dx1" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="dy1" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="dx" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="dy" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="cairo_rel_vertical" c:identifier="lsm_cairo_rel_vertical">
+      <source-position filename="lsmcairo.h" line="40"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="cairo" transfer-ownership="none">
+          <type name="cairo.Context" c:type="cairo_t*"/>
+        </parameter>
+        <parameter name="dy" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="cairo_set_source_pixbuf"
+              c:identifier="lsm_cairo_set_source_pixbuf"
+              version="0.4">
+      <doc xml:space="preserve"
+           filename="lsmcairo.c"
+           line="492">Sets the given pixbuf as the source pattern for @cairo.
+
+The pattern has an extend mode of %CAIRO_EXTEND_NONE and is aligned
+so that the origin of @pixbuf is @pixbuf_x, @pixbuf_y.</doc>
+      <source-position filename="lsmcairo.h" line="46"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="cairo" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmcairo.c"
+               line="494">a cairo context</doc>
+          <type name="cairo.Context" c:type="cairo_t*"/>
+        </parameter>
+        <parameter name="pixbuf" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmcairo.c"
+               line="495">a #GdkPixbuf</doc>
+          <type name="GdkPixbuf.Pixbuf" c:type="const GdkPixbuf*"/>
+        </parameter>
+        <parameter name="pixbuf_x" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmcairo.c"
+               line="496">X coordinate of location to place upper left corner of @pixbuf</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+        <parameter name="pixbuf_y" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmcairo.c"
+               line="497">Y coordinate of location to place upper left corner of @pixbuf</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="cairo_vertical" c:identifier="lsm_cairo_vertical">
+      <source-position filename="lsmcairo.h" line="39"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="cairo" transfer-ownership="none">
+          <type name="cairo.Context" c:type="cairo_t*"/>
+        </parameter>
+        <parameter name="y" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="debug" c:identifier="lsm_debug" introspectable="0">
+      <source-position filename="lsmdebug.h" line="64"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="category" transfer-ownership="none">
+          <type name="DebugCategory" c:type="LsmDebugCategory*"/>
+        </parameter>
+        <parameter name="format" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="debug_check" c:identifier="lsm_debug_check">
+      <source-position filename="lsmdebug.h" line="67"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="category" transfer-ownership="none">
+          <type name="DebugCategory" c:type="LsmDebugCategory*"/>
+        </parameter>
+        <parameter name="level" transfer-ownership="none">
+          <type name="DebugLevel" c:type="LsmDebugLevel"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function-macro name="debug_dom"
+                    c:identifier="lsm_debug_dom"
+                    introspectable="0">
+      <source-position filename="lsmdebug.h" line="47"/>
+      <parameters>
+        <parameter name="...">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function name="debug_enable" c:identifier="lsm_debug_enable">
+      <source-position filename="lsmdebug.h" line="69"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="category_selection" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function-macro name="debug_measure"
+                    c:identifier="lsm_debug_measure"
+                    introspectable="0">
+      <source-position filename="lsmdebug.h" line="51"/>
+      <parameters>
+        <parameter name="...">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="debug_render"
+                    c:identifier="lsm_debug_render"
+                    introspectable="0">
+      <source-position filename="lsmdebug.h" line="59"/>
+      <parameters>
+        <parameter name="...">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="debug_update"
+                    c:identifier="lsm_debug_update"
+                    introspectable="0">
+      <source-position filename="lsmdebug.h" line="55"/>
+      <parameters>
+        <parameter name="...">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function name="dom_get_entity" c:identifier="lsm_dom_get_entity">
+      <source-position filename="lsmdomentities.h" line="31"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="dom_implementation_cleanup"
+              c:identifier="lsm_dom_implementation_cleanup">
+      <source-position filename="lsmdomimplementation.h" line="37"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="dom_implementation_create_document"
+              c:identifier="lsm_dom_implementation_create_document">
+      <source-position filename="lsmdomimplementation.h" line="34"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="lsmdomimplementation.c"
+             line="48">a new #LsmDomDocument</doc>
+        <type name="DomDocument" c:type="LsmDomDocument*"/>
+      </return-value>
+      <parameters>
+        <parameter name="namespace_uri" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomimplementation.c"
+               line="45">namespace uri</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="qualified_name" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="lsmdomimplementation.c"
+               line="46">qualified name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="enum_value_from_string"
+              c:identifier="lsm_enum_value_from_string">
+      <source-position filename="lsmtraits.h" line="45"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="string" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="strings" transfer-ownership="none">
+          <type name="utf8" c:type="const char**"/>
+        </parameter>
+        <parameter name="n_strings" transfer-ownership="none">
+          <type name="guint" c:type="unsigned int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="log" c:identifier="lsm_log" introspectable="0">
+      <source-position filename="lsmdebug.h" line="65"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="category" transfer-ownership="none">
+          <type name="DebugCategory" c:type="LsmDebugCategory*"/>
+        </parameter>
+        <parameter name="format" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function-macro name="log_dom"
+                    c:identifier="lsm_log_dom"
+                    introspectable="0">
+      <source-position filename="lsmdebug.h" line="48"/>
+      <parameters>
+        <parameter name="...">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="log_measure"
+                    c:identifier="lsm_log_measure"
+                    introspectable="0">
+      <source-position filename="lsmdebug.h" line="52"/>
+      <parameters>
+        <parameter name="...">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="log_render"
+                    c:identifier="lsm_log_render"
+                    introspectable="0">
+      <source-position filename="lsmdebug.h" line="60"/>
+      <parameters>
+        <parameter name="...">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="log_update"
+                    c:identifier="lsm_log_update"
+                    introspectable="0">
+      <source-position filename="lsmdebug.h" line="56"/>
+      <parameters>
+        <parameter name="...">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function name="shutdown" c:identifier="lsm_shutdown">
+      <source-position filename="lsm.h" line="36"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="str_is_uri" c:identifier="lsm_str_is_uri">
+      <source-position filename="lsmstr.h" line="31"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="str" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="str_parse_double" c:identifier="lsm_str_parse_double">
+      <source-position filename="lsmstr.h" line="34"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="str" transfer-ownership="none">
+          <type name="utf8" c:type="char**"/>
+        </parameter>
+        <parameter name="x" transfer-ownership="none">
+          <type name="gdouble" c:type="double*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="str_parse_double_list"
+              c:identifier="lsm_str_parse_double_list">
+      <source-position filename="lsmstr.h" line="35"/>
+      <return-value transfer-ownership="none">
+        <type name="guint" c:type="unsigned int"/>
+      </return-value>
+      <parameters>
+        <parameter name="str" transfer-ownership="none">
+          <type name="utf8" c:type="char**"/>
+        </parameter>
+        <parameter name="n_values" transfer-ownership="none">
+          <type name="guint" c:type="unsigned int"/>
+        </parameter>
+        <parameter name="values" transfer-ownership="none">
+          <type name="gdouble" c:type="double*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="str_point_list_exents"
+              c:identifier="lsm_str_point_list_exents">
+      <source-position filename="lsmstr.h" line="37"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="point_list" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="extents" transfer-ownership="none">
+          <type name="Extents" c:type="LsmExtents*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="str_to_uri" c:identifier="lsm_str_to_uri">
+      <source-position filename="lsmstr.h" line="32"/>
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="str" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="warning" c:identifier="lsm_warning" introspectable="0">
+      <source-position filename="lsmdebug.h" line="63"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="category" transfer-ownership="none">
+          <type name="DebugCategory" c:type="LsmDebugCategory*"/>
+        </parameter>
+        <parameter name="format" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function-macro name="warning_dom"
+                    c:identifier="lsm_warning_dom"
+                    introspectable="0">
+      <source-position filename="lsmdebug.h" line="49"/>
+      <parameters>
+        <parameter name="...">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="warning_measure"
+                    c:identifier="lsm_warning_measure"
+                    introspectable="0">
+      <source-position filename="lsmdebug.h" line="53"/>
+      <parameters>
+        <parameter name="...">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="warning_render"
+                    c:identifier="lsm_warning_render"
+                    introspectable="0">
+      <source-position filename="lsmdebug.h" line="61"/>
+      <parameters>
+        <parameter name="...">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="warning_update"
+                    c:identifier="lsm_warning_update"
+                    introspectable="0">
+      <source-position filename="lsmdebug.h" line="57"/>
+      <parameters>
+        <parameter name="...">
+        </parameter>
+      </parameters>
+    </function-macro>
+  </namespace>
+</repository>

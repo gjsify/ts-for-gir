@@ -1,0 +1,994 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="AccountsService" version="1.0"/>
+  <include name="Adw" version="1"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="4.0"/>
+  <include name="Malcontent" version="0"/>
+  <package name="libmalcontent-ui"/>
+  <namespace name="MalcontentUi"
+             version="1"
+             shared-library="libmalcontent-ui-1.so.1"
+             c:identifier-prefixes="Mct"
+             c:symbol-prefixes="mct_">
+    <class name="RestrictApplicationsDialog"
+           c:symbol-prefix="restrict_applications_dialog"
+           c:type="MctRestrictApplicationsDialog"
+           version="0.5.0"
+           parent="Adw.PreferencesWindow"
+           glib:type-name="MctRestrictApplicationsDialog"
+           glib:get-type="mct_restrict_applications_dialog_get_type"
+           glib:type-struct="RestrictApplicationsDialogClass">
+      <doc xml:space="preserve"
+           filename="libmalcontent-ui/restrict-applications-dialog.c"
+           line="37">The ‘Restrict Applications’ dialog is a dialog which shows the available
+applications on the system alongside a column of toggle switches, which
+allows the given user to be prevented from running each application.
+
+The dialog contains a single #MctRestrictApplicationsSelector. It takes a
+#MctRestrictApplicationsDialog:user and
+#MctRestrictApplicationsDialog:app-filter as input to set up the UI, and
+returns its output as set of modifications to a given #MctAppFilterBuilder
+using mct_restrict_applications_dialog_build_app_filter().</doc>
+      <source-position filename="libmalcontent-ui/restrict-applications-dialog.h"
+                       line="34"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <implements name="Gtk.Native"/>
+      <implements name="Gtk.Root"/>
+      <implements name="Gtk.ShortcutManager"/>
+      <constructor name="new"
+                   c:identifier="mct_restrict_applications_dialog_new"
+                   version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/restrict-applications-dialog.c"
+             line="228">Create a new #MctRestrictApplicationsDialog widget.</doc>
+        <source-position filename="libmalcontent-ui/restrict-applications-dialog.h"
+                         line="36"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmalcontent-ui/restrict-applications-dialog.c"
+               line="236">a new restricted applications editing dialog</doc>
+          <type name="RestrictApplicationsDialog"
+                c:type="MctRestrictApplicationsDialog*"/>
+        </return-value>
+        <parameters>
+          <parameter name="app_filter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/restrict-applications-dialog.c"
+                 line="230">the initial app filter configuration to show</doc>
+            <type name="Malcontent.AppFilter" c:type="MctAppFilter*"/>
+          </parameter>
+          <parameter name="user_display_name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/restrict-applications-dialog.c"
+                 line="231">the display name of the user
+   to show the app filter for, or %NULL if no user is selected</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="build_app_filter"
+              c:identifier="mct_restrict_applications_dialog_build_app_filter"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/restrict-applications-dialog.c"
+             line="357">Get the app filter settings currently configured in the dialog, by modifying
+the given @builder.
+
+Typically this will be called in the handler for #GtkDialog::response.</doc>
+        <source-position filename="libmalcontent-ui/restrict-applications-dialog.h"
+                         line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/restrict-applications-dialog.c"
+                 line="359">an #MctRestrictApplicationsDialog</doc>
+            <type name="RestrictApplicationsDialog"
+                  c:type="MctRestrictApplicationsDialog*"/>
+          </instance-parameter>
+          <parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/restrict-applications-dialog.c"
+                 line="360">an existing #MctAppFilterBuilder to modify</doc>
+            <type name="Malcontent.AppFilterBuilder"
+                  c:type="MctAppFilterBuilder*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_app_filter"
+              c:identifier="mct_restrict_applications_dialog_get_app_filter"
+              glib:get-property="app-filter"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/restrict-applications-dialog.c"
+             line="254">Get the value of #MctRestrictApplicationsDialog:app-filter. If the property
+was originally set to %NULL, this will be the empty app filter.</doc>
+        <source-position filename="libmalcontent-ui/restrict-applications-dialog.h"
+                         line="39"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent-ui/restrict-applications-dialog.c"
+               line="261">the initial app filter used to
+   populate the dialog</doc>
+          <type name="Malcontent.AppFilter" c:type="MctAppFilter*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/restrict-applications-dialog.c"
+                 line="256">an #MctRestrictApplicationsDialog</doc>
+            <type name="RestrictApplicationsDialog"
+                  c:type="MctRestrictApplicationsDialog*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_user_display_name"
+              c:identifier="mct_restrict_applications_dialog_get_user_display_name"
+              glib:get-property="user-display-name"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/restrict-applications-dialog.c"
+             line="310">Get the value of #MctRestrictApplicationsDialog:user-display-name.</doc>
+        <source-position filename="libmalcontent-ui/restrict-applications-dialog.h"
+                         line="43"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libmalcontent-ui/restrict-applications-dialog.c"
+               line="316">the display name of the user the dialog
+   is configured for, or %NULL if unknown</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/restrict-applications-dialog.c"
+                 line="312">an #MctRestrictApplicationsDialog</doc>
+            <type name="RestrictApplicationsDialog"
+                  c:type="MctRestrictApplicationsDialog*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_app_filter"
+              c:identifier="mct_restrict_applications_dialog_set_app_filter"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/restrict-applications-dialog.c"
+             line="273">Set the value of #MctRestrictApplicationsDialog:app-filter.</doc>
+        <source-position filename="libmalcontent-ui/restrict-applications-dialog.h"
+                         line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/restrict-applications-dialog.c"
+                 line="275">an #MctRestrictApplicationsDialog</doc>
+            <type name="RestrictApplicationsDialog"
+                  c:type="MctRestrictApplicationsDialog*"/>
+          </instance-parameter>
+          <parameter name="app_filter"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/restrict-applications-dialog.c"
+                 line="276">the app filter to configure the dialog
+   from, or %NULL to use an empty app filter</doc>
+            <type name="Malcontent.AppFilter" c:type="MctAppFilter*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_user_display_name"
+              c:identifier="mct_restrict_applications_dialog_set_user_display_name"
+              glib:set-property="user-display-name"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/restrict-applications-dialog.c"
+             line="328">Set the value of #MctRestrictApplicationsDialog:user-display-name.</doc>
+        <source-position filename="libmalcontent-ui/restrict-applications-dialog.h"
+                         line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/restrict-applications-dialog.c"
+                 line="330">an #MctRestrictApplicationsDialog</doc>
+            <type name="RestrictApplicationsDialog"
+                  c:type="MctRestrictApplicationsDialog*"/>
+          </instance-parameter>
+          <parameter name="user_display_name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/restrict-applications-dialog.c"
+                 line="331">the display name of the user
+   to configure the dialog for, or %NULL if unknown</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="app-filter"
+                version="0.5.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_app_filter">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/restrict-applications-dialog.c"
+             line="154">The user’s current app filter, used to set up the dialog. As app filters
+are immutable, it is not updated as the dialog is changed. Use
+mct_restrict_applications_dialog_build_app_filter() to build the new app
+filter.</doc>
+        <type name="Malcontent.AppFilter"/>
+      </property>
+      <property name="user-display-name"
+                version="0.5.0"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_user_display_name"
+                getter="get_user_display_name"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/restrict-applications-dialog.c"
+             line="174">The display name for the currently selected user account, or %NULL if no
+user is selected. This will typically be the user’s full name (if known)
+or their username.
+
+If set, it must be valid UTF-8 and non-empty.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="RestrictApplicationsDialogClass"
+            c:type="MctRestrictApplicationsDialogClass"
+            glib:is-gtype-struct-for="RestrictApplicationsDialog">
+      <source-position filename="libmalcontent-ui/restrict-applications-dialog.h"
+                       line="34"/>
+      <field name="parent_class">
+        <type name="Adw.PreferencesWindowClass"
+              c:type="AdwPreferencesWindowClass"/>
+      </field>
+    </record>
+    <class name="RestrictApplicationsSelector"
+           c:symbol-prefix="restrict_applications_selector"
+           c:type="MctRestrictApplicationsSelector"
+           version="0.5.0"
+           parent="Gtk.Box"
+           glib:type-name="MctRestrictApplicationsSelector"
+           glib:get-type="mct_restrict_applications_selector_get_type"
+           glib:type-struct="RestrictApplicationsSelectorClass">
+      <doc xml:space="preserve"
+           filename="libmalcontent-ui/restrict-applications-selector.c"
+           line="45">The ‘Restrict Applications’ selector is a list box which shows the available
+applications on the system alongside a column of toggle switches, which
+allows the given user to be prevented from running each application.
+
+The selector takes an #MctRestrictApplicationsSelector:app-filter as input
+to set up the UI, and returns its output as set of modifications to a given
+#MctAppFilterBuilder using
+mct_restrict_applications_selector_build_app_filter().</doc>
+      <source-position filename="libmalcontent-ui/restrict-applications-selector.h"
+                       line="33"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <implements name="Gtk.Orientable"/>
+      <constructor name="new"
+                   c:identifier="mct_restrict_applications_selector_new"
+                   version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/restrict-applications-selector.c"
+             line="645">Create a new #MctRestrictApplicationsSelector widget.</doc>
+        <source-position filename="libmalcontent-ui/restrict-applications-selector.h"
+                         line="35"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libmalcontent-ui/restrict-applications-selector.c"
+               line="651">a new restricted applications selector</doc>
+          <type name="RestrictApplicationsSelector"
+                c:type="MctRestrictApplicationsSelector*"/>
+        </return-value>
+        <parameters>
+          <parameter name="app_filter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/restrict-applications-selector.c"
+                 line="647">app filter to configure the selector from initially</doc>
+            <type name="Malcontent.AppFilter" c:type="MctAppFilter*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="build_app_filter"
+              c:identifier="mct_restrict_applications_selector_build_app_filter"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/restrict-applications-selector.c"
+             line="664">Get the app filter settings currently configured in the selector, by modifying
+the given @builder.</doc>
+        <source-position filename="libmalcontent-ui/restrict-applications-selector.h"
+                         line="41"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/restrict-applications-selector.c"
+                 line="666">an #MctRestrictApplicationsSelector</doc>
+            <type name="RestrictApplicationsSelector"
+                  c:type="MctRestrictApplicationsSelector*"/>
+          </instance-parameter>
+          <parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/restrict-applications-selector.c"
+                 line="667">an existing #MctAppFilterBuilder to modify</doc>
+            <type name="Malcontent.AppFilterBuilder"
+                  c:type="MctAppFilterBuilder*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_app_filter"
+              c:identifier="mct_restrict_applications_selector_get_app_filter"
+              glib:get-property="app-filter"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/restrict-applications-selector.c"
+             line="723">Get the value of #MctRestrictApplicationsSelector:app-filter. If the property
+was originally set to %NULL, this will be the empty app filter.</doc>
+        <source-position filename="libmalcontent-ui/restrict-applications-selector.h"
+                         line="37"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent-ui/restrict-applications-selector.c"
+               line="730">the initial app filter used to
+   populate the selector</doc>
+          <type name="Malcontent.AppFilter" c:type="MctAppFilter*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/restrict-applications-selector.c"
+                 line="725">an #MctRestrictApplicationsSelector</doc>
+            <type name="RestrictApplicationsSelector"
+                  c:type="MctRestrictApplicationsSelector*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_app_filter"
+              c:identifier="mct_restrict_applications_selector_set_app_filter"
+              glib:set-property="app-filter"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/restrict-applications-selector.c"
+             line="742">Set the value of #MctRestrictApplicationsSelector:app-filter.
+
+This will overwrite any user changes to the selector, so they should be saved
+first using mct_restrict_applications_selector_build_app_filter() if desired.</doc>
+        <source-position filename="libmalcontent-ui/restrict-applications-selector.h"
+                         line="38"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/restrict-applications-selector.c"
+                 line="744">an #MctRestrictApplicationsSelector</doc>
+            <type name="RestrictApplicationsSelector"
+                  c:type="MctRestrictApplicationsSelector*"/>
+          </instance-parameter>
+          <parameter name="app_filter"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/restrict-applications-selector.c"
+                 line="745">the app filter to configure the selector
+   from, or %NULL to use an empty app filter</doc>
+            <type name="Malcontent.AppFilter" c:type="MctAppFilter*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="app-filter"
+                version="0.5.0"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_app_filter"
+                getter="get_app_filter">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/restrict-applications-selector.c"
+             line="187">The user’s current app filter, used to set up the selector. As app filters
+are immutable, it is not updated as the selector is changed. Use
+mct_restrict_applications_selector_build_app_filter() to build the new app
+filter.</doc>
+        <type name="Malcontent.AppFilter"/>
+      </property>
+      <glib:signal name="changed" when="last" version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/restrict-applications-selector.c"
+             line="208">Emitted whenever an application in the list is blocked or unblocked.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="RestrictApplicationsSelectorClass"
+            c:type="MctRestrictApplicationsSelectorClass"
+            glib:is-gtype-struct-for="RestrictApplicationsSelector">
+      <source-position filename="libmalcontent-ui/restrict-applications-selector.h"
+                       line="33"/>
+      <field name="parent_class">
+        <type name="Gtk.BoxClass" c:type="GtkBoxClass"/>
+      </field>
+    </record>
+    <class name="UserControls"
+           c:symbol-prefix="user_controls"
+           c:type="MctUserControls"
+           version="0.5.0"
+           parent="Adw.Bin"
+           glib:type-name="MctUserControls"
+           glib:get-type="mct_user_controls_get_type"
+           glib:type-struct="UserControlsClass">
+      <doc xml:space="preserve"
+           filename="libmalcontent-ui/user-controls.c"
+           line="42">A group of widgets which allow setting the parental controls for a given
+user.
+
+If #MctUserControls:user is set, the current parental controls settings for
+that user will be loaded and displayed, and any changes made via the controls
+will be automatically saved for that user (potentially after a short
+timeout).
+
+If #MctUserControls:user is unset (for example, if setting the parental
+controls for a user account which hasn’t yet been created), the controls can
+be initialised by setting:
+ * #MctUserControls:app-filter
+ * #MctUserControls:user-account-type
+ * #MctUserControls:user-locale
+ * #MctUserControls:user-display-name
+
+When #MctUserControls:user is unset, changes made to the parental controls
+cannot be saved automatically, and must be queried using
+mct_user_controls_build_app_filter(), then saved by the calling code.
+
+As parental controls are system settings, privileges are needed to view and
+edit them (for the current user or for other users). These can be acquired
+using polkit. #MctUserControls:permission is used to query the current
+permissions for getting/setting parental controls. If it’s %NULL, or if
+permissions are not currently granted, the #MctUserControls will be
+insensitive.</doc>
+      <source-position filename="libmalcontent-ui/user-controls.h" line="37"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <method name="build_app_filter"
+              c:identifier="mct_user_controls_build_app_filter"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="1435">Get the app filter settings currently configured in the user controls, by
+modifying the given @builder. This can be used to save the settings manually.</doc>
+        <source-position filename="libmalcontent-ui/user-controls.h"
+                         line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1437">an #MctUserControls</doc>
+            <type name="UserControls" c:type="MctUserControls*"/>
+          </instance-parameter>
+          <parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1438">an existing #MctAppFilterBuilder to modify</doc>
+            <type name="Malcontent.AppFilterBuilder"
+                  c:type="MctAppFilterBuilder*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_app_filter"
+              c:identifier="mct_user_controls_get_app_filter"
+              glib:get-property="app-filter"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="1193">Get the value of #MctUserControls:app-filter. If the app filter is unknown
+or could not be retrieved from #MctUserControls:user, this will be %NULL.</doc>
+        <source-position filename="libmalcontent-ui/user-controls.h"
+                         line="47"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libmalcontent-ui/user-controls.c"
+               line="1200">the initial app filter used to
+   populate the user controls, or %NULL if unknown</doc>
+          <type name="Malcontent.AppFilter" c:type="MctAppFilter*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1195">an #MctUserControls</doc>
+            <type name="UserControls" c:type="MctUserControls*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_permission"
+              c:identifier="mct_user_controls_get_permission"
+              glib:get-property="permission"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="1129">Get the value of #MctUserControls:permission.</doc>
+        <source-position filename="libmalcontent-ui/user-controls.h"
+                         line="43"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libmalcontent-ui/user-controls.c"
+               line="1135">a #GPermission indicating whether the
+   current user has permission to view or change parental controls, or %NULL
+   if permission is not allowed or is unknown</doc>
+          <type name="Gio.Permission" c:type="GPermission*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1131">an #MctUserControls</doc>
+            <type name="UserControls" c:type="MctUserControls*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_user"
+              c:identifier="mct_user_controls_get_user"
+              glib:get-property="user"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="1041">Get the value of #MctUserControls:user.</doc>
+        <source-position filename="libmalcontent-ui/user-controls.h"
+                         line="39"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libmalcontent-ui/user-controls.c"
+               line="1047">the user the controls are configured for,
+   or %NULL if unknown</doc>
+          <type name="AccountsService.User" c:type="ActUser*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1043">an #MctUserControls</doc>
+            <type name="UserControls" c:type="MctUserControls*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_user_account_type"
+              c:identifier="mct_user_controls_get_user_account_type"
+              glib:get-property="user-account-type"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="1253">Get the value of #MctUserControls:user-account-type.</doc>
+        <source-position filename="libmalcontent-ui/user-controls.h"
+                         line="51"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent-ui/user-controls.c"
+               line="1259">the account type of the user the controls are configured for</doc>
+          <type name="AccountsService.UserAccountType"
+                c:type="ActUserAccountType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1255">an #MctUserControls</doc>
+            <type name="UserControls" c:type="MctUserControls*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_user_display_name"
+              c:identifier="mct_user_controls_get_user_display_name"
+              glib:get-property="user-display-name"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="1351">Get the value of #MctUserControls:user-display-name.</doc>
+        <source-position filename="libmalcontent-ui/user-controls.h"
+                         line="59"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libmalcontent-ui/user-controls.c"
+               line="1357">the display name of the user the controls
+   are configured for, or %NULL if unknown</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1353">an #MctUserControls</doc>
+            <type name="UserControls" c:type="MctUserControls*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_user_locale"
+              c:identifier="mct_user_controls_get_user_locale"
+              glib:get-property="user-locale"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="1299">Get the value of #MctUserControls:user-locale.</doc>
+        <source-position filename="libmalcontent-ui/user-controls.h"
+                         line="55"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libmalcontent-ui/user-controls.c"
+               line="1305">the locale of the user the controls
+   are configured for, or %NULL if unknown</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1301">an #MctUserControls</doc>
+            <type name="UserControls" c:type="MctUserControls*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_app_filter"
+              c:identifier="mct_user_controls_set_app_filter"
+              glib:set-property="app-filter"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="1212">Set the value of #MctUserControls:app-filter.
+
+This will overwrite any user changes to the controls, so they should be saved
+first using mct_user_controls_build_app_filter() if desired. They will be
+saved automatically if #MctUserControls:user is set.</doc>
+        <source-position filename="libmalcontent-ui/user-controls.h"
+                         line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1214">an #MctUserControls</doc>
+            <type name="UserControls" c:type="MctUserControls*"/>
+          </instance-parameter>
+          <parameter name="app_filter"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1215">the app filter to configure the user
+   controls from, or %NULL if unknown</doc>
+            <type name="Malcontent.AppFilter" c:type="MctAppFilter*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_description"
+              c:identifier="mct_user_controls_set_description"
+              glib:set-property="description"
+              version="0.11.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="1403">Set the value of #MctUserControls:description.</doc>
+        <source-position filename="libmalcontent-ui/user-controls.h"
+                         line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1405">an #MctUserControls</doc>
+            <type name="UserControls" c:type="MctUserControls*"/>
+          </instance-parameter>
+          <parameter name="description"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1406">the description shown
+   above the controls, or %NULL if none.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_permission"
+              c:identifier="mct_user_controls_set_permission"
+              glib:set-property="permission"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="1148">Set the value of #MctUserControls:permission.</doc>
+        <source-position filename="libmalcontent-ui/user-controls.h"
+                         line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1150">an #MctUserControls</doc>
+            <type name="UserControls" c:type="MctUserControls*"/>
+          </instance-parameter>
+          <parameter name="permission"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1151">the #GPermission indicating whether
+   the current user has permission to view or change parental controls, or
+   %NULL if permission is not allowed or is unknown</doc>
+            <type name="Gio.Permission" c:type="GPermission*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_user"
+              c:identifier="mct_user_controls_set_user"
+              glib:set-property="user"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="1070">Set the value of #MctUserControls:user.</doc>
+        <source-position filename="libmalcontent-ui/user-controls.h"
+                         line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1072">an #MctUserControls</doc>
+            <type name="UserControls" c:type="MctUserControls*"/>
+          </instance-parameter>
+          <parameter name="user"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1073">the user to configure the controls for,
+   or %NULL if unknown</doc>
+            <type name="AccountsService.User" c:type="ActUser*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_user_account_type"
+              c:identifier="mct_user_controls_set_user_account_type"
+              glib:set-property="user-account-type"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="1270">Set the value of #MctUserControls:user-account-type.</doc>
+        <source-position filename="libmalcontent-ui/user-controls.h"
+                         line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1272">an #MctUserControls</doc>
+            <type name="UserControls" c:type="MctUserControls*"/>
+          </instance-parameter>
+          <parameter name="user_account_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1273">the account type of the user to configure the controls for</doc>
+            <type name="AccountsService.UserAccountType"
+                  c:type="ActUserAccountType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_user_display_name"
+              c:identifier="mct_user_controls_set_user_display_name"
+              glib:set-property="user-display-name"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="1369">Set the value of #MctUserControls:user-display-name.</doc>
+        <source-position filename="libmalcontent-ui/user-controls.h"
+                         line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1371">an #MctUserControls</doc>
+            <type name="UserControls" c:type="MctUserControls*"/>
+          </instance-parameter>
+          <parameter name="user_display_name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1372">the display name of the user
+   to configure the controls for, or %NULL if unknown</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_user_locale"
+              c:identifier="mct_user_controls_set_user_locale"
+              glib:set-property="user-locale"
+              version="0.5.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="1317">Set the value of #MctUserControls:user-locale.</doc>
+        <source-position filename="libmalcontent-ui/user-controls.h"
+                         line="56"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1319">an #MctUserControls</doc>
+            <type name="UserControls" c:type="MctUserControls*"/>
+          </instance-parameter>
+          <parameter name="user_locale"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent-ui/user-controls.c"
+                 line="1320">the locale of the user
+   to configure the controls for, or %NULL if unknown</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="app-filter"
+                version="0.5.0"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_app_filter"
+                getter="get_app_filter">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="865">The user’s current app filter, used to set up the user controls. As app
+filters are immutable, it is not updated as the user controls are changed.
+Use mct_user_controls_build_app_filter() to build the new app filter.
+
+This may be %NULL if the app filter is unknown, or if querying it from
+#MctUserControls:user fails.</doc>
+        <type name="Malcontent.AppFilter"/>
+      </property>
+      <property name="dbus-connection"
+                version="0.7.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="969">A connection to the system bus. This will be used for retrieving details
+of user accounts, and must be provided at construction time.</doc>
+        <type name="Gio.DBusConnection"/>
+      </property>
+      <property name="description"
+                version="0.11.0"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_description"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="950">The description for the currently selected user account, or %NULL if no
+user is selected.
+
+If set, it must be valid UTF-8 and non-empty.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="permission"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_permission"
+                getter="get_permission">
+        <type name="Gio.Permission"/>
+      </property>
+      <property name="user"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_user"
+                getter="get_user">
+        <type name="AccountsService.User"/>
+      </property>
+      <property name="user-account-type"
+                version="0.5.0"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_user_account_type"
+                getter="get_user_account_type"
+                default-value="ACT_USER_ACCOUNT_TYPE_STANDARD">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="886">The type of the currently selected user account.</doc>
+        <type name="AccountsService.UserAccountType"/>
+      </property>
+      <property name="user-display-name"
+                version="0.5.0"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_user_display_name"
+                getter="get_user_display_name"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="930">The display name for the currently selected user account, or %NULL if no
+user is selected. This will typically be the user’s full name (if known)
+or their username.
+
+If set, it must be valid UTF-8 and non-empty.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="user-locale"
+                version="0.5.0"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_user_locale"
+                getter="get_user_locale"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libmalcontent-ui/user-controls.c"
+             line="905">The locale for the currently selected user account, or %NULL if no
+user is selected.
+
+If set, it must be in the format documented by [`setlocale()`](man:setlocale(3)):
+```
+language[_territory][.codeset][@modifier]
+```
+where `language` is an ISO 639 language code, `territory` is an ISO 3166
+country code, and `codeset` is a character set or encoding identifier like
+`ISO-8859-1` or `UTF-8`.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="UserControlsClass"
+            c:type="MctUserControlsClass"
+            glib:is-gtype-struct-for="UserControls">
+      <source-position filename="libmalcontent-ui/user-controls.h" line="37"/>
+      <field name="parent_class">
+        <type name="Adw.BinClass" c:type="AdwBinClass"/>
+      </field>
+    </record>
+  </namespace>
+</repository>

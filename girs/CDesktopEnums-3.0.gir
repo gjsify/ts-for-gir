@@ -1,0 +1,670 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <namespace name="CDesktopEnums"
+             version="3.0"
+             shared-library="libcinnamon-desktop.so.4"
+             c:identifier-prefixes="CDesktop"
+             c:symbol-prefixes="c_desktop">
+    <enumeration name="BackgroundShading" c:type="CDesktopBackgroundShading">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="63"/>
+      <member name="solid"
+              value="0"
+              c:identifier="C_DESKTOP_BACKGROUND_SHADING_SOLID">
+      </member>
+      <member name="vertical"
+              value="1"
+              c:identifier="C_DESKTOP_BACKGROUND_SHADING_VERTICAL">
+      </member>
+      <member name="horizontal"
+              value="2"
+              c:identifier="C_DESKTOP_BACKGROUND_SHADING_HORIZONTAL">
+      </member>
+    </enumeration>
+    <enumeration name="BackgroundStyle" c:type="CDesktopBackgroundStyle">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="56"/>
+      <member name="none"
+              value="0"
+              c:identifier="C_DESKTOP_BACKGROUND_STYLE_NONE">
+      </member>
+      <member name="wallpaper"
+              value="1"
+              c:identifier="C_DESKTOP_BACKGROUND_STYLE_WALLPAPER">
+      </member>
+      <member name="centered"
+              value="2"
+              c:identifier="C_DESKTOP_BACKGROUND_STYLE_CENTERED">
+      </member>
+      <member name="scaled"
+              value="3"
+              c:identifier="C_DESKTOP_BACKGROUND_STYLE_SCALED">
+      </member>
+      <member name="stretched"
+              value="4"
+              c:identifier="C_DESKTOP_BACKGROUND_STYLE_STRETCHED">
+      </member>
+      <member name="zoom"
+              value="5"
+              c:identifier="C_DESKTOP_BACKGROUND_STYLE_ZOOM">
+      </member>
+      <member name="spanned"
+              value="6"
+              c:identifier="C_DESKTOP_BACKGROUND_STYLE_SPANNED">
+      </member>
+    </enumeration>
+    <enumeration name="DeviceSendEvents" c:type="CDesktopDeviceSendEvents">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="99"/>
+      <member name="enabled"
+              value="0"
+              c:identifier="C_DESKTOP_DEVICE_SEND_EVENTS_ENABLED">
+      </member>
+      <member name="disabled"
+              value="1"
+              c:identifier="C_DESKTOP_DEVICE_SEND_EVENTS_DISABLED">
+      </member>
+      <member name="disabled_on_external_mouse"
+              value="2"
+              c:identifier="C_DESKTOP_DEVICE_SEND_EVENTS_DISABLED_ON_EXTERNAL_MOUSE">
+      </member>
+    </enumeration>
+    <enumeration name="FocusMode" c:type="CDesktopFocusMode">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="168"/>
+      <member name="click" value="0" c:identifier="C_DESKTOP_FOCUS_MODE_CLICK">
+      </member>
+      <member name="sloppy"
+              value="1"
+              c:identifier="C_DESKTOP_FOCUS_MODE_SLOPPY">
+      </member>
+      <member name="mouse" value="2" c:identifier="C_DESKTOP_FOCUS_MODE_MOUSE">
+      </member>
+    </enumeration>
+    <enumeration name="FocusNewWindows" c:type="CDesktopFocusNewWindows">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="174"/>
+      <member name="smart"
+              value="0"
+              c:identifier="C_DESKTOP_FOCUS_NEW_WINDOWS_SMART">
+      </member>
+      <member name="strict"
+              value="1"
+              c:identifier="C_DESKTOP_FOCUS_NEW_WINDOWS_STRICT">
+      </member>
+    </enumeration>
+    <enumeration name="MagnifierLensShape" c:type="CDesktopMagnifierLensShape">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="139"/>
+      <member name="none"
+              value="0"
+              c:identifier="C_DESKTOP_MAGNIFIER_LENS_SHAPE_NONE">
+      </member>
+      <member name="square"
+              value="1"
+              c:identifier="C_DESKTOP_MAGNIFIER_LENS_SHAPE_SQUARE">
+      </member>
+      <member name="horizontal"
+              value="2"
+              c:identifier="C_DESKTOP_MAGNIFIER_LENS_SHAPE_HORIZONTAL">
+      </member>
+      <member name="vertical"
+              value="3"
+              c:identifier="C_DESKTOP_MAGNIFIER_LENS_SHAPE_VERTICAL">
+      </member>
+    </enumeration>
+    <enumeration name="MagnifierMouseTrackingMode"
+                 c:type="CDesktopMagnifierMouseTrackingMode">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="121"/>
+      <member name="none"
+              value="0"
+              c:identifier="C_DESKTOP_MAGNIFIER_MOUSE_TRACKING_MODE_NONE">
+      </member>
+      <member name="centered"
+              value="1"
+              c:identifier="C_DESKTOP_MAGNIFIER_MOUSE_TRACKING_MODE_CENTERED">
+      </member>
+      <member name="proportional"
+              value="2"
+              c:identifier="C_DESKTOP_MAGNIFIER_MOUSE_TRACKING_MODE_PROPORTIONAL">
+      </member>
+      <member name="push"
+              value="3"
+              c:identifier="C_DESKTOP_MAGNIFIER_MOUSE_TRACKING_MODE_PUSH">
+      </member>
+    </enumeration>
+    <enumeration name="MagnifierScreenPosition"
+                 c:type="CDesktopMagnifierScreenPosition">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="131"/>
+      <member name="none"
+              value="0"
+              c:identifier="C_DESKTOP_MAGNIFIER_SCREEN_POSITION_NONE">
+      </member>
+      <member name="full_screen"
+              value="1"
+              c:identifier="C_DESKTOP_MAGNIFIER_SCREEN_POSITION_FULL_SCREEN">
+      </member>
+      <member name="top_half"
+              value="2"
+              c:identifier="C_DESKTOP_MAGNIFIER_SCREEN_POSITION_TOP_HALF">
+      </member>
+      <member name="bottom_half"
+              value="3"
+              c:identifier="C_DESKTOP_MAGNIFIER_SCREEN_POSITION_BOTTOM_HALF">
+      </member>
+      <member name="left_half"
+              value="4"
+              c:identifier="C_DESKTOP_MAGNIFIER_SCREEN_POSITION_LEFT_HALF">
+      </member>
+      <member name="right_half"
+              value="5"
+              c:identifier="C_DESKTOP_MAGNIFIER_SCREEN_POSITION_RIGHT_HALF">
+      </member>
+    </enumeration>
+    <enumeration name="MediaKeyType" c:type="CDesktopMediaKeyType">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="279"/>
+      <member name="mute" value="0" c:identifier="C_DESKTOP_MEDIA_KEY_MUTE">
+      </member>
+      <member name="mute_quiet"
+              value="1"
+              c:identifier="C_DESKTOP_MEDIA_KEY_MUTE_QUIET">
+      </member>
+      <member name="volume_up"
+              value="2"
+              c:identifier="C_DESKTOP_MEDIA_KEY_VOLUME_UP">
+      </member>
+      <member name="volume_up_quiet"
+              value="3"
+              c:identifier="C_DESKTOP_MEDIA_KEY_VOLUME_UP_QUIET">
+      </member>
+      <member name="volume_down"
+              value="4"
+              c:identifier="C_DESKTOP_MEDIA_KEY_VOLUME_DOWN">
+      </member>
+      <member name="volume_down_quiet"
+              value="5"
+              c:identifier="C_DESKTOP_MEDIA_KEY_VOLUME_DOWN_QUIET">
+      </member>
+      <member name="mic_mute"
+              value="6"
+              c:identifier="C_DESKTOP_MEDIA_KEY_MIC_MUTE">
+      </member>
+      <member name="eject" value="7" c:identifier="C_DESKTOP_MEDIA_KEY_EJECT">
+      </member>
+      <member name="media" value="8" c:identifier="C_DESKTOP_MEDIA_KEY_MEDIA">
+      </member>
+      <member name="play" value="9" c:identifier="C_DESKTOP_MEDIA_KEY_PLAY">
+      </member>
+      <member name="pause" value="10" c:identifier="C_DESKTOP_MEDIA_KEY_PAUSE">
+      </member>
+      <member name="stop" value="11" c:identifier="C_DESKTOP_MEDIA_KEY_STOP">
+      </member>
+      <member name="previous"
+              value="12"
+              c:identifier="C_DESKTOP_MEDIA_KEY_PREVIOUS">
+      </member>
+      <member name="next" value="13" c:identifier="C_DESKTOP_MEDIA_KEY_NEXT">
+      </member>
+      <member name="rewind"
+              value="14"
+              c:identifier="C_DESKTOP_MEDIA_KEY_REWIND">
+      </member>
+      <member name="forward"
+              value="15"
+              c:identifier="C_DESKTOP_MEDIA_KEY_FORWARD">
+      </member>
+      <member name="repeat"
+              value="16"
+              c:identifier="C_DESKTOP_MEDIA_KEY_REPEAT">
+      </member>
+      <member name="random"
+              value="17"
+              c:identifier="C_DESKTOP_MEDIA_KEY_RANDOM">
+      </member>
+      <member name="screenshot"
+              value="18"
+              c:identifier="C_DESKTOP_MEDIA_KEY_SCREENSHOT">
+      </member>
+      <member name="screenshot_clip"
+              value="19"
+              c:identifier="C_DESKTOP_MEDIA_KEY_SCREENSHOT_CLIP">
+      </member>
+      <member name="separator"
+              value="20"
+              c:identifier="C_DESKTOP_MEDIA_KEY_SEPARATOR">
+      </member>
+      <member name="window_screenshot"
+              value="21"
+              c:identifier="C_DESKTOP_MEDIA_KEY_WINDOW_SCREENSHOT">
+      </member>
+      <member name="window_screenshot_clip"
+              value="22"
+              c:identifier="C_DESKTOP_MEDIA_KEY_WINDOW_SCREENSHOT_CLIP">
+      </member>
+      <member name="area_screenshot"
+              value="23"
+              c:identifier="C_DESKTOP_MEDIA_KEY_AREA_SCREENSHOT">
+      </member>
+      <member name="area_screenshot_clip"
+              value="24"
+              c:identifier="C_DESKTOP_MEDIA_KEY_AREA_SCREENSHOT_CLIP">
+      </member>
+      <member name="touchpad"
+              value="25"
+              c:identifier="C_DESKTOP_MEDIA_KEY_TOUCHPAD">
+      </member>
+      <member name="touchpad_on"
+              value="26"
+              c:identifier="C_DESKTOP_MEDIA_KEY_TOUCHPAD_ON">
+      </member>
+      <member name="touchpad_off"
+              value="27"
+              c:identifier="C_DESKTOP_MEDIA_KEY_TOUCHPAD_OFF">
+      </member>
+      <member name="logout"
+              value="28"
+              c:identifier="C_DESKTOP_MEDIA_KEY_LOGOUT">
+      </member>
+      <member name="shutdown"
+              value="29"
+              c:identifier="C_DESKTOP_MEDIA_KEY_SHUTDOWN">
+      </member>
+      <member name="home" value="30" c:identifier="C_DESKTOP_MEDIA_KEY_HOME">
+      </member>
+      <member name="calculator"
+              value="31"
+              c:identifier="C_DESKTOP_MEDIA_KEY_CALCULATOR">
+      </member>
+      <member name="search"
+              value="32"
+              c:identifier="C_DESKTOP_MEDIA_KEY_SEARCH">
+      </member>
+      <member name="email" value="33" c:identifier="C_DESKTOP_MEDIA_KEY_EMAIL">
+      </member>
+      <member name="screensaver"
+              value="34"
+              c:identifier="C_DESKTOP_MEDIA_KEY_SCREENSAVER">
+      </member>
+      <member name="help" value="35" c:identifier="C_DESKTOP_MEDIA_KEY_HELP">
+      </member>
+      <member name="terminal"
+              value="36"
+              c:identifier="C_DESKTOP_MEDIA_KEY_TERMINAL">
+      </member>
+      <member name="www" value="37" c:identifier="C_DESKTOP_MEDIA_KEY_WWW">
+      </member>
+      <member name="video_out"
+              value="38"
+              c:identifier="C_DESKTOP_MEDIA_KEY_VIDEO_OUT">
+      </member>
+      <member name="rotate_video"
+              value="39"
+              c:identifier="C_DESKTOP_MEDIA_KEY_ROTATE_VIDEO">
+      </member>
+      <member name="rotate_video_lock"
+              value="40"
+              c:identifier="C_DESKTOP_MEDIA_KEY_ROTATE_VIDEO_LOCK">
+      </member>
+      <member name="screenreader"
+              value="41"
+              c:identifier="C_DESKTOP_MEDIA_KEY_SCREENREADER">
+      </member>
+      <member name="on_screen_keyboard"
+              value="42"
+              c:identifier="C_DESKTOP_MEDIA_KEY_ON_SCREEN_KEYBOARD">
+      </member>
+      <member name="increase_text"
+              value="43"
+              c:identifier="C_DESKTOP_MEDIA_KEY_INCREASE_TEXT">
+      </member>
+      <member name="decrease_text"
+              value="44"
+              c:identifier="C_DESKTOP_MEDIA_KEY_DECREASE_TEXT">
+      </member>
+      <member name="toggle_contrast"
+              value="45"
+              c:identifier="C_DESKTOP_MEDIA_KEY_TOGGLE_CONTRAST">
+      </member>
+      <member name="suspend"
+              value="46"
+              c:identifier="C_DESKTOP_MEDIA_KEY_SUSPEND">
+      </member>
+      <member name="hibernate"
+              value="47"
+              c:identifier="C_DESKTOP_MEDIA_KEY_HIBERNATE">
+      </member>
+      <member name="screen_brightness_up"
+              value="48"
+              c:identifier="C_DESKTOP_MEDIA_KEY_SCREEN_BRIGHTNESS_UP">
+      </member>
+      <member name="screen_brightness_down"
+              value="49"
+              c:identifier="C_DESKTOP_MEDIA_KEY_SCREEN_BRIGHTNESS_DOWN">
+      </member>
+      <member name="keyboard_brightness_up"
+              value="50"
+              c:identifier="C_DESKTOP_MEDIA_KEY_KEYBOARD_BRIGHTNESS_UP">
+      </member>
+      <member name="keyboard_brightness_down"
+              value="51"
+              c:identifier="C_DESKTOP_MEDIA_KEY_KEYBOARD_BRIGHTNESS_DOWN">
+      </member>
+      <member name="keyboard_brightness_toggle"
+              value="52"
+              c:identifier="C_DESKTOP_MEDIA_KEY_KEYBOARD_BRIGHTNESS_TOGGLE">
+      </member>
+      <member name="battery"
+              value="53"
+              c:identifier="C_DESKTOP_MEDIA_KEY_BATTERY">
+      </member>
+      <member name="last" value="54" c:identifier="C_DESKTOP_MEDIA_KEY_LAST">
+      </member>
+    </enumeration>
+    <enumeration name="MouseDwellDirection"
+                 c:type="CDesktopMouseDwellDirection">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="77"/>
+      <member name="left"
+              value="0"
+              c:identifier="C_DESKTOP_MOUSE_DWELL_DIRECTION_LEFT">
+      </member>
+      <member name="right"
+              value="1"
+              c:identifier="C_DESKTOP_MOUSE_DWELL_DIRECTION_RIGHT">
+      </member>
+      <member name="up"
+              value="2"
+              c:identifier="C_DESKTOP_MOUSE_DWELL_DIRECTION_UP">
+      </member>
+      <member name="down"
+              value="3"
+              c:identifier="C_DESKTOP_MOUSE_DWELL_DIRECTION_DOWN">
+      </member>
+    </enumeration>
+    <enumeration name="MouseDwellMode" c:type="CDesktopMouseDwellMode">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="69"/>
+      <member name="window"
+              value="0"
+              c:identifier="C_DESKTOP_MOUSE_DWELL_MODE_WINDOW">
+      </member>
+      <member name="gesture"
+              value="1"
+              c:identifier="C_DESKTOP_MOUSE_DWELL_MODE_GESTURE">
+      </member>
+    </enumeration>
+    <enumeration name="NotificationScreenDisplay"
+                 c:type="CDesktopNotificationScreenDisplay">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="211"/>
+      <member name="primary_screen"
+              value="0"
+              c:identifier="C_DESKTOP_NOTIFICATION_SCREEN_DISPLAY_PRIMARY_SCREEN">
+      </member>
+      <member name="active_screen"
+              value="1"
+              c:identifier="C_DESKTOP_NOTIFICATION_SCREEN_DISPLAY_ACTIVE_SCREEN">
+      </member>
+      <member name="fixed_screen"
+              value="2"
+              c:identifier="C_DESKTOP_NOTIFICATION_SCREEN_DISPLAY_FIXED_SCREEN">
+      </member>
+    </enumeration>
+    <enumeration name="PadButtonAction" c:type="CDesktopPadButtonAction">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="194"/>
+      <member name="none"
+              value="0"
+              c:identifier="C_DESKTOP_PAD_BUTTON_ACTION_NONE">
+      </member>
+      <member name="help"
+              value="1"
+              c:identifier="C_DESKTOP_PAD_BUTTON_ACTION_HELP">
+      </member>
+      <member name="switch_monitor"
+              value="2"
+              c:identifier="C_DESKTOP_PAD_BUTTON_ACTION_SWITCH_MONITOR">
+      </member>
+      <member name="keybinding"
+              value="3"
+              c:identifier="C_DESKTOP_PAD_BUTTON_ACTION_KEYBINDING">
+      </member>
+    </enumeration>
+    <enumeration name="PointerAccelProfile"
+                 c:type="CDesktopPointerAccelProfile">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="106"/>
+      <member name="default"
+              value="0"
+              c:identifier="C_DESKTOP_POINTER_ACCEL_PROFILE_DEFAULT">
+      </member>
+      <member name="flat"
+              value="1"
+              c:identifier="C_DESKTOP_POINTER_ACCEL_PROFILE_FLAT">
+      </member>
+      <member name="adaptive"
+              value="2"
+              c:identifier="C_DESKTOP_POINTER_ACCEL_PROFILE_ADAPTIVE">
+      </member>
+    </enumeration>
+    <enumeration name="ProxyMode" c:type="CDesktopProxyMode">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="31"/>
+      <member name="none" value="0" c:identifier="C_DESKTOP_PROXY_MODE_NONE">
+      </member>
+      <member name="manual"
+              value="1"
+              c:identifier="C_DESKTOP_PROXY_MODE_MANUAL">
+      </member>
+      <member name="auto" value="2" c:identifier="C_DESKTOP_PROXY_MODE_AUTO">
+      </member>
+    </enumeration>
+    <enumeration name="ScreensaverMode" c:type="CDesktopScreensaverMode">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="113"/>
+      <member name="blank_only"
+              value="0"
+              c:identifier="C_DESKTOP_SCREENSAVER_MODE_BLANK_ONLY">
+      </member>
+      <member name="random"
+              value="1"
+              c:identifier="C_DESKTOP_SCREENSAVER_MODE_RANDOM">
+      </member>
+      <member name="single"
+              value="2"
+              c:identifier="C_DESKTOP_SCREENSAVER_MODE_SINGLE">
+      </member>
+    </enumeration>
+    <enumeration name="StylusButtonAction" c:type="CDesktopStylusButtonAction">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="204"/>
+      <member name="default"
+              value="0"
+              c:identifier="C_DESKTOP_STYLUS_BUTTON_ACTION_DEFAULT">
+      </member>
+      <member name="middle"
+              value="1"
+              c:identifier="C_DESKTOP_STYLUS_BUTTON_ACTION_MIDDLE">
+      </member>
+      <member name="right"
+              value="2"
+              c:identifier="C_DESKTOP_STYLUS_BUTTON_ACTION_RIGHT">
+      </member>
+      <member name="back"
+              value="3"
+              c:identifier="C_DESKTOP_STYLUS_BUTTON_ACTION_BACK">
+      </member>
+      <member name="forward"
+              value="4"
+              c:identifier="C_DESKTOP_STYLUS_BUTTON_ACTION_FORWARD">
+      </member>
+      <member name="disabled"
+              value="5"
+              c:identifier="C_DESKTOP_STYLUS_BUTTON_ACTION_DISABLED">
+      </member>
+    </enumeration>
+    <enumeration name="TabletMapping" c:type="CDesktopTabletMapping">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="186"/>
+      <member name="absolute"
+              value="0"
+              c:identifier="C_DESKTOP_TABLET_MAPPING_ABSOLUTE">
+      </member>
+      <member name="relative"
+              value="1"
+              c:identifier="C_DESKTOP_TABLET_MAPPING_RELATIVE">
+      </member>
+    </enumeration>
+    <enumeration name="TitlebarAction" c:type="CDesktopTitlebarAction">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="153"/>
+      <member name="toggle_shade"
+              value="0"
+              c:identifier="C_DESKTOP_TITLEBAR_ACTION_TOGGLE_SHADE">
+      </member>
+      <member name="toggle_maximize"
+              value="1"
+              c:identifier="C_DESKTOP_TITLEBAR_ACTION_TOGGLE_MAXIMIZE">
+      </member>
+      <member name="toggle_maximize_horizontally"
+              value="2"
+              c:identifier="C_DESKTOP_TITLEBAR_ACTION_TOGGLE_MAXIMIZE_HORIZONTALLY">
+      </member>
+      <member name="toggle_maximize_vertically"
+              value="3"
+              c:identifier="C_DESKTOP_TITLEBAR_ACTION_TOGGLE_MAXIMIZE_VERTICALLY">
+      </member>
+      <member name="toggle_stuck"
+              value="4"
+              c:identifier="C_DESKTOP_TITLEBAR_ACTION_TOGGLE_STUCK">
+      </member>
+      <member name="toggle_above"
+              value="5"
+              c:identifier="C_DESKTOP_TITLEBAR_ACTION_TOGGLE_ABOVE">
+      </member>
+      <member name="minimize"
+              value="6"
+              c:identifier="C_DESKTOP_TITLEBAR_ACTION_MINIMIZE">
+      </member>
+      <member name="none"
+              value="7"
+              c:identifier="C_DESKTOP_TITLEBAR_ACTION_NONE">
+      </member>
+      <member name="lower"
+              value="8"
+              c:identifier="C_DESKTOP_TITLEBAR_ACTION_LOWER">
+      </member>
+      <member name="menu"
+              value="9"
+              c:identifier="C_DESKTOP_TITLEBAR_ACTION_MENU">
+      </member>
+    </enumeration>
+    <enumeration name="TitlebarScrollAction"
+                 c:type="CDesktopTitlebarScrollAction">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="161"/>
+      <member name="shade"
+              value="10"
+              c:identifier="C_DESKTOP_TITLEBAR_SCROLL_ACTION_SHADE">
+      </member>
+      <member name="opacity"
+              value="11"
+              c:identifier="C_DESKTOP_TITLEBAR_SCROLL_ACTION_OPACITY">
+      </member>
+      <member name="none"
+              value="12"
+              c:identifier="C_DESKTOP_TITLEBAR_SCROLL_ACTION_NONE">
+      </member>
+    </enumeration>
+    <enumeration name="ToolbarIconSize" c:type="CDesktopToolbarIconSize">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="45"/>
+      <member name="small"
+              value="0"
+              c:identifier="C_DESKTOP_TOOLBAR_ICON_SIZE_SMALL">
+      </member>
+      <member name="large"
+              value="1"
+              c:identifier="C_DESKTOP_TOOLBAR_ICON_SIZE_LARGE">
+      </member>
+    </enumeration>
+    <enumeration name="ToolbarStyle" c:type="CDesktopToolbarStyle">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="39"/>
+      <member name="both"
+              value="0"
+              c:identifier="C_DESKTOP_TOOLBAR_STYLE_BOTH">
+      </member>
+      <member name="both_horiz"
+              value="1"
+              c:identifier="C_DESKTOP_TOOLBAR_STYLE_BOTH_HORIZ">
+      </member>
+      <member name="icons"
+              value="2"
+              c:identifier="C_DESKTOP_TOOLBAR_STYLE_ICONS">
+      </member>
+      <member name="text"
+              value="3"
+              c:identifier="C_DESKTOP_TOOLBAR_STYLE_TEXT">
+      </member>
+    </enumeration>
+    <enumeration name="TouchpadClickMethod"
+                 c:type="CDesktopTouchpadClickMethod">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="92"/>
+      <member name="default"
+              value="0"
+              c:identifier="C_DESKTOP_TOUCHPAD_CLICK_METHOD_DEFAULT">
+      </member>
+      <member name="none"
+              value="1"
+              c:identifier="C_DESKTOP_TOUCHPAD_CLICK_METHOD_NONE">
+      </member>
+      <member name="areas"
+              value="2"
+              c:identifier="C_DESKTOP_TOUCHPAD_CLICK_METHOD_AREAS">
+      </member>
+      <member name="fingers"
+              value="3"
+              c:identifier="C_DESKTOP_TOUCHPAD_CLICK_METHOD_FINGERS">
+      </member>
+    </enumeration>
+    <enumeration name="TouchpadHandedness" c:type="CDesktopTouchpadHandedness">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="84"/>
+      <member name="right"
+              value="0"
+              c:identifier="C_DESKTOP_TOUCHPAD_HANDEDNESS_RIGHT">
+      </member>
+      <member name="left"
+              value="1"
+              c:identifier="C_DESKTOP_TOUCHPAD_HANDEDNESS_LEFT">
+      </member>
+      <member name="mouse"
+              value="2"
+              c:identifier="C_DESKTOP_TOUCHPAD_HANDEDNESS_MOUSE">
+      </member>
+    </enumeration>
+    <enumeration name="VisualBellType" c:type="CDesktopVisualBellType">
+      <source-position filename="libcinnamon-desktop/cdesktop-enums.h"
+                       line="180"/>
+      <member name="fullscreen_flash"
+              value="0"
+              c:identifier="C_DESKTOP_VISUAL_BELL_FULLSCREEN_FLASH">
+      </member>
+      <member name="frame_flash"
+              value="1"
+              c:identifier="C_DESKTOP_VISUAL_BELL_FRAME_FLASH">
+      </member>
+    </enumeration>
+  </namespace>
+</repository>

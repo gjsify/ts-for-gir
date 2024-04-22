@@ -1,0 +1,2153 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <package name="libxfconf-0"/>
+  <c:include name="xfconf/xfconf.h"/>
+  <namespace name="Xfconf"
+             version="0"
+             shared-library="libxfconf-0.so.3"
+             c:identifier-prefixes="Xfconf"
+             c:symbol-prefixes="xfconf_g_,xfconf_get_,xfconf_">
+    <function-macro name="CHANNEL"
+                    c:identifier="XFCONF_CHANNEL"
+                    introspectable="0">
+      <source-position filename="xfconf/xfconf-channel.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CHANNEL_CLASS"
+                    c:identifier="XFCONF_CHANNEL_CLASS"
+                    introspectable="0">
+      <source-position filename="xfconf/xfconf-channel.h" line="33"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CHANNEL_GET_CLASS"
+                    c:identifier="XFCONF_CHANNEL_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="xfconf/xfconf-channel.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Channel"
+           c:symbol-prefix="channel"
+           c:type="XfconfChannel"
+           parent="GObject.Object"
+           glib:type-name="XfconfChannel"
+           glib:get-type="xfconf_channel_get_type">
+      <doc xml:space="preserve"
+           filename="xfconf/xfconf-channel.c"
+           line="63">An opaque structure that holds state about a channel.</doc>
+      <constructor name="new" c:identifier="xfconf_channel_new">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="537">Creates a new channel using @name as the channel's identifier.
+This function always returns a valid object; no checking is done
+to see if the channel exists or has a valid name.
+
+Note: use of this function is not recommended, in favor of
+xfconf_channel_get(), which returns a singleton object and
+saves a little memory.  However, xfconf_channel_new() can be
+useful in some cases where you want to tie an #XfconfChannel's
+lifetime (and thus the lifetime of connected signals and bound
+#GObject properties) to the lifetime of another object.
+
+Also note that each channel has its own cache, so if you create
+2 new channels with the same name, it will double the dbus traffic,
+so in this cases it is highly recommended to use xfconf_channel_get().</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="45"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="556">A new #XfconfChannel.  Release with g_object_unref()
+         when no longer needed.</doc>
+          <type name="Channel" c:type="XfconfChannel*"/>
+        </return-value>
+        <parameters>
+          <parameter name="channel_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="539">A channel name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_with_property_base"
+                   c:identifier="xfconf_channel_new_with_property_base"
+                   version="4.5.92">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="568">Creates a new channel using @name as the channel's identifier,
+restricting the accessible properties to be rooted at
+@property_base.  This function always returns a valid object;
+no checking is done to see if the channel exists or has a valid
+name.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="47"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="579">A new #XfconfChannel.  Release with g_object_unref()
+         when no longer needed.</doc>
+          <type name="Channel" c:type="XfconfChannel*"/>
+        </return-value>
+        <parameters>
+          <parameter name="channel_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="570">A channel name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="property_base" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="571">A property root name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="get" c:identifier="xfconf_channel_get" version="4.5.91">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="515">Either creates a new channel, or fetches a singleton object for
+@channel_name.  This function always returns a valid object; no
+checking is done to see if the channel exists or has a valid name.
+
+The reference count of the returned channel is owned by libxfconf.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="525">An #XfconfChannel singleton.</doc>
+          <type name="Channel" c:type="XfconfChannel*"/>
+        </return-value>
+        <parameters>
+          <parameter name="channel_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="517">A channel name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="get_array"
+              c:identifier="xfconf_channel_get_array"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1319">Gets an array property on @channel.  The @first_value_type
+argument specifies the type of the first value in the variable
+argument list.  The variable argument list should alternate between
+pointers to locations to store the values, and the GType of the
+next value.  The argument list should be terminated with
+G_TYPE_INVALID.
+
+Note: The configuration store backend almost certainly supports
+only a restricted set of value types.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="129"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="1336">%TRUE if the property was retrieved successfully,
+         %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1321">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1322">A property string.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="first_value_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1323">The type of the first argument in the array.</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1324">A variable argument list of types and values.</doc>
+            <varargs/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_array_valist"
+              c:identifier="xfconf_channel_get_array_valist"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1356">Gets an array property on @channel.  See xfconf_channel_get_array()
+for details.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="133"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="1366">%TRUE if the property was retrieved successfully,
+         %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1358">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1359">A property string.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="first_value_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1360">The type of the first argument in the array.</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+          <parameter name="var_args" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1361">A variable argument list of types and values.</doc>
+            <type name="va_list" c:type="va_list"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_arrayv" c:identifier="xfconf_channel_get_arrayv">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1475">Gets an array property on @channel and returns it as
+a #GPtrArray, which can be freed with xfconf_array_free()
+when no longer needed.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="137"/>
+        <return-value transfer-ownership="container" nullable="1">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="1484">A newly-allocated #GPtrArray on success,
+or %NULL on failure.</doc>
+          <array name="GLib.PtrArray" c:type="GPtrArray*">
+            <type name="GObject.Value"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1477">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1478">A property string.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_bool" c:identifier="xfconf_channel_get_bool">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="953">Retrieves the boolean value associated with @property on @channel.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="100"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="961">The boolean value, or, if @property is not in @channel,
+         @default_value is returned.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="955">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="956">A property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="default_value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="957">A fallback value.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_double" c:identifier="xfconf_channel_get_double">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="923">Retrieves the double value associated with @property on @channel.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="93"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="931">The double value, or, if @property is not in @channel,
+         @default_value is returned.</doc>
+          <type name="gdouble" c:type="gdouble"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="925">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="926">A property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="default_value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="927">A fallback value.</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_int" c:identifier="xfconf_channel_get_int">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="833">Retrieves the int value associated with @property on @channel.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="841">The int value, or, if @property is not in @channel,
+         @default_value is returned.</doc>
+          <type name="gint32" c:type="gint32"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="835">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="836">A property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="default_value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="837">A fallback value.</doc>
+            <type name="gint32" c:type="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_named_struct"
+              c:identifier="xfconf_channel_get_named_struct">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1686">Gets a property from @channel and fills in @value_struct using
+the retrieved values.  The @struct_name parameter is the same
+name that must have been used to register the struct's layout
+with xfconf_named_struct_register().</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="154"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="1698">%TRUE if the property was retrieved successfully,
+         %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1688">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1689">A string property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="struct_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1690">A string struct name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value_struct"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1691">A pointer to a struct.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_properties"
+              c:identifier="xfconf_channel_get_properties">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="700">Retrieves multiple properties from @channel and stores
+them in a #GHashTable in which the keys correspond to
+the string (gchar *) property names, and the values
+correspond to variant (GValue *) values.  The keys and
+values are owned by the hash table and should be copied
+if needed.  The value of the property specified by
+@property_base (if it exists) and all sub-properties are
+retrieved.  To retrieve all properties in the channel,
+specify "/" or %NULL for @property_base.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="60"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="715">A newly-allocated #GHashTable, which should be freed with
+         g_hash_table_destroy() when no longer needed.</doc>
+          <type name="GLib.HashTable" c:type="GHashTable*">
+            <type name="utf8"/>
+            <type name="GObject.Value"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="702">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property_base" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="703">The base property name of properties to retrieve.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_property" c:identifier="xfconf_channel_get_property">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1206">Gets a property on @channel and stores it in @value.  The caller is
+responsible for calling g_value_unset() when finished with @value.
+
+This function can be called with an initialized or uninitialized
+@value.  If @value is initialized to a particular type, libxfconf
+will attempt to convert the value returned from the configuration
+store to that type if they don't match.  If the value type returned
+from the configuration store is an array type, each element of the
+array will be converted to the type of @value.  If @value is
+uninitialized, the value in the configuration store will be returned
+in its native type.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="118"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="1224">%TRUE if the property was retrieved successfully,
+         %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1208">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1209">A string property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1210">A #GValue.</doc>
+            <type name="GObject.Value" c:type="GValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_string" c:identifier="xfconf_channel_get_string">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="756">Retrieves the string value associated with @property on @channel.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="65"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="764">A newly-allocated string which should be freed with g_free()
+         when no longer needed.  If @property is not in @channel,
+         a g_strdup()ed copy of @default_value is returned.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="758">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="759">A property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="default_value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="760">A fallback value.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_string_list"
+              c:identifier="xfconf_channel_get_string_list">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="790">Retrieves the string list value associated with @property on @channel.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="109"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="797">A newly-allocated string list which should be freed with
+         g_strfreev() when no longer needed.  If @property is not in
+         @channel, %NULL is returned.</doc>
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="792">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="793">A property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_struct"
+              c:identifier="xfconf_channel_get_struct"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1747">Gets a property on @channel and stores it as members of the
+@value_struct struct.  The @first_member_type argument
+specifies the #GType of the first member of the struct.  The
+variable argument list specifies the #GType&lt;!-- --&gt;s of the
+rest of the struct members, and should be terminated with
+G_TYPE_INVALID.
+
+Note: This function takes your compiler's and platform's
+struct member alignment rules into account when storing values
+in @value_struct.  Therefore, it cannot be used with structs that
+are declared as "packed" in such a way that the alignment rules
+are ignored by the compiler.
+
+Note: Struct members can only be non-pointer types such as int,
+boolean, double, etc.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="163"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="1771">%TRUE if the property was retrieved successfully,
+         %FALSE oherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1749">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1750">A string property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value_struct"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1751">A pointer to a struct in which to store values.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="first_member_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1752">The GType of the first member of @value_struct.</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1753">A variable argument list of #GType&lt;!-- --&gt;s.</doc>
+            <varargs/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_struct_valist"
+              c:identifier="xfconf_channel_get_struct_valist"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1792">Gets a property on @channel and stores it as members of the
+@value_struct struct.  See xfconf_channel_get_struct() for details.
+
+Note: Struct members can only be non-pointer types such as int,
+boolean, double, etc.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="168"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="1806">%TRUE if the property was retrieved successfully,
+         %FALSE oherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1794">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1795">A string property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value_struct"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1796">A pointer to a struct in which to store values.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="first_member_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1797">The GType of the first member of @value_struct.</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+          <parameter name="var_args" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1798">A variable argument list of #GType&lt;!-- --&gt;s.</doc>
+            <type name="va_list" c:type="va_list"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_structv" c:identifier="xfconf_channel_get_structv">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1846">Gets a property on @channel and stores it as members of the
+@value_struct struct.  The @member_types array should hold
+a #GType for each member of the struct.
+
+Note: Struct members can only be non-pointer types such as int,
+boolean, double, etc.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="173"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="1861">%TRUE if the property was retrieved successfully,
+         %FALSE oherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1848">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1849">A string property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value_struct"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1850">A pointer to a struct in which to store values.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="n_members" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1851">The number of data members in the struct.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="member_types" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1852">An array of @n_members #GType&lt;!-- --&gt;s.</doc>
+            <type name="GType" c:type="GType*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_uint" c:identifier="xfconf_channel_get_uint">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="863">Retrieves the unsigned int value associated with @property on @channel.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="871">The uint value, or, if @property is not in @channel,
+         @default_value is returned.</doc>
+          <type name="guint32" c:type="guint32"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="865">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="866">A property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="default_value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="867">A fallback value.</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_uint64" c:identifier="xfconf_channel_get_uint64">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="893">Retrieves the 64-bit int value associated with @property on @channel.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="901">The uint64 value, or, if @property is not in @channel,
+         @default_value is returned.</doc>
+          <type name="guint64" c:type="guint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="895">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="896">A property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="default_value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="897">A fallback value.</doc>
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="has_property" c:identifier="xfconf_channel_has_property">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="595">Checks to see if @property exists on @channel.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="602">%TRUE if @property exists, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="597">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="598">A property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_property_locked"
+              c:identifier="xfconf_channel_is_property_locked"
+              version="4.5.91">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="622">Queries whether or not @property on @channel is locked by system
+policy.  If the property is locked, calls to
+xfconf_channel_set_property() (or any of the "set" family of functions)
+or xfconf_channel_reset_property() will fail.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="632">%TRUE if the property is locked, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="624">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="625">A property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="reset_property"
+              c:identifier="xfconf_channel_reset_property"
+              version="4.5.91">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="658">Resets properties starting at (and including) @property_base.
+If @recursive is %TRUE, will also reset all properties that are
+under @property_base in the property hierarchy.
+
+A bit of an explanation as to what this function actually does:
+Since Xfconf backends are expected to support setting defaults
+via what you might call "optional schema," you can't really
+"remove" properties.  Since the client library can't know if a
+channel provides default values (or even if the backend supports
+it!), at best it can only reset properties to their default values.
+
+The @property_base parameter can be %NULL or the empty string (""),
+in which case the channel root ("/") will be assumed.  Of course,
+%TRUE must be passed for @recursive in this case.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="660">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property_base" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="661">A property tree root or property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="recursive" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="662">Whether to reset properties recursively.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_array"
+              c:identifier="xfconf_channel_set_array"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1517">Sets an array property on @channel.  The @first_value_type
+argument specifies the type of the first value in the variable
+argument list.  Note that all values specified MUST be pointers
+to variables holding the correct value, and may not be, e.g.,
+numeric constants.  The argument list should be terminated with
+G_TYPE_INVALID.
+
+Note: The configuration store backend almost certainly supports
+only a restricted set of value types.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="140"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="1534">%TRUE if the property was set successfully, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1519">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1520">A property string.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="first_value_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1521">The type of the first argument in the array.</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1522">A variable argument list of types and values.</doc>
+            <varargs/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_array_valist"
+              c:identifier="xfconf_channel_set_array_valist"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1553">Sets an array property on @channel.  See xfconf_channel_set_array()
+for details.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="144"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="1563">%TRUE if the property was set successfully, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1555">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1556">A property string.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="first_value_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1557">The type of the first argument in the array.</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+          <parameter name="var_args" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1558">A variable argument list of types and values.</doc>
+            <type name="va_list" c:type="va_list"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_arrayv" c:identifier="xfconf_channel_set_arrayv">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1654">Sets an array property on @channel, using the values in the
+provided @values array.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="148"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="1663">%TRUE if the property was set successfully, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1656">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1657">A property string.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="values" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1658">A #GPtrArray of #GValue&lt;!-- --&gt;s.</doc>
+            <array name="GLib.PtrArray" c:type="GPtrArray*">
+              <type name="GObject.Value"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_bool" c:identifier="xfconf_channel_set_bool">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1176">Sets @value for @property on @channel in the configuration store.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="103"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="1184">%TRUE on success, %FALSE if an error occured.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1178">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1179">A property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1180">The value to set.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_double" c:identifier="xfconf_channel_set_double">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1146">Sets @value for @property on @channel in the configuration store.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="96"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="1154">%TRUE on success, %FALSE if an error occured.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1148">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1149">A property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1150">The value to set.</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_int" c:identifier="xfconf_channel_set_int">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1056">Sets @value for @property on @channel in the configuration store.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="1064">%TRUE on success, %FALSE if an error occured.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1058">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1059">A property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1060">The value to set.</doc>
+            <type name="gint32" c:type="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_named_struct"
+              c:identifier="xfconf_channel_set_named_struct">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1716">Sets a property on @channel using the members of @value_struct
+as the array of values.  The @struct_name parameter is the same
+name that must have been used to register the struct's layout
+with xfconf_named_struct_register().</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="158"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="1728">%TRUE if the property was set successfully,
+         %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1718">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1719">A string property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="struct_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1720">A string struct name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value_struct"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1721">A pointer to a struct.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_property" c:identifier="xfconf_channel_set_property">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1282">Sets the value stored in @value  to a property on @channel.
+
+Note: The configuration store backend almost certainly supports
+only a restricted set of value types.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="121"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="1293">%TRUE if the property was set successfully, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1284">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1285">A string property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1286">A #GValue.</doc>
+            <type name="GObject.Value" c:type="const GValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_string" c:identifier="xfconf_channel_set_string">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="983">Sets @value for @property on @channel in the configuration store.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="991">%TRUE on success, %FALSE if an error occured.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="985">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="986">A property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="987">The value to set.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_string_list"
+              c:identifier="xfconf_channel_set_string_list">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1014">Sets @values for @property on @channel in the configuration store.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="1022">%TRUE on success, %FALSE if an error occured.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1016">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1017">A property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="values" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1018">The value to set.</doc>
+            <type name="utf8" c:type="const gchar* const*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_struct"
+              c:identifier="xfconf_channel_set_struct"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1998">Sets a property on @channel using the members of @value_struct
+as a value array.  The @first_member_type argument specifies
+the #GType of the first member of the struct.  The variable
+argument list specifies the #GType&lt;!-- --&gt;s of the rest of the
+struct members, and should be terminated with G_TYPE_INVALID.
+
+Note: This function takes your compiler's and platform's
+struct member alignment rules into account when taking values
+in @value_struct.  Therefore, it cannot be used with structs that
+are declared as "packed" such that the alignment rules are ignored
+by the compiler.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="179"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="2018">%TRUE if the property was set successfully,
+         %FALSE oherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="2000">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="2001">A string property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value_struct"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="2002">A pointer to a struct from which to take values.</doc>
+            <type name="gpointer" c:type="const gpointer"/>
+          </parameter>
+          <parameter name="first_member_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="2003">The GType of the first member of @value_struct.</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="2004">A variable argument list of #GType&lt;!-- --&gt;s.</doc>
+            <varargs/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_struct_valist"
+              c:identifier="xfconf_channel_set_struct_valist"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="2039">Sets a property on @channel using the members of @value_struct
+as a value array.  See xfconf_channel_set_struct() for details.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="184"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="2050">%TRUE if the property was set successfully,
+         %FALSE oherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="2041">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="2042">A string property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value_struct"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="2043">A pointer to a struct from which to take values.</doc>
+            <type name="gpointer" c:type="const gpointer"/>
+          </parameter>
+          <parameter name="first_member_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="2044">The GType of the first member of @value_struct.</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+          <parameter name="var_args" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="2045">A variable argument list of #GType&lt;!-- --&gt;s.</doc>
+            <type name="va_list" c:type="va_list"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_structv" c:identifier="xfconf_channel_set_structv">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="2090">Sets a property on @channel using the members of @value_struct
+as a value array.  The @member_types array should hold a #GType
+for each member of the struct.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="189"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="2102">%TRUE if the property was set successfully,
+         %FALSE oherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="2092">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="2093">A string property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value_struct"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="2094">A pointer to a struct from which to take values.</doc>
+            <type name="gpointer" c:type="const gpointer"/>
+          </parameter>
+          <parameter name="n_members" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="2095">The number of data members in the struct.</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="member_types" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="2096">An array of @n_members #GType&lt;!-- --&gt;s.</doc>
+            <type name="GType" c:type="GType*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_uint" c:identifier="xfconf_channel_set_uint">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1086">Sets @value for @property on @channel in the configuration store.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="82"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="1094">%TRUE on success, %FALSE if an error occured.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1088">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1089">A property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1090">The value to set.</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_uint64" c:identifier="xfconf_channel_set_uint64">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="1116">Sets @value for @property on @channel in the configuration store.</doc>
+        <source-position filename="xfconf/xfconf-channel.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-channel.c"
+               line="1124">%TRUE on success, %FALSE if an error occured.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="channel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1118">An #XfconfChannel.</doc>
+            <type name="Channel" c:type="XfconfChannel*"/>
+          </instance-parameter>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1119">A property name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="1120">The value to set.</doc>
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="channel-name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="170">The string identifier used for this channel.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="is-singleton"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="TRUE">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="203">Identifies the instance of the class as a singleton instance
+or not.  This is mainly used internally by #XfconfChannel
+but may be useful for API users.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="property-base"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="186">The string identifier used for the property base inside a channel.
+This can be used to restrict a channel to a subset of properties.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <glib:signal name="property-changed" when="last" detailed="1">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="144">Emitted whenever a property on @channel has changed.  If
+the change was caused by the removal of @property, @value
+will be unset; you should test this with
+&lt;informalexample&gt;&lt;programlisting&gt;
+G_VALUE_TYPE(value) == G_TYPE_INVALID
+&lt;/programlisting&gt;&lt;/informalexample&gt;</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="property" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="147">The property that changed.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfconf/xfconf-channel.c"
+                 line="148">The new value.</doc>
+            <type name="GObject.Value"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <enumeration name="Error"
+                 glib:type-name="XfconfError"
+                 glib:get-type="xfconf_error_get_type"
+                 c:type="XfconfError"
+                 glib:error-domain="xfconf_daemon_error">
+      <doc xml:space="preserve"
+           filename="xfconf/xfconf-errors.h"
+           line="35">An enumeration listing the different kinds of errors under the XFCONF_ERROR domain.</doc>
+      <member name="Unknown"
+              value="0"
+              c:identifier="XFCONF_ERROR_UNKNOWN"
+              glib:nick="Unknown"
+              glib:name="XFCONF_ERROR_UNKNOWN">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-errors.h"
+             line="37">An unknown error occurred</doc>
+      </member>
+      <member name="ChannelNotFound"
+              value="1"
+              c:identifier="XFCONF_ERROR_CHANNEL_NOT_FOUND"
+              glib:nick="ChannelNotFound"
+              glib:name="XFCONF_ERROR_CHANNEL_NOT_FOUND">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-errors.h"
+             line="38">The specified channel does not exist</doc>
+      </member>
+      <member name="PropertyNotFound"
+              value="2"
+              c:identifier="XFCONF_ERROR_PROPERTY_NOT_FOUND"
+              glib:nick="PropertyNotFound"
+              glib:name="XFCONF_ERROR_PROPERTY_NOT_FOUND">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-errors.h"
+             line="39">The specified property does not exist on the channel</doc>
+      </member>
+      <member name="ReadFailure"
+              value="3"
+              c:identifier="XFCONF_ERROR_READ_FAILURE"
+              glib:nick="ReadFailure"
+              glib:name="XFCONF_ERROR_READ_FAILURE">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-errors.h"
+             line="40">There was a failure reading from the configuration store</doc>
+      </member>
+      <member name="WriteFailure"
+              value="4"
+              c:identifier="XFCONF_ERROR_WRITE_FAILURE"
+              glib:nick="WriteFailure"
+              glib:name="XFCONF_ERROR_WRITE_FAILURE">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-errors.h"
+             line="41">There was a failure writing to the configuration store</doc>
+      </member>
+      <member name="PermissionDenied"
+              value="5"
+              c:identifier="XFCONF_ERROR_PERMISSION_DENIED"
+              glib:nick="PermissionDenied"
+              glib:name="XFCONF_ERROR_PERMISSION_DENIED">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-errors.h"
+             line="42">The user is not allowed to read or write to the channel or property</doc>
+      </member>
+      <member name="InternalError"
+              value="6"
+              c:identifier="XFCONF_ERROR_INTERNAL_ERROR"
+              glib:nick="InternalError"
+              glib:name="XFCONF_ERROR_INTERNAL_ERROR">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-errors.h"
+             line="43">An internal error (likely a bug in xfconf) occurred</doc>
+      </member>
+      <member name="NoBackend"
+              value="7"
+              c:identifier="XFCONF_ERROR_NO_BACKEND"
+              glib:nick="NoBackend"
+              glib:name="XFCONF_ERROR_NO_BACKEND">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-errors.h"
+             line="44">No backends were found, or those found could not be loaded</doc>
+      </member>
+      <member name="InvalidProperty"
+              value="8"
+              c:identifier="XFCONF_ERROR_INVALID_PROPERTY"
+              glib:nick="InvalidProperty"
+              glib:name="XFCONF_ERROR_INVALID_PROPERTY">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-errors.h"
+             line="45">The property name specified was invalid</doc>
+      </member>
+      <member name="InvalidChannel"
+              value="9"
+              c:identifier="XFCONF_ERROR_INVALID_CHANNEL"
+              glib:nick="InvalidChannel"
+              glib:name="XFCONF_ERROR_INVALID_CHANNEL">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-errors.h"
+             line="46">The channel name specified was invalid</doc>
+      </member>
+      <function name="quark" c:identifier="xfconf_get_error_quark">
+        <return-value transfer-ownership="none">
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+    </enumeration>
+    <function-macro name="IS_CHANNEL"
+                    c:identifier="XFCONF_IS_CHANNEL"
+                    introspectable="0">
+      <source-position filename="xfconf/xfconf-channel.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CHANNEL_CLASS"
+                    c:identifier="XFCONF_IS_CHANNEL_CLASS"
+                    introspectable="0">
+      <source-position filename="xfconf/xfconf-channel.h" line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Int16"
+           c:symbol-prefix="int16"
+           glib:type-name="XfconfInt16"
+           glib:get-type="xfconf_int16_get_type"
+           glib:fundamental="1">
+    </class>
+    <class name="Uint16"
+           c:symbol-prefix="uint16"
+           glib:type-name="XfconfUint16"
+           glib:get-type="xfconf_uint16_get_type"
+           glib:fundamental="1">
+    </class>
+    <function name="array_free" c:identifier="xfconf_array_free">
+      <doc xml:space="preserve"
+           filename="xfconf/xfconf.c"
+           line="227">Properly frees a #GPtrArray structure containing a list of
+#GValue&lt;!-- --&gt;s.  This will also cause the contents of the
+values to be freed as well.</doc>
+      <source-position filename="xfconf/xfconf.h" line="44"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="arr" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf.c"
+               line="229">A #GPtrArray of #GValue&lt;!-- --&gt;s.</doc>
+          <array name="GLib.PtrArray" c:type="GPtrArray*">
+            <type name="GObject.Value"/>
+          </array>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="error_quark"
+              c:identifier="xfconf_get_error_quark"
+              moved-to="Error.quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+    <function name="init" c:identifier="xfconf_init" throws="1">
+      <doc xml:space="preserve"
+           filename="xfconf/xfconf.c"
+           line="101">Initializes the Xfconf library.  Can be called multiple times with no
+adverse effects.</doc>
+      <source-position filename="xfconf/xfconf.h" line="37"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf.c"
+             line="108">%TRUE if the library was initialized succesfully, %FALSE on
+         error.  If there is an error @error will be set.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+    </function>
+    <function name="list_channels" c:identifier="xfconf_list_channels">
+      <doc xml:space="preserve"
+           filename="xfconf/xfconf-channel.c"
+           line="2217">Lists all channels known in the Xfconf configuration store.</doc>
+      <source-position filename="xfconf/xfconf.h" line="46"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-channel.c"
+             line="2222">A newly-allocated array of strings.
+                                                                Free with g_strfreev() when no longer needed.</doc>
+        <array c:type="gchar**">
+          <type name="utf8" c:type="gchar*"/>
+        </array>
+      </return-value>
+    </function>
+    <function name="named_struct_register"
+              c:identifier="xfconf_named_struct_register">
+      <doc xml:space="preserve"
+           filename="xfconf/xfconf.c"
+           line="173">Registers a named struct for use with xfconf_channel_get_named_struct()
+and xfconf_channel_set_named_struct().</doc>
+      <source-position filename="xfconf/xfconf.h" line="40"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="struct_name" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf.c"
+               line="175">The unique name of the struct to register.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="n_members" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf.c"
+               line="176">The number of data members in the struct.</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="member_types" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf.c"
+               line="177">An array of the #GType&lt;!-- --&gt;s of the struct members.</doc>
+          <type name="GType" c:type="const GType*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="property_bind" c:identifier="xfconf_g_property_bind">
+      <doc xml:space="preserve"
+           filename="xfconf/xfconf-binding.c"
+           line="451">Binds an Xfconf property to a #GObject property.  If the property
+is changed via either the #GObject or Xfconf, the corresponding
+property will also be updated. The binding is initialized from the
+Xfconf property, i.e. the initial value of the #GObject property is
+overwritten.
+
+Note that @xfconf_property_type is required since @xfconf_property
+may or may not already exist in the Xfconf store.  The type of
+@object_property will be determined automatically.  If the two
+types do not match, a conversion will be attempted.</doc>
+      <source-position filename="xfconf/xfconf-binding.h" line="33"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-binding.c"
+             line="470">an ID number that can be used to later remove the
+         binding.</doc>
+        <type name="gulong" c:type="gulong"/>
+      </return-value>
+      <parameters>
+        <parameter name="channel" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-binding.c"
+               line="453">An #XfconfChannel.</doc>
+          <type name="Channel" c:type="XfconfChannel*"/>
+        </parameter>
+        <parameter name="xfconf_property" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-binding.c"
+               line="454">A property on @channel.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="xfconf_property_type" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-binding.c"
+               line="455">The type of @xfconf_property.</doc>
+          <type name="GType" c:type="GType"/>
+        </parameter>
+        <parameter name="object"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-binding.c"
+               line="456">A #GObject.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+        <parameter name="object_property" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-binding.c"
+               line="457">A valid property on @object.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="property_bind_gdkcolor"
+              c:identifier="xfconf_g_property_bind_gdkcolor">
+      <doc xml:space="preserve"
+           filename="xfconf/xfconf-binding.c"
+           line="521">Binds an Xfconf property to a #GObject property of type
+GDK_TYPE_COLOR (aka a #GdkColor struct).  If the property
+is changed via either the #GObject or Xfconf, the corresponding
+property will also be updated. The binding is initialized from the
+Xfconf property, i.e. the initial value of the #GObject property is
+overwritten.
+
+This is a special-case binding; the GdkColor struct is not
+ideal as-is for binding to a property, so it is stored in the
+Xfconf store as four 16-bit unsigned ints (red, green, blue, alpha).
+Since GdkColor (currently) only supports RGB and not RGBA,
+the last value will always be set to 0xFFFF.</doc>
+      <source-position filename="xfconf/xfconf-binding.h" line="39"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-binding.c"
+             line="541">an ID number that can be used to later remove the
+         binding.</doc>
+        <type name="gulong" c:type="gulong"/>
+      </return-value>
+      <parameters>
+        <parameter name="channel" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-binding.c"
+               line="523">An #XfconfChannel.</doc>
+          <type name="Channel" c:type="XfconfChannel*"/>
+        </parameter>
+        <parameter name="xfconf_property" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-binding.c"
+               line="524">A property on @channel.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="object"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-binding.c"
+               line="525">A #GObject.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+        <parameter name="object_property" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-binding.c"
+               line="526">A valid property on @object.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="property_bind_gdkrgba"
+              c:identifier="xfconf_g_property_bind_gdkrgba"
+              version="4.12.1">
+      <doc xml:space="preserve"
+           filename="xfconf/xfconf-binding.c"
+           line="587">Binds an Xfconf property to a #GObject property of type
+GDK_TYPE_RGBA (aka a #GdkRGBA struct).  If the property
+is changed via either the #GObject or Xfconf, the corresponding
+property will also be updated. The binding is initialized from the
+Xfconf property, i.e. the initial value of the #GObject property is
+overwritten.
+
+This is a special-case binding; the GdkRGBA struct is not
+ideal as-is for binding to a property, so it is stored in the
+Xfconf store as four 16-bit unsigned ints (red, green, blue, alpha).</doc>
+      <source-position filename="xfconf/xfconf-binding.h" line="44"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfconf/xfconf-binding.c"
+             line="605">an ID number that can be used to later remove the
+         binding.</doc>
+        <type name="gulong" c:type="gulong"/>
+      </return-value>
+      <parameters>
+        <parameter name="channel" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-binding.c"
+               line="589">An #XfconfChannel.</doc>
+          <type name="Channel" c:type="XfconfChannel*"/>
+        </parameter>
+        <parameter name="xfconf_property" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-binding.c"
+               line="590">A property on @channel.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="object"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-binding.c"
+               line="591">A #GObject.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+        <parameter name="object_property" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-binding.c"
+               line="592">A valid property on @object.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="property_unbind" c:identifier="xfconf_g_property_unbind">
+      <doc xml:space="preserve"
+           filename="xfconf/xfconf-binding.c"
+           line="652">Removes an Xfconf/GObject property binding based on the binding
+ID number.  See xfconf_g_property_bind().</doc>
+      <source-position filename="xfconf/xfconf-binding.h" line="49"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="id" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-binding.c"
+               line="654">A binding ID number.</doc>
+          <type name="gulong" c:type="gulong"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="property_unbind_all"
+              c:identifier="xfconf_g_property_unbind_all">
+      <doc xml:space="preserve"
+           filename="xfconf/xfconf-binding.c"
+           line="726">Unbinds all Xfconf channel bindings (see xfconf_g_property_bind())
+to @object.  If @object is an #XfconfChannel, it will unbind all
+xfconf properties on that channel.  If @object is a regular #GObject
+with properties bound to a channel, all those bindings will be
+removed.</doc>
+      <source-position filename="xfconf/xfconf-binding.h" line="56"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="channel_or_object"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-binding.c"
+               line="728">A #GObject or #XfconfChannel.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="property_unbind_by_property"
+              c:identifier="xfconf_g_property_unbind_by_property">
+      <doc xml:space="preserve"
+           filename="xfconf/xfconf-binding.c"
+           line="682">Causes an Xfconf channel previously bound to a #GObject property
+(see xfconf_g_property_bind()) to no longer be bound.</doc>
+      <source-position filename="xfconf/xfconf-binding.h" line="51"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="channel" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-binding.c"
+               line="684">An #XfconfChannel.</doc>
+          <type name="Channel" c:type="XfconfChannel*"/>
+        </parameter>
+        <parameter name="xfconf_property" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-binding.c"
+               line="685">A bound property on @channel.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="object"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-binding.c"
+               line="686">A #GObject.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+        <parameter name="object_property" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfconf/xfconf-binding.c"
+               line="687">A bound property on @object.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="shutdown" c:identifier="xfconf_shutdown">
+      <doc xml:space="preserve"
+           filename="xfconf/xfconf.c"
+           line="140">Shuts down and frees any resources consumed by the Xfconf library.
+If xfconf_init() is called multiple times, xfconf_shutdown() must be
+called an equal number of times to shut down the library.</doc>
+      <source-position filename="xfconf/xfconf.h" line="38"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="value_get_int16" c:identifier="xfconf_g_value_get_int16">
+      <doc xml:space="preserve"
+           filename="common/xfconf-types.c"
+           line="302">Retrieves a 16-bit signed value from @value.</doc>
+      <source-position filename="xfconf/xfconf-types.h" line="43"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="common/xfconf-types.c"
+             line="308">A gint16.</doc>
+        <type name="gint16" c:type="gint16"/>
+      </return-value>
+      <parameters>
+        <parameter name="value" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="common/xfconf-types.c"
+               line="304">A #GValue.</doc>
+          <type name="GObject.Value" c:type="const GValue*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="value_get_uint16" c:identifier="xfconf_g_value_get_uint16">
+      <doc xml:space="preserve"
+           filename="common/xfconf-types.c"
+           line="244">Retrieves a 16-bit unsigned value from @value.</doc>
+      <source-position filename="xfconf/xfconf-types.h" line="37"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="common/xfconf-types.c"
+             line="250">A guint16.</doc>
+        <type name="guint16" c:type="guint16"/>
+      </return-value>
+      <parameters>
+        <parameter name="value" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="common/xfconf-types.c"
+               line="246">A #GValue.</doc>
+          <type name="GObject.Value" c:type="const GValue*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="value_set_int16" c:identifier="xfconf_g_value_set_int16">
+      <doc xml:space="preserve"
+           filename="common/xfconf-types.c"
+           line="317">Sets @value using a signed 16-bit integer.</doc>
+      <source-position filename="xfconf/xfconf-types.h" line="44"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="value" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="common/xfconf-types.c"
+               line="319">A #GValue.</doc>
+          <type name="GObject.Value" c:type="GValue*"/>
+        </parameter>
+        <parameter name="v_int16" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="common/xfconf-types.c"
+               line="320">A gint16.</doc>
+          <type name="gint16" c:type="gint16"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="value_set_uint16" c:identifier="xfconf_g_value_set_uint16">
+      <doc xml:space="preserve"
+           filename="common/xfconf-types.c"
+           line="259">Sets @value using an unsigned 16-bit integer.</doc>
+      <source-position filename="xfconf/xfconf-types.h" line="38"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="value" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="common/xfconf-types.c"
+               line="261">A #GValue.</doc>
+          <type name="GObject.Value" c:type="GValue*"/>
+        </parameter>
+        <parameter name="v_uint16" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="common/xfconf-types.c"
+               line="262">A guint16.</doc>
+          <type name="guint16" c:type="guint16"/>
+        </parameter>
+      </parameters>
+    </function>
+    <docsection name="xfconf">
+      <doc xml:space="preserve"
+           filename="xfconf/xfconf.c"
+           line="88">Before libxfconf can be used, it must be initialized by calling
+xfconf_init().  To free resources used by the library, call
+xfconf_shutdown().  These calls are "recursive": multiple calls to
+xfconf_init() are allowed, but each call must be matched by a
+separate call to xfconf_shutdown() to really free the library's
+resources.</doc>
+    </docsection>
+    <docsection name="xfconf-binding">
+      <doc xml:space="preserve"
+           filename="xfconf/xfconf-binding.c"
+           line="36">Often it may be useful to bind an Xfconf property to a GObject property.
+Settings dialogs often display the current value of an Xfconf property,
+and a user may edit the value to change the value in the Xfconf store.
+If the Xfconf property changes outside the settings dialog, the user will
+usually want to see the settings dialog automatically update to reflect
+the new value.
+
+With a single line of code, Xfconf's binding functionality can automate
+all this.</doc>
+    </docsection>
+    <docsection name="xfconf-channel">
+      <doc xml:space="preserve"
+           filename="xfconf/xfconf-channel.c"
+           line="52">An XfconfChannel is a representation of a restricted domain or
+namespace that an application can define to store configuration
+settings.  This is to ensure that different applications do not store
+configuration keys with the same names.</doc>
+    </docsection>
+    <docsection name="xfconf-types">
+      <doc xml:space="preserve"
+           filename="common/xfconf-types.c"
+           line="34">libgobject lacks GObject fundamental types for 16-bit signed and unsigned integers, which may be useful to use in an Xfconf store. GObject types for these primitive types are provided here.</doc>
+    </docsection>
+  </namespace>
+</repository>

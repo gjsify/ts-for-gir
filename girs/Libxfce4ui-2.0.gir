@@ -1,0 +1,4280 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <include name="Libxfce4util" version="1.0"/>
+  <package name="libxfce4ui-2"/>
+  <c:include name="libxfce4ui/libxfce4ui.h"/>
+  <namespace name="Libxfce4ui"
+             version="2.0"
+             shared-library="libxfce4ui-2.so.0"
+             c:identifier-prefixes="Xfce,xfce,libxfce"
+             c:symbol-prefixes="xfce,xfce,libxfce">
+    <alias name="ScreenSaver" c:type="XfceScreenSaver">
+      <source-position filename="xfce-screensaver.h" line="39"/>
+      <type name="Screensaver" c:type="XfceScreensaver"/>
+    </alias>
+    <constant name="BUTTON_TYPE_MIXED"
+              value="button-mixed"
+              c:type="XFCE_BUTTON_TYPE_MIXED">
+      <doc xml:space="preserve"
+           filename="xfce-dialogs.h"
+           line="31">This allows you to easily create mixed buttons in a dialog.
+param1 is used for the stock_id, param2 for the label and
+param3 for the response_id. See also xfce_gtk_button_new_mixed().</doc>
+      <source-position filename="xfce-dialogs.h" line="39"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <constant name="BUTTON_TYPE_PIXBUF"
+              value="button-pixbuf"
+              c:type="XFCE_BUTTON_TYPE_PIXBUF">
+      <doc xml:space="preserve"
+           filename="xfce-dialogs.h"
+           line="41">Creates a button with the #GdkPixbuf as button icon.
+param1 is the #GdkPixbuf, param2 for the label and
+param3 for the response_id.</doc>
+      <source-position filename="xfce-dialogs.h" line="49"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function-macro name="FILENAME_INPUT"
+                    c:identifier="XFCE_FILENAME_INPUT"
+                    introspectable="0">
+      <source-position filename="xfce-filename-input.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="FILENAME_INPUT_CLASS"
+                    c:identifier="XFCE_FILENAME_INPUT_CLASS"
+                    introspectable="0">
+      <source-position filename="xfce-filename-input.h" line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="FILENAME_INPUT_GET_CLASS"
+                    c:identifier="XFCE_FILENAME_INPUT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="xfce-filename-input.h" line="39"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="FilenameInput"
+           c:symbol-prefix="filename_input"
+           c:type="XfceFilenameInput"
+           parent="Gtk.Box"
+           glib:type-name="XfceFilenameInput"
+           glib:get-type="xfce_filename_input_get_type"
+           glib:type-struct="FilenameInputClass">
+      <doc xml:space="preserve"
+           filename="xfce-filename-input.c"
+           line="95">An opaque structure with only private fields.</doc>
+      <source-position filename="xfce-filename-input.h" line="31"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Orientable"/>
+      <function name="desensitise_widget"
+                c:identifier="xfce_filename_input_desensitise_widget"
+                version="4.16">
+        <doc xml:space="preserve"
+             filename="xfce-filename-input.c"
+             line="375">A convenience function to be connected as a callback for the  "text-invalid" signal
+(for example, using g_connect_swapped) for the simple case where the desired effect
+of this signal is to set the sensitivity of a single GtkWidget (for example, a GtkButton).</doc>
+        <source-position filename="xfce-filename-input.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-filename-input.c"
+                 line="377">a #GtkWidget</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="sensitise_widget"
+                c:identifier="xfce_filename_input_sensitise_widget"
+                version="4.16">
+        <doc xml:space="preserve"
+             filename="xfce-filename-input.c"
+             line="358">A convenience function to be connected as a callback for the  "text-valid" signal
+(for example, using g_connect_swapped) for the simple case where the desired effect
+of this signal is to set the sensitivity of a single GtkWidget (for example, a GtkButton).</doc>
+        <source-position filename="xfce-filename-input.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-filename-input.c"
+                 line="360">a #GtkWidget</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="check"
+              c:identifier="xfce_filename_input_check"
+              version="4.16">
+        <doc xml:space="preserve"
+             filename="xfce-filename-input.c"
+             line="318">Forces a check of the current input text even when it has not changed.
+This is useful to force the appropriate signal to be sent to indicate
+whether the text is a valid filename or not, so that for example any
+GtkWidgets whose sensitivity is controlled by this can be correctly updated
+when they are first created.</doc>
+        <source-position filename="xfce-filename-input.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="filename_input" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-filename-input.c"
+                 line="320">a #XfceFilenameInput instance.</doc>
+            <type name="FilenameInput" c:type="XfceFilenameInput*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_entry"
+              c:identifier="xfce_filename_input_get_entry"
+              version="4.16">
+        <doc xml:space="preserve"
+             filename="xfce-filename-input.c"
+             line="339">Gets the #GtkEntry associated to filename_input</doc>
+        <source-position filename="xfce-filename-input.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-filename-input.c"
+               line="345">A #GtkEntry</doc>
+          <type name="Gtk.Entry" c:type="GtkEntry*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="filename_input" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-filename-input.c"
+                 line="341">a #XfceFilenameInput instance.</doc>
+            <type name="FilenameInput" c:type="XfceFilenameInput*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_text"
+              c:identifier="xfce_filename_input_get_text"
+              version="4.16">
+        <doc xml:space="preserve"
+             filename="xfce-filename-input.c"
+             line="297">Gets the current text of the widget.</doc>
+        <source-position filename="xfce-filename-input.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-filename-input.c"
+               line="303">the string representing the current text</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="filename_input" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-filename-input.c"
+                 line="299">a #XfceFilenameInput instance.</doc>
+            <type name="FilenameInput" c:type="XfceFilenameInput*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="max-text-length"
+                version="4.16"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="-1">
+        <doc xml:space="preserve"
+             filename="xfce-filename-input.c"
+             line="152">The maximum permitted length of a filename. A value of -1
+indicates no maximum length.</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="original-filename"
+                version="4.16"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="xfce-filename-input.c"
+             line="134">The original name of the file, to be used as the initial text
+displayed in the GtkEntry. A NULL value indicates no original
+filename.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <glib:signal name="text-invalid" when="last" version="4.16">
+        <doc xml:space="preserve"
+             filename="xfce-filename-input.c"
+             line="188">Signals that the current text is not a valid filename. This signal is
+emitted whenever the user changes the text and the result is not a valid
+filename.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="text-valid" when="last" version="4.16">
+        <doc xml:space="preserve"
+             filename="xfce-filename-input.c"
+             line="169">Signals that the current text is a valid filename. This signal is
+emitted whenever the user changes the text and the result is a valid
+filename.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="FilenameInputClass"
+            c:type="XfceFilenameInputClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="FilenameInput">
+      <source-position filename="xfce-filename-input.h" line="31"/>
+    </record>
+    <record name="GtkActionEntry" c:type="XfceGtkActionEntry">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.h"
+           line="51">Replacement for the deprecated #GtkActionEntry.
+The idea is to provide a fixed list of #XfceGtkActionEntrys:
+- use xfce_gtk_translate_action_entries() once to translate the list
+- use xfce_gtk_accel_map_add_entries() once to register the provided accelerators
+- use xfce_gtk_get_action_entry_by_id() to find a single entry, e.g. by using a enumeration
+- use xfce_gtk_*_new_from_action_entry() to create the specific menu- or tool-items from the entry</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="83"/>
+      <field name="id" writable="1">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.h"
+             line="53">unique identifier for instances of this structure (you might want to use a enum)</doc>
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="accel_path" writable="1">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.h"
+             line="54">the unique path, used to identify the accelerator</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="default_accelerator" writable="1">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.h"
+             line="55">the default key and modifier to trigger the callback linked to the entry</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="menu_item_type" writable="1">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.h"
+             line="56">the type of the item which should be used for creation</doc>
+        <type name="GtkMenuItem" c:type="XfceGtkMenuItem"/>
+      </field>
+      <field name="menu_item_label_text" writable="1">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.h"
+             line="57">text which should be shown in the menu</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="menu_item_tooltip_text" writable="1">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.h"
+             line="58">optional tooltip of the item</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="menu_item_icon_name" writable="1">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.h"
+             line="59">optional icon name which will be used to find a image for the item</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="callback" writable="1">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.h"
+             line="60">the callback which will be triggered on activation. The callback has to return %TRUE
+           to signal that the accelerator was activated and handled</doc>
+        <type name="GObject.Callback" c:type="GCallback"/>
+      </field>
+    </record>
+    <enumeration name="GtkMenuItem" c:type="XfceGtkMenuItem">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.h"
+           line="31">List of item types which are supported by the #XfceGtkActionEntry.
+To be extended if required.</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="47"/>
+      <member name="menu_item" value="0" c:identifier="XFCE_GTK_MENU_ITEM">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.h"
+             line="33">see #GtkMenuItem</doc>
+      </member>
+      <member name="image_menu_item"
+              value="1"
+              c:identifier="XFCE_GTK_IMAGE_MENU_ITEM">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.h"
+             line="34">see #GtkImageMenuItem</doc>
+      </member>
+      <member name="check_menu_item"
+              value="2"
+              c:identifier="XFCE_GTK_CHECK_MENU_ITEM">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.h"
+             line="35">see #GtkCheckMenuItem</doc>
+      </member>
+      <member name="radio_menu_item"
+              value="3"
+              c:identifier="XFCE_GTK_RADIO_MENU_ITEM">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.h"
+             line="36">see #GtkRadioMenuItem</doc>
+      </member>
+    </enumeration>
+    <function-macro name="IS_FILENAME_INPUT"
+                    c:identifier="XFCE_IS_FILENAME_INPUT"
+                    introspectable="0">
+      <source-position filename="xfce-filename-input.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_FILENAME_INPUT_CLASS"
+                    c:identifier="XFCE_IS_FILENAME_INPUT_CLASS"
+                    introspectable="0">
+      <source-position filename="xfce-filename-input.h" line="38"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SM_CLIENT"
+                    c:identifier="XFCE_IS_SM_CLIENT"
+                    introspectable="0">
+      <source-position filename="xfce-sm-client.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SM_CLIENT_CLASS"
+                    c:identifier="XFCE_IS_SM_CLIENT_CLASS"
+                    introspectable="0">
+      <source-position filename="xfce-sm-client.h" line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TITLED_DIALOG"
+                    c:identifier="XFCE_IS_TITLED_DIALOG"
+                    introspectable="0">
+      <source-position filename="xfce-titled-dialog.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TITLED_DIALOG_CLASS"
+                    c:identifier="XFCE_IS_TITLED_DIALOG_CLASS"
+                    introspectable="0">
+      <source-position filename="xfce-titled-dialog.h" line="39"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="SMClient"
+           c:symbol-prefix="sm_client"
+           c:type="XfceSMClient"
+           parent="GObject.Object"
+           glib:type-name="XfceSMClient"
+           glib:get-type="xfce_sm_client_get_type">
+      <doc xml:space="preserve"
+           filename="xfce-sm-client.c"
+           line="132">An opaque struct with only private fields.</doc>
+      <constructor name="get" c:identifier="xfce_sm_client_get">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="1455">Gets the application's SM client instance.  This is best
+used with xfce_sm_client_get_option_group() above (and using
+the returned #GOptionGroup with g_option_context_parse()), as the
+command line parsing will figure out many of the SM client's
+required property values for you.
+
+If you have already created an #XfceSMClient instance using
+this function, this will return the same instance, i.e. you should
+*only* unref the first instance.</doc>
+        <source-position filename="xfce-sm-client.h" line="92"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="xfce-sm-client.c"
+               line="1468">A new #XfceSMClient instance -transfer full- on the first call only,
+other calls to this function are transfer none</doc>
+          <type name="SMClient" c:type="XfceSMClient*"/>
+        </return-value>
+      </constructor>
+      <constructor name="get_full" c:identifier="xfce_sm_client_get_full">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="1515">Creates a new SM client instance, allowing the application
+fine-grained control over the initial properties set.
+Note that this function does not actually connect to the session
+manager, so other actions can be taken (such as setting custom
+properties or connecting signals) before calling
+xfce_sm_client_connect().
+
+It is recommended to use xfce_sm_client_get_with_argv(), or,
+if you are using Gtk or Glib's command-line option parser,
+xfce_sm_client_get_option_group() and xfce_sm_client_get() instead.</doc>
+        <source-position filename="xfce-sm-client.h" line="99"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="xfce-sm-client.c"
+               line="1536">A new #XfceSMClient instance</doc>
+          <type name="SMClient" c:type="XfceSMClient*"/>
+        </return-value>
+        <parameters>
+          <parameter name="restart_style" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1517">An XfceSMClientRestartStyle</doc>
+            <type name="SMClientRestartStyle"
+                  c:type="XfceSMClientRestartStyle"/>
+          </parameter>
+          <parameter name="priority" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1518">A restart priority</doc>
+            <type name="guint8" c:type="guchar"/>
+          </parameter>
+          <parameter name="resumed_client_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1519">The client id used in the previous session</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="current_directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1520">The application's working directory</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="restart_command" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1521">A command that can resume the application's
+                  saved state</doc>
+            <type name="utf8" c:type="const gchar**"/>
+          </parameter>
+          <parameter name="desktop_file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1523">The application's .desktop file</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="get_with_argv"
+                   c:identifier="xfce_sm_client_get_with_argv">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="1481">Creates a new #XfceSMClient instance.  It attempts to
+set all required properties using the app's command line.
+Note that this function does not actually connect to the session
+manager, so other actions can be taken (such as setting custom
+properties or connecting signals) before calling
+xfce_sm_client_connect().
+
+If you are using Gtk or Glib's command-line option parser,
+it is recommended that you use xfce_sm_client_get_option_group()
+and xfce_sm_client_get() instead.</doc>
+        <source-position filename="xfce-sm-client.h" line="94"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="xfce-sm-client.c"
+               line="1499">A new #XfceSMClient instance</doc>
+          <type name="SMClient" c:type="XfceSMClient*"/>
+        </return-value>
+        <parameters>
+          <parameter name="argc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1483">The number of arguments passed to main()</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="argv" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1484">The argument vector passed to main()</doc>
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+          <parameter name="restart_style" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1485">An #XfceSMClientRestartStyle</doc>
+            <type name="SMClientRestartStyle"
+                  c:type="XfceSMClientRestartStyle"/>
+          </parameter>
+          <parameter name="priority" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1486">A restart priority</doc>
+            <type name="guint8" c:type="guchar"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="error_quark" c:identifier="xfce_sm_client_error_quark">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="1382">Gets the XfceSmClient Error Quark.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-sm-client.c"
+               line="1387">a #GQuark.</doc>
+          <type name="GLib.Quark" c:type="GQuark"/>
+        </return-value>
+      </function>
+      <function name="get_option_group"
+                c:identifier="xfce_sm_client_get_option_group">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="1402">Constructs a #GOptionGroup suitable for use with Glib's
+command-line option parser.
+
+This function is a bit sneaky in that it will make a copy of
+the program's argc and argv &lt;emphasis&gt;before&lt;/emphasis&gt; GTK+ etc.
+has a chance to mess around with it, so #XfceSMClient can later
+construct an accurate restart command.  Instead of calling
+gtk_init() or gtk_init_with_args(), instead you'd do something
+like:
+
+&lt;informalexample&gt;&lt;programlisting&gt;
+GOptionContext *context = g_option_context_new("");
+g_option_context_add_group(context, gtk_get_option_group(TRUE));
+g_option_context_add_group(context, xfce_sm_client_get_option_group(argc, argv);
+g_option_context_parse(context, &amp;argc, &amp;argv, NULL);
+&lt;/programlisting&gt;&lt;/informalexample&gt;
+
+Error checking is omitted here for brevity, and of course you could
+add your app's own options with g_option_context_add_main_entries()
+or similar.</doc>
+        <source-position filename="xfce-sm-client.h" line="89"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="xfce-sm-client.c"
+               line="1428">A new #GOptionGroup</doc>
+          <type name="GLib.OptionGroup" c:type="GOptionGroup*"/>
+        </return-value>
+        <parameters>
+          <parameter name="argc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1404">The application's argument count</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="argv" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1405">The application's argument vector</doc>
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="connect" c:identifier="xfce_sm_client_connect" throws="1">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="1556">Attempts to connect to the session manager.</doc>
+        <source-position filename="xfce-sm-client.h" line="106"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-sm-client.c"
+               line="1563">%TRUE on success, %FALSE otherwise.  If an error
+         occurs, @error will be set.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sm_client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1558">An #XfceSMClient</doc>
+            <type name="SMClient" c:type="XfceSMClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="disconnect" c:identifier="xfce_sm_client_disconnect">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="1720">Disconnects the application from the session manager.
+
+&lt;note&gt;&lt;para&gt;
+This may not remove the application from the saved
+session (if any) if the user later does not choose to save
+the session when logging out.
+&lt;/para&gt;&lt;/note&gt;</doc>
+        <source-position filename="xfce-sm-client.h" line="108"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sm_client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1722">An #XfceSMClient</doc>
+            <type name="SMClient" c:type="XfceSMClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_client_id"
+              c:identifier="xfce_sm_client_get_client_id"
+              glib:get-property="client-id">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="2152">Retrieves the session client's unique ID.  This ID can
+be used to construct a filename used to restore the
+application's state.  Note that this value is only
+guaranteed to be valid if connected to the session manager.
+
+&lt;note&gt;&lt;para&gt;
+Instead of constructing a state filename, it is
+recommended to use xfce_sm_client_get_state_file().
+&lt;/para&gt;&lt;/note&gt;</doc>
+        <source-position filename="xfce-sm-client.h" line="119"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-sm-client.c"
+               line="2166">an opaque object-owned string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sm_client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="2154">An #XfceSMClient</doc>
+            <type name="SMClient" c:type="XfceSMClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_current_directory"
+              c:identifier="xfce_sm_client_get_current_directory"
+              glib:get-property="current-directory">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="2253">Retrieves the session client's working directory.  See
+xfce_sm_client_set_current_directory() for more information.</doc>
+        <source-position filename="xfce-sm-client.h" line="133"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-sm-client.c"
+               line="2260">an object-owned string</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sm_client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="2255">An #XfceSMClient</doc>
+            <type name="SMClient" c:type="XfceSMClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_priority"
+              c:identifier="xfce_sm_client_get_priority"
+              glib:get-property="priority">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="2135">Retrieves the session client's restart priority.  See
+xfce_sm_client_set_priority() for more information.</doc>
+        <source-position filename="xfce-sm-client.h" line="129"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-sm-client.c"
+               line="2142">a value from #G_MININT8 to #G_MAXINT8</doc>
+          <type name="guint8" c:type="guint8"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sm_client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="2137">An #XfceSMClient</doc>
+            <type name="SMClient" c:type="XfceSMClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_restart_command"
+              c:identifier="xfce_sm_client_get_restart_command"
+              glib:get-property="restart-command">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="2269">Retrieves the session client's restart command.  See
+xfce_sm_client_set_restart_command() for more information.</doc>
+        <source-position filename="xfce-sm-client.h" line="138"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-sm-client.c"
+               line="2276">an object-owned string vector</doc>
+          <array c:type="const gchar* const*">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sm_client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="2271">An #XfceSMClient</doc>
+            <type name="SMClient" c:type="XfceSMClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_restart_style"
+              c:identifier="xfce_sm_client_get_restart_style"
+              glib:get-property="restart-style">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="2118">Retrieves the session client's restart style.  See
+xfce_sm_client_set_restart_style() for more information.</doc>
+        <source-position filename="xfce-sm-client.h" line="125"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-sm-client.c"
+               line="2125">a value from the #XfceSMClientRestartStyle enum</doc>
+          <type name="SMClientRestartStyle" c:type="XfceSMClientRestartStyle"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sm_client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="2120">An #XfceSMClient</doc>
+            <type name="SMClient" c:type="XfceSMClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_state_file"
+              c:identifier="xfce_sm_client_get_state_file">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="2175">Constructs a filename that can be used to restore or save
+state information.
+
+When saving state, ote that this file may already exist (and
+may have been used for saving previous state for the
+application), so the application should first remove or empty
+the file if it requires a fresh state file.
+
+On the next application start, this function can be used to
+check to see if there is any previous saved state, and, if so,
+the state can be restored from the file.
+
+This function will use a standard location and naming scheme
+and handle state cleanup (setting of the discard command) for you.
+
+Before calling this function, the application must have a
+valid client ID (see xfce_sm_client_get_client_id()).</doc>
+        <source-position filename="xfce-sm-client.h" line="121"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-sm-client.c"
+               line="2197">a file name string, owned by the object or %NULL if
+         the session client is disabled.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sm_client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="2177">An #XfceSMClient</doc>
+            <type name="SMClient" c:type="XfceSMClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_connected" c:identifier="xfce_sm_client_is_connected">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="1756">Determines whether or not the application has connected to the
+session manager.</doc>
+        <source-position filename="xfce-sm-client.h" line="113"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-sm-client.c"
+               line="1763">%TRUE if connected to the session manager, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sm_client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1758">An #XfceSMClient</doc>
+            <type name="SMClient" c:type="XfceSMClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_resumed" c:identifier="xfce_sm_client_is_resumed">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="1776">Determines whether the application was resumed from a previous
+session, or if the application has been started fresh with no
+state information associated with it.</doc>
+        <source-position filename="xfce-sm-client.h" line="114"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-sm-client.c"
+               line="1784">%TRUE if resumed from a previous session, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sm_client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1778">An #XfceSMClient</doc>
+            <type name="SMClient" c:type="XfceSMClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="request_shutdown"
+              c:identifier="xfce_sm_client_request_shutdown">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="1918">Sends a request to the session manager to end the session.
+Depending on @hint, the session manager may prompt for a
+certain action (log out, halt, reboot, etc.) or may take the
+requested action without user intervention.
+
+&lt;note&gt;&lt;para&gt;
+The session manager may or may not support all requested
+actions, and is also free to ignore the requested action.
+&lt;/para&gt;&lt;/note&gt;</doc>
+        <source-position filename="xfce-sm-client.h" line="110"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sm_client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1920">An #XfceSMClient</doc>
+            <type name="SMClient" c:type="XfceSMClient*"/>
+          </instance-parameter>
+          <parameter name="shutdown_hint" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1921">The type of shutdown requested</doc>
+            <type name="SMClientShutdownHint"
+                  c:type="XfceSMClientShutdownHint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_current_directory"
+              c:identifier="xfce_sm_client_set_current_directory"
+              glib:set-property="current-directory">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="2033">Sets the startup working directory of @sm_client to
+@current_directory.  If unset, defaults to the user's
+home directory.</doc>
+        <source-position filename="xfce-sm-client.h" line="131"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sm_client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="2035">An #XfceSMClient</doc>
+            <type name="SMClient" c:type="XfceSMClient*"/>
+          </instance-parameter>
+          <parameter name="current_directory" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="2036">A valid path name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_desktop_file"
+              c:identifier="xfce_sm_client_set_desktop_file"
+              glib:set-property="desktop-file">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="1793">Sets the application's .desktop file.  In addition to informing
+the session manager of the .desktop file so it can present localized
+names and an icon in session listings and the splash screen, this
+also calls g_set_application_name() and
+gtk_window_set_default_icon_name() (or
+gtk_window_set_default_icon_from_file()) if the Name and Icon
+keys are present, respectively.
+
+If a relative path to the file is provided, this function will search
+the standard application directories as specified by the
+&lt;ulink type="http" url="http://standards.freedesktop.org/menu-spec/latest/"&gt;XDG
+Desktop Menu Specification&lt;/ulink&gt;.</doc>
+        <source-position filename="xfce-sm-client.h" line="116"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sm_client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1795">An #XfceSMClient</doc>
+            <type name="SMClient" c:type="XfceSMClient*"/>
+          </instance-parameter>
+          <parameter name="desktop_file" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1796">The path to the application's .desktop file</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_priority"
+              c:identifier="xfce_sm_client_set_priority"
+              glib:set-property="priority">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="1993">Sets the startup priority for @sm_client to @priority.  Note
+that the default priority for applications is 50; lower values
+should be reserved for components of the desktop environment.</doc>
+        <source-position filename="xfce-sm-client.h" line="127"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sm_client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1995">An #XfceSMClient</doc>
+            <type name="SMClient" c:type="XfceSMClient*"/>
+          </instance-parameter>
+          <parameter name="priority" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1996">A 8-bit signed priority value</doc>
+            <type name="guint8" c:type="guint8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_restart_command"
+              c:identifier="xfce_sm_client_set_restart_command"
+              glib:set-property="restart-command">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="2090">Sets the application's "restart" command, which is used to restart
+the application and restore any saved state from the previous
+run.
+
+If unset, defaults to the command used to start this instance
+of the application, with session management related arguments
+added (if not already present).</doc>
+        <source-position filename="xfce-sm-client.h" line="135"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sm_client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="2092">An #XfceSMClient</doc>
+            <type name="SMClient" c:type="XfceSMClient*"/>
+          </instance-parameter>
+          <parameter name="restart_command" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="2093">An argument vector</doc>
+            <type name="utf8" c:type="gchar**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_restart_style"
+              c:identifier="xfce_sm_client_set_restart_style"
+              glib:set-property="restart-style">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="1952">Sets the restart style hint to @restart_style.</doc>
+        <source-position filename="xfce-sm-client.h" line="123"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="sm_client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1954">An #XfceSMClient</doc>
+            <type name="SMClient" c:type="XfceSMClient*"/>
+          </instance-parameter>
+          <parameter name="restart_style" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-sm-client.c"
+                 line="1955">An #XfceSMClientRestartStyle value</doc>
+            <type name="SMClientRestartStyle"
+                  c:type="XfceSMClientRestartStyle"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="argc"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="argv"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <array>
+          <type name="utf8"/>
+        </array>
+      </property>
+      <property name="client-id"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_client_id"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="current-directory"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_current_directory"
+                getter="get_current_directory"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="desktop-file"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_desktop_file"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="priority"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_priority"
+                getter="get_priority"
+                default-value="50">
+        <type name="guint8" c:type="guint8"/>
+      </property>
+      <property name="restart-command"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_restart_command"
+                getter="get_restart_command">
+        <array>
+          <type name="utf8"/>
+        </array>
+      </property>
+      <property name="restart-style"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_restart_style"
+                getter="get_restart_style"
+                default-value="XFCE_SM_CLIENT_RESTART_NORMAL">
+        <type name="SMClientRestartStyle"/>
+      </property>
+      <property name="resumed" transfer-ownership="none" default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <glib:signal name="quit" when="last">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="332">Emitted when the application is required to quit.  This is not
+optional: if the client does not quit a short time after receiving
+this signal, it will likely be terminated in some other way.  While
+not required, the application will usually receive quit-requested
+before receiving quit.  If the application does not connect to this
+signal, #XfceSMClient will call &lt;function&gt;exit(3)&lt;/function&gt; with
+an exit code of zero on behalf of the application.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="quit-cancelled" when="last">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="353">Informs the application that it will not need to quit.  In most cases,
+quit-cancelled will be emitted a short time after quit-requested.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="quit-requested" when="last">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="306">Signals the client that the session manager will soon want the
+application to quit, perhaps as a part of ending the session
+(but this should not be assumed).  The application can take
+this opportunity to prompt the user to save any unsaved work
+to disk.
+
+This signal also expects a return value from the handler.  If the
+application wishes to cancel the quit request (perhaps because the
+user selected "Cancel" in prompts to save unsaved work), it should
+return %TRUE from the handler.  If the application is satisfied
+with possibly needing to quit soon, the handler should return %FALSE.</doc>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="save-state" when="last">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="261">Signals the client that it should save a copy of its current state
+such that it could be restarted later in exactly the same state as
+it is at the time of signal emission.
+
+If the state is simple enough to be encoded in the application's
+command line, xfce_sm_client_set_restart_command() can be used
+to set that command line.  For more complex state data,
+xfce_sm_client_get_state_file() should be used.
+
+The application should attempt to save its state as quickly as
+possible, and MUST NOT interact with the user as a part of saving
+state.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="save-state-extended" when="last">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="287">Allows the application to save extra state information after all
+other applications in the session have had a chance to save their
+state.  This is mainly used by the window manager to save window
+positions.  Most applications should not need to connect to this
+signal.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <enumeration name="SMClientPriority" c:type="XfceSMClientPriority">
+      <doc xml:space="preserve"
+           filename="xfce-sm-client.c"
+           line="93">Some sample priority values for use with xfce_sm_client_set_priority().</doc>
+      <source-position filename="xfce-sm-client.h" line="73"/>
+      <member name="highest"
+              value="0"
+              c:identifier="XFCE_SM_CLIENT_PRIORITY_HIGHEST">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="95">A high priority value.  You probably
+                                  don't want to use this.</doc>
+      </member>
+      <member name="wm" value="15" c:identifier="XFCE_SM_CLIENT_PRIORITY_WM">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="97">A priority value for use by the window manager.</doc>
+      </member>
+      <member name="core"
+              value="25"
+              c:identifier="XFCE_SM_CLIENT_PRIORITY_CORE">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="98">A priority value for use by applications that
+                               place windows on the screen and possibly set
+                               window manager struts.</doc>
+      </member>
+      <member name="desktop"
+              value="35"
+              c:identifier="XFCE_SM_CLIENT_PRIORITY_DESKTOP">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="101">A priority value for use by applications
+                                  that draw on the desktop.</doc>
+      </member>
+      <member name="default"
+              value="50"
+              c:identifier="XFCE_SM_CLIENT_PRIORITY_DEFAULT">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="103">A priority value for regular applications.</doc>
+      </member>
+      <member name="lowest"
+              value="255"
+              c:identifier="XFCE_SM_CLIENT_PRIORITY_LOWEST">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="104">The lowest possible priority value.</doc>
+      </member>
+    </enumeration>
+    <enumeration name="SMClientRestartStyle"
+                 glib:type-name="XfceSMClientRestartStyle"
+                 glib:get-type="xfce_sm_client_restart_style_get_type"
+                 c:type="XfceSMClientRestartStyle">
+      <doc xml:space="preserve"
+           filename="xfce-sm-client.c"
+           line="109">An enumeration describing how the session manager should restart
+the application.</doc>
+      <member name="normal"
+              value="0"
+              c:identifier="XFCE_SM_CLIENT_RESTART_NORMAL"
+              glib:nick="normal"
+              glib:name="XFCE_SM_CLIENT_RESTART_NORMAL">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="111">Only restart the application if it is
+                                still running when the session is next
+                                saved.</doc>
+      </member>
+      <member name="immediately"
+              value="1"
+              c:identifier="XFCE_SM_CLIENT_RESTART_IMMEDIATELY"
+              glib:nick="immediately"
+              glib:name="XFCE_SM_CLIENT_RESTART_IMMEDIATELY">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="114">Immediately restart the application
+                                     if it ever quits.</doc>
+      </member>
+    </enumeration>
+    <enumeration name="SMClientShutdownHint"
+                 glib:type-name="XfceSMClientShutdownHint"
+                 glib:get-type="xfce_sm_client_shutdown_hint_get_type"
+                 c:type="XfceSMClientShutdownHint">
+      <doc xml:space="preserve"
+           filename="xfce-sm-client.c"
+           line="121">Hints to the session manager what kind of shutdown the session manager
+should perform.</doc>
+      <member name="ask"
+              value="0"
+              c:identifier="XFCE_SM_CLIENT_SHUTDOWN_HINT_ASK"
+              glib:nick="ask"
+              glib:name="XFCE_SM_CLIENT_SHUTDOWN_HINT_ASK">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="123">Prompt the user for a choice,</doc>
+      </member>
+      <member name="logout"
+              value="1"
+              c:identifier="XFCE_SM_CLIENT_SHUTDOWN_HINT_LOGOUT"
+              glib:nick="logout"
+              glib:name="XFCE_SM_CLIENT_SHUTDOWN_HINT_LOGOUT">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="124">End the current session,</doc>
+      </member>
+      <member name="halt"
+              value="2"
+              c:identifier="XFCE_SM_CLIENT_SHUTDOWN_HINT_HALT"
+              glib:nick="halt"
+              glib:name="XFCE_SM_CLIENT_SHUTDOWN_HINT_HALT">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="125">Shut down the computer.</doc>
+      </member>
+      <member name="reboot"
+              value="3"
+              c:identifier="XFCE_SM_CLIENT_SHUTDOWN_HINT_REBOOT"
+              glib:nick="reboot"
+              glib:name="XFCE_SM_CLIENT_SHUTDOWN_HINT_REBOOT">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.c"
+             line="126">Restart the computer.</doc>
+      </member>
+    </enumeration>
+    <function-macro name="SM_CLIENT"
+                    c:identifier="XFCE_SM_CLIENT"
+                    introspectable="0">
+      <source-position filename="xfce-sm-client.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SM_CLIENT_CLASS"
+                    c:identifier="XFCE_SM_CLIENT_CLASS"
+                    introspectable="0">
+      <source-position filename="xfce-sm-client.h" line="33"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SM_CLIENT_GET_CLASS"
+                    c:identifier="XFCE_SM_CLIENT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="xfce-sm-client.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Screensaver"
+           c:symbol-prefix="screensaver"
+           c:type="XfceScreensaver"
+           parent="GObject.Object"
+           glib:type-name="XfceScreensaver"
+           glib:get-type="xfce_screensaver_get_type"
+           glib:type-struct="ScreensaverClass">
+      <source-position filename="xfce-screensaver.h" line="36"/>
+      <constructor name="new"
+                   c:identifier="xfce_screensaver_new"
+                   version="4.18.2">
+        <doc xml:space="preserve"
+             filename="xfce-screensaver.c"
+             line="401">Creates a new #XfceScreensaver object or increases the reference count
+of the current object.</doc>
+        <source-position filename="xfce-screensaver.h" line="41"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="xfce-screensaver.c"
+               line="407">An #XfceScreensaver object, to be released with
+g_object_unref() when no longer used.</doc>
+          <type name="Screensaver" c:type="XfceScreensaver*"/>
+        </return-value>
+      </constructor>
+      <method name="inhibit"
+              c:identifier="xfce_screensaver_inhibit"
+              version="4.18.2">
+        <doc xml:space="preserve"
+             filename="xfce-screensaver.c"
+             line="464">Calling this function with @inhibit as %TRUE will prevent the user's
+screensaver from activating. This is useful when the user is watching
+a movie or giving a presentation.
+
+Calling this function with @inhibit as %FALSE will remove any current
+screensaver inhibit the #XfceScreensaver object has.</doc>
+        <source-position filename="xfce-screensaver.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="saver" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-screensaver.c"
+                 line="466">the #XfceScreensaver object</doc>
+            <type name="Screensaver" c:type="XfceScreensaver*"/>
+          </instance-parameter>
+          <parameter name="inhibit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-screensaver.c"
+                 line="467">whether to inhibit the screensaver from activating</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="lock"
+              c:identifier="xfce_screensaver_lock"
+              version="4.18.2">
+        <doc xml:space="preserve"
+             filename="xfce-screensaver.c"
+             line="547">Attempts to lock the screen, either with one of the screensaver
+D-Bus proxies, the Xfconf lock command, or one of the
+fallback scripts such as xdg-screensaver.</doc>
+        <source-position filename="xfce-screensaver.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-screensaver.c"
+               line="555">%TRUE if the lock attempt returns success, %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="saver" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-screensaver.c"
+                 line="549">the #XfceScreensaver object</doc>
+            <type name="Screensaver" c:type="XfceScreensaver*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="heartbeat-command"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="lock-command"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="lock-on-sleep"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+    </class>
+    <record name="ScreensaverClass"
+            c:type="XfceScreensaverClass"
+            glib:is-gtype-struct-for="Screensaver">
+      <source-position filename="xfce-screensaver.h" line="36"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="SmCLientErrorEnum"
+                 glib:type-name="XfceSmCLientErrorEnum"
+                 glib:get-type="xfce_sm_client_error_enum_get_type"
+                 c:type="XfceSmCLientErrorEnum">
+      <doc xml:space="preserve"
+           filename="xfce-sm-client.h"
+           line="45">Error codes returned by XfceSmCLient functions.</doc>
+      <member name="failed"
+              value="0"
+              c:identifier="XFCE_SM_CLIENT_ERROR_FAILED"
+              glib:nick="failed"
+              glib:name="XFCE_SM_CLIENT_ERROR_FAILED">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.h"
+             line="47">Failed to connect to the session manager.</doc>
+      </member>
+      <member name="invalid_client"
+              value="1"
+              c:identifier="XFCE_SM_CLIENT_ERROR_INVALID_CLIENT"
+              glib:nick="invalid-client"
+              glib:name="XFCE_SM_CLIENT_ERROR_INVALID_CLIENT">
+        <doc xml:space="preserve"
+             filename="xfce-sm-client.h"
+             line="48">Session does not have a valid client id.</doc>
+      </member>
+    </enumeration>
+    <function-macro name="TITLED_DIALOG"
+                    c:identifier="XFCE_TITLED_DIALOG"
+                    introspectable="0">
+      <source-position filename="xfce-titled-dialog.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TITLED_DIALOG_CLASS"
+                    c:identifier="XFCE_TITLED_DIALOG_CLASS"
+                    introspectable="0">
+      <source-position filename="xfce-titled-dialog.h" line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TITLED_DIALOG_GET_CLASS"
+                    c:identifier="XFCE_TITLED_DIALOG_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="xfce-titled-dialog.h" line="40"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="TitledDialog"
+           c:symbol-prefix="titled_dialog"
+           c:type="XfceTitledDialog"
+           parent="Gtk.Dialog"
+           glib:type-name="XfceTitledDialog"
+           glib:get-type="xfce_titled_dialog_get_type"
+           glib:type-struct="TitledDialogClass">
+      <doc xml:space="preserve"
+           filename="xfce-titled-dialog.h"
+           line="56">An opaque struct with only private fields.</doc>
+      <source-position filename="xfce-titled-dialog.h" line="54"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="xfce_titled_dialog_new">
+        <doc xml:space="preserve"
+             filename="xfce-titled-dialog.c"
+             line="443">Allocates a new #XfceTitledDialog instance.</doc>
+        <source-position filename="xfce-titled-dialog.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-titled-dialog.c"
+               line="448">the newly allocated #XfceTitledDialog.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_with_buttons"
+                   c:identifier="xfce_titled_dialog_new_with_buttons"
+                   introspectable="0"
+                   deprecated="1"
+                   deprecated-version="4.16">
+        <doc xml:space="preserve"
+             filename="xfce-titled-dialog.c"
+             line="458">See the documentation of gtk_dialog_new_with_buttons() for details about the
+parameters and the returned dialog.</doc>
+        <doc-deprecated xml:space="preserve">Use #xfce_titled_dialog_new_with_mixed_buttons instead.</doc-deprecated>
+        <source-position filename="xfce-titled-dialog.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-titled-dialog.c"
+               line="469">the newly allocated #XfceTitledDialog.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="title"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="460">title of the dialog, or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="parent"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="461">transient parent window of the dialog, or %NULL.</doc>
+            <type name="Gtk.Window" c:type="GtkWindow*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="462">from #GtkDialogFlags.</doc>
+            <type name="Gtk.DialogFlags" c:type="GtkDialogFlags"/>
+          </parameter>
+          <parameter name="first_button_text"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="463">stock ID or text to go in first, or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="464">response ID for the first button, then additional buttons, ending with %NULL.</doc>
+            <varargs/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_with_mixed_buttons"
+                   c:identifier="xfce_titled_dialog_new_with_mixed_buttons"
+                   version="4.14"
+                   introspectable="0">
+        <doc xml:space="preserve"
+             filename="xfce-titled-dialog.c"
+             line="524">Creates an #XfceTitledDialog using xfce_gtk_button_new_mixed. This allows
+the buttons to use an optional named or stock icon.</doc>
+        <source-position filename="xfce-titled-dialog.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-titled-dialog.c"
+               line="536">the newly allocated #XfceTitledDialog.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="title"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="526">title of the dialog, or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="parent"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="527">transient parent window of the dialog, or %NULL.</doc>
+            <type name="Gtk.Window" c:type="GtkWindow*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="528">from #GtkDialogFlags.</doc>
+            <type name="Gtk.DialogFlags" c:type="GtkDialogFlags"/>
+          </parameter>
+          <parameter name="first_button_icon_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="529">icon name to go in first, or "" for no icon.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="first_button_text"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="530">text to go in first, or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="..." transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="531">response ID for the first button, then additional buttons, ending with %NULL.</doc>
+            <varargs/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="add_action_widget"
+              c:identifier="xfce_titled_dialog_add_action_widget"
+              version="4.16">
+        <doc xml:space="preserve"
+             filename="xfce-titled-dialog.c"
+             line="687">This function is a replacement for #gtk_dialog_add_action_widget and assumes that
+you have called #xfce_titled_dialog_create_action_area before.
+
+Children with #GTK_RESPONSE_HELP will be added to the secondary group of children
+(see #gtk_button_box_set_child_secondary for reference).</doc>
+        <source-position filename="xfce-titled-dialog.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="titled_dialog" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="689">a #XfceTitledDialog.</doc>
+            <type name="TitledDialog" c:type="XfceTitledDialog*"/>
+          </instance-parameter>
+          <parameter name="child" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="690">an activatable widget.</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="response_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="691">response ID for @child.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_button"
+              c:identifier="xfce_titled_dialog_add_button"
+              version="4.16">
+        <doc xml:space="preserve"
+             filename="xfce-titled-dialog.c"
+             line="649">This function is a replacement for #gtk_dialog_add_button and assumes that
+you have called #xfce_titled_dialog_create_action_area before.
+
+Buttons with #GTK_RESPONSE_HELP will be added to the secondary group of children
+(see #gtk_button_box_set_child_secondary for reference).</doc>
+        <source-position filename="xfce-titled-dialog.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-titled-dialog.c"
+               line="661">the GtkButton widget that was added.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="titled_dialog" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="651">a #XfceTitledDialog.</doc>
+            <type name="TitledDialog" c:type="XfceTitledDialog*"/>
+          </instance-parameter>
+          <parameter name="button_text" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="652">text of button.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="response_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="653">response ID for @child.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="create_action_area"
+              c:identifier="xfce_titled_dialog_create_action_area"
+              version="4.16">
+        <doc xml:space="preserve"
+             filename="xfce-titled-dialog.c"
+             line="614">This function creates a custom action area (of type #GtkButtonBox) and has to
+be used in combination with #xfce_titled_dialog_add_action_widget.
+
+When using the XfceTitledDialogClass directly to create dialogs this function is
+useful to keep action widgets out of the #GtkHeaderBar in which they would
+normally end up by calling #gtk_dialog_add_action_widget.</doc>
+        <source-position filename="xfce-titled-dialog.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="titled_dialog" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="616">a #XfceTitledDialog.</doc>
+            <type name="TitledDialog" c:type="XfceTitledDialog*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_subtitle"
+              c:identifier="xfce_titled_dialog_get_subtitle"
+              glib:get-property="subtitle">
+        <doc xml:space="preserve"
+             filename="xfce-titled-dialog.c"
+             line="769">Returns the subtitle of the @titled_dialog, or %NULL
+if no subtitle is displayed in the @titled_dialog.
+This is just a convenience function around #gtk_header_bar_get_subtitle.</doc>
+        <source-position filename="xfce-titled-dialog.h" line="94"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-titled-dialog.c"
+               line="777">the subtitle of @titled_dialog, or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="titled_dialog" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="771">a #XfceTitledDialog.</doc>
+            <type name="TitledDialog" c:type="XfceTitledDialog*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_default_response"
+              c:identifier="xfce_titled_dialog_set_default_response"
+              version="4.16">
+        <doc xml:space="preserve"
+             filename="xfce-titled-dialog.c"
+             line="722">Sets the last widget in the dialog’s action area with the given @response_id
+as the default widget for the dialog. Pressing “Enter” normally activates
+the default widget.
+
+This function is a replacement for #gtk_dialog_set_default_response, which does
+not work with #XfceTitledDialog.</doc>
+        <source-position filename="xfce-titled-dialog.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="titled_dialog" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="724">a #XfceTitledDialog.</doc>
+            <type name="TitledDialog" c:type="XfceTitledDialog*"/>
+          </instance-parameter>
+          <parameter name="response_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="725">a response ID</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_subtitle"
+              c:identifier="xfce_titled_dialog_set_subtitle"
+              glib:set-property="subtitle">
+        <doc xml:space="preserve"
+             filename="xfce-titled-dialog.c"
+             line="788">Sets the subtitle displayed by @titled_dialog to @subtitle; if
+@subtitle is %NULL no subtitle will be displayed by the @titled_dialog.
+This is just a convenience function around #gtk_header_bar_set_subtitle
+when dialogs use header bars. Otherwise a simple label and separator are
+shown at the top of dialog.</doc>
+        <source-position filename="xfce-titled-dialog.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="titled_dialog" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="790">a #XfceTitledDialog.</doc>
+            <type name="TitledDialog" c:type="XfceTitledDialog*"/>
+          </instance-parameter>
+          <parameter name="subtitle"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfce-titled-dialog.c"
+                 line="791">the new subtitle for the @titled_dialog, or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="subtitle"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_subtitle"
+                getter="get_subtitle"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="xfce-titled-dialog.c"
+             line="120">The subtitle displayed below the main dialog title.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="__parent__" readable="0" private="1">
+        <type name="Gtk.Dialog" c:type="GtkDialog"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="TitledDialogPrivate" c:type="XfceTitledDialogPrivate*"/>
+      </field>
+    </class>
+    <record name="TitledDialogClass"
+            c:type="XfceTitledDialogClass"
+            glib:is-gtype-struct-for="TitledDialog">
+      <source-position filename="xfce-titled-dialog.h" line="54"/>
+      <field name="__parent__" readable="0" private="1">
+        <type name="Gtk.DialogClass" c:type="GtkDialogClass"/>
+      </field>
+      <field name="reserved0">
+        <callback name="reserved0">
+          <source-position filename="xfce-titled-dialog.h" line="48"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved1">
+        <callback name="reserved1">
+          <source-position filename="xfce-titled-dialog.h" line="49"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved2">
+        <callback name="reserved2">
+          <source-position filename="xfce-titled-dialog.h" line="50"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved3">
+        <callback name="reserved3">
+          <source-position filename="xfce-titled-dialog.h" line="51"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved4">
+        <callback name="reserved4">
+          <source-position filename="xfce-titled-dialog.h" line="52"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved5">
+        <callback name="reserved5">
+          <source-position filename="xfce-titled-dialog.h" line="53"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <record name="TitledDialogPrivate"
+            c:type="XfceTitledDialogPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="xfce-titled-dialog.h" line="31"/>
+    </record>
+    <function name="dialog_confirm"
+              c:identifier="xfce_dialog_confirm"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="xfce-dialogs.c"
+           line="414">Runs a questions dialog that has a 'Cancel' and a 'Confirm' button. The 'Confirm'
+button text can be set by @action if given.
+
+If @stock_id is equal to #GTK_STOCK_YES, the 'Cancel' button becomes a 'No' button.</doc>
+      <source-position filename="xfce-dialogs.h" line="77"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-dialogs.c"
+             line="428">TRUE if the user confirms, else FALSE.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="parent"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="416">transient parent of the dialog, or %NULL.</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+        <parameter name="stock_id" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="417">the stock name of the confirm button, for example #GTK_STOCK_YES or #GTK_STOCK_CLEAR.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="confirm_label"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="418">if non-%NULL, this text is used on the confirm button together with the @stock_id icon.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="secondary_text"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="419">secondary text in the dialog.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="primary_format"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="420">the printf()-style format for the dialog question.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="..."
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="421">argument list for the @primary_format.</doc>
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="dialog_confirm_close_tabs"
+              c:identifier="xfce_dialog_confirm_close_tabs"
+              version="4.16">
+      <doc xml:space="preserve"
+           filename="xfce-dialogs.c"
+           line="477">Runs a dialog to ask the user whether they want to close the whole window,
+close the current tab, or cancel.
+
+If @num_tabs is non-negative, the message to the user will state that there
+are @num_tabs open tabs. If @num_tabs is negative, then the message to the
+user will state simply that there are "multiple open tabs".
+
+If @show_confirm_box is %TRUE a checkbox is added to the dialog to allow
+the user to set whether they wish to see this dialog in future. The initial
+state of the checkbox is determined by the value stored at @confirm_box_checked
+and the value at @confirm_box_checked after returning records the state of the
+checkbox. If @show_confirm_box is %FALSE, @confirm_box_checked is ignored and
+may be %NULL.</doc>
+      <source-position filename="xfce-dialogs.h" line="84"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-dialogs.c"
+             line="498">#GTK_RESPONSE_CANCEL if cancelled, #GTK_RESPONSE_YES if the user
+wants to close the window, #GTK_RESPONSE_CLOSE if the user wants to close the tab,
+and #GTK_RESPONSE_NONE for an error.</doc>
+        <type name="gint" c:type="gint"/>
+      </return-value>
+      <parameters>
+        <parameter name="parent"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="479">transient parent of the dialog, or %NULL.</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+        <parameter name="num_tabs" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="480">the number of open tabs for display to user</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="show_confirm_box" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="481">whether to ask the user if this confirmation shall be shown in the future</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="confirm_box_checked"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="482">state of confirmation checkbox</doc>
+          <type name="gboolean" c:type="gboolean*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="dialog_show_error"
+              c:identifier="xfce_dialog_show_error"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="xfce-dialogs.c"
+           line="378">Displays an error dialog on @parent using the @primary_format as primary message and optionally
+displaying @error as secondary error text.</doc>
+      <source-position filename="xfce-dialogs.h" line="72"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="parent"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="380">transient parent of the dialog, or %NULL.</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+        <parameter name="error"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="381">a #GError, which gives a more precise description of the problem or %NULL.</doc>
+          <type name="GLib.Error" c:type="const GError*"/>
+        </parameter>
+        <parameter name="primary_format" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="382">the printf()-style format for the primary problem description.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="383">argument list for the @primary_format.</doc>
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="dialog_show_help"
+              c:identifier="xfce_dialog_show_help"
+              version="4.10">
+      <doc xml:space="preserve"
+           filename="xfce-dialogs.c"
+           line="142">Asks the user to visit the online documentation. If confirmed, it will open
+the webbrowser and redirect the user to the correct location.
+
+Appart from the @component, @page and @offset the following information
+is also send to the server: user language and the xfce_version_string().
+
+See also: xfce_dialog_show_help_with_version().</doc>
+      <source-position filename="xfce-dialogs.h" line="51"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="parent"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="144">transient parent of the dialog, or %NULL.</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+        <parameter name="component"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="145">name of the component opening the help page or %NULL. If the
+             value is %NULL the target will be the main page of the
+             documentation website.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="page"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="148">subpage of the @component on the website or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="offset"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="149">anchor offset in @page or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="dialog_show_help_with_version"
+              c:identifier="xfce_dialog_show_help_with_version"
+              version="4.12">
+      <doc xml:space="preserve"
+           filename="xfce-dialogs.c"
+           line="172">Asks the user to visit the online documentation. If confirmed, it will open
+the webbrowser and redirect the user to the correct location.
+
+Apart from the @component, @page and @offset the following information
+is also sent to the server: user language and the xfce_version_string()
+or @version if set.
+
+See also: xfce_dialog_show_help().</doc>
+      <source-position filename="xfce-dialogs.h" line="56"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="parent"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="174">transient parent of the dialog, or %NULL.</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+        <parameter name="component"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="175">name of the component opening the help page or %NULL. If the
+             value is %NULL the target will be the main page of the
+             documentation website.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="page"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="178">subpage of the @component on the website or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="offset"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="179">anchor offset in @page or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="version"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="180">alternative version, or %NULL to use xfce_version_string().</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="dialog_show_info"
+              c:identifier="xfce_dialog_show_info"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="xfce-dialogs.c"
+           line="308">Displays an information dialog on @parent using the @primary_format as message.</doc>
+      <source-position filename="xfce-dialogs.h" line="62"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="parent"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="310">transient parent of the dialog, or %NULL.</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+        <parameter name="secondary_text"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="311">secondary text of the dialog or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="primary_format" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="312">the printf()-style format for the primary problem description.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="313">argument list for the @format.</doc>
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="dialog_show_warning"
+              c:identifier="xfce_dialog_show_warning"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="xfce-dialogs.c"
+           line="343">Displays a warning dialog on @parent using the @primary_format as message.</doc>
+      <source-position filename="xfce-dialogs.h" line="67"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="parent"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="345">transient parent of the dialog, or %NULL.</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+        <parameter name="secondary_text"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="346">secondary text of the dialog or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="primary_format" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="347">the printf()-style format for the primary problem description.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="348">argument list for the @format.</doc>
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gdk_device_grab"
+              c:identifier="xfce_gdk_device_grab"
+              version="4.18">
+      <doc xml:space="preserve"
+           filename="xfce-gdk-extensions.c"
+           line="165">Similar to gdk_seat_grab but tries to grab the seat five times with 100ms
+between each attempt.</doc>
+      <source-position filename="xfce-gdk-extensions.h" line="36"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-gdk-extensions.c"
+             line="178">%TRUE on success, %FALSE otherwise.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="seat" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gdk-extensions.c"
+               line="167">A #GdkSeat.</doc>
+          <type name="Gdk.Seat" c:type="GdkSeat*"/>
+        </parameter>
+        <parameter name="window" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gdk-extensions.c"
+               line="168">The #GdkWindow which will own the grab.</doc>
+          <type name="Gdk.Window" c:type="GdkWindow*"/>
+        </parameter>
+        <parameter name="capabilities" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gdk-extensions.c"
+               line="169">Capabilities that will be grabbed.</doc>
+          <type name="Gdk.SeatCapabilities" c:type="GdkSeatCapabilities"/>
+        </parameter>
+        <parameter name="cursor"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gdk-extensions.c"
+               line="170">The cursor to display while the grab is active. If this
+                     is %NULL then the normal cursors are used for window and
+                     its descendants, and the cursor for window is used
+                     elsewhere.</doc>
+          <type name="Gdk.Cursor" c:type="GdkCursor*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gdk_screen_get_active"
+              c:identifier="xfce_gdk_screen_get_active">
+      <doc xml:space="preserve"
+           filename="xfce-gdk-extensions.c"
+           line="73">Returns the currently active #GdkScreen, that is, the screen which
+currently contains the pointer. If no active screen was found, the
+default #GdkScreen is returned.</doc>
+      <source-position filename="xfce-gdk-extensions.h" line="32"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-gdk-extensions.c"
+             line="81">the currently active #GdkScreen.</doc>
+        <type name="Gdk.Screen" c:type="GdkScreen*"/>
+      </return-value>
+      <parameters>
+        <parameter name="monitor_return"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   nullable="1">
+          <doc xml:space="preserve"
+               filename="xfce-gdk-extensions.c"
+               line="75">Address to store the monitor number to or %NULL.</doc>
+          <type name="gint" c:type="gint*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gdk_screen_get_geometry"
+              c:identifier="xfce_gdk_screen_get_geometry"
+              version="4.14">
+      <doc xml:space="preserve"
+           filename="xfce-gdk-extensions.c"
+           line="117">Returns the width and height of the default #GdkScreen.
+This is a replacement for gdk_screen_width/gdk_screen_height.</doc>
+      <source-position filename="xfce-gdk-extensions.h" line="34"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="xfce-gdk-extensions.c"
+             line="123">a newly created #GdkRectangle
+containing the width and height of the screen.</doc>
+        <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
+      </return-value>
+    </function>
+    <function name="gicon_from_name"
+              c:identifier="xfce_gicon_from_name"
+              version="4.16">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="1004">This function will first look for a desktop file of @name and if successful
+use the value of the "Icon" property to return a #GIcon.
+If no desktop file of @name is found it will fallback to returning a #GIcon
+based on #g_themed_icon_new_with_default_fallbacks and
+#gtk_icon_theme_lookup_by_gicon.</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="187"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="1014">a new #GThemedIcon.</doc>
+        <type name="Gio.Icon" c:type="GIcon*"/>
+      </return-value>
+      <parameters>
+        <parameter name="name" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="1006">Name of the application.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_accel_group_connect_action_entries"
+              c:identifier="xfce_gtk_accel_group_connect_action_entries"
+              version="4.16">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="499">This method will connect each accel_path from the #XfceGtkActionEntry in action_entries
+to its related callback. If the accelerator is pressed, the related callback will be called.</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="138"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="accel_group" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="501">the #GtkAccelGroup to connect to</doc>
+          <type name="Gtk.AccelGroup" c:type="GtkAccelGroup*"/>
+        </parameter>
+        <parameter name="action_entries" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="502">array of action_entries to be added</doc>
+          <type name="GtkActionEntry" c:type="const XfceGtkActionEntry*"/>
+        </parameter>
+        <parameter name="n_action_entries" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="503">size of the action_entries array</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="callback_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="504">data which should be passed to the callback of each #XfceGtkActionEntry</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_accel_group_disconnect_action_entries"
+              c:identifier="xfce_gtk_accel_group_disconnect_action_entries"
+              version="4.16">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="536">This method will disconnect each accel_path from the #XfceGtkActionEntry in action_entries.</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="142"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="accel_group" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="538">the #GtkAccelGroup to connect to</doc>
+          <type name="Gtk.AccelGroup" c:type="GtkAccelGroup*"/>
+        </parameter>
+        <parameter name="action_entries" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="539">array of action_entries to be added</doc>
+          <type name="GtkActionEntry" c:type="const XfceGtkActionEntry*"/>
+        </parameter>
+        <parameter name="n_action_entries" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="540">size of the action_entries array</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_accel_map_add_entries"
+              c:identifier="xfce_gtk_accel_map_add_entries"
+              version="4.16">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="468">Adds the default key of each ActionEntry to the accel_map, if no key was defined for the related accel_path so far.</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="136"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="action_entries" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="470">array of action_entries to be added</doc>
+          <type name="GtkActionEntry" c:type="const XfceGtkActionEntry*"/>
+        </parameter>
+        <parameter name="n_action_entries" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="471">size of the action_entries array</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_button_new_mixed"
+              c:identifier="xfce_gtk_button_new_mixed">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="697">Creates a new #GtkButton containing a mnemonic label and a stock icon.
+The @stock_id could be something like #GTK_STOCK_OK or #GTK_STOCK_APPLY.
+
+When the @stock_id is %NULL a normal mnemonic button will be created,
+when @label is %NULL a stock button will be created. This behaviour
+is added for xfce_message_dialog_new().</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="163"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="710">the newly created #GtkButton widget.</doc>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+      <parameters>
+        <parameter name="stock_id"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="699">the name of the stock item.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="label"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="700">the text of the button, with an underscore
+                       in front of the mnemonic character.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_check_menu_item_new"
+              c:identifier="xfce_gtk_check_menu_item_new"
+              version="4.16">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="201">Convenience method to create a #GtkCheckMenuItem and preconfigure it with the passed parameters.</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="108"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="213">A new #GtkCheckMenuItem.</doc>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+      <parameters>
+        <parameter name="label_text" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="203">Label to use for the #GtkCheckMenuItem</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="tooltip_text"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="204">Tooltip to add on the passed item, or NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="accel_path"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="205">Unique path, used to identify the accelerator, or NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="callback"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   scope="notified">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="206">#GCallback which will be triggered on activation, or NULL</doc>
+          <type name="GObject.Callback" c:type="GCallback"/>
+        </parameter>
+        <parameter name="callback_param"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="207">optional callback parameter, or NULL.</doc>
+          <type name="GObject.Object" c:type="GObject*"/>
+        </parameter>
+        <parameter name="active" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="208">boolean value indicating whether the check box is active.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="menu_to_append_item"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="209">#GtkMenuShell on which the item should be appended, or NULL</doc>
+          <type name="Gtk.MenuShell" c:type="GtkMenuShell*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_execute_tab_accel"
+              c:identifier="xfce_gtk_execute_tab_accel">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="665">Activates the callback function of the #XfceGtkActionEntry that corresponds to @accel_path. If no such action
+exists in @entries, then nothing happens.</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="156"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="675">a boolean that is TRUE if the action was found, otherwise it is FALSE</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="accel_path" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="667">the accelerator path of the action that we want to activate</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="668">a pointer of data that will be passed to the callback if a tab-shortcut is found</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+        <parameter name="entries" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="669">a #XfceGtkActionEntry[]</doc>
+          <type name="GtkActionEntry" c:type="XfceGtkActionEntry*"/>
+        </parameter>
+        <parameter name="entry_count" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="670">the number of entries in @entries</doc>
+          <type name="gsize" c:type="size_t"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_frame_box_new" c:identifier="xfce_gtk_frame_box_new">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="742">Creates an Xfce-styled frame. The frame is a #GtkFrame, without
+outline and an optional bolded text label.  The contents of the
+frame are indented on the left.
+The return value is the #GtkFrame itself.  The @container_return is
+a #GtkAlignment widget to which children of the frame should be added.
+
+See also: xfce_gtk_frame_box_new_with_content().</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="166"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="755">the newly created #GtkFrame widget.</doc>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+      <parameters>
+        <parameter name="label" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="744">the text to use as the label of the frame.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="container_return"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   nullable="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="745">return location for the frame's container.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_frame_box_new_with_content"
+              c:identifier="xfce_gtk_frame_box_new_with_content">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="801">Creates a widget with xfce_gtk_frame_box_new() and adds the
+@content #GtkWidget to the frame.</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="169"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="809">the newly created #GtkFrame widget.</doc>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+      <parameters>
+        <parameter name="label" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="803">the text to use as the label of the frame.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="content" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="804">the #GtkWidget to put inside the frame.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_get_action_entry_by_id"
+              c:identifier="xfce_gtk_get_action_entry_by_id"
+              version="4.16">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="569">Convenience method to find a specific action_entry from an array of action_entries</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="145"/>
+      <return-value transfer-ownership="none" nullable="1">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="577">The matching #XfceGtkActionEntry or NULL if not found</doc>
+        <type name="GtkActionEntry" c:type="const XfceGtkActionEntry*"/>
+      </return-value>
+      <parameters>
+        <parameter name="action_entries" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="571">array of action_entries to be searched</doc>
+          <type name="GtkActionEntry" c:type="const XfceGtkActionEntry*"/>
+        </parameter>
+        <parameter name="n_action_entries" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="572">size of the action_entries array</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="id" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="573">id of the action entry (usually enum values are used)</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_handle_tab_accels"
+              c:identifier="xfce_gtk_handle_tab_accels">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="619">The Tab key is used to navigate the interface by GTK+ so we need to handle shortcuts with the Tab accelerator manually.
+Tab sometimes becomes ISO_Left_Tab (e.g. in Ctrl+Shift+Tab) so check both here.</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="150"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="630">a boolean that is GDK_EVENT_STOP (TRUE) if the event was handled, otherwise it is GDK_EVENT_PROPAGATE (FALSE)</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="key_event" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="621">the #GdkEventKey that might trigger a shortcut</doc>
+          <type name="Gdk.EventKey" c:type="GdkEventKey*"/>
+        </parameter>
+        <parameter name="accel_group" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="622">the #GtkAccelGroup that will be get queried</doc>
+          <type name="Gtk.AccelGroup" c:type="GtkAccelGroup*"/>
+        </parameter>
+        <parameter name="data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="623">a pointer of data that will be passed to the callback if a tab-shortcut is found</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+        <parameter name="entries" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="624">a #XfceGtkActionEntry[]</doc>
+          <type name="GtkActionEntry" c:type="XfceGtkActionEntry*"/>
+        </parameter>
+        <parameter name="entry_count" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="625">the number of entries in @entries</doc>
+          <type name="gsize" c:type="size_t"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_image_menu_item_new"
+              c:identifier="xfce_gtk_image_menu_item_new"
+              version="4.16">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="158">Convenience method to create a deprecated #GtkImageMenuItem and preconfigure it with the passed parameters.
+In order to prevent G_GNUC_BEGIN_IGNORE_DEPRECATIONS in all xfce projects, this method can be used</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="94"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="171">A new #GtkImageMenuItem.</doc>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+      <parameters>
+        <parameter name="label_text" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="160">Label to use for the #GtkImageMenuItem</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="tooltip_text"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="161">Tooltip to add on the passed item, or NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="accel_path"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="162">Unique path, used to identify the accelerator, or NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="callback"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   scope="notified">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="163">#GCallback which will be triggered on activation, or NULL</doc>
+          <type name="GObject.Callback" c:type="GCallback"/>
+        </parameter>
+        <parameter name="callback_param"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="164">optional callback parameter, or NULL.</doc>
+          <type name="GObject.Object" c:type="GObject*"/>
+        </parameter>
+        <parameter name="image"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="165">a widget to set as the image for the menu item, or NULL</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </parameter>
+        <parameter name="menu_to_append_item"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="166">#GtkMenuShell on which the item should be appended, or NULL</doc>
+          <type name="Gtk.MenuShell" c:type="GtkMenuShell*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_image_menu_item_new_from_icon_name"
+              c:identifier="xfce_gtk_image_menu_item_new_from_icon_name"
+              version="4.16">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="124">Convenience method to create a #GtkImageMenuItem and preconfigure it with the passed parameters.</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="101"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="136">A new #GtkImageMenuItem.</doc>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+      <parameters>
+        <parameter name="label_text" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="126">Label to use for the #GtkImageMenuItem</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="tooltip_text"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="127">Tooltip to add on the passed item, or NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="accel_path"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="128">Unique path, used to identify the accelerator, or NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="callback"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   scope="notified">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="129">#GCallback which will be triggered on activation, or NULL</doc>
+          <type name="GObject.Callback" c:type="GCallback"/>
+        </parameter>
+        <parameter name="callback_param"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="130">optional callback parameter, or NULL.</doc>
+          <type name="GObject.Object" c:type="GObject*"/>
+        </parameter>
+        <parameter name="icon_name"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="131">name of the icon to use for the #GtkImageMenuItem, or NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="menu_to_append_item"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="132">#GtkMenuShell on which the item should be appended, or NULL</doc>
+          <type name="Gtk.MenuShell" c:type="GtkMenuShell*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_label_set_a11y_relation"
+              c:identifier="xfce_gtk_label_set_a11y_relation">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="1175">Sets the `ATK_RELATION_LABEL_FOR` relation on @label for @widget, which means
+accessiblity tools will identify @label as descriptive item for the specified
+@widget.</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="194"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="label" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="1177">a #GtkLabel.</doc>
+          <type name="Gtk.Label" c:type="GtkLabel*"/>
+        </parameter>
+        <parameter name="widget" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="1178">a #GtkWidget.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_menu_append_separator"
+              c:identifier="xfce_gtk_menu_append_separator"
+              version="4.16">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="447">Convenience method do add separators, used to prevent code duplication</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="161"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="menu" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="449">#GtkMenuShell on which the separator should be appended</doc>
+          <type name="Gtk.MenuShell" c:type="GtkMenuShell*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_menu_append_seperator"
+              c:identifier="xfce_gtk_menu_append_seperator"
+              version="4.16">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="426">Convenience method do add separators, used to prevent code duplication</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="160"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="menu" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="428">#GtkMenuShell on which the separator should be appended</doc>
+          <type name="Gtk.MenuShell" c:type="GtkMenuShell*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_menu_item_new"
+              c:identifier="xfce_gtk_menu_item_new"
+              version="4.16">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="92">Convenience method to create a #GtkMenuItem and preconfigure it with the passed parameters.</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="88"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="103">A new #GtkMenuItem.</doc>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+      <parameters>
+        <parameter name="label_text" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="94">Label to use for the #GtkMenuItem</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="tooltip_text"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="95">Tooltip to add on the passed item, or NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="accel_path"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="96">Unique path, used to identify the accelerator, or NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="callback"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   scope="notified">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="97">#GCallback which will be triggered on activation, or NULL</doc>
+          <type name="GObject.Callback" c:type="GCallback"/>
+        </parameter>
+        <parameter name="callback_param"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="98">optional callback parameter, or NULL.</doc>
+          <type name="GObject.Object" c:type="GObject*"/>
+        </parameter>
+        <parameter name="menu_to_append_item"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="99">#GtkMenuShell on which the item should be appended, or NULL</doc>
+          <type name="Gtk.MenuShell" c:type="GtkMenuShell*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_menu_item_new_from_action_entry"
+              c:identifier="xfce_gtk_menu_item_new_from_action_entry"
+              version="4.16">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="278">Method to create a menu item from the passed action entry</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="122"/>
+      <return-value transfer-ownership="none" nullable="1">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="286">A new #GtkMenuItem or NULL</doc>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+      <parameters>
+        <parameter name="action_entry" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="280">Label to use for the #GtkCheckMenuItem</doc>
+          <type name="GtkActionEntry" c:type="const XfceGtkActionEntry*"/>
+        </parameter>
+        <parameter name="callback_param"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="281">optional callback parameter, or NULL.</doc>
+          <type name="GObject.Object" c:type="GObject*"/>
+        </parameter>
+        <parameter name="menu_to_append_item"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="282">#GtkMenuShell on which the item should be appended, or NULL</doc>
+          <type name="Gtk.MenuShell" c:type="GtkMenuShell*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_menu_item_set_accel_label"
+              c:identifier="xfce_gtk_menu_item_set_accel_label"
+              version="4.16">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="1071">Use the passed accel_path show the related #GtkAccelLabel with the correct accelerator on the item.</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="188"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="menu_item" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="1073">#GtkMenuItem on which the accel label is to set</doc>
+          <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
+        </parameter>
+        <parameter name="accel_path"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="1074">Unique path, used to identify the accelerator, or NULL to show no accelerator</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_menu_popup_until_mapped"
+              c:identifier="xfce_gtk_menu_popup_until_mapped"
+              version="4.14">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="857">Attempts to pop up a #GtkMenu for a short duration. Unlike the original
+gtk_menu_popup(), this function will verify that the menu has been mapped
+or will keep trying for up to 250ms. It will also return a value indicating
+whether the menu was eventually mapped or not. Following is an excerpt from
+the GTK+ Documentation on #GtkMenu.
+
+Displays a menu and makes it available for selection.
+
+Applications can use this function to display context-sensitive menus, and will
+typically supply %NULL for the @parent_menu_shell, @parent_menu_item, @func and
+@data parameters. The default menu positioning function will position the menu
+at the current mouse cursor position.
+
+The @button parameter should be the mouse button pressed to initiate the menu
+popup. If the menu popup was initiated by something other than a mouse button
+press, such as a mouse button release or a keypress, button should be 0.
+
+The @activate_time parameter is used to conflict-resolve initiation of concurrent
+requests for mouse/keyboard grab requests. To function properly, this needs to
+be the timestamp of the user event (such as a mouse click or key press) that
+caused the initiation of the popup. Only if no such event is available,
+gtk_get_current_event_time() can be used instead.</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="174"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="890">%TRUE if the menu could be mapped, %FALSE otherwise.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="menu" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="859">a #GtkMenu.</doc>
+          <type name="Gtk.Menu" c:type="GtkMenu*"/>
+        </parameter>
+        <parameter name="parent_menu_shell"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="860">the menu shell containing the triggering menu item, or %NULL.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </parameter>
+        <parameter name="parent_menu_item"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="861">the menu item whose activation triggered the popup, or %NULL.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </parameter>
+        <parameter name="func"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   scope="call"
+                   closure="4">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="862">a user supplied function used to position the menu, or %NULL.</doc>
+          <type name="Gtk.MenuPositionFunc" c:type="GtkMenuPositionFunc"/>
+        </parameter>
+        <parameter name="data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="863">user supplied data to be passed to func.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+        <parameter name="button" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="864">the mouse button which was pressed to initiate the event.</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="activate_time" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="865">the time at which the activation event occurred.</doc>
+          <type name="guint32" c:type="guint32"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_radio_menu_item_new"
+              c:identifier="xfce_gtk_radio_menu_item_new"
+              version="4.16">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="241">Convenience method to create a #GtkCheckMenuItem and preconfigure it with the passed parameters.
+In order to simplify usage, a #GtkCheckMenuItem is created and drawn as radio-item</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="115"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="254">A new #GtkCheckMenuItem.</doc>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+      <parameters>
+        <parameter name="label_text" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="243">Label to use for the #GtkCheckMenuItem</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="tooltip_text"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="244">Tooltip to add on the passed item, or NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="accel_path"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="245">Unique path, used to identify the accelerator, or NULL</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="callback"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   scope="notified">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="246">#GCallback which will be triggered on activation, or NULL</doc>
+          <type name="GObject.Callback" c:type="GCallback"/>
+        </parameter>
+        <parameter name="callback_param"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="247">optional callback parameter, or NULL.</doc>
+          <type name="GObject.Object" c:type="GObject*"/>
+        </parameter>
+        <parameter name="active" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="248">boolean value indicating whether the check box is active.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="menu_to_append_item"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="249">#GtkMenuShell on which the item should be appended, or NULL</doc>
+          <type name="Gtk.MenuShell" c:type="GtkMenuShell*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_toggle_menu_item_new_from_action_entry"
+              c:identifier="xfce_gtk_toggle_menu_item_new_from_action_entry"
+              version="4.16">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="315">Method to create a toggle menu item from the passed action entry</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="125"/>
+      <return-value transfer-ownership="none" nullable="1">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="324">A new #GtkMenuItem or NULL</doc>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+      <parameters>
+        <parameter name="action_entry" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="317">Label to use for the #GtkCheckMenuItem</doc>
+          <type name="GtkActionEntry" c:type="const XfceGtkActionEntry*"/>
+        </parameter>
+        <parameter name="callback_param"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="318">optional callback parameter, or NULL.</doc>
+          <type name="GObject.Object" c:type="GObject*"/>
+        </parameter>
+        <parameter name="active" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="319">boolean value indicating whether the check box is active.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="menu_to_append_item"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="320">#GtkMenuShell on which the item should be appended, or NULL</doc>
+          <type name="Gtk.MenuShell" c:type="GtkMenuShell*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_toggle_tool_button_new_from_action_entry"
+              c:identifier="xfce_gtk_toggle_tool_button_new_from_action_entry"
+              version="4.17.6">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="386">Method to create a toolbar toggle-button from the passed action entry.</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="132"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="395">A new #GtkToggleToolButton</doc>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+      <parameters>
+        <parameter name="action_entry" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="388">Label to use for the #GtkToggleToolButton</doc>
+          <type name="GtkActionEntry" c:type="const XfceGtkActionEntry*"/>
+        </parameter>
+        <parameter name="callback_param"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="389">optional callback parameter, or %NULL.</doc>
+          <type name="GObject.Object" c:type="GObject*"/>
+        </parameter>
+        <parameter name="active" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="390">boolean value indicating whether the toggle is initially active.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="toolbar_to_append_item" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="391">#GtkToolbar on which the item should be appended</doc>
+          <type name="Gtk.Toolbar" c:type="GtkToolbar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_tool_button_new_from_action_entry"
+              c:identifier="xfce_gtk_tool_button_new_from_action_entry"
+              version="4.16">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="354">Method to create a toolbar button from the passed action entry.</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="129"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="362">A new #GtkToolButton</doc>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+      <parameters>
+        <parameter name="action_entry" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="356">Label to use for the #GtkToolButton</doc>
+          <type name="GtkActionEntry" c:type="const XfceGtkActionEntry*"/>
+        </parameter>
+        <parameter name="callback_param"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="357">optional callback parameter, or %NULL.</doc>
+          <type name="GObject.Object" c:type="GObject*"/>
+        </parameter>
+        <parameter name="toolbar_to_append_item" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="358">#GtkToolbar on which the item should be appended</doc>
+          <type name="Gtk.Toolbar" c:type="GtkToolbar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_translate_action_entries"
+              c:identifier="xfce_gtk_translate_action_entries"
+              version="4.16">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="597">Convenience method to translate the label text and tooltip text of an array of action_entries</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="148"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="action_entries" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="599">array of action_entries to be translated</doc>
+          <type name="GtkActionEntry" c:type="XfceGtkActionEntry*"/>
+        </parameter>
+        <parameter name="n_action_entries" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="600">size of the action_entries array</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gtk_window_center_on_active_screen"
+              c:identifier="xfce_gtk_window_center_on_active_screen">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="826">Determines the screen that contains the pointer and centers the
+@window on it. If it failes to determine the current pointer position,
+@window is centered on the default screen.
+
+This function only works properly if you call it before realizing the
+window and you haven't set a fixed window position using gtk_window_move().
+
+See also: xfce_gdk_screen_get_active().</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="172"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="828">the #GtkWindow to center.</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="has_gtk_frame_extents"
+              c:identifier="xfce_has_gtk_frame_extents"
+              version="4.16">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="1111">This function can be called to determine if a #GdkWindow is using client-side decorations
+which is indicated by the _GTK_FRAME_EXTENTS X11 atom. It furthermore sets a pointer
+of type #GtkBorder to the actual extents.</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="191"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="1120">TRUE if a #GdkWindow has the _GTK_FRAME_EXTENTS atom set.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="1113">A #GdkWindow</doc>
+          <type name="Gdk.Window" c:type="GdkWindow*"/>
+        </parameter>
+        <parameter name="extents" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="1114">A pointer to a #GtkBorder to copy to.</doc>
+          <type name="Gtk.Border" c:type="GtkBorder*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="icon_name_from_desktop_id"
+              c:identifier="xfce_icon_name_from_desktop_id"
+              version="4.16">
+      <source-position filename="xfce-gtk-extensions.h" line="185"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="972">%NULL on error, else the string value of the "Icon" property.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="desktop_id" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="970">Name of the desktop file.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <docsection name="libxfce4ui-config">
+      <doc xml:space="preserve"
+           filename="libxfce4ui-config.c"
+           line="20">Variables and functions to check the Libxfce4ui version.</doc>
+    </docsection>
+    <function name="message_dialog"
+              c:identifier="xfce_message_dialog"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="xfce-dialogs.c"
+           line="840">Create a new dialog as in xfce_message_dialog_new(), then runs the
+dialog using #gtk_dialog_run and return the response id selected by the user.
+
+See xfce_message_dialog_new() for more information.</doc>
+      <source-position filename="xfce-dialogs.h" line="105"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-dialogs.c"
+             line="855">the selected response id.</doc>
+        <type name="gint" c:type="gint"/>
+      </return-value>
+      <parameters>
+        <parameter name="parent"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="842">transient parent of the dialog, or %NULL.</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+        <parameter name="title"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="843">title of the dialog, or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="stock_id" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="844">gtk stock icon name to show in the dialog.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="primary_text" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="845">primary text shown in large bold font.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="secondary_text" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="846">secondary text shown in normal font.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="first_button_text" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="847">text for the first button.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="848">%NULL ended list of parameters.</doc>
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="message_dialog_new"
+              c:identifier="xfce_message_dialog_new"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="xfce-dialogs.c"
+           line="739">xfce_message_dialog_new() allows you to easily create Gtk+ message dialogs.
+It accepts GTK+ stock buttons (deprecated), mixed buttons (using XFCE_BUTTON_TYPE_MIXED)
+or buttons with a #GdkPixbuf (using XFCE_BUTTON_TYPE_PIXBUF).
+
+The buttons are defined by @first_button_text and the next arguments in the
+following format @type, @param1[, @param2, @param3].
+
+&lt;variablelist&gt;
+  &lt;varlistentry&gt;
+    &lt;term&gt;&lt;varname&gt;XFCE_BUTTON_TYPE_MIXED&lt;/varname&gt;&lt;/term&gt;
+    &lt;listitem&gt;
+      &lt;para&gt;
+        This allows you to easily create mixed buttons in a dialog.
+        @param1 is used for the icon name, @param2 for the label and
+        @param3 for the response_id. See also xfce_gtk_button_new_mixed().
+      &lt;/para&gt;
+    &lt;/listitem&gt;
+  &lt;/varlistentry&gt;
+  &lt;varlistentry&gt;
+    &lt;term&gt;&lt;varname&gt;XFCE_BUTTON_TYPE_PIXBUF&lt;/varname&gt;&lt;/term&gt;
+    &lt;listitem&gt;
+      &lt;para&gt;
+        Creates a button with the #GdkPixbuf as button icon.
+        @param1 is the #GdkPixbuf, @param2 for the label and
+        @param3 for the response_id.
+      &lt;/para&gt;
+    &lt;/listitem&gt;
+  &lt;/varlistentry&gt;
+  &lt;varlistentry&gt;
+    &lt;term&gt;Stock Buttons&lt;/term&gt;
+    &lt;listitem&gt;
+      &lt;para&gt;
+        When the variables above were not matched, the button type
+        will be a stock button. @type will be the stock id, @param1
+        is used for the response_id.
+      &lt;/para&gt;
+    &lt;/listitem&gt;
+  &lt;/varlistentry&gt;
+&lt;/variablelist&gt;
+
+To clarify this behaviour see the example below. We create a dialog with
+two stock buttons, a #GdkPixbuf button and a mixed button.
+
+&lt;example&gt;
+&lt;title&gt;Creating a Xfce Message Dialog&lt;/title&gt;
+&lt;programlisting&gt;
+GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file_at_size (filename, 24, 24);
+
+GtkWidget *dialog = xfce_message_dialog (parent, "Question",
+                                         GTK_STOCK_DIALOG_QUESTION,
+                                         "There are unsaved modifications",
+                                         "The menu has been modified, do you want to save it before quitting?",
+                                         GTK_STOCK_SAVE, GTK_RESPONSE_YES,
+                                         XFCE_BUTTON_TYPE_MIXED, "edit-delete", _("Forget modifications"), GTK_RESPONSE_APPLY,
+                                         XFCE_BUTTON_TYPE_PIXBUF, pixbuf, "Quit", GTK_RESPONSE_NO,
+                                         GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+                                         NULL);
+
+g_object_unref (G_OBJECT (pixbuf));
+&lt;/programlisting&gt;
+&lt;/example&gt;
+
+The caller is responsible for destroying the dialog with gtk_widget_destroy()
+when it is no longer required.</doc>
+      <source-position filename="xfce-dialogs.h" line="97"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-dialogs.c"
+             line="814">A new #GtkMessageDialog.</doc>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+      <parameters>
+        <parameter name="parent"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="741">transient parent of the dialog, or %NULL.</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+        <parameter name="title"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="742">title of the dialog, or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="stock_id" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="743">gtk stock icon name to show in the dialog.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="primary_text" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="744">primary text shown in large bold font.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="secondary_text" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="745">secondary text shown in normal font.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="first_button_text" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="746">text for the first button.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="..." transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="747">%NULL terminated list of parameters.</doc>
+          <varargs/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="message_dialog_new_valist"
+              c:identifier="xfce_message_dialog_new_valist"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="xfce-dialogs.c"
+           line="561">See xfce_message_dialog_new(), this version takes a va_list for
+language bindings to use.</doc>
+      <source-position filename="xfce-dialogs.h" line="89"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-dialogs.c"
+             line="574">A new #GtkMessageDialog.</doc>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+      <parameters>
+        <parameter name="parent"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="563">transient parent of the dialog, or %NULL.</doc>
+          <type name="Gtk.Window" c:type="GtkWindow*"/>
+        </parameter>
+        <parameter name="title"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="564">title of the dialog, or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="icon_stock_id" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="565">gtk stock icon name to show in the dialog.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="primary_text" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="566">primary text shown in large bold font.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="secondary_text" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="567">secondary text shown in normal font.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="first_button_text" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="568">text for the first button.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="args" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-dialogs.c"
+               line="569">argument list.</doc>
+          <type name="va_list" c:type="va_list"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="spawn" c:identifier="xfce_spawn" version="4.16" throws="1">
+      <doc xml:space="preserve"
+           filename="xfce-spawn.c"
+           line="632">Like gdk_spawn_on_screen() (GDK 2), but also supports startup notification
+(if Libxfce4ui was built with startup notification support).</doc>
+      <source-position filename="xfce-spawn.h" line="53"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-spawn.c"
+             line="659">%TRUE on success, %FALSE if @error is set.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="screen"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="634">a #GdkScreen or %NULL to use the active screen,
+                     see xfce_gdk_screen_get_active().</doc>
+          <type name="Gdk.Screen" c:type="GdkScreen*"/>
+        </parameter>
+        <parameter name="working_directory"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="636">child's current working directory or %NULL to
+                     inherit parent's.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="argv" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="638">child's argument vector.</doc>
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="envp"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="639">child's environment vector or %NULL to inherit
+                     parent's.</doc>
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="641">flags from #GSpawnFlags. #G_SPAWN_DO_NOT_REAP_CHILD
+                     is not allowed, use xfce_spawn_on_screen_with_child_watch()
+                     if you want a child watch.</doc>
+          <type name="GLib.SpawnFlags" c:type="GSpawnFlags"/>
+        </parameter>
+        <parameter name="startup_notify" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="644">whether to use startup notification.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="startup_timestamp" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="645">the timestamp to pass to startup notification, use
+                     the event time here if possible to make focus
+                     stealing prevention work property. If you don't
+                     have direct access to the event time you could use
+                     gtk_get_current_event_time() or if nothing is
+                     available 0 is valid too.</doc>
+          <type name="guint32" c:type="guint32"/>
+        </parameter>
+        <parameter name="startup_icon_name"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="651">application icon or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="child_process" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="652">%TRUE if the process should be a child process,
+                     %FALSE if it should be reparented to init.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="spawn_command_line"
+              c:identifier="xfce_spawn_command_line"
+              version="4.16"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="xfce-spawn.c"
+           line="713">Executes the given @command_line and returns %TRUE if the
+command terminated successfully. Else, the @error is set
+to the standard error output.</doc>
+      <source-position filename="xfce-spawn.h" line="71"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-spawn.c"
+             line="726">%TRUE if the @command_line was executed
+         successfully, %FALSE if @error is set.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="screen"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="715">a #GdkScreen or %NULL to use the active screen, see xfce_gdk_screen_get_active().</doc>
+          <type name="Gdk.Screen" c:type="GdkScreen*"/>
+        </parameter>
+        <parameter name="command_line" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="716">command line to run.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="in_terminal" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="717">whether to run @command_line in a terminal.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="startup_notify" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="718">whether to use startup notification.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="child_process" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="719">%TRUE if the process should be a child process, %FALSE if it should be reparented to init.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="spawn_command_line_on_screen"
+              c:identifier="xfce_spawn_command_line_on_screen"
+              deprecated="1"
+              deprecated-version="4.16"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="xfce-spawn.c"
+           line="683">Executes the given @command_line and returns %TRUE if the
+command terminated successfully. Else, the @error is set
+to the standard error output.</doc>
+      <doc-deprecated xml:space="preserve">Use #xfce_spawn_command_line instead.</doc-deprecated>
+      <source-position filename="xfce-spawn.h" line="64"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-spawn.c"
+             line="695">%TRUE if the @command_line was executed
+         successfully, %FALSE if @error is set.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="screen"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="685">a #GdkScreen or %NULL to use the active screen, see xfce_gdk_screen_get_active().</doc>
+          <type name="Gdk.Screen" c:type="GdkScreen*"/>
+        </parameter>
+        <parameter name="command_line" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="686">command line to run.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="in_terminal" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="687">whether to run @command_line in a terminal.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="startup_notify" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="688">whether to use startup notification.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="spawn_on_screen"
+              c:identifier="xfce_spawn_on_screen"
+              deprecated="1"
+              deprecated-version="4.16"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="xfce-spawn.c"
+           line="586">Like gdk_spawn_on_screen() (GDK 2), but also supports startup notification
+(if Libxfce4ui was built with startup notification support).</doc>
+      <doc-deprecated xml:space="preserve">Use #xfce_spawn instead.</doc-deprecated>
+      <source-position filename="xfce-spawn.h" line="42"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-spawn.c"
+             line="611">%TRUE on success, %FALSE if @error is set.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="screen"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="588">a #GdkScreen or %NULL to use the active screen,
+                     see xfce_gdk_screen_get_active().</doc>
+          <type name="Gdk.Screen" c:type="GdkScreen*"/>
+        </parameter>
+        <parameter name="working_directory"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="590">child's current working directory or %NULL to
+                     inherit parent's.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="argv" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="592">child's argument vector.</doc>
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="envp"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="593">child's environment vector or %NULL to inherit
+                     parent's.</doc>
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="595">flags from #GSpawnFlags. #G_SPAWN_DO_NOT_REAP_CHILD
+                     is not allowed, use xfce_spawn_on_screen_with_child_watch()
+                     if you want a child watch.</doc>
+          <type name="GLib.SpawnFlags" c:type="GSpawnFlags"/>
+        </parameter>
+        <parameter name="startup_notify" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="598">whether to use startup notification.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="startup_timestamp" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="599">the timestamp to pass to startup notification, use
+                     the event time here if possible to make focus
+                     stealing prevention work property. If you don't
+                     have direct access to the event time you could use
+                     gtk_get_current_event_time() or if nothing is
+                     available 0 is valid too.</doc>
+          <type name="guint32" c:type="guint32"/>
+        </parameter>
+        <parameter name="startup_icon_name"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="605">application icon or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="spawn_on_screen_with_child_watch"
+              c:identifier="xfce_spawn_on_screen_with_child_watch"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="xfce-spawn.c"
+           line="511">Like xfce_spawn_on_screen(), but allows to attach a closure to watch the
+child's exit status. This because only one g_child_watch_add() is allowed on
+Unix (per PID) and this is already internally needed for a proper
+startup notification implementation.
+
+&lt;example&gt;
+&lt;title&gt;Spawning with a child watch&lt;/title&gt;
+&lt;programlisting&gt;
+static void
+child_watch_callback (GObject *object,
+                      gint     status)
+{
+  g_message ("Child exit status is %d", status);
+}
+
+static void
+spawn_something (void)
+{
+  GClosure *child_watch;
+
+  child_watch = g_cclosure_new_swap (G_CALLBACK (child_watch_callback),
+                                     object, NULL);
+  xfce_spawn_on_screen_with_child_watch (...,
+                                         child_watch,
+                                         ...);
+}
+&lt;/programlisting&gt;
+&lt;/example&gt;</doc>
+      <source-position filename="xfce-spawn.h" line="31"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-spawn.c"
+             line="564">%TRUE on success, %FALSE if @error is set.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="screen"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="513">a #GdkScreen or %NULL to use the active screen,
+                       see xfce_gdk_screen_get_active().</doc>
+          <type name="Gdk.Screen" c:type="GdkScreen*"/>
+        </parameter>
+        <parameter name="working_directory"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="515">child's current working directory or %NULL to
+                       inherit parent's.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="argv" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="517">child's argument vector.</doc>
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="envp"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="518">child's environment vector or %NULL to inherit
+                       parent's.</doc>
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="520">flags from #GSpawnFlags. #G_SPAWN_DO_NOT_REAP_CHILD
+                       is not allowed, you should use the
+                       @child_watch_closure for this.</doc>
+          <type name="GLib.SpawnFlags" c:type="GSpawnFlags"/>
+        </parameter>
+        <parameter name="startup_notify" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="523">whether to use startup notification.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="startup_timestamp" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="524">the timestamp to pass to startup notification, use
+                       the event time here if possible to make focus
+                       stealing prevention work property. If you don't
+                       have direct access to the event time you could use
+                       gtk_get_current_event_time() or if nothing is
+                       available 0 is valid too.</doc>
+          <type name="guint32" c:type="guint32"/>
+        </parameter>
+        <parameter name="startup_icon_name"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="530">application icon or %NULL.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="child_watch_closure"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-spawn.c"
+               line="531">closure that is triggered when the child exists
+                       or %NULL.</doc>
+          <type name="GObject.Closure" c:type="GClosure*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="widget_reparent"
+              c:identifier="xfce_widget_reparent"
+              version="4.14">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="928">Moves a widget from one GtkContainer to another, handling reference
+count issues to avoid destroying the widget.</doc>
+      <source-position filename="xfce-gtk-extensions.h" line="182"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-gtk-extensions.c"
+             line="936">%TRUE if the widget could be moved, %FALSE otherwise.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="widget" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="930">a #GtkWidget.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </parameter>
+        <parameter name="new_parent" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-gtk-extensions.c"
+               line="931">a #GtkContainer to move the widget into</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <docsection name="xfce-dialogs">
+      <doc xml:space="preserve"
+           filename="xfce-dialogs.c"
+           line="21">Xfce-dialogs are a collection of helper dialogs to display
+the help dialog with link to the docs website, warning, info, and
+error dialogs and more.</doc>
+    </docsection>
+    <docsection name="xfce-filename-input">
+      <doc xml:space="preserve"
+           filename="xfce-filename-input.c"
+           line="20">A widget to allow filename input for creating or renaming files,
+with as-you-type checking for invalid filenames.</doc>
+    </docsection>
+    <docsection name="xfce-gdk-extensions">
+      <doc xml:space="preserve"
+           filename="xfce-gdk-extensions.c"
+           line="21">Common used functions that are not provided by the Gdk or Gdk-pixbuf library.</doc>
+    </docsection>
+    <docsection name="xfce-gtk-extensions">
+      <doc xml:space="preserve"
+           filename="xfce-gtk-extensions.c"
+           line="20">Common used functions for GtkWidget's that are not provided by the Gtk+ library</doc>
+    </docsection>
+    <docsection name="xfce-sm-client">
+      <doc xml:space="preserve"
+           filename="xfce-sm-client.c"
+           line="21">#XfceSMClient is a session management client that speaks the X Session
+Management Protocol (XSMP).  It's designed to be easy to use and hide some
+of the more esoteric feaures of XSMP from the API user.</doc>
+    </docsection>
+    <docsection name="xfce-spawn">
+      <doc xml:space="preserve"
+           filename="xfce-spawn.c"
+           line="21">Functions to spawn a command with startup notification support.</doc>
+    </docsection>
+    <docsection name="xfce-titled-dialog">
+      <doc xml:space="preserve"
+           filename="xfce-titled-dialog.c"
+           line="20">#XfceTitledDialog is a titled dialog window supporting an optional
+subtitle and mixed or pixbuf buttons.</doc>
+    </docsection>
+  </namespace>
+</repository>

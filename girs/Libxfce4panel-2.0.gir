@@ -1,0 +1,4414 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <include name="Libxfce4util" version="1.0"/>
+  <package name="libxfce4panel-2.0"/>
+  <c:include name="libxfce4panel/libxfce4panel.h"/>
+  <namespace name="Libxfce4panel"
+             version="2.0"
+             shared-library="libxfce4panel-2.0.so.4"
+             c:identifier-prefixes="Xfce,xfce,LIBXFCE4PANEL,libxfce4panel,Plugin"
+             c:symbol-prefixes="xfce,xfce,l_ibxfc_e4_panel,libxfce4panel,plugin">
+    <alias name="PanelTypeModule" c:type="XfcePanelTypeModule">
+      <doc xml:space="preserve"
+           filename="xfce-panel-macros.h"
+           line="62">Typedef for GTypeModule for possible future expansion.</doc>
+      <source-position filename="xfce-panel-macros.h" line="69"/>
+      <type name="GObject.TypeModule" c:type="GTypeModule"/>
+    </alias>
+    <function-macro name="ARROW_BUTTON"
+                    c:identifier="XFCE_ARROW_BUTTON"
+                    introspectable="0">
+      <source-position filename="xfce-arrow-button.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ARROW_BUTTON_CLASS"
+                    c:identifier="XFCE_ARROW_BUTTON_CLASS"
+                    introspectable="0">
+      <source-position filename="xfce-arrow-button.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ARROW_BUTTON_GET_CLASS"
+                    c:identifier="XFCE_ARROW_BUTTON_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="xfce-arrow-button.h" line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="ArrowButton"
+           c:symbol-prefix="arrow_button"
+           c:type="XfceArrowButton"
+           parent="Gtk.ToggleButton"
+           glib:type-name="XfceArrowButton"
+           glib:get-type="xfce_arrow_button_get_type"
+           glib:type-struct="ArrowButtonClass">
+      <doc xml:space="preserve"
+           filename="xfce-arrow-button.h"
+           line="50">This struct contain private data only and should be accessed by
+the functions below.</doc>
+      <source-position filename="xfce-arrow-button.h" line="48"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Actionable"/>
+      <implements name="Gtk.Activatable"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="xfce_arrow_button_new">
+        <doc xml:space="preserve"
+             filename="xfce-arrow-button.c"
+             line="510">Creates a new #XfceArrowButton widget.</doc>
+        <source-position filename="xfce-arrow-button.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-arrow-button.c"
+               line="516">The newly created #XfceArrowButton widget.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="arrow_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-arrow-button.c"
+                 line="512">#GtkArrowType for the arrow button</doc>
+            <type name="Gtk.ArrowType" c:type="GtkArrowType"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="arrow_type_changed">
+        <source-position filename="xfce-arrow-button.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="ArrowButton" c:type="XfceArrowButton*"/>
+          </instance-parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="Gtk.ArrowType" c:type="GtkArrowType"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_arrow_type"
+              c:identifier="xfce_arrow_button_get_arrow_type"
+              glib:get-property="arrow-type">
+        <doc xml:space="preserve"
+             filename="xfce-arrow-button.c"
+             line="528">Returns the value of the ::arrow-type property.</doc>
+        <source-position filename="xfce-arrow-button.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-arrow-button.c"
+               line="534">the #GtkArrowType of @button.</doc>
+          <type name="Gtk.ArrowType" c:type="GtkArrowType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-arrow-button.c"
+                 line="530">a #XfceArrowButton</doc>
+            <type name="ArrowButton" c:type="XfceArrowButton*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_blinking"
+              c:identifier="xfce_arrow_button_get_blinking"
+              version="4.8">
+        <doc xml:space="preserve"
+             filename="xfce-arrow-button.c"
+             line="578">Whether the button is blinking. If the blink timeout is finished
+and the button is still highlighted, this functions returns %TRUE.</doc>
+        <source-position filename="xfce-arrow-button.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-arrow-button.c"
+               line="585">%TRUE when @button is blinking.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-arrow-button.c"
+                 line="580">a #XfceArrowButton</doc>
+            <type name="ArrowButton" c:type="XfceArrowButton*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_arrow_type"
+              c:identifier="xfce_arrow_button_set_arrow_type"
+              glib:set-property="arrow-type">
+        <doc xml:space="preserve"
+             filename="xfce-arrow-button.c"
+             line="545">Sets the arrow type for @button.</doc>
+        <source-position filename="xfce-arrow-button.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-arrow-button.c"
+                 line="547">a #XfceArrowButton</doc>
+            <type name="ArrowButton" c:type="XfceArrowButton*"/>
+          </instance-parameter>
+          <parameter name="arrow_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-arrow-button.c"
+                 line="548">a valid  #GtkArrowType</doc>
+            <type name="Gtk.ArrowType" c:type="GtkArrowType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_blinking"
+              c:identifier="xfce_arrow_button_set_blinking"
+              version="4.8">
+        <doc xml:space="preserve"
+             filename="xfce-arrow-button.c"
+             line="600">Make the button blink.</doc>
+        <source-position filename="xfce-arrow-button.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-arrow-button.c"
+                 line="602">a #XfceArrowButton</doc>
+            <type name="ArrowButton" c:type="XfceArrowButton*"/>
+          </instance-parameter>
+          <parameter name="blinking" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-arrow-button.c"
+                 line="603">%TRUE when the button should start blinking, %FALSE to
+            stop the blinking.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="arrow-type"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_arrow_type"
+                getter="get_arrow_type"
+                default-value="GTK_ARROW_UP">
+        <doc xml:space="preserve"
+             filename="xfce-arrow-button.c"
+             line="151">The arrow type of the button. This value also determines the direction
+of the popup menu.</doc>
+        <type name="Gtk.ArrowType"/>
+      </property>
+      <field name="__parent__" readable="0" private="1">
+        <type name="Gtk.ToggleButton" c:type="GtkToggleButton"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ArrowButtonPrivate" c:type="XfceArrowButtonPrivate*"/>
+      </field>
+      <glib:signal name="arrow-type-changed" when="last">
+        <doc xml:space="preserve"
+             filename="xfce-arrow-button.c"
+             line="134">Emitted when the arrow direction of the menu button changes.
+This value also determines the direction of the popup menu.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-arrow-button.c"
+                 line="137">the new #GtkArrowType of the button</doc>
+            <type name="Gtk.ArrowType"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ArrowButtonClass"
+            c:type="XfceArrowButtonClass"
+            glib:is-gtype-struct-for="ArrowButton">
+      <source-position filename="xfce-arrow-button.h" line="48"/>
+      <field name="__parent__" readable="0" private="1">
+        <type name="Gtk.ToggleButtonClass" c:type="GtkToggleButtonClass"/>
+      </field>
+      <field name="arrow_type_changed">
+        <callback name="arrow_type_changed">
+          <source-position filename="xfce-arrow-button.h" line="46"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="button" transfer-ownership="none">
+              <type name="ArrowButton" c:type="XfceArrowButton*"/>
+            </parameter>
+            <parameter name="type" transfer-ownership="none">
+              <type name="Gtk.ArrowType" c:type="GtkArrowType"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="ArrowButtonPrivate"
+            c:type="XfceArrowButtonPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="xfce-arrow-button.h" line="29"/>
+    </record>
+    <function-macro name="CHECK_VERSION"
+                    c:identifier="LIBXFCE4PANEL_CHECK_VERSION"
+                    version="4.8"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="libxfce4panel-config.h"
+           line="75">Checks the version of the libxfce4panel library.</doc>
+      <source-position filename="libxfce4panel-config.h" line="88"/>
+      <parameters>
+        <parameter name="major">
+          <doc xml:space="preserve"
+               filename="libxfce4panel-config.h"
+               line="77">the major version number.</doc>
+        </parameter>
+        <parameter name="minor">
+          <doc xml:space="preserve"
+               filename="libxfce4panel-config.h"
+               line="78">the minor version number.</doc>
+        </parameter>
+        <parameter name="micro">
+          <doc xml:space="preserve"
+               filename="libxfce4panel-config.h"
+               line="79">the micro version number.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <callback name="ConstructFunc"
+              c:type="PluginConstructFunc"
+              introspectable="0">
+      <source-position filename="xfce-panel-plugin-provider.h" line="36"/>
+      <return-value>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+      <parameters>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="unique_id" transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="display_name" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="comment" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="arguments" transfer-ownership="none">
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+        <parameter name="screen" transfer-ownership="none">
+          <type name="Gdk.Screen" c:type="GdkScreen*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <function-macro name="IS_ARROW_BUTTON"
+                    c:identifier="XFCE_IS_ARROW_BUTTON"
+                    introspectable="0">
+      <source-position filename="xfce-arrow-button.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_ARROW_BUTTON_CLASS"
+                    c:identifier="XFCE_IS_ARROW_BUTTON_CLASS"
+                    introspectable="0">
+      <source-position filename="xfce-arrow-button.h" line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PANEL_IMAGE"
+                    c:identifier="XFCE_IS_PANEL_IMAGE"
+                    introspectable="0">
+      <source-position filename="xfce-panel-image.h" line="64"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PANEL_IMAGE_CLASS"
+                    c:identifier="XFCE_IS_PANEL_IMAGE_CLASS"
+                    introspectable="0">
+      <source-position filename="xfce-panel-image.h" line="65"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PANEL_PLUGIN"
+                    c:identifier="XFCE_IS_PANEL_PLUGIN"
+                    introspectable="0">
+      <source-position filename="xfce-panel-plugin.h" line="76"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PANEL_PLUGIN_CLASS"
+                    c:identifier="XFCE_IS_PANEL_PLUGIN_CLASS"
+                    introspectable="0">
+      <source-position filename="xfce-panel-plugin.h" line="77"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PANEL_PLUGIN_PROVIDER"
+                    c:identifier="XFCE_IS_PANEL_PLUGIN_PROVIDER"
+                    introspectable="0">
+      <source-position filename="xfce-panel-plugin-provider.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <callback name="InitFunc" c:type="PluginInitFunc">
+      <source-position filename="xfce-panel-plugin-provider.h" line="42"/>
+      <return-value transfer-ownership="none">
+        <type name="GType" c:type="GType"/>
+      </return-value>
+      <parameters>
+        <parameter name="module" transfer-ownership="none">
+          <type name="GObject.TypeModule" c:type="GTypeModule*"/>
+        </parameter>
+        <parameter name="make_resident" transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <constant name="MAJOR_VERSION"
+              value="4"
+              c:type="LIBXFCE4PANEL_MAJOR_VERSION"
+              version="4.8">
+      <doc xml:space="preserve"
+           filename="libxfce4panel-config.h"
+           line="39">The major version number of the libxfce4panel library.
+Like libxfce4panel_major_version, but from the headers used at
+application compile time, rather than from the library
+linked against at application run time.</doc>
+      <source-position filename="libxfce4panel-config.h" line="49"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MICRO_VERSION"
+              value="6"
+              c:type="LIBXFCE4PANEL_MICRO_VERSION"
+              version="4.8">
+      <doc xml:space="preserve"
+           filename="libxfce4panel-config.h"
+           line="63">The micro version number of the libxfce4panel library.
+Like libxfce4panel_micro_version, but from the headers used at
+application compile time, rather than from the library
+linked against at application run time</doc>
+      <source-position filename="libxfce4panel-config.h" line="73"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MINOR_VERSION"
+              value="18"
+              c:type="LIBXFCE4PANEL_MINOR_VERSION"
+              version="4.8">
+      <doc xml:space="preserve"
+           filename="libxfce4panel-config.h"
+           line="51">The minor version number of the libxfce4panel library.
+Like libxfce4panel_minor_version, but from the headers used at
+application compile time, rather than from the library
+linked against at application run time.</doc>
+      <source-position filename="libxfce4panel-config.h" line="61"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <function-macro name="PANEL_DEFINE_PREINIT_FUNC"
+                    c:identifier="XFCE_PANEL_DEFINE_PREINIT_FUNC"
+                    version="4.8"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="xfce-panel-macros.h"
+           line="232">Registers a pre-init function in the plugin module. This function
+is called before gtk_init() and can be used to initialize
+special libaries.
+Downside of this that the plugin cannot run internal. Even if you
+set X-XFCE-Interal=TRUE in the desktop file, the panel will force
+the plugin to run inside a wrapper (this because the panel called
+gtk_init() long before it starts to load the plugins).
+
+Note that you can only use this once and it only works in
+combination with the plugins register/define functions added
+in 4.8.</doc>
+      <source-position filename="xfce-panel-macros.h" line="251"/>
+      <parameters>
+        <parameter name="preinit_func">
+          <doc xml:space="preserve"
+               filename="xfce-panel-macros.h"
+               line="234">name of the function that points to an
+               #XfcePanelPluginPreInit function.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_DEFINE_TYPE"
+                    c:identifier="XFCE_PANEL_DEFINE_TYPE"
+                    version="4.8"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="xfce-panel-macros.h"
+           line="143">A convenient macro of #G_DEFINE_DYNAMIC_TYPE for panel plugins. Only
+difference with #G_DEFINE_DYNAMIC_TYPE is that the type name send to
+g_type_module_register_type() is prefixed with "Xfce". This allows you
+use use shorted structure names in the code, while the real name of the
+object is a full "Xfce" name.
+
+The _register_type function should be added to the args in
+#XFCE_PANEL_DEFINE_PLUGIN.</doc>
+      <source-position filename="xfce-panel-macros.h" line="160"/>
+      <parameters>
+        <parameter name="TypeName">
+          <doc xml:space="preserve"
+               filename="xfce-panel-macros.h"
+               line="145">The name of the new type, in Camel case.</doc>
+        </parameter>
+        <parameter name="type_name">
+          <doc xml:space="preserve"
+               filename="xfce-panel-macros.h"
+               line="146">The name of the new type, in lowercase, with words separated by '_'.</doc>
+        </parameter>
+        <parameter name="TYPE_PARENT">
+          <doc xml:space="preserve"
+               filename="xfce-panel-macros.h"
+               line="147">The GType of the parent type.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_IMAGE"
+                    c:identifier="XFCE_PANEL_IMAGE"
+                    introspectable="0">
+      <source-position filename="xfce-panel-image.h" line="62"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_IMAGE_CLASS"
+                    c:identifier="XFCE_PANEL_IMAGE_CLASS"
+                    introspectable="0">
+      <source-position filename="xfce-panel-image.h" line="63"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_IMAGE_GET_CLASS"
+                    c:identifier="XFCE_PANEL_IMAGE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="xfce-panel-image.h" line="66"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_PLUGIN"
+                    c:identifier="XFCE_PANEL_PLUGIN"
+                    introspectable="0">
+      <source-position filename="xfce-panel-plugin.h" line="74"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_PLUGIN_CLASS"
+                    c:identifier="XFCE_PANEL_PLUGIN_CLASS"
+                    introspectable="0">
+      <source-position filename="xfce-panel-plugin.h" line="75"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_PLUGIN_GET_CLASS"
+                    c:identifier="XFCE_PANEL_PLUGIN_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="xfce-panel-plugin.h" line="78"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_PLUGIN_PROVIDER"
+                    c:identifier="XFCE_PANEL_PLUGIN_PROVIDER"
+                    introspectable="0">
+      <source-position filename="xfce-panel-plugin-provider.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_PLUGIN_PROVIDER_GET_INTERFACE"
+                    c:identifier="XFCE_PANEL_PLUGIN_PROVIDER_GET_INTERFACE"
+                    introspectable="0">
+      <source-position filename="xfce-panel-plugin-provider.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_PLUGIN_REGISTER"
+                    c:identifier="XFCE_PANEL_PLUGIN_REGISTER"
+                    version="4.8"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="xfce-panel-macros.h"
+           line="263">Register a panel plugin using a construct function. This is the
+simplest way to register a panel plugin.
+The @construct_func is called everytime a plugin is created.</doc>
+      <source-position filename="xfce-panel-macros.h" line="274"/>
+      <parameters>
+        <parameter name="construct_func">
+          <doc xml:space="preserve"
+               filename="xfce-panel-macros.h"
+               line="265">name of the function that points to an
+                  #XfcePanelPluginFunc function.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_PLUGIN_REGISTER_FULL"
+                    c:identifier="XFCE_PANEL_PLUGIN_REGISTER_FULL"
+                    version="4.8"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="xfce-panel-macros.h"
+           line="300">Same as calling #XFCE_PANEL_DEFINE_PREINIT_FUNC and
+#XFCE_PANEL_PLUGIN_REGISTER_WITH_CHECK. See those macros
+for more information.</doc>
+      <source-position filename="xfce-panel-macros.h" line="315"/>
+      <parameters>
+        <parameter name="construct_func">
+          <doc xml:space="preserve"
+               filename="xfce-panel-macros.h"
+               line="302">name of the function that points to an
+                  #XfcePanelPluginFunc function.</doc>
+        </parameter>
+        <parameter name="preinit_func">
+          <doc xml:space="preserve"
+               filename="xfce-panel-macros.h"
+               line="304">name of the function that points to an
+                  #XfcePanelPluginPreInit function.</doc>
+        </parameter>
+        <parameter name="check_func">
+          <doc xml:space="preserve"
+               filename="xfce-panel-macros.h"
+               line="306">name of the function that points to an
+                  #XfcePanelPluginCheck function.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_PLUGIN_REGISTER_WITH_CHECK"
+                    c:identifier="XFCE_PANEL_PLUGIN_REGISTER_WITH_CHECK"
+                    version="4.8"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="xfce-panel-macros.h"
+           line="279">Register a panel plugin using a construct function. The @check_func
+will be called before the plugin is created. If this function returns
+%FALSE, the plugin won't be added to the panel. For proper feedback,
+you are responsible for showing a dialog why the plugin is not added
+to the panel.</doc>
+      <source-position filename="xfce-panel-macros.h" line="294"/>
+      <parameters>
+        <parameter name="construct_func">
+          <doc xml:space="preserve"
+               filename="xfce-panel-macros.h"
+               line="281">name of the function that points to an
+                  #XfcePanelPluginFunc function.</doc>
+        </parameter>
+        <parameter name="check_func">
+          <doc xml:space="preserve"
+               filename="xfce-panel-macros.h"
+               line="283">name of the function that points to an
+                  #XfcePanelPluginCheck function.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="PanelImage"
+           c:symbol-prefix="panel_image"
+           c:type="XfcePanelImage"
+           parent="Gtk.Widget"
+           glib:type-name="XfcePanelImage"
+           glib:get-type="xfce_panel_image_get_type"
+           glib:type-struct="PanelImageClass">
+      <doc xml:space="preserve"
+           filename="xfce-panel-image.h"
+           line="46">This struct contain private data only and should be accessed by
+the functions below.</doc>
+      <source-position filename="xfce-panel-image.h" line="44"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new"
+                   c:identifier="xfce_panel_image_new"
+                   version="4.8"
+                   deprecated="1"
+                   deprecated-version="4.18.1">
+        <doc xml:space="preserve"
+             filename="xfce-panel-image.c"
+             line="638">Creates a new empty #XfcePanelImage widget.</doc>
+        <doc-deprecated xml:space="preserve">Use gtk_image_new() instead.</doc-deprecated>
+        <source-position filename="xfce-panel-image.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-image.c"
+               line="643">a newly created XfcePanelImage widget.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_from_pixbuf"
+                   c:identifier="xfce_panel_image_new_from_pixbuf"
+                   version="4.8"
+                   deprecated="1"
+                   deprecated-version="4.18.1">
+        <doc xml:space="preserve"
+             filename="xfce-panel-image.c"
+             line="657">Creates a new #XfcePanelImage displaying @pixbuf. #XfcePanelImage
+will add its own reference rather than adopting yours. You don't
+need to scale the pixbuf to the correct size, the #XfcePanelImage
+will take care of that based on the allocation of the widget or
+the size set with xfce_panel_image_set_size().</doc>
+        <doc-deprecated xml:space="preserve">Use gtk_image_new_from_pixbuf() instead.</doc-deprecated>
+        <source-position filename="xfce-panel-image.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-image.c"
+               line="667">a newly created XfcePanelImage widget.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="pixbuf"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-image.c"
+                 line="659">a #GdkPixbuf, or %NULL.</doc>
+            <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_source"
+                   c:identifier="xfce_panel_image_new_from_source"
+                   version="4.8"
+                   deprecated="1"
+                   deprecated-version="4.18.1">
+        <doc xml:space="preserve"
+             filename="xfce-panel-image.c"
+             line="684">Creates a new #XfcePanelImage displaying @source. #XfcePanelImage
+will detect if @source points to an absolute file or it and icon-name.
+For icon-names it will also look for files in the pixbuf folder or
+strip the extensions, which makes it suitable for usage with icon
+keys in .desktop files.</doc>
+        <doc-deprecated xml:space="preserve">Use gtk_image_new() and xfce_panel_set_image_from_source() instead.</doc-deprecated>
+        <source-position filename="xfce-panel-image.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-image.c"
+               line="695">a newly created XfcePanelImage widget.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="source"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-image.c"
+                 line="686">source of the image. This can be an absolute path or
+          an icon-name or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="clear"
+              c:identifier="xfce_panel_image_clear"
+              version="4.8"
+              deprecated="1"
+              deprecated-version="4.18.1">
+        <doc xml:space="preserve"
+             filename="xfce-panel-image.c"
+             line="822">Resets the image to be empty.</doc>
+        <doc-deprecated xml:space="preserve">Use gtk_image_clear() instead.</doc-deprecated>
+        <source-position filename="xfce-panel-image.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="image" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-image.c"
+                 line="824">an #XfcePanelImage.</doc>
+            <type name="PanelImage" c:type="XfcePanelImage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_size"
+              c:identifier="xfce_panel_image_get_size"
+              glib:get-property="size"
+              version="4.8"
+              deprecated="1"
+              deprecated-version="4.18.1">
+        <doc xml:space="preserve"
+             filename="xfce-panel-image.c"
+             line="799">The size of the image, set by xfce_panel_image_set_size() or -1
+if no size is forced and the image is scaled to the allocation size.</doc>
+        <doc-deprecated xml:space="preserve">Use gtk_image_get_pixel_size() or get the size from the
+#GtkImage storage type instead.</doc-deprecated>
+        <source-position filename="xfce-panel-image.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-image.c"
+               line="806">icon size in pixels of the image or -1.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="image" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-image.c"
+                 line="801">an #XfcePanelImage.</doc>
+            <type name="PanelImage" c:type="XfcePanelImage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_from_pixbuf"
+              c:identifier="xfce_panel_image_set_from_pixbuf"
+              version="4.8"
+              deprecated="1"
+              deprecated-version="4.18.1">
+        <doc xml:space="preserve"
+             filename="xfce-panel-image.c"
+             line="712">See xfce_panel_image_new_from_pixbuf() for details.</doc>
+        <doc-deprecated xml:space="preserve">Use gtk_image_set_from_pixbuf().</doc-deprecated>
+        <source-position filename="xfce-panel-image.h" line="80"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="image" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-image.c"
+                 line="714">an #XfcePanelImage.</doc>
+            <type name="PanelImage" c:type="XfcePanelImage*"/>
+          </instance-parameter>
+          <parameter name="pixbuf"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-image.c"
+                 line="715">a #GdkPixbuf, or %NULL.</doc>
+            <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_from_source"
+              c:identifier="xfce_panel_image_set_from_source"
+              version="4.8"
+              deprecated="1"
+              deprecated-version="4.18.1">
+        <doc xml:space="preserve"
+             filename="xfce-panel-image.c"
+             line="741">See xfce_panel_image_new_from_source() for details.</doc>
+        <doc-deprecated xml:space="preserve">Use xfce_panel_set_image_from_source() instead.</doc-deprecated>
+        <source-position filename="xfce-panel-image.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="image" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-image.c"
+                 line="743">an #XfcePanelImage.</doc>
+            <type name="PanelImage" c:type="XfcePanelImage*"/>
+          </instance-parameter>
+          <parameter name="source"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-image.c"
+                 line="744">source of the image. This can be an absolute path or
+          an icon-name or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_size"
+              c:identifier="xfce_panel_image_set_size"
+              glib:set-property="size"
+              version="4.8"
+              deprecated="1"
+              deprecated-version="4.18.1">
+        <doc xml:space="preserve"
+             filename="xfce-panel-image.c"
+             line="769">This will force an image size, instead of looking at the allocation
+size, see introduction for more details. You can set a @size of
+-1 to turn this off.</doc>
+        <doc-deprecated xml:space="preserve">Use gtk_image_set_pixel_size() or set the size from the
+#GtkImage storage type instead.</doc-deprecated>
+        <source-position filename="xfce-panel-image.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="image" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-image.c"
+                 line="771">an #XfcePanelImage.</doc>
+            <type name="PanelImage" c:type="XfcePanelImage*"/>
+          </instance-parameter>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-image.c"
+                 line="772">a new size in pixels.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="pixbuf"
+                deprecated="1"
+                deprecated-version="4.18.1"
+                writable="1"
+                transfer-ownership="none">
+        <doc-deprecated xml:space="preserve">Use #GtkImage:pixbuf instead.</doc-deprecated>
+        <type name="GdkPixbuf.Pixbuf"/>
+      </property>
+      <property name="size"
+                deprecated="1"
+                deprecated-version="4.18.1"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_size"
+                getter="get_size"
+                default-value="-1">
+        <doc-deprecated xml:space="preserve">Use #GtkImage:pixel-size instead.</doc-deprecated>
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="source"
+                deprecated="1"
+                deprecated-version="4.18.1"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc-deprecated xml:space="preserve">Use #GtkImage:storage-type instead.</doc-deprecated>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="__parent__" readable="0" private="1">
+        <type name="Gtk.Widget" c:type="GtkWidget"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="PanelImagePrivate" c:type="XfcePanelImagePrivate*"/>
+      </field>
+    </class>
+    <record name="PanelImageClass"
+            c:type="XfcePanelImageClass"
+            glib:is-gtype-struct-for="PanelImage">
+      <source-position filename="xfce-panel-image.h" line="44"/>
+      <field name="__parent__" readable="0" private="1">
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+      <field name="reserved1">
+        <callback name="reserved1">
+          <source-position filename="xfce-panel-image.h" line="40"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved2">
+        <callback name="reserved2">
+          <source-position filename="xfce-panel-image.h" line="41"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved3">
+        <callback name="reserved3">
+          <source-position filename="xfce-panel-image.h" line="42"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved4">
+        <callback name="reserved4">
+          <source-position filename="xfce-panel-image.h" line="43"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <record name="PanelImagePrivate"
+            c:type="XfcePanelImagePrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="xfce-panel-image.h" line="32"/>
+    </record>
+    <class name="PanelPlugin"
+           c:symbol-prefix="panel_plugin"
+           c:type="XfcePanelPlugin"
+           parent="Gtk.EventBox"
+           glib:type-name="XfcePanelPlugin"
+           glib:get-type="xfce_panel_plugin_get_type"
+           glib:type-struct="PanelPluginClass">
+      <doc xml:space="preserve"
+           filename="xfce-panel-plugin.h"
+           line="141">This struct contain private data only and should be accessed by
+the functions below.</doc>
+      <source-position filename="xfce-panel-plugin.h" line="138"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="PanelPluginProvider"/>
+      <function name="position_menu"
+                c:identifier="xfce_panel_plugin_position_menu"
+                deprecated="1"
+                deprecated-version="4.17.2">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2625">Function to be used as #GtkMenuPositionFunc in a call to gtk_menu_popup().
+As data argument it needs an #XfcePanelPlugin.
+
+The menu is normally positioned relative to @panel_plugin. If you want the
+menu to be positioned relative to another widget, you can use
+gtk_menu_attach_to_widget() to explicitly set a 'parent' widget.
+
+As a convenience, xfce_panel_plugin_position_menu() calls
+xfce_panel_plugin_register_menu() for the menu.
+
+&lt;example&gt;
+void
+myplugin_popup_menu (XfcePanelPlugin *plugin,
+                     GtkMenu         *menu,
+                     GdkEventButton  *ev)
+{
+    gtk_menu_popup (menu, NULL, NULL,
+                    xfce_panel_plugin_position_menu, plugin,
+                    ev-&gt;button, ev-&gt;time );
+}
+&lt;/example&gt;
+
+For a custom widget that will be used as a popup menu, use
+xfce_panel_plugin_position_widget() instead.
+
+See also: gtk_menu_popup().</doc>
+        <doc-deprecated xml:space="preserve">Use xfce_panel_plugin_popup_menu() instead.</doc-deprecated>
+        <source-position filename="xfce-panel-plugin.h" line="233"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2627">a #GtkMenu.</doc>
+            <type name="Gtk.Menu" c:type="GtkMenu*"/>
+          </parameter>
+          <parameter name="x"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2628">return location for the x coordinate.</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+          <parameter name="y"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2629">return location for the y coordinate.</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+          <parameter name="push_in" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2630">keep inside the screen (see #GtkMenuPositionFunc)</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+          <parameter name="panel_plugin"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2631">an #XfcePanelPlugin.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="about">
+        <source-position filename="xfce-panel-plugin.h" line="122"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="configure_plugin">
+        <source-position filename="xfce-panel-plugin.h" line="123"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="construct">
+        <source-position filename="xfce-panel-plugin.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="free_data">
+        <source-position filename="xfce-panel-plugin.h" line="120"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="mode_changed">
+        <source-position filename="xfce-panel-plugin.h" line="130"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+          <parameter name="mode" transfer-ownership="none">
+            <type name="PanelPluginMode" c:type="XfcePanelPluginMode"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="nrows_changed">
+        <source-position filename="xfce-panel-plugin.h" line="132"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+          <parameter name="rows" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="orientation_changed">
+        <source-position filename="xfce-panel-plugin.h" line="118"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+          <parameter name="orientation" transfer-ownership="none">
+            <type name="Gtk.Orientation" c:type="GtkOrientation"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="remote_event">
+        <source-position filename="xfce-panel-plugin.h" line="125"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="GObject.Value" c:type="const GValue*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="removed">
+        <source-position filename="xfce-panel-plugin.h" line="124"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="save">
+        <source-position filename="xfce-panel-plugin.h" line="121"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="screen_position_changed">
+        <source-position filename="xfce-panel-plugin.h" line="114"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+          <parameter name="position" transfer-ownership="none">
+            <type name="ScreenPosition" c:type="XfceScreenPosition"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="size_changed">
+        <source-position filename="xfce-panel-plugin.h" line="116"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="add_action_widget"
+              c:identifier="xfce_panel_plugin_add_action_widget">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2173">Attach the plugin menu to this widget. Plugin writers should call this
+for every widget that can receive mouse events. If you forget to call this
+the plugin will not have a right-click menu and the user won't be able to
+remove it.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="202"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2175">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+          <parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2176">a #GtkWidget that receives mouse events.</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="arrow_type" c:identifier="xfce_panel_plugin_arrow_type">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2447">Determine the #GtkArrowType for a widget that opens a menu.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="225"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.c"
+               line="2453">the #GtkArrowType to use.</doc>
+          <type name="Gtk.ArrowType" c:type="GtkArrowType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2449">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="block_autohide"
+              c:identifier="xfce_panel_plugin_block_autohide">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2816">Whether this plugin blocks the autohide functionality of the panel. Use
+this when you 'popup' something that is visually attached to the
+plugin at it will look weird for a user if the panel will hide while
+he/she is working in the popup.
+
+Be sure to use this function as lock/unlock pairs, as a counter is
+incremented/decremented under the hood. For menus, you can use
+xfce_panel_plugin_register_menu() which will take care of this.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="248"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2818">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+          <parameter name="blocked" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2819">new blocking state of this plugin.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="block_menu" c:identifier="xfce_panel_plugin_block_menu">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2370">Block configuring the plugin. This will make the "Properties" menu
+item insensitive.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="218"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2372">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="focus_widget"
+              c:identifier="xfce_panel_plugin_focus_widget">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2790">Grab the focus on @widget. Asks the panel to allow focus on its items
+and set the focus to the requested widget.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="245"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2792">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+          <parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2793">a #GtkWidget inside the plugins that should be focussed.</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_arguments"
+              c:identifier="xfce_panel_plugin_get_arguments"
+              glib:get-property="arguments"
+              version="4.8">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="1802">Argument vector passed to the plugin when it was added. Most of the
+time the return value will be %NULL, but if could for example contain
+a list of filenames when the user added the plugin with
+
+xfce4-panel --add=launcher *.desktop
+
+see the code of the launcher plugin how to use this.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="170"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.c"
+               line="1814">the argument vector. The vector is owned by the plugin and
+         should not be freed.</doc>
+          <array c:type="const gchar* const*">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="1804">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_comment"
+              c:identifier="xfce_panel_plugin_get_comment"
+              glib:get-property="comment"
+              version="4.8">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="1728">This returns the translated comment of the plugin set in
+the .desktop file of the plugin.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="164"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.c"
+               line="1735">the (translated) comment of the plugin.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="1730">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_display_name"
+              c:identifier="xfce_panel_plugin_get_display_name"
+              glib:get-property="display-name">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="1705">This returns the translated name of the plugin set in the .desktop
+file of the plugin.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="162"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.c"
+               line="1712">the (translated) display name of the plugin.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="1707">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_expand"
+              c:identifier="xfce_panel_plugin_get_expand"
+              glib:get-property="expand">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="1853">Whether the plugin is expanded or not. This set by the plugin using
+xfce_panel_plugin_set_expand().</doc>
+        <source-position filename="xfce-panel-plugin.h" line="174"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.c"
+               line="1860">%TRUE when the plugin should expand,
+         %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="1855">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_size"
+              c:identifier="xfce_panel_plugin_get_icon_size"
+              glib:get-property="icon-size"
+              version="4.14">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2021">Returns either the icon size defined in the panel's settings or
+a preferred icon size.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="189"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2023">an #XfcePanelPlugin,</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_locked"
+              c:identifier="xfce_panel_plugin_get_locked"
+              version="4.8">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2316">Whether the plugin is locked (not allowing customization). This
+is emitted through the panel based on the Xfconf locking of the
+panel window the plugin is embedded on.
+
+It is however possible to send a fake signal to the plugin to
+override this propery, so you should only use this for interface
+elements and (if you use Xfconf) check the locking yourself
+before you write any values or query the kiosk mode using the
+api in libxfce4util.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="214"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.c"
+               line="2330">%TRUE if the user is not allowed to modify the plugin,
+         %FALSE is customization is allowed.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2318">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_mode"
+              c:identifier="xfce_panel_plugin_get_mode"
+              glib:get-property="mode"
+              version="4.10">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2088">The mode of the panel in which the plugin is embedded.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="193"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.c"
+               line="2094">the current #XfcePanelPluginMode of the panel.</doc>
+          <type name="PanelPluginMode" c:type="XfcePanelPluginMode"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2090">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="xfce_panel_plugin_get_name"
+              glib:get-property="name">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="1686">The internal name of the panel plugin.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="160"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.c"
+               line="1692">the name of the panel plugin.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="1688">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_nrows"
+              c:identifier="xfce_panel_plugin_get_nrows"
+              glib:get-property="nrows"
+              version="4.10">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2109">The number of rows of the panel in which the plugin is embedded.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="195"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.c"
+               line="2115">the current number of rows of the panel.</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2111">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_orientation"
+              c:identifier="xfce_panel_plugin_get_orientation"
+              glib:get-property="orientation">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2067">The orientation of the panel in which the plugin is embedded.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="191"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.c"
+               line="2073">the current #GtkOrientation of the panel.</doc>
+          <type name="Gtk.Orientation" c:type="GtkOrientation"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2069">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_property_base"
+              c:identifier="xfce_panel_plugin_get_property_base">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="1773">The property base for this plugin in the xfce4-panel XfconfChannel,
+this name is something like /plugins/plugin-1.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="168"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.c"
+               line="1780">the property base for the xfconf channel userd by a plugin.
+
+See also: xfconf_channel_new_with_property_base.
+          XFCE_PANEL_PLUGIN_CHANNEL_NAME and
+          xfce_panel_get_channel_name</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="1775">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_screen_position"
+              c:identifier="xfce_panel_plugin_get_screen_position"
+              glib:get-property="screen-position">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2130">The screen position of the panel in which the plugin is embedded.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="197"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.c"
+               line="2136">the current #XfceScreenPosition of the panel.</doc>
+          <type name="ScreenPosition" c:type="XfceScreenPosition"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2132">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_shrink"
+              c:identifier="xfce_panel_plugin_get_shrink"
+              glib:get-property="shrink"
+              version="4.10">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="1907">Whether the plugin can shrink if the size on the panel is limited. This
+is effective with plugins that do not have expand set, but can accept
+a smaller size when needed.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="179"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.c"
+               line="1915">%TRUE when the plugin can shrink,
+         %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="1909">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_size"
+              c:identifier="xfce_panel_plugin_get_size"
+              glib:get-property="size">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="1830">The size of the panel in which the plugin is embedded.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="172"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.c"
+               line="1836">the current size of the panel.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="1832">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_small"
+              c:identifier="xfce_panel_plugin_get_small"
+              glib:get-property="small"
+              version="4.10">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="1964">Whether the plugin is small enough to fit in a single row of
+a multi-row panel. E.g. if it is a button-like applet.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="184"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.c"
+               line="1971">%TRUE when the plugin is small,
+         %FALSE otherwise.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="1966">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_unique_id"
+              c:identifier="xfce_panel_plugin_get_unique_id"
+              glib:get-property="unique-id">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="1750">The internal unique id of the plugin. Each plugin in the panel has
+a unique number that is for example used for the config file name
+or property base in the xfconf channel.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="166"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.c"
+               line="1758">the unique id of the plugin.
+
+Since 4.8</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="1752">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="lookup_rc_file"
+              c:identifier="xfce_panel_plugin_lookup_rc_file">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2862">Looks for the plugin resource file. This should be used to get the
+plugin read location of the config file. You should only use the
+returned path to read information from, since it might point to a
+not-writable file (in kiosk mode for example).
+
+See also: xfce_panel_plugin_save_location() and xfce_resource_lookup()</doc>
+        <source-position filename="xfce-panel-plugin.h" line="251"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.c"
+               line="2873">The path to a config file or %NULL if no file was found.
+         The returned string must be freed using g_free()</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2864">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="menu_destroy"
+              c:identifier="xfce_panel_plugin_menu_destroy">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2289">Remove all custom menu items added through #xfce_panel_plugin_menu_insert_item
+from the menu.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="212"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2291">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="menu_insert_item"
+              c:identifier="xfce_panel_plugin_menu_insert_item">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2196">Insert a custom menu item to the plugin's right click menu. This item
+is packed below the first item in the menu, which displays the plugin's
+name.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="205"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2198">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2199">a #GtkMenuItem.</doc>
+            <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="menu_show_about"
+              c:identifier="xfce_panel_plugin_menu_show_about">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2254">Show the "About" item in the menu. Clicking on the menu item
+will emit the "about" signal.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="210"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2256">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="menu_show_configure"
+              c:identifier="xfce_panel_plugin_menu_show_configure">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2219">Show the "Properties" item in the menu. Clicking on the menu item
+will emit the "configure-plugin" signal.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="208"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2221">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="popup_menu"
+              c:identifier="xfce_panel_plugin_popup_menu"
+              version="4.17.2">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2702">Pops up @menu at @widget if @widget is non-%NULL and if appropriate given
+the panel position, otherwise pops up @menu at pointer.
+
+As a convenience, xfce_panel_plugin_popup_menu() calls
+xfce_panel_plugin_register_menu() for the @menu.
+
+For a custom widget that will be used as a popup menu, use
+xfce_panel_plugin_position_widget() instead.
+
+See also: gtk_menu_popup_at_widget() and gtk_menu_popup_at_pointer().</doc>
+        <source-position filename="xfce-panel-plugin.h" line="240"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2704">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+          <parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2705">a #GtkMenu.</doc>
+            <type name="Gtk.Menu" c:type="GtkMenu*"/>
+          </parameter>
+          <parameter name="widget"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2706">the #GtkWidget to align @menu with or %NULL
+                 to pop up @menu at pointer.</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="trigger_event"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2708">the #GdkEvent that initiated this request or
+                 %NULL if it's the current event.</doc>
+            <type name="Gdk.Event" c:type="const GdkEvent*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="position_widget"
+              c:identifier="xfce_panel_plugin_position_widget">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2506">Computes the x and y coordinates to position the @menu_widget
+relative to @attach_widget. If @attach_widget is NULL, the computed
+position will be relative to @plugin.
+
+Note that if the panel is hidden (autohide), you should delay calling this
+function until the panel is shown, so that it returns the correct coordinates.
+
+This function is intended for custom menu widgets.
+For a regular #GtkMenu you should use xfce_panel_plugin_popup_menu() instead.
+
+See also: xfce_panel_plugin_popup_menu().</doc>
+        <source-position filename="xfce-panel-plugin.h" line="227"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2508">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+          <parameter name="menu_widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2509">a #GtkWidget that will be used as popup menu.</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="attach_widget"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2510">a #GtkWidget relative to which the menu should be positioned.</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="x"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2511">return location for the x coordinate.</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+          <parameter name="y"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2512">return location for the y coordinate.</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="register_menu"
+              c:identifier="xfce_panel_plugin_register_menu">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2408">Register a menu that is about to popup. This will make sure the panel
+will properly handle its autohide behaviour. You have to call this
+function every time the menu is opened (e.g. using gtk_menu_popup_at_widget()).
+
+If you want to open the menu aligned to the side of the panel (and the
+plugin), you should use xfce_panel_plugin_popup_menu(). This function
+will take care of calling xfce_panel_plugin_register_menu() as well.
+
+See also: xfce_panel_plugin_popup_menu() and xfce_panel_plugin_block_autohide().</doc>
+        <source-position filename="xfce-panel-plugin.h" line="222"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2410">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+          <parameter name="menu" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2411">a #GtkMenu that will be opened</doc>
+            <type name="Gtk.Menu" c:type="GtkMenu*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove"
+              c:identifier="xfce_panel_plugin_remove"
+              version="4.8">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2345">Remove this plugin from the panel and remove all its configuration.
+
+Plugins should not use this function to implement their own
+menu item or button to remove theirselfs from the panel, but only
+in case the there are problems with the plugin in the panel. Always
+try to inform the user why this occured.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="216"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2347">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="save_location"
+              c:identifier="xfce_panel_plugin_save_location">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2893">Returns the path that can be used to store configuration information.
+Don't use this function if you want to read from the config file, but
+use xfce_panel_plugin_lookup_rc_file() instead.
+
+See also: xfce_panel_plugin_lookup_rc_file() and xfce_resource_save_location()</doc>
+        <source-position filename="xfce-panel-plugin.h" line="253"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.c"
+               line="2904">The path to a config file or %NULL if no file was found.
+         The returned string must be freed u sing g_free().</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2895">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+          <parameter name="create" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2896">whether to create missing directories.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_expand"
+              c:identifier="xfce_panel_plugin_set_expand"
+              glib:set-property="expand">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="1874">Whether the plugin should expand of not</doc>
+        <source-position filename="xfce-panel-plugin.h" line="176"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="1876">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+          <parameter name="expand" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="1877">whether to expand the plugin.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_shrink"
+              c:identifier="xfce_panel_plugin_set_shrink"
+              glib:set-property="shrink">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="1931">Whether the plugin can shrink if the size on the panel
+is limited. This does not work if the plugin is expanded.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="181"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="1933">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+          <parameter name="shrink" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="1934">whether the plugin can shrink.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_small"
+              c:identifier="xfce_panel_plugin_set_small"
+              glib:set-property="small">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="1987">Whether the plugin is small enough to fit in a single row of
+a multi-row panel. E.g. if it is a button-like applet.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="186"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="1989">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+          <parameter name="small" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="1990">whether the plugin is a small button-like applet.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="take_window"
+              c:identifier="xfce_panel_plugin_take_window"
+              version="4.8">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2149">Connect a dialog to a plugin. When the @plugin is closed, it will
+destroy the @window.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="199"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2151">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+          <parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2152">a #GtkWindow.</doc>
+            <type name="Gtk.Window" c:type="GtkWindow*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unblock_menu"
+              c:identifier="xfce_panel_plugin_unblock_menu">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="2388">Unblock configuring the plugin. This will make the "Properties" menu
+item sensitive.</doc>
+        <source-position filename="xfce-panel-plugin.h" line="220"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="plugin" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="2390">an #XfcePanelPlugin.</doc>
+            <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="arguments"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_arguments">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="531">The arguments the plugin was started with. If the plugin was not
+started with any arguments this value is %NULL. Plugin writer can
+use it to read the arguments array, but
+xfce_panel_plugin_get_arguments() is recommended.</doc>
+        <array>
+          <type name="utf8"/>
+        </array>
+      </property>
+      <property name="comment"
+                version="4.8"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_comment"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="494">The translated description of the #XfcePanelPlugin. This property is set
+during plugin construction and can't be set twice. Plugin writer can use
+it to read the plugin description, but xfce_panel_plugin_get_comment()
+is recommended.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="dark-mode"
+                version="4.14"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="593">Whether the #XfcePanelPlugin shall request the Gtk dark theme variant (based on the panel
+setting).</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="display-name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_display_name"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="477">The translated display name of the #XfcePanelPlugin. This property is set
+during plugin construction and can't be set twice. Plugin writer can use
+it to read the plugin display name, but xfce_panel_plugin_get_display_name()
+is recommended.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="expand"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_expand"
+                getter="get_expand"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="642">Whether the #XfcePanelPlugin expands on the panel. Plugin writers can use it
+to read or set this property, but xfce_panel_plugin_set_expand()
+is recommended.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="icon-size"
+                version="4.14"
+                transfer-ownership="none"
+                getter="get_icon_size"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="577">The icon-size in pixels of the #XfcePanelPlugin. Plugin writers can use it to read the
+plugin's icon size, but xfce_panel_plugin_get_icon_size() is recommended.</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="mode"
+                version="4.10"
+                transfer-ownership="none"
+                getter="get_mode"
+                default-value="XFCE_PANEL_PLUGIN_MODE_HORIZONTAL">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="674">Display mode of the plugin.</doc>
+        <type name="PanelPluginMode"/>
+      </property>
+      <property name="name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_name"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="460">The internal, unstranslated, name of the #XfcePanelPlugin. Plugin
+writer can use it to read the plugin name, but
+xfce_panel_plugin_get_name() is recommended since that returns
+a const string.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="nrows"
+                version="4.10"
+                transfer-ownership="none"
+                getter="get_nrows"
+                default-value="1">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="690">Number of rows the plugin is embedded on.</doc>
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="orientation"
+                transfer-ownership="none"
+                getter="get_orientation"
+                default-value="GTK_ORIENTATION_HORIZONTAL">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="548">The #GtkOrientation of the #XfcePanelPlugin. Plugin writer can use it to read the
+plugin orientation, but xfce_panel_plugin_get_orientation() is recommended.</doc>
+        <type name="Gtk.Orientation"/>
+      </property>
+      <property name="screen-position"
+                transfer-ownership="none"
+                getter="get_screen_position"
+                default-value="XFCE_SCREEN_POSITION_NONE">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="609">The #XfceScreenPosition of the #XfcePanelPlugin. Plugin writer can use it
+to read the plugin's screen position, but xfce_panel_plugin_get_screen_position()
+is recommended.</doc>
+        <type name="ScreenPosition"/>
+      </property>
+      <property name="shrink"
+                version="4.10"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_shrink"
+                getter="get_shrink"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="657">Whether the #XfcePanelPlugin can shrink when there is no space left on the panel.
+Plugin writers can use it to read or set this property, but xfce_panel_plugin_set_shrink()
+is recommended.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="size"
+                transfer-ownership="none"
+                getter="get_size"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="563">The size in pixels of the #XfcePanelPlugin. Plugin writer can use it to read the
+plugin size, but xfce_panel_plugin_get_size() is recommended.</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="small"
+                version="4.10"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_small"
+                getter="get_small"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="625">Whether the #XfcePanelPlugin is small enough to fit a single row of a multi-row panel.
+Plugin writers can use it to read or set this property, but xfce_panel_plugin_set_small()
+is recommended.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="unique-id"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_unique_id"
+                default-value="-1">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <field name="__parent__" readable="0" private="1">
+        <type name="Gtk.EventBox" c:type="GtkEventBox"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="PanelPluginPrivate" c:type="XfcePanelPluginPrivate*"/>
+      </field>
+      <glib:signal name="about" when="last">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="236">This signal is emmitted when the About entry in the right-click
+menu is clicked. Plugin writers can use it to show information
+about the plugin and display credits of the developers, translators
+and other contributors.
+
+See also: xfce_panel_plugin_menu_show_about().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="configure-plugin" when="last">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="256">This signal is emmitted when the Properties entry in the right-click
+menu is clicked. Plugin writers can use this signal to open a
+plugin settings dialog. It is their responsibility to block/unblock panel
+autohide when the dialog is shown/hidden.
+
+See also: xfce_panel_plugin_menu_show_configure() and
+          xfce_titled_dialog_new ().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="free-data" when="last">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="277">This signal is emmitted when the plugin is closing. Plugin
+writers should use this signal to free any allocated resources.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="mode-changed" when="last" version="4.10">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="311">This signal is emmitted whenever the mode of the panel
+the @plugin is on changes.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="mode" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="314">new #XfcePanelPluginMode of the panel.</doc>
+            <type name="PanelPluginMode"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="nrows-changed" when="last" version="4.10">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="330">This signal is emmitted whenever the nrows of the panel
+the @plugin is on changes.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="rows" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="333">new number of rows of the panel</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="orientation-changed" when="last">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="293">This signal is emmitted whenever the orientation of the panel
+the @plugin is on changes. Plugins writers can for example use
+this signal to change the order of widgets in the plugin.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="orientation" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="296">new #GtkOrientation of the panel.</doc>
+            <type name="Gtk.Orientation"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="remote-event" when="last">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="349">This signal is emmitted by the user by running
+xfce4-panel --plugin-event=plugin-name:name:type:value. It can be
+used for remote communication, like for example to popup a menu.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.c"
+               line="359">%TRUE to stop signal emission to other plugins, %FALSE
+         to send the signal also to other plugins with the same
+         name.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="352">name of the signal.</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="353">value of the signal.</doc>
+            <type name="GObject.Value"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="removed" when="last" version="4.8">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="372">This signal is emmitted when the plugin is permanently removed from
+the panel configuration by the user. Developers can use this signal
+to cleanup custom setting locations that for example store passwords.
+
+The free-data signal is emitted after this signal!
+
+Note that if you use the xfconf channel and base property provided
+by xfce_panel_plugin_get_property_base() or the rc file location
+returned by xfce_panel_plugin_save_location(), the panel will take
+care of removing those settings.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="save" when="last">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="398">This signal is emitted when the plugin should save it's
+configuration. The signal is always emmitted before the plugin
+closes (before the "free-data" signal) and also once in 10
+minutes or so.
+
+See also: xfce_panel_plugin_save_location().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="screen-position-changed" when="last">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="442">This signal is emmitted whenever the screen position of the panel
+the @plugin is on changes. Plugins writers can for example use
+this signal to change the arrow direction of buttons.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="position" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="445">the new #XfceScreenPosition of the panel.</doc>
+            <type name="ScreenPosition"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="size-changed" when="last">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.c"
+             line="418">This signal is emmitted whenever the size of the panel
+the @plugin is on changes. Plugins writers can for example use
+this signal to update their icon size.
+
+If the function returns %FALSE or is not used, the panel will force
+a square size to the plugin. If you want non-square plugins and you
+don't need this signal you can use something like this:
+
+g_signal_connect (plugin, "size-changed", G_CALLBACK (gtk_true), NULL);</doc>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfce-panel-plugin.c"
+                 line="421">the new size of the panel.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <callback name="PanelPluginCheck" c:type="XfcePanelPluginCheck">
+      <doc xml:space="preserve"
+           filename="xfce-panel-plugin.h"
+           line="61">Callback function that is run before creating a plugin. It should return
+%FALSE if the plugin is not available for whatever reason. The function
+can be given as argument to one of the registration macros.</doc>
+      <source-position filename="xfce-panel-plugin.h" line="71"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="69">%TRUE if the plugin can be started, %FALSE otherwise.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="screen" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.h"
+               line="63">the #GdkScreen the panel is running on</doc>
+          <type name="Gdk.Screen" c:type="GdkScreen*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <record name="PanelPluginClass"
+            c:type="XfcePanelPluginClass"
+            glib:is-gtype-struct-for="PanelPlugin">
+      <doc xml:space="preserve"
+           filename="xfce-panel-plugin.h"
+           line="80">Class of an #XfcePanelPlugin. The interface can be used to create GObject based plugin.</doc>
+      <source-position filename="xfce-panel-plugin.h" line="138"/>
+      <field name="__parent__" readable="0" private="1">
+        <type name="Gtk.EventBoxClass" c:type="GtkEventBoxClass"/>
+      </field>
+      <field name="construct">
+        <callback name="construct">
+          <source-position filename="xfce-panel-plugin.h" line="111"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="plugin" transfer-ownership="none">
+              <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="screen_position_changed">
+        <callback name="screen_position_changed">
+          <source-position filename="xfce-panel-plugin.h" line="114"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="plugin" transfer-ownership="none">
+              <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+            </parameter>
+            <parameter name="position" transfer-ownership="none">
+              <type name="ScreenPosition" c:type="XfceScreenPosition"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="size_changed">
+        <callback name="size_changed">
+          <source-position filename="xfce-panel-plugin.h" line="116"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="plugin" transfer-ownership="none">
+              <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+            </parameter>
+            <parameter name="size" transfer-ownership="none">
+              <type name="gint" c:type="gint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="orientation_changed">
+        <callback name="orientation_changed">
+          <source-position filename="xfce-panel-plugin.h" line="118"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="plugin" transfer-ownership="none">
+              <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+            </parameter>
+            <parameter name="orientation" transfer-ownership="none">
+              <type name="Gtk.Orientation" c:type="GtkOrientation"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="free_data">
+        <callback name="free_data">
+          <source-position filename="xfce-panel-plugin.h" line="120"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="plugin" transfer-ownership="none">
+              <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="save">
+        <callback name="save">
+          <source-position filename="xfce-panel-plugin.h" line="121"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="plugin" transfer-ownership="none">
+              <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="about">
+        <callback name="about">
+          <source-position filename="xfce-panel-plugin.h" line="122"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="plugin" transfer-ownership="none">
+              <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="configure_plugin">
+        <callback name="configure_plugin">
+          <source-position filename="xfce-panel-plugin.h" line="123"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="plugin" transfer-ownership="none">
+              <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="removed">
+        <callback name="removed">
+          <source-position filename="xfce-panel-plugin.h" line="124"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="plugin" transfer-ownership="none">
+              <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="remote_event">
+        <callback name="remote_event">
+          <source-position filename="xfce-panel-plugin.h" line="125"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="plugin" transfer-ownership="none">
+              <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+            </parameter>
+            <parameter name="name" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="value" transfer-ownership="none">
+              <type name="GObject.Value" c:type="const GValue*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="mode_changed">
+        <callback name="mode_changed">
+          <source-position filename="xfce-panel-plugin.h" line="130"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="plugin" transfer-ownership="none">
+              <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+            </parameter>
+            <parameter name="mode" transfer-ownership="none">
+              <type name="PanelPluginMode" c:type="XfcePanelPluginMode"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="nrows_changed">
+        <callback name="nrows_changed">
+          <source-position filename="xfce-panel-plugin.h" line="132"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="plugin" transfer-ownership="none">
+              <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+            </parameter>
+            <parameter name="rows" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="reserved1">
+        <callback name="reserved1">
+          <source-position filename="xfce-panel-plugin.h" line="136"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="reserved2">
+        <callback name="reserved2">
+          <source-position filename="xfce-panel-plugin.h" line="137"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <callback name="PanelPluginFunc" c:type="XfcePanelPluginFunc">
+      <doc xml:space="preserve"
+           filename="xfce-panel-plugin.h"
+           line="33">Callback function to create the plugin contents. It should be given as
+the argument to the registration macros.</doc>
+      <source-position filename="xfce-panel-plugin.h" line="40"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="plugin" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.h"
+               line="35">an #XfcePanelPlugin</doc>
+          <type name="PanelPlugin" c:type="XfcePanelPlugin*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <enumeration name="PanelPluginMode"
+                 version="4.10"
+                 glib:type-name="XfcePanelPluginMode"
+                 glib:get-type="xfce_panel_plugin_mode_get_type"
+                 c:type="XfcePanelPluginMode">
+      <doc xml:space="preserve"
+           filename="libxfce4panel-enums.h"
+           line="38">Orientation of the plugin in the panel.</doc>
+      <member name="horizontal"
+              value="0"
+              c:identifier="XFCE_PANEL_PLUGIN_MODE_HORIZONTAL"
+              glib:nick="horizontal"
+              glib:name="XFCE_PANEL_PLUGIN_MODE_HORIZONTAL">
+        <doc xml:space="preserve"
+             filename="libxfce4panel-enums.h"
+             line="40">Horizontal panel and plugins</doc>
+      </member>
+      <member name="vertical"
+              value="1"
+              c:identifier="XFCE_PANEL_PLUGIN_MODE_VERTICAL"
+              glib:nick="vertical"
+              glib:name="XFCE_PANEL_PLUGIN_MODE_VERTICAL">
+        <doc xml:space="preserve"
+             filename="libxfce4panel-enums.h"
+             line="41">Vertical rotated panel and plugins</doc>
+      </member>
+      <member name="deskbar"
+              value="2"
+              c:identifier="XFCE_PANEL_PLUGIN_MODE_DESKBAR"
+              glib:nick="deskbar"
+              glib:name="XFCE_PANEL_PLUGIN_MODE_DESKBAR">
+        <doc xml:space="preserve"
+             filename="libxfce4panel-enums.h"
+             line="42">Vertical panel with horizontal plugins</doc>
+      </member>
+    </enumeration>
+    <callback name="PanelPluginPreInit"
+              c:type="XfcePanelPluginPreInit"
+              version="4.6">
+      <doc xml:space="preserve"
+           filename="xfce-panel-plugin.h"
+           line="42">Callback function that is run in an external plugin before gtk_init(). It
+should return %FALSE if the plugin is not available for whatever reason.
+The function can be given as argument to one of the registration macros.
+
+The main purpose of this callback is to allow multithreaded plugins to call
+g_thread_init().</doc>
+      <source-position filename="xfce-panel-plugin.h" line="58"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-panel-plugin.h"
+             line="54">%TRUE on success, %FALSE otherwise.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="argc" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.h"
+               line="44">number of arguments to the plugin</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="argv" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-plugin.h"
+               line="45">argument array</doc>
+          <type name="utf8" c:type="gchar**"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <record name="PanelPluginPrivate"
+            c:type="XfcePanelPluginPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="xfce-panel-plugin.h" line="29"/>
+    </record>
+    <interface name="PanelPluginProvider"
+               c:symbol-prefix="panel_plugin_provider"
+               c:type="XfcePanelPluginProvider"
+               glib:type-name="XfcePanelPluginProvider"
+               glib:get-type="xfce_panel_plugin_provider_get_type"
+               glib:type-struct="PanelPluginProviderInterface">
+      <source-position filename="xfce-panel-plugin-provider.h" line="78"/>
+      <virtual-method name="ask_remove" invoker="ask_remove">
+        <source-position filename="xfce-panel-plugin-provider.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_name" invoker="get_name">
+        <source-position filename="xfce-panel-plugin-provider.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_show_about" invoker="get_show_about">
+        <source-position filename="xfce-panel-plugin-provider.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_show_configure" invoker="get_show_configure">
+        <source-position filename="xfce-panel-plugin-provider.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_unique_id" invoker="get_unique_id">
+        <source-position filename="xfce-panel-plugin-provider.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="remote_event" invoker="remote_event">
+        <source-position filename="xfce-panel-plugin-provider.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="GObject.Value" c:type="const GValue*"/>
+          </parameter>
+          <parameter name="handle" transfer-ownership="none">
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="removed" invoker="removed">
+        <source-position filename="xfce-panel-plugin-provider.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="save" invoker="save">
+        <source-position filename="xfce-panel-plugin-provider.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_dark_mode" invoker="set_dark_mode">
+        <source-position filename="xfce-panel-plugin-provider.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+          <parameter name="dark_mode" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_icon_size" invoker="set_icon_size">
+        <source-position filename="xfce-panel-plugin-provider.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+          <parameter name="icon_size" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_locked" invoker="set_locked">
+        <source-position filename="xfce-panel-plugin-provider.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+          <parameter name="locked" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_mode" invoker="set_mode">
+        <source-position filename="xfce-panel-plugin-provider.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+          <parameter name="mode" transfer-ownership="none">
+            <type name="PanelPluginMode" c:type="XfcePanelPluginMode"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_nrows" invoker="set_nrows">
+        <source-position filename="xfce-panel-plugin-provider.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+          <parameter name="rows" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_screen_position" invoker="set_screen_position">
+        <source-position filename="xfce-panel-plugin-provider.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+          <parameter name="screen_position" transfer-ownership="none">
+            <type name="ScreenPosition" c:type="XfceScreenPosition"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_size" invoker="set_size">
+        <source-position filename="xfce-panel-plugin-provider.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="show_about" invoker="show_about">
+        <source-position filename="xfce-panel-plugin-provider.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="show_configure" invoker="show_configure">
+        <source-position filename="xfce-panel-plugin-provider.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="ask_remove"
+              c:identifier="xfce_panel_plugin_provider_ask_remove">
+        <source-position filename="xfce-panel-plugin-provider.h" line="204"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="emit_signal"
+              c:identifier="xfce_panel_plugin_provider_emit_signal">
+        <source-position filename="xfce-panel-plugin-provider.h" line="183"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+          <parameter name="provider_signal" transfer-ownership="none">
+            <type name="PanelPluginProviderSignal"
+                  c:type="XfcePanelPluginProviderSignal"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="xfce_panel_plugin_provider_get_name">
+        <source-position filename="xfce-panel-plugin-provider.h" line="159"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_about"
+              c:identifier="xfce_panel_plugin_provider_get_show_about">
+        <source-position filename="xfce-panel-plugin-provider.h" line="190"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_configure"
+              c:identifier="xfce_panel_plugin_provider_get_show_configure">
+        <source-position filename="xfce-panel-plugin-provider.h" line="186"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_unique_id"
+              c:identifier="xfce_panel_plugin_provider_get_unique_id">
+        <source-position filename="xfce-panel-plugin-provider.h" line="161"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="remote_event"
+              c:identifier="xfce_panel_plugin_provider_remote_event">
+        <source-position filename="xfce-panel-plugin-provider.h" line="196"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="GObject.Value" c:type="const GValue*"/>
+          </parameter>
+          <parameter name="handle" transfer-ownership="none">
+            <type name="guint" c:type="guint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="removed" c:identifier="xfce_panel_plugin_provider_removed">
+        <source-position filename="xfce-panel-plugin-provider.h" line="194"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="save" c:identifier="xfce_panel_plugin_provider_save">
+        <source-position filename="xfce-panel-plugin-provider.h" line="181"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_dark_mode"
+              c:identifier="xfce_panel_plugin_provider_set_dark_mode">
+        <source-position filename="xfce-panel-plugin-provider.h" line="169"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+          <parameter name="dark_mode" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_icon_size"
+              c:identifier="xfce_panel_plugin_provider_set_icon_size">
+        <source-position filename="xfce-panel-plugin-provider.h" line="166"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+          <parameter name="icon_size" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_locked"
+              c:identifier="xfce_panel_plugin_provider_set_locked">
+        <source-position filename="xfce-panel-plugin-provider.h" line="201"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+          <parameter name="locked" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_mode"
+              c:identifier="xfce_panel_plugin_provider_set_mode">
+        <source-position filename="xfce-panel-plugin-provider.h" line="172"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+          <parameter name="mode" transfer-ownership="none">
+            <type name="PanelPluginMode" c:type="XfcePanelPluginMode"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_nrows"
+              c:identifier="xfce_panel_plugin_provider_set_nrows">
+        <source-position filename="xfce-panel-plugin-provider.h" line="175"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+          <parameter name="rows" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_screen_position"
+              c:identifier="xfce_panel_plugin_provider_set_screen_position">
+        <source-position filename="xfce-panel-plugin-provider.h" line="178"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+          <parameter name="screen_position" transfer-ownership="none">
+            <type name="ScreenPosition" c:type="XfceScreenPosition"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_size"
+              c:identifier="xfce_panel_plugin_provider_set_size">
+        <source-position filename="xfce-panel-plugin-provider.h" line="163"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="show_about"
+              c:identifier="xfce_panel_plugin_provider_show_about">
+        <source-position filename="xfce-panel-plugin-provider.h" line="192"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="show_configure"
+              c:identifier="xfce_panel_plugin_provider_show_configure">
+        <source-position filename="xfce-panel-plugin-provider.h" line="188"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="provider" transfer-ownership="none">
+            <type name="PanelPluginProvider"
+                  c:type="XfcePanelPluginProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <glib:signal name="provider-signal" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </interface>
+    <record name="PanelPluginProviderInterface"
+            c:type="XfcePanelPluginProviderInterface"
+            glib:is-gtype-struct-for="PanelPluginProvider">
+      <source-position filename="xfce-panel-plugin-provider.h" line="78"/>
+      <field name="__parent__" readable="0" private="1">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_name">
+        <callback name="get_name">
+          <source-position filename="xfce-panel-plugin-provider.h" line="51"/>
+          <return-value transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="PanelPluginProvider"
+                    c:type="XfcePanelPluginProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_unique_id">
+        <callback name="get_unique_id">
+          <source-position filename="xfce-panel-plugin-provider.h" line="52"/>
+          <return-value transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="PanelPluginProvider"
+                    c:type="XfcePanelPluginProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_size">
+        <callback name="set_size">
+          <source-position filename="xfce-panel-plugin-provider.h" line="53"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="PanelPluginProvider"
+                    c:type="XfcePanelPluginProvider*"/>
+            </parameter>
+            <parameter name="size" transfer-ownership="none">
+              <type name="gint" c:type="gint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_icon_size">
+        <callback name="set_icon_size">
+          <source-position filename="xfce-panel-plugin-provider.h" line="55"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="PanelPluginProvider"
+                    c:type="XfcePanelPluginProvider*"/>
+            </parameter>
+            <parameter name="icon_size" transfer-ownership="none">
+              <type name="gint" c:type="gint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_dark_mode">
+        <callback name="set_dark_mode">
+          <source-position filename="xfce-panel-plugin-provider.h" line="57"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="PanelPluginProvider"
+                    c:type="XfcePanelPluginProvider*"/>
+            </parameter>
+            <parameter name="dark_mode" transfer-ownership="none">
+              <type name="gboolean" c:type="gboolean"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_mode">
+        <callback name="set_mode">
+          <source-position filename="xfce-panel-plugin-provider.h" line="59"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="PanelPluginProvider"
+                    c:type="XfcePanelPluginProvider*"/>
+            </parameter>
+            <parameter name="mode" transfer-ownership="none">
+              <type name="PanelPluginMode" c:type="XfcePanelPluginMode"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_nrows">
+        <callback name="set_nrows">
+          <source-position filename="xfce-panel-plugin-provider.h" line="61"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="PanelPluginProvider"
+                    c:type="XfcePanelPluginProvider*"/>
+            </parameter>
+            <parameter name="rows" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_screen_position">
+        <callback name="set_screen_position">
+          <source-position filename="xfce-panel-plugin-provider.h" line="63"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="PanelPluginProvider"
+                    c:type="XfcePanelPluginProvider*"/>
+            </parameter>
+            <parameter name="screen_position" transfer-ownership="none">
+              <type name="ScreenPosition" c:type="XfceScreenPosition"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="save">
+        <callback name="save">
+          <source-position filename="xfce-panel-plugin-provider.h" line="65"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="PanelPluginProvider"
+                    c:type="XfcePanelPluginProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_show_configure">
+        <callback name="get_show_configure">
+          <source-position filename="xfce-panel-plugin-provider.h" line="66"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="PanelPluginProvider"
+                    c:type="XfcePanelPluginProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="show_configure">
+        <callback name="show_configure">
+          <source-position filename="xfce-panel-plugin-provider.h" line="67"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="PanelPluginProvider"
+                    c:type="XfcePanelPluginProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_show_about">
+        <callback name="get_show_about">
+          <source-position filename="xfce-panel-plugin-provider.h" line="68"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="PanelPluginProvider"
+                    c:type="XfcePanelPluginProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="show_about">
+        <callback name="show_about">
+          <source-position filename="xfce-panel-plugin-provider.h" line="69"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="PanelPluginProvider"
+                    c:type="XfcePanelPluginProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="removed">
+        <callback name="removed">
+          <source-position filename="xfce-panel-plugin-provider.h" line="70"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="PanelPluginProvider"
+                    c:type="XfcePanelPluginProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="remote_event">
+        <callback name="remote_event">
+          <source-position filename="xfce-panel-plugin-provider.h" line="71"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="PanelPluginProvider"
+                    c:type="XfcePanelPluginProvider*"/>
+            </parameter>
+            <parameter name="name" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="value" transfer-ownership="none">
+              <type name="GObject.Value" c:type="const GValue*"/>
+            </parameter>
+            <parameter name="handle" transfer-ownership="none">
+              <type name="guint" c:type="guint*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_locked">
+        <callback name="set_locked">
+          <source-position filename="xfce-panel-plugin-provider.h" line="75"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="PanelPluginProvider"
+                    c:type="XfcePanelPluginProvider*"/>
+            </parameter>
+            <parameter name="locked" transfer-ownership="none">
+              <type name="gboolean" c:type="gboolean"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="ask_remove">
+        <callback name="ask_remove">
+          <source-position filename="xfce-panel-plugin-provider.h" line="77"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="provider" transfer-ownership="none">
+              <type name="PanelPluginProvider"
+                    c:type="XfcePanelPluginProvider*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="PanelPluginProviderPropType"
+                 c:type="XfcePanelPluginProviderPropType">
+      <source-position filename="xfce-panel-plugin-provider.h" line="128"/>
+      <member name="set_size"
+              value="0"
+              c:identifier="PROVIDER_PROP_TYPE_SET_SIZE">
+      </member>
+      <member name="set_icon_size"
+              value="1"
+              c:identifier="PROVIDER_PROP_TYPE_SET_ICON_SIZE">
+      </member>
+      <member name="set_dark_mode"
+              value="2"
+              c:identifier="PROVIDER_PROP_TYPE_SET_DARK_MODE">
+      </member>
+      <member name="set_mode"
+              value="3"
+              c:identifier="PROVIDER_PROP_TYPE_SET_MODE">
+      </member>
+      <member name="set_screen_position"
+              value="4"
+              c:identifier="PROVIDER_PROP_TYPE_SET_SCREEN_POSITION">
+      </member>
+      <member name="set_background_alpha"
+              value="5"
+              c:identifier="PROVIDER_PROP_TYPE_SET_BACKGROUND_ALPHA">
+      </member>
+      <member name="set_nrows"
+              value="6"
+              c:identifier="PROVIDER_PROP_TYPE_SET_NROWS">
+      </member>
+      <member name="set_locked"
+              value="7"
+              c:identifier="PROVIDER_PROP_TYPE_SET_LOCKED">
+      </member>
+      <member name="set_sensitive"
+              value="8"
+              c:identifier="PROVIDER_PROP_TYPE_SET_SENSITIVE">
+      </member>
+      <member name="set_background_color"
+              value="9"
+              c:identifier="PROVIDER_PROP_TYPE_SET_BACKGROUND_COLOR">
+      </member>
+      <member name="set_background_image"
+              value="10"
+              c:identifier="PROVIDER_PROP_TYPE_SET_BACKGROUND_IMAGE">
+      </member>
+      <member name="action_removed"
+              value="11"
+              c:identifier="PROVIDER_PROP_TYPE_ACTION_REMOVED">
+      </member>
+      <member name="action_save"
+              value="12"
+              c:identifier="PROVIDER_PROP_TYPE_ACTION_SAVE">
+      </member>
+      <member name="action_quit"
+              value="13"
+              c:identifier="PROVIDER_PROP_TYPE_ACTION_QUIT">
+      </member>
+      <member name="action_quit_for_restart"
+              value="14"
+              c:identifier="PROVIDER_PROP_TYPE_ACTION_QUIT_FOR_RESTART">
+      </member>
+      <member name="action_background_unset"
+              value="15"
+              c:identifier="PROVIDER_PROP_TYPE_ACTION_BACKGROUND_UNSET">
+      </member>
+      <member name="action_show_configure"
+              value="16"
+              c:identifier="PROVIDER_PROP_TYPE_ACTION_SHOW_CONFIGURE">
+      </member>
+      <member name="action_show_about"
+              value="17"
+              c:identifier="PROVIDER_PROP_TYPE_ACTION_SHOW_ABOUT">
+      </member>
+      <member name="action_ask_remove"
+              value="18"
+              c:identifier="PROVIDER_PROP_TYPE_ACTION_ASK_REMOVE">
+      </member>
+      <member name="set_opacity"
+              value="19"
+              c:identifier="PROVIDER_PROP_TYPE_SET_OPACITY">
+      </member>
+    </enumeration>
+    <enumeration name="PanelPluginProviderSignal"
+                 c:type="XfcePanelPluginProviderSignal">
+      <source-position filename="xfce-panel-plugin-provider.h" line="102"/>
+      <member name="move_plugin"
+              value="0"
+              c:identifier="PROVIDER_SIGNAL_MOVE_PLUGIN">
+      </member>
+      <member name="expand_plugin"
+              value="1"
+              c:identifier="PROVIDER_SIGNAL_EXPAND_PLUGIN">
+      </member>
+      <member name="collapse_plugin"
+              value="2"
+              c:identifier="PROVIDER_SIGNAL_COLLAPSE_PLUGIN">
+      </member>
+      <member name="small_plugin"
+              value="3"
+              c:identifier="PROVIDER_SIGNAL_SMALL_PLUGIN">
+      </member>
+      <member name="unsmall_plugin"
+              value="4"
+              c:identifier="PROVIDER_SIGNAL_UNSMALL_PLUGIN">
+      </member>
+      <member name="lock_panel"
+              value="5"
+              c:identifier="PROVIDER_SIGNAL_LOCK_PANEL">
+      </member>
+      <member name="unlock_panel"
+              value="6"
+              c:identifier="PROVIDER_SIGNAL_UNLOCK_PANEL">
+      </member>
+      <member name="remove_plugin"
+              value="7"
+              c:identifier="PROVIDER_SIGNAL_REMOVE_PLUGIN">
+      </member>
+      <member name="add_new_items"
+              value="8"
+              c:identifier="PROVIDER_SIGNAL_ADD_NEW_ITEMS">
+      </member>
+      <member name="panel_preferences"
+              value="9"
+              c:identifier="PROVIDER_SIGNAL_PANEL_PREFERENCES">
+      </member>
+      <member name="panel_logout"
+              value="10"
+              c:identifier="PROVIDER_SIGNAL_PANEL_LOGOUT">
+      </member>
+      <member name="panel_about"
+              value="11"
+              c:identifier="PROVIDER_SIGNAL_PANEL_ABOUT">
+      </member>
+      <member name="panel_help"
+              value="12"
+              c:identifier="PROVIDER_SIGNAL_PANEL_HELP">
+      </member>
+      <member name="show_configure"
+              value="13"
+              c:identifier="PROVIDER_SIGNAL_SHOW_CONFIGURE">
+      </member>
+      <member name="show_about"
+              value="14"
+              c:identifier="PROVIDER_SIGNAL_SHOW_ABOUT">
+      </member>
+      <member name="focus_plugin"
+              value="15"
+              c:identifier="PROVIDER_SIGNAL_FOCUS_PLUGIN">
+      </member>
+      <member name="shrink_plugin"
+              value="16"
+              c:identifier="PROVIDER_SIGNAL_SHRINK_PLUGIN">
+      </member>
+      <member name="unshrink_plugin"
+              value="17"
+              c:identifier="PROVIDER_SIGNAL_UNSHRINK_PLUGIN">
+      </member>
+    </enumeration>
+    <enumeration name="ScreenPosition"
+                 glib:type-name="XfceScreenPosition"
+                 glib:get-type="xfce_screen_position_get_type"
+                 c:type="XfceScreenPosition">
+      <doc xml:space="preserve"
+           filename="libxfce4panel-enums.h"
+           line="56">There are three screen positions for each side of the screen:
+LEFT/TOP, CENTER and RIGHT/BOTTOM. The XfceScreenPosition is expressed
+as navigational direction, with possible addition of H or V to denote
+horizontal and vertical orientation. Additionally there are two floating
+positions, horizontal and vertical.</doc>
+      <member name="none"
+              value="0"
+              c:identifier="XFCE_SCREEN_POSITION_NONE"
+              glib:nick="none"
+              glib:name="XFCE_SCREEN_POSITION_NONE">
+        <doc xml:space="preserve"
+             filename="libxfce4panel-enums.h"
+             line="58">No position has been set.</doc>
+      </member>
+      <member name="nw_h"
+              value="1"
+              c:identifier="XFCE_SCREEN_POSITION_NW_H"
+              glib:nick="nw-h"
+              glib:name="XFCE_SCREEN_POSITION_NW_H">
+        <doc xml:space="preserve"
+             filename="libxfce4panel-enums.h"
+             line="59">North West Horizontal</doc>
+      </member>
+      <member name="n"
+              value="2"
+              c:identifier="XFCE_SCREEN_POSITION_N"
+              glib:nick="n"
+              glib:name="XFCE_SCREEN_POSITION_N">
+        <doc xml:space="preserve"
+             filename="libxfce4panel-enums.h"
+             line="60">North</doc>
+      </member>
+      <member name="ne_h"
+              value="3"
+              c:identifier="XFCE_SCREEN_POSITION_NE_H"
+              glib:nick="ne-h"
+              glib:name="XFCE_SCREEN_POSITION_NE_H">
+        <doc xml:space="preserve"
+             filename="libxfce4panel-enums.h"
+             line="61">North East Horizontal</doc>
+      </member>
+      <member name="nw_v"
+              value="4"
+              c:identifier="XFCE_SCREEN_POSITION_NW_V"
+              glib:nick="nw-v"
+              glib:name="XFCE_SCREEN_POSITION_NW_V">
+        <doc xml:space="preserve"
+             filename="libxfce4panel-enums.h"
+             line="62">North West Vertical</doc>
+      </member>
+      <member name="w"
+              value="5"
+              c:identifier="XFCE_SCREEN_POSITION_W"
+              glib:nick="w"
+              glib:name="XFCE_SCREEN_POSITION_W">
+        <doc xml:space="preserve"
+             filename="libxfce4panel-enums.h"
+             line="63">West</doc>
+      </member>
+      <member name="sw_v"
+              value="6"
+              c:identifier="XFCE_SCREEN_POSITION_SW_V"
+              glib:nick="sw-v"
+              glib:name="XFCE_SCREEN_POSITION_SW_V">
+        <doc xml:space="preserve"
+             filename="libxfce4panel-enums.h"
+             line="64">South West Vertical</doc>
+      </member>
+      <member name="ne_v"
+              value="7"
+              c:identifier="XFCE_SCREEN_POSITION_NE_V"
+              glib:nick="ne-v"
+              glib:name="XFCE_SCREEN_POSITION_NE_V">
+        <doc xml:space="preserve"
+             filename="libxfce4panel-enums.h"
+             line="65">North East Vertical</doc>
+      </member>
+      <member name="e"
+              value="8"
+              c:identifier="XFCE_SCREEN_POSITION_E"
+              glib:nick="e"
+              glib:name="XFCE_SCREEN_POSITION_E">
+        <doc xml:space="preserve"
+             filename="libxfce4panel-enums.h"
+             line="66">East</doc>
+      </member>
+      <member name="se_v"
+              value="9"
+              c:identifier="XFCE_SCREEN_POSITION_SE_V"
+              glib:nick="se-v"
+              glib:name="XFCE_SCREEN_POSITION_SE_V">
+        <doc xml:space="preserve"
+             filename="libxfce4panel-enums.h"
+             line="67">South East Vertical</doc>
+      </member>
+      <member name="sw_h"
+              value="10"
+              c:identifier="XFCE_SCREEN_POSITION_SW_H"
+              glib:nick="sw-h"
+              glib:name="XFCE_SCREEN_POSITION_SW_H">
+        <doc xml:space="preserve"
+             filename="libxfce4panel-enums.h"
+             line="68">South West Horizontal</doc>
+      </member>
+      <member name="s"
+              value="11"
+              c:identifier="XFCE_SCREEN_POSITION_S"
+              glib:nick="s"
+              glib:name="XFCE_SCREEN_POSITION_S">
+        <doc xml:space="preserve"
+             filename="libxfce4panel-enums.h"
+             line="69">South</doc>
+      </member>
+      <member name="se_h"
+              value="12"
+              c:identifier="XFCE_SCREEN_POSITION_SE_H"
+              glib:nick="se-h"
+              glib:name="XFCE_SCREEN_POSITION_SE_H">
+        <doc xml:space="preserve"
+             filename="libxfce4panel-enums.h"
+             line="70">South East Horizontal</doc>
+      </member>
+      <member name="floating_h"
+              value="13"
+              c:identifier="XFCE_SCREEN_POSITION_FLOATING_H"
+              glib:nick="floating-h"
+              glib:name="XFCE_SCREEN_POSITION_FLOATING_H">
+        <doc xml:space="preserve"
+             filename="libxfce4panel-enums.h"
+             line="71">Floating Horizontal</doc>
+      </member>
+      <member name="floating_v"
+              value="14"
+              c:identifier="XFCE_SCREEN_POSITION_FLOATING_V"
+              glib:nick="floating-v"
+              glib:name="XFCE_SCREEN_POSITION_FLOATING_V">
+        <doc xml:space="preserve"
+             filename="libxfce4panel-enums.h"
+             line="72">Floating Vertical</doc>
+      </member>
+    </enumeration>
+    <constant name="VERSION"
+              value="4.18.6"
+              c:type="LIBXFCE4PANEL_VERSION"
+              version="4.8">
+      <doc xml:space="preserve"
+           filename="libxfce4panel-config.h"
+           line="30">String with the full version of the panel.</doc>
+      <source-position filename="libxfce4panel-config.h" line="37"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function name="check_version"
+              c:identifier="libxfce4panel_check_version"
+              version="4.8">
+      <doc xml:space="preserve"
+           filename="libxfce4panel-config.c"
+           line="91">Checks that the libxfce4panel library in use is compatible with
+the given version. Generally you would pass in the constants
+#LIBXFCE4PANEL_MAJOR_VERSION, #LIBXFCE4PANEL_MINOR_VERSION and
+#LIBXFCE4PANEL_MICRO_VERSION as the three arguments to this
+function; that produces a check that the library in use is
+compatible with the version of libxfce4panel the extension was
+compiled against.
+
+&lt;example&gt;
+&lt;title&gt;Checking the runtime version of the Libxfce4panel library&lt;/title&gt;
+&lt;programlisting&gt;
+const gchar *mismatch;
+mismatch = libxfce4panel_check_version (LIBXFCE4PANEL_MAJOR_VERSION,
+                                     LIBXFCE4PANEL_MINOR_VERSION,
+                                     LIBXFCE4PANEL_MICRO_VERSION);
+if (G_UNLIKELY (mismatch != NULL))
+  g_error ("Version mismatch: %&lt;!----&gt;s", mismatch);
+&lt;/programlisting&gt;
+&lt;/example&gt;</doc>
+      <source-position filename="libxfce4panel-config.h" line="100"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="libxfce4panel-config.c"
+             line="117">%NULL if the library is compatible with the given version,
+         or a string describing the version mismatch. The returned
+         string is owned by the library and must not be freed or
+         modified by the caller.</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="required_major" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libxfce4panel-config.c"
+               line="93">the required major version.</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="required_minor" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libxfce4panel-config.c"
+               line="94">the required minor version.</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="required_micro" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libxfce4panel-config.c"
+               line="95">the required micro version.</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <docsection name="config">
+      <doc xml:space="preserve"
+           filename="libxfce4panel-config.c"
+           line="28">The panel library provides version information, which could be used
+by plugins to handle new API.</doc>
+    </docsection>
+    <docsection name="convenience">
+      <doc xml:space="preserve"
+           filename="xfce-panel-convenience.c"
+           line="37">This section describes a number of functions that were created
+to help developers of Xfce Panel plugins.</doc>
+    </docsection>
+    <docsection name="enums">
+      <doc xml:space="preserve"
+           filename="libxfce4panel-enums.h"
+           line="29">Currently only contains the definition of #XfceScreenPosition.</doc>
+    </docsection>
+    <docsection name="macros">
+      <doc xml:space="preserve"
+           filename="xfce-panel-macros.h"
+           line="33">Some commonly used macros in panel plugins.</doc>
+    </docsection>
+    <function name="panel_create_button"
+              c:identifier="xfce_panel_create_button">
+      <doc xml:space="preserve"
+           filename="xfce-panel-convenience.c"
+           line="47">Create regular #GtkButton with a few properties set to be useful in the
+Xfce panel: Flat (%GTK_RELIEF_NONE), no focus on click and minimal padding.</doc>
+      <source-position filename="xfce-panel-convenience.h" line="29"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-panel-convenience.c"
+             line="53">newly created #GtkButton.</doc>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+    </function>
+    <function name="panel_create_toggle_button"
+              c:identifier="xfce_panel_create_toggle_button">
+      <doc xml:space="preserve"
+           filename="xfce-panel-convenience.c"
+           line="83">Create regular #GtkToggleButton with a few properties set to be useful in
+Xfce panel: Flat (%GTK_RELIEF_NONE), no focus on click and minimal padding.</doc>
+      <source-position filename="xfce-panel-convenience.h" line="31"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-panel-convenience.c"
+             line="89">newly created #GtkToggleButton.</doc>
+        <type name="Gtk.Widget" c:type="GtkWidget*"/>
+      </return-value>
+    </function>
+    <function name="panel_get_channel_name"
+              c:identifier="xfce_panel_get_channel_name"
+              version="4.8">
+      <doc xml:space="preserve"
+           filename="xfce-panel-convenience.c"
+           line="120">Function for the name of the Xfconf channel used by the panel. By default
+this returns "xfce4-panel", but you can override this value with the
+environment variable XFCE_PANEL_CHANNEL_NAME.</doc>
+      <source-position filename="xfce-panel-convenience.h" line="33"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="xfce-panel-convenience.c"
+             line="127">name of the Xfconf channel
+
+See also: XFCE_PANEL_CHANNEL_NAME,
+          xfce_panel_plugin_xfconf_channel_new and
+          xfce_panel_plugin_get_property_base</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+    </function>
+    <function name="panel_pixbuf_from_source"
+              c:identifier="xfce_panel_pixbuf_from_source"
+              version="4.8">
+      <doc xml:space="preserve"
+           filename="xfce-panel-convenience.c"
+           line="282">See xfce_panel_pixbuf_from_source_at_size</doc>
+      <source-position filename="xfce-panel-convenience.h" line="40"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="xfce-panel-convenience.c"
+             line="290">a GdkPixbuf or %NULL if nothing was found. The value should
+         be released with g_object_unref when no longer used.
+
+See also: XfcePanelImage</doc>
+        <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+      </return-value>
+      <parameters>
+        <parameter name="source" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-convenience.c"
+               line="284">string that contains the location of an icon</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="icon_theme"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-panel-convenience.c"
+               line="285">icon theme or %NULL to use the default icon theme</doc>
+          <type name="Gtk.IconTheme" c:type="GtkIconTheme*"/>
+        </parameter>
+        <parameter name="size" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-convenience.c"
+               line="286">size the icon that should be loaded</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="panel_pixbuf_from_source_at_size"
+              c:identifier="xfce_panel_pixbuf_from_source_at_size"
+              version="4.10">
+      <doc xml:space="preserve"
+           filename="xfce-panel-convenience.c"
+           line="152">Try to load a pixbuf from a source string. The source could be
+an abolute path, an icon name or a filename that points to a
+file in the pixmaps directory.
+
+This function is particularly usefull for loading names from
+the Icon key of desktop files.
+
+The pixbuf is never bigger than @dest_width and @dest_height.
+If it is when loaded from the disk, the pixbuf is scaled
+preserving the aspect ratio.</doc>
+      <source-position filename="xfce-panel-convenience.h" line="35"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="xfce-panel-convenience.c"
+             line="170">a GdkPixbuf or %NULL if nothing was found. The value should
+         be released with g_object_unref when no longer used.
+
+See also: XfcePanelImage</doc>
+        <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+      </return-value>
+      <parameters>
+        <parameter name="source" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-convenience.c"
+               line="154">string that contains the location of an icon</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="icon_theme"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-panel-convenience.c"
+               line="155">icon theme or %NULL to use the default icon theme</doc>
+          <type name="Gtk.IconTheme" c:type="GtkIconTheme*"/>
+        </parameter>
+        <parameter name="dest_width" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-convenience.c"
+               line="156">the maximum returned width of the GdkPixbuf</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="dest_height" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-convenience.c"
+               line="157">the maximum returned height of the GdkPixbuf</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function-macro name="panel_plugin_xfconf_channel_new"
+                    c:identifier="xfce_panel_plugin_xfconf_channel_new"
+                    version="4.8"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="xfce-panel-macros.h"
+           line="87">Convienient function for opening an XfconfChannel for a plugin. The
+channel's property base will be propery returned from
+xfce_panel_plugin_get_property_base().
+
+See also: xfce_panel_plugin_get_property_base,
+          XFCE_PANEL_PLUGIN_CHANNEL_NAME and
+          xfce_panel_get_channel_name</doc>
+      <source-position filename="xfce-panel-macros.h" line="101"/>
+      <parameters>
+        <parameter name="plugin">
+          <doc xml:space="preserve"
+               filename="xfce-panel-macros.h"
+               line="89">An #XfcePanelPlugin.</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function name="panel_set_image_from_source"
+              c:identifier="xfce_panel_set_image_from_source"
+              version="4.17.4">
+      <doc xml:space="preserve"
+           filename="xfce-panel-convenience.c"
+           line="307">See xfce_panel_pixbuf_from_source_at_size()
+
+See also: #XfcePanelImage</doc>
+      <source-position filename="xfce-panel-convenience.h" line="44"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="image" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-convenience.c"
+               line="309">#GtkImage to be set</doc>
+          <type name="Gtk.Image" c:type="GtkImage*"/>
+        </parameter>
+        <parameter name="source" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-convenience.c"
+               line="310">string that contains the location of an icon</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="icon_theme"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="xfce-panel-convenience.c"
+               line="311">icon theme or %NULL to use the default icon theme</doc>
+          <type name="Gtk.IconTheme" c:type="GtkIconTheme*"/>
+        </parameter>
+        <parameter name="size" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-convenience.c"
+               line="312">size the icon that should be loaded</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+        <parameter name="scale" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfce-panel-convenience.c"
+               line="313">desired scale (see gtk_widget_get_scale_factor())</doc>
+          <type name="gint" c:type="gint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <docsection name="register-gobject-plugins">
+      <doc xml:space="preserve"
+           filename="xfce-panel-macros.h"
+           line="53">Macros to register panel plugin types and custom types inside panel plugins.</doc>
+    </docsection>
+    <docsection name="register-plugins">
+      <doc xml:space="preserve"
+           filename="xfce-panel-macros.h"
+           line="42">Macros to register panel plugins that are compiled as modules. Internal or
+external is defined by the boolean key &lt;varname&gt;X-XFCE-Internal&lt;/varname&gt;
+in the plugin's .desktop file.</doc>
+    </docsection>
+    <function-macro name="screen_position_get_orientation"
+                    c:identifier="xfce_screen_position_get_orientation"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="libxfce4panel-enums.h"
+           line="123">Converts the current #XfceScreenPosition into a #GtkOrientation.</doc>
+      <source-position filename="libxfce4panel-enums.h" line="131"/>
+      <parameters>
+        <parameter name="position">
+          <doc xml:space="preserve"
+               filename="libxfce4panel-enums.h"
+               line="125">the #XfceScreenPosition</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="screen_position_is_bottom"
+                    c:identifier="xfce_screen_position_is_bottom"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="libxfce4panel-enums.h"
+           line="186">Whether the current #XfceScreenPosition is below of the center of
+the screen.</doc>
+      <source-position filename="libxfce4panel-enums.h" line="195"/>
+      <parameters>
+        <parameter name="position">
+          <doc xml:space="preserve"
+               filename="libxfce4panel-enums.h"
+               line="188">the #XfceScreenPosition</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="screen_position_is_floating"
+                    c:identifier="xfce_screen_position_is_floating"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="libxfce4panel-enums.h"
+           line="135">Whether the current #XfceScreenPosition is floating on the screen.</doc>
+      <source-position filename="libxfce4panel-enums.h" line="143"/>
+      <parameters>
+        <parameter name="position">
+          <doc xml:space="preserve"
+               filename="libxfce4panel-enums.h"
+               line="137">the #XfceScreenPosition</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="screen_position_is_horizontal"
+                    c:identifier="xfce_screen_position_is_horizontal"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="libxfce4panel-enums.h"
+           line="110">Whether the current #XfceScreenPosition is horizontal.</doc>
+      <source-position filename="libxfce4panel-enums.h" line="118"/>
+      <parameters>
+        <parameter name="position">
+          <doc xml:space="preserve"
+               filename="libxfce4panel-enums.h"
+               line="112">the #XfceScreenPosition</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="screen_position_is_left"
+                    c:identifier="xfce_screen_position_is_left"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="libxfce4panel-enums.h"
+           line="160">Whether the current #XfceScreenPosition is left of the center of
+the screen.</doc>
+      <source-position filename="libxfce4panel-enums.h" line="169"/>
+      <parameters>
+        <parameter name="position">
+          <doc xml:space="preserve"
+               filename="libxfce4panel-enums.h"
+               line="162">the #XfceScreenPosition</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="screen_position_is_right"
+                    c:identifier="xfce_screen_position_is_right"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="libxfce4panel-enums.h"
+           line="173">Whether the current #XfceScreenPosition is right of the center of
+the screen.</doc>
+      <source-position filename="libxfce4panel-enums.h" line="182"/>
+      <parameters>
+        <parameter name="position">
+          <doc xml:space="preserve"
+               filename="libxfce4panel-enums.h"
+               line="175">the #XfceScreenPosition</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="screen_position_is_top"
+                    c:identifier="xfce_screen_position_is_top"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="libxfce4panel-enums.h"
+           line="147">Whether the current #XfceScreenPosition is above of the center of
+the screen.</doc>
+      <source-position filename="libxfce4panel-enums.h" line="156"/>
+      <parameters>
+        <parameter name="position">
+          <doc xml:space="preserve"
+               filename="libxfce4panel-enums.h"
+               line="149">the #XfceScreenPosition</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <docsection name="xfce-arrow-button">
+      <doc xml:space="preserve"
+           filename="xfce-arrow-button.c"
+           line="40">Toggle button with (optional) arrow. The arrow direction will be
+inverted when the button is toggled.
+Since 4.8 it is also possible to make the button blink and pack additional
+widgets in the button, using gtk_container_add().</doc>
+    </docsection>
+    <docsection name="xfce-panel-image">
+      <doc xml:space="preserve"
+           filename="xfce-panel-image.c"
+           line="41">&gt; #XfcePanelImage has been deprecated since 4.18.1. It was mainly useful with
+&gt; GTK 2, and is not really adapted to GTK 3. Use #GtkImage instead, and
+&gt; xfce_panel_set_image_from_source().
+
+The #XfcePanelImage is a widgets suitable for for example panel
+buttons where the developer does not exacly know the size of the
+image (due to theming and user setting).
+
+The #XfcePanelImage widget automatically scales to the allocated
+size of the widget. Because of that nature it never requests a size,
+so this will only work if you pack the image in another widget
+that will expand it.
+If you want to force an image size you can use xfce_panel_image_set_size()
+to set a pixel size, in that case the widget will request an fixed size
+which makes it usefull for usage in dialogs.</doc>
+    </docsection>
+    <docsection name="xfce-panel-plugin">
+      <doc xml:space="preserve"
+           filename="xfce-panel-plugin.c"
+           line="44">The interface plugin developers used to interact with the plugin and
+the panel.</doc>
+    </docsection>
+  </namespace>
+</repository>

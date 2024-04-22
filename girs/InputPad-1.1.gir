@@ -1,0 +1,2716 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <package name="input-pad"/>
+  <namespace name="InputPad"
+             version="1.1"
+             shared-library="libinput-pad-1.0.so.1"
+             c:identifier-prefixes="InputPad"
+             c:symbol-prefixes="input_pad">
+    <function name="BOOLEAN__STRING_UINT_UINT_UINT_UINT"
+              c:identifier="INPUT_PAD_BOOLEAN__STRING_UINT_UINT_UINT_UINT">
+      <source-position filename="input-pad-marshal.h" line="11"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="closure" transfer-ownership="none">
+          <type name="GObject.Closure" c:type="GClosure*"/>
+        </parameter>
+        <parameter name="return_value" transfer-ownership="none">
+          <type name="GObject.Value" c:type="GValue*"/>
+        </parameter>
+        <parameter name="n_param_values" transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="param_values" transfer-ownership="none">
+          <type name="GObject.Value" c:type="const GValue*"/>
+        </parameter>
+        <parameter name="invocation_hint"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+        <parameter name="marshal_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function-macro name="GTK_APPLICATION"
+                    c:identifier="INPUT_PAD_GTK_APPLICATION"
+                    introspectable="0">
+      <source-position filename="input-pad-window-gtk.h" line="31"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTK_BUTTON"
+                    c:identifier="INPUT_PAD_GTK_BUTTON"
+                    introspectable="0">
+      <source-position filename="button-gtk.h" line="35"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTK_BUTTON_CLASS"
+                    c:identifier="INPUT_PAD_GTK_BUTTON_CLASS"
+                    introspectable="0">
+      <source-position filename="button-gtk.h" line="36"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTK_BUTTON_GET_CLASS"
+                    c:identifier="INPUT_PAD_GTK_BUTTON_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="button-gtk.h" line="39"/>
+      <parameters>
+        <parameter name="l">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTK_COMBO_BOX"
+                    c:identifier="INPUT_PAD_GTK_COMBO_BOX"
+                    introspectable="0">
+      <source-position filename="combobox-gtk.h" line="30"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTK_COMBO_BOX_CLASS"
+                    c:identifier="INPUT_PAD_GTK_COMBO_BOX_CLASS"
+                    introspectable="0">
+      <source-position filename="combobox-gtk.h" line="31"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTK_COMBO_BOX_GET_CLASS"
+                    c:identifier="INPUT_PAD_GTK_COMBO_BOX_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="combobox-gtk.h" line="34"/>
+      <parameters>
+        <parameter name="l">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTK_KBDUI"
+                    c:identifier="INPUT_PAD_GTK_KBDUI"
+                    introspectable="0">
+      <source-position filename="input-pad-kbdui-gtk.h" line="33"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTK_KBDUI_CLASS"
+                    c:identifier="INPUT_PAD_GTK_KBDUI_CLASS"
+                    introspectable="0">
+      <source-position filename="input-pad-kbdui-gtk.h" line="34"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTK_KBDUI_GET_CLASS"
+                    c:identifier="INPUT_PAD_GTK_KBDUI_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="input-pad-kbdui-gtk.h" line="37"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTK_VIEWPORT"
+                    c:identifier="INPUT_PAD_GTK_VIEWPORT"
+                    introspectable="0">
+      <source-position filename="viewport-gtk.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTK_VIEWPORT_CLASS"
+                    c:identifier="INPUT_PAD_GTK_VIEWPORT_CLASS"
+                    introspectable="0">
+      <source-position filename="viewport-gtk.h" line="35"/>
+      <parameters>
+        <parameter name="class">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTK_WINDOW"
+                    c:identifier="INPUT_PAD_GTK_WINDOW"
+                    introspectable="0">
+      <source-position filename="input-pad-window-gtk.h" line="35"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTK_WINDOW_CLASS"
+                    c:identifier="INPUT_PAD_GTK_WINDOW_CLASS"
+                    introspectable="0">
+      <source-position filename="input-pad-window-gtk.h" line="36"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GTK_WINDOW_GET_CLASS"
+                    c:identifier="INPUT_PAD_GTK_WINDOW_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="input-pad-window-gtk.h" line="39"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <record name="Group" c:type="InputPadGroup">
+      <source-position filename="input-pad-group.h" line="48"/>
+      <field name="name" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="table" writable="1">
+        <type name="Table" c:type="InputPadTable*"/>
+      </field>
+      <field name="next" writable="1">
+        <type name="Group" c:type="InputPadGroup*"/>
+      </field>
+      <field name="priv" writable="1">
+        <type name="GroupPrivate" c:type="InputPadGroupPrivate*"/>
+      </field>
+      <method name="append_from_file"
+              c:identifier="input_pad_group_append_from_file"
+              introspectable="0">
+        <source-position filename="input-pad-group.h" line="86"/>
+        <return-value>
+          <type name="Group" c:type="InputPadGroup*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="group_data" transfer-ownership="none">
+            <type name="Group" c:type="InputPadGroup*"/>
+          </instance-parameter>
+          <parameter name="file" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="destroy" c:identifier="input_pad_group_destroy">
+        <source-position filename="input-pad-group.h" line="93"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="group_data" transfer-ownership="none">
+            <type name="Group" c:type="InputPadGroup*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <function name="parse_all_files"
+                c:identifier="input_pad_group_parse_all_files"
+                introspectable="0">
+        <source-position filename="input-pad-group.h" line="90"/>
+        <return-value>
+          <type name="Group" c:type="InputPadGroup*"/>
+        </return-value>
+        <parameters>
+          <parameter name="custom_dirname" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </function>
+    </record>
+    <record name="GroupPrivate" c:type="InputPadGroupPrivate">
+      <source-position filename="input-pad-private.h" line="27"/>
+      <field name="signal_window" writable="1">
+        <type name="gpointer" c:type="void*"/>
+      </field>
+    </record>
+    <class name="GtkApplication"
+           c:symbol-prefix="gtk_application"
+           c:type="InputPadGtkApplication"
+           parent="Gtk.Application"
+           glib:type-name="InputPadGtkApplication"
+           glib:get-type="input_pad_gtk_application_get_type"
+           glib:type-struct="GtkApplicationClass">
+      <source-position filename="input-pad-window-gtk.h" line="42"/>
+      <implements name="Gio.ActionGroup"/>
+      <implements name="Gio.ActionMap"/>
+      <constructor name="new" c:identifier="input_pad_gtk_application_new">
+        <source-position filename="input-pad-window-gtk.h" line="90"/>
+        <return-value transfer-ownership="full">
+          <type name="GtkApplication" c:type="InputPadGtkApplication*"/>
+        </return-value>
+      </constructor>
+      <method name="get_window"
+              c:identifier="input_pad_gtk_application_get_window">
+        <source-position filename="input-pad-window-gtk.h" line="96"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="input-pad-window-gtk.h"
+               line="94">#InputPadGtkWindow</doc>
+          <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="app" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="input-pad-window-gtk.h"
+                 line="93">#InputPadGtkApplication</doc>
+            <type name="GtkApplication" c:type="InputPadGtkApplication*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <glib:signal name="activated" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="GtkApplicationClass"
+            c:type="InputPadGtkApplicationClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="GtkApplication">
+      <source-position filename="input-pad-window-gtk.h" line="42"/>
+    </record>
+    <class name="GtkButton"
+           c:symbol-prefix="gtk_button"
+           c:type="InputPadGtkButton"
+           parent="Gtk.Button"
+           glib:type-name="InputPadGtkButton"
+           glib:get-type="input_pad_gtk_button_get_type"
+           glib:type-struct="GtkButtonClass">
+      <source-position filename="button-gtk.h" line="61"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Actionable"/>
+      <implements name="Gtk.Activatable"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new_with_label"
+                   c:identifier="input_pad_gtk_button_new_with_label">
+        <source-position filename="button-gtk.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="label" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_with_label_size"
+                   c:identifier="input_pad_gtk_button_new_with_label_size">
+        <source-position filename="button-gtk.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="label" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="icon_size" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_with_unicode"
+                   c:identifier="input_pad_gtk_button_new_with_unicode">
+        <source-position filename="button-gtk.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="code" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="pressed_repeat">
+        <source-position filename="button-gtk.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_all_keysyms"
+              c:identifier="input_pad_gtk_button_get_all_keysyms">
+        <source-position filename="button-gtk.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint**"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_keycode"
+              c:identifier="input_pad_gtk_button_get_keycode">
+        <source-position filename="button-gtk.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_keysym" c:identifier="input_pad_gtk_button_get_keysym">
+        <source-position filename="button-gtk.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_keysym_group"
+              c:identifier="input_pad_gtk_button_get_keysym_group">
+        <source-position filename="button-gtk.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_label" c:identifier="input_pad_gtk_button_get_label">
+        <source-position filename="button-gtk.h" line="109"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_rawtext"
+              c:identifier="input_pad_gtk_button_get_rawtext">
+        <source-position filename="button-gtk.h" line="104"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_state" c:identifier="input_pad_gtk_button_get_state">
+        <source-position filename="button-gtk.h" line="94"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_table_type"
+              c:identifier="input_pad_gtk_button_get_table_type">
+        <source-position filename="button-gtk.h" line="99"/>
+        <return-value transfer-ownership="none">
+          <type name="TableType" c:type="InputPadTableType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_unicode"
+              c:identifier="input_pad_gtk_button_get_unicode">
+        <source-position filename="button-gtk.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_all_keysyms"
+              c:identifier="input_pad_gtk_button_set_all_keysyms">
+        <source-position filename="button-gtk.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+          <parameter name="keysyms" transfer-ownership="none">
+            <type name="guint" c:type="guint**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_keycode"
+              c:identifier="input_pad_gtk_button_set_keycode">
+        <source-position filename="button-gtk.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+          <parameter name="keycode" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_keysym" c:identifier="input_pad_gtk_button_set_keysym">
+        <source-position filename="button-gtk.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+          <parameter name="keysym" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_keysym_group"
+              c:identifier="input_pad_gtk_button_set_keysym_group">
+        <source-position filename="button-gtk.h" line="91"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+          <parameter name="group" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_label" c:identifier="input_pad_gtk_button_set_label">
+        <source-position filename="button-gtk.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+          <parameter name="label" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_label_size"
+              c:identifier="input_pad_gtk_button_set_label_size">
+        <source-position filename="button-gtk.h" line="114"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+          <parameter name="label" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="icon_size" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_rawtext"
+              c:identifier="input_pad_gtk_button_set_rawtext">
+        <source-position filename="button-gtk.h" line="106"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+          <parameter name="rawtext" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_state" c:identifier="input_pad_gtk_button_set_state">
+        <source-position filename="button-gtk.h" line="96"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+          <parameter name="state" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_table_type"
+              c:identifier="input_pad_gtk_button_set_table_type">
+        <source-position filename="button-gtk.h" line="101"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="TableType" c:type="InputPadTableType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_unicode"
+              c:identifier="input_pad_gtk_button_set_unicode">
+        <source-position filename="button-gtk.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="button" transfer-ownership="none">
+            <type name="GtkButton" c:type="InputPadGtkButton*"/>
+          </instance-parameter>
+          <parameter name="code" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="Gtk.Button" c:type="GtkButton"/>
+      </field>
+      <field name="priv">
+        <type name="GtkButtonPrivate" c:type="InputPadGtkButtonPrivate*"/>
+      </field>
+      <glib:signal name="pressed-repeat" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="GtkButtonClass"
+            c:type="InputPadGtkButtonClass"
+            glib:is-gtype-struct-for="GtkButton">
+      <source-position filename="button-gtk.h" line="61"/>
+      <field name="parent_class">
+        <type name="Gtk.ButtonClass" c:type="GtkButtonClass"/>
+      </field>
+      <field name="pressed_repeat">
+        <callback name="pressed_repeat">
+          <source-position filename="button-gtk.h" line="54"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="window" transfer-ownership="none">
+              <type name="GtkButton" c:type="InputPadGtkButton*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_button_reserved1" introspectable="0">
+        <callback name="_button_reserved1">
+          <source-position filename="button-gtk.h" line="57"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_button_reserved2" introspectable="0">
+        <callback name="_button_reserved2">
+          <source-position filename="button-gtk.h" line="58"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_button_reserved3" introspectable="0">
+        <callback name="_button_reserved3">
+          <source-position filename="button-gtk.h" line="59"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_button_reserved4" introspectable="0">
+        <callback name="_button_reserved4">
+          <source-position filename="button-gtk.h" line="60"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <record name="GtkButtonPrivate"
+            c:type="InputPadGtkButtonPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="button-gtk.h" line="41"/>
+    </record>
+    <class name="GtkComboBox"
+           c:symbol-prefix="gtk_combo_box"
+           c:type="InputPadGtkComboBox"
+           parent="Gtk.ComboBox"
+           glib:type-name="InputPadGtkComboBox"
+           glib:get-type="input_pad_gtk_combo_box_get_type"
+           glib:type-struct="GtkComboBoxClass">
+      <source-position filename="combobox-gtk.h" line="54"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.CellEditable"/>
+      <implements name="Gtk.CellLayout"/>
+      <constructor name="new" c:identifier="input_pad_gtk_combo_box_new">
+        <source-position filename="combobox-gtk.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="get_base" c:identifier="input_pad_gtk_combo_box_get_base">
+        <source-position filename="combobox-gtk.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="combobox" transfer-ownership="none">
+            <type name="GtkComboBox" c:type="InputPadGtkComboBox*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_base" c:identifier="input_pad_gtk_combo_box_set_base">
+        <source-position filename="combobox-gtk.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="combobox" transfer-ownership="none">
+            <type name="GtkComboBox" c:type="InputPadGtkComboBox*"/>
+          </instance-parameter>
+          <parameter name="base" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="Gtk.ComboBox" c:type="GtkComboBox"/>
+      </field>
+      <field name="priv">
+        <type name="GtkComboBoxPrivate" c:type="InputPadGtkComboBoxPrivate*"/>
+      </field>
+    </class>
+    <record name="GtkComboBoxClass"
+            c:type="InputPadGtkComboBoxClass"
+            glib:is-gtype-struct-for="GtkComboBox">
+      <source-position filename="combobox-gtk.h" line="54"/>
+      <field name="parent_class">
+        <type name="Gtk.ComboBoxClass" c:type="GtkComboBoxClass"/>
+      </field>
+      <field name="_combobox_reserved1" introspectable="0">
+        <callback name="_combobox_reserved1">
+          <source-position filename="combobox-gtk.h" line="50"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_combobox_reserved2" introspectable="0">
+        <callback name="_combobox_reserved2">
+          <source-position filename="combobox-gtk.h" line="51"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_combobox_reserved3" introspectable="0">
+        <callback name="_combobox_reserved3">
+          <source-position filename="combobox-gtk.h" line="52"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_combobox_reserved4" introspectable="0">
+        <callback name="_combobox_reserved4">
+          <source-position filename="combobox-gtk.h" line="53"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <record name="GtkComboBoxPrivate"
+            c:type="InputPadGtkComboBoxPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="combobox-gtk.h" line="36"/>
+    </record>
+    <class name="GtkKbdui"
+           c:symbol-prefix="gtk_kbdui"
+           c:type="InputPadGtkKbdui"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="InputPadGtkKbdui"
+           glib:get-type="input_pad_gtk_kbdui_get_type"
+           glib:type-struct="GtkKbduiClass">
+      <source-position filename="input-pad-kbdui-gtk.h" line="70"/>
+      <virtual-method name="create_keyboard_layout">
+        <source-position filename="input-pad-kbdui-gtk.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdui" transfer-ownership="none">
+            <type name="GtkKbdui" c:type="InputPadGtkKbdui*"/>
+          </instance-parameter>
+          <parameter name="vbox" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="window" transfer-ownership="none">
+            <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="destroy_keyboard_layout">
+        <source-position filename="input-pad-kbdui-gtk.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="kbdui" transfer-ownership="none">
+            <type name="GtkKbdui" c:type="InputPadGtkKbdui*"/>
+          </instance-parameter>
+          <parameter name="vbox" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="window" transfer-ownership="none">
+            <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="module">
+        <type name="GModule.Module" c:type="GModule*"/>
+      </field>
+      <field name="priv">
+        <type name="GtkKbduiPrivate" c:type="InputPadGtkKbduiPrivate*"/>
+      </field>
+      <glib:signal name="create-keyboard-layout" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Gtk.Widget"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="GtkWindow"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="destroy-keyboard-layout" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Gtk.Widget"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="GtkWindow"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="GtkKbduiClass"
+            c:type="InputPadGtkKbduiClass"
+            glib:is-gtype-struct-for="GtkKbdui">
+      <source-position filename="input-pad-kbdui-gtk.h" line="70"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="create_keyboard_layout">
+        <callback name="create_keyboard_layout">
+          <source-position filename="input-pad-kbdui-gtk.h" line="55"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="kbdui" transfer-ownership="none">
+              <type name="GtkKbdui" c:type="InputPadGtkKbdui*"/>
+            </parameter>
+            <parameter name="vbox" transfer-ownership="none">
+              <type name="Gtk.Widget" c:type="GtkWidget*"/>
+            </parameter>
+            <parameter name="window" transfer-ownership="none">
+              <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="destroy_keyboard_layout">
+        <callback name="destroy_keyboard_layout">
+          <source-position filename="input-pad-kbdui-gtk.h" line="60"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="kbdui" transfer-ownership="none">
+              <type name="GtkKbdui" c:type="InputPadGtkKbdui*"/>
+            </parameter>
+            <parameter name="vbox" transfer-ownership="none">
+              <type name="Gtk.Widget" c:type="GtkWidget*"/>
+            </parameter>
+            <parameter name="window" transfer-ownership="none">
+              <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_kbdui_reserved1" introspectable="0">
+        <callback name="_kbdui_reserved1">
+          <source-position filename="input-pad-kbdui-gtk.h" line="66"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_kbdui_reserved2" introspectable="0">
+        <callback name="_kbdui_reserved2">
+          <source-position filename="input-pad-kbdui-gtk.h" line="67"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_kbdui_reserved3" introspectable="0">
+        <callback name="_kbdui_reserved3">
+          <source-position filename="input-pad-kbdui-gtk.h" line="68"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_kbdui_reserved4" introspectable="0">
+        <callback name="_kbdui_reserved4">
+          <source-position filename="input-pad-kbdui-gtk.h" line="69"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <record name="GtkKbduiContext" c:type="InputPadGtkKbduiContext">
+      <source-position filename="input-pad-kbdui-gtk.h" line="77"/>
+      <field name="kbdui" writable="1">
+        <type name="GtkKbdui" c:type="InputPadGtkKbdui*"/>
+      </field>
+      <field name="context" writable="1">
+        <type name="GLib.OptionContext" c:type="GOptionContext*"/>
+      </field>
+      <field name="priv" writable="1">
+        <type name="GtkKbduiContextPrivate"
+              c:type="InputPadGtkKbduiContextPrivate*"/>
+      </field>
+      <method name="destroy"
+              c:identifier="input_pad_gtk_kbdui_context_destroy">
+        <source-position filename="input-pad-kbdui-gtk.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <type name="GtkKbduiContext" c:type="InputPadGtkKbduiContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_kbdui_name"
+              c:identifier="input_pad_gtk_kbdui_context_get_kbdui_name">
+        <source-position filename="input-pad-kbdui-gtk.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <type name="GtkKbduiContext" c:type="InputPadGtkKbduiContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_kbdui_name"
+              c:identifier="input_pad_gtk_kbdui_context_set_kbdui_name">
+        <source-position filename="input-pad-kbdui-gtk.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <type name="GtkKbduiContext" c:type="InputPadGtkKbduiContext*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <function name="new"
+                c:identifier="input_pad_gtk_kbdui_context_new"
+                introspectable="0">
+        <source-position filename="input-pad-kbdui-gtk.h" line="83"/>
+        <return-value>
+          <type name="GtkKbduiContext" c:type="InputPadGtkKbduiContext*"/>
+        </return-value>
+      </function>
+    </record>
+    <record name="GtkKbduiContextPrivate"
+            c:type="InputPadGtkKbduiContextPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="input-pad-kbdui-gtk.h" line="43"/>
+    </record>
+    <record name="GtkKbduiPrivate"
+            c:type="InputPadGtkKbduiPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="input-pad-kbdui-gtk.h" line="40"/>
+    </record>
+    <class name="GtkViewport"
+           c:symbol-prefix="gtk_viewport"
+           c:type="InputPadGtkViewport"
+           parent="Gtk.Bin"
+           glib:type-name="InputPadGtkViewport"
+           glib:get-type="input_pad_gtk_viewport_get_type"
+           glib:type-struct="GtkViewportClass">
+      <source-position filename="viewport-gtk.h" line="65"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Scrollable"/>
+      <constructor name="new" c:identifier="input_pad_gtk_viewport_new">
+        <source-position filename="viewport-gtk.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="table_configure"
+              c:identifier="input_pad_gtk_viewport_table_configure">
+        <source-position filename="viewport-gtk.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="viewport" transfer-ownership="none">
+            <type name="GtkViewport" c:type="InputPadGtkViewport*"/>
+          </instance-parameter>
+          <parameter name="table" transfer-ownership="none">
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="min" transfer-ownership="none">
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+          <parameter name="max" transfer-ownership="none">
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="bin">
+        <type name="Gtk.Bin" c:type="GtkBin"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="GtkViewportPrivate" c:type="InputPadGtkViewportPrivate*"/>
+      </field>
+    </class>
+    <record name="GtkViewportClass"
+            c:type="InputPadGtkViewportClass"
+            glib:is-gtype-struct-for="GtkViewport">
+      <source-position filename="viewport-gtk.h" line="65"/>
+      <field name="parent_class">
+        <doc xml:space="preserve"
+             filename="viewport-gtk.h"
+             line="52">The parent class.</doc>
+        <type name="Gtk.BinClass" c:type="GtkBinClass"/>
+      </field>
+      <field name="_gtk_reserved1" introspectable="0">
+        <callback name="_gtk_reserved1">
+          <source-position filename="viewport-gtk.h" line="61"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_gtk_reserved2" introspectable="0">
+        <callback name="_gtk_reserved2">
+          <source-position filename="viewport-gtk.h" line="62"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_gtk_reserved3" introspectable="0">
+        <callback name="_gtk_reserved3">
+          <source-position filename="viewport-gtk.h" line="63"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_gtk_reserved4" introspectable="0">
+        <callback name="_gtk_reserved4">
+          <source-position filename="viewport-gtk.h" line="64"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <record name="GtkViewportPrivate"
+            c:type="InputPadGtkViewportPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="viewport-gtk.h" line="39"/>
+    </record>
+    <class name="GtkWindow"
+           c:symbol-prefix="gtk_window"
+           c:type="InputPadGtkWindow"
+           parent="Gtk.ApplicationWindow"
+           glib:type-name="InputPadGtkWindow"
+           glib:get-type="input_pad_gtk_window_get_type"
+           glib:type-struct="GtkWindowClass">
+      <source-position filename="input-pad-window-gtk.h" line="85"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gio.ActionGroup"/>
+      <implements name="Gio.ActionMap"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="input_pad_gtk_window_new">
+        <source-position filename="input-pad-window-gtk.h" line="100"/>
+        <return-value transfer-ownership="none">
+          <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+        </return-value>
+        <parameters>
+          <parameter name="app" transfer-ownership="none">
+            <type name="GtkApplication" c:type="InputPadGtkApplication*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_with_child"
+                   c:identifier="input_pad_gtk_window_new_with_child">
+        <source-position filename="input-pad-window-gtk.h" line="102"/>
+        <return-value transfer-ownership="none">
+          <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+        </return-value>
+        <parameters>
+          <parameter name="app" transfer-ownership="none">
+            <type name="GtkApplication" c:type="InputPadGtkApplication*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="Gtk.WindowType" c:type="GtkWindowType"/>
+          </parameter>
+          <parameter name="child" transfer-ownership="none">
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="get_kbdui_name_get_description_with_index"
+                c:identifier="input_pad_gtk_window_get_kbdui_name_get_description_with_index">
+        <source-position filename="input-pad-window-gtk.h" line="132"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="index" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_kbdui_name_get_name_with_index"
+                c:identifier="input_pad_gtk_window_get_kbdui_name_get_name_with_index">
+        <source-position filename="input-pad-window-gtk.h" line="130"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <parameter name="index" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_kbdui_name_get_type_with_index"
+                c:identifier="input_pad_gtk_window_get_kbdui_name_get_type_with_index">
+        <source-position filename="input-pad-window-gtk.h" line="134"/>
+        <return-value transfer-ownership="none">
+          <type name="WindowType" c:type="InputPadWindowType"/>
+        </return-value>
+        <parameters>
+          <parameter name="index" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="get_kbdui_name_list"
+                c:identifier="input_pad_gtk_window_get_kbdui_name_list"
+                introspectable="0">
+        <source-position filename="input-pad-window-gtk.h" line="128"/>
+        <return-value>
+          <type name="WindowKbduiName" c:type="InputPadWindowKbduiName*"/>
+        </return-value>
+      </function>
+      <function name="get_kbdui_name_list_length"
+                c:identifier="input_pad_gtk_window_get_kbdui_name_list_length">
+        <source-position filename="input-pad-window-gtk.h" line="129"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+      </function>
+      <virtual-method name="button_pressed">
+        <source-position filename="input-pad-window-gtk.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+          </instance-parameter>
+          <parameter name="str" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="keysym" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="keycode" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="state" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="char_button_sensitive">
+        <source-position filename="input-pad-window-gtk.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+          </instance-parameter>
+          <parameter name="sensitive" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="group_appended">
+        <source-position filename="input-pad-window-gtk.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+          </instance-parameter>
+          <parameter name="padfile" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="group_changed">
+        <source-position filename="input-pad-window-gtk.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+          </instance-parameter>
+          <parameter name="paddir" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="keyboard_changed">
+        <source-position filename="input-pad-window-gtk.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+          </instance-parameter>
+          <parameter name="group" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="reorder_button_pressed"
+                      invoker="reorder_button_pressed">
+        <source-position filename="input-pad-window-gtk.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="append_padfile"
+              c:identifier="input_pad_gtk_window_append_padfile">
+        <source-position filename="input-pad-window-gtk.h" line="110"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+          </instance-parameter>
+          <parameter name="padfile" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_keyboard_state"
+              c:identifier="input_pad_gtk_window_get_keyboard_state">
+        <source-position filename="input-pad-window-gtk.h" line="119"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="reorder_button_pressed"
+              c:identifier="input_pad_gtk_window_reorder_button_pressed">
+        <source-position filename="input-pad-window-gtk.h" line="117"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_char_button_sensitive"
+              c:identifier="input_pad_gtk_window_set_char_button_sensitive">
+        <source-position filename="input-pad-window-gtk.h" line="114"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+          </instance-parameter>
+          <parameter name="sensitive" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_kbdui_name"
+              c:identifier="input_pad_gtk_window_set_kbdui_name">
+        <source-position filename="input-pad-window-gtk.h" line="136"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_keyboard_state"
+              c:identifier="input_pad_gtk_window_set_keyboard_state">
+        <source-position filename="input-pad-window-gtk.h" line="121"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+          </instance-parameter>
+          <parameter name="keyboard_state" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_keyboard_state_with_keysym"
+              c:identifier="input_pad_gtk_window_set_keyboard_state_with_keysym">
+        <source-position filename="input-pad-window-gtk.h" line="124"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+          </instance-parameter>
+          <parameter name="keysym" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_paddir" c:identifier="input_pad_gtk_window_set_paddir">
+        <source-position filename="input-pad-window-gtk.h" line="106"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+          </instance-parameter>
+          <parameter name="paddir" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="domain" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_show_layout"
+              c:identifier="input_pad_gtk_window_set_show_layout">
+        <source-position filename="input-pad-window-gtk.h" line="142"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+          </instance-parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="WindowShowLayoutType"
+                  c:type="InputPadWindowShowLayoutType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_show_table"
+              c:identifier="input_pad_gtk_window_set_show_table">
+        <source-position filename="input-pad-window-gtk.h" line="139"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+          </instance-parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="WindowShowTableType"
+                  c:type="InputPadWindowShowTableType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="Gtk.ApplicationWindow" c:type="GtkApplicationWindow"/>
+      </field>
+      <field name="child">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="priv">
+        <type name="GtkWindowPrivate" c:type="InputPadGtkWindowPrivate*"/>
+      </field>
+      <glib:signal name="button-pressed" when="last">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="p2" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="p3" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="char-button-sensitive" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="group-appended" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="group-changed" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="keyboard-changed" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="reorder-button-pressed" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="GtkWindowClass"
+            c:type="InputPadGtkWindowClass"
+            glib:is-gtype-struct-for="GtkWindow">
+      <source-position filename="input-pad-window-gtk.h" line="85"/>
+      <field name="parent_class">
+        <type name="Gtk.ApplicationWindowClass"
+              c:type="GtkApplicationWindowClass"/>
+      </field>
+      <field name="button_pressed">
+        <callback name="button_pressed">
+          <source-position filename="input-pad-window-gtk.h" line="57"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="window" transfer-ownership="none">
+              <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+            </parameter>
+            <parameter name="str" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="type" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+            <parameter name="keysym" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+            <parameter name="keycode" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+            <parameter name="state" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="keyboard_changed">
+        <callback name="keyboard_changed">
+          <source-position filename="input-pad-window-gtk.h" line="64"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="window" transfer-ownership="none">
+              <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+            </parameter>
+            <parameter name="group" transfer-ownership="none">
+              <type name="gint" c:type="int"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="group_changed">
+        <callback name="group_changed">
+          <source-position filename="input-pad-window-gtk.h" line="67"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="window" transfer-ownership="none">
+              <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+            </parameter>
+            <parameter name="paddir" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="domain" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="group_appended">
+        <callback name="group_appended">
+          <source-position filename="input-pad-window-gtk.h" line="71"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="window" transfer-ownership="none">
+              <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+            </parameter>
+            <parameter name="padfile" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="domain" transfer-ownership="none">
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="char_button_sensitive">
+        <callback name="char_button_sensitive">
+          <source-position filename="input-pad-window-gtk.h" line="75"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="window" transfer-ownership="none">
+              <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+            </parameter>
+            <parameter name="sensitive" transfer-ownership="none">
+              <type name="gboolean" c:type="gboolean"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="reorder_button_pressed">
+        <callback name="reorder_button_pressed">
+          <source-position filename="input-pad-window-gtk.h" line="78"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="window" transfer-ownership="none">
+              <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_window_reserved1" introspectable="0">
+        <callback name="_window_reserved1">
+          <source-position filename="input-pad-window-gtk.h" line="81"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_window_reserved2" introspectable="0">
+        <callback name="_window_reserved2">
+          <source-position filename="input-pad-window-gtk.h" line="82"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_window_reserved3" introspectable="0">
+        <callback name="_window_reserved3">
+          <source-position filename="input-pad-window-gtk.h" line="83"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_window_reserved4" introspectable="0">
+        <callback name="_window_reserved4">
+          <source-position filename="input-pad-window-gtk.h" line="84"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <record name="GtkWindowPrivate"
+            c:type="InputPadGtkWindowPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="input-pad-window-gtk.h" line="43"/>
+    </record>
+    <function-macro name="IS_GTK_APPLICATION"
+                    c:identifier="INPUT_PAD_IS_GTK_APPLICATION"
+                    introspectable="0">
+      <source-position filename="input-pad-window-gtk.h" line="32"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GTK_BUTTON"
+                    c:identifier="INPUT_PAD_IS_GTK_BUTTON"
+                    introspectable="0">
+      <source-position filename="button-gtk.h" line="37"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GTK_BUTTON_CLASS"
+                    c:identifier="INPUT_PAD_IS_GTK_BUTTON_CLASS"
+                    introspectable="0">
+      <source-position filename="button-gtk.h" line="38"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GTK_COMBO_BOX"
+                    c:identifier="INPUT_PAD_IS_GTK_COMBO_BOX"
+                    introspectable="0">
+      <source-position filename="combobox-gtk.h" line="32"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GTK_COMBO_BOX_CLASS"
+                    c:identifier="INPUT_PAD_IS_GTK_COMBO_BOX_CLASS"
+                    introspectable="0">
+      <source-position filename="combobox-gtk.h" line="33"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GTK_KBDUI"
+                    c:identifier="INPUT_PAD_IS_GTK_KBDUI"
+                    introspectable="0">
+      <source-position filename="input-pad-kbdui-gtk.h" line="35"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GTK_KBDUI_CLASS"
+                    c:identifier="INPUT_PAD_IS_GTK_KBDUI_CLASS"
+                    introspectable="0">
+      <source-position filename="input-pad-kbdui-gtk.h" line="36"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GTK_VIEWPORT"
+                    c:identifier="INPUT_PAD_IS_GTK_VIEWPORT"
+                    introspectable="0">
+      <source-position filename="viewport-gtk.h" line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GTK_WINDOW"
+                    c:identifier="INPUT_PAD_IS_GTK_WINDOW"
+                    introspectable="0">
+      <source-position filename="input-pad-window-gtk.h" line="37"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GTK_WINDOW_CLASS"
+                    c:identifier="INPUT_PAD_IS_GTK_WINDOW_CLASS"
+                    introspectable="0">
+      <source-position filename="input-pad-window-gtk.h" line="38"/>
+      <parameters>
+        <parameter name="k">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="MAX_COLUMN" value="15" c:type="INPUT_PAD_MAX_COLUMN">
+      <source-position filename="viewport-gtk.h" line="29"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MAX_ROW" value="66" c:type="INPUT_PAD_MAX_ROW">
+      <source-position filename="viewport-gtk.h" line="30"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MAX_WINDOW_ROW"
+              value="8"
+              c:type="INPUT_PAD_MAX_WINDOW_ROW">
+      <source-position filename="viewport-gtk.h" line="31"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <record name="Table" c:type="InputPadTable">
+      <source-position filename="input-pad-group.h" line="64"/>
+      <field name="name" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="column" writable="1">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="type" writable="1">
+        <type name="TableType" c:type="InputPadTableType"/>
+      </field>
+      <field name="data" writable="1">
+        <type name="gpointer" c:type="data"/>
+      </field>
+      <field name="next" writable="1">
+        <type name="Table" c:type="InputPadTable*"/>
+      </field>
+      <field name="priv" writable="1">
+        <type name="TablePrivate" c:type="InputPadTablePrivate*"/>
+      </field>
+    </record>
+    <record name="TableCmd" c:type="InputPadTableCmd">
+      <source-position filename="input-pad-group.h" line="75"/>
+      <field name="label" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="execl" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+    </record>
+    <record name="TablePrivate" c:type="InputPadTablePrivate">
+      <source-position filename="input-pad-private.h" line="32"/>
+      <field name="inited" writable="1" bits="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="signal_window" writable="1">
+        <type name="gpointer" c:type="void*"/>
+      </field>
+    </record>
+    <record name="TableStr" c:type="InputPadTableStr">
+      <source-position filename="input-pad-group.h" line="70"/>
+      <field name="label" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="comment" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="rawtext" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+    </record>
+    <enumeration name="TableType" c:type="InputPadTableType">
+      <source-position filename="input-pad-group.h" line="40"/>
+      <member name="none" value="0" c:identifier="INPUT_PAD_TABLE_TYPE_NONE">
+      </member>
+      <member name="chars" value="1" c:identifier="INPUT_PAD_TABLE_TYPE_CHARS">
+      </member>
+      <member name="keysyms"
+              value="2"
+              c:identifier="INPUT_PAD_TABLE_TYPE_KEYSYMS">
+      </member>
+      <member name="strings"
+              value="3"
+              c:identifier="INPUT_PAD_TABLE_TYPE_STRINGS">
+      </member>
+      <member name="commands"
+              value="4"
+              c:identifier="INPUT_PAD_TABLE_TYPE_COMMANDS">
+      </member>
+    </enumeration>
+    <record name="TableXXX" c:type="InputPadTableXXX">
+      <source-position filename="input-pad-group.h" line="84"/>
+      <field name="reserved1" writable="1">
+        <type name="gpointer" c:type="void*"/>
+      </field>
+      <field name="reserved2" writable="1">
+        <type name="gpointer" c:type="void*"/>
+      </field>
+      <field name="reserved3" writable="1">
+        <type name="gpointer" c:type="void*"/>
+      </field>
+      <field name="reserved4" writable="1">
+        <type name="gpointer" c:type="void*"/>
+      </field>
+      <field name="reserved5" writable="1">
+        <type name="gpointer" c:type="void*"/>
+      </field>
+    </record>
+    <record name="UnicodeBlockTable" c:type="InputPadUnicodeBlockTable">
+      <source-position filename="unicode_block.h" line="34"/>
+      <field name="start" writable="1">
+        <type name="guint" c:type="unsigned int"/>
+      </field>
+      <field name="end" writable="1">
+        <type name="guint" c:type="unsigned int"/>
+      </field>
+      <field name="label" writable="1">
+        <type name="utf8" c:type="const char*"/>
+      </field>
+    </record>
+    <function name="VOID__OBJECT_OBJECT"
+              c:identifier="INPUT_PAD_VOID__OBJECT_OBJECT">
+      <source-position filename="input-pad-marshal.h" line="31"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="closure" transfer-ownership="none">
+          <type name="GObject.Closure" c:type="GClosure*"/>
+        </parameter>
+        <parameter name="return_value" transfer-ownership="none">
+          <type name="GObject.Value" c:type="GValue*"/>
+        </parameter>
+        <parameter name="n_param_values" transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="param_values" transfer-ownership="none">
+          <type name="GObject.Value" c:type="const GValue*"/>
+        </parameter>
+        <parameter name="invocation_hint"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+        <parameter name="marshal_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="VOID__STRING_STRING"
+              c:identifier="INPUT_PAD_VOID__STRING_STRING">
+      <source-position filename="input-pad-marshal.h" line="22"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="closure" transfer-ownership="none">
+          <type name="GObject.Closure" c:type="GClosure*"/>
+        </parameter>
+        <parameter name="return_value" transfer-ownership="none">
+          <type name="GObject.Value" c:type="GValue*"/>
+        </parameter>
+        <parameter name="n_param_values" transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="param_values" transfer-ownership="none">
+          <type name="GObject.Value" c:type="const GValue*"/>
+        </parameter>
+        <parameter name="invocation_hint"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+        <parameter name="marshal_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <record name="WindowKbduiName" c:type="InputPadWindowKbduiName">
+      <source-position filename="input-pad.h" line="49"/>
+      <field name="name" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="description" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="type" writable="1">
+        <type name="WindowType" c:type="InputPadWindowType"/>
+      </field>
+    </record>
+    <enumeration name="WindowShowLayoutType"
+                 c:type="InputPadWindowShowLayoutType">
+      <source-position filename="input-pad.h" line="41"/>
+      <member name="nothing"
+              value="0"
+              c:identifier="INPUT_PAD_WINDOW_SHOW_LAYOUT_TYPE_NOTHING">
+      </member>
+      <member name="default"
+              value="1"
+              c:identifier="INPUT_PAD_WINDOW_SHOW_LAYOUT_TYPE_DEFAULT">
+      </member>
+    </enumeration>
+    <enumeration name="WindowShowTableType"
+                 c:type="InputPadWindowShowTableType">
+      <source-position filename="input-pad.h" line="35"/>
+      <member name="nothing"
+              value="0"
+              c:identifier="INPUT_PAD_WINDOW_SHOW_TABLE_TYPE_NOTHING">
+      </member>
+      <member name="custom"
+              value="1"
+              c:identifier="INPUT_PAD_WINDOW_SHOW_TABLE_TYPE_CUSTOM">
+      </member>
+      <member name="all"
+              value="2"
+              c:identifier="INPUT_PAD_WINDOW_SHOW_TABLE_TYPE_ALL">
+      </member>
+    </enumeration>
+    <enumeration name="WindowType" c:type="InputPadWindowType">
+      <source-position filename="input-pad.h" line="28"/>
+      <member name="window_type_gtk"
+              value="0"
+              c:identifier="INPUT_PAD_WINDOW_TYPE_GTK">
+      </member>
+    </enumeration>
+    <record name="XKBConfigReg" c:type="InputPadXKBConfigReg">
+      <source-position filename="geometry-xkb.h" line="65"/>
+      <field name="layouts" writable="1">
+        <type name="XKBLayoutList" c:type="InputPadXKBLayoutList*"/>
+      </field>
+      <field name="option_groups" writable="1">
+        <type name="XKBOptionGroupList" c:type="InputPadXKBOptionGroupList*"/>
+      </field>
+      <field name="priv" writable="1">
+        <type name="XKBConfigRegPrivate"
+              c:type="InputPadXKBConfigRegPrivate*"/>
+      </field>
+    </record>
+    <record name="XKBConfigRegPrivate"
+            c:type="InputPadXKBConfigRegPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="geometry-xkb.h" line="37"/>
+    </record>
+    <record name="XKBKeyList" c:type="InputPadXKBKeyList">
+      <source-position filename="geometry-xkb.h" line="59"/>
+      <field name="row" writable="1">
+        <type name="XKBKeyRow" c:type="InputPadXKBKeyRow*"/>
+      </field>
+      <field name="next" writable="1">
+        <type name="XKBKeyList" c:type="InputPadXKBKeyList*"/>
+      </field>
+      <field name="priv" writable="1">
+        <type name="XKBKeyListPrivate" c:type="InputPadXKBKeyListPrivate*"/>
+      </field>
+    </record>
+    <record name="XKBKeyListPrivate"
+            c:type="InputPadXKBKeyListPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="geometry-xkb.h" line="35"/>
+    </record>
+    <record name="XKBKeyRow" c:type="InputPadXKBKeyRow">
+      <source-position filename="geometry-xkb.h" line="53"/>
+      <field name="keycode" writable="1">
+        <type name="xlib.KeyCode" c:type="KeyCode"/>
+      </field>
+      <field name="name" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="keysym" writable="1">
+        <type name="guint" c:type="unsigned int**"/>
+      </field>
+      <field name="next" writable="1">
+        <type name="XKBKeyRow" c:type="InputPadXKBKeyRow*"/>
+      </field>
+      <field name="priv" writable="1">
+        <type name="XKBKeyRowPrivate" c:type="InputPadXKBKeyRowPrivate*"/>
+      </field>
+    </record>
+    <record name="XKBKeyRowPrivate"
+            c:type="InputPadXKBKeyRowPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="geometry-xkb.h" line="33"/>
+    </record>
+    <record name="XKBLayoutList" c:type="InputPadXKBLayoutList">
+      <source-position filename="geometry-xkb.h" line="73"/>
+      <field name="layout" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="desc" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="variants" writable="1">
+        <type name="XKBVariantList" c:type="InputPadXKBVariantList*"/>
+      </field>
+      <field name="next" writable="1">
+        <type name="XKBLayoutList" c:type="InputPadXKBLayoutList*"/>
+      </field>
+      <field name="priv" writable="1">
+        <type name="XKBLayoutListPrivate"
+              c:type="InputPadXKBLayoutListPrivate*"/>
+      </field>
+    </record>
+    <record name="XKBLayoutListPrivate"
+            c:type="InputPadXKBLayoutListPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="geometry-xkb.h" line="39"/>
+    </record>
+    <record name="XKBOptionGroupList" c:type="InputPadXKBOptionGroupList">
+      <source-position filename="geometry-xkb.h" line="88"/>
+      <field name="option_group" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="desc" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="options" writable="1">
+        <type name="XKBOptionList" c:type="InputPadXKBOptionList*"/>
+      </field>
+      <field name="next" writable="1">
+        <type name="XKBOptionGroupList" c:type="InputPadXKBOptionGroupList*"/>
+      </field>
+      <field name="priv" writable="1">
+        <type name="XKBOptionGroupListPrivate"
+              c:type="InputPadXKBOptionGroupListPrivate*"/>
+      </field>
+    </record>
+    <record name="XKBOptionGroupListPrivate"
+            c:type="InputPadXKBOptionGroupListPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="geometry-xkb.h" line="43"/>
+    </record>
+    <record name="XKBOptionList" c:type="InputPadXKBOptionList">
+      <source-position filename="geometry-xkb.h" line="95"/>
+      <field name="option" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="desc" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="next" writable="1">
+        <type name="XKBOptionList" c:type="InputPadXKBOptionList*"/>
+      </field>
+      <field name="priv" writable="1">
+        <type name="XKBOptionListPrivate"
+              c:type="InputPadXKBOptionListPrivate*"/>
+      </field>
+    </record>
+    <record name="XKBOptionListPrivate"
+            c:type="InputPadXKBOptionListPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="geometry-xkb.h" line="45"/>
+    </record>
+    <record name="XKBVariantList" c:type="InputPadXKBVariantList">
+      <source-position filename="geometry-xkb.h" line="80"/>
+      <field name="variant" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="desc" writable="1">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="next" writable="1">
+        <type name="XKBVariantList" c:type="InputPadXKBVariantList*"/>
+      </field>
+      <field name="priv" writable="1">
+        <type name="XKBVariantListPrivate"
+              c:type="InputPadXKBVariantListPrivate*"/>
+      </field>
+    </record>
+    <record name="XKBVariantListPrivate"
+            c:type="InputPadXKBVariantListPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="geometry-xkb.h" line="41"/>
+    </record>
+    <function name="gdk_xkb_destroy_keyboard_layouts"
+              c:identifier="input_pad_gdk_xkb_destroy_keyboard_layouts">
+      <source-position filename="geometry-gdk.h" line="28"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+        </parameter>
+        <parameter name="xkb_key_list" transfer-ownership="none">
+          <type name="XKBKeyList" c:type="InputPadXKBKeyList*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gdk_xkb_get_group_layouts"
+              c:identifier="input_pad_gdk_xkb_get_group_layouts"
+              introspectable="0">
+      <source-position filename="geometry-gdk.h" line="36"/>
+      <return-value>
+        <array c:type="char**">
+          <type name="utf8"/>
+        </array>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+        </parameter>
+        <parameter name="xkb_key_list" transfer-ownership="none">
+          <type name="XKBKeyList" c:type="InputPadXKBKeyList*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gdk_xkb_get_group_options"
+              c:identifier="input_pad_gdk_xkb_get_group_options"
+              introspectable="0">
+      <source-position filename="geometry-gdk.h" line="42"/>
+      <return-value>
+        <array c:type="char**">
+          <type name="utf8"/>
+        </array>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+        </parameter>
+        <parameter name="xkb_key_list" transfer-ownership="none">
+          <type name="XKBKeyList" c:type="InputPadXKBKeyList*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gdk_xkb_get_group_variants"
+              c:identifier="input_pad_gdk_xkb_get_group_variants"
+              introspectable="0">
+      <source-position filename="geometry-gdk.h" line="39"/>
+      <return-value>
+        <array c:type="char**">
+          <type name="utf8"/>
+        </array>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+        </parameter>
+        <parameter name="xkb_key_list" transfer-ownership="none">
+          <type name="XKBKeyList" c:type="InputPadXKBKeyList*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gdk_xkb_parse_config_registry"
+              c:identifier="input_pad_gdk_xkb_parse_config_registry"
+              introspectable="0">
+      <source-position filename="geometry-gdk.h" line="45"/>
+      <return-value>
+        <type name="XKBConfigReg" c:type="InputPadXKBConfigReg*"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+        </parameter>
+        <parameter name="xkb_key_list" transfer-ownership="none">
+          <type name="XKBKeyList" c:type="InputPadXKBKeyList*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gdk_xkb_parse_keyboard_layouts"
+              c:identifier="input_pad_gdk_xkb_parse_keyboard_layouts"
+              introspectable="0">
+      <source-position filename="geometry-gdk.h" line="31"/>
+      <return-value>
+        <type name="XKBKeyList" c:type="InputPadXKBKeyList*"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gdk_xkb_set_layout"
+              c:identifier="input_pad_gdk_xkb_set_layout">
+      <source-position filename="geometry-gdk.h" line="48"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+        </parameter>
+        <parameter name="xkb_key_list" transfer-ownership="none">
+          <type name="XKBKeyList" c:type="InputPadXKBKeyList*"/>
+        </parameter>
+        <parameter name="layouts" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="variants" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="options" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gdk_xkb_signal_emit"
+              c:identifier="input_pad_gdk_xkb_signal_emit">
+      <source-position filename="geometry-gdk.h" line="33"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+        </parameter>
+        <parameter name="signal_id" transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_version" c:identifier="input_pad_get_version">
+      <source-position filename="input-pad.h" line="51"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const char*"/>
+      </return-value>
+    </function>
+    <function name="module_arg_init" c:identifier="input_pad_module_arg_init">
+      <source-position filename="input-pad-kbdui-gtk.h" line="99"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="argc" transfer-ownership="none">
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="argv" transfer-ownership="none">
+          <type name="utf8" c:type="char***"/>
+        </parameter>
+        <parameter name="context" transfer-ownership="none">
+          <type name="GtkKbduiContext" c:type="InputPadGtkKbduiContext*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="module_arg_init_post"
+              c:identifier="input_pad_module_arg_init_post">
+      <source-position filename="input-pad-kbdui-gtk.h" line="104"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="argc" transfer-ownership="none">
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="argv" transfer-ownership="none">
+          <type name="utf8" c:type="char***"/>
+        </parameter>
+        <parameter name="context" transfer-ownership="none">
+          <type name="GtkKbduiContext" c:type="InputPadGtkKbduiContext*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="module_get_description"
+              c:identifier="input_pad_module_get_description">
+      <source-position filename="input-pad-kbdui-gtk.h" line="95"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+    </function>
+    <function name="module_get_type" c:identifier="input_pad_module_get_type">
+      <source-position filename="input-pad-kbdui-gtk.h" line="97"/>
+      <return-value transfer-ownership="none">
+        <type name="WindowType" c:type="InputPadWindowType"/>
+      </return-value>
+    </function>
+    <function name="module_init" c:identifier="input_pad_module_init">
+      <source-position filename="input-pad-kbdui-gtk.h" line="109"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="module_kbdui_new"
+              c:identifier="input_pad_module_kbdui_new"
+              introspectable="0">
+      <source-position filename="input-pad-kbdui-gtk.h" line="111"/>
+      <return-value>
+        <type name="GtkKbdui" c:type="InputPadGtkKbdui*"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <type name="GtkWindow" c:type="InputPadGtkWindow*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="window_activate" c:identifier="input_pad_window_activate">
+      <source-position filename="input-pad.h" line="102"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="window_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="window_append_padfile"
+              c:identifier="input_pad_window_append_padfile">
+      <source-position filename="input-pad.h" line="74"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="window_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+        <parameter name="padfile" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="domain" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="window_destroy" c:identifier="input_pad_window_destroy">
+      <source-position filename="input-pad.h" line="104"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="window_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="window_get_kbdui_name_get_description_with_index"
+              c:identifier="input_pad_window_get_kbdui_name_get_description_with_index">
+      <source-position filename="input-pad.h" line="88"/>
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="index" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="window_get_kbdui_name_get_name_with_index"
+              c:identifier="input_pad_window_get_kbdui_name_get_name_with_index">
+      <source-position filename="input-pad.h" line="86"/>
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="index" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="window_get_kbdui_name_get_type_with_index"
+              c:identifier="input_pad_window_get_kbdui_name_get_type_with_index">
+      <source-position filename="input-pad.h" line="90"/>
+      <return-value transfer-ownership="none">
+        <type name="WindowType" c:type="InputPadWindowType"/>
+      </return-value>
+      <parameters>
+        <parameter name="index" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="window_get_kbdui_name_list"
+              c:identifier="input_pad_window_get_kbdui_name_list"
+              introspectable="0">
+      <source-position filename="input-pad.h" line="84"/>
+      <return-value>
+        <type name="WindowKbduiName" c:type="InputPadWindowKbduiName*"/>
+      </return-value>
+    </function>
+    <function name="window_get_kbdui_name_list_length"
+              c:identifier="input_pad_window_get_kbdui_name_list_length">
+      <source-position filename="input-pad.h" line="85"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+    </function>
+    <function name="window_get_visible"
+              c:identifier="input_pad_window_get_visible">
+      <source-position filename="input-pad.h" line="69"/>
+      <return-value transfer-ownership="none">
+        <type name="guint" c:type="unsigned int"/>
+      </return-value>
+      <parameters>
+        <parameter name="window_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="window_get_window"
+              c:identifier="input_pad_window_get_window">
+      <source-position filename="input-pad.h" line="101"/>
+      <return-value transfer-ownership="none" nullable="1">
+        <type name="gpointer" c:type="void*"/>
+      </return-value>
+      <parameters>
+        <parameter name="window_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="window_hide" c:identifier="input_pad_window_hide">
+      <source-position filename="input-pad.h" line="68"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="window_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="window_init" c:identifier="input_pad_window_init">
+      <source-position filename="input-pad.h" line="62"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="input-pad.h"
+             line="60">the exit value.</doc>
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="argc"
+                   direction="inout"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="input-pad.h"
+               line="55">Address of the argc</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="argv"
+                   direction="inout"
+                   caller-allocates="0"
+                   transfer-ownership="full"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="input-pad.h"
+               line="56">Address of the argv</doc>
+          <array length="0" zero-terminated="0" c:type="char***">
+            <type name="utf8" c:type="char**"/>
+          </array>
+        </parameter>
+        <parameter name="type" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="input-pad.h"
+               line="57">currently it's ignored.</doc>
+          <type name="WindowType" c:type="InputPadWindowType"/>
+        </parameter>
+        <parameter name="do_exit"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="input-pad.h"
+               line="58">If this is %TRUE, can call exit.</doc>
+          <type name="gint" c:type="int*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="window_main" c:identifier="input_pad_window_main">
+      <source-position filename="input-pad.h" line="103"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="window_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="window_new" c:identifier="input_pad_window_new">
+      <source-position filename="input-pad.h" line="66"/>
+      <return-value transfer-ownership="none" nullable="1">
+        <type name="gpointer" c:type="void*"/>
+      </return-value>
+    </function>
+    <function name="window_reorder_button_pressed"
+              c:identifier="input_pad_window_reorder_button_pressed">
+      <source-position filename="input-pad.h" line="81"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="window_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="window_set_char_button_sensitive"
+              c:identifier="input_pad_window_set_char_button_sensitive">
+      <source-position filename="input-pad.h" line="78"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="window_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+        <parameter name="sensitive" transfer-ownership="none">
+          <type name="guint" c:type="unsigned int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="window_set_kbdui_name"
+              c:identifier="input_pad_window_set_kbdui_name">
+      <source-position filename="input-pad.h" line="92"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="window_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+        <parameter name="name" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="window_set_paddir"
+              c:identifier="input_pad_window_set_paddir">
+      <source-position filename="input-pad.h" line="70"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="window_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+        <parameter name="paddir" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="domain" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="window_set_show_layout"
+              c:identifier="input_pad_window_set_show_layout">
+      <source-position filename="input-pad.h" line="98"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="window_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+        <parameter name="type" transfer-ownership="none">
+          <type name="WindowShowLayoutType"
+                c:type="InputPadWindowShowLayoutType"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="window_set_show_table"
+              c:identifier="input_pad_window_set_show_table">
+      <source-position filename="input-pad.h" line="95"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="window_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+        <parameter name="type" transfer-ownership="none">
+          <type name="WindowShowTableType"
+                c:type="InputPadWindowShowTableType"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="window_show" c:identifier="input_pad_window_show">
+      <source-position filename="input-pad.h" line="67"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="window_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

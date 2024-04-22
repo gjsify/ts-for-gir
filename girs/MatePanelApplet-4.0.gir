@@ -1,0 +1,889 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <package name="libmatepanelapplet-4.0"/>
+  <namespace name="MatePanelApplet"
+             version="4.0"
+             shared-library="libmate-panel-applet-4.so.1"
+             c:identifier-prefixes="MatePanel"
+             c:symbol-prefixes="mate_panel">
+    <constant name="APPLET_FLAGS_ALL"
+              value="7"
+              c:type="MATE_PANEL_APPLET_FLAGS_ALL">
+      <source-position filename="mate-panel-applet.h" line="60"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <function-macro name="APPLET_IN_PROCESS_FACTORY"
+                    c:identifier="MATE_PANEL_APPLET_IN_PROCESS_FACTORY"
+                    introspectable="0">
+      <source-position filename="mate-panel-applet.h" line="196"/>
+      <parameters>
+        <parameter name="factory_id">
+        </parameter>
+        <parameter name="type">
+        </parameter>
+        <parameter name="descr">
+        </parameter>
+        <parameter name="callback">
+        </parameter>
+        <parameter name="data">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="APPLET_OUT_PROCESS_FACTORY"
+                    c:identifier="MATE_PANEL_APPLET_OUT_PROCESS_FACTORY"
+                    introspectable="0">
+      <source-position filename="mate-panel-applet.h" line="160"/>
+      <parameters>
+        <parameter name="factory_id">
+        </parameter>
+        <parameter name="type">
+        </parameter>
+        <parameter name="name">
+        </parameter>
+        <parameter name="callback">
+        </parameter>
+        <parameter name="data">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Applet"
+           c:symbol-prefix="applet"
+           c:type="MatePanelApplet"
+           parent="Gtk.EventBox"
+           glib:type-name="MatePanelApplet"
+           glib:get-type="mate_panel_applet_get_type"
+           glib:type-struct="AppletClass">
+      <source-position filename="mate-panel-applet.h" line="81"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="mate_panel_applet_new">
+        <source-position filename="mate-panel-applet.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <function name="factory_main"
+                c:identifier="mate_panel_applet_factory_main">
+        <source-position filename="mate-panel-applet.h" line="126"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="mate-panel-applet.c"
+               line="2478">0 on success, 1 if there is an error.</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <parameter name="factory_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mate-panel-applet.c"
+                 line="2473">Factory ID.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="out_process" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mate-panel-applet.c"
+                 line="2472">boolean, dummy to support applets sending it</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="applet_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mate-panel-applet.c"
+                 line="2474">GType of the applet this factory creates.</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="mate-panel-applet.c"
+                 line="2475">Callback to be called when a new applet is to be created.</doc>
+            <type name="AppletFactoryCallback"
+                  c:type="MatePanelAppletFactoryCallback"/>
+          </parameter>
+          <parameter name="data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="mate-panel-applet.c"
+                 line="2476">Callback data.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="factory_setup_in_process"
+                c:identifier="mate_panel_applet_factory_setup_in_process"
+                introspectable="0">
+        <source-position filename="mate-panel-applet.h" line="132"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="mate-panel-applet.c"
+               line="2498">0 on success, 1 if there is an error.</doc>
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <parameter name="factory_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mate-panel-applet.c"
+                 line="2493">Factory ID.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="applet_type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mate-panel-applet.c"
+                 line="2494">GType of the applet this factory creates.</doc>
+            <type name="GType" c:type="GType"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="3">
+            <doc xml:space="preserve"
+                 filename="mate-panel-applet.c"
+                 line="2495">Callback to be called when a new applet is to be created.</doc>
+            <type name="AppletFactoryCallback"
+                  c:type="MatePanelAppletFactoryCallback"/>
+          </parameter>
+          <parameter name="data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="mate-panel-applet.c"
+                 line="2496">Callback data.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="settings_get_glist"
+                c:identifier="mate_panel_applet_settings_get_glist"
+                introspectable="0">
+        <source-position filename="mate-panel-applet-gsettings.h" line="39"/>
+        <return-value>
+          <type name="GLib.List" c:type="GList*">
+            <type name="gpointer" c:type="gpointer"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="settings" transfer-ownership="none">
+            <type name="Gio.Settings" c:type="GSettings*"/>
+          </parameter>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="settings_get_gslist"
+                c:identifier="mate_panel_applet_settings_get_gslist"
+                introspectable="0">
+        <source-position filename="mate-panel-applet-gsettings.h" line="41"/>
+        <return-value>
+          <type name="GLib.SList" c:type="GSList*">
+            <type name="gpointer" c:type="gpointer"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="settings" transfer-ownership="none">
+            <type name="Gio.Settings" c:type="GSettings*"/>
+          </parameter>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="settings_set_glist"
+                c:identifier="mate_panel_applet_settings_set_glist"
+                introspectable="0">
+        <source-position filename="mate-panel-applet-gsettings.h" line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="settings" transfer-ownership="none">
+            <type name="Gio.Settings" c:type="GSettings*"/>
+          </parameter>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="list" transfer-ownership="none">
+            <type name="GLib.List" c:type="GList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="settings_set_gslist"
+                c:identifier="mate_panel_applet_settings_set_gslist"
+                introspectable="0">
+        <source-position filename="mate-panel-applet-gsettings.h" line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="settings" transfer-ownership="none">
+            <type name="Gio.Settings" c:type="GSettings*"/>
+          </parameter>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="list" transfer-ownership="none">
+            <type name="GLib.SList" c:type="GSList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="change_background">
+        <source-position filename="mate-panel-applet.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <type name="Applet" c:type="MatePanelApplet*"/>
+          </instance-parameter>
+          <parameter name="type" transfer-ownership="none">
+            <type name="AppletBackgroundType"
+                  c:type="MatePanelAppletBackgroundType"/>
+          </parameter>
+          <parameter name="color" transfer-ownership="none">
+            <type name="Gdk.RGBA" c:type="GdkRGBA*"/>
+          </parameter>
+          <parameter name="pattern" transfer-ownership="none">
+            <type name="cairo.Pattern" c:type="cairo_pattern_t*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="change_orient">
+        <source-position filename="mate-panel-applet.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <type name="Applet" c:type="MatePanelApplet*"/>
+          </instance-parameter>
+          <parameter name="orient" transfer-ownership="none">
+            <type name="AppletOrient" c:type="MatePanelAppletOrient"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="change_size">
+        <source-position filename="mate-panel-applet.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <type name="Applet" c:type="MatePanelApplet*"/>
+          </instance-parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="move_focus_out_of_applet">
+        <source-position filename="mate-panel-applet.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="frame" transfer-ownership="none">
+            <type name="Applet" c:type="MatePanelApplet*"/>
+          </instance-parameter>
+          <parameter name="direction" transfer-ownership="none">
+            <type name="Gtk.DirectionType" c:type="GtkDirectionType"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_background"
+              c:identifier="mate_panel_applet_get_background"
+              glib:get-property="background">
+        <source-position filename="mate-panel-applet.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <type name="AppletBackgroundType"
+                c:type="MatePanelAppletBackgroundType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <type name="Applet" c:type="MatePanelApplet*"/>
+          </instance-parameter>
+          <parameter name="color" transfer-ownership="none">
+            <type name="Gdk.RGBA" c:type="GdkRGBA*"/>
+          </parameter>
+          <parameter name="pattern" transfer-ownership="none">
+            <type name="cairo.Pattern" c:type="cairo_pattern_t**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_flags"
+              c:identifier="mate_panel_applet_get_flags"
+              glib:get-property="flags">
+        <source-position filename="mate-panel-applet.h" line="98"/>
+        <return-value transfer-ownership="none">
+          <type name="AppletFlags" c:type="MatePanelAppletFlags"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <type name="Applet" c:type="MatePanelApplet*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_locked_down"
+              c:identifier="mate_panel_applet_get_locked_down"
+              glib:get-property="locked-down">
+        <source-position filename="mate-panel-applet.h" line="108"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <type name="Applet" c:type="MatePanelApplet*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_orient"
+              c:identifier="mate_panel_applet_get_orient"
+              glib:get-property="orient">
+        <source-position filename="mate-panel-applet.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="AppletOrient" c:type="MatePanelAppletOrient"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <type name="Applet" c:type="MatePanelApplet*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_preferences_path"
+              c:identifier="mate_panel_applet_get_preferences_path">
+        <source-position filename="mate-panel-applet.h" line="96"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <type name="Applet" c:type="MatePanelApplet*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_size"
+              c:identifier="mate_panel_applet_get_size"
+              glib:get-property="size">
+        <source-position filename="mate-panel-applet.h" line="87"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <type name="Applet" c:type="MatePanelApplet*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="request_focus"
+              c:identifier="mate_panel_applet_request_focus">
+        <source-position filename="mate-panel-applet.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <type name="Applet" c:type="MatePanelApplet*"/>
+          </instance-parameter>
+          <parameter name="timestamp" transfer-ownership="none">
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_background_widget"
+              c:identifier="mate_panel_applet_set_background_widget"
+              deprecated="1"
+              deprecated-version="3.20">
+        <doc xml:space="preserve"
+             filename="mate-panel-applet.c"
+             line="2510">Configure #PanelApplet to automatically draw the background of the applet on
+@widget. It is generally enough to call this function with @applet as
+@widget.</doc>
+        <doc-deprecated xml:space="preserve">Do not use this API. Since 3.20 this function does nothing.</doc-deprecated>
+        <source-position filename="mate-panel-applet.h" line="93"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mate-panel-applet.c"
+                 line="2512">a #PanelApplet.</doc>
+            <type name="Applet" c:type="MatePanelApplet*"/>
+          </instance-parameter>
+          <parameter name="widget" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mate-panel-applet.c"
+                 line="2513">a #GtkWidget.</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_flags"
+              c:identifier="mate_panel_applet_set_flags"
+              glib:set-property="flags">
+        <source-position filename="mate-panel-applet.h" line="100"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <type name="Applet" c:type="MatePanelApplet*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="AppletFlags" c:type="MatePanelAppletFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_size_hints"
+              c:identifier="mate_panel_applet_set_size_hints"
+              glib:set-property="size-hints">
+        <source-position filename="mate-panel-applet.h" line="103"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mate-panel-applet.c"
+                 line="296">applet</doc>
+            <type name="Applet" c:type="MatePanelApplet*"/>
+          </instance-parameter>
+          <parameter name="size_hints" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mate-panel-applet.c"
+                 line="297">List of integers</doc>
+            <array length="1" zero-terminated="0" c:type="const int*">
+              <type name="gint" c:type="int"/>
+            </array>
+          </parameter>
+          <parameter name="n_elements" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mate-panel-applet.c"
+                 line="298">Length of @size_hints</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="base_size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mate-panel-applet.c"
+                 line="299">base_size</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="settings_new"
+              c:identifier="mate_panel_applet_settings_new"
+              introspectable="0">
+        <source-position filename="mate-panel-applet-gsettings.h" line="38"/>
+        <return-value>
+          <type name="Gio.Settings" c:type="GSettings*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <type name="Applet" c:type="MatePanelApplet*"/>
+          </instance-parameter>
+          <parameter name="schema" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="setup_menu" c:identifier="mate_panel_applet_setup_menu">
+        <source-position filename="mate-panel-applet.h" line="114"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <type name="Applet" c:type="MatePanelApplet*"/>
+          </instance-parameter>
+          <parameter name="xml" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="action_group" transfer-ownership="none">
+            <type name="Gtk.ActionGroup" c:type="GtkActionGroup*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="setup_menu_from_file"
+              c:identifier="mate_panel_applet_setup_menu_from_file">
+        <source-position filename="mate-panel-applet.h" line="118"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <type name="Applet" c:type="MatePanelApplet*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="action_group" transfer-ownership="none">
+            <type name="Gtk.ActionGroup" c:type="GtkActionGroup*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="setup_menu_from_resource"
+              c:identifier="mate_panel_applet_setup_menu_from_resource"
+              version="1.20.1">
+        <doc xml:space="preserve"
+             filename="mate-panel-applet.c"
+             line="793">Sets up the context menu of @applet. @filename is a resource path to a menu
+XML file, containing a #GtkUIManager UI definition that describes how to
+display the menu items. @action_group contains the various #GtkAction that
+are referenced in @xml.
+
+See also the &lt;link linkend="getting-started.context-menu"&gt;Context
+Menu&lt;/link&gt; section.</doc>
+        <source-position filename="mate-panel-applet.h" line="122"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="applet" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mate-panel-applet.c"
+                 line="795">a #MatePanelApplet.</doc>
+            <type name="Applet" c:type="MatePanelApplet*"/>
+          </instance-parameter>
+          <parameter name="resource_path" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mate-panel-applet.c"
+                 line="796">a resource path</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="action_group" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mate-panel-applet.c"
+                 line="797">a #GtkActionGroup.</doc>
+            <type name="Gtk.ActionGroup" c:type="GtkActionGroup*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="background"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_background"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="closure"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <property name="connection"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Gio.DBusConnection"/>
+      </property>
+      <property name="flags"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_flags"
+                getter="get_flags"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="id"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="locked"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="locked-down"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_locked_down"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="orient"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_orient"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="out-of-process"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="TRUE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="prefs-path"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="size"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_size"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="size-hints"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_size_hints">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Gtk.EventBox" c:type="GtkEventBox"/>
+      </field>
+      <glib:signal name="change-background" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="AppletBackgroundType"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="Gdk.RGBA"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="cairo.Pattern"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="change-orient" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="change-size" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="move-focus-out-of-applet" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="Gtk.DirectionType"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <enumeration name="AppletBackgroundType"
+                 glib:type-name="MatePanelAppletBackgroundType"
+                 glib:get-type="mate_panel_applet_background_type_get_type"
+                 c:type="MatePanelAppletBackgroundType">
+      <member name="no_background"
+              value="0"
+              c:identifier="PANEL_NO_BACKGROUND"
+              glib:nick="no-background"
+              glib:name="PANEL_NO_BACKGROUND">
+      </member>
+      <member name="color_background"
+              value="1"
+              c:identifier="PANEL_COLOR_BACKGROUND"
+              glib:nick="color-background"
+              glib:name="PANEL_COLOR_BACKGROUND">
+      </member>
+      <member name="pixmap_background"
+              value="2"
+              c:identifier="PANEL_PIXMAP_BACKGROUND"
+              glib:nick="pixmap-background"
+              glib:name="PANEL_PIXMAP_BACKGROUND">
+      </member>
+    </enumeration>
+    <record name="AppletClass"
+            c:type="MatePanelAppletClass"
+            glib:is-gtype-struct-for="Applet">
+      <source-position filename="mate-panel-applet.h" line="81"/>
+      <field name="event_box_class">
+        <type name="Gtk.EventBoxClass" c:type="GtkEventBoxClass"/>
+      </field>
+      <field name="change_orient">
+        <callback name="change_orient">
+          <source-position filename="mate-panel-applet.h" line="68"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="applet" transfer-ownership="none">
+              <type name="Applet" c:type="MatePanelApplet*"/>
+            </parameter>
+            <parameter name="orient" transfer-ownership="none">
+              <type name="AppletOrient" c:type="MatePanelAppletOrient"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="change_size">
+        <callback name="change_size">
+          <source-position filename="mate-panel-applet.h" line="71"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="applet" transfer-ownership="none">
+              <type name="Applet" c:type="MatePanelApplet*"/>
+            </parameter>
+            <parameter name="size" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="change_background">
+        <callback name="change_background">
+          <source-position filename="mate-panel-applet.h" line="74"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="applet" transfer-ownership="none">
+              <type name="Applet" c:type="MatePanelApplet*"/>
+            </parameter>
+            <parameter name="type" transfer-ownership="none">
+              <type name="AppletBackgroundType"
+                    c:type="MatePanelAppletBackgroundType"/>
+            </parameter>
+            <parameter name="color" transfer-ownership="none">
+              <type name="Gdk.RGBA" c:type="GdkRGBA*"/>
+            </parameter>
+            <parameter name="pattern" transfer-ownership="none">
+              <type name="cairo.Pattern" c:type="cairo_pattern_t*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="move_focus_out_of_applet">
+        <callback name="move_focus_out_of_applet">
+          <source-position filename="mate-panel-applet.h" line="79"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="frame" transfer-ownership="none">
+              <type name="Applet" c:type="MatePanelApplet*"/>
+            </parameter>
+            <parameter name="direction" transfer-ownership="none">
+              <type name="Gtk.DirectionType" c:type="GtkDirectionType"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <callback name="AppletFactoryCallback"
+              c:type="MatePanelAppletFactoryCallback">
+      <source-position filename="mate-panel-applet.h" line="63"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="applet" transfer-ownership="none">
+          <type name="Applet" c:type="MatePanelApplet*"/>
+        </parameter>
+        <parameter name="iid" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="2">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <bitfield name="AppletFlags"
+              glib:type-name="MatePanelAppletFlags"
+              glib:get-type="mate_panel_applet_flags_get_type"
+              c:type="MatePanelAppletFlags">
+      <member name="flags_none"
+              value="0"
+              c:identifier="MATE_PANEL_APPLET_FLAGS_NONE"
+              glib:nick="flags-none"
+              glib:name="MATE_PANEL_APPLET_FLAGS_NONE">
+      </member>
+      <member name="expand_major"
+              value="1"
+              c:identifier="MATE_PANEL_APPLET_EXPAND_MAJOR"
+              glib:nick="expand-major"
+              glib:name="MATE_PANEL_APPLET_EXPAND_MAJOR">
+      </member>
+      <member name="expand_minor"
+              value="2"
+              c:identifier="MATE_PANEL_APPLET_EXPAND_MINOR"
+              glib:nick="expand-minor"
+              glib:name="MATE_PANEL_APPLET_EXPAND_MINOR">
+      </member>
+      <member name="has_handle"
+              value="4"
+              c:identifier="MATE_PANEL_APPLET_HAS_HANDLE"
+              glib:nick="has-handle"
+              glib:name="MATE_PANEL_APPLET_HAS_HANDLE">
+      </member>
+    </bitfield>
+    <enumeration name="AppletOrient"
+                 glib:type-name="MatePanelAppletOrient"
+                 glib:get-type="mate_panel_applet_orient_get_type"
+                 c:type="MatePanelAppletOrient">
+      <member name="up"
+              value="0"
+              c:identifier="MATE_PANEL_APPLET_ORIENT_UP"
+              glib:nick="up"
+              glib:name="MATE_PANEL_APPLET_ORIENT_UP">
+      </member>
+      <member name="down"
+              value="1"
+              c:identifier="MATE_PANEL_APPLET_ORIENT_DOWN"
+              glib:nick="down"
+              glib:name="MATE_PANEL_APPLET_ORIENT_DOWN">
+      </member>
+      <member name="left"
+              value="2"
+              c:identifier="MATE_PANEL_APPLET_ORIENT_LEFT"
+              glib:nick="left"
+              glib:name="MATE_PANEL_APPLET_ORIENT_LEFT">
+      </member>
+      <member name="right"
+              value="3"
+              c:identifier="MATE_PANEL_APPLET_ORIENT_RIGHT"
+              glib:nick="right"
+              glib:name="MATE_PANEL_APPLET_ORIENT_RIGHT">
+      </member>
+    </enumeration>
+  </namespace>
+</repository>

@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gthree" version="1.0"/>
+  <include name="Gtk" version="3.0"/>
+  <package name="gthree"/>
+  <c:include name="gthree/gthree.h"/>
+  <namespace name="GthreeGtk3"
+             version="1.0"
+             shared-library="libgthree-gtk3-1.so.0"
+             c:identifier-prefixes="Gthree"
+             c:symbol-prefixes="gthree">
+    <function-macro name="AREA" c:identifier="GTHREE_AREA" introspectable="0">
+      <source-position filename="gthree/gthreearea.h" line="11"/>
+      <parameters>
+        <parameter name="inst">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Area"
+           c:symbol-prefix="area"
+           c:type="GthreeArea"
+           parent="Gtk.GLArea"
+           glib:type-name="GthreeArea"
+           glib:get-type="gthree_area_get_type"
+           glib:type-struct="AreaClass">
+      <source-position filename="gthree/gthreearea.h" line="25"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="gthree_area_new">
+        <source-position filename="gthree/gthreearea.h" line="31"/>
+        <return-value transfer-ownership="none">
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="scene" transfer-ownership="none">
+            <type name="Gthree.Scene" c:type="GthreeScene*"/>
+          </parameter>
+          <parameter name="camera" transfer-ownership="none">
+            <type name="Gthree.Camera" c:type="GthreeCamera*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_camera"
+              c:identifier="gthree_area_get_camera"
+              glib:get-property="camera"
+              introspectable="0">
+        <source-position filename="gthree/gthreearea.h" line="40"/>
+        <return-value>
+          <type name="Gthree.Camera" c:type="GthreeCamera*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="area" transfer-ownership="none">
+            <type name="Area" c:type="GthreeArea*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_renderer"
+              c:identifier="gthree_area_get_renderer"
+              glib:get-property="renderer"
+              introspectable="0">
+        <source-position filename="gthree/gthreearea.h" line="45"/>
+        <return-value>
+          <type name="Gthree.Renderer" c:type="GthreeRenderer*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="area" transfer-ownership="none">
+            <type name="Area" c:type="GthreeArea*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_scene"
+              c:identifier="gthree_area_get_scene"
+              glib:get-property="scene"
+              introspectable="0">
+        <source-position filename="gthree/gthreearea.h" line="35"/>
+        <return-value>
+          <type name="Gthree.Scene" c:type="GthreeScene*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="area" transfer-ownership="none">
+            <type name="Area" c:type="GthreeArea*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_camera"
+              c:identifier="gthree_area_set_camera"
+              glib:set-property="camera">
+        <source-position filename="gthree/gthreearea.h" line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="area" transfer-ownership="none">
+            <type name="Area" c:type="GthreeArea*"/>
+          </instance-parameter>
+          <parameter name="camera" transfer-ownership="none">
+            <type name="Gthree.Camera" c:type="GthreeCamera*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_scene"
+              c:identifier="gthree_area_set_scene"
+              glib:set-property="scene">
+        <source-position filename="gthree/gthreearea.h" line="37"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="area" transfer-ownership="none">
+            <type name="Area" c:type="GthreeArea*"/>
+          </instance-parameter>
+          <parameter name="scene" transfer-ownership="none">
+            <type name="Gthree.Scene" c:type="GthreeScene*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="camera"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_camera"
+                getter="get_camera">
+        <type name="Gthree.Camera"/>
+      </property>
+      <property name="renderer"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_renderer">
+        <type name="Gthree.Renderer"/>
+      </property>
+      <property name="scene"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_scene"
+                getter="get_scene">
+        <type name="Gthree.Scene"/>
+      </property>
+      <field name="parent">
+        <type name="Gtk.GLArea" c:type="GtkGLArea"/>
+      </field>
+    </class>
+    <record name="AreaClass"
+            c:type="GthreeAreaClass"
+            glib:is-gtype-struct-for="Area">
+      <source-position filename="gthree/gthreearea.h" line="25"/>
+      <field name="parent_class">
+        <type name="Gtk.GLAreaClass" c:type="GtkGLAreaClass"/>
+      </field>
+    </record>
+    <function-macro name="IS_AREA"
+                    c:identifier="GTHREE_IS_AREA"
+                    introspectable="0">
+      <source-position filename="gthree/gthreearea.h" line="14"/>
+      <parameters>
+        <parameter name="inst">
+        </parameter>
+      </parameters>
+    </function-macro>
+  </namespace>
+</repository>

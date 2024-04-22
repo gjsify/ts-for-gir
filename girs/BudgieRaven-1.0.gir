@@ -1,0 +1,449 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="3.0"/>
+  <include name="Peas" version="1.0"/>
+  <c:include name="raven-plugin.h"/>
+  <namespace name="BudgieRaven"
+             version="1.0"
+             shared-library="libbudgie-raven-plugin.so.0"
+             c:identifier-prefixes="Budgie"
+             c:symbol-prefixes="budgie">
+    <function-macro name="IS_RAVEN_PLUGIN"
+                    c:identifier="BUDGIE_IS_RAVEN_PLUGIN"
+                    introspectable="0">
+      <source-position filename="src/plugin/raven/raven-plugin.h" line="24"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_RAVEN_PLUGIN_IFACE"
+                    c:identifier="BUDGIE_IS_RAVEN_PLUGIN_IFACE"
+                    introspectable="0">
+      <source-position filename="src/plugin/raven/raven-plugin.h" line="26"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_RAVEN_WIDGET"
+                    c:identifier="BUDGIE_IS_RAVEN_WIDGET"
+                    introspectable="0">
+      <source-position filename="src/plugin/raven/raven-widget.h" line="26"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_RAVEN_WIDGET_CLASS"
+                    c:identifier="BUDGIE_IS_RAVEN_WIDGET_CLASS"
+                    introspectable="0">
+      <source-position filename="src/plugin/raven/raven-widget.h" line="28"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="RAVEN_PLUGIN"
+                    c:identifier="BUDGIE_RAVEN_PLUGIN"
+                    introspectable="0">
+      <source-position filename="src/plugin/raven/raven-plugin.h" line="23"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="RAVEN_PLUGIN_GET_IFACE"
+                    c:identifier="BUDGIE_RAVEN_PLUGIN_GET_IFACE"
+                    introspectable="0">
+      <source-position filename="src/plugin/raven/raven-plugin.h" line="27"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="RAVEN_PLUGIN_IFACE"
+                    c:identifier="BUDGIE_RAVEN_PLUGIN_IFACE"
+                    introspectable="0">
+      <source-position filename="src/plugin/raven/raven-plugin.h" line="25"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="RAVEN_WIDGET"
+                    c:identifier="BUDGIE_RAVEN_WIDGET"
+                    introspectable="0">
+      <source-position filename="src/plugin/raven/raven-widget.h" line="25"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="RAVEN_WIDGET_CLASS"
+                    c:identifier="BUDGIE_RAVEN_WIDGET_CLASS"
+                    introspectable="0">
+      <source-position filename="src/plugin/raven/raven-widget.h" line="27"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="RAVEN_WIDGET_GET_CLASS"
+                    c:identifier="BUDGIE_RAVEN_WIDGET_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="src/plugin/raven/raven-widget.h" line="29"/>
+      <parameters>
+        <parameter name="o">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <interface name="RavenPlugin"
+               c:symbol-prefix="raven_plugin"
+               c:type="BudgieRavenPlugin"
+               glib:type-name="BudgieRavenPlugin"
+               glib:get-type="budgie_raven_plugin_get_type"
+               glib:type-struct="RavenPluginIface">
+      <source-position filename="src/plugin/raven/raven-plugin.h" line="37"/>
+      <virtual-method name="new_widget_instance" invoker="new_widget_instance">
+        <source-position filename="src/plugin/raven/raven-plugin.h" line="35"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/plugin/raven/raven-plugin.c"
+               line="27">A newly initialized Raven widget</doc>
+          <type name="RavenWidget" c:type="BudgieRavenWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/raven/raven-plugin.c"
+                 line="23">A #BudgieRavenPlugin</doc>
+            <type name="RavenPlugin" c:type="BudgieRavenPlugin*"/>
+          </instance-parameter>
+          <parameter name="uuid" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/raven/raven-plugin.c"
+                 line="24">UUID for this new instance</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="settings"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/plugin/raven/raven-plugin.c"
+                 line="25">Settings for this new instance</doc>
+            <type name="Gio.Settings" c:type="GSettings*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="supports_settings" invoker="supports_settings">
+        <source-position filename="src/plugin/raven/raven-plugin.h" line="36"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/plugin/raven/raven-plugin.c"
+               line="41">Whether this plugin supports per-instance settings</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/raven/raven-plugin.c"
+                 line="39">A #BudgieRavenPlugin</doc>
+            <type name="RavenPlugin" c:type="BudgieRavenPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="new_widget_instance"
+              c:identifier="budgie_raven_plugin_new_widget_instance">
+        <source-position filename="src/plugin/raven/raven-plugin.h" line="39"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/plugin/raven/raven-plugin.c"
+               line="27">A newly initialized Raven widget</doc>
+          <type name="RavenWidget" c:type="BudgieRavenWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/raven/raven-plugin.c"
+                 line="23">A #BudgieRavenPlugin</doc>
+            <type name="RavenPlugin" c:type="BudgieRavenPlugin*"/>
+          </instance-parameter>
+          <parameter name="uuid" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/raven/raven-plugin.c"
+                 line="24">UUID for this new instance</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="settings"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/plugin/raven/raven-plugin.c"
+                 line="25">Settings for this new instance</doc>
+            <type name="Gio.Settings" c:type="GSettings*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="supports_settings"
+              c:identifier="budgie_raven_plugin_supports_settings">
+        <source-position filename="src/plugin/raven/raven-plugin.h" line="40"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/plugin/raven/raven-plugin.c"
+               line="41">Whether this plugin supports per-instance settings</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/raven/raven-plugin.c"
+                 line="39">A #BudgieRavenPlugin</doc>
+            <type name="RavenPlugin" c:type="BudgieRavenPlugin*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="RavenPluginIface"
+            c:type="BudgieRavenPluginIface"
+            glib:is-gtype-struct-for="RavenPlugin">
+      <source-position filename="src/plugin/raven/raven-plugin.h" line="37"/>
+      <field name="parent_iface">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="new_widget_instance">
+        <callback name="new_widget_instance">
+          <source-position filename="src/plugin/raven/raven-plugin.h"
+                           line="35"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="src/plugin/raven/raven-plugin.c"
+                 line="27">A newly initialized Raven widget</doc>
+            <type name="RavenWidget" c:type="BudgieRavenWidget*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="src/plugin/raven/raven-plugin.c"
+                   line="23">A #BudgieRavenPlugin</doc>
+              <type name="RavenPlugin" c:type="BudgieRavenPlugin*"/>
+            </parameter>
+            <parameter name="uuid" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="src/plugin/raven/raven-plugin.c"
+                   line="24">UUID for this new instance</doc>
+              <type name="utf8" c:type="gchar*"/>
+            </parameter>
+            <parameter name="settings"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <doc xml:space="preserve"
+                   filename="src/plugin/raven/raven-plugin.c"
+                   line="25">Settings for this new instance</doc>
+              <type name="Gio.Settings" c:type="GSettings*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="supports_settings">
+        <callback name="supports_settings">
+          <source-position filename="src/plugin/raven/raven-plugin.h"
+                           line="36"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/raven/raven-plugin.c"
+                 line="41">Whether this plugin supports per-instance settings</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="src/plugin/raven/raven-plugin.c"
+                   line="39">A #BudgieRavenPlugin</doc>
+              <type name="RavenPlugin" c:type="BudgieRavenPlugin*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="RavenWidget"
+           c:symbol-prefix="raven_widget"
+           c:type="BudgieRavenWidget"
+           parent="Gtk.Bin"
+           glib:type-name="BudgieRavenWidget"
+           glib:get-type="budgie_raven_widget_get_type"
+           glib:type-struct="RavenWidgetClass">
+      <source-position filename="src/plugin/raven/raven-widget.h" line="36"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="budgie_raven_widget_new">
+        <source-position filename="src/plugin/raven/raven-widget.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="RavenWidget" c:type="BudgieRavenWidget*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="build_settings_ui" invoker="build_settings_ui">
+        <source-position filename="src/plugin/raven/raven-widget.h" line="34"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/plugin/raven/raven-widget.c"
+               line="52">The settings UI to be presented in Budgie Desktop Settings for this widget instance</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/raven/raven-widget.c"
+                 line="50">A #BudgieRavenWidget</doc>
+            <type name="RavenWidget" c:type="BudgieRavenWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="build_settings_ui"
+              c:identifier="budgie_raven_widget_build_settings_ui">
+        <source-position filename="src/plugin/raven/raven-widget.h" line="52"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/plugin/raven/raven-widget.c"
+               line="52">The settings UI to be presented in Budgie Desktop Settings for this widget instance</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/raven/raven-widget.c"
+                 line="50">A #BudgieRavenWidget</doc>
+            <type name="RavenWidget" c:type="BudgieRavenWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_instance_settings"
+              c:identifier="budgie_raven_widget_get_instance_settings">
+        <source-position filename="src/plugin/raven/raven-widget.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/plugin/raven/raven-widget.c"
+               line="70">The settings object for this widget instance</doc>
+          <type name="Gio.Settings" c:type="GSettings*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/plugin/raven/raven-widget.c"
+                 line="68">A #BudgieRavenWidget</doc>
+            <type name="RavenWidget" c:type="BudgieRavenWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_uuid" c:identifier="budgie_raven_widget_get_uuid">
+        <source-position filename="src/plugin/raven/raven-widget.h" line="56"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="RavenWidget" c:type="BudgieRavenWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="initialize" c:identifier="budgie_raven_widget_initialize">
+        <source-position filename="src/plugin/raven/raven-widget.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="RavenWidget" c:type="BudgieRavenWidget*"/>
+          </instance-parameter>
+          <parameter name="uuid" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="instance_settings" transfer-ownership="none">
+            <type name="Gio.Settings" c:type="GSettings*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="Gtk.Bin" c:type="GtkBin"/>
+      </field>
+      <field name="priv">
+        <type name="RavenWidgetPrivate" c:type="BudgieRavenWidgetPrivate*"/>
+      </field>
+      <glib:signal name="raven-expanded" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="RavenWidgetClass"
+            c:type="BudgieRavenWidgetClass"
+            glib:is-gtype-struct-for="RavenWidget">
+      <source-position filename="src/plugin/raven/raven-widget.h" line="36"/>
+      <field name="parent_class">
+        <type name="Gtk.BinClass" c:type="GtkBinClass"/>
+      </field>
+      <field name="build_settings_ui">
+        <callback name="build_settings_ui">
+          <source-position filename="src/plugin/raven/raven-widget.h"
+                           line="34"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="src/plugin/raven/raven-widget.c"
+                 line="52">The settings UI to be presented in Budgie Desktop Settings for this widget instance</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="src/plugin/raven/raven-widget.c"
+                   line="50">A #BudgieRavenWidget</doc>
+              <type name="RavenWidget" c:type="BudgieRavenWidget*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="raven_expanded">
+        <callback name="raven_expanded">
+          <source-position filename="src/plugin/raven/raven-widget.h"
+                           line="35"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="expanded" transfer-ownership="none">
+              <type name="gboolean" c:type="_Bool"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="RavenWidgetPrivate" c:type="BudgieRavenWidgetPrivate">
+      <source-position filename="src/plugin/raven/raven-widget.h" line="42"/>
+      <field name="initialized" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="uuid" writable="1">
+        <type name="utf8" c:type="const char*"/>
+      </field>
+      <field name="instance_settings" writable="1">
+        <type name="Gio.Settings" c:type="GSettings*"/>
+      </field>
+    </record>
+  </namespace>
+</repository>

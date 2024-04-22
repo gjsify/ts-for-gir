@@ -8,9 +8,10 @@ and/or use gtk-doc annotations.  -->
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Arrow" version="1.0"/>
   <package name="arrow-dataset-glib"/>
+  <c:include name="arrow-dataset-glib/arrow-dataset-glib.h"/>
   <namespace name="ArrowDataset"
              version="1.0"
-             shared-library="libarrow-dataset-glib-700.dll"
+             shared-library="libarrow-dataset-glib.so.1300"
              c:identifier-prefixes="GADataset"
              c:symbol-prefixes="gadataset">
     <class name="CSVFileFormat"
@@ -20,16 +21,15 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="GADatasetCSVFileFormat"
            glib:get-type="gadataset_csv_file_format_get_type"
            glib:type-struct="CSVFileFormatClass">
-      <source-position filename="../arrow-dataset-glib/file-format.h"
-                       line="109"/>
+      <source-position filename="arrow-dataset-glib/file-format.h" line="109"/>
       <constructor name="new"
                    c:identifier="gadataset_csv_file_format_new"
                    version="3.0.0">
-        <source-position filename="../arrow-dataset-glib/file-format.h"
+        <source-position filename="arrow-dataset-glib/file-format.h"
                          line="112"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/file-format.cpp"
+               filename="arrow-dataset-glib/file-format.cpp"
                line="440">The newly created CSV file format.</doc>
           <type name="CSVFileFormat" c:type="GADatasetCSVFileFormat*"/>
         </return-value>
@@ -41,8 +41,7 @@ and/or use gtk-doc annotations.  -->
     <record name="CSVFileFormatClass"
             c:type="GADatasetCSVFileFormatClass"
             glib:is-gtype-struct-for="CSVFileFormat">
-      <source-position filename="../arrow-dataset-glib/file-format.h"
-                       line="109"/>
+      <source-position filename="arrow-dataset-glib/file-format.h" line="109"/>
       <field name="parent_class">
         <type name="FileFormatClass" c:type="GADatasetFileFormatClass"/>
       </field>
@@ -55,15 +54,16 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="GADatasetDataset"
            glib:get-type="gadataset_dataset_get_type"
            glib:type-struct="DatasetClass">
-      <source-position filename="../arrow-dataset-glib/dataset.h" line="38"/>
+      <source-position filename="arrow-dataset-glib/dataset-definition.h"
+                       line="35"/>
       <method name="begin_scan"
               c:identifier="gadataset_dataset_begin_scan"
               version="5.0.0"
               throws="1">
-        <source-position filename="../arrow-dataset-glib/dataset.h" line="42"/>
+        <source-position filename="arrow-dataset-glib/dataset.h" line="30"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/dataset.cpp"
+               filename="arrow-dataset-glib/dataset.cpp"
                line="122">
   A newly created #GADatasetScannerBuilder on success, %NULL on error.</doc>
           <type name="ScannerBuilder" c:type="GADatasetScannerBuilder*"/>
@@ -71,7 +71,7 @@ and/or use gtk-doc annotations.  -->
         <parameters>
           <instance-parameter name="dataset" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/dataset.cpp"
+                 filename="arrow-dataset-glib/dataset.cpp"
                  line="119">A #GADatasetDataset.</doc>
             <type name="Dataset" c:type="GADatasetDataset*"/>
           </instance-parameter>
@@ -80,10 +80,10 @@ and/or use gtk-doc annotations.  -->
       <method name="get_type_name"
               c:identifier="gadataset_dataset_get_type_name"
               version="5.0.0">
-        <source-position filename="../arrow-dataset-glib/dataset.h" line="50"/>
+        <source-position filename="arrow-dataset-glib/dataset.h" line="38"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/dataset.cpp"
+               filename="arrow-dataset-glib/dataset.cpp"
                line="176">The type name of @dataset.
 
   It should be freed with g_free() when no longer needed.</doc>
@@ -92,7 +92,7 @@ and/or use gtk-doc annotations.  -->
         <parameters>
           <instance-parameter name="dataset" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/dataset.cpp"
+                 filename="arrow-dataset-glib/dataset.cpp"
                  line="174">A #GADatasetDataset.</doc>
             <type name="Dataset" c:type="GADatasetDataset*"/>
           </instance-parameter>
@@ -102,10 +102,10 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gadataset_dataset_to_table"
               version="5.0.0"
               throws="1">
-        <source-position filename="../arrow-dataset-glib/dataset.h" line="46"/>
+        <source-position filename="arrow-dataset-glib/dataset.h" line="34"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/dataset.cpp"
+               filename="arrow-dataset-glib/dataset.cpp"
                line="139">
   A loaded #GArrowTable on success, %NULL on error.</doc>
           <type name="Arrow.Table" c:type="GArrowTable*"/>
@@ -113,7 +113,7 @@ and/or use gtk-doc annotations.  -->
         <parameters>
           <instance-parameter name="dataset" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/dataset.cpp"
+                 filename="arrow-dataset-glib/dataset.cpp"
                  line="136">A #GADatasetDataset.</doc>
             <type name="Dataset" c:type="GADatasetDataset*"/>
           </instance-parameter>
@@ -133,7 +133,8 @@ and/or use gtk-doc annotations.  -->
     <record name="DatasetClass"
             c:type="GADatasetDatasetClass"
             glib:is-gtype-struct-for="Dataset">
-      <source-position filename="../arrow-dataset-glib/dataset.h" line="38"/>
+      <source-position filename="arrow-dataset-glib/dataset-definition.h"
+                       line="35"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -146,28 +147,37 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="GADatasetDatasetFactory"
            glib:get-type="gadataset_dataset_factory_get_type"
            glib:type-struct="DatasetFactoryClass">
-      <source-position filename="../arrow-dataset-glib/dataset-factory.h"
-                       line="35"/>
+      <source-position filename="arrow-dataset-glib/dataset-factory.h"
+                       line="50"/>
       <method name="finish"
               c:identifier="gadataset_dataset_factory_finish"
               version="5.0.0"
               throws="1">
-        <source-position filename="../arrow-dataset-glib/dataset-factory.h"
-                         line="39"/>
+        <source-position filename="arrow-dataset-glib/dataset-factory.h"
+                         line="54"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/dataset-factory.cpp"
-               line="123">
+               filename="arrow-dataset-glib/dataset-factory.cpp"
+               line="324">
   A newly created #GADatasetDataset on success, %NULL on error.</doc>
           <type name="Dataset" c:type="GADatasetDataset*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/dataset-factory.cpp"
-                 line="120">A #GADatasetDatasetFactory.</doc>
+                 filename="arrow-dataset-glib/dataset-factory.cpp"
+                 line="320">A #GADatasetDatasetFactory.</doc>
             <type name="DatasetFactory" c:type="GADatasetDatasetFactory*"/>
           </instance-parameter>
+          <parameter name="options"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="arrow-dataset-glib/dataset-factory.cpp"
+                 line="321">A #GADatasetFinishOptions.</doc>
+            <type name="FinishOptions" c:type="GADatasetFinishOptions*"/>
+          </parameter>
         </parameters>
       </method>
       <property name="dataset-factory"
@@ -184,8 +194,8 @@ and/or use gtk-doc annotations.  -->
     <record name="DatasetFactoryClass"
             c:type="GADatasetDatasetFactoryClass"
             glib:is-gtype-struct-for="DatasetFactory">
-      <source-position filename="../arrow-dataset-glib/dataset-factory.h"
-                       line="35"/>
+      <source-position filename="arrow-dataset-glib/dataset-factory.h"
+                       line="50"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -197,18 +207,18 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="GADatasetDirectoryPartitioning"
            glib:get-type="gadataset_directory_partitioning_get_type"
            glib:type-struct="DirectoryPartitioningClass">
-      <source-position filename="../arrow-dataset-glib/partitioning.h"
-                       line="100"/>
+      <source-position filename="arrow-dataset-glib/partitioning.h"
+                       line="119"/>
       <constructor name="new"
                    c:identifier="gadataset_directory_partitioning_new"
                    version="6.0.0"
                    throws="1">
-        <source-position filename="../arrow-dataset-glib/partitioning.h"
-                         line="104"/>
+        <source-position filename="arrow-dataset-glib/partitioning.h"
+                         line="123"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/partitioning.cpp"
-               line="383">The newly created #GADatasetDirectoryPartitioning on success,
+               filename="arrow-dataset-glib/partitioning.cpp"
+               line="539">The newly created #GADatasetDirectoryPartitioning on success,
   %NULL on error.</doc>
           <type name="DirectoryPartitioning"
                 c:type="GADatasetDirectoryPartitioning*"/>
@@ -216,8 +226,8 @@ and/or use gtk-doc annotations.  -->
         <parameters>
           <parameter name="schema" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/partitioning.cpp"
-                 line="377">A #GArrowSchema that describes all partitioned segments.</doc>
+                 filename="arrow-dataset-glib/partitioning.cpp"
+                 line="533">A #GArrowSchema that describes all partitioned segments.</doc>
             <type name="Arrow.Schema" c:type="GArrowSchema*"/>
           </parameter>
           <parameter name="dictionaries"
@@ -225,8 +235,8 @@ and/or use gtk-doc annotations.  -->
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/partitioning.cpp"
-                 line="378">A list of #GArrowArray
+                 filename="arrow-dataset-glib/partitioning.cpp"
+                 line="534">A list of #GArrowArray
   for dictionary data types in @schema.</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Arrow.Array"/>
@@ -237,10 +247,10 @@ and/or use gtk-doc annotations.  -->
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/partitioning.cpp"
-                 line="380">A #GADatasetPartitioningOptions.</doc>
-            <type name="PartitioningOptions"
-                  c:type="GADatasetPartitioningOptions*"/>
+                 filename="arrow-dataset-glib/partitioning.cpp"
+                 line="536">A #GADatasetKeyValuePartitioningOptions.</doc>
+            <type name="KeyValuePartitioningOptions"
+                  c:type="GADatasetKeyValuePartitioningOptions*"/>
           </parameter>
         </parameters>
       </constructor>
@@ -252,8 +262,8 @@ and/or use gtk-doc annotations.  -->
     <record name="DirectoryPartitioningClass"
             c:type="GADatasetDirectoryPartitioningClass"
             glib:is-gtype-struct-for="DirectoryPartitioning">
-      <source-position filename="../arrow-dataset-glib/partitioning.h"
-                       line="100"/>
+      <source-position filename="arrow-dataset-glib/partitioning.h"
+                       line="119"/>
       <field name="parent_class">
         <type name="KeyValuePartitioningClass"
               c:type="GADatasetKeyValuePartitioningClass"/>
@@ -266,29 +276,28 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="GADatasetFileFormat"
            glib:get-type="gadataset_file_format_get_type"
            glib:type-struct="FileFormatClass">
-      <source-position filename="../arrow-dataset-glib/file-format.h"
-                       line="76"/>
+      <source-position filename="arrow-dataset-glib/file-format.h" line="76"/>
       <method name="equal"
               c:identifier="gadataset_file_format_equal"
               version="3.0.0">
-        <source-position filename="../arrow-dataset-glib/file-format.h"
+        <source-position filename="arrow-dataset-glib/file-format.h"
                          line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/file-format.cpp"
+               filename="arrow-dataset-glib/file-format.cpp"
                line="409">%TRUE if they are the same content file format, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/file-format.cpp"
+                 filename="arrow-dataset-glib/file-format.cpp"
                  line="406">A #GADatasetFileFormat.</doc>
             <type name="FileFormat" c:type="GADatasetFileFormat*"/>
           </instance-parameter>
           <parameter name="other_format" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/file-format.cpp"
+                 filename="arrow-dataset-glib/file-format.cpp"
                  line="407">A #GADatasetFileFormat to be compared.</doc>
             <type name="FileFormat" c:type="GADatasetFileFormat*"/>
           </parameter>
@@ -297,18 +306,18 @@ and/or use gtk-doc annotations.  -->
       <method name="get_default_write_options"
               c:identifier="gadataset_file_format_get_default_write_options"
               version="6.0.0">
-        <source-position filename="../arrow-dataset-glib/file-format.h"
+        <source-position filename="arrow-dataset-glib/file-format.h"
                          line="83"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/file-format.cpp"
+               filename="arrow-dataset-glib/file-format.cpp"
                line="350">The default #GADatasetFileWriteOptions of @format.</doc>
           <type name="FileWriteOptions" c:type="GADatasetFileWriteOptions*"/>
         </return-value>
         <parameters>
           <instance-parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/file-format.cpp"
+                 filename="arrow-dataset-glib/file-format.cpp"
                  line="348">A #GADatasetFileFormat.</doc>
             <type name="FileFormat" c:type="GADatasetFileFormat*"/>
           </instance-parameter>
@@ -317,11 +326,11 @@ and/or use gtk-doc annotations.  -->
       <method name="get_type_name"
               c:identifier="gadataset_file_format_get_type_name"
               version="3.0.0">
-        <source-position filename="../arrow-dataset-glib/file-format.h"
+        <source-position filename="arrow-dataset-glib/file-format.h"
                          line="80"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/file-format.cpp"
+               filename="arrow-dataset-glib/file-format.cpp"
                line="332">The type name of @format.
 
   It should be freed with g_free() when no longer needed.</doc>
@@ -330,7 +339,7 @@ and/or use gtk-doc annotations.  -->
         <parameters>
           <instance-parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/file-format.cpp"
+                 filename="arrow-dataset-glib/file-format.cpp"
                  line="330">A #GADatasetFileFormat.</doc>
             <type name="FileFormat" c:type="GADatasetFileFormat*"/>
           </instance-parameter>
@@ -340,11 +349,11 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gadataset_file_format_open_writer"
               version="6.0.0"
               throws="1">
-        <source-position filename="../arrow-dataset-glib/file-format.h"
+        <source-position filename="arrow-dataset-glib/file-format.h"
                          line="86"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/file-format.cpp"
+               filename="arrow-dataset-glib/file-format.cpp"
                line="372">The newly created #GADatasetFileWriter of @format
   on success, %NULL on error.</doc>
           <type name="FileWriter" c:type="GADatasetFileWriter*"/>
@@ -352,37 +361,37 @@ and/or use gtk-doc annotations.  -->
         <parameters>
           <instance-parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/file-format.cpp"
+                 filename="arrow-dataset-glib/file-format.cpp"
                  line="364">A #GADatasetFileFormat.</doc>
             <type name="FileFormat" c:type="GADatasetFileFormat*"/>
           </instance-parameter>
           <parameter name="destination" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/file-format.cpp"
+                 filename="arrow-dataset-glib/file-format.cpp"
                  line="365">A #GArrowOutputStream.</doc>
             <type name="Arrow.OutputStream" c:type="GArrowOutputStream*"/>
           </parameter>
           <parameter name="file_system" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/file-format.cpp"
+                 filename="arrow-dataset-glib/file-format.cpp"
                  line="366">The #GArrowFileSystem of @destination.</doc>
             <type name="Arrow.FileSystem" c:type="GArrowFileSystem*"/>
           </parameter>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/file-format.cpp"
+                 filename="arrow-dataset-glib/file-format.cpp"
                  line="367">The path of @destination.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="schema" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/file-format.cpp"
+                 filename="arrow-dataset-glib/file-format.cpp"
                  line="368">A #GArrowSchema that is used by written record batches.</doc>
             <type name="Arrow.Schema" c:type="GArrowSchema*"/>
           </parameter>
           <parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/file-format.cpp"
+                 filename="arrow-dataset-glib/file-format.cpp"
                  line="369">A #GADatasetFileWriteOptions.</doc>
             <type name="FileWriteOptions" c:type="GADatasetFileWriteOptions*"/>
           </parameter>
@@ -402,8 +411,7 @@ and/or use gtk-doc annotations.  -->
     <record name="FileFormatClass"
             c:type="GADatasetFileFormatClass"
             glib:is-gtype-struct-for="FileFormat">
-      <source-position filename="../arrow-dataset-glib/file-format.h"
-                       line="76"/>
+      <source-position filename="arrow-dataset-glib/file-format.h" line="76"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -415,28 +423,28 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="GADatasetFileSystemDataset"
            glib:get-type="gadataset_file_system_dataset_get_type"
            glib:type-struct="FileSystemDatasetClass">
-      <source-position filename="../arrow-dataset-glib/dataset.h" line="80"/>
+      <source-position filename="arrow-dataset-glib/dataset.h" line="68"/>
       <function name="write_scanner"
                 c:identifier="gadataset_file_system_dataset_write_scanner"
                 version="6.0.0"
                 throws="1">
-        <source-position filename="../arrow-dataset-glib/dataset.h" line="84"/>
+        <source-position filename="arrow-dataset-glib/dataset.h" line="72"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/dataset.cpp"
+               filename="arrow-dataset-glib/dataset.cpp"
                line="660">%TRUE on success, %FALSE on error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="scanner" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/dataset.cpp"
+                 filename="arrow-dataset-glib/dataset.cpp"
                  line="656">A #GADatasetScanner that produces data to be written.</doc>
             <type name="Scanner" c:type="GADatasetScanner*"/>
           </parameter>
           <parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/dataset.cpp"
+                 filename="arrow-dataset-glib/dataset.cpp"
                  line="657">A #GADatasetFileSystemDatasetWriteOptions.</doc>
             <type name="FileSystemDatasetWriteOptions"
                   c:type="GADatasetFileSystemDatasetWriteOptions*"/>
@@ -449,7 +457,7 @@ and/or use gtk-doc annotations.  -->
                 construct-only="1"
                 transfer-ownership="none">
         <doc xml:space="preserve"
-             filename="../arrow-dataset-glib/dataset.cpp"
+             filename="arrow-dataset-glib/dataset.cpp"
              line="619">File system of the dataset.</doc>
         <type name="Arrow.FileSystem"/>
       </property>
@@ -459,7 +467,7 @@ and/or use gtk-doc annotations.  -->
                 construct-only="1"
                 transfer-ownership="none">
         <doc xml:space="preserve"
-             filename="../arrow-dataset-glib/dataset.cpp"
+             filename="arrow-dataset-glib/dataset.cpp"
              line="602">Format of the dataset.</doc>
         <type name="FileFormat"/>
       </property>
@@ -469,7 +477,7 @@ and/or use gtk-doc annotations.  -->
                 construct-only="1"
                 transfer-ownership="none">
         <doc xml:space="preserve"
-             filename="../arrow-dataset-glib/dataset.cpp"
+             filename="arrow-dataset-glib/dataset.cpp"
              line="636">Partitioning of the dataset.</doc>
         <type name="Partitioning"/>
       </property>
@@ -480,7 +488,7 @@ and/or use gtk-doc annotations.  -->
     <record name="FileSystemDatasetClass"
             c:type="GADatasetFileSystemDatasetClass"
             glib:is-gtype-struct-for="FileSystemDataset">
-      <source-position filename="../arrow-dataset-glib/dataset.h" line="80"/>
+      <source-position filename="arrow-dataset-glib/dataset.h" line="68"/>
       <field name="parent_class">
         <type name="DatasetClass" c:type="GADatasetDatasetClass"/>
       </field>
@@ -492,12 +500,12 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="GADatasetFileSystemDatasetFactory"
            glib:get-type="gadataset_file_system_dataset_factory_get_type"
            glib:type-struct="FileSystemDatasetFactoryClass">
-      <source-position filename="../arrow-dataset-glib/dataset-factory.h"
-                       line="53"/>
+      <source-position filename="arrow-dataset-glib/dataset-factory.h"
+                       line="69"/>
       <constructor name="new"
                    c:identifier="gadataset_file_system_dataset_factory_new">
-        <source-position filename="../arrow-dataset-glib/dataset-factory.h"
-                         line="57"/>
+        <source-position filename="arrow-dataset-glib/dataset-factory.h"
+                         line="73"/>
         <return-value transfer-ownership="full">
           <type name="FileSystemDatasetFactory"
                 c:type="GADatasetFileSystemDatasetFactory*"/>
@@ -512,26 +520,26 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gadataset_file_system_dataset_factory_add_path"
               version="5.0.0"
               throws="1">
-        <source-position filename="../arrow-dataset-glib/dataset-factory.h"
-                         line="72"/>
+        <source-position filename="arrow-dataset-glib/dataset-factory.h"
+                         line="88"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/dataset-factory.cpp"
-               line="446">%TRUE on success, %FALSE otherwise.</doc>
+               filename="arrow-dataset-glib/dataset-factory.cpp"
+               line="652">%TRUE on success, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/dataset-factory.cpp"
-                 line="442">A #GADatasetFileSystemDatasetFactory.</doc>
+                 filename="arrow-dataset-glib/dataset-factory.cpp"
+                 line="648">A #GADatasetFileSystemDatasetFactory.</doc>
             <type name="FileSystemDatasetFactory"
                   c:type="GADatasetFileSystemDatasetFactory*"/>
           </instance-parameter>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/dataset-factory.cpp"
-                 line="443">A path to be added.</doc>
+                 filename="arrow-dataset-glib/dataset-factory.cpp"
+                 line="649">A path to be added.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -540,49 +548,58 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gadataset_file_system_dataset_factory_finish"
               version="5.0.0"
               throws="1">
-        <source-position filename="../arrow-dataset-glib/dataset-factory.h"
-                         line="93"/>
+        <source-position filename="arrow-dataset-glib/dataset-factory.h"
+                         line="109"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/dataset-factory.cpp"
-               line="479">
+               filename="arrow-dataset-glib/dataset-factory.cpp"
+               line="686">
   A newly created #GADatasetFileSystemDataset on success, %NULL on error.</doc>
           <type name="FileSystemDataset" c:type="GADatasetFileSystemDataset*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/dataset-factory.cpp"
-                 line="476">A #GADatasetFileSystemDatasetFactory.</doc>
+                 filename="arrow-dataset-glib/dataset-factory.cpp"
+                 line="682">A #GADatasetFileSystemDatasetFactory.</doc>
             <type name="FileSystemDatasetFactory"
                   c:type="GADatasetFileSystemDatasetFactory*"/>
           </instance-parameter>
+          <parameter name="options"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="arrow-dataset-glib/dataset-factory.cpp"
+                 line="683">A #GADatasetFinishOptions.</doc>
+            <type name="FinishOptions" c:type="GADatasetFinishOptions*"/>
+          </parameter>
         </parameters>
       </method>
       <method name="set_file_system"
               c:identifier="gadataset_file_system_dataset_factory_set_file_system"
               version="5.0.0"
               throws="1">
-        <source-position filename="../arrow-dataset-glib/dataset-factory.h"
-                         line="60"/>
+        <source-position filename="arrow-dataset-glib/dataset-factory.h"
+                         line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/dataset-factory.cpp"
-               line="376">%TRUE on success, %FALSE otherwise.</doc>
+               filename="arrow-dataset-glib/dataset-factory.cpp"
+               line="582">%TRUE on success, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/dataset-factory.cpp"
-                 line="372">A #GADatasetFileSystemDatasetFactory.</doc>
+                 filename="arrow-dataset-glib/dataset-factory.cpp"
+                 line="578">A #GADatasetFileSystemDatasetFactory.</doc>
             <type name="FileSystemDatasetFactory"
                   c:type="GADatasetFileSystemDatasetFactory*"/>
           </instance-parameter>
           <parameter name="file_system" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/dataset-factory.cpp"
-                 line="373">A #GArrowFileSystem.</doc>
+                 filename="arrow-dataset-glib/dataset-factory.cpp"
+                 line="579">A #GArrowFileSystem.</doc>
             <type name="Arrow.FileSystem" c:type="GArrowFileSystem*"/>
           </parameter>
         </parameters>
@@ -591,34 +608,34 @@ and/or use gtk-doc annotations.  -->
               c:identifier="gadataset_file_system_dataset_factory_set_file_system_uri"
               version="5.0.0"
               throws="1">
-        <source-position filename="../arrow-dataset-glib/dataset-factory.h"
-                         line="65"/>
+        <source-position filename="arrow-dataset-glib/dataset-factory.h"
+                         line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/dataset-factory.cpp"
-               line="405">%TRUE on success, %FALSE otherwise.</doc>
+               filename="arrow-dataset-glib/dataset-factory.cpp"
+               line="611">%TRUE on success, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/dataset-factory.cpp"
-                 line="401">A #GADatasetFileSystemDatasetFactory.</doc>
+                 filename="arrow-dataset-glib/dataset-factory.cpp"
+                 line="607">A #GADatasetFileSystemDatasetFactory.</doc>
             <type name="FileSystemDatasetFactory"
                   c:type="GADatasetFileSystemDatasetFactory*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/dataset-factory.cpp"
-                 line="402">An URI for file system.</doc>
+                 filename="arrow-dataset-glib/dataset-factory.cpp"
+                 line="608">An URI for file system.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
       <property name="file-system" version="5.0.0" transfer-ownership="none">
         <doc xml:space="preserve"
-             filename="../arrow-dataset-glib/dataset-factory.cpp"
-             line="307">File system passed to #GADatasetFileSystemDataset.</doc>
+             filename="arrow-dataset-glib/dataset-factory.cpp"
+             line="513">File system passed to #GADatasetFileSystemDataset.</doc>
         <type name="Arrow.FileSystem"/>
       </property>
       <property name="format"
@@ -627,17 +644,18 @@ and/or use gtk-doc annotations.  -->
                 construct-only="1"
                 transfer-ownership="none">
         <doc xml:space="preserve"
-             filename="../arrow-dataset-glib/dataset-factory.cpp"
-             line="292">Format passed to #GADatasetFileSystemDataset.</doc>
+             filename="arrow-dataset-glib/dataset-factory.cpp"
+             line="498">Format passed to #GADatasetFileSystemDataset.</doc>
         <type name="FileFormat"/>
       </property>
       <property name="partition-base-dir"
                 version="6.0.0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <doc xml:space="preserve"
-             filename="../arrow-dataset-glib/dataset-factory.cpp"
-             line="335">Partition base directory used by #GADatasetFileSystemDataset.</doc>
+             filename="arrow-dataset-glib/dataset-factory.cpp"
+             line="541">Partition base directory used by #GADatasetFileSystemDataset.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="partitioning"
@@ -645,8 +663,8 @@ and/or use gtk-doc annotations.  -->
                 writable="1"
                 transfer-ownership="none">
         <doc xml:space="preserve"
-             filename="../arrow-dataset-glib/dataset-factory.cpp"
-             line="321">Partitioning used by #GADatasetFileSystemDataset.</doc>
+             filename="arrow-dataset-glib/dataset-factory.cpp"
+             line="527">Partitioning used by #GADatasetFileSystemDataset.</doc>
         <type name="Partitioning"/>
       </property>
       <field name="parent_instance">
@@ -656,8 +674,8 @@ and/or use gtk-doc annotations.  -->
     <record name="FileSystemDatasetFactoryClass"
             c:type="GADatasetFileSystemDatasetFactoryClass"
             glib:is-gtype-struct-for="FileSystemDatasetFactory">
-      <source-position filename="../arrow-dataset-glib/dataset-factory.h"
-                       line="53"/>
+      <source-position filename="arrow-dataset-glib/dataset-factory.h"
+                       line="69"/>
       <field name="parent_class">
         <type name="DatasetFactoryClass"
               c:type="GADatasetDatasetFactoryClass"/>
@@ -670,28 +688,32 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="GADatasetFileSystemDatasetWriteOptions"
            glib:get-type="gadataset_file_system_dataset_write_options_get_type"
            glib:type-struct="FileSystemDatasetWriteOptionsClass">
-      <source-position filename="../arrow-dataset-glib/dataset.h" line="63"/>
+      <source-position filename="arrow-dataset-glib/dataset.h" line="51"/>
       <constructor name="new"
                    c:identifier="gadataset_file_system_dataset_write_options_new"
                    version="6.0.0">
-        <source-position filename="../arrow-dataset-glib/dataset.h" line="67"/>
+        <source-position filename="arrow-dataset-glib/dataset.h" line="55"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/dataset.cpp"
+               filename="arrow-dataset-glib/dataset.cpp"
                line="488">The newly created #GADatasetFileSystemDatasetWriteOptions.</doc>
           <type name="FileSystemDatasetWriteOptions"
                 c:type="GADatasetFileSystemDatasetWriteOptions*"/>
         </return-value>
       </constructor>
-      <property name="base-dir" writable="1" transfer-ownership="none">
+      <property name="base-dir"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="base-name-template"
                 version="6.0.0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <doc xml:space="preserve"
-             filename="../arrow-dataset-glib/dataset.cpp"
+             filename="arrow-dataset-glib/dataset.cpp"
              line="467">Template string used to generate fragment base names. {i} will be
 replaced by an auto incremented integer.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -707,9 +729,10 @@ replaced by an auto incremented integer.</doc>
       <property name="max-partitions"
                 version="6.0.0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="1024">
         <doc xml:space="preserve"
-             filename="../arrow-dataset-glib/dataset.cpp"
+             filename="arrow-dataset-glib/dataset.cpp"
              line="450">Maximum number of partitions any batch may be written into.</doc>
         <type name="guint" c:type="guint"/>
       </property>
@@ -718,7 +741,7 @@ replaced by an auto incremented integer.</doc>
                 writable="1"
                 transfer-ownership="none">
         <doc xml:space="preserve"
-             filename="../arrow-dataset-glib/dataset.cpp"
+             filename="arrow-dataset-glib/dataset.cpp"
              line="435">#GADatasetPartitioning used to generate fragment paths.</doc>
         <type name="Partitioning"/>
       </property>
@@ -729,7 +752,7 @@ replaced by an auto incremented integer.</doc>
     <record name="FileSystemDatasetWriteOptionsClass"
             c:type="GADatasetFileSystemDatasetWriteOptionsClass"
             glib:is-gtype-struct-for="FileSystemDatasetWriteOptions">
-      <source-position filename="../arrow-dataset-glib/dataset.h" line="63"/>
+      <source-position filename="arrow-dataset-glib/dataset.h" line="51"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -741,8 +764,7 @@ replaced by an auto incremented integer.</doc>
            glib:type-name="GADatasetFileWriteOptions"
            glib:get-type="gadataset_file_write_options_get_type"
            glib:type-struct="FileWriteOptionsClass">
-      <source-position filename="../arrow-dataset-glib/file-format.h"
-                       line="36"/>
+      <source-position filename="arrow-dataset-glib/file-format.h" line="36"/>
       <property name="options"
                 readable="0"
                 writable="1"
@@ -757,8 +779,7 @@ replaced by an auto incremented integer.</doc>
     <record name="FileWriteOptionsClass"
             c:type="GADatasetFileWriteOptionsClass"
             glib:is-gtype-struct-for="FileWriteOptions">
-      <source-position filename="../arrow-dataset-glib/file-format.h"
-                       line="36"/>
+      <source-position filename="arrow-dataset-glib/file-format.h" line="36"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -770,24 +791,23 @@ replaced by an auto incremented integer.</doc>
            glib:type-name="GADatasetFileWriter"
            glib:get-type="gadataset_file_writer_get_type"
            glib:type-struct="FileWriterClass">
-      <source-position filename="../arrow-dataset-glib/file-format.h"
-                       line="49"/>
+      <source-position filename="arrow-dataset-glib/file-format.h" line="49"/>
       <method name="finish"
               c:identifier="gadataset_file_writer_finish"
               version="6.0.0"
               throws="1">
-        <source-position filename="../arrow-dataset-glib/file-format.h"
+        <source-position filename="arrow-dataset-glib/file-format.h"
                          line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/file-format.cpp"
+               filename="arrow-dataset-glib/file-format.cpp"
                line="243">%TRUE on success, %FALSE on error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="writer" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/file-format.cpp"
+                 filename="arrow-dataset-glib/file-format.cpp"
                  line="240">A #GADatasetFileWriter.</doc>
             <type name="FileWriter" c:type="GADatasetFileWriter*"/>
           </instance-parameter>
@@ -797,24 +817,24 @@ replaced by an auto incremented integer.</doc>
               c:identifier="gadataset_file_writer_write_record_batch"
               version="6.0.0"
               throws="1">
-        <source-position filename="../arrow-dataset-glib/file-format.h"
+        <source-position filename="arrow-dataset-glib/file-format.h"
                          line="53"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/file-format.cpp"
+               filename="arrow-dataset-glib/file-format.cpp"
                line="200">%TRUE on success, %FALSE on error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="writer" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/file-format.cpp"
+                 filename="arrow-dataset-glib/file-format.cpp"
                  line="196">A #GADatasetFileWriter.</doc>
             <type name="FileWriter" c:type="GADatasetFileWriter*"/>
           </instance-parameter>
           <parameter name="record_batch" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/file-format.cpp"
+                 filename="arrow-dataset-glib/file-format.cpp"
                  line="197">A #GArrowRecordBatch to be written.</doc>
             <type name="Arrow.RecordBatch" c:type="GArrowRecordBatch*"/>
           </parameter>
@@ -824,24 +844,24 @@ replaced by an auto incremented integer.</doc>
               c:identifier="gadataset_file_writer_write_record_batch_reader"
               version="6.0.0"
               throws="1">
-        <source-position filename="../arrow-dataset-glib/file-format.h"
+        <source-position filename="arrow-dataset-glib/file-format.h"
                          line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/file-format.cpp"
+               filename="arrow-dataset-glib/file-format.cpp"
                line="221">%TRUE on success, %FALSE on error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="writer" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/file-format.cpp"
+                 filename="arrow-dataset-glib/file-format.cpp"
                  line="217">A #GADatasetFileWriter.</doc>
             <type name="FileWriter" c:type="GADatasetFileWriter*"/>
           </instance-parameter>
           <parameter name="reader" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/file-format.cpp"
+                 filename="arrow-dataset-glib/file-format.cpp"
                  line="218">A #GArrowRecordBatchReader to be written.</doc>
             <type name="Arrow.RecordBatchReader"
                   c:type="GArrowRecordBatchReader*"/>
@@ -862,8 +882,77 @@ replaced by an auto incremented integer.</doc>
     <record name="FileWriterClass"
             c:type="GADatasetFileWriterClass"
             glib:is-gtype-struct-for="FileWriter">
-      <source-position filename="../arrow-dataset-glib/file-format.h"
-                       line="49"/>
+      <source-position filename="arrow-dataset-glib/file-format.h" line="49"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="FinishOptions"
+           c:symbol-prefix="finish_options"
+           c:type="GADatasetFinishOptions"
+           parent="GObject.Object"
+           glib:type-name="GADatasetFinishOptions"
+           glib:get-type="gadataset_finish_options_get_type"
+           glib:type-struct="FinishOptionsClass">
+      <source-position filename="arrow-dataset-glib/dataset-factory.h"
+                       line="35"/>
+      <constructor name="new"
+                   c:identifier="gadataset_finish_options_new"
+                   version="11.0.0">
+        <source-position filename="arrow-dataset-glib/dataset-factory.h"
+                         line="39"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="arrow-dataset-glib/dataset-factory.cpp"
+               line="233">A newly created #GADatasetDataset.</doc>
+          <type name="FinishOptions" c:type="GADatasetFinishOptions*"/>
+        </return-value>
+      </constructor>
+      <property name="finish-options"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <property name="inspect-n-fragments"
+                version="11.0.0"
+                writable="1"
+                transfer-ownership="none"
+                default-value="1">
+        <doc xml:space="preserve"
+             filename="arrow-dataset-glib/dataset-factory.cpp"
+             line="199">The number of fragments to be used to inspect schema.</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="schema"
+                version="11.0.0"
+                writable="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="arrow-dataset-glib/dataset-factory.cpp"
+             line="184">The schema to finalize the dataset's schema.</doc>
+        <type name="Arrow.Schema"/>
+      </property>
+      <property name="validate-fragments"
+                version="11.0.0"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="arrow-dataset-glib/dataset-factory.cpp"
+             line="215">Whether validate fragments against the given schema or not.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="FinishOptionsClass"
+            c:type="GADatasetFinishOptionsClass"
+            glib:is-gtype-struct-for="FinishOptions">
+      <source-position filename="arrow-dataset-glib/dataset-factory.h"
+                       line="35"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -876,7 +965,7 @@ replaced by an auto incremented integer.</doc>
            glib:type-name="GADatasetFragment"
            glib:get-type="gadataset_fragment_get_type"
            glib:type-struct="FragmentClass">
-      <source-position filename="../arrow-dataset-glib/fragment.h" line="37"/>
+      <source-position filename="arrow-dataset-glib/fragment.h" line="37"/>
       <property name="fragment"
                 readable="0"
                 writable="1"
@@ -891,9 +980,144 @@ replaced by an auto incremented integer.</doc>
     <record name="FragmentClass"
             c:type="GADatasetFragmentClass"
             glib:is-gtype-struct-for="Fragment">
-      <source-position filename="../arrow-dataset-glib/fragment.h" line="37"/>
+      <source-position filename="arrow-dataset-glib/fragment.h" line="37"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="HivePartitioning"
+           c:symbol-prefix="hive_partitioning"
+           c:type="GADatasetHivePartitioning"
+           parent="KeyValuePartitioning"
+           glib:type-name="GADatasetHivePartitioning"
+           glib:get-type="gadataset_hive_partitioning_get_type"
+           glib:type-struct="HivePartitioningClass">
+      <source-position filename="arrow-dataset-glib/partitioning.h"
+                       line="157"/>
+      <constructor name="new"
+                   c:identifier="gadataset_hive_partitioning_new"
+                   version="11.0.0"
+                   throws="1">
+        <source-position filename="arrow-dataset-glib/partitioning.h"
+                         line="161"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="arrow-dataset-glib/partitioning.cpp"
+               line="708">The newly created #GADatasetHivePartitioning on success,
+  %NULL on error.</doc>
+          <type name="HivePartitioning" c:type="GADatasetHivePartitioning*"/>
+        </return-value>
+        <parameters>
+          <parameter name="schema" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="arrow-dataset-glib/partitioning.cpp"
+                 line="702">A #GArrowSchema that describes all partitioned segments.</doc>
+            <type name="Arrow.Schema" c:type="GArrowSchema*"/>
+          </parameter>
+          <parameter name="dictionaries"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="arrow-dataset-glib/partitioning.cpp"
+                 line="703">A list of #GArrowArray
+  for dictionary data types in @schema.</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="Arrow.Array"/>
+            </type>
+          </parameter>
+          <parameter name="options"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="arrow-dataset-glib/partitioning.cpp"
+                 line="705">A #GADatasetHivePartitioningOptions.</doc>
+            <type name="HivePartitioningOptions"
+                  c:type="GADatasetHivePartitioningOptions*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_null_fallback"
+              c:identifier="gadataset_hive_partitioning_get_null_fallback"
+              version="11.0.0">
+        <source-position filename="arrow-dataset-glib/partitioning.h"
+                         line="167"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="arrow-dataset-glib/partitioning.cpp"
+               line="731">The fallback string for null.
+
+  It should be freed with g_free() when no longer needed.</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="partitioning" transfer-ownership="none">
+            <type name="HivePartitioning" c:type="GADatasetHivePartitioning*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="KeyValuePartitioning"
+              c:type="GADatasetKeyValuePartitioning"/>
+      </field>
+    </class>
+    <record name="HivePartitioningClass"
+            c:type="GADatasetHivePartitioningClass"
+            glib:is-gtype-struct-for="HivePartitioning">
+      <source-position filename="arrow-dataset-glib/partitioning.h"
+                       line="157"/>
+      <field name="parent_class">
+        <type name="KeyValuePartitioningClass"
+              c:type="GADatasetKeyValuePartitioningClass"/>
+      </field>
+    </record>
+    <class name="HivePartitioningOptions"
+           c:symbol-prefix="hive_partitioning_options"
+           c:type="GADatasetHivePartitioningOptions"
+           parent="KeyValuePartitioningOptions"
+           glib:type-name="GADatasetHivePartitioningOptions"
+           glib:get-type="gadataset_hive_partitioning_options_get_type"
+           glib:type-struct="HivePartitioningOptionsClass">
+      <source-position filename="arrow-dataset-glib/partitioning.h"
+                       line="140"/>
+      <constructor name="new"
+                   c:identifier="gadataset_hive_partitioning_options_new"
+                   version="11.0.0">
+        <source-position filename="arrow-dataset-glib/partitioning.h"
+                         line="144"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="arrow-dataset-glib/partitioning.cpp"
+               line="672">The newly created #GADatasetHivePartitioningOptions.</doc>
+          <type name="HivePartitioningOptions"
+                c:type="GADatasetHivePartitioningOptions*"/>
+        </return-value>
+      </constructor>
+      <property name="null-fallback"
+                version="11.0.0"
+                writable="1"
+                transfer-ownership="none"
+                default-value="__HIVE_DEFAULT_PARTITION__">
+        <doc xml:space="preserve"
+             filename="arrow-dataset-glib/partitioning.cpp"
+             line="651">The fallback string for null. This is used only by
+#GADatasetHivePartitioning.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="KeyValuePartitioningOptions"
+              c:type="GADatasetKeyValuePartitioningOptions"/>
+      </field>
+    </class>
+    <record name="HivePartitioningOptionsClass"
+            c:type="GADatasetHivePartitioningOptionsClass"
+            glib:is-gtype-struct-for="HivePartitioningOptions">
+      <source-position filename="arrow-dataset-glib/partitioning.h"
+                       line="140"/>
+      <field name="parent_class">
+        <type name="KeyValuePartitioningOptionsClass"
+              c:type="GADatasetKeyValuePartitioningOptionsClass"/>
       </field>
     </record>
     <class name="IPCFileFormat"
@@ -903,16 +1127,15 @@ replaced by an auto incremented integer.</doc>
            glib:type-name="GADatasetIPCFileFormat"
            glib:get-type="gadataset_ipc_file_format_get_type"
            glib:type-struct="IPCFileFormatClass">
-      <source-position filename="../arrow-dataset-glib/file-format.h"
-                       line="124"/>
+      <source-position filename="arrow-dataset-glib/file-format.h" line="124"/>
       <constructor name="new"
                    c:identifier="gadataset_ipc_file_format_new"
                    version="3.0.0">
-        <source-position filename="../arrow-dataset-glib/file-format.h"
+        <source-position filename="arrow-dataset-glib/file-format.h"
                          line="127"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/file-format.cpp"
+               filename="arrow-dataset-glib/file-format.cpp"
                line="470">The newly created IPC file format.</doc>
           <type name="IPCFileFormat" c:type="GADatasetIPCFileFormat*"/>
         </return-value>
@@ -924,8 +1147,7 @@ replaced by an auto incremented integer.</doc>
     <record name="IPCFileFormatClass"
             c:type="GADatasetIPCFileFormatClass"
             glib:is-gtype-struct-for="IPCFileFormat">
-      <source-position filename="../arrow-dataset-glib/file-format.h"
-                       line="124"/>
+      <source-position filename="arrow-dataset-glib/file-format.h" line="124"/>
       <field name="parent_class">
         <type name="FileFormatClass" c:type="GADatasetFileFormatClass"/>
       </field>
@@ -937,28 +1159,27 @@ replaced by an auto incremented integer.</doc>
            glib:type-name="GADatasetInMemoryFragment"
            glib:get-type="gadataset_in_memory_fragment_get_type"
            glib:type-struct="InMemoryFragmentClass">
-      <source-position filename="../arrow-dataset-glib/fragment.h" line="51"/>
+      <source-position filename="arrow-dataset-glib/fragment.h" line="51"/>
       <constructor name="new"
                    c:identifier="gadataset_in_memory_fragment_new"
                    version="4.0.0">
-        <source-position filename="../arrow-dataset-glib/fragment.h"
-                         line="55"/>
+        <source-position filename="arrow-dataset-glib/fragment.h" line="55"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/fragment.cpp"
+               filename="arrow-dataset-glib/fragment.cpp"
                line="136">A newly created #GADatasetInMemoryFragment.</doc>
           <type name="InMemoryFragment" c:type="GADatasetInMemoryFragment*"/>
         </return-value>
         <parameters>
           <parameter name="schema" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/fragment.cpp"
+                 filename="arrow-dataset-glib/fragment.cpp"
                  line="131">A #GArrowSchema.</doc>
             <type name="Arrow.Schema" c:type="GArrowSchema*"/>
           </parameter>
           <parameter name="record_batches" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/fragment.cpp"
+                 filename="arrow-dataset-glib/fragment.cpp"
                  line="132">The record batches of the table.</doc>
             <array length="2" zero-terminated="0" c:type="GArrowRecordBatch**">
               <type name="Arrow.RecordBatch"/>
@@ -966,7 +1187,7 @@ replaced by an auto incremented integer.</doc>
           </parameter>
           <parameter name="n_record_batches" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/fragment.cpp"
+                 filename="arrow-dataset-glib/fragment.cpp"
                  line="134">The number of record batches.</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
@@ -979,7 +1200,7 @@ replaced by an auto incremented integer.</doc>
     <record name="InMemoryFragmentClass"
             c:type="GADatasetInMemoryFragmentClass"
             glib:is-gtype-struct-for="InMemoryFragment">
-      <source-position filename="../arrow-dataset-glib/fragment.h" line="51"/>
+      <source-position filename="arrow-dataset-glib/fragment.h" line="51"/>
       <field name="parent_class">
         <type name="FragmentClass" c:type="GADatasetFragmentClass"/>
       </field>
@@ -988,11 +1209,12 @@ replaced by an auto incremented integer.</doc>
            c:symbol-prefix="key_value_partitioning"
            c:type="GADatasetKeyValuePartitioning"
            parent="Partitioning"
+           abstract="1"
            glib:type-name="GADatasetKeyValuePartitioning"
            glib:get-type="gadataset_key_value_partitioning_get_type"
            glib:type-struct="KeyValuePartitioningClass">
-      <source-position filename="../arrow-dataset-glib/partitioning.h"
-                       line="87"/>
+      <source-position filename="arrow-dataset-glib/partitioning.h"
+                       line="106"/>
       <field name="parent_instance">
         <type name="Partitioning" c:type="GADatasetPartitioning"/>
       </field>
@@ -1000,10 +1222,54 @@ replaced by an auto incremented integer.</doc>
     <record name="KeyValuePartitioningClass"
             c:type="GADatasetKeyValuePartitioningClass"
             glib:is-gtype-struct-for="KeyValuePartitioning">
-      <source-position filename="../arrow-dataset-glib/partitioning.h"
-                       line="87"/>
+      <source-position filename="arrow-dataset-glib/partitioning.h"
+                       line="106"/>
       <field name="parent_class">
         <type name="PartitioningClass" c:type="GADatasetPartitioningClass"/>
+      </field>
+    </record>
+    <class name="KeyValuePartitioningOptions"
+           c:symbol-prefix="key_value_partitioning_options"
+           c:type="GADatasetKeyValuePartitioningOptions"
+           parent="GObject.Object"
+           glib:type-name="GADatasetKeyValuePartitioningOptions"
+           glib:get-type="gadataset_key_value_partitioning_options_get_type"
+           glib:type-struct="KeyValuePartitioningOptionsClass">
+      <source-position filename="arrow-dataset-glib/partitioning.h" line="89"/>
+      <constructor name="new"
+                   c:identifier="gadataset_key_value_partitioning_options_new"
+                   version="11.0.0">
+        <source-position filename="arrow-dataset-glib/partitioning.h"
+                         line="93"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="arrow-dataset-glib/partitioning.cpp"
+               line="459">The newly created #GADatasetKeyValuePartitioningOptions.</doc>
+          <type name="KeyValuePartitioningOptions"
+                c:type="GADatasetKeyValuePartitioningOptions*"/>
+        </return-value>
+      </constructor>
+      <property name="segment-encoding"
+                version="11.0.0"
+                writable="1"
+                transfer-ownership="none"
+                default-value="GADATASET_SEGMENT_ENCODING_URI">
+        <doc xml:space="preserve"
+             filename="arrow-dataset-glib/partitioning.cpp"
+             line="434">After splitting a path into components, decode the path
+components before parsing according to this scheme.</doc>
+        <type name="SegmentEncoding"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="KeyValuePartitioningOptionsClass"
+            c:type="GADatasetKeyValuePartitioningOptionsClass"
+            glib:is-gtype-struct-for="KeyValuePartitioningOptions">
+      <source-position filename="arrow-dataset-glib/partitioning.h" line="89"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
     <class name="ParquetFileFormat"
@@ -1013,16 +1279,15 @@ replaced by an auto incremented integer.</doc>
            glib:type-name="GADatasetParquetFileFormat"
            glib:get-type="gadataset_parquet_file_format_get_type"
            glib:type-struct="ParquetFileFormatClass">
-      <source-position filename="../arrow-dataset-glib/file-format.h"
-                       line="140"/>
+      <source-position filename="arrow-dataset-glib/file-format.h" line="140"/>
       <constructor name="new"
                    c:identifier="gadataset_parquet_file_format_new"
                    version="3.0.0">
-        <source-position filename="../arrow-dataset-glib/file-format.h"
+        <source-position filename="arrow-dataset-glib/file-format.h"
                          line="143"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/file-format.cpp"
+               filename="arrow-dataset-glib/file-format.cpp"
                line="500">The newly created Parquet file format.</doc>
           <type name="ParquetFileFormat" c:type="GADatasetParquetFileFormat*"/>
         </return-value>
@@ -1034,8 +1299,7 @@ replaced by an auto incremented integer.</doc>
     <record name="ParquetFileFormatClass"
             c:type="GADatasetParquetFileFormatClass"
             glib:is-gtype-struct-for="ParquetFileFormat">
-      <source-position filename="../arrow-dataset-glib/file-format.h"
-                       line="140"/>
+      <source-position filename="arrow-dataset-glib/file-format.h" line="140"/>
       <field name="parent_class">
         <type name="FileFormatClass" c:type="GADatasetFileFormatClass"/>
       </field>
@@ -1044,33 +1308,33 @@ replaced by an auto incremented integer.</doc>
            c:symbol-prefix="partitioning"
            c:type="GADatasetPartitioning"
            parent="GObject.Object"
+           abstract="1"
            glib:type-name="GADatasetPartitioning"
            glib:get-type="gadataset_partitioning_get_type"
            glib:type-struct="PartitioningClass">
-      <source-position filename="../arrow-dataset-glib/partitioning.h"
-                       line="67"/>
-      <constructor name="new"
-                   c:identifier="gadataset_partitioning_new"
-                   version="6.0.0">
-        <source-position filename="../arrow-dataset-glib/partitioning.h"
-                         line="71"/>
+      <source-position filename="arrow-dataset-glib/partitioning.h" line="67"/>
+      <function name="create_default"
+                c:identifier="gadataset_partitioning_create_default"
+                version="12.0.0">
+        <source-position filename="arrow-dataset-glib/partitioning.h"
+                         line="76"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/partitioning.cpp"
-               line="309">The newly created #GADatasetPartitioning that doesn't
-  partition.</doc>
+               filename="arrow-dataset-glib/partitioning.cpp"
+               line="348">The newly created #GADatasetPartitioning
+  that doesn't partition.</doc>
           <type name="Partitioning" c:type="GADatasetPartitioning*"/>
         </return-value>
-      </constructor>
+      </function>
       <method name="get_type_name"
               c:identifier="gadataset_partitioning_get_type_name"
               version="6.0.0">
-        <source-position filename="../arrow-dataset-glib/partitioning.h"
-                         line="74"/>
+        <source-position filename="arrow-dataset-glib/partitioning.h"
+                         line="71"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/partitioning.cpp"
-               line="328">The type name of @partitioning.
+               filename="arrow-dataset-glib/partitioning.cpp"
+               line="329">The type name of @partitioning.
 
   It should be freed with g_free() when no longer needed.</doc>
           <type name="utf8" c:type="gchar*"/>
@@ -1078,8 +1342,8 @@ replaced by an auto incremented integer.</doc>
         <parameters>
           <instance-parameter name="partitioning" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/partitioning.cpp"
-                 line="326">A #GADatasetPartitioning.</doc>
+                 filename="arrow-dataset-glib/partitioning.cpp"
+                 line="327">A #GADatasetPartitioning.</doc>
             <type name="Partitioning" c:type="GADatasetPartitioning*"/>
           </instance-parameter>
         </parameters>
@@ -1098,41 +1362,40 @@ replaced by an auto incremented integer.</doc>
     <record name="PartitioningClass"
             c:type="GADatasetPartitioningClass"
             glib:is-gtype-struct-for="Partitioning">
-      <source-position filename="../arrow-dataset-glib/partitioning.h"
-                       line="67"/>
+      <source-position filename="arrow-dataset-glib/partitioning.h" line="67"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
-    <class name="PartitioningOptions"
-           c:symbol-prefix="partitioning_options"
-           c:type="GADatasetPartitioningOptions"
+    <class name="PartitioningFactoryOptions"
+           c:symbol-prefix="partitioning_factory_options"
+           c:type="GADatasetPartitioningFactoryOptions"
            parent="GObject.Object"
-           glib:type-name="GADatasetPartitioningOptions"
-           glib:get-type="gadataset_partitioning_options_get_type"
-           glib:type-struct="PartitioningOptionsClass">
-      <source-position filename="../arrow-dataset-glib/partitioning.h"
-                       line="51"/>
+           glib:type-name="GADatasetPartitioningFactoryOptions"
+           glib:get-type="gadataset_partitioning_factory_options_get_type"
+           glib:type-struct="PartitioningFactoryOptionsClass">
+      <source-position filename="arrow-dataset-glib/partitioning.h" line="51"/>
       <constructor name="new"
-                   c:identifier="gadataset_partitioning_options_new"
-                   version="6.0.0">
-        <source-position filename="../arrow-dataset-glib/partitioning.h"
+                   c:identifier="gadataset_partitioning_factory_options_new"
+                   version="11.0.0">
+        <source-position filename="arrow-dataset-glib/partitioning.h"
                          line="55"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/partitioning.cpp"
-               line="223">The newly created #GADatasetPartitioningOptions.</doc>
-          <type name="PartitioningOptions"
-                c:type="GADatasetPartitioningOptions*"/>
+               filename="arrow-dataset-glib/partitioning.cpp"
+               line="242">The newly created #GADatasetPartitioningFactoryOptions.</doc>
+          <type name="PartitioningFactoryOptions"
+                c:type="GADatasetPartitioningFactoryOptions*"/>
         </return-value>
       </constructor>
       <property name="infer-dictionary"
-                version="6.0.0"
+                version="11.0.0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="FALSE">
         <doc xml:space="preserve"
-             filename="../arrow-dataset-glib/partitioning.cpp"
-             line="164">When inferring a schema for partition fields, yield dictionary
+             filename="arrow-dataset-glib/partitioning.cpp"
+             line="177">When inferring a schema for partition fields, yield dictionary
 encoded types instead of plain. This can be more efficient when
 materializing virtual columns, and Expressions parsed by the
 finished Partitioning will include dictionaries of all unique
@@ -1140,23 +1403,24 @@ inspected values for each field.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="schema"
-                version="6.0.0"
+                version="11.0.0"
                 writable="1"
                 transfer-ownership="none">
         <doc xml:space="preserve"
-             filename="../arrow-dataset-glib/partitioning.cpp"
-             line="183">Optionally, an expected schema can be provided, in which case
+             filename="arrow-dataset-glib/partitioning.cpp"
+             line="198">Optionally, an expected schema can be provided, in which case
 inference will only check discovered fields against the schema
 and update internal state (such as dictionaries).</doc>
         <type name="Arrow.Schema"/>
       </property>
       <property name="segment-encoding"
-                version="6.0.0"
+                version="11.0.0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="GADATASET_SEGMENT_ENCODING_URI">
         <doc xml:space="preserve"
-             filename="../arrow-dataset-glib/partitioning.cpp"
-             line="200">After splitting a path into components, decode the path
+             filename="arrow-dataset-glib/partitioning.cpp"
+             line="217">After splitting a path into components, decode the path
 components before parsing according to this scheme.</doc>
         <type name="SegmentEncoding"/>
       </property>
@@ -1164,11 +1428,10 @@ components before parsing according to this scheme.</doc>
         <type name="GObject.Object" c:type="GObject"/>
       </field>
     </class>
-    <record name="PartitioningOptionsClass"
-            c:type="GADatasetPartitioningOptionsClass"
-            glib:is-gtype-struct-for="PartitioningOptions">
-      <source-position filename="../arrow-dataset-glib/partitioning.h"
-                       line="51"/>
+    <record name="PartitioningFactoryOptionsClass"
+            c:type="GADatasetPartitioningFactoryOptionsClass"
+            glib:is-gtype-struct-for="PartitioningFactoryOptions">
+      <source-position filename="arrow-dataset-glib/partitioning.h" line="51"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -1180,15 +1443,15 @@ components before parsing according to this scheme.</doc>
            glib:type-name="GADatasetScanner"
            glib:get-type="gadataset_scanner_get_type"
            glib:type-struct="ScannerClass">
-      <source-position filename="../arrow-dataset-glib/scanner.h" line="36"/>
+      <source-position filename="arrow-dataset-glib/scanner.h" line="36"/>
       <method name="to_table"
               c:identifier="gadataset_scanner_to_table"
               version="5.0.0"
               throws="1">
-        <source-position filename="../arrow-dataset-glib/scanner.h" line="40"/>
+        <source-position filename="arrow-dataset-glib/scanner.h" line="40"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/scanner.cpp"
+               filename="arrow-dataset-glib/scanner.cpp"
                line="116">
   A newly created #GArrowTable on success, %NULL on error.</doc>
           <type name="Arrow.Table" c:type="GArrowTable*"/>
@@ -1196,7 +1459,7 @@ components before parsing according to this scheme.</doc>
         <parameters>
           <instance-parameter name="scanner" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/scanner.cpp"
+                 filename="arrow-dataset-glib/scanner.cpp"
                  line="113">A #GADatasetScanner.</doc>
             <type name="Scanner" c:type="GADatasetScanner*"/>
           </instance-parameter>
@@ -1220,15 +1483,15 @@ components before parsing according to this scheme.</doc>
            glib:type-name="GADatasetScannerBuilder"
            glib:get-type="gadataset_scanner_builder_get_type"
            glib:type-struct="ScannerBuilderClass">
-      <source-position filename="../arrow-dataset-glib/scanner.h" line="52"/>
+      <source-position filename="arrow-dataset-glib/scanner.h" line="52"/>
       <constructor name="new"
                    c:identifier="gadataset_scanner_builder_new"
                    version="5.0.0"
                    throws="1">
-        <source-position filename="../arrow-dataset-glib/scanner.h" line="56"/>
+        <source-position filename="arrow-dataset-glib/scanner.h" line="56"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/scanner.cpp"
+               filename="arrow-dataset-glib/scanner.cpp"
                line="210">A newly created #GADatasetScannerBuilder on success,
   %NULL on error.</doc>
           <type name="ScannerBuilder" c:type="GADatasetScannerBuilder*"/>
@@ -1236,7 +1499,7 @@ components before parsing according to this scheme.</doc>
         <parameters>
           <parameter name="dataset" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/scanner.cpp"
+                 filename="arrow-dataset-glib/scanner.cpp"
                  line="207">A #GADatasetDataset to be scanned.</doc>
             <type name="Dataset" c:type="GADatasetDataset*"/>
           </parameter>
@@ -1245,17 +1508,17 @@ components before parsing according to this scheme.</doc>
       <constructor name="new_record_batch_reader"
                    c:identifier="gadataset_scanner_builder_new_record_batch_reader"
                    version="6.0.0">
-        <source-position filename="../arrow-dataset-glib/scanner.h" line="60"/>
+        <source-position filename="arrow-dataset-glib/scanner.h" line="60"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/scanner.cpp"
+               filename="arrow-dataset-glib/scanner.cpp"
                line="234">A newly created #GADatasetScannerBuilder.</doc>
           <type name="ScannerBuilder" c:type="GADatasetScannerBuilder*"/>
         </return-value>
         <parameters>
           <parameter name="reader" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/scanner.cpp"
+                 filename="arrow-dataset-glib/scanner.cpp"
                  line="232">A #GArrowRecordBatchReader that produces record batches.</doc>
             <type name="Arrow.RecordBatchReader"
                   c:type="GArrowRecordBatchReader*"/>
@@ -1266,10 +1529,10 @@ components before parsing according to this scheme.</doc>
               c:identifier="gadataset_scanner_builder_finish"
               version="5.0.0"
               throws="1">
-        <source-position filename="../arrow-dataset-glib/scanner.h" line="71"/>
+        <source-position filename="arrow-dataset-glib/scanner.h" line="71"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/scanner.cpp"
+               filename="arrow-dataset-glib/scanner.cpp"
                line="275">
   A newly created #GADatasetScanner on success, %NULL on error.</doc>
           <type name="Scanner" c:type="GADatasetScanner*"/>
@@ -1277,7 +1540,7 @@ components before parsing according to this scheme.</doc>
         <parameters>
           <instance-parameter name="builder" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/scanner.cpp"
+                 filename="arrow-dataset-glib/scanner.cpp"
                  line="272">A #GADatasetScannerBuilder.</doc>
             <type name="ScannerBuilder" c:type="GADatasetScannerBuilder*"/>
           </instance-parameter>
@@ -1287,23 +1550,23 @@ components before parsing according to this scheme.</doc>
               c:identifier="gadataset_scanner_builder_set_filter"
               version="6.0.0"
               throws="1">
-        <source-position filename="../arrow-dataset-glib/scanner.h" line="65"/>
+        <source-position filename="arrow-dataset-glib/scanner.h" line="65"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="../arrow-dataset-glib/scanner.cpp"
+               filename="arrow-dataset-glib/scanner.cpp"
                line="254">%TRUE on success, %FALSE on error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="builder" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/scanner.cpp"
+                 filename="arrow-dataset-glib/scanner.cpp"
                  line="250">A #GADatasetScannerBuilder.</doc>
             <type name="ScannerBuilder" c:type="GADatasetScannerBuilder*"/>
           </instance-parameter>
           <parameter name="expression" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="../arrow-dataset-glib/scanner.cpp"
+                 filename="arrow-dataset-glib/scanner.cpp"
                  line="251">A #GArrowExpression to filter rows with.</doc>
             <type name="Arrow.Expression" c:type="GArrowExpression*"/>
           </parameter>
@@ -1323,7 +1586,7 @@ components before parsing according to this scheme.</doc>
     <record name="ScannerBuilderClass"
             c:type="GADatasetScannerBuilderClass"
             glib:is-gtype-struct-for="ScannerBuilder">
-      <source-position filename="../arrow-dataset-glib/scanner.h" line="52"/>
+      <source-position filename="arrow-dataset-glib/scanner.h" line="52"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -1331,7 +1594,7 @@ components before parsing according to this scheme.</doc>
     <record name="ScannerClass"
             c:type="GADatasetScannerClass"
             glib:is-gtype-struct-for="Scanner">
-      <source-position filename="../arrow-dataset-glib/scanner.h" line="36"/>
+      <source-position filename="arrow-dataset-glib/scanner.h" line="36"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -1342,7 +1605,7 @@ components before parsing according to this scheme.</doc>
                  glib:get-type="gadataset_segment_encoding_get_type"
                  c:type="GADatasetSegmentEncoding">
       <doc xml:space="preserve"
-           filename="../arrow-dataset-glib/partitioning.h"
+           filename="arrow-dataset-glib/partitioning.h"
            line="26">They are corresponding to `arrow::dataset::SegmentEncoding` values.</doc>
       <member name="none"
               value="0"
@@ -1350,7 +1613,7 @@ components before parsing according to this scheme.</doc>
               glib:nick="none"
               glib:name="GADATASET_SEGMENT_ENCODING_NONE">
         <doc xml:space="preserve"
-             filename="../arrow-dataset-glib/partitioning.h"
+             filename="arrow-dataset-glib/partitioning.h"
              line="28">No encoding.</doc>
       </member>
       <member name="uri"
@@ -1359,13 +1622,13 @@ components before parsing according to this scheme.</doc>
               glib:nick="uri"
               glib:name="GADATASET_SEGMENT_ENCODING_URI">
         <doc xml:space="preserve"
-             filename="../arrow-dataset-glib/partitioning.h"
+             filename="arrow-dataset-glib/partitioning.h"
              line="29">Segment values are URL-encoded.</doc>
       </member>
     </enumeration>
     <docsection name="dataset">
       <doc xml:space="preserve"
-           filename="../arrow-dataset-glib/dataset.cpp"
+           filename="arrow-dataset-glib/dataset.cpp"
            line="32">#GADatasetDataset is a base class for datasets.
 
 #GADatasetFileSystemDataset is a class for file system dataset.
@@ -1375,15 +1638,17 @@ write a dataset to file system dataset.</doc>
     </docsection>
     <docsection name="dataset-factory">
       <doc xml:space="preserve"
-           filename="../arrow-dataset-glib/dataset-factory.cpp"
-           line="30">#GADatasetDatasetFactory is a base class for dataset factories.
+           filename="arrow-dataset-glib/dataset-factory.cpp"
+           line="31">#GADatasetFinishOptions is a class for gadataset_factory_finish().
+
+#GADatasetDatasetFactory is a base class for dataset factories.
 
 #GADatasetFileSystemDatasetFactory is a class for
 #GADatasetFileSystemDataset factory.</doc>
     </docsection>
     <docsection name="file-format">
       <doc xml:space="preserve"
-           filename="../arrow-dataset-glib/file-format.cpp"
+           filename="arrow-dataset-glib/file-format.cpp"
            line="31">#GADatasetFileWriteOptions is a class for options to write a file
 of this format.
 
@@ -1399,28 +1664,38 @@ of this format.
     </docsection>
     <docsection name="fragment">
       <doc xml:space="preserve"
-           filename="../arrow-dataset-glib/fragment.cpp"
+           filename="arrow-dataset-glib/fragment.cpp"
            line="27">#GADatasetFragment is a base class for all fragment classes.
 
 #GADatasetInMemoryFragment is a class for in-memory fragment.</doc>
     </docsection>
     <docsection name="partitioning">
       <doc xml:space="preserve"
-           filename="../arrow-dataset-glib/partitioning.cpp"
-           line="29">#GADatasetPartitioningOptions is a class for partitioning options.
+           filename="arrow-dataset-glib/partitioning.cpp"
+           line="29">#GADatasetPartitioningFactoryOptions is a class for partitioning
+factory options.
 
 #GADatasetPartitioning is a base class for partitioning classes
 such as #GADatasetDirectoryPartitioning.
+
+#GADatasetKeyValuePartitioningOptions is a class for key-value
+partitioning options.
 
 #GADatasetKeyValuePartitioning is a base class for key-value style
 partitioning classes such as #GADatasetDirectoryPartitioning.
 
 #GADatasetDirectoryPartitioning is a class for partitioning that
-uses directory structure.</doc>
+uses directory structure.
+
+#GADatasetHivePartitioningOptions is a class for Hive-style
+partitioning options.
+
+#GADatasetHivePartitioning is a class for partitioning that
+uses Hive-style partitioning.</doc>
     </docsection>
     <docsection name="scanner">
       <doc xml:space="preserve"
-           filename="../arrow-dataset-glib/scanner.cpp"
+           filename="arrow-dataset-glib/scanner.cpp"
            line="30">#GADatasetScanner is a class for scanning dataset.
 
 #GADatasetScannerBuilder is a class for building a scanner.</doc>

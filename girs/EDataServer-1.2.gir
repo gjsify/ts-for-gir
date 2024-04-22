@@ -4617,7 +4617,7 @@ time.</doc>
       <source-position filename="src/libedataserver/eds-version.h" line="32"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="EDS_MICRO_VERSION" value="3" c:type="EDS_MICRO_VERSION">
+    <constant name="EDS_MICRO_VERSION" value="4" c:type="EDS_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="src/libedataserver/eds-version.h"
            line="44">The micro version number of the Evolution-Data-Server library.  Like
@@ -4627,7 +4627,7 @@ time.</doc>
       <source-position filename="src/libedataserver/eds-version.h" line="52"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="EDS_MINOR_VERSION" value="49" c:type="EDS_MINOR_VERSION">
+    <constant name="EDS_MINOR_VERSION" value="50" c:type="EDS_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="src/libedataserver/eds-version.h"
            line="34">The minor version number of the Evolution-Data-Server library.  Like
@@ -34065,7 +34065,7 @@ source's display name in user interfaces.</doc>
                 transfer-ownership="none"
                 setter="set_color"
                 getter="get_color"
-                default-value="#becedd">
+                default-value="#62a0ea">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="order"
@@ -40160,7 +40160,7 @@ also with set default namespace @ns_href.</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-document.c"
-             line="443">Adds a new attribute to the current element.
+             line="441">Adds a new attribute to the current element.
 Use %NULL @ns_href, to use the default namespace, otherwise either previously
 added namespace with the same href from e_xml_document_add_namespaces() is picked,
 or a new namespace with generated prefix is added.</doc>
@@ -40173,7 +40173,7 @@ or a new namespace with generated prefix is added.</doc>
           <instance-parameter name="xml" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="445">an #EXmlDocument</doc>
+                 line="443">an #EXmlDocument</doc>
             <type name="XmlDocument" c:type="EXmlDocument*"/>
           </instance-parameter>
           <parameter name="ns_href"
@@ -40182,19 +40182,19 @@ or a new namespace with generated prefix is added.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="446">optional namespace href for the new attribute, or %NULL</doc>
+                 line="444">optional namespace href for the new attribute, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="447">name of the attribute</doc>
+                 line="445">name of the attribute</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="448">value of the attribute</doc>
+                 line="446">value of the attribute</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -40204,7 +40204,7 @@ or a new namespace with generated prefix is added.</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-document.c"
-             line="506">Adds a new attribute with a double value to the current element.
+             line="504">Adds a new attribute with a double value to the current element.
 Use %NULL @ns_href, to use the default namespace, otherwise either previously
 added namespace with the same href from e_xml_document_add_namespaces() is picked,
 or a new namespace with generated prefix is added.</doc>
@@ -40217,7 +40217,7 @@ or a new namespace with generated prefix is added.</doc>
           <instance-parameter name="xml" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="508">an #EXmlDocument</doc>
+                 line="506">an #EXmlDocument</doc>
             <type name="XmlDocument" c:type="EXmlDocument*"/>
           </instance-parameter>
           <parameter name="ns_href"
@@ -40226,19 +40226,19 @@ or a new namespace with generated prefix is added.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="509">optional namespace href for the new attribute, or %NULL</doc>
+                 line="507">optional namespace href for the new attribute, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="510">name of the attribute</doc>
+                 line="508">name of the attribute</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="511">double value of the attribute</doc>
+                 line="509">double value of the attribute</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -40248,7 +40248,7 @@ or a new namespace with generated prefix is added.</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-document.c"
-             line="475">Adds a new attribute with an integer value to the current element.
+             line="473">Adds a new attribute with an integer value to the current element.
 Use %NULL @ns_href, to use the default namespace, otherwise either previously
 added namespace with the same href from e_xml_document_add_namespaces() is picked,
 or a new namespace with generated prefix is added.</doc>
@@ -40261,7 +40261,7 @@ or a new namespace with generated prefix is added.</doc>
           <instance-parameter name="xml" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="477">an #EXmlDocument</doc>
+                 line="475">an #EXmlDocument</doc>
             <type name="XmlDocument" c:type="EXmlDocument*"/>
           </instance-parameter>
           <parameter name="ns_href"
@@ -40270,19 +40270,19 @@ or a new namespace with generated prefix is added.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="478">optional namespace href for the new attribute, or %NULL</doc>
+                 line="476">optional namespace href for the new attribute, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="479">name of the attribute</doc>
+                 line="477">name of the attribute</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="480">integer value of the attribute</doc>
+                 line="478">integer value of the attribute</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -40292,7 +40292,7 @@ or a new namespace with generated prefix is added.</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-document.c"
-             line="537">Adds a new attribute with a time_t value in ISO 8601 format to the current element.
+             line="535">Adds a new attribute with a time_t value in ISO 8601 format to the current element.
 The format is "YYYY-MM-DDTHH:MM:SSZ".
 Use %NULL @ns_href, to use the default namespace, otherwise either previously
 added namespace with the same href from e_xml_document_add_namespaces() is picked,
@@ -40306,7 +40306,7 @@ or a new namespace with generated prefix is added.</doc>
           <instance-parameter name="xml" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="539">an #EXmlDocument</doc>
+                 line="537">an #EXmlDocument</doc>
             <type name="XmlDocument" c:type="EXmlDocument*"/>
           </instance-parameter>
           <parameter name="ns_href"
@@ -40315,19 +40315,19 @@ or a new namespace with generated prefix is added.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="540">optional namespace href for the new attribute, or %NULL</doc>
+                 line="538">optional namespace href for the new attribute, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="541">name of the attribute</doc>
+                 line="539">name of the attribute</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="542">time_t value of the attribute</doc>
+                 line="540">time_t value of the attribute</doc>
             <type name="glong" c:type="time_t"/>
           </parameter>
         </parameters>
@@ -40337,7 +40337,7 @@ or a new namespace with generated prefix is added.</doc>
               version="3.32">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-document.c"
-             line="572">Adds a new attribute with a time_t value in iCalendar format to the current element.
+             line="570">Adds a new attribute with a time_t value in iCalendar format to the current element.
 The format is "YYYYMMDDTHHMMSSZ".
 Use %NULL @ns_href, to use the default namespace, otherwise either previously
 added namespace with the same href from e_xml_document_add_namespaces() is picked,
@@ -40351,7 +40351,7 @@ or a new namespace with generated prefix is added.</doc>
           <instance-parameter name="xml" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="574">an #EXmlDocument</doc>
+                 line="572">an #EXmlDocument</doc>
             <type name="XmlDocument" c:type="EXmlDocument*"/>
           </instance-parameter>
           <parameter name="ns_href"
@@ -40360,19 +40360,19 @@ or a new namespace with generated prefix is added.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="575">optional namespace href for the new attribute, or %NULL</doc>
+                 line="573">optional namespace href for the new attribute, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="576">name of the attribute</doc>
+                 line="574">name of the attribute</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="577">time_t value of the attribute</doc>
+                 line="575">time_t value of the attribute</doc>
             <type name="glong" c:type="time_t"/>
           </parameter>
         </parameters>
@@ -40382,7 +40382,7 @@ or a new namespace with generated prefix is added.</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-document.c"
-             line="416">Adds an empty element, which is an element with no attribute and no value.
+             line="414">Adds an empty element, which is an element with no attribute and no value.
 
 It's the same as calling e_xml_document_start_element() immediately
 followed by e_xml_document_end_element().</doc>
@@ -40395,7 +40395,7 @@ followed by e_xml_document_end_element().</doc>
           <instance-parameter name="xml" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="418">an #EXmlDocument</doc>
+                 line="416">an #EXmlDocument</doc>
             <type name="XmlDocument" c:type="EXmlDocument*"/>
           </instance-parameter>
           <parameter name="ns_href"
@@ -40404,13 +40404,13 @@ followed by e_xml_document_end_element().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="419">optional namespace href for the new element, or %NULL</doc>
+                 line="417">optional namespace href for the new element, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="420">name of the new element</doc>
+                 line="418">name of the new element</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -40421,7 +40421,7 @@ followed by e_xml_document_end_element().</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-document.c"
-             line="184">Adds one or more namespaces to @xml, which can be referenced
+             line="182">Adds one or more namespaces to @xml, which can be referenced
 later by @ns_href. The caller should take care that neither
 used @ns_prefix, nor @ns_href, is already used by @xml.</doc>
         <source-position filename="src/libedataserver/e-xml-document.h"
@@ -40433,25 +40433,25 @@ used @ns_prefix, nor @ns_href, is already used by @xml.</doc>
           <instance-parameter name="xml" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="186">an #EXmlDocument</doc>
+                 line="184">an #EXmlDocument</doc>
             <type name="XmlDocument" c:type="EXmlDocument*"/>
           </instance-parameter>
           <parameter name="ns_prefix" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="187">namespace prefix to use for this namespace</doc>
+                 line="185">namespace prefix to use for this namespace</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="ns_href" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="188">namespace href</doc>
+                 line="186">namespace href</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="189">%NULL-terminated pairs of (ns_prefix, ns_href)</doc>
+                 line="187">%NULL-terminated pairs of (ns_prefix, ns_href)</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -40461,7 +40461,7 @@ used @ns_prefix, nor @ns_href, is already used by @xml.</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-document.c"
-             line="396">This is a pair function for e_xml_document_start_element() and
+             line="394">This is a pair function for e_xml_document_start_element() and
 e_xml_document_start_text_element(), which changes current
 element to the parent of that element.</doc>
         <source-position filename="src/libedataserver/e-xml-document.h"
@@ -40473,7 +40473,7 @@ element to the parent of that element.</doc>
           <instance-parameter name="xml" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="398">an #EXmlDocument</doc>
+                 line="396">an #EXmlDocument</doc>
             <type name="XmlDocument" c:type="EXmlDocument*"/>
           </instance-parameter>
         </parameters>
@@ -40539,7 +40539,7 @@ nul character.</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-document.c"
-             line="336">Starts a new non-text element as a child of the current element.
+             line="334">Starts a new non-text element as a child of the current element.
 Each such call should be ended with corresponding e_xml_document_end_element().
 Use %NULL @ns_href, to use the default namespace, otherwise either previously
 added namespace with the same href from e_xml_document_add_namespaces() is picked,
@@ -40555,7 +40555,7 @@ To start a text node use e_xml_document_start_text_element().</doc>
           <instance-parameter name="xml" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="338">an #EXmlDocument</doc>
+                 line="336">an #EXmlDocument</doc>
             <type name="XmlDocument" c:type="EXmlDocument*"/>
           </instance-parameter>
           <parameter name="ns_href"
@@ -40564,13 +40564,13 @@ To start a text node use e_xml_document_start_text_element().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="339">optional namespace href for the new element, or %NULL</doc>
+                 line="337">optional namespace href for the new element, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="340">name of the new element</doc>
+                 line="338">name of the new element</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -40580,7 +40580,7 @@ To start a text node use e_xml_document_start_text_element().</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-document.c"
-             line="366">Starts a new text element as a child of the current element.
+             line="364">Starts a new text element as a child of the current element.
 Each such call should be ended with corresponding e_xml_document_end_element().
 Use %NULL @ns_href, to use the default namespace, otherwise either previously
 added namespace with the same href from e_xml_document_add_namespaces() is picked,
@@ -40596,7 +40596,7 @@ To start a non-text node use e_xml_document_start_element().</doc>
           <instance-parameter name="xml" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="368">an #EXmlDocument</doc>
+                 line="366">an #EXmlDocument</doc>
             <type name="XmlDocument" c:type="EXmlDocument*"/>
           </instance-parameter>
           <parameter name="ns_href"
@@ -40605,13 +40605,13 @@ To start a non-text node use e_xml_document_start_element().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="369">optional namespace href for the new element, or %NULL</doc>
+                 line="367">optional namespace href for the new element, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="370">name of the new element</doc>
+                 line="368">name of the new element</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -40621,7 +40621,7 @@ To start a non-text node use e_xml_document_start_element().</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-document.c"
-             line="657">Writes @value of length @len, encoded to base64, as content of the current element.</doc>
+             line="655">Writes @value of length @len, encoded to base64, as content of the current element.</doc>
         <source-position filename="src/libedataserver/e-xml-document.h"
                          line="126"/>
         <return-value transfer-ownership="none">
@@ -40631,19 +40631,19 @@ To start a non-text node use e_xml_document_start_element().</doc>
           <instance-parameter name="xml" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="659">an #EXmlDocument</doc>
+                 line="657">an #EXmlDocument</doc>
             <type name="XmlDocument" c:type="EXmlDocument*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="660">value to write as the content</doc>
+                 line="658">value to write as the content</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="661">length of @value</doc>
+                 line="659">length of @value</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -40653,7 +40653,7 @@ To start a non-text node use e_xml_document_start_element().</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-document.c"
-             line="732">Writes @value of length @len as content of the current element.</doc>
+             line="730">Writes @value of length @len as content of the current element.</doc>
         <source-position filename="src/libedataserver/e-xml-document.h"
                          line="133"/>
         <return-value transfer-ownership="none">
@@ -40663,19 +40663,19 @@ To start a non-text node use e_xml_document_start_element().</doc>
           <instance-parameter name="xml" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="734">an #EXmlDocument</doc>
+                 line="732">an #EXmlDocument</doc>
             <type name="XmlDocument" c:type="EXmlDocument*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="735">value to write as the content</doc>
+                 line="733">value to write as the content</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="736">length of @value</doc>
+                 line="734">length of @value</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -40685,7 +40685,7 @@ To start a non-text node use e_xml_document_start_element().</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-document.c"
-             line="634">Writes @value as content of the current element.</doc>
+             line="632">Writes @value as content of the current element.</doc>
         <source-position filename="src/libedataserver/e-xml-document.h"
                          line="124"/>
         <return-value transfer-ownership="none">
@@ -40695,13 +40695,13 @@ To start a non-text node use e_xml_document_start_element().</doc>
           <instance-parameter name="xml" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="636">an #EXmlDocument</doc>
+                 line="634">an #EXmlDocument</doc>
             <type name="XmlDocument" c:type="EXmlDocument*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="637">value to write as the content</doc>
+                 line="635">value to write as the content</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -40711,7 +40711,7 @@ To start a non-text node use e_xml_document_start_element().</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-document.c"
-             line="611">Writes @value as content of the current element.</doc>
+             line="609">Writes @value as content of the current element.</doc>
         <source-position filename="src/libedataserver/e-xml-document.h"
                          line="122"/>
         <return-value transfer-ownership="none">
@@ -40721,13 +40721,13 @@ To start a non-text node use e_xml_document_start_element().</doc>
           <instance-parameter name="xml" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="613">an #EXmlDocument</doc>
+                 line="611">an #EXmlDocument</doc>
             <type name="XmlDocument" c:type="EXmlDocument*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="614">value to write as the content</doc>
+                 line="612">value to write as the content</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -40737,7 +40737,7 @@ To start a non-text node use e_xml_document_start_element().</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-document.c"
-             line="710">Writes @value as content of the current element.</doc>
+             line="708">Writes @value as content of the current element.</doc>
         <source-position filename="src/libedataserver/e-xml-document.h"
                          line="131"/>
         <return-value transfer-ownership="none">
@@ -40747,13 +40747,13 @@ To start a non-text node use e_xml_document_start_element().</doc>
           <instance-parameter name="xml" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="712">an #EXmlDocument</doc>
+                 line="710">an #EXmlDocument</doc>
             <type name="XmlDocument" c:type="EXmlDocument*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="713">value to write as the content</doc>
+                 line="711">value to write as the content</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -40763,7 +40763,7 @@ To start a non-text node use e_xml_document_start_element().</doc>
               version="3.26">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-document.c"
-             line="683">Writes @value in ISO 8601 format as content of the current element.
+             line="681">Writes @value in ISO 8601 format as content of the current element.
 The format is "YYYY-MM-DDTHH:MM:SSZ".</doc>
         <source-position filename="src/libedataserver/e-xml-document.h"
                          line="129"/>
@@ -40774,13 +40774,13 @@ The format is "YYYY-MM-DDTHH:MM:SSZ".</doc>
           <instance-parameter name="xml" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="685">an #EXmlDocument</doc>
+                 line="683">an #EXmlDocument</doc>
             <type name="XmlDocument" c:type="EXmlDocument*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserver/e-xml-document.c"
-                 line="686">value to write as the content</doc>
+                 line="684">value to write as the content</doc>
             <type name="glong" c:type="time_t"/>
           </parameter>
         </parameters>
@@ -45166,7 +45166,7 @@ when it's done with it.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-data-server-util.c"
-           line="3068">Calls malloc_trim() to free unused heap memory. The function
+           line="3069">Calls malloc_trim() to free unused heap memory. The function
 does nothing, when the malloc_trim() is not available.
 
 This might be called after some operations which may use a lot
@@ -45220,7 +45220,7 @@ When the @collection_source is %NULL, then it simply returns %FALSE.</doc>
               version="3.46">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-data-server-util.c"
-           line="2997">Changes component @component in the @inout_uri to value @value.
+           line="2998">Changes component @component in the @inout_uri to value @value.
 As the #GUri cannot be modified the @inout_uri points to a new #GUri
 at the end of the call and the previous structure is unreffed.
 
@@ -45237,13 +45237,13 @@ See: e_util_change_uri_port()</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-data-server-util.c"
-               line="2999">a #GUri</doc>
+               line="3000">a #GUri</doc>
           <type name="GLib.Uri" c:type="GUri**"/>
         </parameter>
         <parameter name="component" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-data-server-util.c"
-               line="3000">a string #SoupURIComponent to change</doc>
+               line="3001">a string #SoupURIComponent to change</doc>
           <type name="Soup.URIComponent" c:type="SoupURIComponent"/>
         </parameter>
         <parameter name="value"
@@ -45252,7 +45252,7 @@ See: e_util_change_uri_port()</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-data-server-util.c"
-               line="3001">a value to set, or %NULL to unset</doc>
+               line="3002">a value to set, or %NULL to unset</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -45262,7 +45262,7 @@ See: e_util_change_uri_port()</doc>
               version="3.46">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-data-server-util.c"
-           line="3041">Changes the port in the @inout_uri to value @port.
+           line="3042">Changes the port in the @inout_uri to value @port.
 As the #GUri cannot be modified the @inout_uri points to a new #GUri
 at the end of the call and the previous structure is unreffed.
 
@@ -45279,13 +45279,13 @@ See: e_util_change_uri_component()</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-data-server-util.c"
-               line="3043">a #GUri</doc>
+               line="3044">a #GUri</doc>
           <type name="GLib.Uri" c:type="GUri**"/>
         </parameter>
         <parameter name="port" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-data-server-util.c"
-               line="3044">the port number to set</doc>
+               line="3045">the port number to set</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -45616,7 +45616,7 @@ Free the returned string with g_free(), when no longer needed.</doc>
               version="3.40">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-data-server-util.c"
-           line="2962">The @main_path is a directory, which will be always used. It
+           line="2963">The @main_path is a directory, which will be always used. It
 should have as its prefix the @replace_prefix, otherwise
 the function returns only the @main_path in the paths array.
 
@@ -45632,7 +45632,7 @@ g_get_user_data_dir() + "evolution/modules/", aka
       <return-value transfer-ownership="container">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-data-server-util.c"
-             line="2980">a %GPtrArray
+             line="2981">a %GPtrArray
    with paths to use, including the @main_path. Free it with
    g_ptr_array_unref(), when no longer needed.</doc>
         <array name="GLib.PtrArray" c:type="GPtrArray*">
@@ -45643,19 +45643,19 @@ g_get_user_data_dir() + "evolution/modules/", aka
         <parameter name="main_path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-data-server-util.c"
-               line="2964">the main path to work with</doc>
+               line="2965">the main path to work with</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="replace_prefix" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-data-server-util.c"
-               line="2965">path prefix to replace</doc>
+               line="2966">path prefix to replace</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="with_modules_dir" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-data-server-util.c"
-               line="2966">whether to add also the modules directory</doc>
+               line="2967">whether to add also the modules directory</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
       </parameters>
@@ -45730,6 +45730,37 @@ reused after a thread has terminated, though.</doc>
                filename="src/libedataserver/e-data-server-util.c"
                line="882">A #GThread pointer</doc>
           <type name="GLib.Thread" c:type="GThread*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="util_guess_source_is_readonly"
+              c:identifier="e_util_guess_source_is_readonly"
+              version="3.50">
+      <doc xml:space="preserve"
+           filename="src/libedataserver/e-data-server-util.c"
+           line="3088">Guesses whether the @source is read only. This is done on some heuristic
+like the source backend, where some are known to be read only. That this
+function returns %FALSE does not necessarily mean the source is writable,
+it only means the source is not well-known read-only source. To know
+for sure open the corresponding #EClient, if the @source references such,
+and use e_client_is_readonly().</doc>
+      <source-position filename="src/libedataserver/e-data-server-util.h"
+                       line="266"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/libedataserver/e-data-server-util.c"
+             line="3099">%TRUE, when the @source is well-known read-only source, or %FALSE otherwise</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="source"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="src/libedataserver/e-data-server-util.c"
+               line="3090">an #ESource</doc>
+          <type name="gpointer" c:type="_ESource*"/>
         </parameter>
       </parameters>
     </function>
@@ -45825,7 +45856,7 @@ Note: Pair function for this is e_util_strv_to_slist().</doc>
               version="3.40">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-data-server-util.c"
-           line="2899">Compares two #ESource-s in a way suitable for user interface.
+           line="2900">Compares two #ESource-s in a way suitable for user interface.
 It can be used as a #GCompareFunc.
 
 This is also used by e_source_registry_build_display_tree().</doc>
@@ -45834,7 +45865,7 @@ This is also used by e_source_registry_build_display_tree().</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-data-server-util.c"
-             line="2909">an integer less than, equal to, or greater than zero,
+             line="2910">an integer less than, equal to, or greater than zero,
    if @source_a is &lt;, == or &gt; than @source_b.</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
@@ -45845,7 +45876,7 @@ This is also used by e_source_registry_build_display_tree().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-data-server-util.c"
-               line="2901">the first #ESource</doc>
+               line="2902">the first #ESource</doc>
           <type name="gpointer" c:type="_ESource*"/>
         </parameter>
         <parameter name="source_b"
@@ -45854,7 +45885,7 @@ This is also used by e_source_registry_build_display_tree().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-data-server-util.c"
-               line="2902">the second #ESource</doc>
+               line="2903">the second #ESource</doc>
           <type name="gpointer" c:type="_ESource*"/>
         </parameter>
       </parameters>
@@ -47051,7 +47082,7 @@ or e_webdav_resource_copy(). The function does nothing, if @ptr is %NULL.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-xml-utils.c"
-           line="596">Duplicates content of the @node. If the @node is %NULL, then the
+           line="597">Duplicates content of the @node. If the @node is %NULL, then the
 function does nothing and returns also %NULL.
 
 Unlike e_xml_get_node_text(), this includes also any element sub-structure
@@ -47060,7 +47091,7 @@ of the @node, if any such exists.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-utils.c"
-             line="606">the @node content as #xmlChar string,
+             line="607">the @node content as #xmlChar string,
    or %NULL, when the content could not be read or was not set. Free
    the non-%NULL value with xmlFree(), when no longer needed.
 
@@ -47074,7 +47105,7 @@ See: e_xml_find_child_and_dup_content(), e_xml_get_node_text()</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="598">an #xmlNode</doc>
+               line="599">an #xmlNode</doc>
           <type name="libxml2.Node" c:type="const xmlNode*"/>
         </parameter>
       </parameters>
@@ -47085,12 +47116,12 @@ See: e_xml_find_child_and_dup_content(), e_xml_get_node_text()</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-xml-utils.c"
-           line="570">Searches the children nodes of the @parent for an element named @name in namespace @ns_href.</doc>
+           line="571">Searches the children nodes of the @parent for an element named @name in namespace @ns_href.</doc>
       <source-position filename="src/libedataserver/e-xml-utils.h" line="71"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-utils.c"
-             line="578">an #xmlNode of the given name, or %NULL, if not found.
+             line="579">an #xmlNode of the given name, or %NULL, if not found.
    It also returns %NULL, when the @parent is %NULL.
 
 See: e_xml_find_sibling(), e_xml_find_children_nodes()</doc>
@@ -47103,7 +47134,7 @@ See: e_xml_find_sibling(), e_xml_find_children_nodes()</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="572">an #xmlNode, parent of which immediate children to search</doc>
+               line="573">an #xmlNode, parent of which immediate children to search</doc>
           <type name="libxml2.Node" c:type="xmlNode*"/>
         </parameter>
         <parameter name="ns_href"
@@ -47112,13 +47143,13 @@ See: e_xml_find_sibling(), e_xml_find_children_nodes()</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="573">a namespace href the node should have set, or %NULL for none namespace</doc>
+               line="574">a namespace href the node should have set, or %NULL for none namespace</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="574">an element name to search for</doc>
+               line="575">an element name to search for</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -47129,13 +47160,13 @@ See: e_xml_find_sibling(), e_xml_find_children_nodes()</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-xml-utils.c"
-           line="623">Searches the children nodes of the @parent for an element named @name in namespace @ns_href
+           line="624">Searches the children nodes of the @parent for an element named @name in namespace @ns_href
 and returns its content. This combines e_xml_find_child() and e_xml_dup_node_content() calls.</doc>
       <source-position filename="src/libedataserver/e-xml-utils.h" line="75"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-utils.c"
-             line="632">the found node content as #xmlChar string,
+             line="633">the found node content as #xmlChar string,
    or %NULL, when the node could not be found or the content could not be read
    or was not set. Free the non-%NULL value with xmlFree(), when no longer needed.
 
@@ -47149,7 +47180,7 @@ See: e_xml_find_child_and_get_text()</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="625">an #xmlNode, parent of which immediate children to search</doc>
+               line="626">an #xmlNode, parent of which immediate children to search</doc>
           <type name="libxml2.Node" c:type="xmlNode*"/>
         </parameter>
         <parameter name="ns_href"
@@ -47158,13 +47189,13 @@ See: e_xml_find_child_and_get_text()</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="626">a namespace href the node should have set, or %NULL for none namespace</doc>
+               line="627">a namespace href the node should have set, or %NULL for none namespace</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="627">an element name to search for</doc>
+               line="628">an element name to search for</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -47175,7 +47206,7 @@ See: e_xml_find_child_and_get_text()</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-xml-utils.c"
-           line="693">Searches the children nodes of the @parent for an element named @name in namespace @ns_href
+           line="694">Searches the children nodes of the @parent for an element named @name in namespace @ns_href
 and returns its text content.
 
 It combines e_xml_find_child() and e_xml_get_node_text() calls.</doc>
@@ -47183,7 +47214,7 @@ It combines e_xml_find_child() and e_xml_get_node_text() calls.</doc>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-utils.c"
-             line="704">the found node text as #xmlChar string,
+             line="705">the found node text as #xmlChar string,
    or %NULL, when the node could not be found or the content could not be read
    or was not set.
 
@@ -47197,7 +47228,7 @@ See: e_xml_find_child_and_dup_content(), e_xml_find_children_nodes()</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="695">an #xmlNode, parent of which immediate children to search</doc>
+               line="696">an #xmlNode, parent of which immediate children to search</doc>
           <type name="libxml2.Node" c:type="xmlNode*"/>
         </parameter>
         <parameter name="ns_href"
@@ -47206,13 +47237,13 @@ See: e_xml_find_child_and_dup_content(), e_xml_find_children_nodes()</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="696">a namespace href the node should have set, or %NULL for none namespace</doc>
+               line="697">a namespace href the node should have set, or %NULL for none namespace</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="697">an element name to search for</doc>
+               line="698">an element name to search for</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -47223,7 +47254,7 @@ See: e_xml_find_child_and_dup_content(), e_xml_find_children_nodes()</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-xml-utils.c"
-           line="727">Retrieve multiple nodes in one go, in an efficient way. It can be
+           line="728">Retrieve multiple nodes in one go, in an efficient way. It can be
 quicker than traversing the children of the @parent @count times
 in certain circumstances.
 
@@ -47242,19 +47273,19 @@ The names should not be included more than once.</doc>
         <parameter name="parent" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="729">an #xmlNode, whose children to search</doc>
+               line="730">an #xmlNode, whose children to search</doc>
           <type name="libxml2.Node" c:type="xmlNode*"/>
         </parameter>
         <parameter name="count" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="730">how many nodes will be read</doc>
+               line="731">how many nodes will be read</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="731">triple of arguments describing the nodes and their out variable</doc>
+               line="732">triple of arguments describing the nodes and their out variable</doc>
           <varargs/>
         </parameter>
       </parameters>
@@ -47265,7 +47296,7 @@ The names should not be included more than once.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-xml-utils.c"
-           line="793">Checks whether the @parent has a hierarchy of children described by pair
+           line="794">Checks whether the @parent has a hierarchy of children described by pair
 of 'ns_href' and 'name'.
 
 Note: It requires two %NULL-s at the end of the arguments, because the `ns_href' can
@@ -47275,7 +47306,7 @@ Note: It requires two %NULL-s at the end of the arguments, because the `ns_href'
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-utils.c"
-             line="807">an #xmlNode referencing the node in the hierarchy
+             line="808">an #xmlNode referencing the node in the hierarchy
    of the children of the @parent, or %NULL, when no such found.</doc>
         <type name="libxml2.Node" c:type="xmlNode*"/>
       </return-value>
@@ -47286,7 +47317,7 @@ Note: It requires two %NULL-s at the end of the arguments, because the `ns_href'
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="795">an #xmlNode, or %NULL, in which case function does nothing and just returns %NULL</doc>
+               line="796">an #xmlNode, or %NULL, in which case function does nothing and just returns %NULL</doc>
           <type name="libxml2.Node" c:type="xmlNode*"/>
         </parameter>
         <parameter name="child_ns_href"
@@ -47295,19 +47326,19 @@ Note: It requires two %NULL-s at the end of the arguments, because the `ns_href'
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="796">a namespace href the node should have set, or %NULL for none namespace</doc>
+               line="797">a namespace href the node should have set, or %NULL for none namespace</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="child_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="797">an element name to search for</doc>
+               line="798">an element name to search for</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="798">a two-%NULL-terminated pair of hierarchy children</doc>
+               line="799">a two-%NULL-terminated pair of hierarchy children</doc>
           <varargs/>
         </parameter>
       </parameters>
@@ -47318,13 +47349,13 @@ Note: It requires two %NULL-s at the end of the arguments, because the `ns_href'
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-xml-utils.c"
-           line="543">Searches for the next sibling node of the @sibling for an element named @name in namespace @ns_href.
+           line="544">Searches for the next sibling node of the @sibling for an element named @name in namespace @ns_href.
 Unlike e_xml_find_sibling(), it skips the @sibling itself.</doc>
       <source-position filename="src/libedataserver/e-xml-utils.h" line="68"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-utils.c"
-             line="552">an #xmlNode of the given name, or %NULL, if not found
+             line="553">an #xmlNode of the given name, or %NULL, if not found
    It also returns %NULL, when the @sibling is %NULL.
 
 See: e_xml_find_sibling(), e_xml_find_child()</doc>
@@ -47337,7 +47368,7 @@ See: e_xml_find_sibling(), e_xml_find_child()</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="545">an #xmlNode, where to search from</doc>
+               line="546">an #xmlNode, where to search from</doc>
           <type name="libxml2.Node" c:type="xmlNode*"/>
         </parameter>
         <parameter name="ns_href"
@@ -47346,13 +47377,13 @@ See: e_xml_find_sibling(), e_xml_find_child()</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="546">a namespace href the node should have set, or %NULL for none namespace</doc>
+               line="547">a namespace href the node should have set, or %NULL for none namespace</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="547">an element name to search for</doc>
+               line="548">an element name to search for</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -47363,13 +47394,13 @@ See: e_xml_find_sibling(), e_xml_find_child()</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-xml-utils.c"
-           line="512">Searches the sibling nodes of the @sibling for an element named @name in namespace @ns_href.
+           line="513">Searches the sibling nodes of the @sibling for an element named @name in namespace @ns_href.
 It checks the @sibling itself too, but it doesn't check the previous siblings of the @sibling.</doc>
       <source-position filename="src/libedataserver/e-xml-utils.h" line="65"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-utils.c"
-             line="521">an #xmlNode of the given name, or %NULL, if not found
+             line="522">an #xmlNode of the given name, or %NULL, if not found
    It also returns %NULL, when the @sibling is %NULL.
 
 See: e_xml_find_next_sibling(), e_xml_find_child()</doc>
@@ -47382,7 +47413,7 @@ See: e_xml_find_next_sibling(), e_xml_find_child()</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="514">an #xmlNode, where to start searching</doc>
+               line="515">an #xmlNode, where to start searching</doc>
           <type name="libxml2.Node" c:type="xmlNode*"/>
         </parameter>
         <parameter name="ns_href"
@@ -47391,13 +47422,13 @@ See: e_xml_find_next_sibling(), e_xml_find_child()</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="515">a namespace href the node should have set, or %NULL for none namespace</doc>
+               line="516">a namespace href the node should have set, or %NULL for none namespace</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="516">an element name to search for</doc>
+               line="517">an element name to search for</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -47446,26 +47477,26 @@ to build an equivalent #xmlDoc. This is the reverse of e_xml_to_hash().</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-xml-utils.c"
-           line="178">Attempts to find a child element of @parent named @child_name.
+           line="179">Attempts to find a child element of @parent named @child_name.
 If no such child exists, the function returns %NULL.</doc>
       <source-position filename="src/libedataserver/e-xml-utils.h" line="37"/>
       <return-value nullable="1">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-utils.c"
-             line="186">a child XML node structure, or %NULL</doc>
+             line="187">a child XML node structure, or %NULL</doc>
         <type name="libxml2.Node" c:type="xmlNode*"/>
       </return-value>
       <parameters>
         <parameter name="parent" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="180">an XML node structure</doc>
+               line="181">an XML node structure</doc>
           <type name="libxml2.Node" c:type="const xmlNode*"/>
         </parameter>
         <parameter name="child_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="181">element name of a child node</doc>
+               line="182">element name of a child node</doc>
           <type name="libxml2.Char" c:type="const xmlChar*"/>
         </parameter>
       </parameters>
@@ -47476,7 +47507,7 @@ If no such child exists, the function returns %NULL.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-xml-utils.c"
-           line="655">Retrieves content of the @node. If the @node is %NULL, then the
+           line="656">Retrieves content of the @node. If the @node is %NULL, then the
 function does nothing and returns also %NULL.
 
 This is similar to e_xml_dup_node_content(), except it does not
@@ -47488,7 +47519,7 @@ reading element values with a single text node as a child.</doc>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-utils.c"
-             line="668">The @node content, or %NULL.
+             line="669">The @node content, or %NULL.
 
 See: e_xml_dup_node_content()</doc>
         <type name="libxml2.Char" c:type="const xmlChar*"/>
@@ -47500,7 +47531,7 @@ See: e_xml_dup_node_content()</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="657">an #xmlNode</doc>
+               line="658">an #xmlNode</doc>
           <type name="libxml2.Node" c:type="const xmlNode*"/>
         </parameter>
       </parameters>
@@ -47511,7 +47542,7 @@ See: e_xml_dup_node_content()</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-xml-utils.c"
-           line="42">Initializes libxml library global memory. This should be called
+           line="43">Initializes libxml library global memory. This should be called
 in the main thread. The function does nothing, when it had been
 called already.</doc>
       <source-position filename="src/libedataserver/e-xml-utils.h" line="32"/>
@@ -47527,7 +47558,7 @@ called already.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-utils.c"
-             line="480">Whether the @node is an element node of name @name and with a namespace href set to @ns_href</doc>
+             line="481">Whether the @node is an element node of name @name and with a namespace href set to @ns_href</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
@@ -47537,7 +47568,7 @@ called already.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="476">an #xmlNode</doc>
+               line="477">an #xmlNode</doc>
           <type name="libxml2.Node" c:type="xmlNode*"/>
         </parameter>
         <parameter name="ns_href"
@@ -47546,13 +47577,13 @@ called already.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="477">a namespace href the node should have set, or %NULL for none namespace</doc>
+               line="478">a namespace href the node should have set, or %NULL for none namespace</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="478">an element name to search for</doc>
+               line="479">an element name to search for</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -47563,14 +47594,14 @@ called already.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-xml-utils.c"
-           line="228">Creates a new #xmlXPathContextPtr on @doc with preregistered
+           line="229">Creates a new #xmlXPathContextPtr on @doc with preregistered
 namespaces. The namepsaces are pair of (prefix, href), terminated
 by %NULL.</doc>
       <source-position filename="src/libedataserver/e-xml-utils.h" line="43"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-utils.c"
-             line="237">a new #xmlXPathContextPtr. Free the returned
+             line="238">a new #xmlXPathContextPtr. Free the returned
    pointer with xmlXPathFreeContext() when no longer needed.</doc>
         <type c:type="xmlXPathContext*"/>
       </return-value>
@@ -47578,13 +47609,13 @@ by %NULL.</doc>
         <parameter name="doc" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="230">an #xmlDocPtr</doc>
+               line="231">an #xmlDocPtr</doc>
           <type name="libxml2.Doc" c:type="xmlDoc*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="231">%NULL-terminated list of pairs (prefix, href) with namespaces</doc>
+               line="232">%NULL-terminated list of pairs (prefix, href) with namespaces</doc>
           <varargs/>
         </parameter>
       </parameters>
@@ -47595,13 +47626,13 @@ by %NULL.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-xml-utils.c"
-           line="205">Parses XML data into an #xmlDocPtr. Free returned pointer
+           line="206">Parses XML data into an #xmlDocPtr. Free returned pointer
 with xmlFreeDoc(), when no longer needed.</doc>
       <source-position filename="src/libedataserver/e-xml-utils.h" line="40"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-utils.c"
-             line="213">a new #xmlDocPtr with parsed @data,
+             line="214">a new #xmlDocPtr with parsed @data,
    or %NULL on error.</doc>
         <type name="libxml2.Doc" c:type="xmlDoc*"/>
       </return-value>
@@ -47609,7 +47640,7 @@ with xmlFreeDoc(), when no longer needed.</doc>
         <parameter name="data" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="207">an XML data</doc>
+               line="208">an XML data</doc>
           <array length="1" zero-terminated="0" c:type="gconstpointer">
             <type name="guint8"/>
           </array>
@@ -47617,7 +47648,7 @@ with xmlFreeDoc(), when no longer needed.</doc>
         <parameter name="length" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="208">length of data, should be greated than zero</doc>
+               line="209">length of data, should be greated than zero</doc>
           <type name="gsize" c:type="gsize"/>
         </parameter>
       </parameters>
@@ -47627,21 +47658,21 @@ with xmlFreeDoc(), when no longer needed.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-xml-utils.c"
-           line="65">Reads a local XML file and parses the contents into an XML document
+           line="66">Reads a local XML file and parses the contents into an XML document
 structure.  If the XML file cannot be read or its contents are malformed,
 the function returns %NULL.</doc>
       <source-position filename="src/libedataserver/e-xml-utils.h" line="34"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-utils.c"
-             line="73">an XML document structure, or %NULL</doc>
+             line="74">an XML document structure, or %NULL</doc>
         <type name="libxml2.Doc" c:type="xmlDoc*"/>
       </return-value>
       <parameters>
         <parameter name="filename" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="67">path to an XML file</doc>
+               line="68">path to an XML file</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -47649,26 +47680,26 @@ the function returns %NULL.</doc>
     <function name="xml_save_file" c:identifier="e_xml_save_file">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-xml-utils.c"
-           line="93">Writes the given XML document structure to the file given by @filename.
+           line="94">Writes the given XML document structure to the file given by @filename.
 If an error occurs while saving, the function returns -1 and sets errno.</doc>
       <source-position filename="src/libedataserver/e-xml-utils.h" line="35"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-utils.c"
-             line="101">0 on success, -1 on failure</doc>
+             line="102">0 on success, -1 on failure</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
       <parameters>
         <parameter name="filename" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="95">path to a file to save to</doc>
+               line="96">path to a file to save to</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="doc" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="96">an XML document structure</doc>
+               line="97">an XML document structure</doc>
           <type name="libxml2.Doc" c:type="xmlDoc*"/>
         </parameter>
       </parameters>
@@ -47714,7 +47745,7 @@ of @doc.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-xml-utils.c"
-           line="273">Registers one or more additional namespaces. It's a caller's error
+           line="274">Registers one or more additional namespaces. It's a caller's error
 to try to register a namespace with the same prefix again, unless
 the prefix uses the same namespace href.</doc>
       <source-position filename="src/libedataserver/e-xml-utils.h" line="46"/>
@@ -47725,25 +47756,25 @@ the prefix uses the same namespace href.</doc>
         <parameter name="xpath_ctx" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="275">an #xmlXPathContextPtr</doc>
+               line="276">an #xmlXPathContextPtr</doc>
           <type c:type="xmlXPathContext*"/>
         </parameter>
         <parameter name="prefix" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="276">namespace prefix</doc>
+               line="277">namespace prefix</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="href" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="277">namespace href</doc>
+               line="278">namespace href</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="278">%NULL-terminated list of pairs (prefix, href) with additional namespaces</doc>
+               line="279">%NULL-terminated list of pairs (prefix, href) with additional namespaces</doc>
           <varargs/>
         </parameter>
       </parameters>
@@ -47754,14 +47785,14 @@ the prefix uses the same namespace href.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-xml-utils.c"
-           line="329">Evaluates path specified by @format and returns its #xmlXPathObjectPtr,
+           line="330">Evaluates path specified by @format and returns its #xmlXPathObjectPtr,
 in case the path evaluates to a non-empty node set. See also
 e_xml_xpath_eval_as_string() which evaluates the path to string.</doc>
       <source-position filename="src/libedataserver/e-xml-utils.h" line="52"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-utils.c"
-             line="339">a new #xmlXPathObjectPtr which
+             line="340">a new #xmlXPathObjectPtr which
    references given path, or %NULL if path cannot be found or when
    it evaluates to an empty nodeset. Free returned pointer with
    xmlXPathFreeObject(), when no longer needed.</doc>
@@ -47771,19 +47802,19 @@ e_xml_xpath_eval_as_string() which evaluates the path to string.</doc>
         <parameter name="xpath_ctx" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="331">an #xmlXPathContextPtr</doc>
+               line="332">an #xmlXPathContextPtr</doc>
           <type c:type="xmlXPathContext*"/>
         </parameter>
         <parameter name="format" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="332">printf-like format specifier of path to evaluate</doc>
+               line="333">printf-like format specifier of path to evaluate</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="333">arguments for the @format</doc>
+               line="334">arguments for the @format</doc>
           <varargs/>
         </parameter>
       </parameters>
@@ -47794,14 +47825,14 @@ e_xml_xpath_eval_as_string() which evaluates the path to string.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-xml-utils.c"
-           line="377">Evaluates path specified by @format and returns its result as string,
+           line="378">Evaluates path specified by @format and returns its result as string,
 in case the path evaluates to a non-empty node set. See also
 e_xml_xpath_eval() which evaluates the path to an #xmlXPathObjectPtr.</doc>
       <source-position filename="src/libedataserver/e-xml-utils.h" line="55"/>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-utils.c"
-             line="387">a new string which contains value
+             line="388">a new string which contains value
    of the given path, or %NULL if path cannot be found or when
    it evaluates to an empty nodeset. Free returned pointer with
    g_free(), when no longer needed.</doc>
@@ -47811,19 +47842,19 @@ e_xml_xpath_eval() which evaluates the path to an #xmlXPathObjectPtr.</doc>
         <parameter name="xpath_ctx" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="379">an #xmlXPathContextPtr</doc>
+               line="380">an #xmlXPathContextPtr</doc>
           <type c:type="xmlXPathContext*"/>
         </parameter>
         <parameter name="format" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="380">printf-like format specifier of path to evaluate</doc>
+               line="381">printf-like format specifier of path to evaluate</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="381">arguments for the @format</doc>
+               line="382">arguments for the @format</doc>
           <varargs/>
         </parameter>
       </parameters>
@@ -47834,31 +47865,31 @@ e_xml_xpath_eval() which evaluates the path to an #xmlXPathObjectPtr.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/libedataserver/e-xml-utils.c"
-           line="435">Evaluates path specified by @format and returns whether it exists.</doc>
+           line="436">Evaluates path specified by @format and returns whether it exists.</doc>
       <source-position filename="src/libedataserver/e-xml-utils.h" line="58"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-xml-utils.c"
-             line="443">%TRUE, when the given XPath exists, %FALSE otherwise.</doc>
+             line="444">%TRUE, when the given XPath exists, %FALSE otherwise.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="xpath_ctx" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="437">an #xmlXPathContextPtr</doc>
+               line="438">an #xmlXPathContextPtr</doc>
           <type c:type="xmlXPathContext*"/>
         </parameter>
         <parameter name="format" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="438">printf-like format specifier of path to evaluate</doc>
+               line="439">printf-like format specifier of path to evaluate</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserver/e-xml-utils.c"
-               line="439">arguments for the @format</doc>
+               line="440">arguments for the @format</doc>
           <varargs/>
         </parameter>
       </parameters>

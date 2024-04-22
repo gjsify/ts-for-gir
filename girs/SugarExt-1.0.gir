@@ -1,0 +1,2031 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gdk" version="3.0"/>
+  <include name="Gtk" version="3.0"/>
+  <include name="SugarGestures" version="1.0"/>
+  <package name="SugarExt-1.0"/>
+  <namespace name="SugarExt"
+             version="1.0"
+             shared-library="libsugarext.so.0,libsugar-eventcontroller.so.0"
+             c:identifier-prefixes="Sugar,EggSM,Gsm,Acme"
+             c:symbol-prefixes="sugar,egg_sm,gsm,acme">
+    <function-macro name="CLIENT"
+                    c:identifier="EGG_SM_CLIENT"
+                    introspectable="0">
+      <source-position filename="eggsmclient.h" line="28"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLIENT_CLASS"
+                    c:identifier="EGG_SM_CLIENT_CLASS"
+                    introspectable="0">
+      <source-position filename="eggsmclient.h" line="29"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLIENT_GET_CLASS"
+                    c:identifier="EGG_SM_CLIENT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="eggsmclient.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLIENT_XSMP"
+                    c:identifier="EGG_SM_CLIENT_XSMP"
+                    introspectable="0">
+      <source-position filename="eggsmclient-xsmp.h" line="30"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLIENT_XSMP_CLASS"
+                    c:identifier="EGG_SM_CLIENT_XSMP_CLASS"
+                    introspectable="0">
+      <source-position filename="eggsmclient-xsmp.h" line="31"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLIENT_XSMP_GET_CLASS"
+                    c:identifier="EGG_SM_CLIENT_XSMP_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="eggsmclient-xsmp.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CURSOR_TRACKER"
+                    c:identifier="SUGAR_CURSOR_TRACKER"
+                    introspectable="0">
+      <source-position filename="sugar-cursor-tracker.h" line="34"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CURSOR_TRACKER_CLASS"
+                    c:identifier="SUGAR_CURSOR_TRACKER_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-cursor-tracker.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CURSOR_TRACKER_GET_CLASS"
+                    c:identifier="SUGAR_CURSOR_TRACKER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-cursor-tracker.h" line="38"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Client"
+           c:symbol-prefix="client"
+           c:type="EggSMClient"
+           parent="GObject.Object"
+           glib:type-name="EggSMClient"
+           glib:get-type="egg_sm_client_get_type"
+           glib:type-struct="ClientClass">
+      <source-position filename="eggsmclient.h" line="86"/>
+      <function name="end_session" c:identifier="egg_sm_client_end_session">
+        <source-position filename="eggsmclient.h" line="106"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="style" transfer-ownership="none">
+            <type name="ClientEndStyle" c:type="EggSMClientEndStyle"/>
+          </parameter>
+          <parameter name="request_confirmation" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="end_session">
+        <source-position filename="eggsmclient.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="EggSMClient*"/>
+          </instance-parameter>
+          <parameter name="style" transfer-ownership="none">
+            <type name="ClientEndStyle" c:type="EggSMClientEndStyle"/>
+          </parameter>
+          <parameter name="request_confirmation" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="quit">
+        <source-position filename="eggsmclient.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="EggSMClient*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="quit_cancelled">
+        <source-position filename="eggsmclient.h" line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="EggSMClient*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="quit_requested">
+        <source-position filename="eggsmclient.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="EggSMClient*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="save_state">
+        <source-position filename="eggsmclient.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="EggSMClient*"/>
+          </instance-parameter>
+          <parameter name="state_file" transfer-ownership="none">
+            <type name="GLib.KeyFile" c:type="GKeyFile*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_restart_command" invoker="set_restart_command">
+        <doc xml:space="preserve"
+             filename="eggsmclient.c"
+             line="260">Sets the command used to restart @client if it does not have a
+.desktop file that can be used to find its restart command.
+
+This can also be used when handling the ::save_state signal, to
+save the current state via an updated command line. (Eg, providing
+a list of filenames to open when the application is resumed.)</doc>
+        <source-position filename="eggsmclient.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="eggsmclient.c"
+                 line="262">the client</doc>
+            <type name="Client" c:type="EggSMClient*"/>
+          </instance-parameter>
+          <parameter name="argc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="eggsmclient.c"
+                 line="263">the length of @argv</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="argv" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="eggsmclient.c"
+                 line="264">argument vector</doc>
+            <type name="utf8" c:type="const char**"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="startup">
+        <source-position filename="eggsmclient.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="EggSMClient*"/>
+          </instance-parameter>
+          <parameter name="client_id" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="will_quit" invoker="will_quit">
+        <doc xml:space="preserve"
+             filename="eggsmclient.c"
+             line="284">This MUST be called in response to the ::quit_requested signal, to
+indicate whether or not the application is willing to quit. The
+application may call it either directly from the signal handler, or
+at some later point (eg, after asynchronously interacting with the
+user).
+
+If the application does not connect to ::quit_requested,
+#EggSMClient will call this method on its behalf (passing %TRUE
+for @will_quit).
+
+After calling this method, the application should wait to receive
+either ::quit_cancelled or ::quit.</doc>
+        <source-position filename="eggsmclient.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="eggsmclient.c"
+                 line="286">the client</doc>
+            <type name="Client" c:type="EggSMClient*"/>
+          </instance-parameter>
+          <parameter name="will_quit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="eggsmclient.c"
+                 line="287">whether or not the application is willing to quit</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_state_file"
+              c:identifier="egg_sm_client_get_state_file">
+        <doc xml:space="preserve"
+             filename="eggsmclient.c"
+             line="210">If the application was resumed by the session manager, this will
+return the #GKeyFile containing its state from the previous
+session.
+
+Note that other libraries and #EggSMClient itself may also store
+state in the key file, so if you call egg_sm_client_get_groups(),
+on it, the return value will likely include groups that you did not
+put there yourself. (It is also not guaranteed that the first
+group created by the application will still be the "start group"
+when it is resumed.)</doc>
+        <source-position filename="eggsmclient.h" line="92"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="eggsmclient.c"
+               line="225">the #GKeyFile containing the application's earlier
+state, or %NULL on error. You should not free this key file; it
+is owned by @client.</doc>
+          <type name="GLib.KeyFile" c:type="GKeyFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="eggsmclient.c"
+                 line="212">the client</doc>
+            <type name="Client" c:type="EggSMClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="is_resumed" c:identifier="egg_sm_client_is_resumed">
+        <doc xml:space="preserve"
+             filename="eggsmclient.c"
+             line="193">Checks whether or not the current session has been resumed from
+a previous saved session. If so, the application should call
+egg_sm_client_get_state_file() and restore its state from the
+returned #GKeyFile.</doc>
+        <source-position filename="eggsmclient.h" line="91"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="eggsmclient.c"
+               line="202">%TRUE if the session has been resumed</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="eggsmclient.c"
+                 line="195">the client</doc>
+            <type name="Client" c:type="EggSMClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_restart_command"
+              c:identifier="egg_sm_client_set_restart_command">
+        <doc xml:space="preserve"
+             filename="eggsmclient.c"
+             line="260">Sets the command used to restart @client if it does not have a
+.desktop file that can be used to find its restart command.
+
+This can also be used when handling the ::save_state signal, to
+save the current state via an updated command line. (Eg, providing
+a list of filenames to open when the application is resumed.)</doc>
+        <source-position filename="eggsmclient.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="eggsmclient.c"
+                 line="262">the client</doc>
+            <type name="Client" c:type="EggSMClient*"/>
+          </instance-parameter>
+          <parameter name="argc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="eggsmclient.c"
+                 line="263">the length of @argv</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="argv" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="eggsmclient.c"
+                 line="264">argument vector</doc>
+            <type name="utf8" c:type="const char**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="startup" c:identifier="egg_sm_client_startup">
+        <source-position filename="eggsmclient.h" line="103"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="EggSMClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="will_quit" c:identifier="egg_sm_client_will_quit">
+        <doc xml:space="preserve"
+             filename="eggsmclient.c"
+             line="284">This MUST be called in response to the ::quit_requested signal, to
+indicate whether or not the application is willing to quit. The
+application may call it either directly from the signal handler, or
+at some later point (eg, after asynchronously interacting with the
+user).
+
+If the application does not connect to ::quit_requested,
+#EggSMClient will call this method on its behalf (passing %TRUE
+for @will_quit).
+
+After calling this method, the application should wait to receive
+either ::quit_cancelled or ::quit.</doc>
+        <source-position filename="eggsmclient.h" line="100"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="eggsmclient.c"
+                 line="286">the client</doc>
+            <type name="Client" c:type="EggSMClient*"/>
+          </instance-parameter>
+          <parameter name="will_quit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="eggsmclient.c"
+                 line="287">whether or not the application is willing to quit</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="quit" when="last">
+        <doc xml:space="preserve"
+             filename="eggsmclient.c"
+             line="150">Emitted when the session manager wants the application to quit
+(generally because the user is logging out). The application
+should exit as soon as possible after receiving this signal; if
+it does not, the session manager may choose to forcibly kill it.
+
+Normally a GUI application would only be sent a ::quit if it
+agreed to quit in response to a ::quit_requested signal. However,
+this is not guaranteed; in some situations the session manager
+may decide to end the session without giving applications a
+chance to object.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="quit-cancelled" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="quit-requested" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="save-state" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ClientClass"
+            c:type="EggSMClientClass"
+            glib:is-gtype-struct-for="Client">
+      <source-position filename="eggsmclient.h" line="86"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="save_state">
+        <callback name="save_state">
+          <source-position filename="eggsmclient.h" line="62"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="client" transfer-ownership="none">
+              <type name="Client" c:type="EggSMClient*"/>
+            </parameter>
+            <parameter name="state_file" transfer-ownership="none">
+              <type name="GLib.KeyFile" c:type="GKeyFile*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="quit_requested">
+        <callback name="quit_requested">
+          <source-position filename="eggsmclient.h" line="65"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="client" transfer-ownership="none">
+              <type name="Client" c:type="EggSMClient*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="quit_cancelled">
+        <callback name="quit_cancelled">
+          <source-position filename="eggsmclient.h" line="66"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="client" transfer-ownership="none">
+              <type name="Client" c:type="EggSMClient*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="quit">
+        <callback name="quit">
+          <source-position filename="eggsmclient.h" line="67"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="client" transfer-ownership="none">
+              <type name="Client" c:type="EggSMClient*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="startup">
+        <callback name="startup">
+          <source-position filename="eggsmclient.h" line="70"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="client" transfer-ownership="none">
+              <type name="Client" c:type="EggSMClient*"/>
+            </parameter>
+            <parameter name="client_id" transfer-ownership="none">
+              <type name="utf8" c:type="const char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_restart_command">
+        <callback name="set_restart_command">
+          <source-position filename="eggsmclient.h" line="72"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="client" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="eggsmclient.c"
+                   line="262">the client</doc>
+              <type name="Client" c:type="EggSMClient*"/>
+            </parameter>
+            <parameter name="argc" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="eggsmclient.c"
+                   line="263">the length of @argv</doc>
+              <type name="gint" c:type="int"/>
+            </parameter>
+            <parameter name="argv" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="eggsmclient.c"
+                   line="264">argument vector</doc>
+              <type name="utf8" c:type="const char**"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="will_quit">
+        <callback name="will_quit">
+          <source-position filename="eggsmclient.h" line="75"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="client" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="eggsmclient.c"
+                   line="286">the client</doc>
+              <type name="Client" c:type="EggSMClient*"/>
+            </parameter>
+            <parameter name="will_quit" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="eggsmclient.c"
+                   line="287">whether or not the application is willing to quit</doc>
+              <type name="gboolean" c:type="gboolean"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="end_session">
+        <callback name="end_session">
+          <source-position filename="eggsmclient.h" line="77"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="client" transfer-ownership="none">
+              <type name="Client" c:type="EggSMClient*"/>
+            </parameter>
+            <parameter name="style" transfer-ownership="none">
+              <type name="ClientEndStyle" c:type="EggSMClientEndStyle"/>
+            </parameter>
+            <parameter name="request_confirmation" transfer-ownership="none">
+              <type name="gboolean" c:type="gboolean"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_egg_reserved1" introspectable="0">
+        <callback name="_egg_reserved1">
+          <source-position filename="eggsmclient.h" line="82"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_egg_reserved2" introspectable="0">
+        <callback name="_egg_reserved2">
+          <source-position filename="eggsmclient.h" line="83"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_egg_reserved3" introspectable="0">
+        <callback name="_egg_reserved3">
+          <source-position filename="eggsmclient.h" line="84"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_egg_reserved4" introspectable="0">
+        <callback name="_egg_reserved4">
+          <source-position filename="eggsmclient.h" line="85"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="ClientEndStyle" c:type="EggSMClientEndStyle">
+      <source-position filename="eggsmclient.h" line="43"/>
+      <member name="end_session_default"
+              value="0"
+              c:identifier="EGG_SM_CLIENT_END_SESSION_DEFAULT">
+      </member>
+      <member name="logout" value="1" c:identifier="EGG_SM_CLIENT_LOGOUT">
+      </member>
+      <member name="reboot" value="2" c:identifier="EGG_SM_CLIENT_REBOOT">
+      </member>
+      <member name="shutdown" value="3" c:identifier="EGG_SM_CLIENT_SHUTDOWN">
+      </member>
+    </enumeration>
+    <enumeration name="ClientMode" c:type="EggSMClientMode">
+      <source-position filename="eggsmclient.h" line="49"/>
+      <member name="disabled"
+              value="0"
+              c:identifier="EGG_SM_CLIENT_MODE_DISABLED">
+      </member>
+      <member name="no_restart"
+              value="1"
+              c:identifier="EGG_SM_CLIENT_MODE_NO_RESTART">
+      </member>
+      <member name="normal" value="2" c:identifier="EGG_SM_CLIENT_MODE_NORMAL">
+      </member>
+    </enumeration>
+    <record name="ClientPrivate"
+            c:type="EggSMClientPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="eggsmclient.h" line="36"/>
+    </record>
+    <class name="ClientXSMP"
+           c:symbol-prefix="client_xsmp"
+           c:type="EggSMClientXSMP"
+           parent="Client"
+           glib:type-name="EggSMClientXSMP"
+           glib:get-type="egg_sm_client_xsmp_get_type"
+           glib:type-struct="ClientXSMPClass">
+      <source-position filename="eggsmclient-xsmp.h" line="90"/>
+      <field name="parent">
+        <type name="Client" c:type="EggSMClient"/>
+      </field>
+      <field name="connection" introspectable="0">
+        <type c:type="SmcConn"/>
+      </field>
+      <field name="client_id">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="state">
+        <type name="ClientXSMPState" c:type="EggSMClientXSMPState"/>
+      </field>
+      <field name="restart_command">
+        <type name="utf8" c:type="char**"/>
+      </field>
+      <field name="set_restart_command">
+        <type name="gboolean" c:type="gboolean"/>
+      </field>
+      <field name="restart_style">
+        <type name="gint" c:type="int"/>
+      </field>
+      <field name="idle">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="expecting_initial_save_yourself" bits="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="need_save_state" bits="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="need_quit_requested" bits="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="interact_errors" bits="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="shutting_down" bits="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="waiting_to_emit_quit" bits="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="waiting_to_emit_quit_cancelled" bits="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+      <field name="waiting_to_save_myself" bits="1">
+        <type name="guint" c:type="guint"/>
+      </field>
+    </class>
+    <record name="ClientXSMPClass"
+            c:type="EggSMClientXSMPClass"
+            glib:is-gtype-struct-for="ClientXSMP">
+      <source-position filename="eggsmclient-xsmp.h" line="90"/>
+      <field name="parent_class">
+        <type name="ClientClass" c:type="EggSMClientClass"/>
+      </field>
+    </record>
+    <enumeration name="ClientXSMPState" c:type="EggSMClientXSMPState">
+      <source-position filename="eggsmclient-xsmp.h" line="56"/>
+      <member name="start" value="0" c:identifier="XSMP_STATE_START">
+      </member>
+      <member name="idle" value="1" c:identifier="XSMP_STATE_IDLE">
+      </member>
+      <member name="save_yourself"
+              value="2"
+              c:identifier="XSMP_STATE_SAVE_YOURSELF">
+      </member>
+      <member name="interact_request"
+              value="3"
+              c:identifier="XSMP_STATE_INTERACT_REQUEST">
+      </member>
+      <member name="interact" value="4" c:identifier="XSMP_STATE_INTERACT">
+      </member>
+      <member name="save_yourself_done"
+              value="5"
+              c:identifier="XSMP_STATE_SAVE_YOURSELF_DONE">
+      </member>
+      <member name="shutdown_cancelled"
+              value="6"
+              c:identifier="XSMP_STATE_SHUTDOWN_CANCELLED">
+      </member>
+      <member name="connection_closed"
+              value="7"
+              c:identifier="XSMP_STATE_CONNECTION_CLOSED">
+      </member>
+    </enumeration>
+    <class name="CursorTracker"
+           c:symbol-prefix="cursor_tracker"
+           c:type="SugarCursorTracker"
+           parent="GObject.Object"
+           glib:type-name="SugarCursorTracker"
+           glib:get-type="sugar_cursor_tracker_get_type"
+           glib:type-struct="CursorTrackerClass">
+      <source-position filename="sugar-cursor-tracker.h" line="47"/>
+      <constructor name="new" c:identifier="sugar_cursor_tracker_new">
+        <source-position filename="sugar-cursor-tracker.h" line="50"/>
+        <return-value transfer-ownership="full">
+          <type name="CursorTracker" c:type="SugarCursorTracker*"/>
+        </return-value>
+      </constructor>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="_priv">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+    </class>
+    <record name="CursorTrackerClass"
+            c:type="SugarCursorTrackerClass"
+            glib:is-gtype-struct-for="CursorTracker">
+      <source-position filename="sugar-cursor-tracker.h" line="47"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <function-macro name="GESTURE_GRABBER"
+                    c:identifier="SUGAR_GESTURE_GRABBER"
+                    introspectable="0">
+      <source-position filename="sugar-gesture-grabber.h" line="34"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GESTURE_GRABBER_CLASS"
+                    c:identifier="SUGAR_GESTURE_GRABBER_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-gesture-grabber.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GESTURE_GRABBER_GET_CLASS"
+                    c:identifier="SUGAR_GESTURE_GRABBER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-gesture-grabber.h" line="38"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GRID" c:identifier="SUGAR_GRID" introspectable="0">
+      <source-position filename="sugar-grid.h" line="32"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GRID_CLASS"
+                    c:identifier="SUGAR_GRID_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-grid.h" line="33"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="GRID_GET_CLASS"
+                    c:identifier="SUGAR_GRID_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-grid.h" line="36"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="GestureGrabber"
+           c:symbol-prefix="gesture_grabber"
+           c:type="SugarGestureGrabber"
+           parent="GObject.Object"
+           glib:type-name="SugarGestureGrabber"
+           glib:get-type="sugar_gesture_grabber_get_type"
+           glib:type-struct="GestureGrabberClass">
+      <source-position filename="sugar-gesture-grabber.h" line="47"/>
+      <constructor name="new" c:identifier="sugar_gesture_grabber_new">
+        <source-position filename="sugar-gesture-grabber.h" line="50"/>
+        <return-value transfer-ownership="full">
+          <type name="GestureGrabber" c:type="SugarGestureGrabber*"/>
+        </return-value>
+      </constructor>
+      <method name="add" c:identifier="sugar_gesture_grabber_add">
+        <source-position filename="sugar-gesture-grabber.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="grabber" transfer-ownership="none">
+            <type name="GestureGrabber" c:type="SugarGestureGrabber*"/>
+          </instance-parameter>
+          <parameter name="controller" transfer-ownership="none">
+            <type name="SugarGestures.EventController"
+                  c:type="SugarEventController*"/>
+          </parameter>
+          <parameter name="rect" transfer-ownership="none">
+            <type name="Gdk.Rectangle" c:type="const GdkRectangle*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove" c:identifier="sugar_gesture_grabber_remove">
+        <source-position filename="sugar-gesture-grabber.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="grabber" transfer-ownership="none">
+            <type name="GestureGrabber" c:type="SugarGestureGrabber*"/>
+          </instance-parameter>
+          <parameter name="controller" transfer-ownership="none">
+            <type name="SugarGestures.EventController"
+                  c:type="SugarEventController*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="_priv">
+        <type name="gpointer" c:type="gpointer"/>
+      </field>
+    </class>
+    <record name="GestureGrabberClass"
+            c:type="SugarGestureGrabberClass"
+            glib:is-gtype-struct-for="GestureGrabber">
+      <source-position filename="sugar-gesture-grabber.h" line="47"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="Grid"
+           c:symbol-prefix="grid"
+           c:type="SugarGrid"
+           parent="GObject.Object"
+           glib:type-name="SugarGrid"
+           glib:get-type="sugar_grid_get_type"
+           glib:type-struct="GridClass">
+      <source-position filename="sugar-grid.h" line="48"/>
+      <method name="add_weight" c:identifier="sugar_grid_add_weight">
+        <source-position filename="sugar-grid.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="grid" transfer-ownership="none">
+            <type name="Grid" c:type="SugarGrid*"/>
+          </instance-parameter>
+          <parameter name="rect" transfer-ownership="none">
+            <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="compute_weight" c:identifier="sugar_grid_compute_weight">
+        <source-position filename="sugar-grid.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="grid" transfer-ownership="none">
+            <type name="Grid" c:type="SugarGrid*"/>
+          </instance-parameter>
+          <parameter name="rect" transfer-ownership="none">
+            <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_weight" c:identifier="sugar_grid_remove_weight">
+        <source-position filename="sugar-grid.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="grid" transfer-ownership="none">
+            <type name="Grid" c:type="SugarGrid*"/>
+          </instance-parameter>
+          <parameter name="rect" transfer-ownership="none">
+            <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="setup" c:identifier="sugar_grid_setup">
+        <source-position filename="sugar-grid.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="grid" transfer-ownership="none">
+            <type name="Grid" c:type="SugarGrid*"/>
+          </instance-parameter>
+          <parameter name="width" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="base_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="width">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="height">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="weights">
+        <type name="guint8" c:type="guchar*"/>
+      </field>
+    </class>
+    <record name="GridClass"
+            c:type="SugarGridClass"
+            glib:is-gtype-struct-for="Grid">
+      <source-position filename="sugar-grid.h" line="48"/>
+      <field name="base_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <function-macro name="IS_CURSOR_TRACKER"
+                    c:identifier="SUGAR_IS_CURSOR_TRACKER"
+                    introspectable="0">
+      <source-position filename="sugar-cursor-tracker.h" line="36"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CURSOR_TRACKER_CLASS"
+                    c:identifier="SUGAR_IS_CURSOR_TRACKER_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-cursor-tracker.h" line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GESTURE_GRABBER"
+                    c:identifier="SUGAR_IS_GESTURE_GRABBER"
+                    introspectable="0">
+      <source-position filename="sugar-gesture-grabber.h" line="36"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GESTURE_GRABBER_CLASS"
+                    c:identifier="SUGAR_IS_GESTURE_GRABBER_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-gesture-grabber.h" line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GRID"
+                    c:identifier="SUGAR_IS_GRID"
+                    introspectable="0">
+      <source-position filename="sugar-grid.h" line="34"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_GRID_CLASS"
+                    c:identifier="SUGAR_IS_GRID_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-grid.h" line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_KEYGRABBER_CLASS"
+                    c:identifier="SUGAR_IS_KEYGRABBER_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-key-grabber.h" line="36"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_KEY_GRABBER"
+                    c:identifier="SUGAR_IS_KEY_GRABBER"
+                    introspectable="0">
+      <source-position filename="sugar-key-grabber.h" line="35"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SESSION"
+                    c:identifier="GSM_IS_SESSION"
+                    introspectable="0">
+      <source-position filename="gsm-session.h" line="31"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_SESSION_CLASS"
+                    c:identifier="GSM_IS_SESSION_CLASS"
+                    introspectable="0">
+      <source-position filename="gsm-session.h" line="32"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_VOLUME"
+                    c:identifier="ACME_IS_VOLUME"
+                    introspectable="0">
+      <source-position filename="acme-volume.h" line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_VOLUME_ALSA"
+                    c:identifier="ACME_IS_VOLUME_ALSA"
+                    introspectable="0">
+      <source-position filename="acme-volume-alsa.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="KEY_GRABBER"
+                    c:identifier="SUGAR_KEY_GRABBER"
+                    introspectable="0">
+      <source-position filename="sugar-key-grabber.h" line="33"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="KEY_GRABBER_CLASS"
+                    c:identifier="SUGAR_KEY_GRABBER_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-key-grabber.h" line="34"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="KEY_GRABBER_GET_CLASS"
+                    c:identifier="SUGAR_KEY_GRABBER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="sugar-key-grabber.h" line="37"/>
+      <parameters>
+        <parameter name="object">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="KeyGrabber"
+           c:symbol-prefix="key_grabber"
+           c:type="SugarKeyGrabber"
+           parent="GObject.Object"
+           glib:type-name="SugarKeyGrabber"
+           glib:get-type="sugar_key_grabber_get_type"
+           glib:type-struct="KeyGrabberClass">
+      <source-position filename="sugar-key-grabber.h" line="55"/>
+      <virtual-method name="key_pressed">
+        <source-position filename="sugar-key-grabber.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="grabber" transfer-ownership="none">
+            <type name="KeyGrabber" c:type="SugarKeyGrabber*"/>
+          </instance-parameter>
+          <parameter name="keycode" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="state" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="key_released">
+        <source-position filename="sugar-key-grabber.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="grabber" transfer-ownership="none">
+            <type name="KeyGrabber" c:type="SugarKeyGrabber*"/>
+          </instance-parameter>
+          <parameter name="keycode" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="state" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_key" c:identifier="sugar_key_grabber_get_key">
+        <source-position filename="sugar-key-grabber.h" line="61"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="grabber" transfer-ownership="none">
+            <type name="KeyGrabber" c:type="SugarKeyGrabber*"/>
+          </instance-parameter>
+          <parameter name="keycode" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="state" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="grab_keys" c:identifier="sugar_key_grabber_grab_keys">
+        <doc xml:space="preserve"
+             filename="sugar-key-grabber.c"
+             line="222">Pass to the key grabber the keys it should listen to.</doc>
+        <source-position filename="sugar-key-grabber.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="grabber" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="sugar-key-grabber.c"
+                 line="224">a #SugarKeyGrabber</doc>
+            <type name="KeyGrabber" c:type="SugarKeyGrabber*"/>
+          </instance-parameter>
+          <parameter name="keys" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="sugar-key-grabber.c"
+                 line="225">array of
+    keys the grabber will listen to</doc>
+            <array length="1" zero-terminated="0" c:type="const gchar**">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+          <parameter name="n_elements" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="sugar-key-grabber.c"
+                 line="227">number of elements in @keys.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_modifier" c:identifier="sugar_key_grabber_is_modifier">
+        <source-position filename="sugar-key-grabber.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="grabber" transfer-ownership="none">
+            <type name="KeyGrabber" c:type="SugarKeyGrabber*"/>
+          </instance-parameter>
+          <parameter name="keycode" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="mask" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="base_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="root">
+        <type name="Gdk.Window" c:type="GdkWindow*"/>
+      </field>
+      <field name="keys">
+        <type name="GLib.List" c:type="GList*">
+          <type name="gpointer" c:type="gpointer"/>
+        </type>
+      </field>
+      <glib:signal name="key-pressed" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="key-released" when="last" action="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="p0" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="p1" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="KeyGrabberClass"
+            c:type="SugarKeyGrabberClass"
+            glib:is-gtype-struct-for="KeyGrabber">
+      <source-position filename="sugar-key-grabber.h" line="55"/>
+      <field name="base_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="key_pressed">
+        <callback name="key_pressed">
+          <source-position filename="sugar-key-grabber.h" line="49"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="grabber" transfer-ownership="none">
+              <type name="KeyGrabber" c:type="SugarKeyGrabber*"/>
+            </parameter>
+            <parameter name="keycode" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+            <parameter name="state" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="key_released">
+        <callback name="key_released">
+          <source-position filename="sugar-key-grabber.h" line="52"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="grabber" transfer-ownership="none">
+              <type name="KeyGrabber" c:type="SugarKeyGrabber*"/>
+            </parameter>
+            <parameter name="keycode" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+            <parameter name="state" transfer-ownership="none">
+              <type name="guint" c:type="guint"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="KeyGrabberPrivate"
+            c:type="SugarKeyGrabberPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="sugar-key-grabber.h" line="30"/>
+    </record>
+    <function-macro name="SESSION"
+                    c:identifier="GSM_SESSION"
+                    introspectable="0">
+      <source-position filename="gsm-session.h" line="29"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SESSION_CLASS"
+                    c:identifier="GSM_SESSION_CLASS"
+                    introspectable="0">
+      <source-position filename="gsm-session.h" line="30"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="SESSION_GET_CLASS"
+                    c:identifier="GSM_SESSION_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="gsm-session.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Session"
+           c:symbol-prefix="session"
+           c:type="GsmSession"
+           parent="GObject.Object"
+           glib:type-name="GsmSession"
+           glib:get-type="gsm_session_get_type"
+           glib:type-struct="SessionClass">
+      <source-position filename="gsm-session.h" line="36"/>
+      <function name="create_global" c:identifier="gsm_session_create_global">
+        <doc xml:space="preserve"
+             filename="gsm-session.c"
+             line="504">Creates a new GSM_SESSION</doc>
+        <source-position filename="gsm-session.h" line="93"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gsm-session.c"
+               line="509">returns GSM_SESSION</doc>
+          <type name="Session" c:type="GsmSession*"/>
+        </return-value>
+      </function>
+      <method name="cancel_shutdown"
+              c:identifier="gsm_session_cancel_shutdown">
+        <source-position filename="gsm-session.h" line="87"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="session" transfer-ownership="none">
+            <type name="Session" c:type="GsmSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_phase" c:identifier="gsm_session_get_phase">
+        <source-position filename="gsm-session.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <type name="SessionPhase" c:type="GsmSessionPhase"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="session" transfer-ownership="none">
+            <type name="Session" c:type="GsmSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="initiate_shutdown"
+              c:identifier="gsm_session_initiate_shutdown">
+        <source-position filename="gsm-session.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="session" transfer-ownership="none">
+            <type name="Session" c:type="GsmSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="register_client"
+              c:identifier="gsm_session_register_client">
+        <source-position filename="gsm-session.h" line="89"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="session" transfer-ownership="none">
+            <type name="Session" c:type="GsmSession*"/>
+          </instance-parameter>
+          <parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GsmClient*"/>
+          </parameter>
+          <parameter name="previous_id" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_name" c:identifier="gsm_session_set_name">
+        <doc xml:space="preserve"
+             filename="gsm-session.c"
+             line="121">Sets the name of a running session.</doc>
+        <source-position filename="gsm-session.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="session" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsm-session.c"
+                 line="123">session instance</doc>
+            <type name="Session" c:type="GsmSession*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gsm-session.c"
+                 line="124">name of the session</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="start" c:identifier="gsm_session_start">
+        <source-position filename="gsm-session.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="session" transfer-ownership="none">
+            <type name="Session" c:type="GsmSession*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <glib:signal name="shutdown-completed" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="SessionClass"
+            c:type="GsmSessionClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="Session">
+      <source-position filename="gsm-session.h" line="36"/>
+    </record>
+    <enumeration name="SessionLogoutMode" c:type="GsmSessionLogoutMode">
+      <source-position filename="gsm-session.h" line="74"/>
+      <member name="normal"
+              value="0"
+              c:identifier="GSM_SESSION_LOGOUT_MODE_NORMAL">
+      </member>
+      <member name="no_confirmation"
+              value="1"
+              c:identifier="GSM_SESSION_LOGOUT_MODE_NO_CONFIRMATION">
+      </member>
+      <member name="force"
+              value="2"
+              c:identifier="GSM_SESSION_LOGOUT_MODE_FORCE">
+      </member>
+    </enumeration>
+    <enumeration name="SessionLogoutType" c:type="GsmSessionLogoutType">
+      <source-position filename="gsm-session.h" line="68"/>
+      <member name="logout"
+              value="0"
+              c:identifier="GSM_SESSION_LOGOUT_TYPE_LOGOUT">
+      </member>
+      <member name="shutdown"
+              value="1"
+              c:identifier="GSM_SESSION_LOGOUT_TYPE_SHUTDOWN">
+      </member>
+    </enumeration>
+    <enumeration name="SessionPhase" c:type="GsmSessionPhase">
+      <source-position filename="gsm-session.h" line="63"/>
+      <member name="startup"
+              value="0"
+              c:identifier="GSM_SESSION_PHASE_STARTUP">
+      </member>
+      <member name="initialization"
+              value="1"
+              c:identifier="GSM_SESSION_PHASE_INITIALIZATION">
+      </member>
+      <member name="window_manager"
+              value="2"
+              c:identifier="GSM_SESSION_PHASE_WINDOW_MANAGER">
+      </member>
+      <member name="panel" value="3" c:identifier="GSM_SESSION_PHASE_PANEL">
+      </member>
+      <member name="desktop"
+              value="4"
+              c:identifier="GSM_SESSION_PHASE_DESKTOP">
+      </member>
+      <member name="application"
+              value="5"
+              c:identifier="GSM_SESSION_PHASE_APPLICATION">
+      </member>
+      <member name="running"
+              value="6"
+              c:identifier="GSM_SESSION_PHASE_RUNNING">
+      </member>
+      <member name="shutdown"
+              value="7"
+              c:identifier="GSM_SESSION_PHASE_SHUTDOWN">
+      </member>
+    </enumeration>
+    <function-macro name="VOLUME"
+                    c:identifier="ACME_VOLUME"
+                    introspectable="0">
+      <source-position filename="acme-volume.h" line="32"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VOLUME_ALSA"
+                    c:identifier="ACME_VOLUME_ALSA"
+                    introspectable="0">
+      <source-position filename="acme-volume-alsa.h" line="30"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VOLUME_ALSA_CLASS"
+                    c:identifier="ACME_VOLUME_ALSA_CLASS"
+                    introspectable="0">
+      <source-position filename="acme-volume-alsa.h" line="31"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VOLUME_ALSA_GET_CLASS"
+                    c:identifier="ACME_VOLUME_ALSA_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="acme-volume-alsa.h" line="33"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VOLUME_CLASS"
+                    c:identifier="ACME_VOLUME_CLASS"
+                    introspectable="0">
+      <source-position filename="acme-volume.h" line="33"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="VOLUME_GET_CLASS"
+                    c:identifier="ACME_VOLUME_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="acme-volume.h" line="35"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Volume"
+           c:symbol-prefix="volume"
+           c:type="AcmeVolume"
+           parent="GObject.Object"
+           glib:type-name="AcmeVolume"
+           glib:get-type="acme_volume_get_type"
+           glib:type-struct="VolumeClass">
+      <source-position filename="acme-volume.h" line="49"/>
+      <constructor name="new" c:identifier="acme_volume_new">
+        <source-position filename="acme-volume.h" line="59"/>
+        <return-value transfer-ownership="full">
+          <type name="Volume" c:type="AcmeVolume*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="get_mute">
+        <source-position filename="acme-volume.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Volume" c:type="AcmeVolume*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_threshold" invoker="get_threshold">
+        <source-position filename="acme-volume.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Volume" c:type="AcmeVolume*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_volume" invoker="get_volume">
+        <source-position filename="acme-volume.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Volume" c:type="AcmeVolume*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_mute" invoker="set_mute">
+        <source-position filename="acme-volume.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Volume" c:type="AcmeVolume*"/>
+          </instance-parameter>
+          <parameter name="val" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_volume" invoker="set_volume">
+        <source-position filename="acme-volume.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Volume" c:type="AcmeVolume*"/>
+          </instance-parameter>
+          <parameter name="val" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_mute" c:identifier="acme_volume_get_mute">
+        <source-position filename="acme-volume.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Volume" c:type="AcmeVolume*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_threshold" c:identifier="acme_volume_get_threshold">
+        <source-position filename="acme-volume.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Volume" c:type="AcmeVolume*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_volume" c:identifier="acme_volume_get_volume">
+        <source-position filename="acme-volume.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Volume" c:type="AcmeVolume*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="mute_toggle" c:identifier="acme_volume_mute_toggle">
+        <source-position filename="acme-volume.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Volume" c:type="AcmeVolume*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_mute" c:identifier="acme_volume_set_mute">
+        <source-position filename="acme-volume.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Volume" c:type="AcmeVolume*"/>
+          </instance-parameter>
+          <parameter name="val" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_volume" c:identifier="acme_volume_set_volume">
+        <source-position filename="acme-volume.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="Volume" c:type="AcmeVolume*"/>
+          </instance-parameter>
+          <parameter name="val" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <class name="VolumeAlsa"
+           c:symbol-prefix="volume_alsa"
+           c:type="AcmeVolumeAlsa"
+           parent="Volume"
+           glib:type-name="AcmeVolumeAlsa"
+           glib:get-type="acme_volume_alsa_get_type"
+           glib:type-struct="VolumeAlsaClass">
+      <source-position filename="acme-volume-alsa.h" line="46"/>
+      <constructor name="new" c:identifier="acme_volume_alsa_new">
+        <source-position filename="acme-volume-alsa.h" line="52"/>
+        <return-value transfer-ownership="full">
+          <type name="VolumeAlsa" c:type="AcmeVolumeAlsa*"/>
+        </return-value>
+        <parameters>
+          <parameter name="arg0" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="parent">
+        <type name="Volume" c:type="AcmeVolume"/>
+      </field>
+      <field name="_priv">
+        <type name="VolumeAlsaPrivate" c:type="AcmeVolumeAlsaPrivate*"/>
+      </field>
+    </class>
+    <record name="VolumeAlsaClass"
+            c:type="AcmeVolumeAlsaClass"
+            glib:is-gtype-struct-for="VolumeAlsa">
+      <source-position filename="acme-volume-alsa.h" line="46"/>
+      <field name="parent">
+        <type name="VolumeClass" c:type="AcmeVolumeClass"/>
+      </field>
+    </record>
+    <record name="VolumeAlsaPrivate"
+            c:type="AcmeVolumeAlsaPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="acme-volume-alsa.h" line="37"/>
+    </record>
+    <record name="VolumeClass"
+            c:type="AcmeVolumeClass"
+            glib:is-gtype-struct-for="Volume">
+      <source-position filename="acme-volume.h" line="49"/>
+      <field name="parent">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="set_volume">
+        <callback name="set_volume">
+          <source-position filename="acme-volume.h" line="44"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Volume" c:type="AcmeVolume*"/>
+            </parameter>
+            <parameter name="val" transfer-ownership="none">
+              <type name="gint" c:type="int"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_volume">
+        <callback name="get_volume">
+          <source-position filename="acme-volume.h" line="45"/>
+          <return-value transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Volume" c:type="AcmeVolume*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_mute">
+        <callback name="set_mute">
+          <source-position filename="acme-volume.h" line="46"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Volume" c:type="AcmeVolume*"/>
+            </parameter>
+            <parameter name="val" transfer-ownership="none">
+              <type name="gboolean" c:type="gboolean"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_mute">
+        <callback name="get_mute">
+          <source-position filename="acme-volume.h" line="47"/>
+          <return-value transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Volume" c:type="AcmeVolume*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_threshold">
+        <callback name="get_threshold">
+          <source-position filename="acme-volume.h" line="48"/>
+          <return-value transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="Volume" c:type="AcmeVolume*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <function name="clipboard_set_with_data"
+              c:identifier="sugar_clipboard_set_with_data">
+      <doc xml:space="preserve"
+           filename="sugar-clipboard.c"
+           line="22">Virtually sets the contents of the specified clipboard by providing
+a list of supported formats for the clipboard data and a function
+to call to get the actual data when it is requested.</doc>
+      <source-position filename="sugar-clipboard.h" line="28"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="sugar-clipboard.c"
+             line="39">%TRUE if setting the clipboard data succeeded.
+   If setting the clipboard data failed the provided callback
+   functions will be ignored.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="clipboard" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="sugar-clipboard.c"
+               line="24">a #GtkClipboard</doc>
+          <type name="Gtk.Clipboard" c:type="GtkClipboard*"/>
+        </parameter>
+        <parameter name="targets" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="sugar-clipboard.c"
+               line="25">array containing information
+    about the available forms for the clipboard data</doc>
+          <array length="2" zero-terminated="0" c:type="const GtkTargetEntry*">
+            <type name="Gtk.TargetEntry" c:type="GtkTargetEntry"/>
+          </array>
+        </parameter>
+        <parameter name="n_targets" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="sugar-clipboard.c"
+               line="27">number of elements in @targets</doc>
+          <type name="guint" c:type="guint"/>
+        </parameter>
+        <parameter name="get_func"
+                   transfer-ownership="none"
+                   scope="notified"
+                   closure="5">
+          <doc xml:space="preserve"
+               filename="sugar-clipboard.c"
+               line="28">function to call to get the
+    actual clipboard data</doc>
+          <type name="Gtk.ClipboardGetFunc" c:type="GtkClipboardGetFunc"/>
+        </parameter>
+        <parameter name="clear_func"
+                   transfer-ownership="none"
+                   scope="async"
+                   closure="5">
+          <doc xml:space="preserve"
+               filename="sugar-clipboard.c"
+               line="30">when the clipboard
+    contents are set again, this function will be called, and @get_func
+    will not be subsequently called.</doc>
+          <type name="Gtk.ClipboardClearFunc" c:type="GtkClipboardClearFunc"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="sugar-clipboard.c"
+               line="33">user data to pass to @get_func and @clear_func.</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="fat_set_hidden_attrib"
+              c:identifier="sugar_fat_set_hidden_attrib">
+      <doc xml:space="preserve"
+           filename="sugar-fatattr.c"
+           line="85">@const char: (file utf8)</doc>
+      <source-position filename="sugar-fatattr.h" line="25"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="file" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="wm_get_activity_id"
+              c:identifier="sugar_wm_get_activity_id">
+      <source-position filename="sugar-wm.h" line="28"/>
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <type name="xlib.Window" c:type="Window"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="wm_get_bundle_id" c:identifier="sugar_wm_get_bundle_id">
+      <source-position filename="sugar-wm.h" line="29"/>
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <type name="xlib.Window" c:type="Window"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="wm_set_activity_id"
+              c:identifier="sugar_wm_set_activity_id">
+      <source-position filename="sugar-wm.h" line="30"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <type name="xlib.Window" c:type="Window"/>
+        </parameter>
+        <parameter name="activity_id" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="wm_set_bundle_id" c:identifier="sugar_wm_set_bundle_id">
+      <source-position filename="sugar-wm.h" line="32"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="window" transfer-ownership="none">
+          <type name="xlib.Window" c:type="Window"/>
+        </parameter>
+        <parameter name="bundle_id" transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="xsmp_generate_client_id"
+              c:identifier="gsm_xsmp_generate_client_id">
+      <doc xml:space="preserve"
+           filename="gsm-xsmp.c"
+           line="225">Generates a new XSMP client ID.</doc>
+      <source-position filename="gsm-xsmp.h" line="27"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="gsm-xsmp.c"
+             line="230">an XSMP client ID.</doc>
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+    </function>
+    <function name="xsmp_init" c:identifier="gsm_xsmp_init">
+      <doc xml:space="preserve"
+           filename="gsm-xsmp.c"
+           line="81">Initializes XSMP. Notably, it creates the XSMP listening socket and
+sets the SESSION_MANAGER environment variable to point to it.</doc>
+      <source-position filename="gsm-xsmp.h" line="23"/>
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+    </function>
+    <function name="xsmp_run" c:identifier="gsm_xsmp_run">
+      <doc xml:space="preserve"
+           filename="gsm-xsmp.c"
+           line="191">Sets the XSMP server to start accepting connections.</doc>
+      <source-position filename="gsm-xsmp.h" line="24"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="xsmp_shutdown" c:identifier="gsm_xsmp_shutdown">
+      <doc xml:space="preserve"
+           filename="gsm-xsmp.c"
+           line="211">Shuts down the XSMP server and closes the ICE listening socket</doc>
+      <source-position filename="gsm-xsmp.h" line="25"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

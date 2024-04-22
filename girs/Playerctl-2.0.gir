@@ -1,0 +1,1392 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <namespace name="Playerctl"
+             version="2.0"
+             shared-library="libplayerctl.so.2"
+             c:identifier-prefixes="Playerctl"
+             c:symbol-prefixes="playerctl">
+    <function-macro name="IS_PLAYER"
+                    c:identifier="PLAYERCTL_IS_PLAYER"
+                    introspectable="0">
+      <source-position filename="playerctl/playerctl-player.h" line="66"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PLAYER_CLASS"
+                    c:identifier="PLAYERCTL_IS_PLAYER_CLASS"
+                    introspectable="0">
+      <source-position filename="playerctl/playerctl-player.h" line="69"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PLAYER_MANAGER"
+                    c:identifier="PLAYERCTL_IS_PLAYER_MANAGER"
+                    introspectable="0">
+      <source-position filename="playerctl/playerctl-player-manager.h"
+                       line="62"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PLAYER_MANAGER_CLASS"
+                    c:identifier="PLAYERCTL_IS_PLAYER_MANAGER_CLASS"
+                    introspectable="0">
+      <source-position filename="playerctl/playerctl-player-manager.h"
+                       line="66"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <enumeration name="LoopStatus"
+                 glib:type-name="PlayerctlLoopStatus"
+                 glib:get-type="playerctl_loop_status_get_type"
+                 c:type="PlayerctlLoopStatus">
+      <doc xml:space="preserve"
+           filename="playerctl/playerctl-player.h"
+           line="114">Loop status enumeration for a #PlayerctlPlayer</doc>
+      <member name="None"
+              value="0"
+              c:identifier="PLAYERCTL_LOOP_STATUS_NONE"
+              glib:nick="None"
+              glib:name="PLAYERCTL_LOOP_STATUS_NONE">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.h"
+             line="116">The playback will stop when there are no more tracks to play.</doc>
+      </member>
+      <member name="Track"
+              value="1"
+              c:identifier="PLAYERCTL_LOOP_STATUS_TRACK"
+              glib:nick="Track"
+              glib:name="PLAYERCTL_LOOP_STATUS_TRACK">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.h"
+             line="117">The current track will start again from the beginning once it has
+finished playing.</doc>
+      </member>
+      <member name="playlist"
+              value="2"
+              c:identifier="PLAYERCTL_LOOP_STATUS_PLAYLIST"
+              glib:nick="playlist"
+              glib:name="PLAYERCTL_LOOP_STATUS_PLAYLIST">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.h"
+             line="119">The playback loops through a list of tracks.</doc>
+      </member>
+    </enumeration>
+    <function-macro name="PLAYER"
+                    c:identifier="PLAYERCTL_PLAYER"
+                    introspectable="0">
+      <source-position filename="playerctl/playerctl-player.h" line="64"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PLAYER_CLASS"
+                    c:identifier="PLAYERCTL_PLAYER_CLASS"
+                    introspectable="0">
+      <source-position filename="playerctl/playerctl-player.h" line="67"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PLAYER_GET_CLASS"
+                    c:identifier="PLAYERCTL_PLAYER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="playerctl/playerctl-player.h" line="70"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PLAYER_MANAGER"
+                    c:identifier="PLAYERCTL_PLAYER_MANAGER"
+                    introspectable="0">
+      <source-position filename="playerctl/playerctl-player-manager.h"
+                       line="60"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PLAYER_MANAGER_CLASS"
+                    c:identifier="PLAYERCTL_PLAYER_MANAGER_CLASS"
+                    introspectable="0">
+      <source-position filename="playerctl/playerctl-player-manager.h"
+                       line="64"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PLAYER_MANAGER_GET_CLASS"
+                    c:identifier="PLAYERCTL_PLAYER_MANAGER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="playerctl/playerctl-player-manager.h"
+                       line="68"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <enumeration name="PlaybackStatus"
+                 glib:type-name="PlayerctlPlaybackStatus"
+                 glib:get-type="playerctl_playback_status_get_type"
+                 c:type="PlayerctlPlaybackStatus">
+      <doc xml:space="preserve"
+           filename="playerctl/playerctl-player.h"
+           line="99">Playback status enumeration for a #PlayerctlPlayer</doc>
+      <member name="Playing"
+              value="0"
+              c:identifier="PLAYERCTL_PLAYBACK_STATUS_PLAYING"
+              glib:nick="Playing"
+              glib:name="PLAYERCTL_PLAYBACK_STATUS_PLAYING">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.h"
+             line="101">A track is currently playing.</doc>
+      </member>
+      <member name="Paused"
+              value="1"
+              c:identifier="PLAYERCTL_PLAYBACK_STATUS_PAUSED"
+              glib:nick="Paused"
+              glib:name="PLAYERCTL_PLAYBACK_STATUS_PAUSED">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.h"
+             line="102">A track is currently paused.</doc>
+      </member>
+      <member name="Stopped"
+              value="2"
+              c:identifier="PLAYERCTL_PLAYBACK_STATUS_STOPPED"
+              glib:nick="Stopped"
+              glib:name="PLAYERCTL_PLAYBACK_STATUS_STOPPED">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.h"
+             line="103">There is no track currently playing.</doc>
+      </member>
+    </enumeration>
+    <class name="Player"
+           c:symbol-prefix="player"
+           c:type="PlayerctlPlayer"
+           parent="GObject.Object"
+           glib:type-name="PlayerctlPlayer"
+           glib:get-type="playerctl_player_get_type"
+           glib:type-struct="PlayerClass">
+      <source-position filename="playerctl/playerctl-player.h" line="88"/>
+      <constructor name="new" c:identifier="playerctl_player_new" throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1038">Allocates a new #PlayerctlPlayer and tries to connect to an instance of the
+player with the given name.</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="92"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="playerctl/playerctl-player.c"
+               line="1046">A new #PlayerctlPlayer connected to an instance of
+the player or NULL if an error occurred</doc>
+          <type name="Player" c:type="PlayerctlPlayer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="player_name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1040">The name to use to find the bus name of the player</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_for_source"
+                   c:identifier="playerctl_player_new_for_source"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1064">Allocates a new #PlayerctlPlayer and tries to connect to an instance of the
+player with the given name from the given source.</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="94"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="playerctl/playerctl-player.c"
+               line="1073">A new #PlayerctlPlayer connected to an instance of
+the player or NULL if an error occurred</doc>
+          <type name="Player" c:type="PlayerctlPlayer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="player_name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1066">The name to use to find the bus name of the player</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="source" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1067">The source where the player name is.</doc>
+            <type name="Source" c:type="PlayerctlSource"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_name"
+                   c:identifier="playerctl_player_new_from_name"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1092">Allocates a new #PlayerctlPlayer and tries to connect to the player
+identified by the #PlayerctlPlayerName.</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="97"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="playerctl/playerctl-player.c"
+               line="1100">A new #PlayerctlPlayer connected to the player or
+NULL if an error occurred</doc>
+          <type name="Player" c:type="PlayerctlPlayer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="player_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1094">The name type to use to find the player</doc>
+            <type name="PlayerName" c:type="PlayerctlPlayerName*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_album"
+              c:identifier="playerctl_player_get_album"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1433">Gets the album from the metadata of the current track, or NULL if
+no track is playing.</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="165"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="playerctl/playerctl-player.c"
+               line="1441">The album from the metadata of the current track</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1435">a #PlayerctlPlayer</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_artist"
+              c:identifier="playerctl_player_get_artist"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1389">Gets the artist from the metadata of the current track, or NULL if no
+track is playing.</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="161"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="playerctl/playerctl-player.c"
+               line="1397">The artist from the metadata of the current track</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1391">a #PlayerctlPlayer</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_position"
+              c:identifier="playerctl_player_get_position"
+              glib:get-property="position"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1495">Gets the position of the current track in microseconds ignoring the property
+cache.</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="169"/>
+        <return-value transfer-ownership="none">
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1497">a #PlayerctlPlayer</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_title"
+              c:identifier="playerctl_player_get_title"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1411">Gets the title from the metadata of the current track, or NULL if
+no track is playing.</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="163"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="playerctl/playerctl-player.c"
+               line="1419">The title from the metadata of the current track</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1413">a #PlayerctlPlayer</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="next" c:identifier="playerctl_player_next" throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1267">Command the player to go to the next track</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="154"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1269">a #PlayerctlPlayer</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="on"
+              c:identifier="playerctl_player_on"
+              deprecated="1"
+              deprecated-version="2.0.0"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1118">A convenience function for bindings to subscribe to an event with a callback</doc>
+        <doc-deprecated xml:space="preserve">Use g_object_connect() to listen to events.</doc-deprecated>
+        <source-position filename="playerctl/playerctl-player.h" line="139"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1120">a #PlayerctlPlayer</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </instance-parameter>
+          <parameter name="event" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1121">the event to subscribe to</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="callback" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1122">the callback to run on the event</doc>
+            <type name="GObject.Closure" c:type="GClosure*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="open" c:identifier="playerctl_player_open" throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1177">Command the player to open given URI</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="142"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1179">a #PlayerctlPlayer</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </instance-parameter>
+          <parameter name="uri" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1180">the URI to open, either a file name or an external URL</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="pause" c:identifier="playerctl_player_pause" throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1216">Command the player to pause</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="152"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1218">a #PlayerctlPlayer</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="play" c:identifier="playerctl_player_play" throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1205">Command the player to play</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="146"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1207">a #PlayerctlPlayer</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="play_pause"
+              c:identifier="playerctl_player_play_pause"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1166">Command the player to play if it is paused or pause if it is playing</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="144"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1168">a #PlayerctlPlayer</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="previous"
+              c:identifier="playerctl_player_previous"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1278">Command the player to go to the previous track</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="156"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1280">a #PlayerctlPlayer</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="print_metadata_prop"
+              c:identifier="playerctl_player_print_metadata_prop"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1336">Gets the given property from the metadata of the current track. If property
+is null, prints all the metadata properties. Returns NULL if no track is
+playing.</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="158"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="playerctl/playerctl-player.c"
+               line="1346">The artist from the metadata of the current track</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1338">a #PlayerctlPlayer</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </instance-parameter>
+          <parameter name="property"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1339">the property from the metadata to print</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="seek" c:identifier="playerctl_player_seek" throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1238">Command the player to seek forward by offset given in microseconds.</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="150"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1240">a #PlayerctlPlayer</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </instance-parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1241">the offset to seek forward to in microseconds</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_loop_status"
+              c:identifier="playerctl_player_set_loop_status"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1578">Set the loop status of the player. Can be set to either None, Track, or Playlist.</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="173"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1580">a #PlayerctlPlayer</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </instance-parameter>
+          <parameter name="status" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1581">the requested #PlayerctlLoopStatus to set the player to</doc>
+            <type name="LoopStatus" c:type="PlayerctlLoopStatus"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_position"
+              c:identifier="playerctl_player_set_position"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1535">Sets the absolute position of the current track to the given position in microseconds.</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="171"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1537">a #PlayerctlPlayer</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </instance-parameter>
+          <parameter name="position" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1538">The absolute position in the track to set as the position</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_shuffle"
+              c:identifier="playerctl_player_set_shuffle"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1620">Request to set the shuffle state of the player, either on or off.</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="176"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1622">a #PlayerctlPlayer</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </instance-parameter>
+          <parameter name="shuffle" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1623">whether to enable shuffle</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_volume"
+              c:identifier="playerctl_player_set_volume"
+              glib:set-property="volume"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1455">Sets the volume level for the player from 0.0 for no volume to 1.0 for
+maximum volume. Passing negative numbers should set the volume to 0.0.</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="167"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1457">a #PlayerctlPlayer</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </instance-parameter>
+          <parameter name="volume" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1458">the volume level from 0.0 to 1.0</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="stop" c:identifier="playerctl_player_stop" throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1227">Command the player to stop</doc>
+        <source-position filename="playerctl/playerctl-player.h" line="148"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="1229">a #PlayerctlPlayer</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="can-control"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="can-go-next"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="can-go-previous"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="can-pause"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="can-play"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="can-seek"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="loop-status"
+                transfer-ownership="none"
+                default-value="PLAYERCTL_LOOP_STATUS_NONE">
+        <type name="LoopStatus"/>
+      </property>
+      <property name="metadata" transfer-ownership="none">
+        <type name="GLib.Variant"/>
+      </property>
+      <property name="playback-status"
+                transfer-ownership="none"
+                default-value="PLAYERCTL_PLAYBACK_STATUS_STOPPED">
+        <type name="PlaybackStatus"/>
+      </property>
+      <property name="player-instance"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="player-name"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="position"
+                transfer-ownership="none"
+                getter="get_position"
+                default-value="0">
+        <type name="gint64" c:type="gint64"/>
+      </property>
+      <property name="shuffle" transfer-ownership="none" default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="source"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="PLAYERCTL_SOURCE_NONE">
+        <type name="Source"/>
+      </property>
+      <property name="status"
+                deprecated="1"
+                deprecated-version="2.0.0"
+                transfer-ownership="none"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="579">The playback status of the player as a string</doc>
+        <doc-deprecated xml:space="preserve">Use the "playback-status" signal instead.</doc-deprecated>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="volume"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_volume"
+                default-value="0.000000">
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="PlayerPrivate" c:type="PlayerctlPlayerPrivate*"/>
+      </field>
+      <glib:signal name="exit" when="first">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="812">Emitted when the player has disconnected and will no longer respond to
+queries and commands.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="loop-status" when="first" detailed="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="662">Emitted when the loop status changes.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="loop_status" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="665">the loop status of the player</doc>
+            <type name="LoopStatus"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="metadata" when="first">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="756">Emitted when the metadata for the currently playing track changes.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="metadata" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="759">the metadata for the currently playing track.</doc>
+            <type name="GLib.Variant"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="pause"
+                   when="first"
+                   deprecated="1"
+                   deprecated-version="2.0.0">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="718">Emitted when the player pauses.</doc>
+        <doc-deprecated xml:space="preserve">Use the "playback-status::paused" signal instead.</doc-deprecated>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="play"
+                   when="first"
+                   deprecated="1"
+                   deprecated-version="2.0.0">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="699">Emitted when the player begins to play.</doc>
+        <doc-deprecated xml:space="preserve">Use the "playback-status::playing" signal instead.</doc-deprecated>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="playback-status" when="first" detailed="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="641">Emitted when the playback status changes. Detail will be "playing",
+"paused", or "stopped" which you can listen to by connecting to the
+"playback-status::[STATUS]" signal.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="playback_status" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="644">the playback status of the player</doc>
+            <type name="PlaybackStatus"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="seeked" when="first">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="792">Emitted when the track changes position unexpectedly or begins in a
+position other than the beginning. Otherwise, position is assumed to
+progress normally.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="position" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="795">the new position in the track in microseconds.</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="shuffle" when="first">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="681">Emitted when the shuffle status changes.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="shuffle_status" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="684">the shuffle status of the player</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="stop"
+                   when="first"
+                   deprecated="1"
+                   deprecated-version="2.0.0">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="737">Emitted when the player stops.</doc>
+        <doc-deprecated xml:space="preserve">Use the "playback-status::stopped" signal instead.</doc-deprecated>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="volume" when="first">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="774">Emitted when the volume of the player changes.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="volume" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player.c"
+                 line="777">the volume of the player from 0 to 100.</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="PlayerClass"
+            c:type="PlayerctlPlayerClass"
+            glib:is-gtype-struct-for="Player">
+      <source-position filename="playerctl/playerctl-player.h" line="88"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="PlayerManager"
+           c:symbol-prefix="player_manager"
+           c:type="PlayerctlPlayerManager"
+           parent="GObject.Object"
+           glib:type-name="PlayerctlPlayerManager"
+           glib:get-type="playerctl_player_manager_get_type"
+           glib:type-struct="PlayerManagerClass">
+      <source-position filename="playerctl/playerctl-player-manager.h"
+                       line="86"/>
+      <constructor name="new"
+                   c:identifier="playerctl_player_manager_new"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player-manager.c"
+             line="377">Create a new player manager that contains a list of player names available
+in the #PlayerctlPlayerManager:player-names property. You can create new
+players from the names with the playerctl_player_new_from_name() function
+and then start managing them with the
+playerctl_player_manager_manage_player() function.</doc>
+        <source-position filename="playerctl/playerctl-player-manager.h"
+                         line="90"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="playerctl/playerctl-player-manager.c"
+               line="387">A new #PlayerctlPlayerManager.</doc>
+          <type name="PlayerManager" c:type="PlayerctlPlayerManager*"/>
+        </return-value>
+      </constructor>
+      <method name="manage_player"
+              c:identifier="playerctl_player_manager_manage_player">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player-manager.c"
+             line="454">Add the given player to the list of managed players. Takes a reference to
+the player (so you can unref it after you call this function). The player
+will automatically be unreffed and removed from the list of
+#PlayerctlPlayerManager:players when
+it disconnects and the #PlayerctlPlayerManager::player-vanished signal will
+be emitted on the manager.</doc>
+        <source-position filename="playerctl/playerctl-player-manager.h"
+                         line="92"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player-manager.c"
+                 line="456">A #PlayerctlPlayerManager</doc>
+            <type name="PlayerManager" c:type="PlayerctlPlayerManager*"/>
+          </instance-parameter>
+          <parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player-manager.c"
+                 line="457">A #PlayerctlPlayer to manage</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="move_player_to_top"
+              c:identifier="playerctl_player_manager_move_player_to_top">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player-manager.c"
+             line="425">Moves the player to the top of the list of #PlayerctlPlayerManager:players. If this manager has a
+sort function set with playerctl_player_manager_set_sort_func(), the list of
+players will be sorted afterward, but will be on top of equal players in the
+sorted order.</doc>
+        <source-position filename="playerctl/playerctl-player-manager.h"
+                         line="99"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player-manager.c"
+                 line="427">A #PlayerctlPlayerManager</doc>
+            <type name="PlayerManager" c:type="PlayerctlPlayerManager*"/>
+          </instance-parameter>
+          <parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player-manager.c"
+                 line="428">A #PlayerctlPlayer in the list of #PlayerctlPlayerManager:players</doc>
+            <type name="Player" c:type="PlayerctlPlayer*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_sort_func"
+              c:identifier="playerctl_player_manager_set_sort_func">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player-manager.c"
+             line="402">Keeps the #PlayerctlPlayerManager:players list of this manager in sorted order which is useful
+for using this list as a priority queue.</doc>
+        <source-position filename="playerctl/playerctl-player-manager.h"
+                         line="95"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player-manager.c"
+                 line="404">A #PlayerctlPlayerManager.</doc>
+            <type name="PlayerManager" c:type="PlayerctlPlayerManager*"/>
+          </instance-parameter>
+          <parameter name="sort_func"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="1"
+                     destroy="2">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player-manager.c"
+                 line="405">The compare function to be used to sort the
+#PlayerctlPlayerManager:players.</doc>
+            <type name="GLib.CompareDataFunc" c:type="GCompareDataFunc"/>
+          </parameter>
+          <parameter name="sort_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player-manager.c"
+                 line="407">User data for the sort function.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="notify"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player-manager.c"
+                 line="408">A function to notify when the sort function will no
+longer be used.</doc>
+            <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="player-names" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player-manager.c"
+             line="140">A list of fully qualified player names that are currently available to control.</doc>
+        <type name="GLib.List" c:type="gpointer">
+          <type name="PlayerName"/>
+        </type>
+      </property>
+      <property name="players" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player-manager.c"
+             line="131">A list of players that are currently connected and managed by this class.</doc>
+        <type name="GLib.List" c:type="gpointer">
+          <type name="Player"/>
+        </type>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="PlayerManagerPrivate"
+              c:type="PlayerctlPlayerManagerPrivate*"/>
+      </field>
+      <glib:signal name="name-appeared" when="last">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player-manager.c"
+             line="152">Emitted when a new name has appeared and is available to connect to. Use
+playerctl_player_new_from_name() to connect to the player and
+playerctl_player_manager_manage_player() to add it to the managed list of
+players.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player-manager.c"
+                 line="155">A #PlayerctlPlayerName containing information about the name that
+has appeared.</doc>
+            <type name="PlayerName"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="name-vanished" when="first">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player-manager.c"
+             line="167">Emitted when the name has vanished and is no longer available to be
+controlled by playerctl. If the player is managed, it will automatically
+be removed from the list of players and the
+#PlayerctlPlayerManager::player-vanished signal will be emitted
+automatically.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player-manager.c"
+                 line="170">The #PlayerctlPlayerName containing connection information about
+the name that is going away.</doc>
+            <type name="PlayerName"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="player-appeared" when="first">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player-manager.c"
+             line="183">Emitted when a new player will be managed by this manager through a call
+to playerctl_player_manager_manage_player().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player-manager.c"
+                 line="186">The #PlayerctlPlayer that will be managed by this manager</doc>
+            <type name="Player"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="player-vanished" when="first">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player-manager.c"
+             line="195">Emitted when a player has disconnected and will no longer be managed by
+this manager. The player is removed from the list of players
+automatically.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="player" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player-manager.c"
+                 line="198">The #PlayerctlPlayer that will no longer be managed by this
+manager</doc>
+            <type name="Player"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="PlayerManagerClass"
+            c:type="PlayerctlPlayerManagerClass"
+            glib:is-gtype-struct-for="PlayerManager">
+      <source-position filename="playerctl/playerctl-player-manager.h"
+                       line="86"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="PlayerManagerPrivate"
+            c:type="PlayerctlPlayerManagerPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="playerctl/playerctl-player-manager.h"
+                       line="73"/>
+    </record>
+    <record name="PlayerName"
+            c:type="PlayerctlPlayerName"
+            glib:type-name="PlayerctlPlayerName"
+            glib:get-type="playerctl_player_name_get_type"
+            c:symbol-prefix="player_name">
+      <doc xml:space="preserve"
+           filename="playerctl/playerctl-player-name.h"
+           line="68">Event container for when names of players appear or disapear as the
+controllable media player applications open and close.</doc>
+      <source-position filename="playerctl/playerctl-player-name.h" line="81"/>
+      <field name="name" writable="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player-name.h"
+             line="70">the name of the type of player.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="instance" writable="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player-name.h"
+             line="71">the complete name and instance of the player.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="source" writable="1">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player-name.h"
+             line="72">the source of the player name.</doc>
+        <type name="Source" c:type="PlayerctlSource"/>
+      </field>
+      <method name="copy" c:identifier="playerctl_player_name_copy">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player-name.c"
+             line="22">Creates a dynamically allocated name name container as a copy of
+@name.</doc>
+        <source-position filename="playerctl/playerctl-player-name.h"
+                         line="65"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="playerctl/playerctl-player-name.c"
+               line="29">a newly-allocated copy of @name</doc>
+          <type name="PlayerName" c:type="PlayerctlPlayerName*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player-name.c"
+                 line="24">a #PlayerctlPlayerName</doc>
+            <type name="PlayerName" c:type="PlayerctlPlayerName*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="playerctl_player_name_free">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player-name.c"
+             line="46">Frees @name. If @name is %NULL, it simply returns.</doc>
+        <source-position filename="playerctl/playerctl-player-name.h"
+                         line="64"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="name"
+                              transfer-ownership="none"
+                              nullable="1"
+                              allow-none="1">
+            <doc xml:space="preserve"
+                 filename="playerctl/playerctl-player-name.c"
+                 line="48">a #PlayerctlPlayerName</doc>
+            <type name="PlayerName" c:type="PlayerctlPlayerName*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="PlayerPrivate"
+            c:type="PlayerctlPlayerPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="playerctl/playerctl-player.h" line="75"/>
+    </record>
+    <enumeration name="Source"
+                 glib:type-name="PlayerctlSource"
+                 glib:get-type="playerctl_source_get_type"
+                 c:type="PlayerctlSource">
+      <doc xml:space="preserve"
+           filename="playerctl/playerctl-player-name.h"
+           line="45">The source of the name used to control the player.</doc>
+      <member name="none"
+              value="0"
+              c:identifier="PLAYERCTL_SOURCE_NONE"
+              glib:nick="none"
+              glib:name="PLAYERCTL_SOURCE_NONE">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player-name.h"
+             line="47">Only for unitialized players. Source will be chosen automatically.</doc>
+      </member>
+      <member name="dbus_session"
+              value="1"
+              c:identifier="PLAYERCTL_SOURCE_DBUS_SESSION"
+              glib:nick="dbus-session"
+              glib:name="PLAYERCTL_SOURCE_DBUS_SESSION">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player-name.h"
+             line="48">The player is on the DBus session bus.</doc>
+      </member>
+      <member name="dbus_system"
+              value="2"
+              c:identifier="PLAYERCTL_SOURCE_DBUS_SYSTEM"
+              glib:nick="dbus-system"
+              glib:name="PLAYERCTL_SOURCE_DBUS_SYSTEM">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player-name.h"
+             line="49">The player is on the DBus system bus.</doc>
+      </member>
+    </enumeration>
+    <function name="list_players"
+              c:identifier="playerctl_list_players"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="playerctl/playerctl-player.c"
+           line="1008">Lists all the players that can be controlled by Playerctl.</doc>
+      <source-position filename="playerctl/playerctl-player.h" line="133"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="playerctl/playerctl-player.c"
+             line="1014">A list of player names.</doc>
+        <type name="GLib.List" c:type="GList*">
+          <type name="PlayerName"/>
+        </type>
+      </return-value>
+    </function>
+    <docsection name="playerctl-player">
+      <doc xml:space="preserve"
+           filename="playerctl/playerctl-player.h"
+           line="31">The #PlayerctlPlayer represents a proxy connection to a media player through
+an IPC interface that is capable of performing commands and executing
+queries on the player for properties and metadata.
+
+If you know the name of your player and that it is running, you can use
+playerctl_player_new() giving the player name to connect to it. The player
+names given are the same as you can get with the binary `playerctl
+--list-all` command. Using this function will get you the first instance of
+ the player it can find, or the exact instance if you pass the instance as
+ the player name.
+
+If you would like to connect to a player dynamically, you can list players
+to be controlled with playerctl_list_players() or use the
+#PlayerctlPlayerManager class and read the list of player name containers in
+the #PlayerctlPlayerManager:player-names property or listen to the
+#PlayerctlPlayerManager::name-appeared event. If you have a
+#PlayerctlPlayerName, you can use the playerctl_player_new_from_name()
+function to create a #PlayerctlPlayer from this name.
+
+Once you have a player, you can give it commands to play, pause, stop, open
+a file, etc with the provided functions listed below. You can also query for
+properties such as the playback status, position, and shuffle status. Each
+of these has an event that will be emitted when these properties change
+during a main loop.
+
+For examples on how to use the #PlayerctlPlayer, see the `examples`
+directory in the git repository.</doc>
+    </docsection>
+    <docsection name="playerctl-player-manager">
+      <doc xml:space="preserve"
+           filename="playerctl/playerctl-player-manager.h"
+           line="30">The #PlayerctlPlayerManager is a class to watch for players appearing and
+vanishing. When a player opens and is available to control by `playerctl`,
+the #PlayerctlPlayerManager::name-appeared event will be emitted on the
+manager during the main loop. You can inspect this #PlayerctlPlayerName to
+see if you want to manage it. If you do, create a #PlayerctlPlayer from it
+with the playerctl_player_new_from_name() function. The manager is also
+capable of keeping an up-to-date list of players you want it to manage in
+the #PlayerctlPlayerManager:players list. These players are connected and
+should be able to be controlled. Managing players is optional, and you can
+do so manually if you like.
+
+When the player disconnects, the #PlayerctlPlayerManager::name-vanished
+event will be emitted. If the player is managed and is going to be removed
+from the list, the #PlayerctlPlayerManager::player-vanished event will also
+be emitted. After this event, the player will be cleaned up and removed from
+the manager.
+
+The manager has other features such as being able to keep the players in a
+sorted order and moving a player to the top of the list. The
+#PlayerctlPlayerManager:player-names will always be in the order that they
+were known to appear after the manager was created.
+
+For examples on how to use the manager, see the `examples` folder in the git
+repository.</doc>
+    </docsection>
+    <docsection name="playerctl-player-name">
+      <doc xml:space="preserve"
+           filename="playerctl/playerctl-player-name.h"
+           line="26">Contains connection information that fully qualifies a potential connection
+to a player. You should not have to construct one of these directly. You can
+list the names that are available to control from the
+playerctl_list_players() function or use the
+#PlayerctlPlayerManager:player-names property from a
+#PlayerctlPlayerManager.
+
+Once you have gotten a player name like this, you can check the type of
+player with the "name" property to see if you are interested in connecting
+to it. If you are, you can pass it directly to the
+playerctl_player_new_from_name() function to get a #PlayerctlPlayer that is
+connected to this name and ready to command and query.</doc>
+    </docsection>
+  </namespace>
+</repository>

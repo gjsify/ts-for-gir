@@ -2833,6 +2833,104 @@ Returns the newly created #GeglColor.</doc>
           </instance-parameter>
         </parameters>
       </method>
+      <method name="get_bytes" c:identifier="gegl_color_get_bytes">
+        <source-position filename="gegl/property-types/gegl-color.h"
+                         line="243"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="gegl/property-types/gegl-color.h"
+               line="241">the color in the given @format.</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="color" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="238">a #GeglColor</doc>
+            <type name="Color" c:type="GeglColor*"/>
+          </instance-parameter>
+          <parameter name="format" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="239">a babl pixel format</doc>
+            <type name="Babl.Object" c:type="const Babl*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_cmyk" c:identifier="gegl_color_get_cmyk">
+        <doc xml:space="preserve"
+             filename="gegl/property-types/gegl-color.h"
+             line="158">Retrieves the current set color stored as @space.
+If @space is %NULL, this is equivalent to requesting color in the default
+naive CMYK space.</doc>
+        <source-position filename="gegl/property-types/gegl-color.h"
+                         line="172"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="color" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="160">a #GeglColor</doc>
+            <type name="Color" c:type="GeglColor*"/>
+          </instance-parameter>
+          <parameter name="cyan"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="161">cyan return location.</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+          <parameter name="magenta"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="162">magenta return location.</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+          <parameter name="yellow"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="163">yellow return location.</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+          <parameter name="key"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="164">key return location.</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+          <parameter name="alpha"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="165">alpha return location.</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+          <parameter name="space"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="166">CMYK space.</doc>
+            <type name="Babl.Object" c:type="const Babl*"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="get_components" c:identifier="gegl_color_get_components">
         <doc xml:space="preserve"
              filename="gegl/gegl-introspection-support.h"
@@ -2874,18 +2972,18 @@ If value format not supported return NULL and components_length set to 0.</doc>
       </method>
       <method name="get_format" c:identifier="gegl_color_get_format">
         <source-position filename="gegl/property-types/gegl-color.h"
-                         line="204"/>
+                         line="308"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gegl/property-types/gegl-color.h"
-               line="201">the pixel format encoding of the set color.</doc>
+               line="305">the pixel format encoding of the set color.</doc>
           <type name="Babl.Object" c:type="const Babl*"/>
         </return-value>
         <parameters>
           <instance-parameter name="color" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gegl/property-types/gegl-color.h"
-                 line="199">a #GeglColor</doc>
+                 line="303">a #GeglColor</doc>
             <type name="Color" c:type="GeglColor*"/>
           </instance-parameter>
         </parameters>
@@ -2895,9 +2993,9 @@ If value format not supported return NULL and components_length set to 0.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gegl/property-types/gegl-color.h"
-             line="130">Store the color in a pixel in the given format.</doc>
+             line="213">Store the color in a pixel in the given format.</doc>
         <source-position filename="gegl/property-types/gegl-color.h"
-                         line="138"/>
+                         line="221"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2905,13 +3003,13 @@ If value format not supported return NULL and components_length set to 0.</doc>
           <instance-parameter name="color" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gegl/property-types/gegl-color.h"
-                 line="132">a #GeglColor</doc>
+                 line="215">a #GeglColor</doc>
             <type name="Color" c:type="GeglColor*"/>
           </instance-parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gegl/property-types/gegl-color.h"
-                 line="133">a babl pixel format</doc>
+                 line="216">a babl pixel format</doc>
             <type name="Babl.Object" c:type="const Babl*"/>
           </parameter>
           <parameter name="pixel"
@@ -2920,7 +3018,7 @@ If value format not supported return NULL and components_length set to 0.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gegl/property-types/gegl-color.h"
-                 line="134">pointer to a pixel</doc>
+                 line="217">pointer to a pixel</doc>
             <type name="gpointer" c:type="void*"/>
           </parameter>
         </parameters>
@@ -2980,6 +3078,156 @@ any of the return pointers can be omitted.</doc>
           </parameter>
         </parameters>
       </method>
+      <method name="get_rgba_with_space"
+              c:identifier="gegl_color_get_rgba_with_space">
+        <doc xml:space="preserve"
+             filename="gegl/property-types/gegl-color.h"
+             line="120">Retrieves the current set color stored as @space.
+If @space is %NULL, this is equivalent to requesting color in sRGB.</doc>
+        <source-position filename="gegl/property-types/gegl-color.h"
+                         line="132"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="color" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="122">a #GeglColor</doc>
+            <type name="Color" c:type="GeglColor*"/>
+          </instance-parameter>
+          <parameter name="red"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="123">red return location.</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+          <parameter name="green"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="124">green return location.</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+          <parameter name="blue"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="125">blue return location.</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+          <parameter name="alpha"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="126">alpha return location.</doc>
+            <type name="gdouble" c:type="gdouble*"/>
+          </parameter>
+          <parameter name="space" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="127">RGB space.</doc>
+            <type name="Babl.Object" c:type="const Babl*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_bytes" c:identifier="gegl_color_set_bytes">
+        <doc xml:space="preserve"
+             filename="gegl/property-types/gegl-color.h"
+             line="224">Set a GeglColor from a pixel stored in a %GBytes and it's babl format.</doc>
+        <source-position filename="gegl/property-types/gegl-color.h"
+                         line="232"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="color" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="226">a #GeglColor</doc>
+            <type name="Color" c:type="GeglColor*"/>
+          </instance-parameter>
+          <parameter name="format" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="227">a babl pixel format</doc>
+            <type name="Babl.Object" c:type="const Babl*"/>
+          </parameter>
+          <parameter name="bytes" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="228">color stored as @format</doc>
+            <type name="GLib.Bytes" c:type="GBytes*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_cmyk" c:identifier="gegl_color_set_cmyk">
+        <doc xml:space="preserve"
+             filename="gegl/property-types/gegl-color.h"
+             line="180">Set color as CMYK data stored as @space. If @space is %NULL, this is
+equivalent to storing with the default naive CMYK space.</doc>
+        <source-position filename="gegl/property-types/gegl-color.h"
+                         line="193"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="color" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="182">a #GeglColor</doc>
+            <type name="Color" c:type="GeglColor*"/>
+          </instance-parameter>
+          <parameter name="cyan" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="183">cyan value</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="magenta" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="184">magenta value</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="yellow" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="185">yellow value</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="key" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="186">key value</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="alpha" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="187">alpha value</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="space"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="188">CMYK space.</doc>
+            <type name="Babl.Object" c:type="const Babl*"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="set_components" c:identifier="gegl_color_set_components">
         <doc xml:space="preserve"
              filename="gegl/gegl-introspection-support.h"
@@ -3023,9 +3271,9 @@ any of the return pointers can be omitted.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gegl/property-types/gegl-color.h"
-             line="119">Set a GeglColor from a pointer to a pixel and it's babl format.</doc>
+             line="201">Set a GeglColor from a pointer to a pixel and it's babl format.</doc>
         <source-position filename="gegl/property-types/gegl-color.h"
-                         line="127"/>
+                         line="209"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3033,13 +3281,13 @@ any of the return pointers can be omitted.</doc>
           <instance-parameter name="color" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gegl/property-types/gegl-color.h"
-                 line="121">a #GeglColor</doc>
+                 line="203">a #GeglColor</doc>
             <type name="Color" c:type="GeglColor*"/>
           </instance-parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gegl/property-types/gegl-color.h"
-                 line="122">a babl pixel format</doc>
+                 line="204">a babl pixel format</doc>
             <type name="Babl.Object" c:type="const Babl*"/>
           </parameter>
           <parameter name="pixel"
@@ -3048,7 +3296,7 @@ any of the return pointers can be omitted.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gegl/property-types/gegl-color.h"
-                 line="123">pointer to a pixel</doc>
+                 line="205">pointer to a pixel</doc>
             <type name="gpointer" c:type="void*"/>
           </parameter>
         </parameters>
@@ -3092,6 +3340,56 @@ any of the return pointers can be omitted.</doc>
                  filename="gegl/property-types/gegl-color.h"
                  line="110">alpha value</doc>
             <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_rgba_with_space"
+              c:identifier="gegl_color_set_rgba_with_space">
+        <doc xml:space="preserve"
+             filename="gegl/property-types/gegl-color.h"
+             line="139">Set color as RGBA data stored as @space. If @space is %NULL, this is
+equivalent to storing as sRGB.</doc>
+        <source-position filename="gegl/property-types/gegl-color.h"
+                         line="151"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="color" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="141">a #GeglColor</doc>
+            <type name="Color" c:type="GeglColor*"/>
+          </instance-parameter>
+          <parameter name="red" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="142">red value</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="green" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="143">green value</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="blue" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="144">blue value</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="alpha" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="145">alpha value</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+          <parameter name="space" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gegl/property-types/gegl-color.h"
+                 line="146">RGB space.</doc>
+            <type name="Babl.Object" c:type="const Babl*"/>
           </parameter>
         </parameters>
       </method>
@@ -3174,13 +3472,13 @@ any of the return pointers can be omitted.</doc>
                 writable="1"
                 construct="1"
                 transfer-ownership="none"
-                default-value="8">
+                default-value="6">
         <type name="gint" c:type="gint"/>
       </property>
       <property name="tile-cache-size"
                 writable="1"
                 transfer-ownership="none"
-                default-value="774782976">
+                default-value="1206140928">
         <type name="guint64" c:type="guint64"/>
       </property>
       <property name="tile-height"
@@ -3770,7 +4068,7 @@ Returns the number of points for the coordinates in the curve.</doc>
     <function-macro name="IS_PARAM_SPEC_COLOR"
                     c:identifier="GEGL_IS_PARAM_SPEC_COLOR"
                     introspectable="0">
-      <source-position filename="gegl/property-types/gegl-color.h" line="146"/>
+      <source-position filename="gegl/property-types/gegl-color.h" line="250"/>
       <parameters>
         <parameter name="pspec">
         </parameter>
@@ -4109,7 +4407,7 @@ Returns the number of points for the coordinates in the curve.</doc>
                        line="36"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="47" c:type="GEGL_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="48" c:type="GEGL_MICRO_VERSION">
       <source-position filename="gegl/gegl-version.h" line="38"/>
       <type name="gint" c:type="gint"/>
     </constant>
@@ -13562,43 +13860,43 @@ sub-ranges on different threads.</doc>
     <function name="param_spec_color" c:identifier="gegl_param_spec_color">
       <doc xml:space="preserve"
            filename="gegl/property-types/gegl-color.h"
-           line="150">Creates a new #GParamSpec instance specifying a #GeglColor property.</doc>
-      <source-position filename="gegl/property-types/gegl-color.h" line="162"/>
+           line="254">Creates a new #GParamSpec instance specifying a #GeglColor property.</doc>
+      <source-position filename="gegl/property-types/gegl-color.h" line="266"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gegl/property-types/gegl-color.h"
-             line="160">a newly created parameter specification</doc>
+             line="264">a newly created parameter specification</doc>
         <type name="GObject.ParamSpec" c:type="GParamSpec*"/>
       </return-value>
       <parameters>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gegl/property-types/gegl-color.h"
-               line="152">canonical name of the property specified</doc>
+               line="256">canonical name of the property specified</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="nick" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gegl/property-types/gegl-color.h"
-               line="153">nick name for the property specified</doc>
+               line="257">nick name for the property specified</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="blurb" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gegl/property-types/gegl-color.h"
-               line="154">description of the property specified</doc>
+               line="258">description of the property specified</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="default_color" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gegl/property-types/gegl-color.h"
-               line="155">the default value for the property specified</doc>
+               line="259">the default value for the property specified</doc>
           <type name="Color" c:type="GeglColor*"/>
         </parameter>
         <parameter name="flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gegl/property-types/gegl-color.h"
-               line="156">flags for the property specified</doc>
+               line="260">flags for the property specified</doc>
           <type name="GObject.ParamFlags" c:type="GParamFlags"/>
         </parameter>
       </parameters>
@@ -13607,43 +13905,43 @@ sub-ranges on different threads.</doc>
               c:identifier="gegl_param_spec_color_from_string">
       <doc xml:space="preserve"
            filename="gegl/property-types/gegl-color.h"
-           line="168">Creates a new #GParamSpec instance specifying a #GeglColor property.</doc>
-      <source-position filename="gegl/property-types/gegl-color.h" line="180"/>
+           line="272">Creates a new #GParamSpec instance specifying a #GeglColor property.</doc>
+      <source-position filename="gegl/property-types/gegl-color.h" line="284"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gegl/property-types/gegl-color.h"
-             line="178">a newly created parameter specification</doc>
+             line="282">a newly created parameter specification</doc>
         <type name="GObject.ParamSpec" c:type="GParamSpec*"/>
       </return-value>
       <parameters>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gegl/property-types/gegl-color.h"
-               line="170">canonical name of the property specified</doc>
+               line="274">canonical name of the property specified</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="nick" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gegl/property-types/gegl-color.h"
-               line="171">nick name for the property specified</doc>
+               line="275">nick name for the property specified</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="blurb" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gegl/property-types/gegl-color.h"
-               line="172">description of the property specified</doc>
+               line="276">description of the property specified</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="default_color_string" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gegl/property-types/gegl-color.h"
-               line="173">the default value for the property specified</doc>
+               line="277">the default value for the property specified</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gegl/property-types/gegl-color.h"
-               line="174">flags for the property specified</doc>
+               line="278">flags for the property specified</doc>
           <type name="GObject.ParamFlags" c:type="GParamFlags"/>
         </parameter>
       </parameters>
@@ -13652,19 +13950,19 @@ sub-ranges on different threads.</doc>
               c:identifier="gegl_param_spec_color_get_default">
       <doc xml:space="preserve"
            filename="gegl/property-types/gegl-color.h"
-           line="185">Get the default color value of the param spec</doc>
-      <source-position filename="gegl/property-types/gegl-color.h" line="194"/>
+           line="289">Get the default color value of the param spec</doc>
+      <source-position filename="gegl/property-types/gegl-color.h" line="298"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gegl/property-types/gegl-color.h"
-             line="191">the default #GeglColor</doc>
+             line="295">the default #GeglColor</doc>
         <type name="Color" c:type="GeglColor*"/>
       </return-value>
       <parameters>
         <parameter name="self" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gegl/property-types/gegl-color.h"
-               line="187">a #GeglColor #GParamSpec</doc>
+               line="291">a #GeglColor #GParamSpec</doc>
           <type name="GObject.ParamSpec" c:type="GParamSpec*"/>
         </parameter>
       </parameters>

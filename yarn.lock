@@ -6538,6 +6538,39 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@girs/ide-46@workspace:types/ide-46":
+  version: 0.0.0-use.local
+  resolution: "@girs/ide-46@workspace:types/ide-46"
+  dependencies:
+    "@girs/adw-1": "workspace:^"
+    "@girs/cairo-1.0": "workspace:^"
+    "@girs/dex-1": "workspace:^"
+    "@girs/freetype2-2.0": "workspace:^"
+    "@girs/gdk-4.0": "workspace:^"
+    "@girs/gdkpixbuf-2.0": "workspace:^"
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gmodule-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    "@girs/graphene-1.0": "workspace:^"
+    "@girs/gsk-4.0": "workspace:^"
+    "@girs/gtk-4.0": "workspace:^"
+    "@girs/gtksource-5": "workspace:^"
+    "@girs/harfbuzz-0.0": "workspace:^"
+    "@girs/javascriptcore-6.0": "workspace:^"
+    "@girs/panel-1": "workspace:^"
+    "@girs/pango-1.0": "workspace:^"
+    "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/peas-2": "workspace:^"
+    "@girs/soup-3.0": "workspace:^"
+    "@girs/template-1.0": "workspace:^"
+    "@girs/vte-3.91": "workspace:^"
+    "@girs/webkit-6.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
 "@girs/imsettings-1.8@workspace:types/imsettings-1.8":
   version: 0.0.0-use.local
   resolution: "@girs/imsettings-1.8@workspace:types/imsettings-1.8"
@@ -8882,6 +8915,18 @@ __metadata:
 "@girs/snapd-1@workspace:^, @girs/snapd-1@workspace:types/snapd-1":
   version: 0.0.0-use.local
   resolution: "@girs/snapd-1@workspace:types/snapd-1"
+  dependencies:
+    "@girs/gio-2.0": "workspace:^"
+    "@girs/gjs": "workspace:^"
+    "@girs/glib-2.0": "workspace:^"
+    "@girs/gobject-2.0": "workspace:^"
+    typescript: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@girs/snapd-2@workspace:types/snapd-2":
+  version: 0.0.0-use.local
+  resolution: "@girs/snapd-2@workspace:types/snapd-2"
   dependencies:
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"

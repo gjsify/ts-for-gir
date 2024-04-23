@@ -12,7 +12,7 @@ and/or use gtk-doc annotations.  -->
   <c:include name="arrow-glib/arrow-glib.h"/>
   <namespace name="Arrow"
              version="1.0"
-             shared-library="libarrow-glib.so.1300"
+             shared-library="libarrow-glib.so.1500"
              c:identifier-prefixes="GArrow"
              c:symbol-prefixes="garrow">
     <alias name="TimePoint" c:type="GArrowTimePoint">
@@ -232,7 +232,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="4686">
+               line="4684">
   A newly created casted array on success, %NULL on error.</doc>
           <type name="Array" c:type="GArrowArray*"/>
         </return-value>
@@ -240,13 +240,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4681">A #GArrowArray.</doc>
+                 line="4679">A #GArrowArray.</doc>
             <type name="Array" c:type="GArrowArray*"/>
           </instance-parameter>
           <parameter name="target_data_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4682">A #GArrowDataType of cast target data.</doc>
+                 line="4680">A #GArrowDataType of cast target data.</doc>
             <type name="DataType" c:type="GArrowDataType*"/>
           </parameter>
           <parameter name="options"
@@ -255,7 +255,7 @@ and/or use gtk-doc annotations.  -->
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4683">A #GArrowCastOptions.</doc>
+                 line="4681">A #GArrowCastOptions.</doc>
             <type name="CastOptions" c:type="GArrowCastOptions*"/>
           </parameter>
         </parameters>
@@ -297,7 +297,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="4801">The number of target values on success. If an error is occurred,
+               line="4799">The number of target values on success. If an error is occurred,
   the returned value is untrustful value.</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
@@ -305,7 +305,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4797">A #GArrowArray.</doc>
+                 line="4795">A #GArrowArray.</doc>
             <type name="Array" c:type="GArrowArray*"/>
           </instance-parameter>
           <parameter name="options"
@@ -314,7 +314,7 @@ and/or use gtk-doc annotations.  -->
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4798">A #GArrowCountOptions.</doc>
+                 line="4796">A #GArrowCountOptions.</doc>
             <type name="CountOptions" c:type="GArrowCountOptions*"/>
           </parameter>
         </parameters>
@@ -327,7 +327,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="4836">
+               line="4834">
   A #GArrowStructArray of `{input type "values", int64_t "counts"}`
   on success, %NULL on error.</doc>
           <type name="StructArray" c:type="GArrowStructArray*"/>
@@ -336,7 +336,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4833">A #GArrowArray.</doc>
+                 line="4831">A #GArrowArray.</doc>
             <type name="Array" c:type="GArrowArray*"/>
           </instance-parameter>
         </parameters>
@@ -349,7 +349,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="4763">
+               line="4761">
   A newly created #GArrowDictionaryArray for the @array on success,
   %NULL on error.</doc>
           <type name="DictionaryArray" c:type="GArrowDictionaryArray*"/>
@@ -358,7 +358,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4760">A #GArrowArray.</doc>
+                 line="4758">A #GArrowArray.</doc>
             <type name="Array" c:type="GArrowArray*"/>
           </instance-parameter>
         </parameters>
@@ -585,7 +585,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5428">The #GArrowArray filterd
+               line="5426">The #GArrowArray filterd
   with a boolean selection filter. Nulls in the filter will
   result in nulls in the output.</doc>
           <type name="Array" c:type="GArrowArray*"/>
@@ -594,13 +594,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5423">A #GArrowArray.</doc>
+                 line="5421">A #GArrowArray.</doc>
             <type name="Array" c:type="GArrowArray*"/>
           </instance-parameter>
           <parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5424">The values indicates which values should be filtered out.</doc>
+                 line="5422">The values indicates which values should be filtered out.</doc>
             <type name="BooleanArray" c:type="GArrowBooleanArray*"/>
           </parameter>
           <parameter name="options"
@@ -609,7 +609,7 @@ and/or use gtk-doc annotations.  -->
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5425">A #GArrowFilterOptions.</doc>
+                 line="5423">A #GArrowFilterOptions.</doc>
             <type name="FilterOptions" c:type="GArrowFilterOptions*"/>
           </parameter>
         </parameters>
@@ -735,7 +735,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5466">The #GArrowBooleanArray
+               line="5464">The #GArrowBooleanArray
   showing whether each element in the left array is contained
   in right array.</doc>
           <type name="BooleanArray" c:type="GArrowBooleanArray*"/>
@@ -744,13 +744,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="left" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5462">A left hand side #GArrowArray.</doc>
+                 line="5460">A left hand side #GArrowArray.</doc>
             <type name="Array" c:type="GArrowArray*"/>
           </instance-parameter>
           <parameter name="right" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5463">A right hand side #GArrowArray.</doc>
+                 line="5461">A right hand side #GArrowArray.</doc>
             <type name="Array" c:type="GArrowArray*"/>
           </parameter>
         </parameters>
@@ -763,7 +763,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5494">The #GArrowBooleanArray
+               line="5492">The #GArrowBooleanArray
   showing whether each element in the left array is contained
   in right chunked array.</doc>
           <type name="BooleanArray" c:type="GArrowBooleanArray*"/>
@@ -772,13 +772,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="left" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5490">A left hand side #GArrowArray.</doc>
+                 line="5488">A left hand side #GArrowArray.</doc>
             <type name="Array" c:type="GArrowArray*"/>
           </instance-parameter>
           <parameter name="right" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5491">A right hand side #GArrowChunkedArray.</doc>
+                 line="5489">A right hand side #GArrowChunkedArray.</doc>
             <type name="ChunkedArray" c:type="GArrowChunkedArray*"/>
           </parameter>
         </parameters>
@@ -841,7 +841,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="6004">
+               line="6002">
   A newly created #GArrowRunEndEncodeArray for the @array on success,
   %NULL on error.</doc>
           <type name="RunEndEncodedArray" c:type="GArrowRunEndEncodedArray*"/>
@@ -850,7 +850,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="6000">A #GArrowArray.</doc>
+                 line="5998">A #GArrowArray.</doc>
             <type name="Array" c:type="GArrowArray*"/>
           </instance-parameter>
           <parameter name="options"
@@ -859,7 +859,7 @@ and/or use gtk-doc annotations.  -->
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="6001">A #GArrowRunEndEncodeOptions.</doc>
+                 line="5999">A #GArrowRunEndEncodeOptions.</doc>
             <type name="RunEndEncodeOptions"
                   c:type="GArrowRunEndEncodeOptions*"/>
           </parameter>
@@ -904,7 +904,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5524">The indices that would sort
+               line="5522">The indices that would sort
   an array in the specified order on success, %NULL on error.</doc>
           <type name="UInt64Array" c:type="GArrowUInt64Array*"/>
         </return-value>
@@ -912,13 +912,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5520">A #GArrowArray.</doc>
+                 line="5518">A #GArrowArray.</doc>
             <type name="Array" c:type="GArrowArray*"/>
           </instance-parameter>
           <parameter name="order" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5521">The order for sort.</doc>
+                 line="5519">The order for sort.</doc>
             <type name="SortOrder" c:type="GArrowSortOrder"/>
           </parameter>
         </parameters>
@@ -934,7 +934,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5551">The indices that would sort
+               line="5549">The indices that would sort
   an array in ascending order on success, %NULL on error.</doc>
           <type name="UInt64Array" c:type="GArrowUInt64Array*"/>
         </return-value>
@@ -942,7 +942,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5548">A #GArrowArray.</doc>
+                 line="5546">A #GArrowArray.</doc>
             <type name="Array" c:type="GArrowArray*"/>
           </instance-parameter>
         </parameters>
@@ -955,7 +955,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5204">The #GArrowArray taken from
+               line="5202">The #GArrowArray taken from
   an array of values at indices in input array or %NULL on error.</doc>
           <type name="Array" c:type="GArrowArray*"/>
         </return-value>
@@ -963,13 +963,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5199">A #GArrowArray.</doc>
+                 line="5197">A #GArrowArray.</doc>
             <type name="Array" c:type="GArrowArray*"/>
           </instance-parameter>
           <parameter name="indices" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5200">The indices of values to take.</doc>
+                 line="5198">The indices of values to take.</doc>
             <type name="Array" c:type="GArrowArray*"/>
           </parameter>
           <parameter name="options"
@@ -978,7 +978,7 @@ and/or use gtk-doc annotations.  -->
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5201">A #GArrowTakeOptions.</doc>
+                 line="5199">A #GArrowTakeOptions.</doc>
             <type name="TakeOptions" c:type="GArrowTakeOptions*"/>
           </parameter>
         </parameters>
@@ -991,7 +991,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5236">The #GArrowChunkedArray taken from
+               line="5234">The #GArrowChunkedArray taken from
   an array of values at indices in chunked array or %NULL on error.</doc>
           <type name="ChunkedArray" c:type="GArrowChunkedArray*"/>
         </return-value>
@@ -999,13 +999,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5231">A #GArrowArray.</doc>
+                 line="5229">A #GArrowArray.</doc>
             <type name="Array" c:type="GArrowArray*"/>
           </instance-parameter>
           <parameter name="indices" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5232">The indices of values to take.</doc>
+                 line="5230">The indices of values to take.</doc>
             <type name="ChunkedArray" c:type="GArrowChunkedArray*"/>
           </parameter>
           <parameter name="options"
@@ -1014,7 +1014,7 @@ and/or use gtk-doc annotations.  -->
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5233">A #GArrowTakeOptions.</doc>
+                 line="5231">A #GArrowTakeOptions.</doc>
             <type name="TakeOptions" c:type="GArrowTakeOptions*"/>
           </parameter>
         </parameters>
@@ -1050,7 +1050,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="4732">
+               line="4730">
   A newly created unique elements array on success, %NULL on error.</doc>
           <type name="Array" c:type="GArrowArray*"/>
         </return-value>
@@ -1058,7 +1058,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4729">A #GArrowArray.</doc>
+                 line="4727">A #GArrowArray.</doc>
             <type name="Array" c:type="GArrowArray*"/>
           </instance-parameter>
         </parameters>
@@ -1665,14 +1665,14 @@ garrow_array_builder_append_null() calls.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1117">The value of this scalar.</doc>
+               line="1119">The value of this scalar.</doc>
           <type name="Buffer" c:type="GArrowBuffer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1115">A #GArrowBaseBinaryScalar.</doc>
+                 line="1117">A #GArrowBaseBinaryScalar.</doc>
             <type name="BaseBinaryScalar" c:type="GArrowBaseBinaryScalar*"/>
           </instance-parameter>
         </parameters>
@@ -1685,7 +1685,7 @@ garrow_array_builder_append_null() calls.</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="arrow-glib/scalar.cpp"
-             line="1081">The value of the scalar.</doc>
+             line="1083">The value of the scalar.</doc>
         <type name="Buffer"/>
       </property>
       <field name="parent_instance">
@@ -1716,14 +1716,14 @@ garrow_array_builder_append_null() calls.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="2089">The value of this scalar.</doc>
+               line="2091">The value of this scalar.</doc>
           <type name="Array" c:type="GArrowArray*"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="2087">A #GArrowBaseListScalar.</doc>
+                 line="2089">A #GArrowBaseListScalar.</doc>
             <type name="BaseListScalar" c:type="GArrowBaseListScalar*"/>
           </instance-parameter>
         </parameters>
@@ -1736,7 +1736,7 @@ garrow_array_builder_append_null() calls.</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="arrow-glib/scalar.cpp"
-             line="2049">The value of the scalar.</doc>
+             line="2051">The value of the scalar.</doc>
         <type name="Array"/>
       </property>
       <field name="parent_instance">
@@ -2502,14 +2502,14 @@ garrow_array_builder_append_null() calls.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1153">A newly created #GArrowBinaryScalar.</doc>
+               line="1155">A newly created #GArrowBinaryScalar.</doc>
           <type name="BinaryScalar" c:type="GArrowBinaryScalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1151">The value of this scalar.</doc>
+                 line="1153">The value of this scalar.</doc>
             <type name="Buffer" c:type="GArrowBuffer*"/>
           </parameter>
         </parameters>
@@ -2587,7 +2587,7 @@ garrow_array_builder_append_null() calls.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="4888">The element-wise AND operated boolean array.
+               line="4886">The element-wise AND operated boolean array.
 
   It should be freed with g_object_unref() when no longer needed.</doc>
           <type name="BooleanArray" c:type="GArrowBooleanArray*"/>
@@ -2596,13 +2596,13 @@ garrow_array_builder_append_null() calls.</doc>
           <instance-parameter name="left" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4884">A left hand side #GArrowBooleanArray.</doc>
+                 line="4882">A left hand side #GArrowBooleanArray.</doc>
             <type name="BooleanArray" c:type="GArrowBooleanArray*"/>
           </instance-parameter>
           <parameter name="right" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4885">A right hand side #GArrowBooleanArray.</doc>
+                 line="4883">A right hand side #GArrowBooleanArray.</doc>
             <type name="BooleanArray" c:type="GArrowBooleanArray*"/>
           </parameter>
         </parameters>
@@ -2669,7 +2669,7 @@ garrow_array_builder_append_null() calls.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="4862">The element-wise inverted boolean array.
+               line="4860">The element-wise inverted boolean array.
 
   It should be freed with g_object_unref() when no longer needed.</doc>
           <type name="BooleanArray" c:type="GArrowBooleanArray*"/>
@@ -2678,7 +2678,7 @@ garrow_array_builder_append_null() calls.</doc>
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4859">A #GArrowBooleanArray.</doc>
+                 line="4857">A #GArrowBooleanArray.</doc>
             <type name="BooleanArray" c:type="GArrowBooleanArray*"/>
           </instance-parameter>
         </parameters>
@@ -2691,7 +2691,7 @@ garrow_array_builder_append_null() calls.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="4916">The element-wise OR operated boolean array.
+               line="4914">The element-wise OR operated boolean array.
 
   It should be freed with g_object_unref() when no longer needed.</doc>
           <type name="BooleanArray" c:type="GArrowBooleanArray*"/>
@@ -2700,13 +2700,13 @@ garrow_array_builder_append_null() calls.</doc>
           <instance-parameter name="left" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4912">A left hand side #GArrowBooleanArray.</doc>
+                 line="4910">A left hand side #GArrowBooleanArray.</doc>
             <type name="BooleanArray" c:type="GArrowBooleanArray*"/>
           </instance-parameter>
           <parameter name="right" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4913">A right hand side #GArrowBooleanArray.</doc>
+                 line="4911">A right hand side #GArrowBooleanArray.</doc>
             <type name="BooleanArray" c:type="GArrowBooleanArray*"/>
           </parameter>
         </parameters>
@@ -2719,7 +2719,7 @@ garrow_array_builder_append_null() calls.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="4944">The element-wise XOR operated boolean array.
+               line="4942">The element-wise XOR operated boolean array.
 
   It should be freed with g_object_unref() when no longer needed.</doc>
           <type name="BooleanArray" c:type="GArrowBooleanArray*"/>
@@ -2728,13 +2728,13 @@ garrow_array_builder_append_null() calls.</doc>
           <instance-parameter name="left" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4940">A left hand side #GArrowBooleanArray.</doc>
+                 line="4938">A left hand side #GArrowBooleanArray.</doc>
             <type name="BooleanArray" c:type="GArrowBooleanArray*"/>
           </instance-parameter>
           <parameter name="right" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4941">A right hand side #GArrowBooleanArray.</doc>
+                 line="4939">A right hand side #GArrowBooleanArray.</doc>
             <type name="BooleanArray" c:type="GArrowBooleanArray*"/>
           </parameter>
         </parameters>
@@ -3003,14 +3003,14 @@ garrow_array_builder_append_null() calls.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="450">A newly created #GArrowBooleanScalar.</doc>
+               line="452">A newly created #GArrowBooleanScalar.</doc>
           <type name="BooleanScalar" c:type="GArrowBooleanScalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="448">The value of this scalar.</doc>
+                 line="450">The value of this scalar.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -3022,14 +3022,14 @@ garrow_array_builder_append_null() calls.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="467">The value of this scalar.</doc>
+               line="469">The value of this scalar.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="465">A #GArrowBooleanScalar.</doc>
+                 line="467">A #GArrowBooleanScalar.</doc>
             <type name="BooleanScalar" c:type="GArrowBooleanScalar*"/>
           </instance-parameter>
         </parameters>
@@ -4394,7 +4394,7 @@ the row of column names, if any)</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5744">The #GArrowChunkedArray filterd
+               line="5742">The #GArrowChunkedArray filterd
   with a boolean selection filter. Nulls in the filter will
   result in nulls in the output.</doc>
           <type name="ChunkedArray" c:type="GArrowChunkedArray*"/>
@@ -4403,13 +4403,13 @@ the row of column names, if any)</doc>
           <instance-parameter name="chunked_array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5739">A #GArrowChunkedArray.</doc>
+                 line="5737">A #GArrowChunkedArray.</doc>
             <type name="ChunkedArray" c:type="GArrowChunkedArray*"/>
           </instance-parameter>
           <parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5740">The values indicates which values should be filtered out.</doc>
+                 line="5738">The values indicates which values should be filtered out.</doc>
             <type name="BooleanArray" c:type="GArrowBooleanArray*"/>
           </parameter>
           <parameter name="options"
@@ -4418,7 +4418,7 @@ the row of column names, if any)</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5741">A #GArrowFilterOptions.</doc>
+                 line="5739">A #GArrowFilterOptions.</doc>
             <type name="FilterOptions" c:type="GArrowFilterOptions*"/>
           </parameter>
         </parameters>
@@ -4431,7 +4431,7 @@ the row of column names, if any)</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5783">The #GArrowChunkedArray filterd
+               line="5781">The #GArrowChunkedArray filterd
   with a chunked array filter. Nulls in the filter will
   result in nulls in the output.</doc>
           <type name="ChunkedArray" c:type="GArrowChunkedArray*"/>
@@ -4440,13 +4440,13 @@ the row of column names, if any)</doc>
           <instance-parameter name="chunked_array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5778">A #GArrowChunkedArray.</doc>
+                 line="5776">A #GArrowChunkedArray.</doc>
             <type name="ChunkedArray" c:type="GArrowChunkedArray*"/>
           </instance-parameter>
           <parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5779">The values indicates which values should be filtered out.</doc>
+                 line="5777">The values indicates which values should be filtered out.</doc>
             <type name="ChunkedArray" c:type="GArrowChunkedArray*"/>
           </parameter>
           <parameter name="options"
@@ -4455,7 +4455,7 @@ the row of column names, if any)</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5780">A #GArrowFilterOptions.</doc>
+                 line="5778">A #GArrowFilterOptions.</doc>
             <type name="FilterOptions" c:type="GArrowFilterOptions*"/>
           </parameter>
         </parameters>
@@ -4657,7 +4657,7 @@ the row of column names, if any)</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5571">The indices that would sort
+               line="5569">The indices that would sort
   a chunked array in the specified order on success, %NULL on error.</doc>
           <type name="UInt64Array" c:type="GArrowUInt64Array*"/>
         </return-value>
@@ -4665,13 +4665,13 @@ the row of column names, if any)</doc>
           <instance-parameter name="chunked_array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5567">A #GArrowChunkedArray.</doc>
+                 line="5565">A #GArrowChunkedArray.</doc>
             <type name="ChunkedArray" c:type="GArrowChunkedArray*"/>
           </instance-parameter>
           <parameter name="order" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5568">The order for sort.</doc>
+                 line="5566">The order for sort.</doc>
             <type name="SortOrder" c:type="GArrowSortOrder"/>
           </parameter>
         </parameters>
@@ -4684,7 +4684,7 @@ the row of column names, if any)</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5332">The #GArrowChunkedArray taken from
+               line="5330">The #GArrowChunkedArray taken from
   an array of values at indices in input array or %NULL on error.</doc>
           <type name="ChunkedArray" c:type="GArrowChunkedArray*"/>
         </return-value>
@@ -4692,13 +4692,13 @@ the row of column names, if any)</doc>
           <instance-parameter name="chunked_array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5327">A #GArrowChunkedArray.</doc>
+                 line="5325">A #GArrowChunkedArray.</doc>
             <type name="ChunkedArray" c:type="GArrowChunkedArray*"/>
           </instance-parameter>
           <parameter name="indices" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5328">The indices of values to take.</doc>
+                 line="5326">The indices of values to take.</doc>
             <type name="Array" c:type="GArrowArray*"/>
           </parameter>
           <parameter name="options"
@@ -4707,7 +4707,7 @@ the row of column names, if any)</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5329">A #GArrowTakeOptions.</doc>
+                 line="5327">A #GArrowTakeOptions.</doc>
             <type name="TakeOptions" c:type="GArrowTakeOptions*"/>
           </parameter>
         </parameters>
@@ -4720,7 +4720,7 @@ the row of column names, if any)</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5364">The #GArrowChunkedArray taken from
+               line="5362">The #GArrowChunkedArray taken from
   an array of values at indices in chunked array or %NULL on error.</doc>
           <type name="ChunkedArray" c:type="GArrowChunkedArray*"/>
         </return-value>
@@ -4728,13 +4728,13 @@ the row of column names, if any)</doc>
           <instance-parameter name="chunked_array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5359">A #GArrowChunkedArray.</doc>
+                 line="5357">A #GArrowChunkedArray.</doc>
             <type name="ChunkedArray" c:type="GArrowChunkedArray*"/>
           </instance-parameter>
           <parameter name="indices" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5360">The indices of values to take.</doc>
+                 line="5358">The indices of values to take.</doc>
             <type name="ChunkedArray" c:type="GArrowChunkedArray*"/>
           </parameter>
           <parameter name="options"
@@ -4743,7 +4743,7 @@ the row of column names, if any)</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5361">A #GArrowTakeOptions.</doc>
+                 line="5359">A #GArrowTakeOptions.</doc>
             <type name="TakeOptions" c:type="GArrowTakeOptions*"/>
           </parameter>
         </parameters>
@@ -5233,7 +5233,7 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_0_10_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_0_10_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="606"/>
+      <source-position filename="arrow-glib/version.h" line="652"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5242,7 +5242,7 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_0_12_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_0_12_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="592"/>
+      <source-position filename="arrow-glib/version.h" line="638"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5251,7 +5251,7 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_0_13_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_0_13_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="578"/>
+      <source-position filename="arrow-glib/version.h" line="624"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5260,7 +5260,7 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_0_14_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_0_14_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="564"/>
+      <source-position filename="arrow-glib/version.h" line="610"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5269,7 +5269,7 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_0_15_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_0_15_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="550"/>
+      <source-position filename="arrow-glib/version.h" line="596"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5278,7 +5278,7 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_0_16_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_0_16_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="536"/>
+      <source-position filename="arrow-glib/version.h" line="582"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5287,7 +5287,7 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_0_17_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_0_17_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="522"/>
+      <source-position filename="arrow-glib/version.h" line="568"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5296,7 +5296,7 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_10_0_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_10_0_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="382"/>
+      <source-position filename="arrow-glib/version.h" line="428"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5305,7 +5305,7 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_11_0_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_11_0_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="368"/>
+      <source-position filename="arrow-glib/version.h" line="414"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5314,7 +5314,7 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_12_0_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_12_0_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="354"/>
+      <source-position filename="arrow-glib/version.h" line="400"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5323,7 +5323,25 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_13_0_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_13_0_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="340"/>
+      <source-position filename="arrow-glib/version.h" line="386"/>
+      <parameters>
+        <parameter name="function">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_14_0_FOR"
+                    c:identifier="GARROW_DEPRECATED_IN_14_0_FOR"
+                    introspectable="0">
+      <source-position filename="arrow-glib/version.h" line="372"/>
+      <parameters>
+        <parameter name="function">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="DEPRECATED_IN_15_0_FOR"
+                    c:identifier="GARROW_DEPRECATED_IN_15_0_FOR"
+                    introspectable="0">
+      <source-position filename="arrow-glib/version.h" line="358"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5332,7 +5350,7 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_1_0_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_1_0_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="508"/>
+      <source-position filename="arrow-glib/version.h" line="554"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5341,7 +5359,7 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_2_0_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_2_0_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="494"/>
+      <source-position filename="arrow-glib/version.h" line="540"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5350,7 +5368,7 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_3_0_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_3_0_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="480"/>
+      <source-position filename="arrow-glib/version.h" line="526"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5359,7 +5377,7 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_4_0_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_4_0_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="466"/>
+      <source-position filename="arrow-glib/version.h" line="512"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5368,7 +5386,7 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_5_0_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_5_0_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="452"/>
+      <source-position filename="arrow-glib/version.h" line="498"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5377,7 +5395,7 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_6_0_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_6_0_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="438"/>
+      <source-position filename="arrow-glib/version.h" line="484"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5386,7 +5404,7 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_7_0_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_7_0_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="424"/>
+      <source-position filename="arrow-glib/version.h" line="470"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5395,7 +5413,7 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_8_0_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_8_0_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="410"/>
+      <source-position filename="arrow-glib/version.h" line="456"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5404,7 +5422,7 @@ the row of column names, if any)</doc>
     <function-macro name="DEPRECATED_IN_9_0_FOR"
                     c:identifier="GARROW_DEPRECATED_IN_9_0_FOR"
                     introspectable="0">
-      <source-position filename="arrow-glib/version.h" line="396"/>
+      <source-position filename="arrow-glib/version.h" line="442"/>
       <parameters>
         <parameter name="function">
         </parameter>
@@ -5945,14 +5963,14 @@ the row of column names, if any)</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1316">A newly created #GArrowDate32Scalar.</doc>
+               line="1318">A newly created #GArrowDate32Scalar.</doc>
           <type name="Date32Scalar" c:type="GArrowDate32Scalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1314">The value of this scalar.</doc>
+                 line="1316">The value of this scalar.</doc>
             <type name="gint32" c:type="gint32"/>
           </parameter>
         </parameters>
@@ -5964,14 +5982,14 @@ the row of column names, if any)</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1333">The value of this scalar.</doc>
+               line="1335">The value of this scalar.</doc>
           <type name="gint32" c:type="gint32"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1331">A #GArrowDate32Scalar.</doc>
+                 line="1333">A #GArrowDate32Scalar.</doc>
             <type name="Date32Scalar" c:type="GArrowDate32Scalar*"/>
           </instance-parameter>
         </parameters>
@@ -6366,14 +6384,14 @@ the row of column names, if any)</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1365">A newly created #GArrowDate64Scalar.</doc>
+               line="1367">A newly created #GArrowDate64Scalar.</doc>
           <type name="Date64Scalar" c:type="GArrowDate64Scalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1363">The value of this scalar.</doc>
+                 line="1365">The value of this scalar.</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -6385,14 +6403,14 @@ the row of column names, if any)</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1382">The value of this scalar.</doc>
+               line="1384">The value of this scalar.</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1380">A #GArrowDate64Scalar.</doc>
+                 line="1382">A #GArrowDate64Scalar.</doc>
             <type name="Date64Scalar" c:type="GArrowDate64Scalar*"/>
           </instance-parameter>
         </parameters>
@@ -6961,7 +6979,7 @@ the row of column names, if any)</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1641">A newly created #GArrowDayTimeIntervalScalar.</doc>
+               line="1643">A newly created #GArrowDayTimeIntervalScalar.</doc>
           <type name="DayTimeIntervalScalar"
                 c:type="GArrowDayTimeIntervalScalar*"/>
         </return-value>
@@ -6969,7 +6987,7 @@ the row of column names, if any)</doc>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1639">The value of GArrowDayMillisecond.</doc>
+                 line="1641">The value of GArrowDayMillisecond.</doc>
             <type name="DayMillisecond" c:type="GArrowDayMillisecond*"/>
           </parameter>
         </parameters>
@@ -6981,14 +6999,14 @@ the row of column names, if any)</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1659">The value of this scalar.</doc>
+               line="1661">The value of this scalar.</doc>
           <type name="DayMillisecond" c:type="GArrowDayMillisecond*"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1657">A #GArrowDayTimeIntervalScalar.</doc>
+                 line="1659">A #GArrowDayTimeIntervalScalar.</doc>
             <type name="DayTimeIntervalScalar"
                   c:type="GArrowDayTimeIntervalScalar*"/>
           </instance-parameter>
@@ -7853,21 +7871,21 @@ It appends a new NULL element.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1825">A newly created #GArrowDecimal128Scalar.</doc>
+               line="1827">A newly created #GArrowDecimal128Scalar.</doc>
           <type name="Decimal128Scalar" c:type="GArrowDecimal128Scalar*"/>
         </return-value>
         <parameters>
           <parameter name="data_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1822">A #GArrowDecimal128DataType for this scalar.</doc>
+                 line="1824">A #GArrowDecimal128DataType for this scalar.</doc>
             <type name="Decimal128DataType"
                   c:type="GArrowDecimal128DataType*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1823">The value of this scalar.</doc>
+                 line="1825">The value of this scalar.</doc>
             <type name="Decimal128" c:type="GArrowDecimal128*"/>
           </parameter>
         </parameters>
@@ -7879,14 +7897,14 @@ It appends a new NULL element.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1850">The value of this scalar.</doc>
+               line="1852">The value of this scalar.</doc>
           <type name="Decimal128" c:type="GArrowDecimal128*"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1848">A #GArrowDecimal128Scalar.</doc>
+                 line="1850">A #GArrowDecimal128Scalar.</doc>
             <type name="Decimal128Scalar" c:type="GArrowDecimal128Scalar*"/>
           </instance-parameter>
         </parameters>
@@ -7899,7 +7917,7 @@ It appends a new NULL element.</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="arrow-glib/scalar.cpp"
-             line="1804">The value of the scalar.</doc>
+             line="1806">The value of the scalar.</doc>
         <type name="Decimal128"/>
       </property>
       <field name="parent_instance">
@@ -8658,21 +8676,21 @@ It appends a new NULL element.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1948">A newly created #GArrowDecimal256Scalar.</doc>
+               line="1950">A newly created #GArrowDecimal256Scalar.</doc>
           <type name="Decimal256Scalar" c:type="GArrowDecimal256Scalar*"/>
         </return-value>
         <parameters>
           <parameter name="data_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1945">A #GArrowDecimal256DataType for this scalar.</doc>
+                 line="1947">A #GArrowDecimal256DataType for this scalar.</doc>
             <type name="Decimal256DataType"
                   c:type="GArrowDecimal256DataType*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1946">The value of this scalar.</doc>
+                 line="1948">The value of this scalar.</doc>
             <type name="Decimal256" c:type="GArrowDecimal256*"/>
           </parameter>
         </parameters>
@@ -8684,14 +8702,14 @@ It appends a new NULL element.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1972">The value of this scalar.</doc>
+               line="1974">The value of this scalar.</doc>
           <type name="Decimal256" c:type="GArrowDecimal256*"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1970">A #GArrowDecimal256Scalar.</doc>
+                 line="1972">A #GArrowDecimal256Scalar.</doc>
             <type name="Decimal256Scalar" c:type="GArrowDecimal256Scalar*"/>
           </instance-parameter>
         </parameters>
@@ -8704,7 +8722,7 @@ It appends a new NULL element.</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="arrow-glib/scalar.cpp"
-             line="1927">The value of the scalar.</doc>
+             line="1929">The value of the scalar.</doc>
         <type name="Decimal256"/>
       </property>
       <field name="parent_instance">
@@ -9064,27 +9082,27 @@ It appends a new NULL element.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="2503">A newly created #GArrowDenseUnionScalar.</doc>
+               line="2505">A newly created #GArrowDenseUnionScalar.</doc>
           <type name="DenseUnionScalar" c:type="GArrowDenseUnionScalar*"/>
         </return-value>
         <parameters>
           <parameter name="data_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="2499">A #GArrowDenseUnionDataType for this scalar.</doc>
+                 line="2501">A #GArrowDenseUnionDataType for this scalar.</doc>
             <type name="DenseUnionDataType"
                   c:type="GArrowDenseUnionDataType*"/>
           </parameter>
           <parameter name="type_code" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="2500">The type code of this scalar.</doc>
+                 line="2502">The type code of this scalar.</doc>
             <type name="gint8" c:type="gint8"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="2501">The value of this scalar.</doc>
+                 line="2503">The value of this scalar.</doc>
             <type name="Scalar" c:type="GArrowScalar*"/>
           </parameter>
         </parameters>
@@ -9460,7 +9478,7 @@ It appends a new NULL element.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5182">The value of the computed sum on success,
+               line="5180">The value of the computed sum on success,
   If an error is occurred, the returned value is untrustful value.</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
@@ -9468,7 +9486,7 @@ It appends a new NULL element.</doc>
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5179">A #GArrowDoubleArray.</doc>
+                 line="5177">A #GArrowDoubleArray.</doc>
             <type name="DoubleArray" c:type="GArrowDoubleArray*"/>
           </instance-parameter>
         </parameters>
@@ -9737,14 +9755,14 @@ It appends a new NULL element.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="989">A newly created #GArrowDoubleScalar.</doc>
+               line="991">A newly created #GArrowDoubleScalar.</doc>
           <type name="DoubleScalar" c:type="GArrowDoubleScalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="987">The value of this scalar.</doc>
+                 line="989">The value of this scalar.</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -9756,14 +9774,14 @@ It appends a new NULL element.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1006">The value of this scalar.</doc>
+               line="1008">The value of this scalar.</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1004">A #GArrowDoubleScalar.</doc>
+                 line="1006">A #GArrowDoubleScalar.</doc>
             <type name="DoubleScalar" c:type="GArrowDoubleScalar*"/>
           </instance-parameter>
         </parameters>
@@ -13336,7 +13354,7 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1275">A newly created #GArrowFixedSizeBinaryScalar.</doc>
+               line="1277">A newly created #GArrowFixedSizeBinaryScalar.</doc>
           <type name="FixedSizeBinaryScalar"
                 c:type="GArrowFixedSizeBinaryScalar*"/>
         </return-value>
@@ -13344,14 +13362,14 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
           <parameter name="data_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1272">A #GArrowFixedSizeBinaryDataType for this scalar.</doc>
+                 line="1274">A #GArrowFixedSizeBinaryDataType for this scalar.</doc>
             <type name="FixedSizeBinaryDataType"
                   c:type="GArrowFixedSizeBinaryDataType*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1273">The value of this scalar.</doc>
+                 line="1275">The value of this scalar.</doc>
             <type name="Buffer" c:type="GArrowBuffer*"/>
           </parameter>
         </parameters>
@@ -13520,7 +13538,7 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5162">The value of the computed sum on success,
+               line="5160">The value of the computed sum on success,
   If an error is occurred, the returned value is untrustful value.</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
@@ -13528,7 +13546,7 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5159">A #GArrowFloatArray.</doc>
+                 line="5157">A #GArrowFloatArray.</doc>
             <type name="FloatArray" c:type="GArrowFloatArray*"/>
           </instance-parameter>
         </parameters>
@@ -13792,14 +13810,14 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="940">A newly created #GArrowFloatScalar.</doc>
+               line="942">A newly created #GArrowFloatScalar.</doc>
           <type name="FloatScalar" c:type="GArrowFloatScalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="938">The value of this scalar.</doc>
+                 line="940">The value of this scalar.</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
         </parameters>
@@ -13811,14 +13829,14 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="957">The value of this scalar.</doc>
+               line="959">The value of this scalar.</doc>
           <type name="gfloat" c:type="gfloat"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="955">A #GArrowFloatScalar.</doc>
+                 line="957">A #GArrowFloatScalar.</doc>
             <type name="FloatScalar" c:type="GArrowFloatScalar*"/>
           </instance-parameter>
         </parameters>
@@ -14805,14 +14823,14 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="891">A newly created #GArrowHalfFloatScalar.</doc>
+               line="893">A newly created #GArrowHalfFloatScalar.</doc>
           <type name="HalfFloatScalar" c:type="GArrowHalfFloatScalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="889">The value of this scalar.</doc>
+                 line="891">The value of this scalar.</doc>
             <type name="guint16" c:type="guint16"/>
           </parameter>
         </parameters>
@@ -14824,14 +14842,14 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="908">The value of this scalar.</doc>
+               line="910">The value of this scalar.</doc>
           <type name="guint16" c:type="guint16"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="906">A #GArrowHalfFloatScalar.</doc>
+                 line="908">A #GArrowHalfFloatScalar.</doc>
             <type name="HalfFloatScalar" c:type="GArrowHalfFloatScalar*"/>
           </instance-parameter>
         </parameters>
@@ -15166,7 +15184,7 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="4453">A newly created #GArrowIndexOptions.</doc>
+               line="4451">A newly created #GArrowIndexOptions.</doc>
           <type name="IndexOptions" c:type="GArrowIndexOptions*"/>
         </return-value>
       </constructor>
@@ -15176,7 +15194,7 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="arrow-glib/compute.cpp"
-             line="4435">The value to be compared.</doc>
+             line="4433">The value to be compared.</doc>
         <type name="Scalar"/>
       </property>
       <field name="parent_instance">
@@ -15441,7 +15459,7 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5042">The value of the computed sum on success,
+               line="5040">The value of the computed sum on success,
   If an error is occurred, the returned value is untrustful value.</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
@@ -15449,7 +15467,7 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5039">A #GArrowInt16Array.</doc>
+                 line="5037">A #GArrowInt16Array.</doc>
             <type name="Int16Array" c:type="GArrowInt16Array*"/>
           </instance-parameter>
         </parameters>
@@ -15711,14 +15729,14 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="548">A newly created #GArrowInt16Scalar.</doc>
+               line="550">A newly created #GArrowInt16Scalar.</doc>
           <type name="Int16Scalar" c:type="GArrowInt16Scalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="546">The value of this scalar.</doc>
+                 line="548">The value of this scalar.</doc>
             <type name="gint16" c:type="gint16"/>
           </parameter>
         </parameters>
@@ -15730,14 +15748,14 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="565">The value of this scalar.</doc>
+               line="567">The value of this scalar.</doc>
           <type name="gint16" c:type="gint16"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="563">A #GArrowInt16Scalar.</doc>
+                 line="565">A #GArrowInt16Scalar.</doc>
             <type name="Int16Scalar" c:type="GArrowInt16Scalar*"/>
           </instance-parameter>
         </parameters>
@@ -15865,7 +15883,7 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5082">The value of the computed sum on success,
+               line="5080">The value of the computed sum on success,
   If an error is occurred, the returned value is untrustful value.</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
@@ -15873,7 +15891,7 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5079">A #GArrowInt32Array.</doc>
+                 line="5077">A #GArrowInt32Array.</doc>
             <type name="Int32Array" c:type="GArrowInt32Array*"/>
           </instance-parameter>
         </parameters>
@@ -16135,14 +16153,14 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="597">A newly created #GArrowInt32Scalar.</doc>
+               line="599">A newly created #GArrowInt32Scalar.</doc>
           <type name="Int32Scalar" c:type="GArrowInt32Scalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="595">The value of this scalar.</doc>
+                 line="597">The value of this scalar.</doc>
             <type name="gint32" c:type="gint32"/>
           </parameter>
         </parameters>
@@ -16154,14 +16172,14 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="614">The value of this scalar.</doc>
+               line="616">The value of this scalar.</doc>
           <type name="gint32" c:type="gint32"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="612">A #GArrowInt32Scalar.</doc>
+                 line="614">A #GArrowInt32Scalar.</doc>
             <type name="Int32Scalar" c:type="GArrowInt32Scalar*"/>
           </instance-parameter>
         </parameters>
@@ -16289,7 +16307,7 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5122">The value of the computed sum on success,
+               line="5120">The value of the computed sum on success,
   If an error is occurred, the returned value is untrustful value.</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
@@ -16297,7 +16315,7 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5119">A #GArrowInt64Array.</doc>
+                 line="5117">A #GArrowInt64Array.</doc>
             <type name="Int64Array" c:type="GArrowInt64Array*"/>
           </instance-parameter>
         </parameters>
@@ -16559,14 +16577,14 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="646">A newly created #GArrowInt64Scalar.</doc>
+               line="648">A newly created #GArrowInt64Scalar.</doc>
           <type name="Int64Scalar" c:type="GArrowInt64Scalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="644">The value of this scalar.</doc>
+                 line="646">The value of this scalar.</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -16578,14 +16596,14 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="663">The value of this scalar.</doc>
+               line="665">The value of this scalar.</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="661">A #GArrowInt64Scalar.</doc>
+                 line="663">A #GArrowInt64Scalar.</doc>
             <type name="Int64Scalar" c:type="GArrowInt64Scalar*"/>
           </instance-parameter>
         </parameters>
@@ -16713,7 +16731,7 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5002">The value of the computed sum on success,
+               line="5000">The value of the computed sum on success,
   If an error is occurred, the returned value is untrustful value.</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
@@ -16721,7 +16739,7 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4999">A #GArrowInt8Array.</doc>
+                 line="4997">A #GArrowInt8Array.</doc>
             <type name="Int8Array" c:type="GArrowInt8Array*"/>
           </instance-parameter>
         </parameters>
@@ -16983,14 +17001,14 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="499">A newly created #GArrowInt8Scalar.</doc>
+               line="501">A newly created #GArrowInt8Scalar.</doc>
           <type name="Int8Scalar" c:type="GArrowInt8Scalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="497">The value of this scalar.</doc>
+                 line="499">The value of this scalar.</doc>
             <type name="gint8" c:type="gint8"/>
           </parameter>
         </parameters>
@@ -17002,14 +17020,14 @@ garrow_fixed_size_binary_array_builder_append_values().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="516">The value of this scalar.</doc>
+               line="518">The value of this scalar.</doc>
           <type name="gint8" c:type="gint8"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="514">A #GArrowInt8Scalar.</doc>
+                 line="516">A #GArrowInt8Scalar.</doc>
             <type name="Int8Scalar" c:type="GArrowInt8Scalar*"/>
           </instance-parameter>
         </parameters>
@@ -18019,14 +18037,14 @@ of chunks when #GArrowJSONReadOptions:use-threads is %TRUE.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1213">A newly created #GArrowLargeBinaryScalar.</doc>
+               line="1215">A newly created #GArrowLargeBinaryScalar.</doc>
           <type name="LargeBinaryScalar" c:type="GArrowLargeBinaryScalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1211">The value of this scalar.</doc>
+                 line="1213">The value of this scalar.</doc>
             <type name="Buffer" c:type="GArrowBuffer*"/>
           </parameter>
         </parameters>
@@ -18452,14 +18470,14 @@ garrow_large_list_array_builder_get_value_builder().</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="2155">A newly created #GArrowLargeListScalar.</doc>
+               line="2157">A newly created #GArrowLargeListScalar.</doc>
           <type name="LargeListScalar" c:type="GArrowLargeListScalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="2153">The value of this scalar.</doc>
+                 line="2155">The value of this scalar.</doc>
             <type name="LargeListArray" c:type="GArrowLargeListArray*"/>
           </parameter>
         </parameters>
@@ -18773,14 +18791,14 @@ garrow_large_list_array_builder_get_value_builder().</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1243">A newly created #GArrowLargeStringScalar.</doc>
+               line="1245">A newly created #GArrowLargeStringScalar.</doc>
           <type name="LargeStringScalar" c:type="GArrowLargeStringScalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1241">The value of this scalar.</doc>
+                 line="1243">The value of this scalar.</doc>
             <type name="Buffer" c:type="GArrowBuffer*"/>
           </parameter>
         </parameters>
@@ -19305,14 +19323,14 @@ garrow_int8_array_builder_append(value_builder, 29);
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="2125">A newly created #GArrowListScalar.</doc>
+               line="2127">A newly created #GArrowListScalar.</doc>
           <type name="ListScalar" c:type="GArrowListScalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="2123">The value of this scalar.</doc>
+                 line="2125">The value of this scalar.</doc>
             <type name="ListArray" c:type="GArrowListArray*"/>
           </parameter>
         </parameters>
@@ -19907,14 +19925,14 @@ or a regular one.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="2185">A newly created #GArrowMapScalar.</doc>
+               line="2187">A newly created #GArrowMapScalar.</doc>
           <type name="MapScalar" c:type="GArrowMapScalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="2183">The value of this scalar.</doc>
+                 line="2185">The value of this scalar.</doc>
             <type name="StructArray" c:type="GArrowStructArray*"/>
           </parameter>
         </parameters>
@@ -19946,7 +19964,7 @@ or a regular one.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="3998">A newly created #GArrowMatchSubstringOptions.</doc>
+               line="3996">A newly created #GArrowMatchSubstringOptions.</doc>
           <type name="MatchSubstringOptions"
                 c:type="GArrowMatchSubstringOptions*"/>
         </return-value>
@@ -19958,7 +19976,7 @@ or a regular one.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="arrow-glib/compute.cpp"
-             line="3978">Whether to perform a case-insensitive match.</doc>
+             line="3976">Whether to perform a case-insensitive match.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="pattern"
@@ -19968,7 +19986,7 @@ or a regular one.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="arrow-glib/compute.cpp"
-             line="3961">The exact substring (or regex, depending on kernel) to look for
+             line="3959">The exact substring (or regex, depending on kernel) to look for
 inside input values.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -20577,7 +20595,7 @@ values.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1708">A newly created #GArrowMonthDayNanoIntervalScalar.</doc>
+               line="1710">A newly created #GArrowMonthDayNanoIntervalScalar.</doc>
           <type name="MonthDayNanoIntervalScalar"
                 c:type="GArrowMonthDayNanoIntervalScalar*"/>
         </return-value>
@@ -20585,7 +20603,7 @@ values.</doc>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1706">The value of GArrowMonthDayNano.</doc>
+                 line="1708">The value of GArrowMonthDayNano.</doc>
             <type name="MonthDayNano" c:type="GArrowMonthDayNano*"/>
           </parameter>
         </parameters>
@@ -20597,14 +20615,14 @@ values.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1727">The value of this scalar.</doc>
+               line="1729">The value of this scalar.</doc>
           <type name="MonthDayNano" c:type="GArrowMonthDayNano*"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1725">A #GArrowMonthDayNanoIntervalScalar.</doc>
+                 line="1727">A #GArrowMonthDayNanoIntervalScalar.</doc>
             <type name="MonthDayNanoIntervalScalar"
                   c:type="GArrowMonthDayNanoIntervalScalar*"/>
           </instance-parameter>
@@ -20909,7 +20927,7 @@ values.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1582">A newly created #GArrowMonthIntervalScalar.</doc>
+               line="1584">A newly created #GArrowMonthIntervalScalar.</doc>
           <type name="MonthIntervalScalar"
                 c:type="GArrowMonthIntervalScalar*"/>
         </return-value>
@@ -20917,7 +20935,7 @@ values.</doc>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1580">The value of this scalar.</doc>
+                 line="1582">The value of this scalar.</doc>
             <type name="gint32" c:type="gint32"/>
           </parameter>
         </parameters>
@@ -20929,14 +20947,14 @@ values.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1599">The value of this scalar.</doc>
+               line="1601">The value of this scalar.</doc>
           <type name="gint32" c:type="gint32"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1597">A #GArrowMonthIntervalScalar.</doc>
+                 line="1599">A #GArrowMonthIntervalScalar.</doc>
             <type name="MonthIntervalScalar"
                   c:type="GArrowMonthIntervalScalar*"/>
           </instance-parameter>
@@ -21297,7 +21315,7 @@ values.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="418">A newly created #GArrowNullScalar.</doc>
+               line="420">A newly created #GArrowNullScalar.</doc>
           <type name="NullScalar" c:type="GArrowNullScalar*"/>
         </return-value>
       </constructor>
@@ -21329,14 +21347,14 @@ values.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="4972">The value of the computed mean.</doc>
+               line="4970">The value of the computed mean.</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4969">A #GArrowNumericArray.</doc>
+                 line="4967">A #GArrowNumericArray.</doc>
             <type name="NumericArray" c:type="GArrowNumericArray*"/>
           </instance-parameter>
         </parameters>
@@ -21984,7 +22002,7 @@ values.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="4264">A newly created #GArrowQuantileOptions.</doc>
+               line="4262">A newly created #GArrowQuantileOptions.</doc>
           <type name="QuantileOptions" c:type="GArrowQuantileOptions*"/>
         </return-value>
       </constructor>
@@ -21995,7 +22013,7 @@ values.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="4280">The `q`s to be used.</doc>
+               line="4278">The `q`s to be used.</doc>
           <array length="0" zero-terminated="0" c:type="const gdouble*">
             <type name="gdouble" c:type="gdouble"/>
           </array>
@@ -22004,7 +22022,7 @@ values.</doc>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4277">A #GArrowQuantileOptions.</doc>
+                 line="4275">A #GArrowQuantileOptions.</doc>
             <type name="QuantileOptions" c:type="GArrowQuantileOptions*"/>
           </instance-parameter>
           <parameter name="n"
@@ -22013,7 +22031,7 @@ values.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4278">The number of `q`s.</doc>
+                 line="4276">The number of `q`s.</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -22029,13 +22047,13 @@ values.</doc>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4296">A #GArrowQuantileOptions.</doc>
+                 line="4294">A #GArrowQuantileOptions.</doc>
             <type name="QuantileOptions" c:type="GArrowQuantileOptions*"/>
           </instance-parameter>
           <parameter name="q" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4297">A `q` to be used.</doc>
+                 line="4295">A `q` to be used.</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -22051,13 +22069,13 @@ values.</doc>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4312">A #GArrowQuantileOptions.</doc>
+                 line="4310">A #GArrowQuantileOptions.</doc>
             <type name="QuantileOptions" c:type="GArrowQuantileOptions*"/>
           </instance-parameter>
           <parameter name="qs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4313">`q`s to be used.</doc>
+                 line="4311">`q`s to be used.</doc>
             <array length="1" zero-terminated="0" c:type="const gdouble*">
               <type name="gdouble" c:type="gdouble"/>
             </array>
@@ -22065,7 +22083,7 @@ values.</doc>
           <parameter name="n" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4314">The number of @qs.</doc>
+                 line="4312">The number of @qs.</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
@@ -22077,7 +22095,7 @@ values.</doc>
                 default-value="GARROW_QUANTILE_INTERPOLATION_LINEAR">
         <doc xml:space="preserve"
              filename="arrow-glib/compute.cpp"
-             line="4201">Interpolation method to use when quantile lies between two data
+             line="4199">Interpolation method to use when quantile lies between two data
 points.</doc>
         <type name="QuantileInterpolation"/>
       </property>
@@ -22088,7 +22106,7 @@ points.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="arrow-glib/compute.cpp"
-             line="4241">If less than this many non-null values are observed, emit null.</doc>
+             line="4239">If less than this many non-null values are observed, emit null.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="skip-nulls"
@@ -22098,7 +22116,7 @@ points.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="arrow-glib/compute.cpp"
-             line="4221">If true (the default), null values are ignored. Otherwise, if any
+             line="4219">If true (the default), null values are ignored. Otherwise, if any
 value is null, emit null.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -22264,7 +22282,7 @@ value is null, emit null.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="4589">A newly created #GArrowRankOptions.</doc>
+               line="4587">A newly created #GArrowRankOptions.</doc>
           <type name="RankOptions" c:type="GArrowRankOptions*"/>
         </return-value>
       </constructor>
@@ -22273,7 +22291,7 @@ value is null, emit null.</doc>
               version="12.0.0">
         <doc xml:space="preserve"
              filename="arrow-glib/compute.cpp"
-             line="4661">Add a sort key to be used.</doc>
+             line="4659">Add a sort key to be used.</doc>
         <source-position filename="arrow-glib/compute.h" line="898"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -22282,13 +22300,13 @@ value is null, emit null.</doc>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4663">A #GArrowRankOptions.</doc>
+                 line="4661">A #GArrowRankOptions.</doc>
             <type name="RankOptions" c:type="GArrowRankOptions*"/>
           </instance-parameter>
           <parameter name="sort_key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4664">The sort key to be added.</doc>
+                 line="4662">The sort key to be added.</doc>
             <type name="SortKey" c:type="GArrowSortKey*"/>
           </parameter>
         </parameters>
@@ -22300,7 +22318,7 @@ value is null, emit null.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="4604">%TRUE if both of them have the same option values, %FALSE
+               line="4602">%TRUE if both of them have the same option values, %FALSE
   otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -22308,13 +22326,13 @@ value is null, emit null.</doc>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4601">A #GArrowRankOptions.</doc>
+                 line="4599">A #GArrowRankOptions.</doc>
             <type name="RankOptions" c:type="GArrowRankOptions*"/>
           </instance-parameter>
           <parameter name="other_options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4602">A #GArrowRankOptions to be compared.</doc>
+                 line="4600">A #GArrowRankOptions to be compared.</doc>
             <type name="RankOptions" c:type="GArrowRankOptions*"/>
           </parameter>
         </parameters>
@@ -22326,7 +22344,7 @@ value is null, emit null.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="4632">
+               line="4630">
   The sort keys to be used.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="SortKey"/>
@@ -22336,7 +22354,7 @@ value is null, emit null.</doc>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4630">A #GArrowSortOptions.</doc>
+                 line="4628">A #GArrowSortOptions.</doc>
             <type name="RankOptions" c:type="GArrowRankOptions*"/>
           </instance-parameter>
         </parameters>
@@ -22346,7 +22364,7 @@ value is null, emit null.</doc>
               version="12.0.0">
         <doc xml:space="preserve"
              filename="arrow-glib/compute.cpp"
-             line="4644">Set sort keys to be used.</doc>
+             line="4642">Set sort keys to be used.</doc>
         <source-position filename="arrow-glib/compute.h" line="894"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -22355,13 +22373,13 @@ value is null, emit null.</doc>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4646">A #GArrowRankOptions.</doc>
+                 line="4644">A #GArrowRankOptions.</doc>
             <type name="RankOptions" c:type="GArrowRankOptions*"/>
           </instance-parameter>
           <parameter name="sort_keys" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="4647">The sort keys to be used.</doc>
+                 line="4645">The sort keys to be used.</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="SortKey"/>
             </type>
@@ -22375,7 +22393,7 @@ value is null, emit null.</doc>
                 default-value="GARROW_NULL_PLACEMENT_AT_END">
         <doc xml:space="preserve"
              filename="arrow-glib/compute.cpp"
-             line="4548">Whether nulls and NaNs are placed at the start or at the end.</doc>
+             line="4546">Whether nulls and NaNs are placed at the start or at the end.</doc>
         <type name="NullPlacement"/>
       </property>
       <property name="tiebreaker"
@@ -22385,7 +22403,7 @@ value is null, emit null.</doc>
                 default-value="GARROW_RANK_TIEBREAKER_FIRST">
         <doc xml:space="preserve"
              filename="arrow-glib/compute.cpp"
-             line="4567">Tiebreaker for dealing with equal values in ranks.</doc>
+             line="4565">Tiebreaker for dealing with equal values in ranks.</doc>
         <type name="RankTiebreaker"/>
       </property>
       <field name="parent_instance">
@@ -22833,7 +22851,7 @@ success, %NULL if there was an error.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5824">The #GArrowRecordBatch filterd
+               line="5822">The #GArrowRecordBatch filterd
   with a boolean selection filter. Nulls in the filter will
   result in nulls in the output.</doc>
           <type name="RecordBatch" c:type="GArrowRecordBatch*"/>
@@ -22842,13 +22860,13 @@ success, %NULL if there was an error.</doc>
           <instance-parameter name="record_batch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5819">A #GArrowRecordBatch.</doc>
+                 line="5817">A #GArrowRecordBatch.</doc>
             <type name="RecordBatch" c:type="GArrowRecordBatch*"/>
           </instance-parameter>
           <parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5820">The values indicates which values should be filtered out.</doc>
+                 line="5818">The values indicates which values should be filtered out.</doc>
             <type name="BooleanArray" c:type="GArrowBooleanArray*"/>
           </parameter>
           <parameter name="options"
@@ -22857,7 +22875,7 @@ success, %NULL if there was an error.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5821">A #GArrowFilterOptions.</doc>
+                 line="5819">A #GArrowFilterOptions.</doc>
             <type name="FilterOptions" c:type="GArrowFilterOptions*"/>
           </parameter>
         </parameters>
@@ -23067,7 +23085,7 @@ success, %NULL if there was an error.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5601">The indices that would sort
+               line="5599">The indices that would sort
   a record batch with the specified options on success, %NULL on error.</doc>
           <type name="UInt64Array" c:type="GArrowUInt64Array*"/>
         </return-value>
@@ -23075,13 +23093,13 @@ success, %NULL if there was an error.</doc>
           <instance-parameter name="record_batch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5597">A #GArrowRecordBatch.</doc>
+                 line="5595">A #GArrowRecordBatch.</doc>
             <type name="RecordBatch" c:type="GArrowRecordBatch*"/>
           </instance-parameter>
           <parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5598">The options to be used.</doc>
+                 line="5596">The options to be used.</doc>
             <type name="SortOptions" c:type="GArrowSortOptions*"/>
           </parameter>
         </parameters>
@@ -23094,7 +23112,7 @@ success, %NULL if there was an error.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5396">The #GArrowChunkedArray taken from
+               line="5394">The #GArrowChunkedArray taken from
   an array of values at indices in input array or %NULL on error.</doc>
           <type name="RecordBatch" c:type="GArrowRecordBatch*"/>
         </return-value>
@@ -23102,13 +23120,13 @@ success, %NULL if there was an error.</doc>
           <instance-parameter name="record_batch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5391">A #GArrowRecordBatch.</doc>
+                 line="5389">A #GArrowRecordBatch.</doc>
             <type name="RecordBatch" c:type="GArrowRecordBatch*"/>
           </instance-parameter>
           <parameter name="indices" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5392">The indices of values to take.</doc>
+                 line="5390">The indices of values to take.</doc>
             <type name="Array" c:type="GArrowArray*"/>
           </parameter>
           <parameter name="options"
@@ -23117,7 +23135,7 @@ success, %NULL if there was an error.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5393">A #GArrowTakeOptions.</doc>
+                 line="5391">A #GArrowTakeOptions.</doc>
             <type name="TakeOptions" c:type="GArrowTakeOptions*"/>
           </parameter>
         </parameters>
@@ -24441,7 +24459,7 @@ success, %NULL if there was an error.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="3701">A newly created #GArrowRoundOptions.</doc>
+               line="3699">A newly created #GArrowRoundOptions.</doc>
           <type name="RoundOptions" c:type="GArrowRoundOptions*"/>
         </return-value>
       </constructor>
@@ -24452,7 +24470,7 @@ success, %NULL if there was an error.</doc>
                 default-value="GARROW_ROUND_HALF_TO_EVEN">
         <doc xml:space="preserve"
              filename="arrow-glib/compute.cpp"
-             line="3680">The rounding and tie-breaking mode.</doc>
+             line="3678">The rounding and tie-breaking mode.</doc>
         <type name="RoundMode"/>
       </property>
       <property name="n-digits"
@@ -24462,7 +24480,7 @@ success, %NULL if there was an error.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="arrow-glib/compute.cpp"
-             line="3662">The rounding precision (number of digits to round to).</doc>
+             line="3660">The rounding precision (number of digits to round to).</doc>
         <type name="gint64" c:type="gint64"/>
       </property>
       <field name="parent_instance">
@@ -24492,7 +24510,7 @@ success, %NULL if there was an error.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="3873">A newly created #GArrowRoundToMultipleOptions.</doc>
+               line="3871">A newly created #GArrowRoundToMultipleOptions.</doc>
           <type name="RoundToMultipleOptions"
                 c:type="GArrowRoundToMultipleOptions*"/>
         </return-value>
@@ -24504,7 +24522,7 @@ success, %NULL if there was an error.</doc>
                 default-value="GARROW_ROUND_HALF_TO_EVEN">
         <doc xml:space="preserve"
              filename="arrow-glib/compute.cpp"
-             line="3852">The rounding and tie-breaking mode.</doc>
+             line="3850">The rounding and tie-breaking mode.</doc>
         <type name="RoundMode"/>
       </property>
       <property name="multiple"
@@ -24513,7 +24531,7 @@ success, %NULL if there was an error.</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="arrow-glib/compute.cpp"
-             line="3831">The rounding scale (multiple to round to).
+             line="3829">The rounding scale (multiple to round to).
 
 Should be a scalar of a type compatible with the argument to be rounded.
 For example, rounding a decimal value means a decimal multiple is
@@ -24548,7 +24566,7 @@ point scalar is required.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5977">A newly created #GArrowRunEndEncodeOptions.</doc>
+               line="5975">A newly created #GArrowRunEndEncodeOptions.</doc>
           <type name="RunEndEncodeOptions"
                 c:type="GArrowRunEndEncodeOptions*"/>
         </return-value>
@@ -24559,7 +24577,7 @@ point scalar is required.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5974">A #GArrowDataType for run-end. If this
+                 line="5972">A #GArrowDataType for run-end. If this
   is %NULL, garrow_int32_data_type_new() is used.</doc>
             <type name="DataType" c:type="GArrowDataType*"/>
           </parameter>
@@ -24571,7 +24589,7 @@ point scalar is required.</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="arrow-glib/compute.cpp"
-             line="5955">The data type for run-end.</doc>
+             line="5953">The data type for run-end.</doc>
         <type name="DataType"/>
       </property>
       <field name="parent_instance">
@@ -24647,7 +24665,7 @@ point scalar is required.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="6049">
+               line="6047">
   A newly decoded #GArrowArray for the @array on success,
   %NULL on error.</doc>
           <type name="Array" c:type="GArrowArray*"/>
@@ -24656,7 +24674,7 @@ point scalar is required.</doc>
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="6046">A #GArrowRunEndEncodeArray to be decoded.</doc>
+                 line="6044">A #GArrowRunEndEncodeArray to be decoded.</doc>
             <type name="RunEndEncodedArray"
                   c:type="GArrowRunEndEncodedArray*"/>
           </instance-parameter>
@@ -25076,7 +25094,7 @@ point scalar is required.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="242">
+               line="244">
   A newly created #GArrowScalar if the data is parsed successfully,
   %NULL otherwise.</doc>
           <type name="Scalar" c:type="GArrowScalar*"/>
@@ -25085,13 +25103,13 @@ point scalar is required.</doc>
           <parameter name="data_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="237">A #GArrowDataType for the parsed scalar.</doc>
+                 line="239">A #GArrowDataType for the parsed scalar.</doc>
             <type name="DataType" c:type="GArrowDataType*"/>
           </parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="238">Data to be parsed.</doc>
+                 line="240">Data to be parsed.</doc>
             <array length="2" zero-terminated="0" c:type="const guint8*">
               <type name="guint8" c:type="guint8"/>
             </array>
@@ -25099,7 +25117,7 @@ point scalar is required.</doc>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="239">The number of bytes of the data.</doc>
+                 line="241">The number of bytes of the data.</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
@@ -25112,7 +25130,7 @@ point scalar is required.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="375">
+               line="377">
   A newly created casted scalar on success, %NULL on error.</doc>
           <type name="Scalar" c:type="GArrowScalar*"/>
         </return-value>
@@ -25120,13 +25138,13 @@ point scalar is required.</doc>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="370">A #GArrowScalar.</doc>
+                 line="372">A #GArrowScalar.</doc>
             <type name="Scalar" c:type="GArrowScalar*"/>
           </instance-parameter>
           <parameter name="data_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="371">A #GArrowDataType of the casted scalar.</doc>
+                 line="373">A #GArrowDataType of the casted scalar.</doc>
             <type name="DataType" c:type="GArrowDataType*"/>
           </parameter>
           <parameter name="options"
@@ -25135,7 +25153,7 @@ point scalar is required.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="372">A #GArrowCastOptions.</doc>
+                 line="374">A #GArrowCastOptions.</doc>
             <type name="CastOptions" c:type="GArrowCastOptions*"/>
           </parameter>
         </parameters>
@@ -25145,7 +25163,7 @@ point scalar is required.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="307">%TRUE if both of them have the same data, %FALSE
+               line="309">%TRUE if both of them have the same data, %FALSE
   otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -25153,13 +25171,13 @@ point scalar is required.</doc>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="304">A #GArrowScalar.</doc>
+                 line="306">A #GArrowScalar.</doc>
             <type name="Scalar" c:type="GArrowScalar*"/>
           </instance-parameter>
           <parameter name="other_scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="305">A #GArrowScalar to be compared.</doc>
+                 line="307">A #GArrowScalar to be compared.</doc>
             <type name="Scalar" c:type="GArrowScalar*"/>
           </parameter>
         </parameters>
@@ -25171,7 +25189,7 @@ point scalar is required.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="325">%TRUE if both of them have the same data, %FALSE
+               line="327">%TRUE if both of them have the same data, %FALSE
   otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -25179,13 +25197,13 @@ point scalar is required.</doc>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="321">A #GArrowScalar.</doc>
+                 line="323">A #GArrowScalar.</doc>
             <type name="Scalar" c:type="GArrowScalar*"/>
           </instance-parameter>
           <parameter name="other_scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="322">A #GArrowScalar to be compared.</doc>
+                 line="324">A #GArrowScalar to be compared.</doc>
             <type name="Scalar" c:type="GArrowScalar*"/>
           </parameter>
           <parameter name="options"
@@ -25194,7 +25212,7 @@ point scalar is required.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="323">A #GArrowEqualOptions.</doc>
+                 line="325">A #GArrowEqualOptions.</doc>
             <type name="EqualOptions" c:type="GArrowEqualOptions*"/>
           </parameter>
         </parameters>
@@ -25206,14 +25224,14 @@ point scalar is required.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="273">The #GArrowDataType for the scalar.</doc>
+               line="275">The #GArrowDataType for the scalar.</doc>
           <type name="DataType" c:type="GArrowDataType*"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="271">A #GArrowScalar.</doc>
+                 line="273">A #GArrowScalar.</doc>
             <type name="Scalar" c:type="GArrowScalar*"/>
           </instance-parameter>
         </parameters>
@@ -25225,14 +25243,14 @@ point scalar is required.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="291">%TRUE if the scalar is valid, %FALSE otherwise.</doc>
+               line="293">%TRUE if the scalar is valid, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="289">A #GArrowScalar.</doc>
+                 line="291">A #GArrowScalar.</doc>
             <type name="Scalar" c:type="GArrowScalar*"/>
           </instance-parameter>
         </parameters>
@@ -25244,7 +25262,7 @@ point scalar is required.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="354">The string representation of the scalar.
+               line="356">The string representation of the scalar.
 
   It should be freed with g_free() when no longer needed.</doc>
           <type name="utf8" c:type="gchar*"/>
@@ -25253,7 +25271,7 @@ point scalar is required.</doc>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="352">A #GArrowScalar.</doc>
+                 line="354">A #GArrowScalar.</doc>
             <type name="Scalar" c:type="GArrowScalar*"/>
           </instance-parameter>
         </parameters>
@@ -25266,7 +25284,7 @@ point scalar is required.</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="arrow-glib/scalar.cpp"
-             line="219">The data type of the scalar.</doc>
+             line="221">The data type of the scalar.</doc>
         <type name="DataType"/>
       </property>
       <property name="scalar"
@@ -25995,7 +26013,7 @@ point scalar is required.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="3416">A newly created #GArrowSetLookupOptions.</doc>
+               line="3414">A newly created #GArrowSetLookupOptions.</doc>
           <type name="SetLookupOptions" c:type="GArrowSetLookupOptions*"/>
         </return-value>
         <parameters>
@@ -26005,7 +26023,7 @@ point scalar is required.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="3413">A #GArrowArrayDatum or
+                 line="3411">A #GArrowArrayDatum or
   #GArrowChunkedArrayDatum to be looked up.</doc>
             <type name="Datum" c:type="GArrowDatum*"/>
           </parameter>
@@ -26755,27 +26773,27 @@ The random seed is given by the default random device.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="2446">A newly created #GArrowSparseUnionScalar.</doc>
+               line="2448">A newly created #GArrowSparseUnionScalar.</doc>
           <type name="SparseUnionScalar" c:type="GArrowSparseUnionScalar*"/>
         </return-value>
         <parameters>
           <parameter name="data_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="2442">A #GArrowSparseUnionDataType for this scalar.</doc>
+                 line="2444">A #GArrowSparseUnionDataType for this scalar.</doc>
             <type name="SparseUnionDataType"
                   c:type="GArrowSparseUnionDataType*"/>
           </parameter>
           <parameter name="type_code" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="2443">The type code of this scalar.</doc>
+                 line="2445">The type code of this scalar.</doc>
             <type name="gint8" c:type="gint8"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="2444">The value of this scalar.</doc>
+                 line="2446">The value of this scalar.</doc>
             <type name="Scalar" c:type="GArrowScalar*"/>
           </parameter>
         </parameters>
@@ -27480,14 +27498,14 @@ The random seed is given by the default random device.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1183">A newly created #GArrowStringScalar.</doc>
+               line="1185">A newly created #GArrowStringScalar.</doc>
           <type name="StringScalar" c:type="GArrowStringScalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1181">The value of this scalar.</doc>
+                 line="1183">The value of this scalar.</doc>
             <type name="Buffer" c:type="GArrowBuffer*"/>
           </parameter>
         </parameters>
@@ -28016,20 +28034,20 @@ or garrow_struct_array_builder_get_field_builders().
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="2240">A newly created #GArrowDecimal256Scalar.</doc>
+               line="2242">A newly created #GArrowDecimal256Scalar.</doc>
           <type name="StructScalar" c:type="GArrowStructScalar*"/>
         </return-value>
         <parameters>
           <parameter name="data_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="2237">A #GArrowStructDataType for this scalar.</doc>
+                 line="2239">A #GArrowStructDataType for this scalar.</doc>
             <type name="StructDataType" c:type="GArrowStructDataType*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="2238">The value of this scalar.</doc>
+                 line="2240">The value of this scalar.</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Scalar"/>
             </type>
@@ -28043,7 +28061,7 @@ or garrow_struct_array_builder_get_field_builders().
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="2275">
+               line="2277">
   The value of this scalar.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Scalar"/>
@@ -28053,7 +28071,7 @@ or garrow_struct_array_builder_get_field_builders().
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="2273">A #GArrowStructScalar.</doc>
+                 line="2275">A #GArrowStructScalar.</doc>
             <type name="StructScalar" c:type="GArrowStructScalar*"/>
           </instance-parameter>
         </parameters>
@@ -28428,7 +28446,7 @@ or garrow_struct_array_builder_get_field_builders().
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5664">The #GArrowTable filterd
+               line="5662">The #GArrowTable filterd
   with a boolean selection filter. Nulls in the filter will
   result in nulls in the output.</doc>
           <type name="Table" c:type="GArrowTable*"/>
@@ -28437,13 +28455,13 @@ or garrow_struct_array_builder_get_field_builders().
           <instance-parameter name="table" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5659">A #GArrowTable.</doc>
+                 line="5657">A #GArrowTable.</doc>
             <type name="Table" c:type="GArrowTable*"/>
           </instance-parameter>
           <parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5660">The values indicates which values should be filtered out.</doc>
+                 line="5658">The values indicates which values should be filtered out.</doc>
             <type name="BooleanArray" c:type="GArrowBooleanArray*"/>
           </parameter>
           <parameter name="options"
@@ -28452,7 +28470,7 @@ or garrow_struct_array_builder_get_field_builders().
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5661">A #GArrowFilterOptions.</doc>
+                 line="5659">A #GArrowFilterOptions.</doc>
             <type name="FilterOptions" c:type="GArrowFilterOptions*"/>
           </parameter>
         </parameters>
@@ -28465,7 +28483,7 @@ or garrow_struct_array_builder_get_field_builders().
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5703">The #GArrowTable filterd
+               line="5701">The #GArrowTable filterd
   with a chunked array filter. Nulls in the filter will
   result in nulls in the output.</doc>
           <type name="Table" c:type="GArrowTable*"/>
@@ -28474,13 +28492,13 @@ or garrow_struct_array_builder_get_field_builders().
           <instance-parameter name="table" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5698">A #GArrowTable.</doc>
+                 line="5696">A #GArrowTable.</doc>
             <type name="Table" c:type="GArrowTable*"/>
           </instance-parameter>
           <parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5699">The values indicates which values should be filtered out.</doc>
+                 line="5697">The values indicates which values should be filtered out.</doc>
             <type name="ChunkedArray" c:type="GArrowChunkedArray*"/>
           </parameter>
           <parameter name="options"
@@ -28489,7 +28507,7 @@ or garrow_struct_array_builder_get_field_builders().
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5700">A #GArrowFilterOptions.</doc>
+                 line="5698">A #GArrowFilterOptions.</doc>
             <type name="FilterOptions" c:type="GArrowFilterOptions*"/>
           </parameter>
         </parameters>
@@ -28680,7 +28698,7 @@ error.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5632">The indices that would sort
+               line="5630">The indices that would sort
   a table with the specified options on success, %NULL on error.</doc>
           <type name="UInt64Array" c:type="GArrowUInt64Array*"/>
         </return-value>
@@ -28688,13 +28706,13 @@ error.</doc>
           <instance-parameter name="table" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5628">A #GArrowTable.</doc>
+                 line="5626">A #GArrowTable.</doc>
             <type name="Table" c:type="GArrowTable*"/>
           </instance-parameter>
           <parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5629">The options to be used.</doc>
+                 line="5627">The options to be used.</doc>
             <type name="SortOptions" c:type="GArrowSortOptions*"/>
           </parameter>
         </parameters>
@@ -28707,7 +28725,7 @@ error.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5268">The #GArrowTable taken from
+               line="5266">The #GArrowTable taken from
   an array of values at indices in input array or %NULL on error.</doc>
           <type name="Table" c:type="GArrowTable*"/>
         </return-value>
@@ -28715,13 +28733,13 @@ error.</doc>
           <instance-parameter name="table" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5263">A #GArrowTable.</doc>
+                 line="5261">A #GArrowTable.</doc>
             <type name="Table" c:type="GArrowTable*"/>
           </instance-parameter>
           <parameter name="indices" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5264">The indices of values to take.</doc>
+                 line="5262">The indices of values to take.</doc>
             <type name="Array" c:type="GArrowArray*"/>
           </parameter>
           <parameter name="options"
@@ -28730,7 +28748,7 @@ error.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5265">A #GArrowTakeOptions.</doc>
+                 line="5263">A #GArrowTakeOptions.</doc>
             <type name="TakeOptions" c:type="GArrowTakeOptions*"/>
           </parameter>
         </parameters>
@@ -28743,7 +28761,7 @@ error.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5300">The #GArrowTable taken from
+               line="5298">The #GArrowTable taken from
   an array of values at indices in chunked array or %NULL on error.</doc>
           <type name="Table" c:type="GArrowTable*"/>
         </return-value>
@@ -28751,13 +28769,13 @@ error.</doc>
           <instance-parameter name="table" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5295">A #GArrowTable.</doc>
+                 line="5293">A #GArrowTable.</doc>
             <type name="Table" c:type="GArrowTable*"/>
           </instance-parameter>
           <parameter name="indices" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5296">The indices of values to take.</doc>
+                 line="5294">The indices of values to take.</doc>
             <type name="ChunkedArray" c:type="GArrowChunkedArray*"/>
           </parameter>
           <parameter name="options"
@@ -28766,7 +28784,7 @@ error.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5297">A #GArrowTakeOptions.</doc>
+                 line="5295">A #GArrowTakeOptions.</doc>
             <type name="TakeOptions" c:type="GArrowTakeOptions*"/>
           </parameter>
         </parameters>
@@ -29879,20 +29897,20 @@ columns in all input tables.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1415">A newly created #GArrowTime32Scalar.</doc>
+               line="1417">A newly created #GArrowTime32Scalar.</doc>
           <type name="Time32Scalar" c:type="GArrowTime32Scalar*"/>
         </return-value>
         <parameters>
           <parameter name="data_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1412">A #GArrowTime32DataType for this scalar.</doc>
+                 line="1414">A #GArrowTime32DataType for this scalar.</doc>
             <type name="Time32DataType" c:type="GArrowTime32DataType*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1413">The value of this scalar.</doc>
+                 line="1415">The value of this scalar.</doc>
             <type name="gint32" c:type="gint32"/>
           </parameter>
         </parameters>
@@ -29904,14 +29922,14 @@ columns in all input tables.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1438">The value of this scalar.</doc>
+               line="1440">The value of this scalar.</doc>
           <type name="gint32" c:type="gint32"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1436">A #GArrowTime32Scalar.</doc>
+                 line="1438">A #GArrowTime32Scalar.</doc>
             <type name="Time32Scalar" c:type="GArrowTime32Scalar*"/>
           </instance-parameter>
         </parameters>
@@ -30329,20 +30347,20 @@ columns in all input tables.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1471">A newly created #GArrowTime64Scalar.</doc>
+               line="1473">A newly created #GArrowTime64Scalar.</doc>
           <type name="Time64Scalar" c:type="GArrowTime64Scalar*"/>
         </return-value>
         <parameters>
           <parameter name="data_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1468">A #GArrowTime64DataType for this scalar.</doc>
+                 line="1470">A #GArrowTime64DataType for this scalar.</doc>
             <type name="Time64DataType" c:type="GArrowTime64DataType*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1469">The value of this scalar.</doc>
+                 line="1471">The value of this scalar.</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -30354,14 +30372,14 @@ columns in all input tables.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1494">The value of this scalar.</doc>
+               line="1496">The value of this scalar.</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1492">A #GArrowTime64Scalar.</doc>
+                 line="1494">A #GArrowTime64Scalar.</doc>
             <type name="Time64Scalar" c:type="GArrowTime64Scalar*"/>
           </instance-parameter>
         </parameters>
@@ -30885,20 +30903,20 @@ columns in all input tables.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1527">A newly created #GArrowTimestampScalar.</doc>
+               line="1529">A newly created #GArrowTimestampScalar.</doc>
           <type name="TimestampScalar" c:type="GArrowTimestampScalar*"/>
         </return-value>
         <parameters>
           <parameter name="data_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1524">A #GArrowTimestampDataType for this scalar.</doc>
+                 line="1526">A #GArrowTimestampDataType for this scalar.</doc>
             <type name="TimestampDataType" c:type="GArrowTimestampDataType*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1525">The value of this scalar.</doc>
+                 line="1527">The value of this scalar.</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -30910,14 +30928,14 @@ columns in all input tables.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="1550">The value of this scalar.</doc>
+               line="1552">The value of this scalar.</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="1548">A #GArrowTimestampScalar.</doc>
+                 line="1550">A #GArrowTimestampScalar.</doc>
             <type name="TimestampScalar" c:type="GArrowTimestampScalar*"/>
           </instance-parameter>
         </parameters>
@@ -31409,7 +31427,7 @@ columns in all input tables.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5062">The value of the computed sum on success,
+               line="5060">The value of the computed sum on success,
   If an error is occurred, the returned value is untrustful value.</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
@@ -31417,7 +31435,7 @@ columns in all input tables.</doc>
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5059">A #GArrowUInt16Array.</doc>
+                 line="5057">A #GArrowUInt16Array.</doc>
             <type name="UInt16Array" c:type="GArrowUInt16Array*"/>
           </instance-parameter>
         </parameters>
@@ -31684,14 +31702,14 @@ columns in all input tables.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="744">A newly created #GArrowUInt16Scalar.</doc>
+               line="746">A newly created #GArrowUInt16Scalar.</doc>
           <type name="UInt16Scalar" c:type="GArrowUInt16Scalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="742">The value of this scalar.</doc>
+                 line="744">The value of this scalar.</doc>
             <type name="guint16" c:type="guint16"/>
           </parameter>
         </parameters>
@@ -31703,14 +31721,14 @@ columns in all input tables.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="761">The value of this scalar.</doc>
+               line="763">The value of this scalar.</doc>
           <type name="guint16" c:type="guint16"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="759">A #GArrowUInt16Scalar.</doc>
+                 line="761">A #GArrowUInt16Scalar.</doc>
             <type name="UInt16Scalar" c:type="GArrowUInt16Scalar*"/>
           </instance-parameter>
         </parameters>
@@ -31838,7 +31856,7 @@ columns in all input tables.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5102">The value of the computed sum on success,
+               line="5100">The value of the computed sum on success,
   If an error is occurred, the returned value is untrustful value.</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
@@ -31846,7 +31864,7 @@ columns in all input tables.</doc>
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5099">A #GArrowUInt32Array.</doc>
+                 line="5097">A #GArrowUInt32Array.</doc>
             <type name="UInt32Array" c:type="GArrowUInt32Array*"/>
           </instance-parameter>
         </parameters>
@@ -32113,14 +32131,14 @@ columns in all input tables.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="793">A newly created #GArrowUInt32Scalar.</doc>
+               line="795">A newly created #GArrowUInt32Scalar.</doc>
           <type name="UInt32Scalar" c:type="GArrowUInt32Scalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="791">The value of this scalar.</doc>
+                 line="793">The value of this scalar.</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -32132,14 +32150,14 @@ columns in all input tables.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="810">The value of this scalar.</doc>
+               line="812">The value of this scalar.</doc>
           <type name="guint32" c:type="guint32"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="808">A #GArrowUInt32Scalar.</doc>
+                 line="810">A #GArrowUInt32Scalar.</doc>
             <type name="UInt32Scalar" c:type="GArrowUInt32Scalar*"/>
           </instance-parameter>
         </parameters>
@@ -32267,7 +32285,7 @@ columns in all input tables.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5142">The value of the computed sum on success,
+               line="5140">The value of the computed sum on success,
   If an error is occurred, the returned value is untrustful value.</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
@@ -32275,7 +32293,7 @@ columns in all input tables.</doc>
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5139">A #GArrowUInt64Array.</doc>
+                 line="5137">A #GArrowUInt64Array.</doc>
             <type name="UInt64Array" c:type="GArrowUInt64Array*"/>
           </instance-parameter>
         </parameters>
@@ -32542,14 +32560,14 @@ columns in all input tables.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="842">A newly created #GArrowUInt64Scalar.</doc>
+               line="844">A newly created #GArrowUInt64Scalar.</doc>
           <type name="UInt64Scalar" c:type="GArrowUInt64Scalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="840">The value of this scalar.</doc>
+                 line="842">The value of this scalar.</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
         </parameters>
@@ -32561,14 +32579,14 @@ columns in all input tables.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="859">The value of this scalar.</doc>
+               line="861">The value of this scalar.</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="857">A #GArrowUInt64Scalar.</doc>
+                 line="859">A #GArrowUInt64Scalar.</doc>
             <type name="UInt64Scalar" c:type="GArrowUInt64Scalar*"/>
           </instance-parameter>
         </parameters>
@@ -32696,7 +32714,7 @@ columns in all input tables.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="5022">The value of the computed sum on success,
+               line="5020">The value of the computed sum on success,
   If an error is occurred, the returned value is untrustful value.</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
@@ -32704,7 +32722,7 @@ columns in all input tables.</doc>
           <instance-parameter name="array" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/compute.cpp"
-                 line="5019">A #GArrowUInt8Array.</doc>
+                 line="5017">A #GArrowUInt8Array.</doc>
             <type name="UInt8Array" c:type="GArrowUInt8Array*"/>
           </instance-parameter>
         </parameters>
@@ -32966,14 +32984,14 @@ columns in all input tables.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="695">A newly created #GArrowUInt8Scalar.</doc>
+               line="697">A newly created #GArrowUInt8Scalar.</doc>
           <type name="UInt8Scalar" c:type="GArrowUInt8Scalar*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="693">The value of this scalar.</doc>
+                 line="695">The value of this scalar.</doc>
             <type name="guint8" c:type="guint8"/>
           </parameter>
         </parameters>
@@ -32985,14 +33003,14 @@ columns in all input tables.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="712">The value of this scalar.</doc>
+               line="714">The value of this scalar.</doc>
           <type name="guint8" c:type="guint8"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="710">A #GArrowUInt8Scalar.</doc>
+                 line="712">A #GArrowUInt8Scalar.</doc>
             <type name="UInt8Scalar" c:type="GArrowUInt8Scalar*"/>
           </instance-parameter>
         </parameters>
@@ -33287,7 +33305,7 @@ columns in all input tables.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="4104">A newly created #GArrowUTF8NormalizeOptions.</doc>
+               line="4102">A newly created #GArrowUTF8NormalizeOptions.</doc>
           <type name="UTF8NormalizeOptions"
                 c:type="GArrowUTF8NormalizeOptions*"/>
         </return-value>
@@ -33299,7 +33317,7 @@ columns in all input tables.</doc>
                 default-value="GARROW_UTF8_NORMALIZE_FORM_NFC">
         <doc xml:space="preserve"
              filename="arrow-glib/compute.cpp"
-             line="4083">The Unicode normalization form to apply.</doc>
+             line="4081">The Unicode normalization form to apply.</doc>
         <type name="UTF8NormalizeForm"/>
       </property>
       <field name="parent_instance">
@@ -33648,14 +33666,14 @@ appended.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="2397">The type code of this scalar.</doc>
+               line="2399">The type code of this scalar.</doc>
           <type name="gint8" c:type="gint8"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="2395">A #GArrowUnionScalar.</doc>
+                 line="2397">A #GArrowUnionScalar.</doc>
             <type name="UnionScalar" c:type="GArrowUnionScalar*"/>
           </instance-parameter>
         </parameters>
@@ -33667,14 +33685,14 @@ appended.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="arrow-glib/scalar.cpp"
-               line="2414">The value of this scalar.</doc>
+               line="2416">The value of this scalar.</doc>
           <type name="Scalar" c:type="GArrowScalar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="scalar" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="arrow-glib/scalar.cpp"
-                 line="2412">A #GArrowUnionScalar.</doc>
+                 line="2414">A #GArrowUnionScalar.</doc>
             <type name="UnionScalar" c:type="GArrowUnionScalar*"/>
           </instance-parameter>
         </parameters>
@@ -33687,7 +33705,7 @@ appended.</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="arrow-glib/scalar.cpp"
-             line="2355">The value of the scalar.</doc>
+             line="2357">The value of the scalar.</doc>
         <type name="Scalar"/>
       </property>
       <field name="parent_instance">
@@ -33729,7 +33747,7 @@ appended.</doc>
       </parameters>
     </function-macro>
     <constant name="VERSION_MAJOR"
-              value="13"
+              value="15"
               c:type="GARROW_VERSION_MAJOR"
               version="0.10.0">
       <doc xml:space="preserve"
@@ -33739,7 +33757,7 @@ appended.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="VERSION_MICRO"
-              value="0"
+              value="2"
               c:type="GARROW_VERSION_MICRO"
               version="0.10.0">
       <doc xml:space="preserve"
@@ -33784,7 +33802,7 @@ for snapshot version.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="arrow-glib/compute.cpp"
-               line="3573">A newly created #GArrowVarianceOptions.</doc>
+               line="3571">A newly created #GArrowVarianceOptions.</doc>
           <type name="VarianceOptions" c:type="GArrowVarianceOptions*"/>
         </return-value>
       </constructor>
@@ -33795,7 +33813,7 @@ for snapshot version.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="arrow-glib/compute.cpp"
-             line="3515">The Delta Degrees of Freedom (ddof) to be used.</doc>
+             line="3513">The Delta Degrees of Freedom (ddof) to be used.</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="min-count"
@@ -33805,7 +33823,7 @@ for snapshot version.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="arrow-glib/compute.cpp"
-             line="3549">If less than this many non-null values are observed, emit null.</doc>
+             line="3547">If less than this many non-null values are observed, emit null.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="skip-nulls"
@@ -33815,7 +33833,7 @@ for snapshot version.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="arrow-glib/compute.cpp"
-             line="3533">Whether NULLs are skipped or not.</doc>
+             line="3531">Whether NULLs are skipped or not.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <field name="parent_instance">
@@ -34853,7 +34871,7 @@ any #GArrowS3FileSystem related APIs.</doc>
     <docsection name="scalar">
       <doc xml:space="preserve"
            filename="arrow-glib/scalar.cpp"
-           line="31">#GArrowScalar is a base class for all scalar classes such as
+           line="33">#GArrowScalar is a base class for all scalar classes such as
 #GArrowBooleanScalar.
 
 #GArrowNullScalar is a class for a null scalar.

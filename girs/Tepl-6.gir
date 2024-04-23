@@ -13,7 +13,7 @@ and/or use gtk-doc annotations.  -->
   <c:include name="tepl/tepl.h"/>
   <namespace name="Tepl"
              version="6"
-             shared-library="libtepl-6.so.3"
+             shared-library="libtepl-6.so.4"
              c:identifier-prefixes="Tepl"
              c:symbol-prefixes="tepl">
     <function-macro name="ABSTRACT_FACTORY"
@@ -3847,16 +3847,70 @@ and %TEPL_GUTTER_RENDERER_FOLDS_STATE_CONTINUE.</doc>
     <function-macro name="IS_PANEL"
                     c:identifier="TEPL_IS_PANEL"
                     introspectable="0">
-      <source-position filename="tepl/tepl-panel.h" line="20"/>
+      <source-position filename="tepl/tepl-panel.h" line="18"/>
       <parameters>
         <parameter name="obj">
         </parameter>
       </parameters>
     </function-macro>
-    <function-macro name="IS_PANEL_CLASS"
-                    c:identifier="TEPL_IS_PANEL_CLASS"
+    <function-macro name="IS_PANEL1"
+                    c:identifier="TEPL_IS_PANEL1"
                     introspectable="0">
-      <source-position filename="tepl/tepl-panel.h" line="21"/>
+      <source-position filename="tepl/tepl-panel1.h" line="20"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PANEL1_CLASS"
+                    c:identifier="TEPL_IS_PANEL1_CLASS"
+                    introspectable="0">
+      <source-position filename="tepl/tepl-panel1.h" line="21"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PANEL_CONTAINER"
+                    c:identifier="TEPL_IS_PANEL_CONTAINER"
+                    introspectable="0">
+      <source-position filename="tepl/tepl-panel-container.h" line="19"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PANEL_CONTAINER_CLASS"
+                    c:identifier="TEPL_IS_PANEL_CONTAINER_CLASS"
+                    introspectable="0">
+      <source-position filename="tepl/tepl-panel-container.h" line="20"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PANEL_ITEM"
+                    c:identifier="TEPL_IS_PANEL_ITEM"
+                    introspectable="0">
+      <source-position filename="tepl/tepl-panel-item.h" line="19"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PANEL_SWITCHER_MENU"
+                    c:identifier="TEPL_IS_PANEL_SWITCHER_MENU"
+                    introspectable="0">
+      <source-position filename="tepl/tepl-panel-switcher-menu.h" line="19"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_PANEL_SWITCHER_MENU_CLASS"
+                    c:identifier="TEPL_IS_PANEL_SWITCHER_MENU_CLASS"
+                    introspectable="0">
+      <source-position filename="tepl/tepl-panel-switcher-menu.h" line="20"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -3934,73 +3988,19 @@ and %TEPL_GUTTER_RENDERER_FOLDS_STATE_CONTINUE.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <function-macro name="IS_STACK"
-                    c:identifier="TEPL_IS_STACK"
+    <function-macro name="IS_STATUS_MENU_BUTTON"
+                    c:identifier="TEPL_IS_STATUS_MENU_BUTTON"
                     introspectable="0">
-      <source-position filename="tepl/tepl-stack.h" line="19"/>
+      <source-position filename="tepl/tepl-status-menu-button.h" line="21"/>
       <parameters>
         <parameter name="obj">
         </parameter>
       </parameters>
     </function-macro>
-    <function-macro name="IS_STACK_CLASS"
-                    c:identifier="TEPL_IS_STACK_CLASS"
+    <function-macro name="IS_STATUS_MENU_BUTTON_CLASS"
+                    c:identifier="TEPL_IS_STATUS_MENU_BUTTON_CLASS"
                     introspectable="0">
-      <source-position filename="tepl/tepl-stack.h" line="20"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_STACK_ITEM"
-                    c:identifier="TEPL_IS_STACK_ITEM"
-                    introspectable="0">
-      <source-position filename="tepl/tepl-stack-item.h" line="20"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_STACK_ITEM_CLASS"
-                    c:identifier="TEPL_IS_STACK_ITEM_CLASS"
-                    introspectable="0">
-      <source-position filename="tepl/tepl-stack-item.h" line="21"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_STACK_SWITCHER_MENU"
-                    c:identifier="TEPL_IS_STACK_SWITCHER_MENU"
-                    introspectable="0">
-      <source-position filename="tepl/tepl-stack-switcher-menu.h" line="19"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_STACK_SWITCHER_MENU_CLASS"
-                    c:identifier="TEPL_IS_STACK_SWITCHER_MENU_CLASS"
-                    introspectable="0">
-      <source-position filename="tepl/tepl-stack-switcher-menu.h" line="20"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_STATUSBAR"
-                    c:identifier="TEPL_IS_STATUSBAR"
-                    introspectable="0">
-      <source-position filename="tepl/tepl-statusbar.h" line="20"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_STATUSBAR_CLASS"
-                    c:identifier="TEPL_IS_STATUSBAR_CLASS"
-                    introspectable="0">
-      <source-position filename="tepl/tepl-statusbar.h" line="21"/>
+      <source-position filename="tepl/tepl-status-menu-button.h" line="22"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -5731,25 +5731,115 @@ to @view. If @view is %NULL, then @indicator will be empty.</doc>
       <source-position filename="tepl/tepl-overwrite-indicator.h" line="26"/>
     </record>
     <function-macro name="PANEL" c:identifier="TEPL_PANEL" introspectable="0">
-      <source-position filename="tepl/tepl-panel.h" line="18"/>
+      <source-position filename="tepl/tepl-panel.h" line="17"/>
       <parameters>
         <parameter name="obj">
         </parameter>
       </parameters>
     </function-macro>
-    <function-macro name="PANEL_CLASS"
-                    c:identifier="TEPL_PANEL_CLASS"
+    <function-macro name="PANEL1"
+                    c:identifier="TEPL_PANEL1"
                     introspectable="0">
-      <source-position filename="tepl/tepl-panel.h" line="19"/>
+      <source-position filename="tepl/tepl-panel1.h" line="18"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL1_CLASS"
+                    c:identifier="TEPL_PANEL1_CLASS"
+                    introspectable="0">
+      <source-position filename="tepl/tepl-panel1.h" line="19"/>
       <parameters>
         <parameter name="klass">
         </parameter>
       </parameters>
     </function-macro>
-    <function-macro name="PANEL_GET_CLASS"
-                    c:identifier="TEPL_PANEL_GET_CLASS"
+    <function-macro name="PANEL1_GET_CLASS"
+                    c:identifier="TEPL_PANEL1_GET_CLASS"
                     introspectable="0">
-      <source-position filename="tepl/tepl-panel.h" line="22"/>
+      <source-position filename="tepl/tepl-panel1.h" line="22"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_CONTAINER"
+                    c:identifier="TEPL_PANEL_CONTAINER"
+                    introspectable="0">
+      <source-position filename="tepl/tepl-panel-container.h" line="17"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_CONTAINER_CLASS"
+                    c:identifier="TEPL_PANEL_CONTAINER_CLASS"
+                    introspectable="0">
+      <source-position filename="tepl/tepl-panel-container.h" line="18"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_CONTAINER_GET_CLASS"
+                    c:identifier="TEPL_PANEL_CONTAINER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="tepl/tepl-panel-container.h" line="21"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_GET_INTERFACE"
+                    c:identifier="TEPL_PANEL_GET_INTERFACE"
+                    introspectable="0">
+      <source-position filename="tepl/tepl-panel.h" line="19"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_ITEM"
+                    c:identifier="TEPL_PANEL_ITEM"
+                    introspectable="0">
+      <source-position filename="tepl/tepl-panel-item.h" line="18"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_ITEM_GET_INTERFACE"
+                    c:identifier="TEPL_PANEL_ITEM_GET_INTERFACE"
+                    introspectable="0">
+      <source-position filename="tepl/tepl-panel-item.h" line="20"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_SWITCHER_MENU"
+                    c:identifier="TEPL_PANEL_SWITCHER_MENU"
+                    introspectable="0">
+      <source-position filename="tepl/tepl-panel-switcher-menu.h" line="17"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_SWITCHER_MENU_CLASS"
+                    c:identifier="TEPL_PANEL_SWITCHER_MENU_CLASS"
+                    introspectable="0">
+      <source-position filename="tepl/tepl-panel-switcher-menu.h" line="18"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="PANEL_SWITCHER_MENU_GET_CLASS"
+                    c:identifier="TEPL_PANEL_SWITCHER_MENU_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="tepl/tepl-panel-switcher-menu.h" line="21"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -5809,84 +5899,63 @@ to @view. If @view is %NULL, then @indicator will be empty.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <class name="Panel"
-           c:symbol-prefix="panel"
-           c:type="TeplPanel"
-           parent="Gtk.Grid"
-           glib:type-name="TeplPanel"
-           glib:get-type="tepl_panel_get_type"
-           glib:type-struct="PanelClass">
-      <source-position filename="tepl/tepl-panel.h" line="40"/>
-      <implements name="Atk.ImplementorIface"/>
-      <implements name="Gtk.Buildable"/>
-      <implements name="Gtk.Orientable"/>
-      <constructor name="new" c:identifier="tepl_panel_new" version="5.0">
+    <interface name="Panel"
+               c:symbol-prefix="panel"
+               c:type="TeplPanel"
+               glib:type-name="TeplPanel"
+               glib:get-type="tepl_panel_get_type"
+               glib:type-struct="PanelInterface">
+      <source-position filename="tepl/tepl-panel.h" line="53"/>
+      <virtual-method name="add" invoker="add" version="6.8">
         <doc xml:space="preserve"
              filename="tepl/tepl-panel.c"
-             line="64">Creates a new #TeplPanel containing only an empty #GtkStack that can be
-retrieved with tepl_panel_get_stack().</doc>
-        <source-position filename="tepl/tepl-panel.h" line="46"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="tepl/tepl-panel.c"
-               line="70">a new #TeplPanel.</doc>
-          <type name="Panel" c:type="TeplPanel*"/>
-        </return-value>
-      </constructor>
-      <constructor name="new_for_left_side_panel"
-                   c:identifier="tepl_panel_new_for_left_side_panel"
-                   version="5.0">
-        <doc xml:space="preserve"
-             filename="tepl/tepl-panel.c"
-             line="130">Creates a new #TeplPanel intended to be used as a side panel added on the
-left side inside a #GtkWindow.
+             line="48">Adds an item to the panel. See #TeplPanelItem for the meaning of the parameters.
 
-It contains:
-- A #GtkStackSwitcher.
-- A close button that hides the #TeplPanel when clicked.
-- A #GtkStack that can be retrieved with tepl_panel_get_stack().</doc>
-        <source-position filename="tepl/tepl-panel.h" line="49"/>
-        <return-value transfer-ownership="none">
+@widget should have its #GtkWidget:visible property set to %TRUE in order to
+be correctly shown in the panel.
+
+A #TeplPanelItem object is returned, which can be used as a parameter to
+other #TeplPanel functions (#TeplPanelItem serves as a kind of handle).
+
+Note that #TeplPanel also owns a reference to the #TeplPanelItem. So either
+store the #TeplPanelItem for later use, or unref it directly after calling
+this function.</doc>
+        <source-position filename="tepl/tepl-panel.h" line="42"/>
+        <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="tepl/tepl-panel.c"
-               line="141">a new left side #TeplPanel.</doc>
-          <type name="Panel" c:type="TeplPanel*"/>
-        </return-value>
-      </constructor>
-      <method name="add_component"
-              c:identifier="tepl_panel_add_component"
-              version="5.0">
-        <doc xml:space="preserve"
-             filename="tepl/tepl-panel.c"
-             line="171">The equivalent of gtk_stack_add_titled(), with an optional @icon_name to set
-the “icon-name” #GtkStack child property.</doc>
-        <source-position filename="tepl/tepl-panel.h" line="55"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
+               line="68">a new #TeplPanelItem object.</doc>
+          <type name="PanelItem" c:type="TeplPanelItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="panel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="tepl/tepl-panel.c"
-                 line="173">a #TeplPanel.</doc>
+                 line="50">a #TeplPanel.</doc>
             <type name="Panel" c:type="TeplPanel*"/>
           </instance-parameter>
-          <parameter name="component" transfer-ownership="none">
+          <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="tepl/tepl-panel.c"
-                 line="174">the child #GtkWidget to add to the #GtkStack of @panel.</doc>
+                 line="51">a #GtkWidget.</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
-          <parameter name="name" transfer-ownership="none">
+          <parameter name="name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="tepl/tepl-panel.c"
-                 line="175">the name for @component.</doc>
+                 line="52">the name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
-          <parameter name="title" transfer-ownership="none">
+          <parameter name="title"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="tepl/tepl-panel.c"
-                 line="176">a human-readable title for @component.</doc>
+                 line="53">the title.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="icon_name"
@@ -5895,87 +5964,129 @@ the “icon-name” #GtkStack child property.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="tepl/tepl-panel.c"
-                 line="177">the icon name for @component, or %NULL.</doc>
+                 line="54">the icon-name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
-      </method>
-      <method name="get_stack"
-              c:identifier="tepl_panel_get_stack"
-              version="5.0">
-        <source-position filename="tepl/tepl-panel.h" line="52"/>
+      </virtual-method>
+      <virtual-method name="remove" invoker="remove" version="6.8">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel.c"
+             line="88">Removes an item from @panel.</doc>
+        <source-position filename="tepl/tepl-panel.h" line="48"/>
         <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="panel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel.c"
+                 line="90">a #TeplPanel.</doc>
+            <type name="Panel" c:type="TeplPanel*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel.c"
+                 line="91">the #TeplPanelItem to remove.</doc>
+            <type name="PanelItem" c:type="TeplPanelItem*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="set_active" invoker="set_active" version="6.8">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel.c"
+             line="107">Sets @item to be the one that is currently shown in @panel.
+
+This is different than setting the #GtkWidget:visible property to %TRUE. All
+#GtkWidget's of a @panel should have their #GtkWidget:visible property set to
+%TRUE all the time, but only one #TeplPanelItem is shown at a time.</doc>
+        <source-position filename="tepl/tepl-panel.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="panel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel.c"
+                 line="109">a #TeplPanel.</doc>
+            <type name="Panel" c:type="TeplPanel*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel.c"
+                 line="110">a #TeplPanelItem.</doc>
+            <type name="PanelItem" c:type="TeplPanelItem*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="add" c:identifier="tepl_panel_add" version="6.8">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel.c"
+             line="48">Adds an item to the panel. See #TeplPanelItem for the meaning of the parameters.
+
+@widget should have its #GtkWidget:visible property set to %TRUE in order to
+be correctly shown in the panel.
+
+A #TeplPanelItem object is returned, which can be used as a parameter to
+other #TeplPanel functions (#TeplPanelItem serves as a kind of handle).
+
+Note that #TeplPanel also owns a reference to the #TeplPanelItem. So either
+store the #TeplPanelItem for later use, or unref it directly after calling
+this function.</doc>
+        <source-position filename="tepl/tepl-panel.h" line="59"/>
+        <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="tepl/tepl-panel.c"
-               line="159">the #GtkStack widget of @panel (a direct child
-#GtkWidget of @panel).</doc>
-          <type name="Gtk.Stack" c:type="GtkStack*"/>
+               line="68">a new #TeplPanelItem object.</doc>
+          <type name="PanelItem" c:type="TeplPanelItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="panel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="tepl/tepl-panel.c"
-                 line="157">a #TeplPanel.</doc>
+                 line="50">a #TeplPanel.</doc>
             <type name="Panel" c:type="TeplPanel*"/>
           </instance-parameter>
-        </parameters>
-      </method>
-      <method name="provide_active_component_gsetting"
-              c:identifier="tepl_panel_provide_active_component_gsetting"
-              version="5.0">
-        <doc xml:space="preserve"
-             filename="tepl/tepl-panel.c"
-             line="207">Provides a #GSettings key for saving and restoring the
-#GtkStack:visible-child-name property of the #GtkStack belonging to @panel.
-
-This function just stores @settings and @setting_key for further use by
-tepl_panel_restore_state_from_gsettings() and
-tepl_panel_save_state_to_gsettings(). It doesn't bind the #GSettings key to
-the property, because each main window containing a #TeplPanel needs to be
-able to have a different state, and have more control over when that state is
-restored and saved. Once a #TeplPanel is created and fully populated, the
-setting can be restored. The setting can be saved according to the current
-main window before creating a new main window, and of course on application
-exit.
-
-Note that only one @settings/@setting_key pair is stored by @panel for
-further use, if you call this function twice on the same @panel, the second
-call overrides the first one.</doc>
-        <source-position filename="tepl/tepl-panel.h" line="62"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="panel" transfer-ownership="none">
+          <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="tepl/tepl-panel.c"
-                 line="209">a #TeplPanel.</doc>
-            <type name="Panel" c:type="TeplPanel*"/>
-          </instance-parameter>
-          <parameter name="settings" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-panel.c"
-                 line="210">a #GSettings object.</doc>
-            <type name="Gio.Settings" c:type="GSettings*"/>
+                 line="51">a #GtkWidget.</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
-          <parameter name="setting_key" transfer-ownership="none">
+          <parameter name="name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="tepl/tepl-panel.c"
-                 line="211">a #GSettings key of type string.</doc>
+                 line="52">the name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="title"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel.c"
+                 line="53">the title.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="icon_name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel.c"
+                 line="54">the icon-name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
-      <method name="restore_state_from_gsettings"
-              c:identifier="tepl_panel_restore_state_from_gsettings"
-              version="5.0">
+      <method name="remove" c:identifier="tepl_panel_remove" version="6.8">
         <doc xml:space="preserve"
              filename="tepl/tepl-panel.c"
-             line="247">Restores the state of @panel according to the provided #GSettings.
-
-This function must be called when all components have been added to the
-#GtkStack of @panel.</doc>
-        <source-position filename="tepl/tepl-panel.h" line="67"/>
+             line="88">Removes an item from @panel.</doc>
+        <source-position filename="tepl/tepl-panel.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5983,17 +6094,27 @@ This function must be called when all components have been added to the
           <instance-parameter name="panel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="tepl/tepl-panel.c"
-                 line="249">a #TeplPanel.</doc>
+                 line="90">a #TeplPanel.</doc>
             <type name="Panel" c:type="TeplPanel*"/>
           </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel.c"
+                 line="91">the #TeplPanelItem to remove.</doc>
+            <type name="PanelItem" c:type="TeplPanelItem*"/>
+          </parameter>
         </parameters>
       </method>
-      <method name="save_state_to_gsettings"
-              c:identifier="tepl_panel_save_state_to_gsettings"
-              version="5.0">
+      <method name="set_active"
+              c:identifier="tepl_panel_set_active"
+              version="6.8">
         <doc xml:space="preserve"
              filename="tepl/tepl-panel.c"
-             line="289">Saves the current state of @panel to the provided #GSettings.</doc>
+             line="107">Sets @item to be the one that is currently shown in @panel.
+
+This is different than setting the #GtkWidget:visible property to %TRUE. All
+#GtkWidget's of a @panel should have their #GtkWidget:visible property set to
+%TRUE all the time, but only one #TeplPanelItem is shown at a time.</doc>
         <source-position filename="tepl/tepl-panel.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6002,8 +6123,213 @@ This function must be called when all components have been added to the
           <instance-parameter name="panel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="tepl/tepl-panel.c"
-                 line="291">a #TeplPanel.</doc>
+                 line="109">a #TeplPanel.</doc>
             <type name="Panel" c:type="TeplPanel*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel.c"
+                 line="110">a #TeplPanelItem.</doc>
+            <type name="PanelItem" c:type="TeplPanelItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <class name="Panel1"
+           c:symbol-prefix="panel1"
+           c:type="TeplPanel1"
+           parent="Gtk.Grid"
+           glib:type-name="TeplPanel1"
+           glib:get-type="tepl_panel1_get_type"
+           glib:type-struct="Panel1Class">
+      <source-position filename="tepl/tepl-panel1.h" line="40"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.Orientable"/>
+      <constructor name="new" c:identifier="tepl_panel1_new" version="5.0">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel1.c"
+             line="67">Creates a new #TeplPanel1 containing only an empty #GtkStack that can be
+retrieved with tepl_panel1_get_stack().</doc>
+        <source-position filename="tepl/tepl-panel1.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="tepl/tepl-panel1.c"
+               line="73">a new #TeplPanel1.</doc>
+          <type name="Panel1" c:type="TeplPanel1*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_for_left_side_panel"
+                   c:identifier="tepl_panel1_new_for_left_side_panel"
+                   version="5.0">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel1.c"
+             line="133">Creates a new #TeplPanel1 intended to be used as a side panel added on the
+left side inside a #GtkWindow.
+
+It contains:
+- A #GtkStackSwitcher.
+- A close button that hides the #TeplPanel1 when clicked.
+- A #GtkStack that can be retrieved with tepl_panel1_get_stack().</doc>
+        <source-position filename="tepl/tepl-panel1.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="tepl/tepl-panel1.c"
+               line="144">a new left side #TeplPanel1.</doc>
+          <type name="Panel1" c:type="TeplPanel1*"/>
+        </return-value>
+      </constructor>
+      <method name="add_component"
+              c:identifier="tepl_panel1_add_component"
+              version="5.0">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel1.c"
+             line="174">The equivalent of gtk_stack_add_titled(), with an optional @icon_name to set
+the “icon-name” #GtkStack child property.</doc>
+        <source-position filename="tepl/tepl-panel1.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="panel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel1.c"
+                 line="176">a #TeplPanel1.</doc>
+            <type name="Panel1" c:type="TeplPanel1*"/>
+          </instance-parameter>
+          <parameter name="component" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel1.c"
+                 line="177">the child #GtkWidget to add to the #GtkStack of @panel.</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel1.c"
+                 line="178">the name for @component.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="title" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel1.c"
+                 line="179">a human-readable title for @component.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="icon_name"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel1.c"
+                 line="180">the icon name for @component, or %NULL.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_stack"
+              c:identifier="tepl_panel1_get_stack"
+              version="5.0">
+        <source-position filename="tepl/tepl-panel1.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="tepl/tepl-panel1.c"
+               line="162">the #GtkStack widget of @panel (a direct child
+#GtkWidget of @panel).</doc>
+          <type name="Gtk.Stack" c:type="GtkStack*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="panel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel1.c"
+                 line="160">a #TeplPanel1.</doc>
+            <type name="Panel1" c:type="TeplPanel1*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="provide_active_component_gsetting"
+              c:identifier="tepl_panel1_provide_active_component_gsetting"
+              version="5.0">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel1.c"
+             line="210">Provides a #GSettings key for saving and restoring the
+#GtkStack:visible-child-name property of the #GtkStack belonging to @panel.
+
+This function just stores @settings and @setting_key for further use by
+tepl_panel1_restore_state_from_gsettings() and
+tepl_panel1_save_state_to_gsettings(). It doesn't bind the #GSettings key to
+the property, because each main window containing a #TeplPanel1 needs to be
+able to have a different state, and have more control over when that state is
+restored and saved. Once a #TeplPanel1 is created and fully populated, the
+setting can be restored. The setting can be saved according to the current
+main window before creating a new main window, and of course on application
+exit.
+
+Note that only one @settings/@setting_key pair is stored by @panel for
+further use, if you call this function twice on the same @panel, the second
+call overrides the first one.</doc>
+        <source-position filename="tepl/tepl-panel1.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="panel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel1.c"
+                 line="212">a #TeplPanel1.</doc>
+            <type name="Panel1" c:type="TeplPanel1*"/>
+          </instance-parameter>
+          <parameter name="settings" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel1.c"
+                 line="213">a #GSettings object.</doc>
+            <type name="Gio.Settings" c:type="GSettings*"/>
+          </parameter>
+          <parameter name="setting_key" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel1.c"
+                 line="214">a #GSettings key of type string.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="restore_state_from_gsettings"
+              c:identifier="tepl_panel1_restore_state_from_gsettings"
+              version="5.0">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel1.c"
+             line="250">Restores the state of @panel according to the provided #GSettings.
+
+This function must be called when all components have been added to the
+#GtkStack of @panel.</doc>
+        <source-position filename="tepl/tepl-panel1.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="panel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel1.c"
+                 line="252">a #TeplPanel1.</doc>
+            <type name="Panel1" c:type="TeplPanel1*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="save_state_to_gsettings"
+              c:identifier="tepl_panel1_save_state_to_gsettings"
+              version="5.0">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel1.c"
+             line="292">Saves the current state of @panel to the provided #GSettings.</doc>
+        <source-position filename="tepl/tepl-panel1.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="panel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel1.c"
+                 line="294">a #TeplPanel1.</doc>
+            <type name="Panel1" c:type="TeplPanel1*"/>
           </instance-parameter>
         </parameters>
       </method>
@@ -6011,13 +6337,13 @@ This function must be called when all components have been added to the
         <type name="Gtk.Grid" c:type="GtkGrid"/>
       </field>
       <field name="priv">
-        <type name="PanelPrivate" c:type="TeplPanelPrivate*"/>
+        <type name="Panel1Private" c:type="TeplPanel1Private*"/>
       </field>
     </class>
-    <record name="PanelClass"
-            c:type="TeplPanelClass"
-            glib:is-gtype-struct-for="Panel">
-      <source-position filename="tepl/tepl-panel.h" line="40"/>
+    <record name="Panel1Class"
+            c:type="TeplPanel1Class"
+            glib:is-gtype-struct-for="Panel1">
+      <source-position filename="tepl/tepl-panel1.h" line="40"/>
       <field name="parent_class">
         <type name="Gtk.GridClass" c:type="GtkGridClass"/>
       </field>
@@ -6027,11 +6353,652 @@ This function must be called when all components have been added to the
         </array>
       </field>
     </record>
-    <record name="PanelPrivate"
-            c:type="TeplPanelPrivate"
+    <record name="Panel1Private"
+            c:type="TeplPanel1Private"
             disguised="1"
             opaque="1">
-      <source-position filename="tepl/tepl-panel.h" line="26"/>
+      <source-position filename="tepl/tepl-panel1.h" line="26"/>
+    </record>
+    <class name="PanelContainer"
+           c:symbol-prefix="panel_container"
+           c:type="TeplPanelContainer"
+           parent="Gtk.Bin"
+           glib:type-name="TeplPanelContainer"
+           glib:get-type="tepl_panel_container_get_type"
+           glib:type-struct="PanelContainerClass">
+      <source-position filename="tepl/tepl-panel-container.h" line="39"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Panel"/>
+      <constructor name="new"
+                   c:identifier="tepl_panel_container_new"
+                   version="6.8">
+        <source-position filename="tepl/tepl-panel-container.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="tepl/tepl-panel-container.c"
+               line="189">a new #TeplPanelContainer.</doc>
+          <type name="PanelContainer" c:type="TeplPanelContainer*"/>
+        </return-value>
+      </constructor>
+      <method name="get_active_item"
+              c:identifier="tepl_panel_container_get_active_item"
+              version="6.8">
+        <source-position filename="tepl/tepl-panel-container.h" line="51"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="tepl/tepl-panel-container.c"
+               line="228">the #TeplPanelItem currently shown in
+  @container.</doc>
+          <type name="PanelItem" c:type="TeplPanelItem*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="container" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-container.c"
+                 line="226">a #TeplPanelContainer.</doc>
+            <type name="PanelContainer" c:type="TeplPanelContainer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_active_item_name"
+              c:identifier="tepl_panel_container_get_active_item_name"
+              version="6.8">
+        <source-position filename="tepl/tepl-panel-container.h" line="54"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="tepl/tepl-panel-container.c"
+               line="261">the name of the #TeplPanelItem currently shown in
+  @container.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="container" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-container.c"
+                 line="259">a #TeplPanelContainer.</doc>
+            <type name="PanelContainer" c:type="TeplPanelContainer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_items"
+              c:identifier="tepl_panel_container_get_items"
+              version="6.8">
+        <source-position filename="tepl/tepl-panel-container.h" line="48"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="tepl/tepl-panel-container.c"
+               line="202">all the items of
+  @container.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="PanelItem"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="container" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-container.c"
+                 line="200">a #TeplPanelContainer.</doc>
+            <type name="PanelContainer" c:type="TeplPanelContainer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_several_items"
+              c:identifier="tepl_panel_container_has_several_items"
+              version="6.8">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel-container.c"
+             line="319">Convenience function. Useful to implement a switcher widget.</doc>
+        <source-position filename="tepl/tepl-panel-container.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="tepl/tepl-panel-container.c"
+               line="325">whether @container has more than one #TeplPanelItem.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="container" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-container.c"
+                 line="321">a #TeplPanelContainer.</doc>
+            <type name="PanelContainer" c:type="TeplPanelContainer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_active_item_name"
+              c:identifier="tepl_panel_container_set_active_item_name"
+              version="6.8">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel-container.c"
+             line="281">Calls tepl_panel_set_active() with the #TeplPanelItem named @name (if found).</doc>
+        <source-position filename="tepl/tepl-panel-container.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="container" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-container.c"
+                 line="283">a #TeplPanelContainer.</doc>
+            <type name="PanelContainer" c:type="TeplPanelContainer*"/>
+          </instance-parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-container.c"
+                 line="284">a name.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="Gtk.Bin" c:type="GtkBin"/>
+      </field>
+      <field name="priv">
+        <type name="PanelContainerPrivate"
+              c:type="TeplPanelContainerPrivate*"/>
+      </field>
+      <glib:signal name="changed" when="first" version="6.8">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel-container.c"
+             line="72">The ::changed signal is emitted when:
+- A #TeplPanelItem is added or removed from @container.
+- The active #TeplPanelItem of @container has changed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="PanelContainerClass"
+            c:type="TeplPanelContainerClass"
+            glib:is-gtype-struct-for="PanelContainer">
+      <source-position filename="tepl/tepl-panel-container.h" line="39"/>
+      <field name="parent_class">
+        <type name="Gtk.BinClass" c:type="GtkBinClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="PanelContainerPrivate"
+            c:type="TeplPanelContainerPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="tepl/tepl-panel-container.h" line="25"/>
+    </record>
+    <record name="PanelInterface"
+            c:type="TeplPanelInterface"
+            glib:is-gtype-struct-for="Panel"
+            version="6.8">
+      <doc xml:space="preserve"
+           filename="tepl/tepl-panel.h"
+           line="24">The virtual function table for #TeplPanel.</doc>
+      <source-position filename="tepl/tepl-panel.h" line="53"/>
+      <field name="parent_interface">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel.h"
+             line="26">The parent interface.</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="add">
+        <callback name="add">
+          <source-position filename="tepl/tepl-panel.h" line="42"/>
+          <return-value transfer-ownership="full" nullable="1">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel.c"
+                 line="68">a new #TeplPanelItem object.</doc>
+            <type name="PanelItem" c:type="TeplPanelItem*"/>
+          </return-value>
+          <parameters>
+            <parameter name="panel" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="tepl/tepl-panel.c"
+                   line="50">a #TeplPanel.</doc>
+              <type name="Panel" c:type="TeplPanel*"/>
+            </parameter>
+            <parameter name="widget" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="tepl/tepl-panel.c"
+                   line="51">a #GtkWidget.</doc>
+              <type name="Gtk.Widget" c:type="GtkWidget*"/>
+            </parameter>
+            <parameter name="name"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <doc xml:space="preserve"
+                   filename="tepl/tepl-panel.c"
+                   line="52">the name.</doc>
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="title"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <doc xml:space="preserve"
+                   filename="tepl/tepl-panel.c"
+                   line="53">the title.</doc>
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="icon_name"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <doc xml:space="preserve"
+                   filename="tepl/tepl-panel.c"
+                   line="54">the icon-name.</doc>
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="remove">
+        <callback name="remove">
+          <source-position filename="tepl/tepl-panel.h" line="48"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="panel" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="tepl/tepl-panel.c"
+                   line="90">a #TeplPanel.</doc>
+              <type name="Panel" c:type="TeplPanel*"/>
+            </parameter>
+            <parameter name="item" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="tepl/tepl-panel.c"
+                   line="91">the #TeplPanelItem to remove.</doc>
+              <type name="PanelItem" c:type="TeplPanelItem*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_active">
+        <callback name="set_active">
+          <source-position filename="tepl/tepl-panel.h" line="51"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="panel" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="tepl/tepl-panel.c"
+                   line="109">a #TeplPanel.</doc>
+              <type name="Panel" c:type="TeplPanel*"/>
+            </parameter>
+            <parameter name="item" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="tepl/tepl-panel.c"
+                   line="110">a #TeplPanelItem.</doc>
+              <type name="PanelItem" c:type="TeplPanelItem*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <interface name="PanelItem"
+               c:symbol-prefix="panel_item"
+               c:type="TeplPanelItem"
+               glib:type-name="TeplPanelItem"
+               glib:get-type="tepl_panel_item_get_type"
+               glib:type-struct="PanelItemInterface">
+      <source-position filename="tepl/tepl-panel-item.h" line="52"/>
+      <virtual-method name="get_icon_name"
+                      invoker="get_icon_name"
+                      version="6.8">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel-item.c"
+             line="104">Gets the icon name. It can be shown in the UI to choose this item, for
+example with the #GtkImage's #GtkImage:icon-name property.</doc>
+        <source-position filename="tepl/tepl-panel-item.h" line="51"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="tepl/tepl-panel-item.c"
+               line="111">the "icon-name" attribute.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-item.c"
+                 line="106">a #TeplPanelItem.</doc>
+            <type name="PanelItem" c:type="TeplPanelItem*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_name" invoker="get_name" version="6.8">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel-item.c"
+             line="68">Gets the name. It is an ID as a UTF-8 string. It is not displayed in the UI.
+It uniquely identifies an item within a list.</doc>
+        <source-position filename="tepl/tepl-panel-item.h" line="47"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="tepl/tepl-panel-item.c"
+               line="75">the "name" attribute.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-item.c"
+                 line="70">a #TeplPanelItem.</doc>
+            <type name="PanelItem" c:type="TeplPanelItem*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_title" invoker="get_title" version="6.8">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel-item.c"
+             line="86">Gets the title. It is a human-readable UTF-8 string that can be shown in the
+UI to choose this item.</doc>
+        <source-position filename="tepl/tepl-panel-item.h" line="49"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="tepl/tepl-panel-item.c"
+               line="93">the "title" attribute.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-item.c"
+                 line="88">a #TeplPanelItem.</doc>
+            <type name="PanelItem" c:type="TeplPanelItem*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_widget" invoker="get_widget" version="6.8">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel-item.c"
+             line="50">Gets the #GtkWidget (the main content).</doc>
+        <source-position filename="tepl/tepl-panel-item.h" line="45"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="tepl/tepl-panel-item.c"
+               line="56">the "widget" attribute. Is %NULL when
+  the widget has been destroyed.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-item.c"
+                 line="52">a #TeplPanelItem.</doc>
+            <type name="PanelItem" c:type="TeplPanelItem*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="compare_by_title"
+              c:identifier="tepl_panel_item_compare_by_title"
+              version="6.8">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel-item.c"
+             line="122">A #GCompareFunc for the #TeplPanelItem's "title" attribute.</doc>
+        <source-position filename="tepl/tepl-panel-item.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="tepl/tepl-panel-item.c"
+               line="129">the usual return value for a #GCompareFunc.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="a" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-item.c"
+                 line="124">a #TeplPanelItem.</doc>
+            <type name="PanelItem" c:type="TeplPanelItem*"/>
+          </instance-parameter>
+          <parameter name="b" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-item.c"
+                 line="125">a #TeplPanelItem.</doc>
+            <type name="PanelItem" c:type="TeplPanelItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_name"
+              c:identifier="tepl_panel_item_get_icon_name"
+              version="6.8">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel-item.c"
+             line="104">Gets the icon name. It can be shown in the UI to choose this item, for
+example with the #GtkImage's #GtkImage:icon-name property.</doc>
+        <source-position filename="tepl/tepl-panel-item.h" line="67"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="tepl/tepl-panel-item.c"
+               line="111">the "icon-name" attribute.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-item.c"
+                 line="106">a #TeplPanelItem.</doc>
+            <type name="PanelItem" c:type="TeplPanelItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="tepl_panel_item_get_name"
+              version="6.8">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel-item.c"
+             line="68">Gets the name. It is an ID as a UTF-8 string. It is not displayed in the UI.
+It uniquely identifies an item within a list.</doc>
+        <source-position filename="tepl/tepl-panel-item.h" line="61"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="tepl/tepl-panel-item.c"
+               line="75">the "name" attribute.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-item.c"
+                 line="70">a #TeplPanelItem.</doc>
+            <type name="PanelItem" c:type="TeplPanelItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_title"
+              c:identifier="tepl_panel_item_get_title"
+              version="6.8">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel-item.c"
+             line="86">Gets the title. It is a human-readable UTF-8 string that can be shown in the
+UI to choose this item.</doc>
+        <source-position filename="tepl/tepl-panel-item.h" line="64"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="tepl/tepl-panel-item.c"
+               line="93">the "title" attribute.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-item.c"
+                 line="88">a #TeplPanelItem.</doc>
+            <type name="PanelItem" c:type="TeplPanelItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_widget"
+              c:identifier="tepl_panel_item_get_widget"
+              version="6.8">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel-item.c"
+             line="50">Gets the #GtkWidget (the main content).</doc>
+        <source-position filename="tepl/tepl-panel-item.h" line="58"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="tepl/tepl-panel-item.c"
+               line="56">the "widget" attribute. Is %NULL when
+  the widget has been destroyed.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-item.c"
+                 line="52">a #TeplPanelItem.</doc>
+            <type name="PanelItem" c:type="TeplPanelItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="PanelItemInterface"
+            c:type="TeplPanelItemInterface"
+            glib:is-gtype-struct-for="PanelItem"
+            version="6.8">
+      <doc xml:space="preserve"
+           filename="tepl/tepl-panel-item.h"
+           line="25">The virtual function table for #TeplPanelItem.</doc>
+      <source-position filename="tepl/tepl-panel-item.h" line="52"/>
+      <field name="parent_interface">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-panel-item.h"
+             line="27">The parent interface.</doc>
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_widget">
+        <callback name="get_widget">
+          <source-position filename="tepl/tepl-panel-item.h" line="45"/>
+          <return-value transfer-ownership="none" nullable="1">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-item.c"
+                 line="56">the "widget" attribute. Is %NULL when
+  the widget has been destroyed.</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </return-value>
+          <parameters>
+            <parameter name="item" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="tepl/tepl-panel-item.c"
+                   line="52">a #TeplPanelItem.</doc>
+              <type name="PanelItem" c:type="TeplPanelItem*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_name">
+        <callback name="get_name">
+          <source-position filename="tepl/tepl-panel-item.h" line="47"/>
+          <return-value transfer-ownership="none" nullable="1">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-item.c"
+                 line="75">the "name" attribute.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </return-value>
+          <parameters>
+            <parameter name="item" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="tepl/tepl-panel-item.c"
+                   line="70">a #TeplPanelItem.</doc>
+              <type name="PanelItem" c:type="TeplPanelItem*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_title">
+        <callback name="get_title">
+          <source-position filename="tepl/tepl-panel-item.h" line="49"/>
+          <return-value transfer-ownership="none" nullable="1">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-item.c"
+                 line="93">the "title" attribute.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </return-value>
+          <parameters>
+            <parameter name="item" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="tepl/tepl-panel-item.c"
+                   line="88">a #TeplPanelItem.</doc>
+              <type name="PanelItem" c:type="TeplPanelItem*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_icon_name">
+        <callback name="get_icon_name">
+          <source-position filename="tepl/tepl-panel-item.h" line="51"/>
+          <return-value transfer-ownership="none" nullable="1">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-item.c"
+                 line="111">the "icon-name" attribute.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </return-value>
+          <parameters>
+            <parameter name="item" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="tepl/tepl-panel-item.c"
+                   line="106">a #TeplPanelItem.</doc>
+              <type name="PanelItem" c:type="TeplPanelItem*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="PanelSwitcherMenu"
+           c:symbol-prefix="panel_switcher_menu"
+           c:type="TeplPanelSwitcherMenu"
+           parent="Gtk.Bin"
+           glib:type-name="TeplPanelSwitcherMenu"
+           glib:get-type="tepl_panel_switcher_menu_get_type"
+           glib:type-struct="PanelSwitcherMenuClass">
+      <source-position filename="tepl/tepl-panel-switcher-menu.h" line="39"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new"
+                   c:identifier="tepl_panel_switcher_menu_new"
+                   version="6.8">
+        <source-position filename="tepl/tepl-panel-switcher-menu.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="tepl/tepl-panel-switcher-menu.c"
+               line="265">a new #TeplPanelSwitcherMenu widget.</doc>
+          <type name="PanelSwitcherMenu" c:type="TeplPanelSwitcherMenu*"/>
+        </return-value>
+        <parameters>
+          <parameter name="panel" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-panel-switcher-menu.c"
+                 line="263">a #TeplPanelContainer.</doc>
+            <type name="PanelContainer" c:type="TeplPanelContainer*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="parent">
+        <type name="Gtk.Bin" c:type="GtkBin"/>
+      </field>
+      <field name="priv">
+        <type name="PanelSwitcherMenuPrivate"
+              c:type="TeplPanelSwitcherMenuPrivate*"/>
+      </field>
+    </class>
+    <record name="PanelSwitcherMenuClass"
+            c:type="TeplPanelSwitcherMenuClass"
+            glib:is-gtype-struct-for="PanelSwitcherMenu">
+      <source-position filename="tepl/tepl-panel-switcher-menu.h" line="39"/>
+      <field name="parent_class">
+        <type name="Gtk.BinClass" c:type="GtkBinClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" fixed-size="12">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="PanelSwitcherMenuPrivate"
+            c:type="TeplPanelSwitcherMenuPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="tepl/tepl-panel-switcher-menu.h" line="25"/>
     </record>
     <class name="PrefsDialog"
            c:symbol-prefix="prefs_dialog"
@@ -6346,107 +7313,28 @@ with the %GTK_RESPONSE_CANCEL response.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <function-macro name="STACK" c:identifier="TEPL_STACK" introspectable="0">
-      <source-position filename="tepl/tepl-stack.h" line="17"/>
+    <function-macro name="STATUS_MENU_BUTTON"
+                    c:identifier="TEPL_STATUS_MENU_BUTTON"
+                    introspectable="0">
+      <source-position filename="tepl/tepl-status-menu-button.h" line="19"/>
       <parameters>
         <parameter name="obj">
         </parameter>
       </parameters>
     </function-macro>
-    <function-macro name="STACK_CLASS"
-                    c:identifier="TEPL_STACK_CLASS"
+    <function-macro name="STATUS_MENU_BUTTON_CLASS"
+                    c:identifier="TEPL_STATUS_MENU_BUTTON_CLASS"
                     introspectable="0">
-      <source-position filename="tepl/tepl-stack.h" line="18"/>
+      <source-position filename="tepl/tepl-status-menu-button.h" line="20"/>
       <parameters>
         <parameter name="klass">
         </parameter>
       </parameters>
     </function-macro>
-    <function-macro name="STACK_GET_CLASS"
-                    c:identifier="TEPL_STACK_GET_CLASS"
+    <function-macro name="STATUS_MENU_BUTTON_GET_CLASS"
+                    c:identifier="TEPL_STATUS_MENU_BUTTON_GET_CLASS"
                     introspectable="0">
-      <source-position filename="tepl/tepl-stack.h" line="21"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="STACK_ITEM"
-                    c:identifier="TEPL_STACK_ITEM"
-                    introspectable="0">
-      <source-position filename="tepl/tepl-stack-item.h" line="18"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="STACK_ITEM_CLASS"
-                    c:identifier="TEPL_STACK_ITEM_CLASS"
-                    introspectable="0">
-      <source-position filename="tepl/tepl-stack-item.h" line="19"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="STACK_ITEM_GET_CLASS"
-                    c:identifier="TEPL_STACK_ITEM_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="tepl/tepl-stack-item.h" line="22"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="STACK_SWITCHER_MENU"
-                    c:identifier="TEPL_STACK_SWITCHER_MENU"
-                    introspectable="0">
-      <source-position filename="tepl/tepl-stack-switcher-menu.h" line="17"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="STACK_SWITCHER_MENU_CLASS"
-                    c:identifier="TEPL_STACK_SWITCHER_MENU_CLASS"
-                    introspectable="0">
-      <source-position filename="tepl/tepl-stack-switcher-menu.h" line="18"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="STACK_SWITCHER_MENU_GET_CLASS"
-                    c:identifier="TEPL_STACK_SWITCHER_MENU_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="tepl/tepl-stack-switcher-menu.h" line="21"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="STATUSBAR"
-                    c:identifier="TEPL_STATUSBAR"
-                    introspectable="0">
-      <source-position filename="tepl/tepl-statusbar.h" line="18"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="STATUSBAR_CLASS"
-                    c:identifier="TEPL_STATUSBAR_CLASS"
-                    introspectable="0">
-      <source-position filename="tepl/tepl-statusbar.h" line="19"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="STATUSBAR_GET_CLASS"
-                    c:identifier="TEPL_STATUSBAR_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="tepl/tepl-statusbar.h" line="22"/>
+      <source-position filename="tepl/tepl-status-menu-button.h" line="23"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -6885,465 +7773,68 @@ guaranteed to be the same for the lifetime of @prefs. Each
             opaque="1">
       <source-position filename="tepl/tepl-space-drawer-prefs.h" line="26"/>
     </record>
-    <class name="Stack"
-           c:symbol-prefix="stack"
-           c:type="TeplStack"
-           parent="Gtk.Bin"
-           glib:type-name="TeplStack"
-           glib:get-type="tepl_stack_get_type"
-           glib:type-struct="StackClass">
-      <source-position filename="tepl/tepl-stack.h" line="39"/>
+    <class name="StatusMenuButton"
+           c:symbol-prefix="status_menu_button"
+           c:type="TeplStatusMenuButton"
+           parent="Gtk.MenuButton"
+           glib:type-name="TeplStatusMenuButton"
+           glib:get-type="tepl_status_menu_button_get_type"
+           glib:type-struct="StatusMenuButtonClass">
+      <source-position filename="tepl/tepl-status-menu-button.h" line="41"/>
       <implements name="Atk.ImplementorIface"/>
-      <implements name="Gtk.Buildable"/>
-      <constructor name="new" c:identifier="tepl_stack_new" version="6.6">
-        <source-position filename="tepl/tepl-stack.h" line="45"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="tepl/tepl-stack.c"
-               line="95">a new #TeplStack.</doc>
-          <type name="Stack" c:type="TeplStack*"/>
-        </return-value>
-      </constructor>
-      <method name="add_item" c:identifier="tepl_stack_add_item" version="6.6">
-        <doc xml:space="preserve"
-             filename="tepl/tepl-stack.c"
-             line="104">To add an item to a stack.</doc>
-        <source-position filename="tepl/tepl-stack.h" line="48"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="stack" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack.c"
-                 line="106">a #TeplStack.</doc>
-            <type name="Stack" c:type="TeplStack*"/>
-          </instance-parameter>
-          <parameter name="item" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack.c"
-                 line="107">a #TeplStackItem.</doc>
-            <type name="StackItem" c:type="TeplStackItem*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="changed" c:identifier="tepl_stack_changed" version="6.6">
-        <doc xml:space="preserve"
-             filename="tepl/tepl-stack.c"
-             line="203">Emits the #TeplStack::changed signal.</doc>
-        <source-position filename="tepl/tepl-stack.h" line="59"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="stack" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack.c"
-                 line="205">a #TeplStack.</doc>
-            <type name="Stack" c:type="TeplStack*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_items"
-              c:identifier="tepl_stack_get_items"
-              version="6.6">
-        <source-position filename="tepl/tepl-stack.h" line="56"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="tepl/tepl-stack.c"
-               line="181">all the items of
-  @stack.</doc>
-          <type name="GLib.List" c:type="GList*">
-            <type name="StackItem"/>
-          </type>
-        </return-value>
-        <parameters>
-          <instance-parameter name="stack" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack.c"
-                 line="179">a #TeplStack.</doc>
-            <type name="Stack" c:type="TeplStack*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_n_visible_items"
-              c:identifier="tepl_stack_get_n_visible_items"
-              version="6.6">
-        <doc xml:space="preserve"
-             filename="tepl/tepl-stack.c"
-             line="239">This function can serve as a sanity check. Usually what is desired is that
-only one item at a time is visible.</doc>
-        <source-position filename="tepl/tepl-stack.h" line="65"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="tepl/tepl-stack.c"
-               line="246">the number of #TeplStackItem's part of @stack which have their
-  #GtkWidget visible.</doc>
-          <type name="guint" c:type="guint"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="stack" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack.c"
-                 line="241">a #TeplStack.</doc>
-            <type name="Stack" c:type="TeplStack*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_visible_item"
-              c:identifier="tepl_stack_get_visible_item"
-              version="6.6">
-        <source-position filename="tepl/tepl-stack.h" line="68"/>
-        <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve"
-               filename="tepl/tepl-stack.c"
-               line="278">the first #TeplStackItem found in @stack
-  which has its #GtkWidget visible.</doc>
-          <type name="StackItem" c:type="TeplStackItem*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="stack" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack.c"
-                 line="276">a #TeplStack.</doc>
-            <type name="Stack" c:type="TeplStack*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="has_several_items"
-              c:identifier="tepl_stack_has_several_items"
-              version="6.6">
-        <doc xml:space="preserve"
-             filename="tepl/tepl-stack.c"
-             line="219">Convenience function.
-
-Useful to implement a switcher widget.</doc>
-        <source-position filename="tepl/tepl-stack.h" line="62"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="tepl/tepl-stack.c"
-               line="227">whether @stack has more than one #TeplStackItem.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="stack" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack.c"
-                 line="221">a #TeplStack.</doc>
-            <type name="Stack" c:type="TeplStack*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="remove_item"
-              c:identifier="tepl_stack_remove_item"
-              version="6.6">
-        <doc xml:space="preserve"
-             filename="tepl/tepl-stack.c"
-             line="140">Removes @item from @stack.</doc>
-        <source-position filename="tepl/tepl-stack.h" line="52"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="stack" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack.c"
-                 line="142">a #TeplStack.</doc>
-            <type name="Stack" c:type="TeplStack*"/>
-          </instance-parameter>
-          <parameter name="item" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack.c"
-                 line="143">a #TeplStackItem.</doc>
-            <type name="StackItem" c:type="TeplStackItem*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_visible_item"
-              c:identifier="tepl_stack_set_visible_item"
-              version="6.6">
-        <doc xml:space="preserve"
-             filename="tepl/tepl-stack.c"
-             line="305">Make the #GtkWidget of @item the only visible one in @stack.</doc>
-        <source-position filename="tepl/tepl-stack.h" line="71"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="stack" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack.c"
-                 line="307">a #TeplStack.</doc>
-            <type name="Stack" c:type="TeplStack*"/>
-          </instance-parameter>
-          <parameter name="item" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack.c"
-                 line="308">a #TeplStackItem.</doc>
-            <type name="StackItem" c:type="TeplStackItem*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <field name="parent">
-        <type name="Gtk.Bin" c:type="GtkBin"/>
-      </field>
-      <field name="priv">
-        <type name="StackPrivate" c:type="TeplStackPrivate*"/>
-      </field>
-      <glib:signal name="changed" when="first" version="6.6">
-        <doc xml:space="preserve"
-             filename="tepl/tepl-stack.c"
-             line="62">The ::changed signal is emitted when:
-- A #TeplStackItem is added or removed from @stack.
-- The visible #GtkWidget item of @stack has changed.</doc>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-      </glib:signal>
-    </class>
-    <record name="StackClass"
-            c:type="TeplStackClass"
-            glib:is-gtype-struct-for="Stack">
-      <source-position filename="tepl/tepl-stack.h" line="39"/>
-      <field name="parent_class">
-        <type name="Gtk.BinClass" c:type="GtkBinClass"/>
-      </field>
-      <field name="padding">
-        <array zero-terminated="0" fixed-size="12">
-          <type name="gpointer" c:type="gpointer"/>
-        </array>
-      </field>
-    </record>
-    <class name="StackItem"
-           c:symbol-prefix="stack_item"
-           c:type="TeplStackItem"
-           parent="GObject.Object"
-           glib:type-name="TeplStackItem"
-           glib:get-type="tepl_stack_item_get_type"
-           glib:type-struct="StackItemClass">
-      <source-position filename="tepl/tepl-stack-item.h" line="40"/>
-      <constructor name="new" c:identifier="tepl_stack_item_new" version="6.6">
-        <source-position filename="tepl/tepl-stack-item.h" line="46"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="tepl/tepl-stack-item.c"
-               line="134">a new #TeplStackItem.</doc>
-          <type name="StackItem" c:type="TeplStackItem*"/>
-        </return-value>
-        <parameters>
-          <parameter name="widget" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack-item.c"
-                 line="129">for the "widget" attribute.</doc>
-            <type name="Gtk.Widget" c:type="GtkWidget*"/>
-          </parameter>
-          <parameter name="name"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack-item.c"
-                 line="130">for the "name" attribute.</doc>
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
-          <parameter name="title"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack-item.c"
-                 line="131">for the "title" attribute.</doc>
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
-          <parameter name="icon_name"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack-item.c"
-                 line="132">for the "icon-name" attribute.</doc>
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
-        </parameters>
-      </constructor>
-      <method name="compare_by_title"
-              c:identifier="tepl_stack_item_compare_by_title"
-              version="6.6">
-        <doc xml:space="preserve"
-             filename="tepl/tepl-stack-item.c"
-             line="211">A #GCompareFunc for the #TeplStackItem "title" attribute.</doc>
-        <source-position filename="tepl/tepl-stack-item.h" line="61"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="tepl/tepl-stack-item.c"
-               line="218">the usual return value for a #GCompareFunc.</doc>
-          <type name="gint" c:type="gint"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="a" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack-item.c"
-                 line="213">a #TeplStackItem.</doc>
-            <type name="StackItem" c:type="TeplStackItem*"/>
-          </instance-parameter>
-          <parameter name="b" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack-item.c"
-                 line="214">a #TeplStackItem.</doc>
-            <type name="StackItem" c:type="TeplStackItem*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_infos"
-              c:identifier="tepl_stack_item_get_infos"
-              version="6.6">
-        <doc xml:space="preserve"
-             filename="tepl/tepl-stack-item.c"
-             line="176">Gets some pieces of information from @item.</doc>
-        <source-position filename="tepl/tepl-stack-item.h" line="55"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="item" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack-item.c"
-                 line="178">a #TeplStackItem.</doc>
-            <type name="StackItem" c:type="TeplStackItem*"/>
-          </instance-parameter>
-          <parameter name="name"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full"
-                     nullable="1"
-                     optional="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack-item.c"
-                 line="179">the "name" attribute.</doc>
-            <type name="utf8" c:type="gchar**"/>
-          </parameter>
-          <parameter name="title"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full"
-                     nullable="1"
-                     optional="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack-item.c"
-                 line="180">the "title" attribute.</doc>
-            <type name="utf8" c:type="gchar**"/>
-          </parameter>
-          <parameter name="icon_name"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full"
-                     nullable="1"
-                     optional="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack-item.c"
-                 line="181">the "icon-name" attribute.</doc>
-            <type name="utf8" c:type="gchar**"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_widget"
-              c:identifier="tepl_stack_item_get_widget"
-              version="6.6">
-        <source-position filename="tepl/tepl-stack-item.h" line="52"/>
-        <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve"
-               filename="tepl/tepl-stack-item.c"
-               line="164">the "widget" attribute. Is %NULL when
-  the widget has been destroyed.</doc>
-          <type name="Gtk.Widget" c:type="GtkWidget*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="item" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="tepl/tepl-stack-item.c"
-                 line="162">a #TeplStackItem.</doc>
-            <type name="StackItem" c:type="TeplStackItem*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <field name="parent">
-        <type name="GObject.Object" c:type="GObject"/>
-      </field>
-      <field name="priv">
-        <type name="StackItemPrivate" c:type="TeplStackItemPrivate*"/>
-      </field>
-    </class>
-    <record name="StackItemClass"
-            c:type="TeplStackItemClass"
-            glib:is-gtype-struct-for="StackItem">
-      <source-position filename="tepl/tepl-stack-item.h" line="40"/>
-      <field name="parent_class">
-        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
-      </field>
-      <field name="padding">
-        <array zero-terminated="0" fixed-size="12">
-          <type name="gpointer" c:type="gpointer"/>
-        </array>
-      </field>
-    </record>
-    <record name="StackItemPrivate"
-            c:type="TeplStackItemPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="tepl/tepl-stack-item.h" line="26"/>
-    </record>
-    <record name="StackPrivate"
-            c:type="TeplStackPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="tepl/tepl-stack.h" line="25"/>
-    </record>
-    <class name="StackSwitcherMenu"
-           c:symbol-prefix="stack_switcher_menu"
-           c:type="TeplStackSwitcherMenu"
-           parent="Gtk.Bin"
-           glib:type-name="TeplStackSwitcherMenu"
-           glib:get-type="tepl_stack_switcher_menu_get_type"
-           glib:type-struct="StackSwitcherMenuClass">
-      <source-position filename="tepl/tepl-stack-switcher-menu.h" line="39"/>
-      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Actionable"/>
+      <implements name="Gtk.Activatable"/>
       <implements name="Gtk.Buildable"/>
       <constructor name="new"
-                   c:identifier="tepl_stack_switcher_menu_new"
-                   version="6.6">
-        <source-position filename="tepl/tepl-stack-switcher-menu.h" line="45"/>
+                   c:identifier="tepl_status_menu_button_new"
+                   version="6.8">
+        <source-position filename="tepl/tepl-status-menu-button.h" line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="tepl/tepl-stack-switcher-menu.c"
-               line="269">a new #TeplStackSwitcherMenu widget.</doc>
-          <type name="StackSwitcherMenu" c:type="TeplStackSwitcherMenu*"/>
+               filename="tepl/tepl-status-menu-button.c"
+               line="118">a new #TeplStatusMenuButton widget.</doc>
+          <type name="StatusMenuButton" c:type="TeplStatusMenuButton*"/>
+        </return-value>
+      </constructor>
+      <method name="set_label_text"
+              c:identifier="tepl_status_menu_button_set_label_text"
+              version="6.8">
+        <doc xml:space="preserve"
+             filename="tepl/tepl-status-menu-button.c"
+             line="127">To change the text displayed in @button.</doc>
+        <source-position filename="tepl/tepl-status-menu-button.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <parameter name="stack" transfer-ownership="none">
+          <instance-parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="tepl/tepl-stack-switcher-menu.c"
-                 line="267">a #TeplStack.</doc>
-            <type name="Stack" c:type="TeplStack*"/>
+                 filename="tepl/tepl-status-menu-button.c"
+                 line="129">a #TeplStatusMenuButton.</doc>
+            <type name="StatusMenuButton" c:type="TeplStatusMenuButton*"/>
+          </instance-parameter>
+          <parameter name="str" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="tepl/tepl-status-menu-button.c"
+                 line="130">the text to set.</doc>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
-      </constructor>
+      </method>
       <field name="parent">
-        <type name="Gtk.Bin" c:type="GtkBin"/>
+        <type name="Gtk.MenuButton" c:type="GtkMenuButton"/>
       </field>
       <field name="priv">
-        <type name="StackSwitcherMenuPrivate"
-              c:type="TeplStackSwitcherMenuPrivate*"/>
+        <type name="StatusMenuButtonPrivate"
+              c:type="TeplStatusMenuButtonPrivate*"/>
       </field>
     </class>
-    <record name="StackSwitcherMenuClass"
-            c:type="TeplStackSwitcherMenuClass"
-            glib:is-gtype-struct-for="StackSwitcherMenu">
-      <source-position filename="tepl/tepl-stack-switcher-menu.h" line="39"/>
+    <record name="StatusMenuButtonClass"
+            c:type="TeplStatusMenuButtonClass"
+            glib:is-gtype-struct-for="StatusMenuButton">
+      <source-position filename="tepl/tepl-status-menu-button.h" line="41"/>
       <field name="parent_class">
-        <type name="Gtk.BinClass" c:type="GtkBinClass"/>
+        <type name="Gtk.MenuButtonClass" c:type="GtkMenuButtonClass"/>
       </field>
       <field name="padding">
         <array zero-terminated="0" fixed-size="12">
@@ -7351,57 +7842,11 @@ Useful to implement a switcher widget.</doc>
         </array>
       </field>
     </record>
-    <record name="StackSwitcherMenuPrivate"
-            c:type="TeplStackSwitcherMenuPrivate"
+    <record name="StatusMenuButtonPrivate"
+            c:type="TeplStatusMenuButtonPrivate"
             disguised="1"
             opaque="1">
-      <source-position filename="tepl/tepl-stack-switcher-menu.h" line="25"/>
-    </record>
-    <class name="Statusbar"
-           c:symbol-prefix="statusbar"
-           c:type="TeplStatusbar"
-           parent="Gtk.Statusbar"
-           glib:type-name="TeplStatusbar"
-           glib:get-type="tepl_statusbar_get_type"
-           glib:type-struct="StatusbarClass">
-      <source-position filename="tepl/tepl-statusbar.h" line="40"/>
-      <implements name="Atk.ImplementorIface"/>
-      <implements name="Gtk.Buildable"/>
-      <implements name="Gtk.Orientable"/>
-      <constructor name="new" c:identifier="tepl_statusbar_new" version="5.0">
-        <source-position filename="tepl/tepl-statusbar.h" line="46"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="tepl/tepl-statusbar.c"
-               line="39">a new #TeplStatusbar.</doc>
-          <type name="Statusbar" c:type="TeplStatusbar*"/>
-        </return-value>
-      </constructor>
-      <field name="parent">
-        <type name="Gtk.Statusbar" c:type="GtkStatusbar"/>
-      </field>
-      <field name="priv">
-        <type name="StatusbarPrivate" c:type="TeplStatusbarPrivate*"/>
-      </field>
-    </class>
-    <record name="StatusbarClass"
-            c:type="TeplStatusbarClass"
-            glib:is-gtype-struct-for="Statusbar">
-      <source-position filename="tepl/tepl-statusbar.h" line="40"/>
-      <field name="parent_class">
-        <type name="Gtk.StatusbarClass" c:type="GtkStatusbarClass"/>
-      </field>
-      <field name="padding">
-        <array zero-terminated="0" fixed-size="12">
-          <type name="gpointer" c:type="gpointer"/>
-        </array>
-      </field>
-    </record>
-    <record name="StatusbarPrivate"
-            c:type="TeplStatusbarPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="tepl/tepl-statusbar.h" line="26"/>
+      <source-position filename="tepl/tepl-status-menu-button.h" line="27"/>
     </record>
     <class name="StyleSchemeChooserWidget"
            c:symbol-prefix="style_scheme_chooser_widget"
@@ -9715,11 +10160,41 @@ between the different modes.</doc>
     <docsection name="panel">
       <doc xml:space="preserve"
            filename="tepl/tepl-panel.c"
-           line="10">#TeplPanel permits to create a side or bottom panel that contains several
+           line="7">#TeplPanel represents a panel that is usually shown on the side or at the
+bottom (inside a main window), and can contain several items.</doc>
+    </docsection>
+    <docsection name="panel-container">
+      <doc xml:space="preserve"
+           filename="tepl/tepl-panel-container.c"
+           line="9">#TeplPanelContainer is an implementation of the #TeplPanel interface.
+
+#TeplPanelContainer contains API useful to implement a switcher widget, like
+#TeplPanelSwitcherMenu.</doc>
+    </docsection>
+    <docsection name="panel-item">
+      <doc xml:space="preserve"
+           filename="tepl/tepl-panel-item.c"
+           line="7">#TeplPanelItem is an interface to get the information of a panel item.</doc>
+    </docsection>
+    <docsection name="panel-switcher-menu">
+      <doc xml:space="preserve"
+           filename="tepl/tepl-panel-switcher-menu.c"
+           line="8">Similar to #GtkStackSwitcher, but for a #TeplPanelContainer.
+
+This switcher widget is suitable to be put in a #GtkHeaderBar, to choose the
+component of a side panel (for example).</doc>
+    </docsection>
+    <docsection name="panel1">
+      <doc xml:space="preserve"
+           filename="tepl/tepl-panel1.c"
+           line="10">#TeplPanel1 permits to create a side or bottom panel that contains several
 components.
 
-#TeplPanel is a #GtkGrid subclass containing only one child #GtkWidget by
-default: the #GtkStack that can be retrieved with tepl_panel_get_stack().</doc>
+#TeplPanel1 is a #GtkGrid subclass containing only one child #GtkWidget by
+default: the #GtkStack that can be retrieved with tepl_panel1_get_stack().
+
+#TeplPanel1 has the "1" suffix because it's the version 1 of the TeplPanel
+API.</doc>
     </docsection>
     <docsection name="pango">
       <doc xml:space="preserve"
@@ -10094,50 +10569,16 @@ white space drawing with #GtkSourceSpaceDrawer.
 The configuration is stored in the #GtkSourceSpaceDrawer:matrix property of
 the associated #GtkSourceSpaceDrawer object.</doc>
     </docsection>
-    <docsection name="stack">
+    <docsection name="status-menu-button">
       <doc xml:space="preserve"
-           filename="tepl/tepl-stack.c"
-           line="7">#TeplStack is an alternative to #GtkStack.
+           filename="tepl/tepl-status-menu-button.c"
+           line="9">#TeplStatusMenuButton is a #GtkMenuButton that is suitable to be put in a
+#GtkStatusbar.
 
-It is normally easier to implement a custom switcher widget with #TeplStack.
-That is, a #GtkWidget that controls which item is currently visible in a
-#TeplStack.
-
-A #TeplStack contains #TeplStackItem's. If the #GtkWidget of a #TeplStackItem
-is visible (according to the #GtkWidget:visible property), then it will be
-shown in the #TeplStack. #TeplStack doesn't enforce that a single item is
-visible at a time.</doc>
-    </docsection>
-    <docsection name="stack-item">
-      <doc xml:space="preserve"
-           filename="tepl/tepl-stack-item.c"
-           line="7">#TeplStackItem contains a #GtkWidget plus additional pieces of information.
-
-The semantics of the different attributes:
-
-- "widget": The main content, as a #GtkWidget.
-
-- "name": An ID as a UTF-8 string. Not displayed in the UI. Uniquely
-  identifies an item within a list.
-
-- "title": A human-readable title that can be shown in the UI to choose this
-  item (a UTF-8 string).
-
-- "icon-name": An icon-name representing this item, can be shown in the UI to
-  choose this item. Can be used for #GtkImage:icon-name.</doc>
-    </docsection>
-    <docsection name="stack-switcher-menu">
-      <doc xml:space="preserve"
-           filename="tepl/tepl-stack-switcher-menu.c"
-           line="7">Similar to #GtkStackSwitcher, but for a #TeplStack.
-
-This switcher widget is suitable to be put in a #GtkHeaderBar, to choose the
-component of a side panel (for example).</doc>
-    </docsection>
-    <docsection name="statusbar">
-      <doc xml:space="preserve"
-           filename="tepl/tepl-statusbar.c"
-           line="7">#TeplStatusbar is a subclass of #GtkStatusbar with a better look by default.</doc>
+It contains:
+- Some text.
+- An arrow.
+- When clicked, a menu or popover can be shown (see the #GtkMenuButton API).</doc>
     </docsection>
     <docsection name="style-scheme-chooser-widget">
       <doc xml:space="preserve"
@@ -10218,7 +10659,7 @@ A #TeplTabLabel contains:
               version="5.0">
       <doc xml:space="preserve"
            filename="tepl/tepl-utils.c"
-           line="1209">A #GBindingTransformFunc to transform between these two #GValue types:
+           line="1227">A #GBindingTransformFunc to transform between these two #GValue types:
 - A #GValue of type #gboolean.
 - A #GValue of type #GVariant, with the #GVariant of type boolean.
 
@@ -10228,30 +10669,30 @@ it introspects the types of @from_value and @to_value.
 Note that if @from_value and @to_value are of the same #GValue type, this
 function won't work and you shouldn't use a custom #GBindingTransformFunc in
 the first place.</doc>
-      <source-position filename="tepl/tepl-utils.h" line="152"/>
+      <source-position filename="tepl/tepl-utils.h" line="155"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="tepl/tepl-utils.c"
-             line="1227">%TRUE if the transformation was successful, and %FALSE otherwise.</doc>
+             line="1245">%TRUE if the transformation was successful, and %FALSE otherwise.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="binding" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="tepl/tepl-utils.c"
-               line="1211">a #GBinding.</doc>
+               line="1229">a #GBinding.</doc>
           <type name="GObject.Binding" c:type="GBinding*"/>
         </parameter>
         <parameter name="from_value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="tepl/tepl-utils.c"
-               line="1212">the #GValue containing the value to transform.</doc>
+               line="1230">the #GValue containing the value to transform.</doc>
           <type name="GObject.Value" c:type="const GValue*"/>
         </parameter>
         <parameter name="to_value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="tepl/tepl-utils.c"
-               line="1213">the #GValue in which to store the transformed value.</doc>
+               line="1231">the #GValue in which to store the transformed value.</doc>
           <type name="GObject.Value" c:type="GValue*"/>
         </parameter>
         <parameter name="user_data"
@@ -10260,7 +10701,7 @@ the first place.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="tepl/tepl-utils.c"
-               line="1214">data passed to the transform function.</doc>
+               line="1232">data passed to the transform function.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -10270,29 +10711,29 @@ the first place.</doc>
               version="6.2">
       <doc xml:space="preserve"
            filename="tepl/tepl-utils.c"
-           line="1312">Especially useful for external #GSettings (provided by another application
+           line="1330">Especially useful for external #GSettings (provided by another application
 for instance).
 
 See also: tepl_utils_can_use_gsettings_schema() which is typically used
 before this function.</doc>
-      <source-position filename="tepl/tepl-utils.h" line="161"/>
+      <source-position filename="tepl/tepl-utils.h" line="164"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="tepl/tepl-utils.c"
-             line="1323">whether the #GSettings key exists.</doc>
+             line="1341">whether the #GSettings key exists.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="settings" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="tepl/tepl-utils.c"
-               line="1314">a #GSettings object.</doc>
+               line="1332">a #GSettings object.</doc>
           <type name="Gio.Settings" c:type="GSettings*"/>
         </parameter>
         <parameter name="key" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="tepl/tepl-utils.c"
-               line="1315">the key to introspect.</doc>
+               line="1333">the key to introspect.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -10302,15 +10743,15 @@ before this function.</doc>
               version="6.2">
       <doc xml:space="preserve"
            filename="tepl/tepl-utils.c"
-           line="1275">Checks that a #GSettings schema exists.
+           line="1293">Checks that a #GSettings schema exists.
 
 Especially useful for external #GSettings (provided by another application
 for instance).</doc>
-      <source-position filename="tepl/tepl-utils.h" line="158"/>
+      <source-position filename="tepl/tepl-utils.h" line="161"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="tepl/tepl-utils.c"
-             line="1284">%TRUE if a #GSettings instance can be created with @schema_id.
+             line="1302">%TRUE if a #GSettings instance can be created with @schema_id.
   %FALSE otherwise (in that case the program would crash).</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -10318,7 +10759,7 @@ for instance).</doc>
         <parameter name="schema_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="tepl/tepl-utils.c"
-               line="1277">a #GSettings schema ID.</doc>
+               line="1295">a #GSettings schema ID.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -10952,6 +11393,25 @@ the @filename.</doc>
                filename="tepl/tepl-utils.c"
                line="389">the filename.</doc>
           <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="utils_setup_statusbar"
+              c:identifier="tepl_utils_setup_statusbar"
+              version="6.8">
+      <doc xml:space="preserve"
+           filename="tepl/tepl-utils.c"
+           line="1209">To better configure a #GtkStatusbar (to make it smaller).</doc>
+      <source-position filename="tepl/tepl-utils.h" line="150"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="statusbar" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="tepl/tepl-utils.c"
+               line="1211">a #GtkStatusbar.</doc>
+          <type name="Gtk.Statusbar" c:type="GtkStatusbar*"/>
         </parameter>
       </parameters>
     </function>

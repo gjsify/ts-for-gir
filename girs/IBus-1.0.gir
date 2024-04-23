@@ -8652,7 +8652,7 @@ will be cleared only.
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="407">When this property is set to %TRUE, "RequireSurroundingText" D-Bus
+             line="408">When this property is set to %TRUE, "RequireSurroundingText" D-Bus
 signal will be called by ibus-daemon on every focus-in/out event, with
 no need for the engine to call ibus_engine_get_surrounding_text().
 This property can only be set at construct time.</doc>
@@ -8665,7 +8665,7 @@ This property can only be set at construct time.</doc>
                 default-value="noname">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="373">Name of this IBusEngine.</doc>
+             line="374">Name of this IBusEngine.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="has-focus-id"
@@ -8675,7 +8675,7 @@ This property can only be set at construct time.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="388">Use #IBusEngine::focus_in_id()/focus_out_id() class method insteads of
+             line="389">Use #IBusEngine::focus_in_id()/focus_out_id() class method insteads of
 focus_in()/focus_out() class methods when this property is set to %TRUE.
 Otherwise, use #IBusEngine::focus_in()/focus_out class methods.
 This property can only be set at construct time.
@@ -8716,7 +8716,7 @@ See also: IBusEngine::focus-in-id</doc>
       <glib:signal name="cancel-hand-writing" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="909">Emitted when a hand writing operation is cancelled.
+             line="910">Emitted when a hand writing operation is cancelled.
 Implement the member function IBusEngineClass::cancel_hand_writing
 in extended class to receive this signal.
 
@@ -8729,7 +8729,7 @@ in extended class to receive this signal.
           <parameter name="n_strokes" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="912">The number of strokes to be removed. 0 means "remove all".</doc>
+                 line="913">The number of strokes to be removed. 0 means "remove all".</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -8737,7 +8737,7 @@ in extended class to receive this signal.
       <glib:signal name="candidate-clicked" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="785">Emitted when candidate on lookup table is clicked.
+             line="786">Emitted when candidate on lookup table is clicked.
 Implement the member function IBusEngineClass::candidate_clicked
 in extended class to receive this signal.
 
@@ -8750,19 +8750,19 @@ in extended class to receive this signal.
           <parameter name="index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="788">Index of candidate be clicked.</doc>
+                 line="789">Index of candidate be clicked.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="789">Mouse button.</doc>
+                 line="790">Mouse button.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="790">Keyboard state.</doc>
+                 line="791">Keyboard state.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -8770,7 +8770,7 @@ in extended class to receive this signal.
       <glib:signal name="cursor-down" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="764">Emitted when the down cursor button is pressed.
+             line="765">Emitted when the down cursor button is pressed.
 Implement the member function IBusEngineClass::cursor_down
 in extended class to receive this signal.
 
@@ -8783,7 +8783,7 @@ in extended class to receive this signal.
       <glib:signal name="cursor-up" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="743">Emitted when the up cursor button is pressed.
+             line="744">Emitted when the up cursor button is pressed.
 Implement the member function IBusEngineClass::cursor_up
 in extended class to receive this signal.
 
@@ -8796,7 +8796,7 @@ in extended class to receive this signal.
       <glib:signal name="disable" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="625">Emitted when the IME is disabled.
+             line="626">Emitted when the IME is disabled.
 Implement the member function IBusEngineClass::disable
 in extended class to receive this signal.
 
@@ -8810,7 +8810,7 @@ See also:  ibus_bus_set_global_engine().
       <glib:signal name="enable" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="603">Emitted when the IME is enabled.
+             line="604">Emitted when the IME is enabled.
 Implement the member function IBusEngineClass::enable
 in extended class to receive this signal.
 
@@ -8824,7 +8824,7 @@ See also:  ibus_bus_set_global_engine().
       <glib:signal name="focus-in" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="458">Emitted when the client application get the focus.
+             line="459">Emitted when the client application get the focus.
 Implement the member function IBusEngineClass::focus_in
 in extended class to receive this signal.
 
@@ -8838,7 +8838,7 @@ See also: ibus_input_context_focus_in()
       <glib:signal name="focus-in-id" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="480">Emitted when the client application get the focus.
+             line="481">Emitted when the client application get the focus.
 Implement the member function IBusEngineClass::focus_in
 in extended class to receive this signal.
 @object_path is a unique id by input context.
@@ -8878,13 +8878,13 @@ See also: ibus_input_context_focus_in()
           <parameter name="object_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="483">An object path.</doc>
+                 line="484">An object path.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="484">An client name.</doc>
+                 line="485">An client name.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -8892,7 +8892,7 @@ See also: ibus_input_context_focus_in()
       <glib:signal name="focus-out" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="532">Emitted when the client application  lost the focus.
+             line="533">Emitted when the client application  lost the focus.
 Implement the member function IBusEngineClass::focus_out
 in extended class to receive this signal.
 
@@ -8906,7 +8906,7 @@ See also: ibus_input_context_focus_out()
       <glib:signal name="focus-out-id" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="554">Emitted when the client application  lost the focus.
+             line="555">Emitted when the client application  lost the focus.
 Implement the member function IBusEngineClass::focus_out
 in extended class to receive this signal.
 @object_path is a unique id by input context.
@@ -8923,7 +8923,7 @@ See also: ibus_input_context_focus_out()
           <parameter name="object_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="557">An object path.</doc>
+                 line="558">An object path.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -8931,7 +8931,7 @@ See also: ibus_input_context_focus_out()
       <glib:signal name="page-down" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="722">Emitted when the page-down button is pressed.
+             line="723">Emitted when the page-down button is pressed.
 Implement the member function IBusEngineClass::page_down
 in extended class to receive this signal.
 
@@ -8944,7 +8944,7 @@ in extended class to receive this signal.
       <glib:signal name="page-up" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="701">Emitted when the page-up button is pressed.
+             line="702">Emitted when the page-up button is pressed.
 Implement the member function IBusEngineClass::page_up
 in extended class to receive this signal.
 
@@ -8957,7 +8957,7 @@ in extended class to receive this signal.
       <glib:signal name="process-hand-writing-event" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="883">Emitted when a hand writing operation is cancelled.
+             line="884">Emitted when a hand writing operation is cancelled.
 Implement the member function IBusEngineClass::cancel_hand_writing
 in extended class to receive this signal.
 
@@ -8973,14 +8973,14 @@ in extended class to receive this signal.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="886">An array of double (0.0 to 1.0) which represents a stroke
+                 line="887">An array of double (0.0 to 1.0) which represents a stroke
               (i.e. [x1, y1, x2, y2, x3, y3, ...]).</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="coordinates_len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="888">The number of elements in the array.</doc>
+                 line="889">The number of elements in the array.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -8988,7 +8988,7 @@ in extended class to receive this signal.
       <glib:signal name="process-key-event" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="425">Emitted when a key event is received.
+             line="426">Emitted when a key event is received.
 Implement the member function IBusEngineClass::process_key_event
 in extended class to receive this signal.
 Both the key symbol and keycode are passed to the member function.
@@ -8997,7 +8997,7 @@ key symbol, keycode and which to use.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ibusengine.c"
-               line="439">%TRUE for successfully process the key; %FALSE otherwise.
+               line="440">%TRUE for successfully process the key; %FALSE otherwise.
 See also:  ibus_input_context_process_key_event().
 
 &lt;note&gt;&lt;para&gt;Argument @user_data is ignored in this function.&lt;/para&gt;
@@ -9008,19 +9008,19 @@ See also:  ibus_input_context_process_key_event().
           <parameter name="keyval" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="428">Key symbol of the key press.</doc>
+                 line="429">Key symbol of the key press.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="keycode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="429">KeyCode of the key press.</doc>
+                 line="430">KeyCode of the key press.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="430">Key modifier flags.</doc>
+                 line="431">Key modifier flags.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -9028,7 +9028,7 @@ See also:  ibus_input_context_process_key_event().
       <glib:signal name="property-activate" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="812">Emitted when a property is activated or change changed.
+             line="813">Emitted when a property is activated or change changed.
 Implement the member function IBusEngineClass::property_activate
 in extended class to receive this signal.
 
@@ -9041,13 +9041,13 @@ in extended class to receive this signal.
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="815">Property name.</doc>
+                 line="816">Property name.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="816">Property state.</doc>
+                 line="817">Property state.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -9055,7 +9055,7 @@ in extended class to receive this signal.
       <glib:signal name="property-hide" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="860">Emitted when a property is hidden.
+             line="861">Emitted when a property is hidden.
 Implement the member function IBusEngineClass::property_hide
 in extended class to receive this signal.
 
@@ -9068,7 +9068,7 @@ in extended class to receive this signal.
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="863">Property name.</doc>
+                 line="864">Property name.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -9076,7 +9076,7 @@ in extended class to receive this signal.
       <glib:signal name="property-show" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="837">Emitted when a property is shown.
+             line="838">Emitted when a property is shown.
 Implement the member function IBusEngineClass::property_side
 in extended class to receive this signal.
 
@@ -9089,7 +9089,7 @@ in extended class to receive this signal.
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="840">Property name.</doc>
+                 line="841">Property name.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -9097,7 +9097,7 @@ in extended class to receive this signal.
       <glib:signal name="reset" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="581">Emitted when the IME is reset.
+             line="582">Emitted when the IME is reset.
 Implement the member function IBusEngineClass::reset
 in extended class to receive this signal.
 
@@ -9111,7 +9111,7 @@ See also:  ibus_input_context_reset().
       <glib:signal name="set-capabilities" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="677">Emitted when the client application capabilities is set.
+             line="678">Emitted when the client application capabilities is set.
 Implement the member function IBusEngineClass::set_capabilities
 in extended class to receive this signal.
 
@@ -9125,7 +9125,7 @@ See also:  ibus_input_context_set_capabilities().
           <parameter name="caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="680">Capabilities flags of IBusEngine, see #IBusCapabilite</doc>
+                 line="681">Capabilities flags of IBusEngine, see #IBusCapabilite</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -9133,7 +9133,7 @@ See also:  ibus_input_context_set_capabilities().
       <glib:signal name="set-content-type" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="961">Emitted when the client application content-type (primary
+             line="962">Emitted when the client application content-type (primary
 purpose and hints) is set.  The engine could change the
 behavior according to the content-type.  Implement the member
 function IBusEngineClass::set_content_type
@@ -9153,13 +9153,13 @@ function.&lt;/para&gt;&lt;/note&gt;</doc>
           <parameter name="purpose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="964">Primary purpose of the input context, as an #IBusInputPurpose.</doc>
+                 line="965">Primary purpose of the input context, as an #IBusInputPurpose.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="hints" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="965">Hints that augment @purpose, as an #IBusInputHints.</doc>
+                 line="966">Hints that augment @purpose, as an #IBusInputHints.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -9167,7 +9167,7 @@ function.&lt;/para&gt;&lt;/note&gt;</doc>
       <glib:signal name="set-cursor-location" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="647">Emitted when the location of IME is set.
+             line="648">Emitted when the location of IME is set.
 Implement the member function IBusEngineClass::set_cursor_location
 in extended class to receive this signal.
 
@@ -9181,25 +9181,25 @@ See also:  ibus_input_context_set_cursor_location().
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="650">X coordinate of the cursor.</doc>
+                 line="651">X coordinate of the cursor.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="651">Y coordinate of the cursor.</doc>
+                 line="652">Y coordinate of the cursor.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="w" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="652">Width of the cursor.</doc>
+                 line="653">Width of the cursor.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="653">Height of the cursor.</doc>
+                 line="654">Height of the cursor.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -9207,7 +9207,7 @@ See also:  ibus_input_context_set_cursor_location().
       <glib:signal name="set-surrounding-text" when="last">
         <doc xml:space="preserve"
              filename="ibusengine.c"
-             line="932">Emitted when a surrounding text is set.
+             line="933">Emitted when a surrounding text is set.
 Implement the member function IBusEngineClass::set_surrounding_text
 in extended class to receive this signal.
 If anchor_pos equals to cursor_pos, it means "there are no selection"
@@ -9222,19 +9222,19 @@ or "does not support selection retrival".
           <parameter name="text" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="935">The surrounding text.</doc>
+                 line="936">The surrounding text.</doc>
             <type name="GObject.Object"/>
           </parameter>
           <parameter name="cursor_pos" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="936">The cursor position on surrounding text.</doc>
+                 line="937">The cursor position on surrounding text.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="anchor_pos" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ibusengine.c"
-                 line="937">The anchor position on selection area.</doc>
+                 line="938">The anchor position on selection area.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -27943,7 +27943,7 @@ non-numeric keys such as "asdfghjkl;".</doc>
       <source-position filename="ibusenginesimple.h" line="47"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="29" c:type="IBUS_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="30" c:type="IBUS_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="ibusversion.h"
            line="49">IBus micro version.</doc>

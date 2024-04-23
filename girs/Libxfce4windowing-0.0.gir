@@ -26,13 +26,40 @@ and/or use gtk-doc annotations.  -->
            glib:get-type="xfw_application_get_type"
            glib:type-struct="ApplicationClass">
       <source-position filename="xfw-application.h" line="35"/>
+      <method name="get_class_id"
+              c:identifier="xfw_application_get_class_id"
+              glib:get-property="class-id"
+              version="4.19.3">
+        <doc xml:space="preserve"
+             filename="xfw-application.c"
+             line="216">Fetches this application's class id. On X11 this should be the class name of
+the [WM_CLASS property](https://x.org/releases/X11R7.6/doc/xorg-docs/specs/ICCCM/icccm.html#wm_class_property).
+On Wayland, it's the [application ID](https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1#zwlr_foreign_toplevel_handle_v1:event:app_id),
+which should correspond to the basename of the application's desktop file.</doc>
+        <source-position filename="xfw-application.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfw-application.c"
+               line="225">A UTF-8 formatted string,
+owned by @app.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="app" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfw-application.c"
+                 line="218">an #XfwApplication.</doc>
+            <type name="Application" c:type="XfwApplication*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
       <method name="get_gicon"
               c:identifier="xfw_application_get_gicon"
               glib:get-property="gicon"
               version="4.19.1">
         <doc xml:space="preserve"
              filename="xfw-application.c"
-             line="286">Fetches @app's icon as a size-independent #GIcon.  If an icon cannot be
+             line="293">Fetches @app's icon as a size-independent #GIcon.  If an icon cannot be
 found, a #GIcon representing a fallback icon will be returned.  Whether or
 not the returned icon is a fallback icon can be determined using
 #xfw_application_icon_is_fallback().</doc>
@@ -40,14 +67,14 @@ not the returned icon is a fallback icon can be determined using
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-application.c"
-               line="295">a #GIcon, owned by @app.</doc>
+               line="302">a #GIcon, owned by @app.</doc>
           <type name="Gio.Icon" c:type="GIcon*"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-application.c"
-                 line="288">an #XfwApplication.</doc>
+                 line="295">an #XfwApplication.</doc>
             <type name="Application" c:type="XfwApplication*"/>
           </instance-parameter>
         </parameters>
@@ -55,14 +82,14 @@ not the returned icon is a fallback icon can be determined using
       <method name="get_icon" c:identifier="xfw_application_get_icon">
         <doc xml:space="preserve"
              filename="xfw-application.c"
-             line="248">Fetches @app's icon.  If @app has no icon, a fallback icon may be
+             line="255">Fetches @app's icon.  If @app has no icon, a fallback icon may be
 returned.  Whether or not the returned icon is a fallback icon can be
 determined using #xfw_application_icon_is_fallback().</doc>
         <source-position filename="xfw-application.h" line="48"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="xfw-application.c"
-               line="258">a #GdkPixbuf, owned by @app,
+               line="265">a #GdkPixbuf, owned by @app,
 or %NULL if @app has no icon and a fallback cannot be rendered.</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
@@ -70,55 +97,32 @@ or %NULL if @app has no icon and a fallback cannot be rendered.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-application.c"
-                 line="250">an #XfwApplication.</doc>
+                 line="257">an #XfwApplication.</doc>
             <type name="Application" c:type="XfwApplication*"/>
           </instance-parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-application.c"
-                 line="251">the desired icon size.</doc>
+                 line="258">the desired icon size.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-application.c"
-                 line="252">the UI scale factor.</doc>
+                 line="259">the UI scale factor.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
-        </parameters>
-      </method>
-      <method name="get_id"
-              c:identifier="xfw_application_get_id"
-              glib:get-property="id">
-        <doc xml:space="preserve"
-             filename="xfw-application.c"
-             line="214">Fetches this application's ID, which is the #XfwWindow:id of the first window
-in #XfwApplication:windows.</doc>
-        <source-position filename="xfw-application.h" line="46"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="xfw-application.c"
-               line="221">A unique integer identifying the application.</doc>
-          <type name="guint64" c:type="guint64"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="app" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="xfw-application.c"
-                 line="216">an #XfwApplication.</doc>
-            <type name="Application" c:type="XfwApplication*"/>
-          </instance-parameter>
         </parameters>
       </method>
       <method name="get_instance" c:identifier="xfw_application_get_instance">
         <doc xml:space="preserve"
              filename="xfw-application.c"
-             line="376">Finds the #XfwApplicationInstance to which @window belongs.</doc>
+             line="383">Finds the #XfwApplicationInstance to which @window belongs.</doc>
         <source-position filename="xfw-application.h" line="53"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="xfw-application.c"
-               line="383">
+               line="390">
 The #XfwApplicationInstance to which @window belongs, or %NULL if @window
 does not belong to @app, or if listing instances is not supported on the
 windowing environment in use. The returned #XfwApplicationInstance is owned
@@ -129,13 +133,13 @@ by @app.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-application.c"
-                 line="378">an #XfwApplication.</doc>
+                 line="385">an #XfwApplication.</doc>
             <type name="Application" c:type="XfwApplication*"/>
           </instance-parameter>
           <parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-application.c"
-                 line="379">the application window you want to get the instance of.</doc>
+                 line="386">the application window you want to get the instance of.</doc>
             <type name="Window" c:type="XfwWindow*"/>
           </parameter>
         </parameters>
@@ -145,12 +149,12 @@ by @app.</doc>
               glib:get-property="instances">
         <doc xml:space="preserve"
              filename="xfw-application.c"
-             line="357">Lists all instances of the application.</doc>
+             line="364">Lists all instances of the application.</doc>
         <source-position filename="xfw-application.h" line="52"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="xfw-application.c"
-               line="363">
+               line="370">
 The list of #XfwApplicationInstance of @app, or %NULL if listing instances is
 not supported on the windowing environment in use. The list and its contents
 are owned by @app.</doc>
@@ -162,7 +166,7 @@ are owned by @app.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-application.c"
-                 line="359">an #XfwApplication.</doc>
+                 line="366">an #XfwApplication.</doc>
             <type name="Application" c:type="XfwApplication*"/>
           </instance-parameter>
         </parameters>
@@ -172,12 +176,12 @@ are owned by @app.</doc>
               glib:get-property="name">
         <doc xml:space="preserve"
              filename="xfw-application.c"
-             line="231">Fetches this application's human-readable name.</doc>
+             line="238">Fetches this application's human-readable name.</doc>
         <source-position filename="xfw-application.h" line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-application.c"
-               line="237">A UTF-8 formatted string,
+               line="244">A UTF-8 formatted string,
 owned by @app.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -185,7 +189,7 @@ owned by @app.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-application.c"
-                 line="233">an #XfwApplication.</doc>
+                 line="240">an #XfwApplication.</doc>
             <type name="Application" c:type="XfwApplication*"/>
           </instance-parameter>
         </parameters>
@@ -195,12 +199,12 @@ owned by @app.</doc>
               glib:get-property="windows">
         <doc xml:space="preserve"
              filename="xfw-application.c"
-             line="339">Lists all windows belonging to the application.</doc>
+             line="346">Lists all windows belonging to the application.</doc>
         <source-position filename="xfw-application.h" line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-application.c"
-               line="345">
+               line="352">
 The list of #XfwWindow belonging to @app. The list and its contents are owned
 by @app.</doc>
           <type name="GLib.List" c:type="GList*">
@@ -211,7 +215,7 @@ by @app.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-application.c"
-                 line="341">an #XfwApplication.</doc>
+                 line="348">an #XfwApplication.</doc>
             <type name="Application" c:type="XfwApplication*"/>
           </instance-parameter>
         </parameters>
@@ -221,14 +225,14 @@ by @app.</doc>
               version="4.19.1">
         <doc xml:space="preserve"
              filename="xfw-application.c"
-             line="314">Determines if @app does not have an icon, and thus a fallback icon
+             line="321">Determines if @app does not have an icon, and thus a fallback icon
 will be returned from #xfw_application_get_icon() and
 #xfw_application_get_gicon().</doc>
         <source-position filename="xfw-application.h" line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-application.c"
-               line="322">%TRUE or %FALSE, depending on if @app's icon uses a
+               line="329">%TRUE or %FALSE, depending on if @app's icon uses a
 fallback icon or not.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -236,32 +240,32 @@ fallback icon or not.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-application.c"
-                 line="316">an #XfwApplication.</doc>
+                 line="323">an #XfwApplication.</doc>
             <type name="Application" c:type="XfwApplication*"/>
           </instance-parameter>
         </parameters>
       </method>
+      <property name="class-id"
+                version="4.19.3"
+                transfer-ownership="none"
+                getter="get_class_id">
+        <doc xml:space="preserve"
+             filename="xfw-application.c"
+             line="97">The application class id.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
       <property name="gicon" transfer-ownership="none" getter="get_gicon">
         <doc xml:space="preserve"
              filename="xfw-application.c"
-             line="147">The #GIcon that represents this application.</doc>
+             line="149">The #GIcon that represents this application.</doc>
         <type name="Gio.Icon"/>
-      </property>
-      <property name="id"
-                transfer-ownership="none"
-                getter="get_id"
-                default-value="0">
-        <doc xml:space="preserve"
-             filename="xfw-application.c"
-             line="97">The #XfwWindow:id of the first window in #XfwApplication:windows.</doc>
-        <type name="guint64" c:type="guint64"/>
       </property>
       <property name="instances"
                 transfer-ownership="none"
                 getter="get_instances">
         <doc xml:space="preserve"
              filename="xfw-application.c"
-             line="135">The list of #XfwApplicationInstance belonging to the application.</doc>
+             line="137">The list of #XfwApplicationInstance belonging to the application.</doc>
         <type name="gpointer" c:type="gpointer"/>
       </property>
       <property name="name"
@@ -270,13 +274,13 @@ fallback icon or not.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="xfw-application.c"
-             line="110">The application name.</doc>
+             line="112">The application name.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="windows" transfer-ownership="none" getter="get_windows">
         <doc xml:space="preserve"
              filename="xfw-application.c"
-             line="123">The list of #XfwWindow belonging to the application.</doc>
+             line="125">The list of #XfwWindow belonging to the application.</doc>
         <type name="gpointer" c:type="gpointer"/>
       </property>
       <field name="parent_instance">
@@ -311,19 +315,19 @@ fallback icon or not.</doc>
               version="4.19.1">
         <doc xml:space="preserve"
              filename="xfw-application.c"
-             line="413">Fetches @instance's name, which can often be the same as the application name.</doc>
+             line="420">Fetches @instance's name, which can often be the same as the application name.</doc>
         <source-position filename="xfw-application.h" line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-application.c"
-               line="419">A string owned by @instance.</doc>
+               line="426">A string owned by @instance.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="instance" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-application.c"
-                 line="415">an #XfwApplicationInstance.</doc>
+                 line="422">an #XfwApplicationInstance.</doc>
             <type name="ApplicationInstance" c:type="XfwApplicationInstance*"/>
           </instance-parameter>
         </parameters>
@@ -333,19 +337,19 @@ fallback icon or not.</doc>
               version="4.19.1">
         <doc xml:space="preserve"
              filename="xfw-application.c"
-             line="397">Fetches @instance's PID.</doc>
+             line="404">Fetches @instance's PID.</doc>
         <source-position filename="xfw-application.h" line="55"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-application.c"
-               line="403">The process ID of @instance, or 0 if none is available.</doc>
+               line="410">The process ID of @instance, or 0 if none is available.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="instance" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-application.c"
-                 line="399">an #XfwApplicationInstance.</doc>
+                 line="406">an #XfwApplicationInstance.</doc>
             <type name="ApplicationInstance" c:type="XfwApplicationInstance*"/>
           </instance-parameter>
         </parameters>
@@ -355,12 +359,12 @@ fallback icon or not.</doc>
               version="4.19.1">
         <doc xml:space="preserve"
              filename="xfw-application.c"
-             line="429">Lists all windows belonging to the application instance.</doc>
+             line="436">Lists all windows belonging to the application instance.</doc>
         <source-position filename="xfw-application.h" line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-application.c"
-               line="435">
+               line="442">
 The list of #XfwWindow belonging to @instance. The list and its contents are owned
 by @instance.</doc>
           <type name="GLib.List" c:type="GList*">
@@ -371,7 +375,7 @@ by @instance.</doc>
           <instance-parameter name="instance" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-application.c"
-                 line="431">an #XfwApplicationInstance.</doc>
+                 line="438">an #XfwApplicationInstance.</doc>
             <type name="ApplicationInstance" c:type="XfwApplicationInstance*"/>
           </instance-parameter>
         </parameters>
@@ -455,27 +459,47 @@ by @instance.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="libxfce4windowing-config.h"
-           line="58">A macro to compare libxfce4windowing versions to determine if a particular
+           line="77">A macro to compare libxfce4windowing versions to determine if a particular
 function is available.</doc>
-      <source-position filename="libxfce4windowing-config.h" line="68"/>
+      <source-position filename="libxfce4windowing-config.h" line="87"/>
       <parameters>
         <parameter name="major">
           <doc xml:space="preserve"
                filename="libxfce4windowing-config.h"
-               line="60">The major version of the library, i.e. 4</doc>
+               line="79">The major version of the library, i.e. 4</doc>
         </parameter>
         <parameter name="minor">
           <doc xml:space="preserve"
                filename="libxfce4windowing-config.h"
-               line="61">The minor version of the library, i.e. 18</doc>
+               line="80">The minor version of the library, i.e. 18</doc>
         </parameter>
         <parameter name="micro">
           <doc xml:space="preserve"
                filename="libxfce4windowing-config.h"
-               line="62">The micro release of the library, i.e. 0</doc>
+               line="81">The micro release of the library, i.e. 0</doc>
         </parameter>
       </parameters>
     </function-macro>
+    <enumeration name="ClientType" version="4.19.3" c:type="XfwClientType">
+      <doc xml:space="preserve"
+           filename="xfw-util.h"
+           line="88">The type of the application.
+
+See #xfw_set_client_type() for details.</doc>
+      <source-position filename="xfw-util.h" line="102"/>
+      <member name="application"
+              value="1"
+              c:identifier="XFW_CLIENT_TYPE_APPLICATION">
+        <doc xml:space="preserve"
+             filename="xfw-util.h"
+             line="90">a regular application</doc>
+      </member>
+      <member name="pager" value="2" c:identifier="XFW_CLIENT_TYPE_PAGER">
+        <doc xml:space="preserve"
+             filename="xfw-util.h"
+             line="91">a pager or other user-controlled desktop component</doc>
+      </member>
+    </enumeration>
     <callback name="CreateWorkspaceFunc"
               c:type="XfwCreateWorkspaceFunc"
               throws="1">
@@ -563,19 +587,19 @@ the right of its current workspace").</doc>
               c:type="LIBXFCE4WINDOWING_MAJOR_VERSION">
       <doc xml:space="preserve"
            filename="libxfce4windowing-config.h"
-           line="31">A macro that evaluates to the major version of libxfce4windowing, in a format
+           line="50">A macro that evaluates to the major version of libxfce4windowing, in a format
 that can be used by the C pre-processor.</doc>
-      <source-position filename="libxfce4windowing-config.h" line="38"/>
+      <source-position filename="libxfce4windowing-config.h" line="57"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MICRO_VERSION"
-              value="2"
+              value="3"
               c:type="LIBXFCE4WINDOWING_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="libxfce4windowing-config.h"
-           line="49">A macro that evaluates to the micro version of libxfce4windowing, in a format
+           line="68">A macro that evaluates to the micro version of libxfce4windowing, in a format
 that can be used by the C pre-processor.</doc>
-      <source-position filename="libxfce4windowing-config.h" line="56"/>
+      <source-position filename="libxfce4windowing-config.h" line="75"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MINOR_VERSION"
@@ -583,9 +607,9 @@ that can be used by the C pre-processor.</doc>
               c:type="LIBXFCE4WINDOWING_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="libxfce4windowing-config.h"
-           line="40">A macro that evaluates to the minor version of libxfce4windowing, in a format
+           line="59">A macro that evaluates to the minor version of libxfce4windowing, in a format
 that can be used by the C pre-processor.</doc>
-      <source-position filename="libxfce4windowing-config.h" line="47"/>
+      <source-position filename="libxfce4windowing-config.h" line="66"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <callback name="MoveViewportFunc" c:type="XfwMoveViewportFunc" throws="1">
@@ -1018,12 +1042,12 @@ Note that currently this signal is not emitted on Wayland.</doc>
               glib:get-property="application">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="725">Fetches @window's application.</doc>
+             line="749">Fetches @window's application.</doc>
         <source-position filename="xfw-window.h" line="164"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-window.c"
-               line="731">An #XfwApplication instance, with a
+               line="755">An #XfwApplication instance, with a
 reference owned by @window.</doc>
           <type name="Application" c:type="XfwApplication*"/>
         </return-value>
@@ -1031,7 +1055,7 @@ reference owned by @window.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-window.c"
-                 line="727">an #XfwWindow.</doc>
+                 line="751">an #XfwWindow.</doc>
             <type name="Window" c:type="XfwWindow*"/>
           </instance-parameter>
         </parameters>
@@ -1041,12 +1065,12 @@ reference owned by @window.</doc>
               glib:get-property="capabilities">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="640">Fetches @window's capabilities bitfield.</doc>
+             line="664">Fetches @window's capabilities bitfield.</doc>
         <source-position filename="xfw-window.h" line="159"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-window.c"
-               line="646">a bitfield with zero or more bits from #XfwWindowCapabilities
+               line="670">a bitfield with zero or more bits from #XfwWindowCapabilities
 set.</doc>
           <type name="WindowCapabilities" c:type="XfwWindowCapabilities"/>
         </return-value>
@@ -1054,7 +1078,36 @@ set.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-window.c"
-                 line="642">an #XfwWindow.</doc>
+                 line="666">an #XfwWindow.</doc>
+            <type name="Window" c:type="XfwWindow*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_class_ids"
+              c:identifier="xfw_window_get_class_ids"
+              glib:get-property="class-ids"
+              version="4.19.3">
+        <doc xml:space="preserve"
+             filename="xfw-window.c"
+             line="503">Fetches @window's class ids. On X11 this should contain the class and instance
+names of the [WM_CLASS property](https://x.org/releases/X11R7.6/doc/xorg-docs/specs/ICCCM/icccm.html#wm_class_property).
+On Wayland, it's likely to be limited to the [application ID](https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1#zwlr_foreign_toplevel_handle_v1:event:app_id),
+which should correspond to the basename of the application's desktop file.</doc>
+        <source-position filename="xfw-window.h" line="152"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfw-window.c"
+               line="512">
+a %NULL-terminated array of strings owned by the #XfwWindow.</doc>
+          <array c:type="const gchar* const*">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfw-window.c"
+                 line="505">an #XfwWindow.</doc>
             <type name="Window" c:type="XfwWindow*"/>
           </instance-parameter>
         </parameters>
@@ -1062,12 +1115,12 @@ set.</doc>
       <method name="get_geometry" c:identifier="xfw_window_get_geometry">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="657">Fetches @window's position and size.</doc>
+             line="681">Fetches @window's position and size.</doc>
         <source-position filename="xfw-window.h" line="160"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-window.c"
-               line="663">A #GdkRectangle representing
+               line="687">A #GdkRectangle representing
 @window's geometry, which should not be modified or freed.</doc>
           <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
         </return-value>
@@ -1075,7 +1128,7 @@ set.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-window.c"
-                 line="659">an #XfwWindow.</doc>
+                 line="683">an #XfwWindow.</doc>
             <type name="Window" c:type="XfwWindow*"/>
           </instance-parameter>
         </parameters>
@@ -1086,7 +1139,7 @@ set.</doc>
               version="4.19.1">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="556">Fetches @window's icon as a size-independent #GIcon.  If an icon cannot be
+             line="580">Fetches @window's icon as a size-independent #GIcon.  If an icon cannot be
 found, a #GIcon representing a fallback icon will be returned.  Whether or
 not the returned icon is a fallback icon can be determined using
 #xfw_window_icon_is_fallback().</doc>
@@ -1094,14 +1147,14 @@ not the returned icon is a fallback icon can be determined using
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-window.c"
-               line="565">a #GIcon, owned by @window.</doc>
+               line="589">a #GIcon, owned by @window.</doc>
           <type name="Gio.Icon" c:type="GIcon*"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-window.c"
-                 line="558">an #XfwWindow.</doc>
+                 line="582">an #XfwWindow.</doc>
             <type name="Window" c:type="XfwWindow*"/>
           </instance-parameter>
         </parameters>
@@ -1109,14 +1162,14 @@ not the returned icon is a fallback icon can be determined using
       <method name="get_icon" c:identifier="xfw_window_get_icon">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="518">Fetches @window's icon.  If @window has no icon, a fallback icon may be
+             line="542">Fetches @window's icon.  If @window has no icon, a fallback icon may be
 returned.  Whether or not the returned icon is a fallback icon can be
 determined using #xfw_window_icon_is_fallback().</doc>
         <source-position filename="xfw-window.h" line="154"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="xfw-window.c"
-               line="528">a #GdkPixbuf, owned by @window,
+               line="552">a #GdkPixbuf, owned by @window,
 or %NULL if @window has no icon and a fallback cannot be rendered.</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
@@ -1124,43 +1177,21 @@ or %NULL if @window has no icon and a fallback cannot be rendered.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-window.c"
-                 line="520">an #XfwWindow.</doc>
+                 line="544">an #XfwWindow.</doc>
             <type name="Window" c:type="XfwWindow*"/>
           </instance-parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-window.c"
-                 line="521">the desired icon size.</doc>
+                 line="545">the desired icon size.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-window.c"
-                 line="522">the UI scale factor.</doc>
+                 line="546">the UI scale factor.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
-        </parameters>
-      </method>
-      <method name="get_id"
-              c:identifier="xfw_window_get_id"
-              glib:get-property="id">
-        <doc xml:space="preserve"
-             filename="xfw-window.c"
-             line="485">Fetches the windowing-platform dependent window ID.</doc>
-        <source-position filename="xfw-window.h" line="152"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="xfw-window.c"
-               line="491">a 64-bit unsigned integer.</doc>
-          <type name="guint64" c:type="guint64"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="window" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="xfw-window.c"
-                 line="487">an #XfwWindow.</doc>
-            <type name="Window" c:type="XfwWindow*"/>
-          </instance-parameter>
         </parameters>
       </method>
       <method name="get_monitors"
@@ -1168,12 +1199,12 @@ or %NULL if @window has no icon and a fallback cannot be rendered.</doc>
               glib:get-property="monitors">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="707">Fetches the list of monitors @window is displayed on, if any.</doc>
+             line="731">Fetches the list of monitors @window is displayed on, if any.</doc>
         <source-position filename="xfw-window.h" line="163"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="xfw-window.c"
-               line="713">A list
+               line="737">A list
 of #GdkMonitor instances, or %NULL.  The list and its contents are owned by
 @window and should not be modified or freed.</doc>
           <type name="GLib.List" c:type="GList*">
@@ -1184,7 +1215,7 @@ of #GdkMonitor instances, or %NULL.  The list and its contents are owned by
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-window.c"
-                 line="709">an #XfwWindow.</doc>
+                 line="733">an #XfwWindow.</doc>
             <type name="Window" c:type="XfwWindow*"/>
           </instance-parameter>
         </parameters>
@@ -1194,12 +1225,12 @@ of #GdkMonitor instances, or %NULL.  The list and its contents are owned by
               glib:get-property="name">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="501">Fetches @window's name/title.</doc>
+             line="525">Fetches @window's name/title.</doc>
         <source-position filename="xfw-window.h" line="153"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="xfw-window.c"
-               line="507">a window title, or %NULL if there
+               line="531">a window title, or %NULL if there
 is no title.  The returned title should not be modified or freed.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -1207,7 +1238,7 @@ is no title.  The returned title should not be modified or freed.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-window.c"
-                 line="503">an #XfwWindow.</doc>
+                 line="527">an #XfwWindow.</doc>
             <type name="Window" c:type="XfwWindow*"/>
           </instance-parameter>
         </parameters>
@@ -1217,12 +1248,12 @@ is no title.  The returned title should not be modified or freed.</doc>
               glib:get-property="screen">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="674">Fetches the #XfwScreen instance that owns @window.</doc>
+             line="698">Fetches the #XfwScreen instance that owns @window.</doc>
         <source-position filename="xfw-window.h" line="161"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-window.c"
-               line="680">A #XfwScreen instance, with a
+               line="704">A #XfwScreen instance, with a
 reference owned by @window.</doc>
           <type name="Screen" c:type="XfwScreen*"/>
         </return-value>
@@ -1230,7 +1261,7 @@ reference owned by @window.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-window.c"
-                 line="676">an #XfwWindow.</doc>
+                 line="700">an #XfwWindow.</doc>
             <type name="Window" c:type="XfwWindow*"/>
           </instance-parameter>
         </parameters>
@@ -1240,19 +1271,19 @@ reference owned by @window.</doc>
               glib:get-property="state">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="624">Fetches @window's state bitfield.</doc>
+             line="648">Fetches @window's state bitfield.</doc>
         <source-position filename="xfw-window.h" line="158"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-window.c"
-               line="630">a bitfield with zero or more bits from #XfwWindowState set.</doc>
+               line="654">a bitfield with zero or more bits from #XfwWindowState set.</doc>
           <type name="WindowState" c:type="XfwWindowState"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-window.c"
-                 line="626">an #XfwWindow.</doc>
+                 line="650">an #XfwWindow.</doc>
             <type name="Window" c:type="XfwWindow*"/>
           </instance-parameter>
         </parameters>
@@ -1273,13 +1304,13 @@ reference owned by @window.</doc>
               glib:get-property="workspace">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="689">Fetches @window's workspace, if any.  This may return %NULL if @window is
+             line="713">Fetches @window's workspace, if any.  This may return %NULL if @window is
 not on a workspace, or is pinned to all workspaces.</doc>
         <source-position filename="xfw-window.h" line="162"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="xfw-window.c"
-               line="696">A #XfwWorkspace instance, with a
+               line="720">A #XfwWorkspace instance, with a
 reference owned by @window, or %NULL.</doc>
           <type name="Workspace" c:type="XfwWorkspace*"/>
         </return-value>
@@ -1287,7 +1318,7 @@ reference owned by @window, or %NULL.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-window.c"
-                 line="691">an #XfwWindow.</doc>
+                 line="715">an #XfwWindow.</doc>
             <type name="Window" c:type="XfwWindow*"/>
           </instance-parameter>
         </parameters>
@@ -1297,13 +1328,13 @@ reference owned by @window, or %NULL.</doc>
               version="4.19.1">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="584">Determines if @window does not have an icon, and thus a fallback icon
+             line="608">Determines if @window does not have an icon, and thus a fallback icon
 will be returned from #xfw_window_get_icon() and #xfw_window_get_gicon().</doc>
         <source-position filename="xfw-window.h" line="156"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-window.c"
-               line="591">%TRUE or %FALSE, depending on if @window's icon uses a
+               line="615">%TRUE or %FALSE, depending on if @window's icon uses a
 fallback icon or not.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1311,7 +1342,7 @@ fallback icon or not.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-window.c"
-                 line="586">an #XfwWindow.</doc>
+                 line="610">an #XfwWindow.</doc>
             <type name="Window" c:type="XfwWindow*"/>
           </instance-parameter>
         </parameters>
@@ -1683,12 +1714,38 @@ fallback icon or not.</doc>
           </instance-parameter>
         </parameters>
       </method>
+      <method name="x11_get_xid"
+              c:identifier="xfw_window_x11_get_xid"
+              version="4.19.3">
+        <doc xml:space="preserve"
+             filename="xfw-window-x11.c"
+             line="838">On X11, returns the platform-specific #Window handle to the underlying
+window.
+
+It is an error to call this function if the application is not currently
+running on X11.</doc>
+        <source-position filename="xfw-x11.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfw-window-x11.c"
+               line="848">An X11 #Window handle.</doc>
+          <type name="xlib.Window" c:type="Window"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfw-window-x11.c"
+                 line="840">A #XfwWindow</doc>
+            <type name="Window" c:type="XfwWindow*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
       <property name="application"
                 transfer-ownership="none"
                 getter="get_application">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="370">The #XfwApplication that owns this window.</doc>
+             line="388">The #XfwApplication that owns this window.</doc>
         <type name="Application"/>
       </property>
       <property name="capabilities"
@@ -1697,36 +1754,38 @@ fallback icon or not.</doc>
                 default-value="XFW_WINDOW_CAPABILITIES_NONE">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="330">The window's capabilities bitfield.</doc>
+             line="348">The window's capabilities bitfield.</doc>
         <type name="WindowCapabilities"/>
+      </property>
+      <property name="class-ids"
+                version="4.19.3"
+                transfer-ownership="none"
+                getter="get_class_ids">
+        <doc xml:space="preserve"
+             filename="xfw-window.c"
+             line="292">The window's class ids.</doc>
+        <array>
+          <type name="utf8"/>
+        </array>
       </property>
       <property name="gicon" transfer-ownership="none" getter="get_gicon">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="383">The #GIcon that represents this window.</doc>
+             line="401">The #GIcon that represents this window.</doc>
         <type name="Gio.Icon"/>
-      </property>
-      <property name="id"
-                transfer-ownership="none"
-                getter="get_id"
-                default-value="0">
-        <doc xml:space="preserve"
-             filename="xfw-window.c"
-             line="276">A windowing-platform dependent window ID.</doc>
-        <type name="guint64" c:type="guint64"/>
       </property>
       <property name="monitors"
                 transfer-ownership="none"
                 getter="get_monitors">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="358">The list of monitors (if any) that the window is displayed on.</doc>
+             line="376">The list of monitors (if any) that the window is displayed on.</doc>
         <type name="gpointer" c:type="gpointer"/>
       </property>
       <property name="name" transfer-ownership="none" getter="get_name">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="289">The window's name or title.</doc>
+             line="307">The window's name or title.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="screen"
@@ -1736,7 +1795,7 @@ fallback icon or not.</doc>
                 getter="get_screen">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="263">The #XfwScreen instances that owns this window.</doc>
+             line="279">The #XfwScreen instances that owns this window.</doc>
         <type name="Screen"/>
       </property>
       <property name="state"
@@ -1745,7 +1804,7 @@ fallback icon or not.</doc>
                 default-value="XFW_WINDOW_STATE_NONE">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="316">The window's state bitfield.</doc>
+             line="334">The window's state bitfield.</doc>
         <type name="WindowState"/>
       </property>
       <property name="type"
@@ -1753,7 +1812,7 @@ fallback icon or not.</doc>
                 default-value="XFW_WINDOW_TYPE_NORMAL">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="302">The window's type or function.</doc>
+             line="320">The window's type or function.</doc>
         <type name="WindowType"/>
       </property>
       <property name="workspace"
@@ -1767,7 +1826,7 @@ fallback icon or not.</doc>
       <glib:signal name="capabilities-changed" when="last">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="203">Emitted when @window's capabilities change.</doc>
+             line="219">Emitted when @window's capabilities change.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1775,21 +1834,29 @@ fallback icon or not.</doc>
           <parameter name="changed_mask" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-window.c"
-                 line="206">bitfield representing which state bits have changed.</doc>
+                 line="222">bitfield representing which state bits have changed.</doc>
             <type name="WindowCapabilities"/>
           </parameter>
           <parameter name="new_state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-window.c"
-                 line="207">the new state bitfield.</doc>
+                 line="223">the new state bitfield.</doc>
             <type name="WindowCapabilities"/>
           </parameter>
         </parameters>
       </glib:signal>
+      <glib:signal name="class-changed" when="last" version="4.19.3">
+        <doc xml:space="preserve"
+             filename="xfw-window.c"
+             line="141">Emitted when at least one of the @window's class ids changes.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
       <glib:signal name="closed" when="last">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="249">Emitted when @window is closed.</doc>
+             line="265">Emitted when @window is closed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1797,7 +1864,7 @@ fallback icon or not.</doc>
       <glib:signal name="geometry-changed" when="last">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="221">Emitted when @window's position or size changes.</doc>
+             line="237">Emitted when @window's position or size changes.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1805,7 +1872,7 @@ fallback icon or not.</doc>
       <glib:signal name="icon-changed" when="last">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="155">Emitted when @window's icon changes.</doc>
+             line="171">Emitted when @window's icon changes.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1813,7 +1880,7 @@ fallback icon or not.</doc>
       <glib:signal name="name-changed" when="last">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="141">Emitted when @window's name/title changes.</doc>
+             line="157">Emitted when @window's name/title changes.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1821,7 +1888,7 @@ fallback icon or not.</doc>
       <glib:signal name="state-changed" when="last">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="185">Emitted when @window's state changes.</doc>
+             line="201">Emitted when @window's state changes.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1829,13 +1896,13 @@ fallback icon or not.</doc>
           <parameter name="changed_mask" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-window.c"
-                 line="188">bitfield representing which state bits have changed.</doc>
+                 line="204">bitfield representing which state bits have changed.</doc>
             <type name="WindowState"/>
           </parameter>
           <parameter name="new_state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-window.c"
-                 line="189">the new state bitfield.</doc>
+                 line="205">the new state bitfield.</doc>
             <type name="WindowState"/>
           </parameter>
         </parameters>
@@ -1843,7 +1910,7 @@ fallback icon or not.</doc>
       <glib:signal name="type-changed" when="last">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="169">Emitted when @window's type changes.</doc>
+             line="185">Emitted when @window's type changes.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1851,7 +1918,7 @@ fallback icon or not.</doc>
           <parameter name="old_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-window.c"
-                 line="172">the previous window type.</doc>
+                 line="188">the previous window type.</doc>
             <type name="WindowType"/>
           </parameter>
         </parameters>
@@ -1859,7 +1926,7 @@ fallback icon or not.</doc>
       <glib:signal name="workspace-changed" when="last">
         <doc xml:space="preserve"
              filename="xfw-window.c"
-             line="235">Emitted when @window is moved to a different worksapce.</doc>
+             line="251">Emitted when @window is moved to a different worksapce.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2359,15 +2426,15 @@ for an application running on XWayland, this will return #XFW_WINDOWING_X11.</do
       <method name="activate" c:identifier="xfw_workspace_activate" throws="1">
         <doc xml:space="preserve"
              filename="xfw-workspace.c"
-             line="372">Attempts to set @workspace as the active workspace in its group.
+             line="418">Attempts to set @workspace as the active workspace in its group.
 
 On failure, @error (if provided) will be set to a description of the error
 that occurred.</doc>
-        <source-position filename="xfw-workspace.h" line="94"/>
+        <source-position filename="xfw-workspace.h" line="98"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-workspace.c"
-               line="382">%TRUE if workspace activation succeeded, %FALSE otherwise.  If
+               line="428">%TRUE if workspace activation succeeded, %FALSE otherwise.  If
 %FALSE, and @error is non-%NULL, an error will be returned that must be
 freed using #g_error_free().</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -2376,9 +2443,42 @@ freed using #g_error_free().</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-workspace.c"
-                 line="374">an #XfwWorkspace.</doc>
+                 line="420">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
+        </parameters>
+      </method>
+      <method name="assign_to_workspace_group"
+              c:identifier="xfw_workspace_assign_to_workspace_group"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="xfw-workspace.c"
+             line="462">Attempts to assign @workspace to @group.
+
+On failure, @error (if provided) will be set to a description of the error
+that occurred.</doc>
+        <source-position filename="xfw-workspace.h" line="101"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfw-workspace.c"
+               line="473">%TRUE if workspace assignment succeeded, %FALSE otherwise.
+If %FALSE, and @error is non-%NULL, an error will be returned that must be
+freed using g_error_free().</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="workspace" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfw-workspace.c"
+                 line="464">an #XfwWorkspace.</doc>
+            <type name="Workspace" c:type="XfwWorkspace*"/>
+          </instance-parameter>
+          <parameter name="group" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfw-workspace.c"
+                 line="465">an #XfwWorkspaceGroup.</doc>
+            <type name="WorkspaceGroup" c:type="XfwWorkspaceGroup*"/>
+          </parameter>
         </parameters>
       </method>
       <method name="get_capabilities"
@@ -2386,14 +2486,14 @@ freed using #g_error_free().</doc>
               glib:get-property="capabilities">
         <doc xml:space="preserve"
              filename="xfw-workspace.c"
-             line="225">Fetches this workspace's capabilities bitfield.
+             line="265">Fetches this workspace's capabilities bitfield.
 
 The bitfield describes what operations are available on this workspace.</doc>
-        <source-position filename="xfw-workspace.h" line="84"/>
+        <source-position filename="xfw-workspace.h" line="88"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-workspace.c"
-               line="233">a #XfwWorkspaceCapabilities bitfield.</doc>
+               line="273">a #XfwWorkspaceCapabilities bitfield.</doc>
           <type name="WorkspaceCapabilities"
                 c:type="XfwWorkspaceCapabilities"/>
         </return-value>
@@ -2401,7 +2501,7 @@ The bitfield describes what operations are available on this workspace.</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-workspace.c"
-                 line="227">an #XfwWorkspace.</doc>
+                 line="267">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -2409,15 +2509,15 @@ The bitfield describes what operations are available on this workspace.</doc>
       <method name="get_geometry" c:identifier="xfw_workspace_get_geometry">
         <doc xml:space="preserve"
              filename="xfw-workspace.c"
-             line="352">Fetches the position and size of the workspace in screen coordinates.
+             line="398">Fetches the position and size of the workspace in screen coordinates.
 
 The values in the returned #GdkRectangle are owned by @workspace and should
 not be modified.</doc>
-        <source-position filename="xfw-workspace.h" line="92"/>
+        <source-position filename="xfw-workspace.h" line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-workspace.c"
-               line="361">a #GdkRectangle, owned by
+               line="407">a #GdkRectangle, owned by
 @workspace.</doc>
           <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
         </return-value>
@@ -2425,7 +2525,7 @@ not be modified.</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-workspace.c"
-                 line="354">an #XfwWorkspace.</doc>
+                 line="400">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -2435,12 +2535,12 @@ not be modified.</doc>
               glib:get-property="id">
         <doc xml:space="preserve"
              filename="xfw-workspace.c"
-             line="191">Fetches this workspace's opaque ID.</doc>
-        <source-position filename="xfw-workspace.h" line="82"/>
+             line="231">Fetches this workspace's opaque ID.</doc>
+        <source-position filename="xfw-workspace.h" line="86"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-workspace.c"
-               line="197">A UTF-8 formatted string,
+               line="237">A UTF-8 formatted string,
 owned by @workspace.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -2448,55 +2548,57 @@ owned by @workspace.</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-workspace.c"
-                 line="193">an #XfwWorkspace.</doc>
+                 line="233">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_layout_column"
-              c:identifier="xfw_workspace_get_layout_column">
+              c:identifier="xfw_workspace_get_layout_column"
+              glib:get-property="layout-column">
         <doc xml:space="preserve"
              filename="xfw-workspace.c"
-             line="313">Fetches the column this workspace belongs to in the workspace's group.
+             line="359">Fetches the column this workspace belongs to in the workspace's group.
 
 This information can be used to lay out workspaces in a grid in a pager
 UI, for example.</doc>
-        <source-position filename="xfw-workspace.h" line="90"/>
+        <source-position filename="xfw-workspace.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-workspace.c"
-               line="322">a non-negative, 0-indexed integer.</doc>
+               line="368">a non-negative, 0-indexed integer.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-workspace.c"
-                 line="315">an #XfwWorkspace.</doc>
+                 line="361">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_layout_row"
-              c:identifier="xfw_workspace_get_layout_row">
+              c:identifier="xfw_workspace_get_layout_row"
+              glib:get-property="layout-row">
         <doc xml:space="preserve"
              filename="xfw-workspace.c"
-             line="294">Fetches the row this workspace belongs to in the workspace's group.
+             line="340">Fetches the row this workspace belongs to in the workspace's group.
 
 This information can be used to lay out workspaces in a grid in a pager
 UI, for example.</doc>
-        <source-position filename="xfw-workspace.h" line="89"/>
+        <source-position filename="xfw-workspace.h" line="93"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-workspace.c"
-               line="303">a non-negative, 0-indexed integer.</doc>
+               line="349">a non-negative, 0-indexed integer.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-workspace.c"
-                 line="296">an #XfwWorkspace.</doc>
+                 line="342">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -2506,12 +2608,12 @@ UI, for example.</doc>
               glib:get-property="name">
         <doc xml:space="preserve"
              filename="xfw-workspace.c"
-             line="208">Fetches this workspace's human-readable name.</doc>
-        <source-position filename="xfw-workspace.h" line="83"/>
+             line="248">Fetches this workspace's human-readable name.</doc>
+        <source-position filename="xfw-workspace.h" line="87"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-workspace.c"
-               line="214">A UTF-8 formatted string,
+               line="254">A UTF-8 formatted string,
 owned by @workspace.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -2519,7 +2621,7 @@ owned by @workspace.</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-workspace.c"
-                 line="210">an #XfwWorkspace.</doc>
+                 line="250">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -2527,14 +2629,14 @@ owned by @workspace.</doc>
       <method name="get_neighbor" c:identifier="xfw_workspace_get_neighbor">
         <doc xml:space="preserve"
              filename="xfw-workspace.c"
-             line="332">Fetches the workspace that resides in @direction from the @workspace, if
+             line="378">Fetches the workspace that resides in @direction from the @workspace, if
 any.  If workspace is on the edge of the layout, and @direction points off
 the edge of the layout, will return %NULL.</doc>
-        <source-position filename="xfw-workspace.h" line="91"/>
+        <source-position filename="xfw-workspace.h" line="95"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="xfw-workspace.c"
-               line="341">a #XfwWorkspace, owned by
+               line="387">a #XfwWorkspace, owned by
 the parent @group, or %NULL if no workspace exists in @direction.</doc>
           <type name="Workspace" c:type="XfwWorkspace*"/>
         </return-value>
@@ -2542,13 +2644,13 @@ the parent @group, or %NULL if no workspace exists in @direction.</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-workspace.c"
-                 line="334">an #XfwWorkspace.</doc>
+                 line="380">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
           <parameter name="direction" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-workspace.c"
-                 line="335">an #XfwDirection.</doc>
+                 line="381">an #XfwDirection.</doc>
             <type name="Direction" c:type="XfwDirection"/>
           </parameter>
         </parameters>
@@ -2558,21 +2660,26 @@ the parent @group, or %NULL if no workspace exists in @direction.</doc>
               glib:get-property="number">
         <doc xml:space="preserve"
              filename="xfw-workspace.c"
-             line="259">Fetches the ordinal number of this workspace.
+             line="299">Fetches the ordinal number of this workspace.
 
-The number can be used to order workspaces in a UI representation.</doc>
-        <source-position filename="xfw-workspace.h" line="86"/>
+The number can be used to order workspaces in a UI representation.
+
+On X11, this number should be stable across runs of your application.
+
+On Wayland, this number depends on the order in which the compositor
+advertises the workspaces.  This order may be stable, but may not be.</doc>
+        <source-position filename="xfw-workspace.h" line="90"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-workspace.c"
-               line="267">a non-negative, 0-indexed integer.</doc>
+               line="312">a non-negative, 0-indexed integer.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-workspace.c"
-                 line="261">an #XfwWorkspace.</doc>
+                 line="301">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -2582,19 +2689,19 @@ The number can be used to order workspaces in a UI representation.</doc>
               glib:get-property="state">
         <doc xml:space="preserve"
              filename="xfw-workspace.c"
-             line="243">Fetches this workspace's state bitfield.</doc>
-        <source-position filename="xfw-workspace.h" line="85"/>
+             line="283">Fetches this workspace's state bitfield.</doc>
+        <source-position filename="xfw-workspace.h" line="89"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-workspace.c"
-               line="249">a #XfwWorkspaceState bitfield.</doc>
+               line="289">a #XfwWorkspaceState bitfield.</doc>
           <type name="WorkspaceState" c:type="XfwWorkspaceState"/>
         </return-value>
         <parameters>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-workspace.c"
-                 line="245">an #XfwWorkspace.</doc>
+                 line="285">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -2603,20 +2710,21 @@ The number can be used to order workspaces in a UI representation.</doc>
               c:identifier="xfw_workspace_get_workspace_group">
         <doc xml:space="preserve"
              filename="xfw-workspace.c"
-             line="277">Fetches the group this workspace belongs to.</doc>
-        <source-position filename="xfw-workspace.h" line="87"/>
-        <return-value transfer-ownership="none">
+             line="322">Fetches the group this workspace belongs to, if any.</doc>
+        <source-position filename="xfw-workspace.h" line="91"/>
+        <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="xfw-workspace.c"
-               line="283">a #XfwWorkspaceGroup
-instance, owned by @workspace.</doc>
+               line="328">a #XfwWorkspaceGroup
+instance, owned by @workspace, or %NULL if the workspace is not a member of
+any groups.</doc>
           <type name="WorkspaceGroup" c:type="XfwWorkspaceGroup*"/>
         </return-value>
         <parameters>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-workspace.c"
-                 line="279">an #XfwWorkspace.</doc>
+                 line="324">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -2624,15 +2732,15 @@ instance, owned by @workspace.</doc>
       <method name="remove" c:identifier="xfw_workspace_remove" throws="1">
         <doc xml:space="preserve"
              filename="xfw-workspace.c"
-             line="394">Attempts to remove @workspace from its group.
+             line="440">Attempts to remove @workspace from its group.
 
 On failure, @error (if provided) will be set to a description of the error
 that occurred.</doc>
-        <source-position filename="xfw-workspace.h" line="95"/>
+        <source-position filename="xfw-workspace.h" line="99"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="xfw-workspace.c"
-               line="404">%TRUE if workspace removal succeeded, %FALSE otherwise.  If
+               line="450">%TRUE if workspace removal succeeded, %FALSE otherwise.  If
 %FALSE, and @error is non-%NULL, an error will be returned that must be
 freed using #g_error_free().</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -2641,7 +2749,7 @@ freed using #g_error_free().</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-workspace.c"
-                 line="396">an #XfwWorkspace.</doc>
+                 line="442">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -2654,23 +2762,38 @@ freed using #g_error_free().</doc>
                 default-value="XFW_WORKSPACE_CAPABILITIES_NONE">
         <doc xml:space="preserve"
              filename="xfw-workspace.c"
-             line="152">The #XfwWorkspaceCapabilities bitfield for this workspace.</doc>
+             line="168">The #XfwWorkspaceCapabilities bitfield for this workspace.</doc>
         <type name="WorkspaceCapabilities"/>
       </property>
-      <property name="group"
-                writable="1"
-                construct-only="1"
-                transfer-ownership="none">
+      <property name="group" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="xfw-workspace.c"
-             line="116">The #XfwWorkspaceGroup that this workspace is a member of.</doc>
+             line="132">The #XfwWorkspaceGroup that this workspace is a member of, if any.</doc>
         <type name="WorkspaceGroup"/>
       </property>
       <property name="id" transfer-ownership="none" getter="get_id">
         <doc xml:space="preserve"
              filename="xfw-workspace.c"
-             line="128">The opaque ID of this workspace.</doc>
+             line="144">The opaque ID of this workspace.</doc>
         <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="layout-column"
+                transfer-ownership="none"
+                getter="get_layout_column"
+                default-value="-1">
+        <doc xml:space="preserve"
+             filename="xfw-workspace.c"
+             line="218">The y-coordinate of the workspace on a 2D grid.</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="layout-row"
+                transfer-ownership="none"
+                getter="get_layout_row"
+                default-value="-1">
+        <doc xml:space="preserve"
+             filename="xfw-workspace.c"
+             line="206">The x-coordinate of the workspace on a 2D grid.</doc>
+        <type name="gint" c:type="gint"/>
       </property>
       <property name="name"
                 writable="1"
@@ -2679,7 +2802,7 @@ freed using #g_error_free().</doc>
                 getter="get_name">
         <doc xml:space="preserve"
              filename="xfw-workspace.c"
-             line="140">The human-readable name of this workspace.</doc>
+             line="156">The human-readable name of this workspace.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="number"
@@ -2690,7 +2813,7 @@ freed using #g_error_free().</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="xfw-workspace.c"
-             line="178">The ordinal number of this workspace.</doc>
+             line="194">The ordinal number of this workspace.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="state"
@@ -2701,7 +2824,7 @@ freed using #g_error_free().</doc>
                 default-value="XFW_WORKSPACE_STATE_NONE">
         <doc xml:space="preserve"
              filename="xfw-workspace.c"
-             line="165">The #XfwWorkspaceState bitfield for this workspace.</doc>
+             line="181">The #XfwWorkspaceState bitfield for this workspace.</doc>
         <type name="WorkspaceState"/>
       </property>
       <glib:signal name="capabilities-changed" when="last">
@@ -2723,6 +2846,22 @@ freed using #g_error_free().</doc>
                  filename="xfw-workspace.c"
                  line="84">a bitfield of the new capabilities.</doc>
             <type name="WorkspaceCapabilities"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="group-changed" when="last">
+        <doc xml:space="preserve"
+             filename="xfw-workspace.c"
+             line="116">Emitted when @workspace is assigned to an #XfwWorkspaceGroup.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="previous_group" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfw-workspace.c"
+                 line="119">the group @workspace was previously in, or %NULL.</doc>
+            <type name="WorkspaceGroup"/>
           </parameter>
         </parameters>
       </glib:signal>
@@ -2790,7 +2929,7 @@ workspace.</doc>
               glib:name="XFW_WORKSPACE_CAPABILITIES_REMOVE">
         <doc xml:space="preserve"
              filename="xfw-workspace.h"
-             line="48">workspace can be removed.</doc>
+             line="49">workspace can be removed.</doc>
       </member>
     </bitfield>
     <class name="WorkspaceDummy"
@@ -2800,7 +2939,7 @@ workspace.</doc>
            glib:type-name="XfwWorkspaceDummy"
            glib:get-type="xfw_workspace_dummy_get_type"
            glib:type-struct="WorkspaceDummyClass">
-      <source-position filename="xfw-workspace-dummy.h" line="32"/>
+      <source-position filename="xfw-workspace-dummy.h" line="34"/>
       <implements name="Workspace"/>
       <field name="parent">
         <type name="GObject.Object" c:type="GObject"/>
@@ -2812,7 +2951,7 @@ workspace.</doc>
     <record name="WorkspaceDummyClass"
             c:type="XfwWorkspaceDummyClass"
             glib:is-gtype-struct-for="WorkspaceDummy">
-      <source-position filename="xfw-workspace-dummy.h" line="32"/>
+      <source-position filename="xfw-workspace-dummy.h" line="34"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -2821,7 +2960,7 @@ workspace.</doc>
             c:type="XfwWorkspaceDummyPrivate"
             disguised="1"
             opaque="1">
-      <source-position filename="xfw-workspace-dummy.h" line="34"/>
+      <source-position filename="xfw-workspace-dummy.h" line="36"/>
     </record>
     <interface name="WorkspaceGroup"
                c:symbol-prefix="workspace_group"
@@ -3130,7 +3269,7 @@ that must be freed using #g_error_free().</doc>
       <glib:signal name="active-workspace-changed" when="last">
         <doc xml:space="preserve"
              filename="xfw-workspace-group.c"
-             line="94">Emitted when the active workspace of @group changes.</doc>
+             line="78">Emitted when the active workspace of @group changes.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3141,7 +3280,7 @@ that must be freed using #g_error_free().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="xfw-workspace-group.c"
-                 line="97">the previously active
+                 line="81">the previously active
                                           #XfwWorkspace, or %NULL.</doc>
             <type name="Workspace"/>
           </parameter>
@@ -3172,7 +3311,7 @@ that must be freed using #g_error_free().</doc>
       <glib:signal name="monitor-added" when="last">
         <doc xml:space="preserve"
              filename="xfw-workspace-group.c"
-             line="127">Emitted when @group is added to a new monitor.</doc>
+             line="95">Emitted when @group is added to a new monitor.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3180,7 +3319,7 @@ that must be freed using #g_error_free().</doc>
           <parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-workspace-group.c"
-                 line="130">a #GdkMonitor.</doc>
+                 line="98">a #GdkMonitor.</doc>
             <type name="Gdk.Monitor"/>
           </parameter>
         </parameters>
@@ -3188,7 +3327,7 @@ that must be freed using #g_error_free().</doc>
       <glib:signal name="monitor-removed" when="last">
         <doc xml:space="preserve"
              filename="xfw-workspace-group.c"
-             line="143">Emitted when @group is removed from a monitor.</doc>
+             line="111">Emitted when @group is removed from a monitor.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3196,7 +3335,7 @@ that must be freed using #g_error_free().</doc>
           <parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-workspace-group.c"
-                 line="146">a #GdkMonitor.</doc>
+                 line="114">a #GdkMonitor.</doc>
             <type name="Gdk.Monitor"/>
           </parameter>
         </parameters>
@@ -3204,7 +3343,7 @@ that must be freed using #g_error_free().</doc>
       <glib:signal name="monitors-changed" when="last">
         <doc xml:space="preserve"
              filename="xfw-workspace-group.c"
-             line="159">Emitted when @group moves to a new set of monitors.</doc>
+             line="127">Emitted when @group moves to a new set of monitors.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3217,10 +3356,10 @@ that must be freed using #g_error_free().</doc>
           <type name="none" c:type="void"/>
         </return-value>
       </glib:signal>
-      <glib:signal name="workspace-created" when="last">
+      <glib:signal name="workspace-added" when="last">
         <doc xml:space="preserve"
              filename="xfw-workspace-group.c"
-             line="78">Emitted when a new workspace is created in @group.</doc>
+             line="141">Emitted when @workspace joins @group.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3228,15 +3367,15 @@ that must be freed using #g_error_free().</doc>
           <parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-workspace-group.c"
-                 line="81">the newly-created workspace.</doc>
+                 line="144">the #XfwWorkspace added to the group.</doc>
             <type name="Workspace"/>
           </parameter>
         </parameters>
       </glib:signal>
-      <glib:signal name="workspace-destroyed" when="last">
+      <glib:signal name="workspace-removed" when="last">
         <doc xml:space="preserve"
              filename="xfw-workspace-group.c"
-             line="111">Emitted when a workspace in @group is destroyed.</doc>
+             line="157">Emitted when @workspace leaves @group.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3244,7 +3383,7 @@ that must be freed using #g_error_free().</doc>
           <parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-workspace-group.c"
-                 line="114">the workspace that was destroyed.</doc>
+                 line="160">the #XfwWorkspace removed from the group.</doc>
             <type name="Workspace"/>
           </parameter>
         </parameters>
@@ -3366,7 +3505,7 @@ workspace group.</doc>
            glib:type-name="XfwWorkspaceGroupWayland"
            glib:get-type="xfw_workspace_group_wayland_get_type"
            glib:type-struct="WorkspaceGroupWaylandClass">
-      <source-position filename="xfw-workspace-group-wayland.h" line="34"/>
+      <source-position filename="xfw-workspace-group-wayland.h" line="36"/>
       <implements name="WorkspaceGroup"/>
       <field name="parent">
         <type name="GObject.Object" c:type="GObject"/>
@@ -3384,7 +3523,7 @@ workspace group.</doc>
     <record name="WorkspaceGroupWaylandClass"
             c:type="XfwWorkspaceGroupWaylandClass"
             glib:is-gtype-struct-for="WorkspaceGroupWayland">
-      <source-position filename="xfw-workspace-group-wayland.h" line="34"/>
+      <source-position filename="xfw-workspace-group-wayland.h" line="36"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -3393,7 +3532,7 @@ workspace group.</doc>
             c:type="XfwWorkspaceGroupWaylandPrivate"
             disguised="1"
             opaque="1">
-      <source-position filename="xfw-workspace-group-wayland.h" line="36"/>
+      <source-position filename="xfw-workspace-group-wayland.h" line="38"/>
     </record>
     <record name="WorkspaceIface"
             c:type="XfwWorkspaceIface"
@@ -3417,12 +3556,12 @@ workspace group.</doc>
               c:identifier="xfw_workspace_manager_list_workspace_groups">
         <doc xml:space="preserve"
              filename="xfw-workspace-manager.c"
-             line="92">Lists all workspace groups known to the workspace manager.</doc>
+             line="125">Lists all workspace groups known to the workspace manager.</doc>
         <source-position filename="xfw-workspace-manager.h" line="39"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="xfw-workspace-manager.c"
-               line="98">
+               line="131">
 the list of #XfwWorkspaceGroup managed by @manager, or %NULL if there are
 no workspace groups.  The list and its contents are owned by @manager.</doc>
           <type name="GLib.List" c:type="GList*">
@@ -3433,7 +3572,32 @@ no workspace groups.  The list and its contents are owned by @manager.</doc>
           <instance-parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-workspace-manager.c"
-                 line="94">an #XfwWorkspaceManager.</doc>
+                 line="127">an #XfwWorkspaceManager.</doc>
+            <type name="WorkspaceManager" c:type="XfwWorkspaceManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="list_workspaces"
+              c:identifier="xfw_workspace_manager_list_workspaces">
+        <doc xml:space="preserve"
+             filename="xfw-workspace-manager.c"
+             line="143">List all workspaces known to the workspace manager.</doc>
+        <source-position filename="xfw-workspace-manager.h" line="40"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="xfw-workspace-manager.c"
+               line="149">
+the list of #XfwWorkspace managed by @manager, or %NULL if there are
+no workspaces.  The list and its contents are owned by @manager.</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="Workspace"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfw-workspace-manager.c"
+                 line="145">an #XfwWorkspaceManager.</doc>
             <type name="WorkspaceManager" c:type="XfwWorkspaceManager*"/>
           </instance-parameter>
         </parameters>
@@ -3444,10 +3608,42 @@ no workspace groups.  The list and its contents are owned by @manager.</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="xfw-workspace-manager.c"
-             line="78">The #GdkScreen instance used to construct the #XfwScreen that owns this
+             line="111">The #GdkScreen instance used to construct the #XfwScreen that owns this
 workspace manager.</doc>
         <type name="Gdk.Screen"/>
       </property>
+      <glib:signal name="workspace-created" when="last">
+        <doc xml:space="preserve"
+             filename="xfw-workspace-manager.c"
+             line="79">Emitted when a new workspace is created.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="workspace" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfw-workspace-manager.c"
+                 line="82">the newly-created workspace.</doc>
+            <type name="Workspace"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="workspace-destroyed" when="last">
+        <doc xml:space="preserve"
+             filename="xfw-workspace-manager.c"
+             line="95">Emitted when a workspace is destroyed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="workspace" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="xfw-workspace-manager.c"
+                 line="98">the workspace that was destroyed.</doc>
+            <type name="Workspace"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
       <glib:signal name="workspace-group-created" when="last">
         <doc xml:space="preserve"
              filename="xfw-workspace-manager.c"
@@ -3603,7 +3799,7 @@ workspace manager.</doc>
               c:type="XfwWorkspaceState">
       <doc xml:space="preserve"
            filename="xfw-workspace.h"
-           line="59">Flags enum representing a bitfield that describes the workspace's state.</doc>
+           line="63">Flags enum representing a bitfield that describes the workspace's state.</doc>
       <member name="none"
               value="0"
               c:identifier="XFW_WORKSPACE_STATE_NONE"
@@ -3611,7 +3807,7 @@ workspace manager.</doc>
               glib:name="XFW_WORKSPACE_STATE_NONE">
         <doc xml:space="preserve"
              filename="xfw-workspace.h"
-             line="61">workspace has no state information.</doc>
+             line="65">workspace has no state information.</doc>
       </member>
       <member name="active"
               value="1"
@@ -3620,7 +3816,7 @@ workspace manager.</doc>
               glib:name="XFW_WORKSPACE_STATE_ACTIVE">
         <doc xml:space="preserve"
              filename="xfw-workspace.h"
-             line="62">workspace is the active workspace in its group.</doc>
+             line="66">workspace is the active workspace in its group.</doc>
       </member>
       <member name="urgent"
               value="2"
@@ -3629,7 +3825,7 @@ workspace manager.</doc>
               glib:name="XFW_WORKSPACE_STATE_URGENT">
         <doc xml:space="preserve"
              filename="xfw-workspace.h"
-             line="63">workspace contains a window that is requesting
+             line="67">workspace contains a window that is requesting
                              attention.</doc>
       </member>
       <member name="hidden"
@@ -3639,7 +3835,7 @@ workspace manager.</doc>
               glib:name="XFW_WORKSPACE_STATE_HIDDEN">
         <doc xml:space="preserve"
              filename="xfw-workspace.h"
-             line="65">workspace should be hidden from pagers or other
+             line="69">workspace should be hidden from pagers or other
                              UI elements.</doc>
       </member>
       <member name="virtual"
@@ -3649,7 +3845,7 @@ workspace manager.</doc>
               glib:name="XFW_WORKSPACE_STATE_VIRTUAL">
         <doc xml:space="preserve"
              filename="xfw-workspace.h"
-             line="67">workspace has a valid, visible viewport.</doc>
+             line="71">workspace has a valid, visible viewport.</doc>
       </member>
     </bitfield>
     <class name="WorkspaceWayland"
@@ -3659,7 +3855,7 @@ workspace manager.</doc>
            glib:type-name="XfwWorkspaceWayland"
            glib:get-type="xfw_workspace_wayland_get_type"
            glib:type-struct="WorkspaceWaylandClass">
-      <source-position filename="xfw-workspace-wayland.h" line="34"/>
+      <source-position filename="xfw-workspace-wayland.h" line="36"/>
       <implements name="Workspace"/>
       <property name="handle"
                 writable="1"
@@ -3683,7 +3879,7 @@ workspace manager.</doc>
     <record name="WorkspaceWaylandClass"
             c:type="XfwWorkspaceWaylandClass"
             glib:is-gtype-struct-for="WorkspaceWayland">
-      <source-position filename="xfw-workspace-wayland.h" line="34"/>
+      <source-position filename="xfw-workspace-wayland.h" line="36"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -3692,7 +3888,7 @@ workspace manager.</doc>
             c:type="XfwWorkspaceWaylandPrivate"
             disguised="1"
             opaque="1">
-      <source-position filename="xfw-workspace-wayland.h" line="36"/>
+      <source-position filename="xfw-workspace-wayland.h" line="38"/>
     </record>
     <class name="WorkspaceX11"
            c:symbol-prefix="workspace_x11"
@@ -3701,7 +3897,7 @@ workspace manager.</doc>
            glib:type-name="XfwWorkspaceX11"
            glib:get-type="xfw_workspace_x11_get_type"
            glib:type-struct="WorkspaceX11Class">
-      <source-position filename="xfw-workspace-x11.h" line="33"/>
+      <source-position filename="xfw-workspace-x11.h" line="35"/>
       <implements name="Workspace"/>
       <property name="wnck-workspace"
                 introspectable="0"
@@ -3720,7 +3916,7 @@ workspace manager.</doc>
     <record name="WorkspaceX11Class"
             c:type="XfwWorkspaceX11Class"
             glib:is-gtype-struct-for="WorkspaceX11">
-      <source-position filename="xfw-workspace-x11.h" line="33"/>
+      <source-position filename="xfw-workspace-x11.h" line="35"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -3729,7 +3925,7 @@ workspace manager.</doc>
             c:type="XfwWorkspaceX11Private"
             disguised="1"
             opaque="1">
-      <source-position filename="xfw-workspace-x11.h" line="35"/>
+      <source-position filename="xfw-workspace-x11.h" line="37"/>
     </record>
     <function name="check_version"
               c:identifier="libxfce4windowing_check_version">
@@ -3751,7 +3947,7 @@ if (G_UNLIKELY(mismatch != NULL)) {
   g_error("Version mismatch: %s", mismatch);
 }
 ]|</doc>
-      <source-position filename="libxfce4windowing-config.h" line="80"/>
+      <source-position filename="libxfce4windowing-config.h" line="99"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="libxfce4windowing-config.c"
@@ -3840,15 +4036,41 @@ a reference owned by the caller.</doc>
         <type name="Screen" c:type="XfwScreen*"/>
       </return-value>
     </function>
+    <function name="set_client_type"
+              c:identifier="xfw_set_client_type"
+              version="4.19.3">
+      <doc xml:space="preserve"
+           filename="xfw-util.c"
+           line="83">Sets the type of the application.  This is used when sending various
+messages to control the behavior of other windows, to indicate the source of
+the control.  In general, #XFW_CLIENT_TYPE_APPLICATION will be interpreted
+as automated control from a regular application, and #XFW_CLIENT_TYPE_PAGER
+will be interpreted as user-initiated control from a desktop component
+application like a pager or dock.
+
+This does nothing on Wayland, but is safe to call under a Wayland session.</doc>
+      <source-position filename="xfw-util.h" line="109"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="client_type" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="xfw-util.c"
+               line="85">A #XfwClientType</doc>
+          <type name="ClientType" c:type="XfwClientType"/>
+        </parameter>
+      </parameters>
+    </function>
     <function name="windowing_get" c:identifier="xfw_windowing_get">
       <doc xml:space="preserve"
            filename="xfw-util.c"
-           line="47">Determines the windowing environment that is currently active.</doc>
-      <source-position filename="xfw-util.h" line="91"/>
+           line="48">Determines the windowing environment that is currently active.</doc>
+      <source-position filename="xfw-util.h" line="107"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="xfw-util.c"
-             line="52">A value from the #XfwWindowing enum.</doc>
+             line="53">A value from the #XfwWindowing enum.</doc>
         <type name="Windowing" c:type="XfwWindowing"/>
       </return-value>
     </function>
@@ -3936,6 +4158,13 @@ workspace groups present on the parent #XfwScreen.
 Note that #XfwWorkspaceManager is actually an interface; when obtaining an
 instance, an instance of a windowing-environment-specific object that
 implements this interface will be returned.</doc>
+    </docsection>
+    <docsection name="xfw-x11">
+      <doc xml:space="preserve"
+           filename="xfw-x11.h"
+           line="23">This file includes functionality specific to the X11 windowing system, if
+libxfce4windowing does not provide all the functionality an application
+needs.</doc>
     </docsection>
   </namespace>
 </repository>

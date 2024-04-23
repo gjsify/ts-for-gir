@@ -387,12 +387,12 @@ albeit this is done by the widget.</doc>
       <constructor name="new" c:identifier="panel_dock_new">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="105">Create a new #PanelDock.</doc>
+             line="107">Create a new #PanelDock.</doc>
         <source-position filename="src/panel-dock.h" line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-dock.c"
-               line="109">a newly created #PanelDock</doc>
+               line="111">a newly created #PanelDock</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -427,7 +427,7 @@ albeit this is done by the widget.</doc>
       <method name="foreach_frame" c:identifier="panel_dock_foreach_frame">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="1493">Invokes a callback for each frame in the dock.</doc>
+             line="1592">Invokes a callback for each frame in the dock.</doc>
         <source-position filename="src/panel-dock.h" line="97"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -436,7 +436,7 @@ albeit this is done by the widget.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1495">a #PanelDock</doc>
+                 line="1594">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
           <parameter name="callback"
@@ -445,7 +445,7 @@ albeit this is done by the widget.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1496">a function to be called on each frame</doc>
+                 line="1595">a function to be called on each frame</doc>
             <type name="FrameCallback" c:type="PanelFrameCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -455,7 +455,7 @@ albeit this is done by the widget.</doc>
                      closure="0">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1497">data to pass to @callback</doc>
+                 line="1596">data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -464,12 +464,12 @@ albeit this is done by the widget.</doc>
               c:identifier="panel_dock_get_can_reveal_area">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="1174">Tells if the panel area can be revealed.</doc>
+             line="1268">Tells if the panel area can be revealed.</doc>
         <source-position filename="src/panel-dock.h" line="74"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-dock.c"
-               line="1181">whether it can reveal the area or not. If the is no child
+               line="1275">whether it can reveal the area or not. If the is no child
 or the child is empty, will return %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -477,13 +477,13 @@ or the child is empty, will return %FALSE.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1176">a #PanelDock</doc>
+                 line="1270">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
           <parameter name="area" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1177">the panel area to check.</doc>
+                 line="1271">the panel area to check.</doc>
             <type name="Area" c:type="PanelArea"/>
           </parameter>
         </parameters>
@@ -493,12 +493,12 @@ or the child is empty, will return %FALSE.</doc>
               glib:get-property="can-reveal-bottom">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="1198">Tells if the bottom panel area can be revealed.</doc>
+             line="1292">Tells if the bottom panel area can be revealed.</doc>
         <source-position filename="src/panel-dock.h" line="77"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-dock.c"
-               line="1204">whether it can reveal the bottom area or not. If the is no
+               line="1298">whether it can reveal the bottom area or not. If the is no
 child or the child is empty, will return %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -506,7 +506,7 @@ child or the child is empty, will return %FALSE.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1200">a #PanelDock</doc>
+                 line="1294">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
         </parameters>
@@ -516,12 +516,12 @@ child or the child is empty, will return %FALSE.</doc>
               glib:get-property="can-reveal-end">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="1243">Tells if the end panel area can be revealed.</doc>
+             line="1337">Tells if the end panel area can be revealed.</doc>
         <source-position filename="src/panel-dock.h" line="83"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-dock.c"
-               line="1249">whether it can reveal the end area or not. If the is no
+               line="1343">whether it can reveal the end area or not. If the is no
 child or the child is empty, will return %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -529,7 +529,7 @@ child or the child is empty, will return %FALSE.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1245">a #PanelDock</doc>
+                 line="1339">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
         </parameters>
@@ -539,12 +539,12 @@ child or the child is empty, will return %FALSE.</doc>
               glib:get-property="can-reveal-start">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="1228">Tells if the start panel area can be revealed.</doc>
+             line="1322">Tells if the start panel area can be revealed.</doc>
         <source-position filename="src/panel-dock.h" line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-dock.c"
-               line="1234">whether it can reveal the start area or not. If the is no
+               line="1328">whether it can reveal the start area or not. If the is no
 child or the child is empty, will return %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -552,7 +552,7 @@ child or the child is empty, will return %FALSE.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1230">a #PanelDock</doc>
+                 line="1324">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
         </parameters>
@@ -562,12 +562,12 @@ child or the child is empty, will return %FALSE.</doc>
               glib:get-property="can-reveal-top">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="1213">Tells if the top panel area can be revealed.</doc>
+             line="1307">Tells if the top panel area can be revealed.</doc>
         <source-position filename="src/panel-dock.h" line="79"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-dock.c"
-               line="1219">whether it can reveal the top area or not. If the is no
+               line="1313">whether it can reveal the top area or not. If the is no
 child or the child is empty, will return %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -575,7 +575,7 @@ child or the child is empty, will return %FALSE.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1215">a #PanelDock</doc>
+                 line="1309">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
         </parameters>
@@ -583,25 +583,25 @@ child or the child is empty, will return %FALSE.</doc>
       <method name="get_reveal_area" c:identifier="panel_dock_get_reveal_area">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="978">Tells if an area if revealed.</doc>
+             line="1072">Tells if an area if revealed.</doc>
         <source-position filename="src/panel-dock.h" line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-dock.c"
-               line="985">The reveal state.</doc>
+               line="1079">The reveal state.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="980">a #PanelDock</doc>
+                 line="1074">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
           <parameter name="area" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="981">the #PanelArea to return the reveal status of.</doc>
+                 line="1075">the #PanelArea to return the reveal status of.</doc>
             <type name="Area" c:type="PanelArea"/>
           </parameter>
         </parameters>
@@ -611,19 +611,19 @@ child or the child is empty, will return %FALSE.</doc>
               glib:get-property="reveal-bottom">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="914">Tells if the bottom area is revealed.</doc>
+             line="1008">Tells if the bottom area is revealed.</doc>
         <source-position filename="src/panel-dock.h" line="60"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-dock.c"
-               line="920">The reveal state of the bottom area.</doc>
+               line="1014">The reveal state of the bottom area.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="916">a #PanelDock</doc>
+                 line="1010">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
         </parameters>
@@ -633,19 +633,19 @@ child or the child is empty, will return %FALSE.</doc>
               glib:get-property="reveal-end">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="930">Tells if the end area is revealed.</doc>
+             line="1024">Tells if the end area is revealed.</doc>
         <source-position filename="src/panel-dock.h" line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-dock.c"
-               line="936">The reveal state of the end area.</doc>
+               line="1030">The reveal state of the end area.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="932">a #PanelDock</doc>
+                 line="1026">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
         </parameters>
@@ -655,19 +655,19 @@ child or the child is empty, will return %FALSE.</doc>
               glib:get-property="reveal-start">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="946">Tells if the start area is revealed.</doc>
+             line="1040">Tells if the start area is revealed.</doc>
         <source-position filename="src/panel-dock.h" line="54"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-dock.c"
-               line="952">The reveal state of the start area.</doc>
+               line="1046">The reveal state of the start area.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="948">a #PanelDock</doc>
+                 line="1042">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
         </parameters>
@@ -677,19 +677,19 @@ child or the child is empty, will return %FALSE.</doc>
               glib:get-property="reveal-top">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="962">Tells if the top area is revealed.</doc>
+             line="1056">Tells if the top area is revealed.</doc>
         <source-position filename="src/panel-dock.h" line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-dock.c"
-               line="968">The reveal state of the top area.</doc>
+               line="1062">The reveal state of the top area.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="964">a #PanelDock</doc>
+                 line="1058">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
         </parameters>
@@ -697,7 +697,7 @@ child or the child is empty, will return %FALSE.</doc>
       <method name="remove" c:identifier="panel_dock_remove">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="1619">Removes a widget from the dock. If @widget is not a #DockChild,
+             line="1718">Removes a widget from the dock. If @widget is not a #DockChild,
 then the closest #DockChild parent is removed.</doc>
         <source-position filename="src/panel-dock.h" line="101"/>
         <return-value transfer-ownership="none">
@@ -707,13 +707,13 @@ then the closest #DockChild parent is removed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1621">a #PanelDock</doc>
+                 line="1720">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1622">a #GtkWidget to remove</doc>
+                 line="1721">a #GtkWidget to remove</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -723,7 +723,7 @@ then the closest #DockChild parent is removed.</doc>
               glib:set-property="bottom-height">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="1600">Set the height of the bottom area.</doc>
+             line="1699">Set the height of the bottom area.</doc>
         <source-position filename="src/panel-dock.h" line="94"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -732,13 +732,13 @@ then the closest #DockChild parent is removed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1602">a #PanelDock</doc>
+                 line="1701">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1603">the height</doc>
+                 line="1702">the height</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -748,7 +748,7 @@ then the closest #DockChild parent is removed.</doc>
               glib:set-property="end-width">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="1562">Set the width of the end area.</doc>
+             line="1661">Set the width of the end area.</doc>
         <source-position filename="src/panel-dock.h" line="88"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -757,13 +757,13 @@ then the closest #DockChild parent is removed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1564">a #PanelDock</doc>
+                 line="1663">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1565">the width</doc>
+                 line="1664">the width</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -771,7 +771,7 @@ then the closest #DockChild parent is removed.</doc>
       <method name="set_reveal_area" c:identifier="panel_dock_set_reveal_area">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="1089">Sets the reveal status of the area.</doc>
+             line="1183">Sets the reveal status of the area.</doc>
         <source-position filename="src/panel-dock.h" line="50"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -780,19 +780,19 @@ then the closest #DockChild parent is removed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1091">a #PanelDock</doc>
+                 line="1185">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
           <parameter name="area" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1092">a #PanelArea. %PANEL_AREA_CENTER is an invalid value.</doc>
+                 line="1186">a #PanelArea. %PANEL_AREA_CENTER is an invalid value.</doc>
             <type name="Area" c:type="PanelArea"/>
           </parameter>
           <parameter name="reveal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1093">reveal the area.</doc>
+                 line="1187">reveal the area.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -802,7 +802,7 @@ then the closest #DockChild parent is removed.</doc>
               glib:set-property="reveal-bottom">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="1009">Sets the reveal status of the bottom area.</doc>
+             line="1103">Sets the reveal status of the bottom area.</doc>
         <source-position filename="src/panel-dock.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -811,13 +811,13 @@ then the closest #DockChild parent is removed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1011">a #PanelDock</doc>
+                 line="1105">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
           <parameter name="reveal_bottom" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1012">reveal the bottom area.</doc>
+                 line="1106">reveal the bottom area.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -827,7 +827,7 @@ then the closest #DockChild parent is removed.</doc>
               glib:set-property="reveal-end">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="1029">Sets the reveal status of the end area.</doc>
+             line="1123">Sets the reveal status of the end area.</doc>
         <source-position filename="src/panel-dock.h" line="65"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -836,13 +836,13 @@ then the closest #DockChild parent is removed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1031">a #PanelDock</doc>
+                 line="1125">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
           <parameter name="reveal_end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1032">reveal the end area.</doc>
+                 line="1126">reveal the end area.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -852,7 +852,7 @@ then the closest #DockChild parent is removed.</doc>
               glib:set-property="reveal-start">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="1049">Sets the reveal status of the start area.</doc>
+             line="1143">Sets the reveal status of the start area.</doc>
         <source-position filename="src/panel-dock.h" line="62"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -861,13 +861,13 @@ then the closest #DockChild parent is removed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1051">a #PanelDock</doc>
+                 line="1145">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
           <parameter name="reveal_start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1052">reveal the start area.</doc>
+                 line="1146">reveal the start area.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -877,7 +877,7 @@ then the closest #DockChild parent is removed.</doc>
               glib:set-property="reveal-top">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="1069">Sets the reveal status of the top area.</doc>
+             line="1163">Sets the reveal status of the top area.</doc>
         <source-position filename="src/panel-dock.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -886,13 +886,13 @@ then the closest #DockChild parent is removed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1071">a #PanelDock</doc>
+                 line="1165">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
           <parameter name="reveal_top" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1072">reveal the top area.</doc>
+                 line="1166">reveal the top area.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -902,7 +902,7 @@ then the closest #DockChild parent is removed.</doc>
               glib:set-property="start-width">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="1543">Set the width of the start area.</doc>
+             line="1642">Set the width of the start area.</doc>
         <source-position filename="src/panel-dock.h" line="85"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -911,13 +911,13 @@ then the closest #DockChild parent is removed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1545">a #PanelDock</doc>
+                 line="1644">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1546">the width</doc>
+                 line="1645">the width</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -927,7 +927,7 @@ then the closest #DockChild parent is removed.</doc>
               glib:set-property="top-height">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="1581">Set the height of the top area.</doc>
+             line="1680">Set the height of the top area.</doc>
         <source-position filename="src/panel-dock.h" line="91"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -936,13 +936,13 @@ then the closest #DockChild parent is removed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1583">a #PanelDock</doc>
+                 line="1682">a #PanelDock</doc>
             <type name="Dock" c:type="PanelDock*"/>
           </instance-parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="1584">the height</doc>
+                 line="1683">the height</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -1037,7 +1037,7 @@ then the closest #DockChild parent is removed.</doc>
       <glib:signal name="adopt-widget" when="last" version="1.2">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="644">Signal is emitted when a widget is requesting to be added via a
+             line="646">Signal is emitted when a widget is requesting to be added via a
 drag-n-drop event.
 
 This is generally propagated via #PanelFrame::adopt-widget to the
@@ -1046,7 +1046,7 @@ to every #PanelFrame.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-dock.c"
-               line="656">%GDK_EVENT_STOP to prevent dropping, otherwise
+               line="658">%GDK_EVENT_STOP to prevent dropping, otherwise
   %GDK_EVENT_PROPAGATE to allow adopting the widget.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1054,7 +1054,7 @@ to every #PanelFrame.</doc>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="647">a #PanelWidget</doc>
+                 line="649">a #PanelWidget</doc>
             <type name="Widget"/>
           </parameter>
         </parameters>
@@ -1062,18 +1062,18 @@ to every #PanelFrame.</doc>
       <glib:signal name="create-frame" when="last" version="1.2">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="622">This signal is emitted when a new frame is needed.</doc>
+             line="624">This signal is emitted when a new frame is needed.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/panel-dock.c"
-               line="629">a #PanelFrame</doc>
+               line="631">a #PanelFrame</doc>
           <type name="Frame"/>
         </return-value>
         <parameters>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="625">the position for the frame</doc>
+                 line="627">the position for the frame</doc>
             <type name="Position"/>
           </parameter>
         </parameters>
@@ -1081,7 +1081,7 @@ to every #PanelFrame.</doc>
       <glib:signal name="panel-drag-begin" when="last">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="591">This signal is emitted when dragging of a panel begins.</doc>
+             line="593">This signal is emitted when dragging of a panel begins.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1089,7 +1089,7 @@ to every #PanelFrame.</doc>
           <parameter name="panel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="594">a #PanelWidget</doc>
+                 line="596">a #PanelWidget</doc>
             <type name="Widget"/>
           </parameter>
         </parameters>
@@ -1097,7 +1097,7 @@ to every #PanelFrame.</doc>
       <glib:signal name="panel-drag-end" when="last">
         <doc xml:space="preserve"
              filename="src/panel-dock.c"
-             line="606">This signal is emitted when dragging of a panel either
+             line="608">This signal is emitted when dragging of a panel either
 completes or was cancelled.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1106,7 +1106,7 @@ completes or was cancelled.</doc>
           <parameter name="panel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-dock.c"
-                 line="609">a #PanelWidget</doc>
+                 line="611">a #PanelWidget</doc>
             <type name="Widget"/>
           </parameter>
         </parameters>
@@ -1636,19 +1636,19 @@ above the panels.</doc>
               glib:get-property="closeable">
         <doc xml:space="preserve"
              filename="src/panel-frame.c"
-             line="1637">Tells if the panel frame is closeable.</doc>
+             line="1641">Tells if the panel frame is closeable.</doc>
         <source-position filename="src/panel-frame.h" line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-frame.c"
-               line="1643">%TRUE if the panel frame is closeable.</doc>
+               line="1647">%TRUE if the panel frame is closeable.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1639">a #PanelFrame</doc>
+                 line="1643">a #PanelFrame</doc>
             <type name="Frame" c:type="PanelFrame*"/>
           </instance-parameter>
         </parameters>
@@ -1658,19 +1658,19 @@ above the panels.</doc>
               glib:get-property="empty">
         <doc xml:space="preserve"
              filename="src/panel-frame.c"
-             line="1232">Tells if the panel frame is empty.</doc>
+             line="1236">Tells if the panel frame is empty.</doc>
         <source-position filename="src/panel-frame.h" line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-frame.c"
-               line="1238">%TRUE if the panel is empty.</doc>
+               line="1242">%TRUE if the panel is empty.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1234">a #PanelFrame</doc>
+                 line="1238">a #PanelFrame</doc>
             <type name="Frame" c:type="PanelFrame*"/>
           </instance-parameter>
         </parameters>
@@ -1678,19 +1678,19 @@ above the panels.</doc>
       <method name="get_header" c:identifier="panel_frame_get_header">
         <doc xml:space="preserve"
              filename="src/panel-frame.c"
-             line="1327">Gets the header for the frame.</doc>
+             line="1331">Gets the header for the frame.</doc>
         <source-position filename="src/panel-frame.h" line="52"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/panel-frame.c"
-               line="1333">a #PanelFrameHeader or %NULL</doc>
+               line="1337">a #PanelFrameHeader or %NULL</doc>
           <type name="FrameHeader" c:type="PanelFrameHeader*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1329">a #PanelFrame</doc>
+                 line="1333">a #PanelFrame</doc>
             <type name="Frame" c:type="PanelFrame*"/>
           </instance-parameter>
         </parameters>
@@ -1698,19 +1698,19 @@ above the panels.</doc>
       <method name="get_n_pages" c:identifier="panel_frame_get_n_pages">
         <doc xml:space="preserve"
              filename="src/panel-frame.c"
-             line="1451">Gets the number of pages in the panel frame.</doc>
+             line="1455">Gets the number of pages in the panel frame.</doc>
         <source-position filename="src/panel-frame.h" line="83"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-frame.c"
-               line="1457">The number of pages.</doc>
+               line="1461">The number of pages.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1453">a #PanelFrame</doc>
+                 line="1457">a #PanelFrame</doc>
             <type name="Frame" c:type="PanelFrame*"/>
           </instance-parameter>
         </parameters>
@@ -1718,25 +1718,25 @@ above the panels.</doc>
       <method name="get_page" c:identifier="panel_frame_get_page">
         <doc xml:space="preserve"
              filename="src/panel-frame.c"
-             line="1469">Gets the page with the given index, if any.</doc>
+             line="1473">Gets the page with the given index, if any.</doc>
         <source-position filename="src/panel-frame.h" line="78"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/panel-frame.c"
-               line="1476">a #PanelWidget or %NULL</doc>
+               line="1480">a #PanelWidget or %NULL</doc>
           <type name="Widget" c:type="PanelWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1471">a #PanelFrame</doc>
+                 line="1475">a #PanelFrame</doc>
             <type name="Frame" c:type="PanelFrame*"/>
           </instance-parameter>
           <parameter name="n" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1472">the index of the page</doc>
+                 line="1476">the index of the page</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1744,19 +1744,19 @@ above the panels.</doc>
       <method name="get_pages" c:identifier="panel_frame_get_pages">
         <doc xml:space="preserve"
              filename="src/panel-frame.c"
-             line="1393">Get the pages for the frame.</doc>
+             line="1397">Get the pages for the frame.</doc>
         <source-position filename="src/panel-frame.h" line="81"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/panel-frame.c"
-               line="1399">a #GtkSelectionModel</doc>
+               line="1403">a #GtkSelectionModel</doc>
           <type name="Gtk.SelectionModel" c:type="GtkSelectionModel*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1395">a #PanelFrame</doc>
+                 line="1399">a #PanelFrame</doc>
             <type name="Frame" c:type="PanelFrame*"/>
           </instance-parameter>
         </parameters>
@@ -1766,19 +1766,19 @@ above the panels.</doc>
               glib:get-property="placeholder">
         <doc xml:space="preserve"
              filename="src/panel-frame.c"
-             line="1494">Gets the placeholder widget, if any.</doc>
+             line="1498">Gets the placeholder widget, if any.</doc>
         <source-position filename="src/panel-frame.h" line="85"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/panel-frame.c"
-               line="1500">a #GtkWidget or %NULL</doc>
+               line="1504">a #GtkWidget or %NULL</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1496">a #PanelFrame</doc>
+                 line="1500">a #PanelFrame</doc>
             <type name="Frame" c:type="PanelFrame*"/>
           </instance-parameter>
         </parameters>
@@ -1786,19 +1786,19 @@ above the panels.</doc>
       <method name="get_position" c:identifier="panel_frame_get_position">
         <doc xml:space="preserve"
              filename="src/panel-frame.c"
-             line="1655">Gets the #PanelPosition for the frame.</doc>
+             line="1659">Gets the #PanelPosition for the frame.</doc>
         <source-position filename="src/panel-frame.h" line="90"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/panel-frame.c"
-               line="1661">a #PanelPosition</doc>
+               line="1665">a #PanelPosition</doc>
           <type name="Position" c:type="PanelPosition*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1657">a #PanelFrame</doc>
+                 line="1661">a #PanelFrame</doc>
             <type name="Frame" c:type="PanelFrame*"/>
           </instance-parameter>
         </parameters>
@@ -1807,19 +1807,19 @@ above the panels.</doc>
               c:identifier="panel_frame_get_requested_size">
         <doc xml:space="preserve"
              filename="src/panel-frame.c"
-             line="1710">Gets the requested size for the panel frame.</doc>
+             line="1714">Gets the requested size for the panel frame.</doc>
         <source-position filename="src/panel-frame.h" line="92"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-frame.c"
-               line="1716">the requested size.</doc>
+               line="1720">the requested size.</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1712">a %PanelFrame</doc>
+                 line="1716">a %PanelFrame</doc>
             <type name="Frame" c:type="PanelFrame*"/>
           </instance-parameter>
         </parameters>
@@ -1829,19 +1829,19 @@ above the panels.</doc>
               glib:get-property="visible-child">
         <doc xml:space="preserve"
              filename="src/panel-frame.c"
-             line="1250">Gets the widget of the currently visible child.</doc>
+             line="1254">Gets the widget of the currently visible child.</doc>
         <source-position filename="src/panel-frame.h" line="72"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/panel-frame.c"
-               line="1256">a #PanelWidget or %NULL</doc>
+               line="1260">a #PanelWidget or %NULL</doc>
           <type name="Widget" c:type="PanelWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1252">a #PanelFrame</doc>
+                 line="1256">a #PanelFrame</doc>
             <type name="Frame" c:type="PanelFrame*"/>
           </instance-parameter>
         </parameters>
@@ -1874,7 +1874,7 @@ above the panels.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="src/panel-frame.c"
-             line="1292">Set pinned state of @child.</doc>
+             line="1296">Set pinned state of @child.</doc>
         <source-position filename="src/panel-frame.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1883,19 +1883,19 @@ above the panels.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1294">a #PanelFrame</doc>
+                 line="1298">a #PanelFrame</doc>
             <type name="Frame" c:type="PanelFrame*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1295">a #PanelWidget</doc>
+                 line="1299">a #PanelWidget</doc>
             <type name="Widget" c:type="PanelWidget*"/>
           </parameter>
           <parameter name="pinned" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1296">if @widget should be pinned</doc>
+                 line="1300">if @widget should be pinned</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1903,7 +1903,7 @@ above the panels.</doc>
       <method name="set_header" c:identifier="panel_frame_set_header">
         <doc xml:space="preserve"
              filename="src/panel-frame.c"
-             line="1346">Sets the header for the frame, such as a #PanelFrameSwitcher.</doc>
+             line="1350">Sets the header for the frame, such as a #PanelFrameSwitcher.</doc>
         <source-position filename="src/panel-frame.h" line="54"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1912,7 +1912,7 @@ above the panels.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1348">a #PanelFrame</doc>
+                 line="1352">a #PanelFrame</doc>
             <type name="Frame" c:type="PanelFrame*"/>
           </instance-parameter>
           <parameter name="header"
@@ -1921,7 +1921,7 @@ above the panels.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1349">a #PanelFrameHeader</doc>
+                 line="1353">a #PanelFrameHeader</doc>
             <type name="FrameHeader" c:type="PanelFrameHeader*"/>
           </parameter>
         </parameters>
@@ -1931,7 +1931,7 @@ above the panels.</doc>
               glib:set-property="placeholder">
         <doc xml:space="preserve"
              filename="src/panel-frame.c"
-             line="1512">Sets the placeholder widget for the frame.
+             line="1516">Sets the placeholder widget for the frame.
 
 The placeholder widget is displayed when there are no pages
 to display in the frame.</doc>
@@ -1943,7 +1943,7 @@ to display in the frame.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1514">a #PanelFrame</doc>
+                 line="1518">a #PanelFrame</doc>
             <type name="Frame" c:type="PanelFrame*"/>
           </instance-parameter>
           <parameter name="placeholder"
@@ -1952,7 +1952,7 @@ to display in the frame.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1515">a #GtkWidget or %NULL</doc>
+                 line="1519">a #GtkWidget or %NULL</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -1961,7 +1961,7 @@ to display in the frame.</doc>
               c:identifier="panel_frame_set_requested_size">
         <doc xml:space="preserve"
              filename="src/panel-frame.c"
-             line="1731">Sets the requested size for the panel frame.</doc>
+             line="1735">Sets the requested size for the panel frame.</doc>
         <source-position filename="src/panel-frame.h" line="94"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1970,13 +1970,13 @@ to display in the frame.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1733">a %PanelFrame.</doc>
+                 line="1737">a %PanelFrame.</doc>
             <type name="Frame" c:type="PanelFrame*"/>
           </instance-parameter>
           <parameter name="requested_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1734">the requested size.</doc>
+                 line="1738">the requested size.</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -1986,7 +1986,7 @@ to display in the frame.</doc>
               glib:set-property="visible-child">
         <doc xml:space="preserve"
              filename="src/panel-frame.c"
-             line="1271">Sets the current page to the child specified in @widget.</doc>
+             line="1275">Sets the current page to the child specified in @widget.</doc>
         <source-position filename="src/panel-frame.h" line="69"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1995,13 +1995,13 @@ to display in the frame.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1273">a #PanelFrame</doc>
+                 line="1277">a #PanelFrame</doc>
             <type name="Frame" c:type="PanelFrame*"/>
           </instance-parameter>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame.c"
-                 line="1274">a #PanelWidget</doc>
+                 line="1278">a #PanelWidget</doc>
             <type name="Widget" c:type="PanelWidget*"/>
           </parameter>
         </parameters>
@@ -2748,19 +2748,19 @@ a #PanelFrame.</doc>
               glib:get-property="autohide">
         <doc xml:space="preserve"
              filename="src/panel-frame-tab-bar.c"
-             line="436">Gets whether the tabs automatically hide.</doc>
+             line="439">Gets whether the tabs automatically hide.</doc>
         <source-position filename="src/panel-frame-tab-bar.h" line="37"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-frame-tab-bar.c"
-               line="442">the value of the autohide property.</doc>
+               line="445">the value of the autohide property.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame-tab-bar.c"
-                 line="438">a #PanelFrameTabBar</doc>
+                 line="441">a #PanelFrameTabBar</doc>
             <type name="FrameTabBar" c:type="PanelFrameTabBar*"/>
           </instance-parameter>
         </parameters>
@@ -2770,19 +2770,19 @@ a #PanelFrame.</doc>
               glib:get-property="expand-tabs">
         <doc xml:space="preserve"
              filename="src/panel-frame-tab-bar.c"
-             line="452">Gets whether tabs expand to full width.</doc>
+             line="455">Gets whether tabs expand to full width.</doc>
         <source-position filename="src/panel-frame-tab-bar.h" line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-frame-tab-bar.c"
-               line="458">the value of the expand_tabs property.</doc>
+               line="461">the value of the expand_tabs property.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame-tab-bar.c"
-                 line="454">a #PanelFrameTabBar</doc>
+                 line="457">a #PanelFrameTabBar</doc>
             <type name="FrameTabBar" c:type="PanelFrameTabBar*"/>
           </instance-parameter>
         </parameters>
@@ -2792,19 +2792,19 @@ a #PanelFrame.</doc>
               glib:get-property="inverted">
         <doc xml:space="preserve"
              filename="src/panel-frame-tab-bar.c"
-             line="468">Gets whether tabs use inverted layout.</doc>
+             line="471">Gets whether tabs use inverted layout.</doc>
         <source-position filename="src/panel-frame-tab-bar.h" line="42"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/panel-frame-tab-bar.c"
-               line="474">the value of the inverted property.</doc>
+               line="477">the value of the inverted property.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame-tab-bar.c"
-                 line="470">a #PanelFrameTabBar</doc>
+                 line="473">a #PanelFrameTabBar</doc>
             <type name="FrameTabBar" c:type="PanelFrameTabBar*"/>
           </instance-parameter>
         </parameters>
@@ -2814,7 +2814,7 @@ a #PanelFrame.</doc>
               glib:set-property="autohide">
         <doc xml:space="preserve"
              filename="src/panel-frame-tab-bar.c"
-             line="444">Sets whether the tabs automatically hide.</doc>
+             line="447">Sets whether the tabs automatically hide.</doc>
         <source-position filename="src/panel-frame-tab-bar.h" line="39"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2823,13 +2823,13 @@ a #PanelFrame.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame-tab-bar.c"
-                 line="446">a #PanelFrameTabBar</doc>
+                 line="449">a #PanelFrameTabBar</doc>
             <type name="FrameTabBar" c:type="PanelFrameTabBar*"/>
           </instance-parameter>
           <parameter name="autohide" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame-tab-bar.c"
-                 line="447">the autohide value</doc>
+                 line="450">the autohide value</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -2839,7 +2839,7 @@ a #PanelFrame.</doc>
               glib:set-property="expand-tabs">
         <doc xml:space="preserve"
              filename="src/panel-frame-tab-bar.c"
-             line="460">Sets whether tabs expand to full width.</doc>
+             line="463">Sets whether tabs expand to full width.</doc>
         <source-position filename="src/panel-frame-tab-bar.h" line="49"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2848,13 +2848,13 @@ a #PanelFrame.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame-tab-bar.c"
-                 line="462">a #PanelFrameTabBar</doc>
+                 line="465">a #PanelFrameTabBar</doc>
             <type name="FrameTabBar" c:type="PanelFrameTabBar*"/>
           </instance-parameter>
           <parameter name="expand_tabs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame-tab-bar.c"
-                 line="463">the expand_tabs value</doc>
+                 line="466">the expand_tabs value</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -2864,7 +2864,7 @@ a #PanelFrame.</doc>
               glib:set-property="inverted">
         <doc xml:space="preserve"
              filename="src/panel-frame-tab-bar.c"
-             line="476">Sets whether tabs tabs use inverted layout.</doc>
+             line="479">Sets whether tabs tabs use inverted layout.</doc>
         <source-position filename="src/panel-frame-tab-bar.h" line="44"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2873,13 +2873,13 @@ a #PanelFrame.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame-tab-bar.c"
-                 line="478">a #PanelFrameTabBar</doc>
+                 line="481">a #PanelFrameTabBar</doc>
             <type name="FrameTabBar" c:type="PanelFrameTabBar*"/>
           </instance-parameter>
           <parameter name="inverted" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/panel-frame-tab-bar.c"
-                 line="479">the inverted value</doc>
+                 line="482">the inverted value</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -3036,7 +3036,8 @@ center area.</doc>
         </parameters>
       </method>
       <method name="agree_to_close_async"
-              c:identifier="panel_grid_agree_to_close_async">
+              c:identifier="panel_grid_agree_to_close_async"
+              glib:finish-func="agree_to_close_finish">
         <doc xml:space="preserve"
              filename="src/panel-grid.c"
              line="745">Request to close, asynchronously. This will display the save dialog.</doc>
@@ -3937,14 +3938,14 @@ It is a programming error to call this with a key that does not exist.</doc>
       <source-position filename="src/panel-version.h" line="41"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="1" c:type="PANEL_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="0" c:type="PANEL_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="src/panel-version.h"
            line="50">libpanel micro version component (e.g. 3 if %PANEL_VERSION is 1.2.3)</doc>
       <source-position filename="src/panel-version.h" line="55"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="4" c:type="PANEL_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="6" c:type="PANEL_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="src/panel-version.h"
            line="43">libpanel minor version component (e.g. 2 if %PANEL_VERSION is 1.2.3)</doc>
@@ -5258,7 +5259,7 @@ the positon values</doc>
           </instance-parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="save">
+      <virtual-method name="save" glib:async-func="save_async">
         <source-position filename="src/panel-save-delegate.h" line="45"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5272,7 +5273,10 @@ the positon values</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="save_async" invoker="save_async">
+      <virtual-method name="save_async"
+                      invoker="save_async"
+                      glib:finish-func="save_finish"
+                      glib:sync-func="save">
         <source-position filename="src/panel-save-delegate.h" line="38"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5454,7 +5458,9 @@ the positon values</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="save_async" c:identifier="panel_save_delegate_save_async">
+      <method name="save_async"
+              c:identifier="panel_save_delegate_save_async"
+              glib:finish-func="save_finish">
         <source-position filename="src/panel-save-delegate.h" line="87"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5943,7 +5949,9 @@ save operation has completed.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="run_async" c:identifier="panel_save_dialog_run_async">
+      <method name="run_async"
+              c:identifier="panel_save_dialog_run_async"
+              glib:finish-func="run_finish">
         <source-position filename="src/panel-save-dialog.h" line="40"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7615,7 +7623,7 @@ It will automatically reveal or hide the specified area from
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION_S" value="1.4.1" c:type="PANEL_VERSION_S">
+    <constant name="VERSION_S" value="1.6.0" c:type="PANEL_VERSION_S">
       <doc xml:space="preserve"
            filename="src/panel-version.h"
            line="64">libpanel version, encoded as a string, useful for printing and
@@ -8826,7 +8834,7 @@ of the same type as the property.</doc>
           </instance-parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="unload_async">
+      <virtual-method name="unload_async" glib:finish-func="unload_finish">
         <source-position filename="src/panel-workbench.h" line="62"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>

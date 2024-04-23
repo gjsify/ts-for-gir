@@ -245,6 +245,9 @@ with @icon_theme_path.</doc>
         </parameters>
       </constructor>
       <virtual-method name="connection_changed">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="170">Slot for #AppIndicator::connection-changed.</doc>
         <source-position filename="app-indicator.h" line="208"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -266,6 +269,10 @@ with @icon_theme_path.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="fallback" introspectable="0">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="173">Function that gets called to make a #GtkStatusIcon when
+           there is no Application Indicator area available.</doc>
         <source-position filename="app-indicator.h" line="220"/>
         <return-value>
           <type name="Gtk.StatusIcon" c:type="GtkStatusIcon*"/>
@@ -277,6 +284,9 @@ with @icon_theme_path.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="new_attention_icon">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="166">Slot for #AppIndicator::new-attention-icon.</doc>
         <source-position filename="app-indicator.h" line="194"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -295,6 +305,9 @@ with @icon_theme_path.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="new_icon">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="165">Slot for #AppIndicator::new-icon.</doc>
         <source-position filename="app-indicator.h" line="192"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -313,6 +326,9 @@ with @icon_theme_path.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="new_icon_theme_path">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="168">Slot for #AppIndicator::new-icon-theme-path</doc>
         <source-position filename="app-indicator.h" line="199"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -334,6 +350,9 @@ with @icon_theme_path.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="new_label">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="169">Slot for #AppIndicator::new-label.</doc>
         <source-position filename="app-indicator.h" line="202"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -358,6 +377,9 @@ with @icon_theme_path.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="new_status">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="167">Slot for #AppIndicator::new-status.</doc>
         <source-position filename="app-indicator.h" line="196"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -379,6 +401,9 @@ with @icon_theme_path.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="scroll_event">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="171">Slot for #AppIndicator::scroll-event</doc>
         <source-position filename="app-indicator.h" line="212"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -403,6 +428,10 @@ with @icon_theme_path.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="unfallback">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="175">The function that gets called if an Application
+             Indicator area appears after the fallback has been created.</doc>
         <source-position filename="app-indicator.h" line="221"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1450,6 +1479,9 @@ class object.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="new_icon">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="165">Slot for #AppIndicator::new-icon.</doc>
         <callback name="new_icon">
           <source-position filename="app-indicator.h" line="192"/>
           <return-value transfer-ownership="none">
@@ -1470,6 +1502,9 @@ class object.</doc>
         </callback>
       </field>
       <field name="new_attention_icon">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="166">Slot for #AppIndicator::new-attention-icon.</doc>
         <callback name="new_attention_icon">
           <source-position filename="app-indicator.h" line="194"/>
           <return-value transfer-ownership="none">
@@ -1490,6 +1525,9 @@ class object.</doc>
         </callback>
       </field>
       <field name="new_status">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="167">Slot for #AppIndicator::new-status.</doc>
         <callback name="new_status">
           <source-position filename="app-indicator.h" line="196"/>
           <return-value transfer-ownership="none">
@@ -1513,6 +1551,9 @@ class object.</doc>
         </callback>
       </field>
       <field name="new_icon_theme_path">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="168">Slot for #AppIndicator::new-icon-theme-path</doc>
         <callback name="new_icon_theme_path">
           <source-position filename="app-indicator.h" line="199"/>
           <return-value transfer-ownership="none">
@@ -1536,6 +1577,9 @@ class object.</doc>
         </callback>
       </field>
       <field name="new_label">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="169">Slot for #AppIndicator::new-label.</doc>
         <callback name="new_label">
           <source-position filename="app-indicator.h" line="202"/>
           <return-value transfer-ownership="none">
@@ -1562,6 +1606,9 @@ class object.</doc>
         </callback>
       </field>
       <field name="connection_changed">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="170">Slot for #AppIndicator::connection-changed.</doc>
         <callback name="connection_changed">
           <source-position filename="app-indicator.h" line="208"/>
           <return-value transfer-ownership="none">
@@ -1585,6 +1632,9 @@ class object.</doc>
         </callback>
       </field>
       <field name="scroll_event">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="171">Slot for #AppIndicator::scroll-event</doc>
         <callback name="scroll_event">
           <source-position filename="app-indicator.h" line="212"/>
           <return-value transfer-ownership="none">
@@ -1611,6 +1661,9 @@ class object.</doc>
         </callback>
       </field>
       <field name="app_indicator_reserved_ats">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="172">Reserved for future use.</doc>
         <callback name="app_indicator_reserved_ats">
           <source-position filename="app-indicator.h" line="217"/>
           <return-value transfer-ownership="none">
@@ -1619,6 +1672,10 @@ class object.</doc>
         </callback>
       </field>
       <field name="fallback" introspectable="0">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="173">Function that gets called to make a #GtkStatusIcon when
+           there is no Application Indicator area available.</doc>
         <callback name="fallback" introspectable="0">
           <source-position filename="app-indicator.h" line="220"/>
           <return-value>
@@ -1632,6 +1689,10 @@ class object.</doc>
         </callback>
       </field>
       <field name="unfallback">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="175">The function that gets called if an Application
+             Indicator area appears after the fallback has been created.</doc>
         <callback name="unfallback">
           <source-position filename="app-indicator.h" line="221"/>
           <return-value transfer-ownership="none">
@@ -1648,6 +1709,9 @@ class object.</doc>
         </callback>
       </field>
       <field name="app_indicator_reserved_1">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="177">Reserved for future use.</doc>
         <callback name="app_indicator_reserved_1">
           <source-position filename="app-indicator.h" line="225"/>
           <return-value transfer-ownership="none">
@@ -1656,6 +1720,9 @@ class object.</doc>
         </callback>
       </field>
       <field name="app_indicator_reserved_2">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="178">Reserved for future use.</doc>
         <callback name="app_indicator_reserved_2">
           <source-position filename="app-indicator.h" line="226"/>
           <return-value transfer-ownership="none">
@@ -1664,6 +1731,9 @@ class object.</doc>
         </callback>
       </field>
       <field name="app_indicator_reserved_3">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="179">Reserved for future use.</doc>
         <callback name="app_indicator_reserved_3">
           <source-position filename="app-indicator.h" line="227"/>
           <return-value transfer-ownership="none">
@@ -1672,6 +1742,9 @@ class object.</doc>
         </callback>
       </field>
       <field name="app_indicator_reserved_4">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="180">Reserved for future use.</doc>
         <callback name="app_indicator_reserved_4">
           <source-position filename="app-indicator.h" line="228"/>
           <return-value transfer-ownership="none">
@@ -1680,6 +1753,9 @@ class object.</doc>
         </callback>
       </field>
       <field name="app_indicator_reserved_5">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="181">Reserved for future use.</doc>
         <callback name="app_indicator_reserved_5">
           <source-position filename="app-indicator.h" line="229"/>
           <return-value transfer-ownership="none">
@@ -1688,6 +1764,9 @@ class object.</doc>
         </callback>
       </field>
       <field name="app_indicator_reserved_6">
+        <doc xml:space="preserve"
+             filename="app-indicator.h"
+             line="182">Reserved for future use.</doc>
         <callback name="app_indicator_reserved_6">
           <source-position filename="app-indicator.h" line="230"/>
           <return-value transfer-ownership="none">

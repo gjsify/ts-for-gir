@@ -84,6 +84,9 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </constructor>
       <virtual-method name="changed">
+        <doc xml:space="preserve"
+             filename="src/st/st-adjustment.h"
+             line="38">Class handler for the ::changed signal.</doc>
         <source-position filename="src/st/st-adjustment.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -516,6 +519,9 @@ Note that values will be restricted by `upper - page-size` if
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="changed">
+        <doc xml:space="preserve"
+             filename="src/st/st-adjustment.h"
+             line="38">Class handler for the ::changed signal.</doc>
         <callback name="changed">
           <source-position filename="src/st/st-adjustment.h" line="48"/>
           <return-value transfer-ownership="none">
@@ -1491,7 +1497,7 @@ unrefferenced or freed.</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="src/st/st-clipboard.c"
-             line="346">Sets the #MetaSelection of the default #StClipboard.
+             line="347">Sets the #MetaSelection of the default #StClipboard.
 
 This function is called during the initialization of GNOME Shell.</doc>
         <source-position filename="src/st/st-clipboard.h" line="101"/>
@@ -1661,7 +1667,7 @@ when the data is retrieved.</doc>
       <method name="set_text" c:identifier="st_clipboard_set_text">
         <doc xml:space="preserve"
              filename="src/st/st-clipboard.c"
-             line="322">Sets text as the current contents of the clipboard.</doc>
+             line="323">Sets text as the current contents of the clipboard.</doc>
         <source-position filename="src/st/st-clipboard.h" line="87"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1670,19 +1676,19 @@ when the data is retrieved.</doc>
           <instance-parameter name="clipboard" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-clipboard.c"
-                 line="324">A #StClipboard</doc>
+                 line="325">A #StClipboard</doc>
             <type name="Clipboard" c:type="StClipboard*"/>
           </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-clipboard.c"
-                 line="325">The type of clipboard that you want to set</doc>
+                 line="326">The type of clipboard that you want to set</doc>
             <type name="ClipboardType" c:type="StClipboardType"/>
           </parameter>
           <parameter name="text" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/st/st-clipboard.c"
-                 line="326">text to copy to the clipboard</doc>
+                 line="327">text to copy to the clipboard</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3680,7 +3686,8 @@ This behaviour may change in the future.</doc>
       </method>
       <method name="load_icon"
               c:identifier="st_icon_info_load_icon"
-              throws="1">
+              throws="1"
+              glib:async-func="load_icon_async">
         <doc xml:space="preserve"
              filename="src/st/st-icon-theme.c"
              line="3412">Renders an icon previously looked up in an icon theme using
@@ -3714,7 +3721,9 @@ returned by this function will be scaled to the exact size.</doc>
         </parameters>
       </method>
       <method name="load_icon_async"
-              c:identifier="st_icon_info_load_icon_async">
+              c:identifier="st_icon_info_load_icon_async"
+              glib:finish-func="load_icon_finish"
+              glib:sync-func="load_icon">
         <doc xml:space="preserve"
              filename="src/st/st-icon-theme.c"
              line="3495">Asynchronously load, render and scale an icon previously looked up
@@ -3798,7 +3807,8 @@ version of this call.</doc>
       </method>
       <method name="load_symbolic"
               c:identifier="st_icon_info_load_symbolic"
-              throws="1">
+              throws="1"
+              glib:async-func="load_symbolic_async">
         <doc xml:space="preserve"
              filename="src/st/st-icon-theme.c"
              line="3929">Loads an icon, modifying it to match the system colours for the foreground,
@@ -3853,7 +3863,9 @@ for more information about symbolic icons.</doc>
         </parameters>
       </method>
       <method name="load_symbolic_async"
-              c:identifier="st_icon_info_load_symbolic_async">
+              c:identifier="st_icon_info_load_symbolic_async"
+              glib:finish-func="load_symbolic_finish"
+              glib:sync-func="load_symbolic">
         <doc xml:space="preserve"
              filename="src/st/st-icon-theme.c"
              line="4037">Asynchronously load, render and scale a symbolic icon previously looked up

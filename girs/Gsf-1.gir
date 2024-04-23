@@ -7314,33 +7314,33 @@ representation is "&amp;lt;invalid&amp;gt;".</doc>
     <enumeration name="XMLContent" c:type="GsfXMLContent">
       <doc xml:space="preserve"
            filename="gsf/gsf-libxml.h"
-           line="56">Controls the handling of character data within a parser node.</doc>
-      <source-position filename="gsf/gsf-libxml.h" line="71"/>
+           line="57">Controls the handling of character data within a parser node.</doc>
+      <source-position filename="gsf/gsf-libxml.h" line="72"/>
       <member name="no_content" value="0" c:identifier="GSF_XML_NO_CONTENT">
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.h"
-             line="58">node has no cstr contents</doc>
+             line="59">node has no cstr contents</doc>
       </member>
       <member name="content" value="1" c:identifier="GSF_XML_CONTENT">
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.h"
-             line="59">node has cstr contents</doc>
+             line="60">node has cstr contents</doc>
       </member>
       <member name="shared_content"
               value="2"
               c:identifier="GSF_XML_SHARED_CONTENT">
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.h"
-             line="60">node has contents that is shared with children</doc>
+             line="61">node has contents that is shared with children</doc>
       </member>
       <member name="2nd" value="3" c:identifier="GSF_XML_2ND">
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.h"
-             line="61">node is second or later occurrence</doc>
+             line="62">node is second or later occurrence</doc>
       </member>
     </enumeration>
     <record name="XMLIn" c:type="GsfXMLIn">
-      <source-position filename="gsf/gsf-libxml.h" line="84"/>
+      <source-position filename="gsf/gsf-libxml.h" line="85"/>
       <field name="user_state" writable="1">
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
@@ -7374,7 +7374,7 @@ representation is "&amp;lt;invalid&amp;gt;".</doc>
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
              line="1396">According to @state is @str in the namespace @ns_id ?</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="144"/>
+        <source-position filename="gsf/gsf-libxml.h" line="145"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gsf/gsf-libxml.c"
@@ -7407,7 +7407,7 @@ if successful, otherwise %NULL.</doc>
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
              line="1363">(New in 1.14.2)</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="143"/>
+        <source-position filename="gsf/gsf-libxml.h" line="144"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gsf/gsf-libxml.c"
@@ -7428,7 +7428,7 @@ if successful, otherwise %NULL.</doc>
              filename="gsf/gsf-libxml.c"
              line="1427">Checks to see if @str is the same as @ns_id::@name with either an explicit
 namespace or the current default namespace.</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="146"/>
+        <source-position filename="gsf/gsf-libxml.h" line="147"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gsf/gsf-libxml.c"
@@ -7466,7 +7466,7 @@ namespace or the current default namespace.</doc>
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
              line="1269">Take the first node from @doc as the current node and call its start handler.</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="139"/>
+        <source-position filename="gsf/gsf-libxml.h" line="140"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7516,7 +7516,7 @@ namespace or the current default namespace.</doc>
 
 This provides a means to silently ignore unknown tags in contexts where
 they are expected.</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="148"/>
+        <source-position filename="gsf/gsf-libxml.h" line="149"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7549,7 +7549,7 @@ they are expected.</doc>
              line="1111">Combine the nodes in the %NULL terminated array starting at @nodes with the
 name spaces in the %NULL terminated array starting at @ns.  Prepare the
 data structures necessary to validate a doument based on that description.</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="130"/>
+        <source-position filename="gsf/gsf-libxml.h" line="131"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gsf/gsf-libxml.c"
@@ -7579,7 +7579,7 @@ data structures necessary to validate a doument based on that description.</doc>
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
              line="1166">Adds additional nodes to the structure of @doc</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="134"/>
+        <source-position filename="gsf/gsf-libxml.h" line="135"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7604,7 +7604,7 @@ data structures necessary to validate a doument based on that description.</doc>
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
              line="1088">Free up resources</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="131"/>
+        <source-position filename="gsf/gsf-libxml.h" line="132"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7622,7 +7622,7 @@ data structures necessary to validate a doument based on that description.</doc>
              filename="gsf/gsf-libxml.c"
              line="1302">Read an xml document from @input and parse based on the the descriptor in
 @doc</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="132"/>
+        <source-position filename="gsf/gsf-libxml.h" line="133"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gsf/gsf-libxml.c"
@@ -7658,7 +7658,7 @@ data structures necessary to validate a doument based on that description.</doc>
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
              line="1254">Call the function @handler when an unexpected child node is found</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="136"/>
+        <source-position filename="gsf/gsf-libxml.h" line="137"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7679,7 +7679,7 @@ data structures necessary to validate a doument based on that description.</doc>
       </method>
     </record>
     <callback name="XMLInExtDtor" c:type="GsfXMLInExtDtor">
-      <source-position filename="gsf/gsf-libxml.h" line="74"/>
+      <source-position filename="gsf/gsf-libxml.h" line="75"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -7700,7 +7700,7 @@ data structures necessary to validate a doument based on that description.</doc>
             glib:type-name="GsfXMLInNS"
             glib:get-type="gsf_xml_in_ns_get_type"
             c:symbol-prefix="xml_in_ns">
-      <source-position filename="gsf/gsf-libxml.h" line="109"/>
+      <source-position filename="gsf/gsf-libxml.h" line="110"/>
       <field name="uri" writable="1">
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
@@ -7712,7 +7712,7 @@ data structures necessary to validate a doument based on that description.</doc>
       </field>
     </record>
     <record name="XMLInNode" c:type="GsfXMLInNode">
-      <source-position filename="gsf/gsf-libxml.h" line="104"/>
+      <source-position filename="gsf/gsf-libxml.h" line="105"/>
       <field name="id" writable="1">
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
@@ -7739,7 +7739,7 @@ data structures necessary to validate a doument based on that description.</doc>
       </field>
       <field name="start">
         <callback name="start">
-          <source-position filename="gsf/gsf-libxml.h" line="91"/>
+          <source-position filename="gsf/gsf-libxml.h" line="92"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -7755,7 +7755,7 @@ data structures necessary to validate a doument based on that description.</doc>
       </field>
       <field name="end">
         <callback name="end">
-          <source-position filename="gsf/gsf-libxml.h" line="92"/>
+          <source-position filename="gsf/gsf-libxml.h" line="93"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -7770,7 +7770,7 @@ data structures necessary to validate a doument based on that description.</doc>
         </callback>
       </field>
       <union name="user_data" c:type="user_data">
-        <source-position filename="gsf/gsf-libxml.h" line="99"/>
+        <source-position filename="gsf/gsf-libxml.h" line="100"/>
         <field name="v_int" writable="1">
           <type name="gint" c:type="int"/>
         </field>
@@ -7804,7 +7804,7 @@ data structures necessary to validate a doument based on that description.</doc>
       </field>
     </record>
     <callback name="XMLInUnknownFunc" c:type="GsfXMLInUnknownFunc">
-      <source-position filename="gsf/gsf-libxml.h" line="72"/>
+      <source-position filename="gsf/gsf-libxml.h" line="73"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -7827,12 +7827,12 @@ data structures necessary to validate a doument based on that description.</doc>
            glib:type-name="GsfXMLOut"
            glib:get-type="gsf_xml_out_get_type"
            glib:type-struct="XMLOutClass">
-      <source-position filename="gsf/gsf-libxml.h" line="164"/>
+      <source-position filename="gsf/gsf-libxml.h" line="165"/>
       <constructor name="new" c:identifier="gsf_xml_out_new">
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
              line="1589">Create an XML output stream.</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="181"/>
+        <source-position filename="gsf/gsf-libxml.h" line="182"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gsf/gsf-libxml.c"
@@ -7852,7 +7852,7 @@ data structures necessary to validate a doument based on that description.</doc>
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
              line="2132">Dump @len bytes in @data into the content of node @id using base64</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="211"/>
+        <source-position filename="gsf/gsf-libxml.h" line="212"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7893,7 +7893,7 @@ data structures necessary to validate a doument based on that description.</doc>
              filename="gsf/gsf-libxml.c"
              line="1930">dump boolean value @val to an attribute named @id or as the nodes content
 Use '1' or '0' to simplify import</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="201"/>
+        <source-position filename="gsf/gsf-libxml.h" line="202"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7925,7 +7925,7 @@ Use '1' or '0' to simplify import</doc>
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
              line="2009">dump Color @r.@g.@b to an attribute named @id or as the nodes content</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="209"/>
+        <source-position filename="gsf/gsf-libxml.h" line="210"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7971,7 +7971,7 @@ Use '1' or '0' to simplify import</doc>
              line="1851">dump @val_utf8 to an attribute named @id or as the nodes content escaping
 characters as necessary.  If @val_utf8 is %NULL do nothing (no warning, no
 output)</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="199"/>
+        <source-position filename="gsf/gsf-libxml.h" line="200"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -8010,7 +8010,7 @@ output)</doc>
 the content needs escaping.  A useful performance enhancement when
 the application knows that structure of the content well.  If
 @val_utf8 is %NULL do nothing (no warning, no output)</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="197"/>
+        <source-position filename="gsf/gsf-libxml.h" line="198"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -8045,7 +8045,7 @@ the application knows that structure of the content well.  If
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
              line="2028">Output the name of value @val of enumeration type @etype.</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="213"/>
+        <source-position filename="gsf/gsf-libxml.h" line="214"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -8085,7 +8085,7 @@ the application knows that structure of the content well.  If
              line="1982">dump float value @val to an attribute named @id or as the nodes
 content with precision @precision.  The number will be formattted
 according to the "C" locale.</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="207"/>
+        <source-position filename="gsf/gsf-libxml.h" line="208"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -8124,7 +8124,7 @@ according to the "C" locale.</doc>
              filename="gsf/gsf-libxml.c"
              line="2051">Output the value of @val as a string.  Does NOT store any type information
 with the string, just thevalue.</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="215"/>
+        <source-position filename="gsf/gsf-libxml.h" line="216"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -8156,7 +8156,7 @@ with the string, just thevalue.</doc>
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
              line="1947">dump integer value @val to an attribute named @id or as the nodes content</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="203"/>
+        <source-position filename="gsf/gsf-libxml.h" line="204"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -8189,7 +8189,7 @@ with the string, just thevalue.</doc>
              filename="gsf/gsf-libxml.c"
              line="1964">dump unsigned integer value @val to an attribute named @id or as the nodes
 content</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="205"/>
+        <source-position filename="gsf/gsf-libxml.h" line="206"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -8221,7 +8221,7 @@ content</doc>
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
              line="1718">Closes/ends an XML element.</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="185"/>
+        <source-position filename="gsf/gsf-libxml.h" line="186"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gsf/gsf-libxml.c"
@@ -8241,7 +8241,7 @@ content</doc>
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
              line="2157">Get the #GsfOutput we are writing to..</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="221"/>
+        <source-position filename="gsf/gsf-libxml.h" line="222"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gsf/gsf-libxml.c"
@@ -8260,7 +8260,7 @@ content</doc>
       <method name="get_pretty_print"
               c:identifier="gsf_xml_out_get_pretty_print"
               glib:get-property="pretty-print">
-        <source-position filename="gsf/gsf-libxml.h" line="187"/>
+        <source-position filename="gsf/gsf-libxml.h" line="188"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gsf/gsf-libxml.c"
@@ -8281,7 +8281,7 @@ gsf_xml_out_set_pretty_print will return the same value.</doc>
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
              line="1607">Store some optional &amp;lt;!DOCTYPE .. &amp;gt; content</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="183"/>
+        <source-position filename="gsf/gsf-libxml.h" line="184"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -8303,7 +8303,7 @@ gsf_xml_out_set_pretty_print will return the same value.</doc>
       <method name="set_pretty_print"
               c:identifier="gsf_xml_out_set_pretty_print"
               glib:set-property="pretty-print">
-        <source-position filename="gsf/gsf-libxml.h" line="188"/>
+        <source-position filename="gsf/gsf-libxml.h" line="189"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gsf/gsf-libxml.c"
@@ -8329,7 +8329,7 @@ gsf_xml_out_set_pretty_print will return the same value.</doc>
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
              line="1761">Convenience routine to output a simple @id element with content @content.</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="190"/>
+        <source-position filename="gsf/gsf-libxml.h" line="191"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -8360,7 +8360,7 @@ gsf_xml_out_set_pretty_print will return the same value.</doc>
              filename="gsf/gsf-libxml.c"
              line="1795">Convenience routine to output an element @id with float value @val using
 @precision significant digits.</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="194"/>
+        <source-position filename="gsf/gsf-libxml.h" line="195"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -8396,7 +8396,7 @@ gsf_xml_out_set_pretty_print will return the same value.</doc>
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
              line="1779">Convenience routine to output an element @id with integer value @val.</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="192"/>
+        <source-position filename="gsf/gsf-libxml.h" line="193"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -8425,7 +8425,7 @@ gsf_xml_out_set_pretty_print will return the same value.</doc>
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
              line="1679">Output a start element @id, if necessary preceeded by an XML declaration.</doc>
-        <source-position filename="gsf/gsf-libxml.h" line="184"/>
+        <source-position filename="gsf/gsf-libxml.h" line="185"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -8471,13 +8471,13 @@ gsf_xml_out_set_pretty_print will return the same value.</doc>
     <record name="XMLOutClass"
             c:type="GsfXMLOutClass"
             glib:is-gtype-struct-for="XMLOut">
-      <source-position filename="gsf/gsf-libxml.h" line="164"/>
+      <source-position filename="gsf/gsf-libxml.h" line="165"/>
       <field name="base">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="_gsf_reserved1" introspectable="0">
         <callback name="_gsf_reserved1">
-          <source-position filename="gsf/gsf-libxml.h" line="160"/>
+          <source-position filename="gsf/gsf-libxml.h" line="161"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -8485,7 +8485,7 @@ gsf_xml_out_set_pretty_print will return the same value.</doc>
       </field>
       <field name="_gsf_reserved2" introspectable="0">
         <callback name="_gsf_reserved2">
-          <source-position filename="gsf/gsf-libxml.h" line="161"/>
+          <source-position filename="gsf/gsf-libxml.h" line="162"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -8493,7 +8493,7 @@ gsf_xml_out_set_pretty_print will return the same value.</doc>
       </field>
       <field name="_gsf_reserved3" introspectable="0">
         <callback name="_gsf_reserved3">
-          <source-position filename="gsf/gsf-libxml.h" line="162"/>
+          <source-position filename="gsf/gsf-libxml.h" line="163"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -8501,7 +8501,7 @@ gsf_xml_out_set_pretty_print will return the same value.</doc>
       </field>
       <field name="_gsf_reserved4" introspectable="0">
         <callback name="_gsf_reserved4">
-          <source-position filename="gsf/gsf-libxml.h" line="163"/>
+          <source-position filename="gsf/gsf-libxml.h" line="164"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -8509,7 +8509,7 @@ gsf_xml_out_set_pretty_print will return the same value.</doc>
       </field>
     </record>
     <callback name="XMLProbeFunc" c:type="GsfXMLProbeFunc">
-      <source-position filename="gsf/gsf-libxml.h" line="42"/>
+      <source-position filename="gsf/gsf-libxml.h" line="43"/>
       <return-value transfer-ownership="none">
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -8543,7 +8543,7 @@ gsf_xml_out_set_pretty_print will return the same value.</doc>
     <function-macro name="XML_IN_NS"
                     c:identifier="GSF_XML_IN_NS"
                     introspectable="0">
-      <source-position filename="gsf/gsf-libxml.h" line="111"/>
+      <source-position filename="gsf/gsf-libxml.h" line="112"/>
       <parameters>
         <parameter name="id">
         </parameter>
@@ -9852,7 +9852,7 @@ No additional references are created.</doc>
       <doc xml:space="preserve"
            filename="gsf/gsf-libxml.c"
            line="379">Dumps the document @cur into @output.</doc>
-      <source-position filename="gsf/gsf-libxml.h" line="37"/>
+      <source-position filename="gsf/gsf-libxml.h" line="38"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
@@ -9894,7 +9894,7 @@ No additional references are created.</doc>
       <doc xml:space="preserve"
            filename="gsf/gsf-libxml.c"
            line="188">Try to parse @str as a value of type @t into @res.</doc>
-      <source-position filename="gsf/gsf-libxml.h" line="220"/>
+      <source-position filename="gsf/gsf-libxml.h" line="221"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
@@ -9936,7 +9936,7 @@ This signature will probably change to supply a SAX structure.
 when we add other api changes.  Its not worth bumping just for this.&lt;/note&gt;
 
 NOTE: skipped since xmlParserCtxt is not exported to introspection.</doc>
-      <source-position filename="gsf/gsf-libxml.h" line="32"/>
+      <source-position filename="gsf/gsf-libxml.h" line="33"/>
       <return-value nullable="1">
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"
@@ -9953,7 +9953,7 @@ NOTE: skipped since xmlParserCtxt is not exported to introspection.</doc>
       </parameters>
     </function>
     <function name="xml_probe" c:identifier="gsf_xml_probe">
-      <source-position filename="gsf/gsf-libxml.h" line="50"/>
+      <source-position filename="gsf/gsf-libxml.h" line="51"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gsf/gsf-libxml.c"

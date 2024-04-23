@@ -9,6 +9,7 @@ and/or use gtk-doc annotations.  -->
   <include name="Gio" version="2.0"/>
   <include name="Gtk" version="4.0"/>
   <include name="GtkSource" version="5"/>
+  <package name="libspelling-1"/>
   <c:include name="libspelling.h"/>
   <namespace name="Spelling"
              version="1"

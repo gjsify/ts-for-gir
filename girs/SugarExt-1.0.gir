@@ -72,7 +72,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="CURSOR_TRACKER"
                     c:identifier="SUGAR_CURSOR_TRACKER"
                     introspectable="0">
-      <source-position filename="sugar-cursor-tracker.h" line="34"/>
+      <source-position filename="sugar-cursor-tracker.h" line="36"/>
       <parameters>
         <parameter name="object">
         </parameter>
@@ -81,7 +81,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="CURSOR_TRACKER_CLASS"
                     c:identifier="SUGAR_CURSOR_TRACKER_CLASS"
                     introspectable="0">
-      <source-position filename="sugar-cursor-tracker.h" line="35"/>
+      <source-position filename="sugar-cursor-tracker.h" line="37"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -90,7 +90,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="CURSOR_TRACKER_GET_CLASS"
                     c:identifier="SUGAR_CURSOR_TRACKER_GET_CLASS"
                     introspectable="0">
-      <source-position filename="sugar-cursor-tracker.h" line="38"/>
+      <source-position filename="sugar-cursor-tracker.h" line="40"/>
       <parameters>
         <parameter name="object">
         </parameter>
@@ -185,7 +185,7 @@ and/or use gtk-doc annotations.  -->
       <virtual-method name="set_restart_command" invoker="set_restart_command">
         <doc xml:space="preserve"
              filename="eggsmclient.c"
-             line="260">Sets the command used to restart @client if it does not have a
+             line="256">Sets the command used to restart @client if it does not have a
 .desktop file that can be used to find its restart command.
 
 This can also be used when handling the ::save_state signal, to
@@ -199,19 +199,19 @@ a list of filenames to open when the application is resumed.)</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eggsmclient.c"
-                 line="262">the client</doc>
+                 line="258">the client</doc>
             <type name="Client" c:type="EggSMClient*"/>
           </instance-parameter>
           <parameter name="argc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eggsmclient.c"
-                 line="263">the length of @argv</doc>
+                 line="259">the length of @argv</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="argv" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eggsmclient.c"
-                 line="264">argument vector</doc>
+                 line="260">argument vector</doc>
             <type name="utf8" c:type="const char**"/>
           </parameter>
         </parameters>
@@ -233,7 +233,7 @@ a list of filenames to open when the application is resumed.)</doc>
       <virtual-method name="will_quit" invoker="will_quit">
         <doc xml:space="preserve"
              filename="eggsmclient.c"
-             line="284">This MUST be called in response to the ::quit_requested signal, to
+             line="280">This MUST be called in response to the ::quit_requested signal, to
 indicate whether or not the application is willing to quit. The
 application may call it either directly from the signal handler, or
 at some later point (eg, after asynchronously interacting with the
@@ -253,13 +253,13 @@ either ::quit_cancelled or ::quit.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eggsmclient.c"
-                 line="286">the client</doc>
+                 line="282">the client</doc>
             <type name="Client" c:type="EggSMClient*"/>
           </instance-parameter>
           <parameter name="will_quit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eggsmclient.c"
-                 line="287">whether or not the application is willing to quit</doc>
+                 line="283">whether or not the application is willing to quit</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -268,7 +268,7 @@ either ::quit_cancelled or ::quit.</doc>
               c:identifier="egg_sm_client_get_state_file">
         <doc xml:space="preserve"
              filename="eggsmclient.c"
-             line="210">If the application was resumed by the session manager, this will
+             line="206">If the application was resumed by the session manager, this will
 return the #GKeyFile containing its state from the previous
 session.
 
@@ -282,7 +282,7 @@ when it is resumed.)</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="eggsmclient.c"
-               line="225">the #GKeyFile containing the application's earlier
+               line="221">the #GKeyFile containing the application's earlier
 state, or %NULL on error. You should not free this key file; it
 is owned by @client.</doc>
           <type name="GLib.KeyFile" c:type="GKeyFile*"/>
@@ -291,7 +291,7 @@ is owned by @client.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eggsmclient.c"
-                 line="212">the client</doc>
+                 line="208">the client</doc>
             <type name="Client" c:type="EggSMClient*"/>
           </instance-parameter>
         </parameters>
@@ -299,7 +299,7 @@ is owned by @client.</doc>
       <method name="is_resumed" c:identifier="egg_sm_client_is_resumed">
         <doc xml:space="preserve"
              filename="eggsmclient.c"
-             line="193">Checks whether or not the current session has been resumed from
+             line="189">Checks whether or not the current session has been resumed from
 a previous saved session. If so, the application should call
 egg_sm_client_get_state_file() and restore its state from the
 returned #GKeyFile.</doc>
@@ -307,14 +307,14 @@ returned #GKeyFile.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="eggsmclient.c"
-               line="202">%TRUE if the session has been resumed</doc>
+               line="198">%TRUE if the session has been resumed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eggsmclient.c"
-                 line="195">the client</doc>
+                 line="191">the client</doc>
             <type name="Client" c:type="EggSMClient*"/>
           </instance-parameter>
         </parameters>
@@ -323,7 +323,7 @@ returned #GKeyFile.</doc>
               c:identifier="egg_sm_client_set_restart_command">
         <doc xml:space="preserve"
              filename="eggsmclient.c"
-             line="260">Sets the command used to restart @client if it does not have a
+             line="256">Sets the command used to restart @client if it does not have a
 .desktop file that can be used to find its restart command.
 
 This can also be used when handling the ::save_state signal, to
@@ -337,19 +337,19 @@ a list of filenames to open when the application is resumed.)</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eggsmclient.c"
-                 line="262">the client</doc>
+                 line="258">the client</doc>
             <type name="Client" c:type="EggSMClient*"/>
           </instance-parameter>
           <parameter name="argc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eggsmclient.c"
-                 line="263">the length of @argv</doc>
+                 line="259">the length of @argv</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="argv" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eggsmclient.c"
-                 line="264">argument vector</doc>
+                 line="260">argument vector</doc>
             <type name="utf8" c:type="const char**"/>
           </parameter>
         </parameters>
@@ -368,7 +368,7 @@ a list of filenames to open when the application is resumed.)</doc>
       <method name="will_quit" c:identifier="egg_sm_client_will_quit">
         <doc xml:space="preserve"
              filename="eggsmclient.c"
-             line="284">This MUST be called in response to the ::quit_requested signal, to
+             line="280">This MUST be called in response to the ::quit_requested signal, to
 indicate whether or not the application is willing to quit. The
 application may call it either directly from the signal handler, or
 at some later point (eg, after asynchronously interacting with the
@@ -388,13 +388,13 @@ either ::quit_cancelled or ::quit.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eggsmclient.c"
-                 line="286">the client</doc>
+                 line="282">the client</doc>
             <type name="Client" c:type="EggSMClient*"/>
           </instance-parameter>
           <parameter name="will_quit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="eggsmclient.c"
-                 line="287">whether or not the application is willing to quit</doc>
+                 line="283">whether or not the application is willing to quit</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -405,7 +405,7 @@ either ::quit_cancelled or ::quit.</doc>
       <glib:signal name="quit" when="last">
         <doc xml:space="preserve"
              filename="eggsmclient.c"
-             line="150">Emitted when the session manager wants the application to quit
+             line="146">Emitted when the session manager wants the application to quit
 (generally because the user is logging out). The application
 should exit as soon as possible after receiving this signal; if
 it does not, the session manager may choose to forcibly kill it.
@@ -531,19 +531,19 @@ chance to object.</doc>
             <parameter name="client" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="eggsmclient.c"
-                   line="262">the client</doc>
+                   line="258">the client</doc>
               <type name="Client" c:type="EggSMClient*"/>
             </parameter>
             <parameter name="argc" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="eggsmclient.c"
-                   line="263">the length of @argv</doc>
+                   line="259">the length of @argv</doc>
               <type name="gint" c:type="int"/>
             </parameter>
             <parameter name="argv" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="eggsmclient.c"
-                   line="264">argument vector</doc>
+                   line="260">argument vector</doc>
               <type name="utf8" c:type="const char**"/>
             </parameter>
           </parameters>
@@ -559,13 +559,13 @@ chance to object.</doc>
             <parameter name="client" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="eggsmclient.c"
-                   line="286">the client</doc>
+                   line="282">the client</doc>
               <type name="Client" c:type="EggSMClient*"/>
             </parameter>
             <parameter name="will_quit" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="eggsmclient.c"
-                   line="287">whether or not the application is willing to quit</doc>
+                   line="283">whether or not the application is willing to quit</doc>
               <type name="gboolean" c:type="gboolean"/>
             </parameter>
           </parameters>
@@ -756,9 +756,9 @@ chance to object.</doc>
            glib:type-name="SugarCursorTracker"
            glib:get-type="sugar_cursor_tracker_get_type"
            glib:type-struct="CursorTrackerClass">
-      <source-position filename="sugar-cursor-tracker.h" line="47"/>
+      <source-position filename="sugar-cursor-tracker.h" line="49"/>
       <constructor name="new" c:identifier="sugar_cursor_tracker_new">
-        <source-position filename="sugar-cursor-tracker.h" line="50"/>
+        <source-position filename="sugar-cursor-tracker.h" line="58"/>
         <return-value transfer-ownership="full">
           <type name="CursorTracker" c:type="SugarCursorTracker*"/>
         </return-value>
@@ -766,22 +766,31 @@ chance to object.</doc>
       <field name="parent_instance">
         <type name="GObject.Object" c:type="GObject"/>
       </field>
-      <field name="_priv">
-        <type name="gpointer" c:type="gpointer"/>
+      <field name="priv">
+        <type name="CursorTrackerPrivate" c:type="SugarCursorTrackerPrivate*"/>
       </field>
     </class>
     <record name="CursorTrackerClass"
             c:type="SugarCursorTrackerClass"
             glib:is-gtype-struct-for="CursorTracker">
-      <source-position filename="sugar-cursor-tracker.h" line="47"/>
+      <source-position filename="sugar-cursor-tracker.h" line="49"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="CursorTrackerPrivate" c:type="SugarCursorTrackerPrivate">
+      <source-position filename="sugar-cursor-tracker.h" line="55"/>
+      <field name="root_window" writable="1">
+        <type name="Gdk.Window" c:type="GdkWindow*"/>
+      </field>
+      <field name="cursor_shown" writable="1">
+        <type name="gboolean" c:type="gboolean"/>
       </field>
     </record>
     <function-macro name="GESTURE_GRABBER"
                     c:identifier="SUGAR_GESTURE_GRABBER"
                     introspectable="0">
-      <source-position filename="sugar-gesture-grabber.h" line="34"/>
+      <source-position filename="sugar-gesture-grabber.h" line="36"/>
       <parameters>
         <parameter name="object">
         </parameter>
@@ -790,7 +799,7 @@ chance to object.</doc>
     <function-macro name="GESTURE_GRABBER_CLASS"
                     c:identifier="SUGAR_GESTURE_GRABBER_CLASS"
                     introspectable="0">
-      <source-position filename="sugar-gesture-grabber.h" line="35"/>
+      <source-position filename="sugar-gesture-grabber.h" line="37"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -799,7 +808,7 @@ chance to object.</doc>
     <function-macro name="GESTURE_GRABBER_GET_CLASS"
                     c:identifier="SUGAR_GESTURE_GRABBER_GET_CLASS"
                     introspectable="0">
-      <source-position filename="sugar-gesture-grabber.h" line="38"/>
+      <source-position filename="sugar-gesture-grabber.h" line="40"/>
       <parameters>
         <parameter name="object">
         </parameter>
@@ -837,15 +846,15 @@ chance to object.</doc>
            glib:type-name="SugarGestureGrabber"
            glib:get-type="sugar_gesture_grabber_get_type"
            glib:type-struct="GestureGrabberClass">
-      <source-position filename="sugar-gesture-grabber.h" line="47"/>
+      <source-position filename="sugar-gesture-grabber.h" line="49"/>
       <constructor name="new" c:identifier="sugar_gesture_grabber_new">
-        <source-position filename="sugar-gesture-grabber.h" line="50"/>
+        <source-position filename="sugar-gesture-grabber.h" line="60"/>
         <return-value transfer-ownership="full">
           <type name="GestureGrabber" c:type="SugarGestureGrabber*"/>
         </return-value>
       </constructor>
       <method name="add" c:identifier="sugar_gesture_grabber_add">
-        <source-position filename="sugar-gesture-grabber.h" line="51"/>
+        <source-position filename="sugar-gesture-grabber.h" line="61"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -863,7 +872,7 @@ chance to object.</doc>
         </parameters>
       </method>
       <method name="remove" c:identifier="sugar_gesture_grabber_remove">
-        <source-position filename="sugar-gesture-grabber.h" line="54"/>
+        <source-position filename="sugar-gesture-grabber.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -880,16 +889,36 @@ chance to object.</doc>
       <field name="parent_instance">
         <type name="GObject.Object" c:type="GObject"/>
       </field>
-      <field name="_priv">
-        <type name="gpointer" c:type="gpointer"/>
+      <field name="priv">
+        <type name="GestureGrabberPrivate"
+              c:type="SugarGestureGrabberPrivate*"/>
       </field>
     </class>
     <record name="GestureGrabberClass"
             c:type="SugarGestureGrabberClass"
             glib:is-gtype-struct-for="GestureGrabber">
-      <source-position filename="sugar-gesture-grabber.h" line="47"/>
+      <source-position filename="sugar-gesture-grabber.h" line="49"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="GestureGrabberPrivate" c:type="SugarGestureGrabberPrivate">
+      <source-position filename="sugar-gesture-grabber.h" line="57"/>
+      <field name="root_window" writable="1">
+        <type name="Gdk.Window" c:type="GdkWindow*"/>
+      </field>
+      <field name="controllers" writable="1">
+        <array name="GLib.Array" c:type="GArray*">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+      <field name="touches" writable="1">
+        <array name="GLib.Array" c:type="GArray*">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+      <field name="cancel_timeout_id" writable="1">
+        <type name="guint" c:type="guint"/>
       </field>
     </record>
     <class name="Grid"
@@ -983,7 +1012,7 @@ chance to object.</doc>
     <function-macro name="IS_CURSOR_TRACKER"
                     c:identifier="SUGAR_IS_CURSOR_TRACKER"
                     introspectable="0">
-      <source-position filename="sugar-cursor-tracker.h" line="36"/>
+      <source-position filename="sugar-cursor-tracker.h" line="38"/>
       <parameters>
         <parameter name="object">
         </parameter>
@@ -992,7 +1021,7 @@ chance to object.</doc>
     <function-macro name="IS_CURSOR_TRACKER_CLASS"
                     c:identifier="SUGAR_IS_CURSOR_TRACKER_CLASS"
                     introspectable="0">
-      <source-position filename="sugar-cursor-tracker.h" line="37"/>
+      <source-position filename="sugar-cursor-tracker.h" line="39"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -1001,7 +1030,7 @@ chance to object.</doc>
     <function-macro name="IS_GESTURE_GRABBER"
                     c:identifier="SUGAR_IS_GESTURE_GRABBER"
                     introspectable="0">
-      <source-position filename="sugar-gesture-grabber.h" line="36"/>
+      <source-position filename="sugar-gesture-grabber.h" line="38"/>
       <parameters>
         <parameter name="object">
         </parameter>
@@ -1010,7 +1039,7 @@ chance to object.</doc>
     <function-macro name="IS_GESTURE_GRABBER_CLASS"
                     c:identifier="SUGAR_IS_GESTURE_GRABBER_CLASS"
                     introspectable="0">
-      <source-position filename="sugar-gesture-grabber.h" line="37"/>
+      <source-position filename="sugar-gesture-grabber.h" line="39"/>
       <parameters>
         <parameter name="klass">
         </parameter>

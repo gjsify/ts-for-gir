@@ -141,7 +141,8 @@ and/or use gtk-doc annotations.  -->
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_duration">
+                getter="get_duration"
+                default-value="0">
         <type name="gint64" c:type="gint64"/>
       </property>
       <property name="end-actor"
@@ -155,17 +156,22 @@ and/or use gtk-doc annotations.  -->
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_end_reason">
+                getter="get_end_reason"
+                default-value="0">
         <type name="gint" c:type="gint"/>
       </property>
     </class>
     <record name="CallEventClass"
             c:type="TplCallEventClass"
             disguised="1"
+            opaque="1"
             glib:is-gtype-struct-for="CallEvent">
       <source-position filename="call-event.h" line="37"/>
     </record>
-    <record name="CallEventPriv" c:type="TplCallEventPriv" disguised="1">
+    <record name="CallEventPriv"
+            c:type="TplCallEventPriv"
+            disguised="1"
+            opaque="1">
       <source-position filename="call-event.h" line="38"/>
     </record>
     <function-macro name="ENTITY" c:identifier="TPL_ENTITY" introspectable="0">
@@ -373,7 +379,8 @@ normal contact and self contact, thus only %TPL_ENTITY_CONTACT and
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_alias">
+                getter="get_alias"
+                default-value="NULL">
         <doc xml:space="preserve"
              filename="entity.c"
              line="184">The entity's alias</doc>
@@ -383,7 +390,8 @@ normal contact and self contact, thus only %TPL_ENTITY_CONTACT and
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_avatar_token">
+                getter="get_avatar_token"
+                default-value="NULL">
         <doc xml:space="preserve"
              filename="entity.c"
              line="196">The entity's avatar token</doc>
@@ -393,7 +401,8 @@ normal contact and self contact, thus only %TPL_ENTITY_CONTACT and
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_identifier">
+                getter="get_identifier"
+                default-value="NULL">
         <doc xml:space="preserve"
              filename="entity.c"
              line="172">The entity's identifier</doc>
@@ -402,7 +411,8 @@ normal contact and self contact, thus only %TPL_ENTITY_CONTACT and
       <property name="type"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="0">
         <doc xml:space="preserve"
              filename="entity.c"
              line="158">The entity's type (see #TplEntityType).</doc>
@@ -415,7 +425,7 @@ normal contact and self contact, thus only %TPL_ENTITY_CONTACT and
         <type name="EntityPriv" c:type="TplEntityPriv*"/>
       </field>
     </class>
-    <record name="EntityPriv" c:type="TplEntityPriv" disguised="1">
+    <record name="EntityPriv" c:type="TplEntityPriv" disguised="1" opaque="1">
       <source-position filename="entity.h" line="54"/>
     </record>
     <enumeration name="EntityType" c:type="TplEntityType">
@@ -593,13 +603,15 @@ data, %FALSE otherwise</doc>
       </property>
       <property name="account-path"
                 transfer-ownership="none"
-                getter="get_account_path">
+                getter="get_account_path"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="channel-path"
                 writable="1"
                 construct-only="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="receiver"
@@ -620,17 +632,19 @@ data, %FALSE otherwise</doc>
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_timestamp">
+                getter="get_timestamp"
+                default-value="0">
         <type name="gint64" c:type="gint64"/>
       </property>
     </class>
     <record name="EventClass"
             c:type="TplEventClass"
             disguised="1"
+            opaque="1"
             glib:is-gtype-struct-for="Event">
       <source-position filename="event.h" line="39"/>
     </record>
-    <record name="EventPriv" c:type="TplEventPriv" disguised="1">
+    <record name="EventPriv" c:type="TplEventPriv" disguised="1" opaque="1">
       <source-position filename="event.h" line="40"/>
     </record>
     <bitfield name="EventTypeMask" c:type="TplEventTypeMask">
@@ -1773,7 +1787,10 @@ the request is satisfied</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
     </record>
-    <record name="LogWalkerPriv" c:type="TplLogWalkerPriv" disguised="1">
+    <record name="LogWalkerPriv"
+            c:type="TplLogWalkerPriv"
+            disguised="1"
+            opaque="1">
       <source-position filename="log-walker.h" line="53"/>
     </record>
     <function-macro name="TEXT_EVENT"
@@ -1936,45 +1953,54 @@ supersedes.</doc>
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_edit_timestamp">
+                getter="get_edit_timestamp"
+                default-value="0">
         <type name="gint64" c:type="gint64"/>
       </property>
       <property name="message"
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_message">
+                getter="get_message"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="message-token"
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_message_token">
+                getter="get_message_token"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="message-type"
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_message_type">
+                getter="get_message_type"
+                default-value="0">
         <type name="guint" c:type="guint"/>
       </property>
       <property name="supersedes-token"
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
-                getter="get_supersedes_token">
+                getter="get_supersedes_token"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
     </class>
     <record name="TextEventClass"
             c:type="TplTextEventClass"
             disguised="1"
+            opaque="1"
             glib:is-gtype-struct-for="TextEvent">
       <source-position filename="text-event.h" line="37"/>
     </record>
-    <record name="TextEventPriv" c:type="TplTextEventPriv" disguised="1">
+    <record name="TextEventPriv"
+            c:type="TplTextEventPriv"
+            disguised="1"
+            opaque="1">
       <source-position filename="text-event.h" line="38"/>
     </record>
     <docsection name="call-event">

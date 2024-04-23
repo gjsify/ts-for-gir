@@ -551,7 +551,7 @@ This does not open the files, it only creates the object. For most use cases, yo
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="docs/wp-gtkdoc.h"
-                 line="718">unused, reserved for future use</doc>
+                 line="718">a WpProperties with keys specifying how to load the WpConf object</doc>
             <type name="Properties" c:type="WpProperties*"/>
           </parameter>
         </parameters>
@@ -580,7 +580,7 @@ This does not open the files, it only creates the object. For most use cases, yo
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="docs/wp-gtkdoc.h"
-                 line="733">unused, reserved for future use</doc>
+                 line="733">a WpProperties with keys specifying how to load the WpConf object</doc>
             <type name="Properties" c:type="WpProperties*"/>
           </parameter>
         </parameters>
@@ -757,6 +757,12 @@ This does not open the files, it only creates the object. For most use cases, yo
                 getter="get_name"
                 default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="properties"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Properties"/>
       </property>
     </class>
     <record name="ConfClass"

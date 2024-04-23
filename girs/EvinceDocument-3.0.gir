@@ -11356,7 +11356,7 @@ the given line in the source file. It must be free with g_free when done</doc>
     <record name="LinkPrivate" c:type="EvLinkPrivate" disguised="1" opaque="1">
       <source-position filename="libdocument/ev-link.h" line="36"/>
     </record>
-    <constant name="MAJOR_VERSION" value="45" c:type="EV_MAJOR_VERSION">
+    <constant name="MAJOR_VERSION" value="46" c:type="EV_MAJOR_VERSION">
       <doc xml:space="preserve"
            filename="libdocument/ev-version.h"
            line="28">The major version number of the EV library

@@ -1506,7 +1506,7 @@ to the notify::name signal on @annot.</doc>
     <function-macro name="BACKEND_IMPLEMENT_INTERFACE"
                     c:identifier="EV_BACKEND_IMPLEMENT_INTERFACE"
                     introspectable="0">
-      <source-position filename="ev-document.h" line="235"/>
+      <source-position filename="ev-document.h" line="232"/>
       <parameters>
         <parameter name="TYPE_IFACE">
         </parameter>
@@ -1517,7 +1517,7 @@ to the notify::name signal on @annot.</doc>
     <function-macro name="BACKEND_REGISTER"
                     c:identifier="EV_BACKEND_REGISTER"
                     introspectable="0">
-      <source-position filename="ev-document.h" line="300"/>
+      <source-position filename="ev-document.h" line="297"/>
       <parameters>
         <parameter name="BackendName">
         </parameter>
@@ -1528,7 +1528,7 @@ to the notify::name signal on @annot.</doc>
     <function-macro name="BACKEND_REGISTER_WITH_CODE"
                     c:identifier="EV_BACKEND_REGISTER_WITH_CODE"
                     introspectable="0">
-      <source-position filename="ev-document.h" line="250"/>
+      <source-position filename="ev-document.h" line="247"/>
       <parameters>
         <parameter name="BackendName">
         </parameter>
@@ -1606,7 +1606,7 @@ equal to the required one, and &lt;literal&gt;0&lt;/literal&gt; otherwise.</doc>
     <function-macro name="DOCUMENT"
                     c:identifier="EV_DOCUMENT"
                     introspectable="0">
-      <source-position filename="ev-document.h" line="45"/>
+      <source-position filename="ev-document.h" line="42"/>
       <parameters>
         <parameter name="o">
         </parameter>
@@ -1669,7 +1669,7 @@ equal to the required one, and &lt;literal&gt;0&lt;/literal&gt; otherwise.</doc>
     <function-macro name="DOCUMENT_CLASS"
                     c:identifier="EV_DOCUMENT_CLASS"
                     introspectable="0">
-      <source-position filename="ev-document.h" line="46"/>
+      <source-position filename="ev-document.h" line="43"/>
       <parameters>
         <parameter name="k">
         </parameter>
@@ -1759,7 +1759,7 @@ equal to the required one, and &lt;literal&gt;0&lt;/literal&gt; otherwise.</doc>
     <function-macro name="DOCUMENT_GET_CLASS"
                     c:identifier="EV_DOCUMENT_GET_CLASS"
                     introspectable="0">
-      <source-position filename="ev-document.h" line="49"/>
+      <source-position filename="ev-document.h" line="46"/>
       <parameters>
         <parameter name="inst">
         </parameter>
@@ -1989,24 +1989,24 @@ equal to the required one, and &lt;literal&gt;0&lt;/literal&gt; otherwise.</doc>
            glib:type-name="EvDocument"
            glib:get-type="ev_document_get_type"
            glib:type-struct="DocumentClass">
-      <source-position filename="ev-document.h" line="124"/>
+      <source-position filename="ev-document.h" line="121"/>
       <function name="doc_mutex_lock"
                 c:identifier="ev_document_doc_mutex_lock">
-        <source-position filename="ev-document.h" line="131"/>
+        <source-position filename="ev-document.h" line="128"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
       </function>
       <function name="doc_mutex_trylock"
                 c:identifier="ev_document_doc_mutex_trylock">
-        <source-position filename="ev-document.h" line="133"/>
+        <source-position filename="ev-document.h" line="130"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
       </function>
       <function name="doc_mutex_unlock"
                 c:identifier="ev_document_doc_mutex_unlock">
-        <source-position filename="ev-document.h" line="132"/>
+        <source-position filename="ev-document.h" line="129"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2069,21 +2069,21 @@ If the document is encrypted, it is returned but also @error is set to
         </parameters>
       </function>
       <function name="fc_mutex_lock" c:identifier="ev_document_fc_mutex_lock">
-        <source-position filename="ev-document.h" line="137"/>
+        <source-position filename="ev-document.h" line="134"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
       </function>
       <function name="fc_mutex_trylock"
                 c:identifier="ev_document_fc_mutex_trylock">
-        <source-position filename="ev-document.h" line="139"/>
+        <source-position filename="ev-document.h" line="136"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
       </function>
       <function name="fc_mutex_unlock"
                 c:identifier="ev_document_fc_mutex_unlock">
-        <source-position filename="ev-document.h" line="138"/>
+        <source-position filename="ev-document.h" line="135"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2091,7 +2091,7 @@ If the document is encrypted, it is returned but also @error is set to
       <function name="get_doc_mutex"
                 c:identifier="ev_document_get_doc_mutex"
                 introspectable="0">
-        <source-position filename="ev-document.h" line="130"/>
+        <source-position filename="ev-document.h" line="127"/>
         <return-value>
           <type name="GLib.Mutex" c:type="GMutex*"/>
         </return-value>
@@ -2099,7 +2099,7 @@ If the document is encrypted, it is returned but also @error is set to
       <function name="get_fc_mutex"
                 c:identifier="ev_document_get_fc_mutex"
                 introspectable="0">
-        <source-position filename="ev-document.h" line="136"/>
+        <source-position filename="ev-document.h" line="133"/>
         <return-value>
           <type name="GLib.Mutex" c:type="GMutex*"/>
         </return-value>
@@ -2328,7 +2328,7 @@ If the document is encrypted, it is returned but also @error is set to
       </function>
       <virtual-method name="check_add_night_sheet"
                       invoker="check_add_night_sheet">
-        <source-position filename="ev-document.h" line="123"/>
+        <source-position filename="ev-document.h" line="120"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2339,7 +2339,7 @@ If the document is encrypted, it is returned but also @error is set to
         </parameters>
       </virtual-method>
       <virtual-method name="get_backend_info" invoker="get_backend_info">
-        <source-position filename="ev-document.h" line="118"/>
+        <source-position filename="ev-document.h" line="115"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2353,7 +2353,7 @@ If the document is encrypted, it is returned but also @error is set to
         </parameters>
       </virtual-method>
       <virtual-method name="get_info" invoker="get_info">
-        <source-position filename="ev-document.h" line="117"/>
+        <source-position filename="ev-document.h" line="114"/>
         <return-value transfer-ownership="full">
           <type name="DocumentInfo" c:type="EvDocumentInfo*"/>
         </return-value>
@@ -2364,7 +2364,7 @@ If the document is encrypted, it is returned but also @error is set to
         </parameters>
       </virtual-method>
       <virtual-method name="get_n_pages" invoker="get_n_pages">
-        <source-position filename="ev-document.h" line="106"/>
+        <source-position filename="ev-document.h" line="103"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -2375,7 +2375,7 @@ If the document is encrypted, it is returned but also @error is set to
         </parameters>
       </virtual-method>
       <virtual-method name="get_page" invoker="get_page" introspectable="0">
-        <source-position filename="ev-document.h" line="107"/>
+        <source-position filename="ev-document.h" line="104"/>
         <return-value>
           <type name="Page" c:type="EvPage*"/>
         </return-value>
@@ -2389,7 +2389,7 @@ If the document is encrypted, it is returned but also @error is set to
         </parameters>
       </virtual-method>
       <virtual-method name="get_page_label" invoker="get_page_label">
-        <source-position filename="ev-document.h" line="113"/>
+        <source-position filename="ev-document.h" line="110"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -2403,7 +2403,7 @@ If the document is encrypted, it is returned but also @error is set to
         </parameters>
       </virtual-method>
       <virtual-method name="get_page_size" invoker="get_page_size">
-        <source-position filename="ev-document.h" line="109"/>
+        <source-position filename="ev-document.h" line="106"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2433,7 +2433,7 @@ If the backend cannot load the specific document, EV_DOCUMENT_ERROR_INVALID
 is returned. Other errors are possible too, depending on the backend
 used to load the document and the URI, e.g. #GIOError, #GFileError, and
 #GConvertError.</doc>
-        <source-position filename="ev-document.h" line="100"/>
+        <source-position filename="ev-document.h" line="97"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ev-document.c"
@@ -2456,7 +2456,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
         </parameters>
       </virtual-method>
       <virtual-method name="render" invoker="render">
-        <source-position filename="ev-document.h" line="115"/>
+        <source-position filename="ev-document.h" line="112"/>
         <return-value transfer-ownership="full">
           <type name="cairo.Surface" c:type="cairo_surface_t*"/>
         </return-value>
@@ -2473,7 +2473,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
         <doc xml:space="preserve"
              filename="ev-document.c"
              line="362">Saves @document to @uri.</doc>
-        <source-position filename="ev-document.h" line="103"/>
+        <source-position filename="ev-document.h" line="100"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ev-document.c"
@@ -2493,7 +2493,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
         </parameters>
       </virtual-method>
       <virtual-method name="support_synctex">
-        <source-position filename="ev-document.h" line="120"/>
+        <source-position filename="ev-document.h" line="117"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2504,7 +2504,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
         </parameters>
       </virtual-method>
       <virtual-method name="toggle_night_mode" invoker="toggle_night_mode">
-        <source-position filename="ev-document.h" line="122"/>
+        <source-position filename="ev-document.h" line="119"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2519,7 +2519,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
       </virtual-method>
       <method name="check_add_night_sheet"
               c:identifier="ev_document_check_add_night_sheet">
-        <source-position filename="ev-document.h" line="191"/>
+        <source-position filename="ev-document.h" line="188"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2531,7 +2531,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
       </method>
       <method name="check_dimensions"
               c:identifier="ev_document_check_dimensions">
-        <source-position filename="ev-document.h" line="170"/>
+        <source-position filename="ev-document.h" line="167"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2543,7 +2543,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
       </method>
       <method name="find_page_by_label"
               c:identifier="ev_document_find_page_by_label">
-        <source-position filename="ev-document.h" line="173"/>
+        <source-position filename="ev-document.h" line="170"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2561,7 +2561,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
       </method>
       <method name="get_backend_info"
               c:identifier="ev_document_get_backend_info">
-        <source-position filename="ev-document.h" line="142"/>
+        <source-position filename="ev-document.h" line="139"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2575,7 +2575,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
         </parameters>
       </method>
       <method name="get_info" c:identifier="ev_document_get_info">
-        <source-position filename="ev-document.h" line="141"/>
+        <source-position filename="ev-document.h" line="138"/>
         <return-value transfer-ownership="full">
           <type name="DocumentInfo" c:type="EvDocumentInfo*"/>
         </return-value>
@@ -2587,7 +2587,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
       </method>
       <method name="get_max_label_len"
               c:identifier="ev_document_get_max_label_len">
-        <source-position filename="ev-document.h" line="171"/>
+        <source-position filename="ev-document.h" line="168"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -2599,7 +2599,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
       </method>
       <method name="get_max_page_size"
               c:identifier="ev_document_get_max_page_size">
-        <source-position filename="ev-document.h" line="164"/>
+        <source-position filename="ev-document.h" line="161"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2617,7 +2617,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
       </method>
       <method name="get_min_page_size"
               c:identifier="ev_document_get_min_page_size">
-        <source-position filename="ev-document.h" line="167"/>
+        <source-position filename="ev-document.h" line="164"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2634,7 +2634,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
         </parameters>
       </method>
       <method name="get_n_pages" c:identifier="ev_document_get_n_pages">
-        <source-position filename="ev-document.h" line="150"/>
+        <source-position filename="ev-document.h" line="147"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -2647,7 +2647,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
       <method name="get_page"
               c:identifier="ev_document_get_page"
               introspectable="0">
-        <source-position filename="ev-document.h" line="151"/>
+        <source-position filename="ev-document.h" line="148"/>
         <return-value>
           <type name="Page" c:type="EvPage*"/>
         </return-value>
@@ -2661,7 +2661,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
         </parameters>
       </method>
       <method name="get_page_label" c:identifier="ev_document_get_page_label">
-        <source-position filename="ev-document.h" line="157"/>
+        <source-position filename="ev-document.h" line="154"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -2675,7 +2675,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
         </parameters>
       </method>
       <method name="get_page_size" c:identifier="ev_document_get_page_size">
-        <source-position filename="ev-document.h" line="153"/>
+        <source-position filename="ev-document.h" line="150"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2695,7 +2695,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
         </parameters>
       </method>
       <method name="get_title" c:identifier="ev_document_get_title">
-        <source-position filename="ev-document.h" line="162"/>
+        <source-position filename="ev-document.h" line="159"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -2706,7 +2706,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
         </parameters>
       </method>
       <method name="get_uri" c:identifier="ev_document_get_uri">
-        <source-position filename="ev-document.h" line="161"/>
+        <source-position filename="ev-document.h" line="158"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -2717,7 +2717,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
         </parameters>
       </method>
       <method name="has_synctex" c:identifier="ev_document_has_synctex">
-        <source-position filename="ev-document.h" line="176"/>
+        <source-position filename="ev-document.h" line="173"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2729,7 +2729,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
       </method>
       <method name="has_text_page_labels"
               c:identifier="ev_document_has_text_page_labels">
-        <source-position filename="ev-document.h" line="172"/>
+        <source-position filename="ev-document.h" line="169"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2741,7 +2741,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
       </method>
       <method name="is_page_size_uniform"
               c:identifier="ev_document_is_page_size_uniform">
-        <source-position filename="ev-document.h" line="163"/>
+        <source-position filename="ev-document.h" line="160"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2762,7 +2762,7 @@ If the backend cannot load the specific document, EV_DOCUMENT_ERROR_INVALID
 is returned. Other errors are possible too, depending on the backend
 used to load the document and the URI, e.g. #GIOError, #GFileError, and
 #GConvertError.</doc>
-        <source-position filename="ev-document.h" line="144"/>
+        <source-position filename="ev-document.h" line="141"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ev-document.c"
@@ -2785,7 +2785,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
         </parameters>
       </method>
       <method name="render" c:identifier="ev_document_render">
-        <source-position filename="ev-document.h" line="159"/>
+        <source-position filename="ev-document.h" line="156"/>
         <return-value transfer-ownership="full">
           <type name="cairo.Surface" c:type="cairo_surface_t*"/>
         </return-value>
@@ -2802,7 +2802,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
         <doc xml:space="preserve"
              filename="ev-document.c"
              line="362">Saves @document to @uri.</doc>
-        <source-position filename="ev-document.h" line="147"/>
+        <source-position filename="ev-document.h" line="144"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ev-document.c"
@@ -2828,7 +2828,7 @@ used to load the document and the URI, e.g. #GIOError, #GFileError, and
              line="408">Peforms a Synctex backward search to obtain the TeX input file, line and
 (possibly) column  corresponding to the  position (@x,@y) (in 72dpi
 coordinates) in the  @page of @document.</doc>
-        <source-position filename="ev-document.h" line="178"/>
+        <source-position filename="ev-document.h" line="175"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="ev-document.c"
@@ -2859,7 +2859,7 @@ The EvSourceLink pointer should be freed with g_free after it is used.</doc>
              filename="ev-document.c"
              line="459">Peforms a Synctex forward search to obtain the area in the document
 corresponding to the position @line and @column number in the source Tex file</doc>
-        <source-position filename="ev-document.h" line="184"/>
+        <source-position filename="ev-document.h" line="181"/>
         <return-value>
           <doc xml:space="preserve"
                filename="ev-document.c"
@@ -2878,7 +2878,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       </method>
       <method name="toggle_night_mode"
               c:identifier="ev_document_toggle_night_mode">
-        <source-position filename="ev-document.h" line="190"/>
+        <source-position filename="ev-document.h" line="187"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3303,7 +3303,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       </field>
     </record>
     <record name="DocumentBackendInfo" c:type="EvDocumentBackendInfo">
-      <source-position filename="ev-document.h" line="80"/>
+      <source-position filename="ev-document.h" line="77"/>
       <field name="name" writable="1">
         <type name="utf8" c:type="const gchar*"/>
       </field>
@@ -3314,13 +3314,13 @@ the given line in the source file. It must be free with g_free when done</doc>
     <record name="DocumentClass"
             c:type="EvDocumentClass"
             glib:is-gtype-struct-for="Document">
-      <source-position filename="ev-document.h" line="124"/>
+      <source-position filename="ev-document.h" line="121"/>
       <field name="base_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="load">
         <callback name="load" throws="1">
-          <source-position filename="ev-document.h" line="100"/>
+          <source-position filename="ev-document.h" line="97"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ev-document.c"
@@ -3345,7 +3345,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       </field>
       <field name="save">
         <callback name="save" throws="1">
-          <source-position filename="ev-document.h" line="103"/>
+          <source-position filename="ev-document.h" line="100"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ev-document.c"
@@ -3367,7 +3367,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       </field>
       <field name="get_n_pages">
         <callback name="get_n_pages">
-          <source-position filename="ev-document.h" line="106"/>
+          <source-position filename="ev-document.h" line="103"/>
           <return-value transfer-ownership="none">
             <type name="gint" c:type="gint"/>
           </return-value>
@@ -3380,7 +3380,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       </field>
       <field name="get_page" introspectable="0">
         <callback name="get_page" introspectable="0">
-          <source-position filename="ev-document.h" line="107"/>
+          <source-position filename="ev-document.h" line="104"/>
           <return-value>
             <type name="Page" c:type="EvPage*"/>
           </return-value>
@@ -3396,7 +3396,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       </field>
       <field name="get_page_size">
         <callback name="get_page_size">
-          <source-position filename="ev-document.h" line="109"/>
+          <source-position filename="ev-document.h" line="106"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3418,7 +3418,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       </field>
       <field name="get_page_label">
         <callback name="get_page_label">
-          <source-position filename="ev-document.h" line="113"/>
+          <source-position filename="ev-document.h" line="110"/>
           <return-value transfer-ownership="full">
             <type name="utf8" c:type="gchar*"/>
           </return-value>
@@ -3434,7 +3434,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       </field>
       <field name="render">
         <callback name="render">
-          <source-position filename="ev-document.h" line="115"/>
+          <source-position filename="ev-document.h" line="112"/>
           <return-value transfer-ownership="full">
             <type name="cairo.Surface" c:type="cairo_surface_t*"/>
           </return-value>
@@ -3450,7 +3450,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       </field>
       <field name="get_info">
         <callback name="get_info">
-          <source-position filename="ev-document.h" line="117"/>
+          <source-position filename="ev-document.h" line="114"/>
           <return-value transfer-ownership="full">
             <type name="DocumentInfo" c:type="EvDocumentInfo*"/>
           </return-value>
@@ -3463,7 +3463,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       </field>
       <field name="get_backend_info">
         <callback name="get_backend_info">
-          <source-position filename="ev-document.h" line="118"/>
+          <source-position filename="ev-document.h" line="115"/>
           <return-value transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
@@ -3480,7 +3480,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       </field>
       <field name="support_synctex">
         <callback name="support_synctex">
-          <source-position filename="ev-document.h" line="120"/>
+          <source-position filename="ev-document.h" line="117"/>
           <return-value transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
@@ -3493,7 +3493,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       </field>
       <field name="toggle_night_mode">
         <callback name="toggle_night_mode">
-          <source-position filename="ev-document.h" line="122"/>
+          <source-position filename="ev-document.h" line="119"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3509,7 +3509,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       </field>
       <field name="check_add_night_sheet">
         <callback name="check_add_night_sheet">
-          <source-position filename="ev-document.h" line="123"/>
+          <source-position filename="ev-document.h" line="120"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -5761,7 +5761,7 @@ the given line in the source file. It must be free with g_free when done</doc>
             c:type="EvDocumentPrivate"
             disguised="1"
             opaque="1">
-      <source-position filename="ev-document.h" line="53"/>
+      <source-position filename="ev-document.h" line="50"/>
     </record>
     <interface name="DocumentSecurity"
                c:symbol-prefix="document_security"
@@ -7338,7 +7338,7 @@ the given line in the source file. It must be free with g_free when done</doc>
     <function-macro name="IS_DOCUMENT"
                     c:identifier="EV_IS_DOCUMENT"
                     introspectable="0">
-      <source-position filename="ev-document.h" line="47"/>
+      <source-position filename="ev-document.h" line="44"/>
       <parameters>
         <parameter name="o">
         </parameter>
@@ -7383,7 +7383,7 @@ the given line in the source file. It must be free with g_free when done</doc>
     <function-macro name="IS_DOCUMENT_CLASS"
                     c:identifier="EV_IS_DOCUMENT_CLASS"
                     introspectable="0">
-      <source-position filename="ev-document.h" line="48"/>
+      <source-position filename="ev-document.h" line="45"/>
       <parameters>
         <parameter name="k">
         </parameter>
@@ -8989,7 +8989,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       <source-position filename="ev-version.h" line="36"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="2" c:type="EV_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="0" c:type="EV_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="ev-version.h"
            line="46">The micro version number of the EV library
@@ -8997,7 +8997,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       <source-position filename="ev-version.h" line="52"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="26" c:type="EV_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="28" c:type="EV_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="ev-version.h"
            line="38">The minor version number of the EV library
@@ -9006,7 +9006,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <record name="Mapping" c:type="EvMapping">
-      <source-position filename="ev-document.h" line="210"/>
+      <source-position filename="ev-document.h" line="207"/>
       <field name="area" writable="1">
         <type name="Rectangle" c:type="EvRectangle"/>
       </field>
@@ -9345,7 +9345,7 @@ the given line in the source file. It must be free with g_free when done</doc>
       </field>
     </record>
     <record name="Point" c:type="EvPoint">
-      <source-position filename="ev-document.h" line="69"/>
+      <source-position filename="ev-document.h" line="66"/>
       <field name="x" writable="1">
         <type name="gdouble" c:type="double"/>
       </field>
@@ -9376,7 +9376,7 @@ the given line in the source file. It must be free with g_free when done</doc>
             glib:type-name="EvRectangle"
             glib:get-type="ev_rectangle_get_type"
             c:symbol-prefix="rectangle">
-      <source-position filename="ev-document.h" line="200"/>
+      <source-position filename="ev-document.h" line="197"/>
       <field name="x1" writable="1">
         <type name="gdouble" c:type="gdouble"/>
       </field>
@@ -9390,13 +9390,13 @@ the given line in the source file. It must be free with g_free when done</doc>
         <type name="gdouble" c:type="gdouble"/>
       </field>
       <constructor name="new" c:identifier="ev_rectangle_new">
-        <source-position filename="ev-document.h" line="203"/>
+        <source-position filename="ev-document.h" line="200"/>
         <return-value transfer-ownership="full">
           <type name="Rectangle" c:type="EvRectangle*"/>
         </return-value>
       </constructor>
       <method name="copy" c:identifier="ev_rectangle_copy">
-        <source-position filename="ev-document.h" line="204"/>
+        <source-position filename="ev-document.h" line="201"/>
         <return-value transfer-ownership="full">
           <type name="Rectangle" c:type="EvRectangle*"/>
         </return-value>
@@ -9407,7 +9407,7 @@ the given line in the source file. It must be free with g_free when done</doc>
         </parameters>
       </method>
       <method name="free" c:identifier="ev_rectangle_free">
-        <source-position filename="ev-document.h" line="205"/>
+        <source-position filename="ev-document.h" line="202"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -9804,7 +9804,7 @@ the given line in the source file. It must be free with g_free when done</doc>
             glib:type-name="EvSourceLink"
             glib:get-type="ev_source_link_get_type"
             c:symbol-prefix="source_link">
-      <source-position filename="ev-document.h" line="218"/>
+      <source-position filename="ev-document.h" line="215"/>
       <field name="filename" writable="1">
         <type name="utf8" c:type="gchar*"/>
       </field>
@@ -9815,7 +9815,7 @@ the given line in the source file. It must be free with g_free when done</doc>
         <type name="gint" c:type="gint"/>
       </field>
       <constructor name="new" c:identifier="ev_source_link_new">
-        <source-position filename="ev-document.h" line="221"/>
+        <source-position filename="ev-document.h" line="218"/>
         <return-value transfer-ownership="full">
           <type name="SourceLink" c:type="EvSourceLink*"/>
         </return-value>
@@ -9832,7 +9832,7 @@ the given line in the source file. It must be free with g_free when done</doc>
         </parameters>
       </constructor>
       <method name="copy" c:identifier="ev_source_link_copy">
-        <source-position filename="ev-document.h" line="224"/>
+        <source-position filename="ev-document.h" line="221"/>
         <return-value transfer-ownership="full">
           <type name="SourceLink" c:type="EvSourceLink*"/>
         </return-value>
@@ -9843,7 +9843,7 @@ the given line in the source file. It must be free with g_free when done</doc>
         </parameters>
       </method>
       <method name="free" c:identifier="ev_source_link_free">
-        <source-position filename="ev-document.h" line="225"/>
+        <source-position filename="ev-document.h" line="222"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -10366,7 +10366,7 @@ document library.</doc>
       </parameters>
     </function>
     <function name="rect_cmp" c:identifier="ev_rect_cmp">
-      <source-position filename="ev-document.h" line="188"/>
+      <source-position filename="ev-document.h" line="185"/>
       <return-value transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </return-value>

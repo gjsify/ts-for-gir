@@ -13,7 +13,7 @@ and/or use gtk-doc annotations.  -->
   <c:include name="poppler.h"/>
   <namespace name="Poppler"
              version="0.18"
-             shared-library="libpoppler-glib.so.8,libpoppler.so.130"
+             shared-library="libpoppler-glib.so.8,libpoppler.so.134"
              c:identifier-prefixes="Poppler"
              c:symbol-prefixes="poppler">
     <function-macro name="ACTION"
@@ -4108,7 +4108,7 @@ bounding box within the window</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="302">Creates a new #PopplerDocument from @bytes. The returned document
+             line="303">Creates a new #PopplerDocument from @bytes. The returned document
 will hold a reference to @bytes.
 
 On error,  %NULL is returned, with @error set. Possible errors include
@@ -4117,14 +4117,14 @@ those in the #POPPLER_ERROR and #G_FILE_ERROR domains.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="314">a newly created #PopplerDocument, or %NULL</doc>
+               line="315">a newly created #PopplerDocument, or %NULL</doc>
           <type name="Document" c:type="PopplerDocument*"/>
         </return-value>
         <parameters>
           <parameter name="bytes" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="304">a #GBytes</doc>
+                 line="305">a #GBytes</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
           <parameter name="password"
@@ -4133,7 +4133,7 @@ those in the #POPPLER_ERROR and #G_FILE_ERROR domains.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="305">password to unlock the file with, or %NULL</doc>
+                 line="306">password to unlock the file with, or %NULL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -4145,7 +4145,7 @@ those in the #POPPLER_ERROR and #G_FILE_ERROR domains.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="236">Creates a new #PopplerDocument.  If %NULL is returned, then @error will be
+             line="237">Creates a new #PopplerDocument.  If %NULL is returned, then @error will be
 set. Possible errors include those in the #POPPLER_ERROR and #G_FILE_ERROR
 domains.
 
@@ -4158,14 +4158,14 @@ Use poppler_document_new_from_bytes() instead.</doc-deprecated>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="251">A newly created #PopplerDocument, or %NULL</doc>
+               line="252">A newly created #PopplerDocument, or %NULL</doc>
           <type name="Document" c:type="PopplerDocument*"/>
         </return-value>
         <parameters>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="238">the pdf data</doc>
+                 line="239">the pdf data</doc>
             <array length="1" zero-terminated="0" c:type="char*">
               <type name="guint8"/>
             </array>
@@ -4173,7 +4173,7 @@ Use poppler_document_new_from_bytes() instead.</doc-deprecated>
           <parameter name="length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="239">the length of #data</doc>
+                 line="240">the length of #data</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="password"
@@ -4182,7 +4182,7 @@ Use poppler_document_new_from_bytes() instead.</doc-deprecated>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="240">password to unlock the file with, or %NULL</doc>
+                 line="241">password to unlock the file with, or %NULL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -4193,7 +4193,7 @@ Use poppler_document_new_from_bytes() instead.</doc-deprecated>
                    throws="1">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="452">Creates a new #PopplerDocument reading the PDF contents from the file
+             line="453">Creates a new #PopplerDocument reading the PDF contents from the file
 descriptor @fd. @fd must refer to a regular file, or STDIN, and be open
 for reading.
 Possible errors include those in the #POPPLER_ERROR and #G_FILE_ERROR
@@ -4204,14 +4204,14 @@ again, nor close it.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="466">a new #PopplerDocument, or %NULL</doc>
+               line="467">a new #PopplerDocument, or %NULL</doc>
           <type name="Document" c:type="PopplerDocument*"/>
         </return-value>
         <parameters>
           <parameter name="fd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="454">a valid file descriptor</doc>
+                 line="455">a valid file descriptor</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="password"
@@ -4220,7 +4220,7 @@ again, nor close it.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="455">password to unlock the file with, or %NULL</doc>
+                 line="456">password to unlock the file with, or %NULL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -4230,21 +4230,21 @@ again, nor close it.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="178">Creates a new #PopplerDocument.  If %NULL is returned, then @error will be
+             line="179">Creates a new #PopplerDocument.  If %NULL is returned, then @error will be
 set. Possible errors include those in the #POPPLER_ERROR and #G_FILE_ERROR
 domains.</doc>
         <source-position filename="glib/poppler-document.h" line="296"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="188">A newly created #PopplerDocument, or %NULL</doc>
+               line="189">A newly created #PopplerDocument, or %NULL</doc>
           <type name="Document" c:type="PopplerDocument*"/>
         </return-value>
         <parameters>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="180">uri of the file to load</doc>
+                 line="181">uri of the file to load</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="password"
@@ -4253,7 +4253,7 @@ domains.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="181">password to unlock the file with, or %NULL</doc>
+                 line="182">password to unlock the file with, or %NULL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -4264,21 +4264,21 @@ domains.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="407">Creates a new #PopplerDocument reading the PDF contents from @file.
+             line="408">Creates a new #PopplerDocument reading the PDF contents from @file.
 Possible errors include those in the #POPPLER_ERROR and #G_FILE_ERROR
 domains.</doc>
         <source-position filename="glib/poppler-document.h" line="304"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="418">a new #PopplerDocument, or %NULL</doc>
+               line="419">a new #PopplerDocument, or %NULL</doc>
           <type name="Document" c:type="PopplerDocument*"/>
         </return-value>
         <parameters>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="409">a #GFile to load</doc>
+                 line="410">a #GFile to load</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="password"
@@ -4287,7 +4287,7 @@ domains.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="410">password to unlock the file with, or %NULL</doc>
+                 line="411">password to unlock the file with, or %NULL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="cancellable"
@@ -4296,7 +4296,7 @@ domains.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="411">a #GCancellable, or %NULL</doc>
+                 line="412">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -4307,7 +4307,7 @@ domains.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="348">Creates a new #PopplerDocument reading the PDF contents from @stream.
+             line="349">Creates a new #PopplerDocument reading the PDF contents from @stream.
 Note that the given #GInputStream must be seekable or %G_IO_ERROR_NOT_SUPPORTED
 will be returned.
 Possible errors include those in the #POPPLER_ERROR, #G_FILE_ERROR
@@ -4316,20 +4316,20 @@ and #G_IO_ERROR domains.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="362">a new #PopplerDocument, or %NULL</doc>
+               line="363">a new #PopplerDocument, or %NULL</doc>
           <type name="Document" c:type="PopplerDocument*"/>
         </return-value>
         <parameters>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="350">a #GInputStream to read from</doc>
+                 line="351">a #GInputStream to read from</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </parameter>
           <parameter name="length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="351">the stream length, or -1 if not known</doc>
+                 line="352">the stream length, or -1 if not known</doc>
             <type name="gint64" c:type="goffset"/>
           </parameter>
           <parameter name="password"
@@ -4338,7 +4338,7 @@ and #G_IO_ERROR domains.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="352">password to unlock the file with, or %NULL</doc>
+                 line="353">password to unlock the file with, or %NULL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="cancellable"
@@ -4347,7 +4347,7 @@ and #G_IO_ERROR domains.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="353">a #GCancellable, or %NULL</doc>
+                 line="354">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -4357,7 +4357,7 @@ and #G_IO_ERROR domains.</doc>
               version="0.78">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1034">Creates a balanced binary tree of all named destinations in @document
+             line="1035">Creates a balanced binary tree of all named destinations in @document
 
 The tree key is strings in the form returned by
 poppler_named_dest_to_bytestring() which constains a destination name.
@@ -4367,14 +4367,14 @@ The return value must be freed with g_tree_destroy().</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1045">the #GTree, or %NULL</doc>
+               line="1046">the #GTree, or %NULL</doc>
           <type name="GLib.Tree" c:type="GTree*"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1036">A #PopplerDocument</doc>
+                 line="1037">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -4382,7 +4382,7 @@ The return value must be freed with g_tree_destroy().</doc>
       <method name="find_dest" c:identifier="poppler_document_find_dest">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="982">Creates a #PopplerDest for the named destination @link_name in @document.
+             line="983">Creates a #PopplerDest for the named destination @link_name in @document.
 
 Note that named destinations are bytestrings, not string. That means that
 unless @link_name was returned by a poppler function (e.g. is
@@ -4395,7 +4395,7 @@ The returned value must be freed with poppler_dest_free().</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="997">a new #PopplerDest destination, or %NULL if
+               line="998">a new #PopplerDest destination, or %NULL if
   @link_name is not a destination.</doc>
           <type name="Dest" c:type="PopplerDest*"/>
         </return-value>
@@ -4403,13 +4403,13 @@ The returned value must be freed with poppler_dest_free().</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="984">A #PopplerDocument</doc>
+                 line="985">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="link_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="985">a named destination</doc>
+                 line="986">a named destination</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4418,14 +4418,14 @@ The returned value must be freed with poppler_dest_free().</doc>
               c:identifier="poppler_document_get_attachments">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="837">Returns a #GList containing #PopplerAttachment&lt;!-- --&gt;s.  These attachments
+             line="838">Returns a #GList containing #PopplerAttachment&lt;!-- --&gt;s.  These attachments
 are unowned, and must be unreffed, and the list must be freed with
 g_list_free().</doc>
         <source-position filename="glib/poppler-document.h" line="402"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="845">a list of available attachments.</doc>
+               line="846">a list of available attachments.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Attachment"/>
           </type>
@@ -4434,7 +4434,7 @@ g_list_free().</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="839">A #PopplerDocument</doc>
+                 line="840">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -4445,12 +4445,12 @@ g_list_free().</doc>
               version="0.16">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1351">Returns the author of the document</doc>
+             line="1352">Returns the author of the document</doc>
         <source-position filename="glib/poppler-document.h" line="334"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1357">a new allocated string containing the author
+               line="1358">a new allocated string containing the author
               of @document, or %NULL</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -4458,7 +4458,7 @@ g_list_free().</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1353">A #PopplerDocument</doc>
+                 line="1354">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -4469,19 +4469,19 @@ g_list_free().</doc>
               version="0.16">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1580">Returns the date the document was created as seconds since the Epoch</doc>
+             line="1581">Returns the date the document was created as seconds since the Epoch</doc>
         <source-position filename="glib/poppler-document.h" line="354"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1586">the date the document was created, or -1</doc>
+               line="1587">the date the document was created, or -1</doc>
           <type name="glong" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1582">A #PopplerDocument</doc>
+                 line="1583">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -4491,19 +4491,19 @@ g_list_free().</doc>
               version="20.09.0">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1623">Returns the date the document was created as a #GDateTime</doc>
+             line="1624">Returns the date the document was created as a #GDateTime</doc>
         <source-position filename="glib/poppler-document.h" line="358"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1629">the date the document was created, or %NULL</doc>
+               line="1630">the date the document was created, or %NULL</doc>
           <type name="GLib.DateTime" c:type="GDateTime*"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1625">A #PopplerDocument</doc>
+                 line="1626">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -4514,14 +4514,14 @@ g_list_free().</doc>
               version="0.16">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1486">Returns the creator of the document. If the document was converted
+             line="1487">Returns the creator of the document. If the document was converted
 from another format, the creator is the name of the product
 that created the original document from which it was converted.</doc>
         <source-position filename="glib/poppler-document.h" line="346"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1494">a new allocated string containing the creator
+               line="1495">a new allocated string containing the creator
               of @document, or %NULL</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -4529,7 +4529,7 @@ that created the original document from which it was converted.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1488">A #PopplerDocument</doc>
+                 line="1489">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -4538,13 +4538,13 @@ that created the original document from which it was converted.</doc>
               c:identifier="poppler_document_get_form_field">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3691">Returns the #PopplerFormField for the given @id. It must be freed with
+             line="3693">Returns the #PopplerFormField for the given @id. It must be freed with
 g_object_unref()</doc>
         <source-position filename="glib/poppler-document.h" line="412"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3699">a new #PopplerFormField or %NULL if
+               line="3701">a new #PopplerFormField or %NULL if
 not found</doc>
           <type name="FormField" c:type="PopplerFormField*"/>
         </return-value>
@@ -4552,13 +4552,13 @@ not found</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3693">a #PopplerDocument</doc>
+                 line="3695">a #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3694">an id of a #PopplerFormField</doc>
+                 line="3696">an id of a #PopplerFormField</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -4568,7 +4568,7 @@ not found</doc>
               version="0.16">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="684">Returns the PDF file identifier represented as two byte string arrays of size 32.
+             line="685">Returns the PDF file identifier represented as two byte string arrays of size 32.
 @permanent_id is the permanent identifier that is built based on the file
 contents at the time it was originally created, so that this identifer
 never changes. @update_id is the update identifier that is built based on
@@ -4580,14 +4580,14 @@ size of 32 bytes.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="699">%TRUE if the @document contains an id, %FALSE otherwise</doc>
+               line="700">%TRUE if the @document contains an id, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="686">A #PopplerDocument</doc>
+                 line="687">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="permanent_id"
@@ -4598,7 +4598,7 @@ size of 32 bytes.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="687">location to store an allocated string, use g_free() to free the returned string</doc>
+                 line="688">location to store an allocated string, use g_free() to free the returned string</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="update_id"
@@ -4609,7 +4609,7 @@ size of 32 bytes.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="688">location to store an allocated string, use g_free() to free the returned string</doc>
+                 line="689">location to store an allocated string, use g_free() to free the returned string</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
         </parameters>
@@ -4620,12 +4620,12 @@ size of 32 bytes.</doc>
               version="0.16">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1441">Returns the keywords associated to the document</doc>
+             line="1442">Returns the keywords associated to the document</doc>
         <source-position filename="glib/poppler-document.h" line="342"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1447">a new allocated string containing keywords associated
+               line="1448">a new allocated string containing keywords associated
               to @document, or %NULL</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -4633,7 +4633,7 @@ size of 32 bytes.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1443">A #PopplerDocument</doc>
+                 line="1444">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -4644,12 +4644,12 @@ size of 32 bytes.</doc>
               version="0.16">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2172">Returns the XML metadata string of the document</doc>
+             line="2173">Returns the XML metadata string of the document</doc>
         <source-position filename="glib/poppler-document.h" line="386"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2178">a new allocated string containing the XML
+               line="2179">a new allocated string containing the XML
               metadata, or %NULL</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -4657,7 +4657,7 @@ size of 32 bytes.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2174">A #PopplerDocument</doc>
+                 line="2175">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -4667,19 +4667,19 @@ size of 32 bytes.</doc>
               version="0.16">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1669">Returns the date the document was most recently modified as seconds since the Epoch</doc>
+             line="1670">Returns the date the document was most recently modified as seconds since the Epoch</doc>
         <source-position filename="glib/poppler-document.h" line="362"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1675">the date the document was most recently modified, or -1</doc>
+               line="1676">the date the document was most recently modified, or -1</doc>
           <type name="glong" c:type="time_t"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1671">A #PopplerDocument</doc>
+                 line="1672">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -4689,19 +4689,19 @@ size of 32 bytes.</doc>
               version="20.09.0">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1712">Returns the date the document was most recently modified as a #GDateTime</doc>
+             line="1713">Returns the date the document was most recently modified as a #GDateTime</doc>
         <source-position filename="glib/poppler-document.h" line="366"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1718">the date the document was modified, or %NULL</doc>
+               line="1719">the date the document was modified, or %NULL</doc>
           <type name="GLib.DateTime" c:type="GDateTime*"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1714">A #PopplerDocument</doc>
+                 line="1715">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -4711,20 +4711,20 @@ size of 32 bytes.</doc>
               version="0.18">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="800">Returns the number of attachments in a loaded document.
+             line="801">Returns the number of attachments in a loaded document.
 See also poppler_document_get_attachments()</doc>
         <source-position filename="glib/poppler-document.h" line="398"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="807">Number of attachments</doc>
+               line="808">Number of attachments</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="802">A #PopplerDocument</doc>
+                 line="803">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -4732,19 +4732,19 @@ See also poppler_document_get_attachments()</doc>
       <method name="get_n_pages" c:identifier="poppler_document_get_n_pages">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="734">Returns the number of pages in a loaded document.</doc>
+             line="735">Returns the number of pages in a loaded document.</doc>
         <source-position filename="glib/poppler-document.h" line="320"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="740">Number of pages</doc>
+               line="741">Number of pages</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="736">A #PopplerDocument</doc>
+                 line="737">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -4754,21 +4754,21 @@ See also poppler_document_get_attachments()</doc>
               version="21.12.0">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1776">Returns how many digital signatures @document contains.
+             line="1777">Returns how many digital signatures @document contains.
 PDF digital signatures ensure that the content hash not been altered since last edit and
 that it was produced by someone the user can trust</doc>
         <source-position filename="glib/poppler-document.h" line="424"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1784">The number of signatures found in the document</doc>
+               line="1785">The number of signatures found in the document</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1778">A #PopplerDocument</doc>
+                 line="1779">A #PopplerDocument</doc>
             <type name="Document" c:type="const PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -4776,26 +4776,26 @@ that it was produced by someone the user can trust</doc>
       <method name="get_page" c:identifier="poppler_document_get_page">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="749">Returns the #PopplerPage indexed at @index.  This object is owned by the
+             line="750">Returns the #PopplerPage indexed at @index.  This object is owned by the
 caller.</doc>
         <source-position filename="glib/poppler-document.h" line="322"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="757">The #PopplerPage at @index</doc>
+               line="758">The #PopplerPage at @index</doc>
           <type name="Page" c:type="PopplerPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="751">A #PopplerDocument</doc>
+                 line="752">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="index" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="752">a page index</doc>
+                 line="753">a page index</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -4804,7 +4804,7 @@ caller.</doc>
               c:identifier="poppler_document_get_page_by_label">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="773">Returns the #PopplerPage reference by @label.  This object is owned by the
+             line="774">Returns the #PopplerPage reference by @label.  This object is owned by the
 caller.  @label is a human-readable string representation of the page number,
 and can be document specific.  Typically, it is a value such as "iii" or "3".
 
@@ -4813,20 +4813,20 @@ By default, "1" refers to the first page.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="784">The #PopplerPage referenced by @label</doc>
+               line="785">The #PopplerPage referenced by @label</doc>
           <type name="Page" c:type="PopplerPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="775">A #PopplerDocument</doc>
+                 line="776">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="776">a page label</doc>
+                 line="777">a page label</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -4837,19 +4837,19 @@ By default, "1" refers to the first page.</doc>
               version="0.16">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1825">Returns the page layout that should be used when the document is opened</doc>
+             line="1826">Returns the page layout that should be used when the document is opened</doc>
         <source-position filename="glib/poppler-document.h" line="372"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1831">a #PopplerPageLayout that should be used when the document is opened</doc>
+               line="1832">a #PopplerPageLayout that should be used when the document is opened</doc>
           <type name="PageLayout" c:type="PopplerPageLayout"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1827">A #PopplerDocument</doc>
+                 line="1828">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -4860,20 +4860,20 @@ By default, "1" refers to the first page.</doc>
               version="0.16">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1849">Returns a #PopplerPageMode representing how the document should
+             line="1850">Returns a #PopplerPageMode representing how the document should
 be initially displayed when opened.</doc>
         <source-position filename="glib/poppler-document.h" line="374"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1856">a #PopplerPageMode that should be used when document is opened</doc>
+               line="1857">a #PopplerPageMode that should be used when document is opened</doc>
           <type name="PageMode" c:type="PopplerPageMode"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1851">A #PopplerDocument</doc>
+                 line="1852">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -4883,19 +4883,19 @@ be initially displayed when opened.</doc>
               version="0.70">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2155">Returns the conformance level of the @document as #PopplerPDFConformance.</doc>
+             line="2156">Returns the conformance level of the @document as #PopplerPDFConformance.</doc>
         <source-position filename="glib/poppler-document.h" line="384"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2161">the document's subtype conformance level</doc>
+               line="2162">the document's subtype conformance level</doc>
           <type name="PDFConformance" c:type="PopplerPDFConformance"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2157">A #PopplerDocument</doc>
+                 line="2158">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -4905,20 +4905,20 @@ be initially displayed when opened.</doc>
               version="0.70">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2137">Returns the part of the conforming standard that the @document adheres to
+             line="2138">Returns the part of the conforming standard that the @document adheres to
 as a #PopplerPDFSubtype.</doc>
         <source-position filename="glib/poppler-document.h" line="382"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2144">the document's subtype part</doc>
+               line="2145">the document's subtype part</doc>
           <type name="PDFPart" c:type="PopplerPDFPart"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2139">A #PopplerDocument</doc>
+                 line="2140">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -4928,19 +4928,19 @@ as a #PopplerPDFSubtype.</doc>
               version="0.70">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2120">Returns the subtype of @document as a #PopplerPDFSubtype.</doc>
+             line="2121">Returns the subtype of @document as a #PopplerPDFSubtype.</doc>
         <source-position filename="glib/poppler-document.h" line="380"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2126">the document's subtype</doc>
+               line="2127">the document's subtype</doc>
           <type name="PDFSubtype" c:type="PopplerPDFSubtype"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2122">A #PopplerDocument</doc>
+                 line="2123">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -4950,12 +4950,12 @@ as a #PopplerPDFSubtype.</doc>
               version="0.70">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2077">Returns the PDF subtype version of @document as a string.</doc>
+             line="2078">Returns the PDF subtype version of @document as a string.</doc>
         <source-position filename="glib/poppler-document.h" line="378"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2083">a newly allocated string containing
+               line="2084">a newly allocated string containing
 the PDF subtype version of @document, or %NULL</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -4963,7 +4963,7 @@ the PDF subtype version of @document, or %NULL</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2079">A #PopplerDocument</doc>
+                 line="2080">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -4973,7 +4973,7 @@ the PDF subtype version of @document, or %NULL</doc>
               version="0.16">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1283">Updates values referenced by @major_version &amp; @minor_version with the
+             line="1284">Updates values referenced by @major_version &amp; @minor_version with the
 major and minor PDF versions of @document.</doc>
         <source-position filename="glib/poppler-document.h" line="328"/>
         <return-value transfer-ownership="none">
@@ -4983,7 +4983,7 @@ major and minor PDF versions of @document.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1285">A #PopplerDocument</doc>
+                 line="1286">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="major_version"
@@ -4993,7 +4993,7 @@ major and minor PDF versions of @document.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1286">return location for the PDF major version number</doc>
+                 line="1287">return location for the PDF major version number</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
           <parameter name="minor_version"
@@ -5003,7 +5003,7 @@ major and minor PDF versions of @document.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1287">return location for the PDF minor version number</doc>
+                 line="1288">return location for the PDF minor version number</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
         </parameters>
@@ -5013,12 +5013,12 @@ major and minor PDF versions of @document.</doc>
               version="0.16">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1261">Returns the PDF version of @document as a string (e.g. PDF-1.6)</doc>
+             line="1262">Returns the PDF version of @document as a string (e.g. PDF-1.6)</doc>
         <source-position filename="glib/poppler-document.h" line="326"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1267">a new allocated string containing the PDF version
+               line="1268">a new allocated string containing the PDF version
               of @document, or %NULL</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -5026,7 +5026,7 @@ major and minor PDF versions of @document.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1263">A #PopplerDocument</doc>
+                 line="1264">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -5037,19 +5037,19 @@ major and minor PDF versions of @document.</doc>
               version="0.16">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2033">Returns the flags specifying which operations are permitted when the document is opened.</doc>
+             line="2034">Returns the flags specifying which operations are permitted when the document is opened.</doc>
         <source-position filename="glib/poppler-document.h" line="376"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2039">a set of flags from  #PopplerPermissions enumeration</doc>
+               line="2040">a set of flags from  #PopplerPermissions enumeration</doc>
           <type name="Permissions" c:type="PopplerPermissions"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2035">A #PopplerDocument</doc>
+                 line="2036">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -5060,21 +5060,21 @@ major and minor PDF versions of @document.</doc>
               version="0.80">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1911">Returns the duplex mode value suggested for printing by author of the document.
+             line="1912">Returns the duplex mode value suggested for printing by author of the document.
 Value POPPLER_PRINT_DUPLEX_NONE means that the document does not specify this
 preference.</doc>
         <source-position filename="glib/poppler-document.h" line="390"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1919">a #PopplerPrintDuplex that should be used when document is printed</doc>
+               line="1920">a #PopplerPrintDuplex that should be used when document is printed</doc>
           <type name="PrintDuplex" c:type="PopplerPrintDuplex"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1913">A #PopplerDocument</doc>
+                 line="1914">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -5085,7 +5085,7 @@ preference.</doc>
               version="0.80">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1956">Returns the suggested number of copies to be printed.
+             line="1957">Returns the suggested number of copies to be printed.
 This preference should be applied only if returned value
 is greater than 1 since value 1 usually means that
 the document does not specify it.</doc>
@@ -5093,14 +5093,14 @@ the document does not specify it.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1965">Number of copies</doc>
+               line="1966">Number of copies</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1958">A #PopplerDocument</doc>
+                 line="1959">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -5110,7 +5110,7 @@ the document does not specify it.</doc>
               version="0.80">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1988">Returns the suggested page ranges to print in the form of array
+             line="1989">Returns the suggested page ranges to print in the form of array
 of #PopplerPageRange&lt;!-- --&gt;s and number of ranges.
 %NULL pointer means that the document does not specify page ranges
 for printing.</doc>
@@ -5118,7 +5118,7 @@ for printing.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1998">an array
+               line="1999">an array
          of #PopplerPageRange&lt;!-- --&gt;s or %NULL. Free the array when
          it is no longer needed.</doc>
           <array length="0" zero-terminated="0" c:type="PopplerPageRange*">
@@ -5129,7 +5129,7 @@ for printing.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1990">A #PopplerDocument</doc>
+                 line="1991">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="n_ranges"
@@ -5138,7 +5138,7 @@ for printing.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1991">return location for number of ranges</doc>
+                 line="1992">return location for number of ranges</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -5149,19 +5149,19 @@ for printing.</doc>
               version="0.73">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1874">Returns the print scaling value suggested by author of the document.</doc>
+             line="1875">Returns the print scaling value suggested by author of the document.</doc>
         <source-position filename="glib/poppler-document.h" line="388"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1880">a #PopplerPrintScaling that should be used when document is printed</doc>
+               line="1881">a #PopplerPrintScaling that should be used when document is printed</doc>
           <type name="PrintScaling" c:type="PopplerPrintScaling"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1876">A #PopplerDocument</doc>
+                 line="1877">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -5172,14 +5172,14 @@ for printing.</doc>
               version="0.16">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1533">Returns the producer of the document. If the document was converted
+             line="1534">Returns the producer of the document. If the document was converted
 from another format, the producer is the name of the product
 that converted it to PDF</doc>
         <source-position filename="glib/poppler-document.h" line="350"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1541">a new allocated string containing the producer
+               line="1542">a new allocated string containing the producer
               of @document, or %NULL</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -5187,7 +5187,7 @@ that converted it to PDF</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1535">A #PopplerDocument</doc>
+                 line="1536">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -5197,12 +5197,12 @@ that converted it to PDF</doc>
               version="22.02.0">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1795">Returns a #GList containing all signature #PopplerFormField&lt;!-- --&gt;s in the document.</doc>
+             line="1796">Returns a #GList containing all signature #PopplerFormField&lt;!-- --&gt;s in the document.</doc>
         <source-position filename="glib/poppler-document.h" line="422"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1801">a list of all signature form fields.</doc>
+               line="1802">a list of all signature form fields.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="FormField"/>
           </type>
@@ -5211,7 +5211,7 @@ that converted it to PDF</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1797">A #PopplerDocument</doc>
+                 line="1798">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -5222,12 +5222,12 @@ that converted it to PDF</doc>
               version="0.16">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1396">Returns the subject of the document</doc>
+             line="1397">Returns the subject of the document</doc>
         <source-position filename="glib/poppler-document.h" line="338"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1402">a new allocated string containing the subject
+               line="1403">a new allocated string containing the subject
               of @document, or %NULL</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -5235,7 +5235,7 @@ that converted it to PDF</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1398">A #PopplerDocument</doc>
+                 line="1399">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -5246,12 +5246,12 @@ that converted it to PDF</doc>
               version="0.16">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1306">Returns the document's title</doc>
+             line="1307">Returns the document's title</doc>
         <source-position filename="glib/poppler-document.h" line="330"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1312">a new allocated string containing the title
+               line="1313">a new allocated string containing the title
               of @document, or %NULL</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -5259,7 +5259,7 @@ that converted it to PDF</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1308">A #PopplerDocument</doc>
+                 line="1309">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -5268,19 +5268,19 @@ that converted it to PDF</doc>
               c:identifier="poppler_document_has_attachments">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="822">Returns %TRUE of @document has any attachments.</doc>
+             line="823">Returns %TRUE of @document has any attachments.</doc>
         <source-position filename="glib/poppler-document.h" line="400"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="828">%TRUE, if @document has attachments.</doc>
+               line="829">%TRUE, if @document has attachments.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="824">A #PopplerDocument</doc>
+                 line="825">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -5290,7 +5290,7 @@ that converted it to PDF</doc>
               version="0.90">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2238">Returns whether @document has any javascript in it.</doc>
+             line="2239">Returns whether @document has any javascript in it.</doc>
         <source-position filename="glib/poppler-document.h" line="418"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5299,7 +5299,7 @@ that converted it to PDF</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2240">A #PopplerDocument</doc>
+                 line="2241">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -5309,20 +5309,20 @@ that converted it to PDF</doc>
               version="0.16">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1758">Returns whether @document is linearized or not. Linearization of PDF
+             line="1759">Returns whether @document is linearized or not. Linearization of PDF
 enables efficient incremental access of the PDF file in a network environment.</doc>
         <source-position filename="glib/poppler-document.h" line="370"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="1765">%TRUE if @document is linearized, %FALSE otherwise</doc>
+               line="1766">%TRUE if @document is linearized, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1760">A #PopplerDocument</doc>
+                 line="1761">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
         </parameters>
@@ -5332,7 +5332,7 @@ enables efficient incremental access of the PDF file in a network environment.</
               version="0.90">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2202">Resets the form fields specified by fields if exclude_fields is FALSE.
+             line="2203">Resets the form fields specified by fields if exclude_fields is FALSE.
 Resets all others if exclude_fields is TRUE.
 All form fields are reset regardless of the exclude_fields flag
 if fields is empty.</doc>
@@ -5344,7 +5344,7 @@ if fields is empty.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2204">A #PopplerDocument</doc>
+                 line="2205">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="fields"
@@ -5353,7 +5353,7 @@ if fields is empty.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2205">list of fields to reset</doc>
+                 line="2206">list of fields to reset</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="utf8"/>
             </type>
@@ -5361,7 +5361,7 @@ if fields is empty.</doc>
           <parameter name="exclude_fields" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2206">whether to reset all fields except those in @fields</doc>
+                 line="2207">whether to reset all fields except those in @fields</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5369,7 +5369,7 @@ if fields is empty.</doc>
       <method name="save" c:identifier="poppler_document_save" throws="1">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="551">Saves @document. Any change made in the document such as
+             line="552">Saves @document. Any change made in the document such as
 form fields filled, annotations added or modified
 will be saved.
 If @error is set, %FALSE will be returned. Possible errors
@@ -5378,20 +5378,20 @@ include those in the #G_FILE_ERROR domain.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="563">%TRUE, if the document was successfully saved</doc>
+               line="564">%TRUE, if the document was successfully saved</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="553">a #PopplerDocument</doc>
+                 line="554">a #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="554">uri of file to save</doc>
+                 line="555">uri of file to save</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -5401,7 +5401,7 @@ include those in the #G_FILE_ERROR domain.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="585">Saves a copy of the original @document.
+             line="586">Saves a copy of the original @document.
 Any change made in the document such as
 form fields filled by the user will not be saved.
 If @error is set, %FALSE will be returned. Possible errors
@@ -5410,20 +5410,20 @@ include those in the #G_FILE_ERROR domain.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="597">%TRUE, if the document was successfully saved</doc>
+               line="598">%TRUE, if the document was successfully saved</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="587">a #PopplerDocument</doc>
+                 line="588">a #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="588">uri of file to save</doc>
+                 line="589">uri of file to save</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -5434,7 +5434,7 @@ include those in the #G_FILE_ERROR domain.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="621">Saves @document. Any change made in the document such as
+             line="622">Saves @document. Any change made in the document such as
 form fields filled, annotations added or modified
 will be saved if @include_changes is %TRUE, or discarded i
 @include_changes is %FALSE.
@@ -5448,26 +5448,26 @@ include those in the #G_FILE_ERROR domain.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="639">%TRUE, if the document was successfully saved</doc>
+               line="640">%TRUE, if the document was successfully saved</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="623">a #PopplerDocument</doc>
+                 line="624">a #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="fd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="624">a valid file descriptor open for writing</doc>
+                 line="625">a valid file descriptor open for writing</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="include_changes" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="625">whether to include user changes (e.g. form fills)</doc>
+                 line="626">whether to include user changes (e.g. form fills)</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5478,7 +5478,7 @@ include those in the #G_FILE_ERROR domain.</doc>
               version="0.46">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1370">Sets the document's author. If @author is %NULL, Author
+             line="1371">Sets the document's author. If @author is %NULL, Author
 entry is removed from the document's Info dictionary.</doc>
         <source-position filename="glib/poppler-document.h" line="336"/>
         <return-value transfer-ownership="none">
@@ -5488,13 +5488,13 @@ entry is removed from the document's Info dictionary.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1372">A #PopplerDocument</doc>
+                 line="1373">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="author" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1373">A new author</doc>
+                 line="1374">A new author</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5505,7 +5505,7 @@ entry is removed from the document's Info dictionary.</doc>
               version="0.46">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1605">Sets the document's creation date. If @creation_date is -1, CreationDate
+             line="1606">Sets the document's creation date. If @creation_date is -1, CreationDate
 entry is removed from the document's Info dictionary.</doc>
         <source-position filename="glib/poppler-document.h" line="356"/>
         <return-value transfer-ownership="none">
@@ -5515,13 +5515,13 @@ entry is removed from the document's Info dictionary.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1607">A #PopplerDocument</doc>
+                 line="1608">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="creation_date" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1608">A new creation date</doc>
+                 line="1609">A new creation date</doc>
             <type name="glong" c:type="time_t"/>
           </parameter>
         </parameters>
@@ -5531,7 +5531,7 @@ entry is removed from the document's Info dictionary.</doc>
               version="20.09.0">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1646">Sets the document's creation date. If @creation_datetime is %NULL,
+             line="1647">Sets the document's creation date. If @creation_datetime is %NULL,
 CreationDate entry is removed from the document's Info dictionary.</doc>
         <source-position filename="glib/poppler-document.h" line="360"/>
         <return-value transfer-ownership="none">
@@ -5541,7 +5541,7 @@ CreationDate entry is removed from the document's Info dictionary.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1648">A #PopplerDocument</doc>
+                 line="1649">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="creation_datetime"
@@ -5550,7 +5550,7 @@ CreationDate entry is removed from the document's Info dictionary.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1649">A new creation #GDateTime</doc>
+                 line="1650">A new creation #GDateTime</doc>
             <type name="GLib.DateTime" c:type="GDateTime*"/>
           </parameter>
         </parameters>
@@ -5561,7 +5561,7 @@ CreationDate entry is removed from the document's Info dictionary.</doc>
               version="0.46">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1507">Sets the document's creator. If @creator is %NULL, Creator
+             line="1508">Sets the document's creator. If @creator is %NULL, Creator
 entry is removed from the document's Info dictionary.</doc>
         <source-position filename="glib/poppler-document.h" line="348"/>
         <return-value transfer-ownership="none">
@@ -5571,13 +5571,13 @@ entry is removed from the document's Info dictionary.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1509">A #PopplerDocument</doc>
+                 line="1510">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="creator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1510">A new creator</doc>
+                 line="1511">A new creator</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5588,7 +5588,7 @@ entry is removed from the document's Info dictionary.</doc>
               version="0.46">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1460">Sets the document's keywords. If @keywords is %NULL,
+             line="1461">Sets the document's keywords. If @keywords is %NULL,
 Keywords entry is removed from the document's Info dictionary.</doc>
         <source-position filename="glib/poppler-document.h" line="344"/>
         <return-value transfer-ownership="none">
@@ -5598,13 +5598,13 @@ Keywords entry is removed from the document's Info dictionary.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1462">A #PopplerDocument</doc>
+                 line="1463">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="keywords" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1463">New keywords</doc>
+                 line="1464">New keywords</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5614,7 +5614,7 @@ Keywords entry is removed from the document's Info dictionary.</doc>
               version="0.46">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1694">Sets the document's modification date. If @modification_date is -1, ModDate
+             line="1695">Sets the document's modification date. If @modification_date is -1, ModDate
 entry is removed from the document's Info dictionary.</doc>
         <source-position filename="glib/poppler-document.h" line="364"/>
         <return-value transfer-ownership="none">
@@ -5624,13 +5624,13 @@ entry is removed from the document's Info dictionary.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1696">A #PopplerDocument</doc>
+                 line="1697">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="modification_date" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1697">A new modification date</doc>
+                 line="1698">A new modification date</doc>
             <type name="glong" c:type="time_t"/>
           </parameter>
         </parameters>
@@ -5640,7 +5640,7 @@ entry is removed from the document's Info dictionary.</doc>
               version="20.09.0">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1735">Sets the document's modification date. If @modification_datetime is %NULL,
+             line="1736">Sets the document's modification date. If @modification_datetime is %NULL,
 ModDate entry is removed from the document's Info dictionary.</doc>
         <source-position filename="glib/poppler-document.h" line="368"/>
         <return-value transfer-ownership="none">
@@ -5650,7 +5650,7 @@ ModDate entry is removed from the document's Info dictionary.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1737">A #PopplerDocument</doc>
+                 line="1738">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="modification_datetime"
@@ -5659,7 +5659,7 @@ ModDate entry is removed from the document's Info dictionary.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1738">A new modification #GDateTime</doc>
+                 line="1739">A new modification #GDateTime</doc>
             <type name="GLib.DateTime" c:type="GDateTime*"/>
           </parameter>
         </parameters>
@@ -5670,7 +5670,7 @@ ModDate entry is removed from the document's Info dictionary.</doc>
               version="0.46">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1554">Sets the document's producer. If @producer is %NULL,
+             line="1555">Sets the document's producer. If @producer is %NULL,
 Producer entry is removed from the document's Info dictionary.</doc>
         <source-position filename="glib/poppler-document.h" line="352"/>
         <return-value transfer-ownership="none">
@@ -5680,13 +5680,13 @@ Producer entry is removed from the document's Info dictionary.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1556">A #PopplerDocument</doc>
+                 line="1557">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="producer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1557">A new producer</doc>
+                 line="1558">A new producer</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5697,7 +5697,7 @@ Producer entry is removed from the document's Info dictionary.</doc>
               version="0.46">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1415">Sets the document's subject. If @subject is %NULL, Subject
+             line="1416">Sets the document's subject. If @subject is %NULL, Subject
 entry is removed from the document's Info dictionary.</doc>
         <source-position filename="glib/poppler-document.h" line="340"/>
         <return-value transfer-ownership="none">
@@ -5707,13 +5707,13 @@ entry is removed from the document's Info dictionary.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1417">A #PopplerDocument</doc>
+                 line="1418">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="subject" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1418">A new subject</doc>
+                 line="1419">A new subject</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5724,7 +5724,7 @@ entry is removed from the document's Info dictionary.</doc>
               version="0.46">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="1325">Sets the document's title. If @title is %NULL, Title entry
+             line="1326">Sets the document's title. If @title is %NULL, Title entry
 is removed from the document's Info dictionary.</doc>
         <source-position filename="glib/poppler-document.h" line="332"/>
         <return-value transfer-ownership="none">
@@ -5734,13 +5734,13 @@ is removed from the document's Info dictionary.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1327">A #PopplerDocument</doc>
+                 line="1328">A #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="1328">A new title</doc>
+                 line="1329">A new title</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5750,7 +5750,7 @@ is removed from the document's Info dictionary.</doc>
               version="23.07.0">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3872">Sign #document using #signing_data.</doc>
+             line="3874">Sign #document using #signing_data.</doc>
         <source-position filename="glib/poppler-document.h" line="525"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5759,13 +5759,13 @@ is removed from the document's Info dictionary.</doc>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3874">a #PopplerDocument</doc>
+                 line="3876">a #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="signing_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3875">a #PopplerSigningData</doc>
+                 line="3877">a #PopplerSigningData</doc>
             <type name="SigningData" c:type="const PopplerSigningData*"/>
           </parameter>
           <parameter name="cancellable"
@@ -5774,7 +5774,7 @@ is removed from the document's Info dictionary.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3876">a #GCancellable</doc>
+                 line="3878">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -5785,7 +5785,7 @@ is removed from the document's Info dictionary.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3877">a #GAsyncReadyCallback</doc>
+                 line="3879">a #GAsyncReadyCallback</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -5794,7 +5794,7 @@ is removed from the document's Info dictionary.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3878">user data used by callback function</doc>
+                 line="3880">user data used by callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -5805,25 +5805,25 @@ is removed from the document's Info dictionary.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3898">Finish poppler_sign_document and get return status or error.</doc>
+             line="3900">Finish poppler_sign_document and get return status or error.</doc>
         <source-position filename="glib/poppler-document.h" line="527"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3906">%TRUE on successful signing a document, otherwise %FALSE and error is set.</doc>
+               line="3908">%TRUE on successful signing a document, otherwise %FALSE and error is set.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3900">a #PopplerDocument</doc>
+                 line="3902">a #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3901">a #GAsyncResult</doc>
+                 line="3903">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -5836,7 +5836,7 @@ is removed from the document's Info dictionary.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2421">The author of the document</doc>
+             line="2422">The author of the document</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="creation-date"
@@ -5849,7 +5849,7 @@ is removed from the document's Info dictionary.</doc>
                 default-value="-1">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2456">The date the document was created as seconds since the Epoch, or -1</doc>
+             line="2457">The date the document was created as seconds since the Epoch, or -1</doc>
         <doc-deprecated xml:space="preserve">This will overflow in 2038. Use creation-datetime
 instead.</doc-deprecated>
         <type name="gint" c:type="gint"/>
@@ -5860,7 +5860,7 @@ instead.</doc-deprecated>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2467">The #GDateTime the document was created.</doc>
+             line="2468">The #GDateTime the document was created.</doc>
         <type name="GLib.DateTime"/>
       </property>
       <property name="creator"
@@ -5871,13 +5871,13 @@ instead.</doc-deprecated>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2442">The creator of the document. See also poppler_document_get_creator()</doc>
+             line="2443">The creator of the document. See also poppler_document_get_creator()</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="format" transfer-ownership="none" default-value="NULL">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2400">The PDF version as string. See also poppler_document_get_pdf_version_string()</doc>
+             line="2401">The PDF version as string. See also poppler_document_get_pdf_version_string()</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="format-major"
@@ -5885,7 +5885,7 @@ instead.</doc-deprecated>
                 default-value="1">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2407">The PDF major version number. See also poppler_document_get_pdf_version()</doc>
+             line="2408">The PDF major version number. See also poppler_document_get_pdf_version()</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="format-minor"
@@ -5893,7 +5893,7 @@ instead.</doc-deprecated>
                 default-value="0">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2414">The PDF minor version number. See also poppler_document_get_pdf_version()</doc>
+             line="2415">The PDF minor version number. See also poppler_document_get_pdf_version()</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="keywords"
@@ -5904,7 +5904,7 @@ instead.</doc-deprecated>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2435">The keywords associated to the document</doc>
+             line="2436">The keywords associated to the document</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="linearized"
@@ -5912,7 +5912,7 @@ instead.</doc-deprecated>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2494">Whether document is linearized. See also poppler_document_is_linearized()</doc>
+             line="2495">Whether document is linearized. See also poppler_document_is_linearized()</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="metadata"
@@ -5921,7 +5921,7 @@ instead.</doc-deprecated>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2585">Document metadata in XML format, or %NULL</doc>
+             line="2586">Document metadata in XML format, or %NULL</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="mod-date"
@@ -5932,7 +5932,7 @@ instead.</doc-deprecated>
                 default-value="-1">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2475">The date the document was most recently modified as seconds since the Epoch, or -1</doc>
+             line="2476">The date the document was most recently modified as seconds since the Epoch, or -1</doc>
         <doc-deprecated xml:space="preserve">This will overflow in 2038. Use mod-datetime instead.</doc-deprecated>
         <type name="gint" c:type="gint"/>
       </property>
@@ -5942,7 +5942,7 @@ instead.</doc-deprecated>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2485">The #GDateTime the document was most recently modified.</doc>
+             line="2486">The #GDateTime the document was most recently modified.</doc>
         <type name="GLib.DateTime"/>
       </property>
       <property name="page-layout"
@@ -5951,7 +5951,7 @@ instead.</doc-deprecated>
                 default-value="POPPLER_PAGE_LAYOUT_UNSET">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2501">The page layout that should be used when the document is opened</doc>
+             line="2502">The page layout that should be used when the document is opened</doc>
         <type name="PageLayout"/>
       </property>
       <property name="page-mode"
@@ -5960,7 +5960,7 @@ instead.</doc-deprecated>
                 default-value="POPPLER_PAGE_MODE_UNSET">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2508">The mode that should be used when the document is opened</doc>
+             line="2509">The mode that should be used when the document is opened</doc>
         <type name="PageMode"/>
       </property>
       <property name="permissions"
@@ -5969,7 +5969,7 @@ instead.</doc-deprecated>
                 default-value="POPPLER_PERMISSIONS_OK_TO_PRINT | POPPLER_PERMISSIONS_OK_TO_MODIFY | POPPLER_PERMISSIONS_OK_TO_COPY | POPPLER_PERMISSIONS_OK_TO_ADD_NOTES | POPPLER_PERMISSIONS_OK_TO_FILL_FORM | POPPLER_PERMISSIONS_OK_TO_EXTRACT_CONTENTS | POPPLER_PERMISSIONS_OK_TO_ASSEMBLE | POPPLER_PERMISSIONS_OK_TO_PRINT_HIGH_RESOLUTION">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2548">Flags specifying which operations are permitted when the document is opened</doc>
+             line="2549">Flags specifying which operations are permitted when the document is opened</doc>
         <type name="Permissions"/>
       </property>
       <property name="print-duplex"
@@ -5986,7 +5986,7 @@ instead.</doc-deprecated>
                 default-value="1">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2538">Suggested number of copies to be printed for this document</doc>
+             line="2539">Suggested number of copies to be printed for this document</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="print-scaling"
@@ -6004,7 +6004,7 @@ instead.</doc-deprecated>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2449">The producer of the document. See also poppler_document_get_producer()</doc>
+             line="2450">The producer of the document. See also poppler_document_get_producer()</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="subject"
@@ -6015,7 +6015,7 @@ instead.</doc-deprecated>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2428">The subject of the document</doc>
+             line="2429">The subject of the document</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="subtype"
@@ -6023,7 +6023,7 @@ instead.</doc-deprecated>
                 default-value="POPPLER_PDF_SUBTYPE_UNSET">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2555">Document PDF subtype type</doc>
+             line="2556">Document PDF subtype type</doc>
         <type name="PDFSubtype"/>
       </property>
       <property name="subtype-conformance"
@@ -6031,7 +6031,7 @@ instead.</doc-deprecated>
                 default-value="POPPLER_PDF_SUBTYPE_CONF_UNSET">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2577">Document PDF subtype conformance</doc>
+             line="2578">Document PDF subtype conformance</doc>
         <type name="PDFConformance"/>
       </property>
       <property name="subtype-part"
@@ -6039,7 +6039,7 @@ instead.</doc-deprecated>
                 default-value="POPPLER_PDF_SUBTYPE_PART_UNSET">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2569">Document PDF subtype part</doc>
+             line="2570">Document PDF subtype part</doc>
         <type name="PDFPart"/>
       </property>
       <property name="subtype-string"
@@ -6047,7 +6047,7 @@ instead.</doc-deprecated>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2562">Document PDF subtype. See also poppler_document_get_pdf_subtype_string()</doc>
+             line="2563">Document PDF subtype. See also poppler_document_get_pdf_subtype_string()</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="title"
@@ -6058,7 +6058,7 @@ instead.</doc-deprecated>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2393">The document's title or %NULL</doc>
+             line="2394">The document's title or %NULL</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="viewer-preferences"
@@ -6227,19 +6227,19 @@ allows whitespace in search term to match on newline char. Since: 21.05.0.</doc>
       <constructor name="new" c:identifier="poppler_font_info_new">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3114">Creates a new #PopplerFontInfo object</doc>
+             line="3116">Creates a new #PopplerFontInfo object</doc>
         <source-position filename="glib/poppler-document.h" line="453"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3120">a new #PopplerFontInfo instance</doc>
+               line="3122">a new #PopplerFontInfo instance</doc>
           <type name="FontInfo" c:type="PopplerFontInfo*"/>
         </return-value>
         <parameters>
           <parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3116">a #PopplerDocument</doc>
+                 line="3118">a #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </parameter>
         </parameters>
@@ -6258,7 +6258,7 @@ allows whitespace in search term to match on newline char. Since: 21.05.0.</doc>
       <method name="scan" c:identifier="poppler_font_info_scan">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3135">Scans the document associated with @font_info for fonts. At most
+             line="3137">Scans the document associated with @font_info for fonts. At most
 @n_pages will be scanned starting from the current iterator. @iter will
 point to the first font scanned.
 
@@ -6280,20 +6280,20 @@ while (poppler_font_info_scan (font_info, 20, &amp;fonts_iter)) {
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3160">%TRUE, if there are more fonts left to scan</doc>
+               line="3162">%TRUE, if there are more fonts left to scan</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="font_info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3137">a #PopplerFontInfo</doc>
+                 line="3139">a #PopplerFontInfo</doc>
             <type name="FontInfo" c:type="PopplerFontInfo*"/>
           </instance-parameter>
           <parameter name="n_pages" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3138">number of pages to scan</doc>
+                 line="3140">number of pages to scan</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="iter"
@@ -6302,7 +6302,7 @@ while (poppler_font_info_scan (font_info, 20, &amp;fonts_iter)) {
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3139">return location for a #PopplerFontsIter</doc>
+                 line="3141">return location for a #PopplerFontsIter</doc>
             <type name="FontsIter" c:type="PopplerFontsIter**"/>
           </parameter>
         </parameters>
@@ -6434,19 +6434,19 @@ while (poppler_font_info_scan (font_info, 20, &amp;fonts_iter)) {
       <method name="copy" c:identifier="poppler_fonts_iter_copy">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3025">Creates a copy of @iter</doc>
+             line="3027">Creates a copy of @iter</doc>
         <source-position filename="glib/poppler-document.h" line="463"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3031">a new allocated copy of @iter</doc>
+               line="3033">a new allocated copy of @iter</doc>
           <type name="FontsIter" c:type="PopplerFontsIter*"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3027">a #PopplerFontsIter to copy</doc>
+                 line="3029">a #PopplerFontsIter to copy</doc>
             <type name="FontsIter" c:type="PopplerFontsIter*"/>
           </instance-parameter>
         </parameters>
@@ -6454,7 +6454,7 @@ while (poppler_font_info_scan (font_info, 20, &amp;fonts_iter)) {
       <method name="free" c:identifier="poppler_fonts_iter_free">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3050">Frees the given #PopplerFontsIter</doc>
+             line="3052">Frees the given #PopplerFontsIter</doc>
         <source-position filename="glib/poppler-document.h" line="465"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6463,7 +6463,7 @@ while (poppler_font_info_scan (font_info, 20, &amp;fonts_iter)) {
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3052">a #PopplerFontsIter</doc>
+                 line="3054">a #PopplerFontsIter</doc>
             <type name="FontsIter" c:type="PopplerFontsIter*"/>
           </instance-parameter>
         </parameters>
@@ -6473,19 +6473,19 @@ while (poppler_font_info_scan (font_info, 20, &amp;fonts_iter)) {
               version="0.20">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2947">Returns the encoding of the font associated with @iter</doc>
+             line="2949">Returns the encoding of the font associated with @iter</doc>
         <source-position filename="glib/poppler-document.h" line="477"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2953">the font encoding</doc>
+               line="2955">the font encoding</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2949">a #PopplerFontsIter</doc>
+                 line="2951">a #PopplerFontsIter</doc>
             <type name="FontsIter" c:type="PopplerFontsIter*"/>
           </instance-parameter>
         </parameters>
@@ -6494,20 +6494,20 @@ while (poppler_font_info_scan (font_info, 20, &amp;fonts_iter)) {
               c:identifier="poppler_fonts_iter_get_file_name">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2905">The filename of the font associated with @iter or %NULL if
+             line="2907">The filename of the font associated with @iter or %NULL if
 the font is embedded</doc>
         <source-position filename="glib/poppler-document.h" line="473"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2912">the filename of the font or %NULL if font is embedded</doc>
+               line="2914">the filename of the font or %NULL if font is embedded</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2907">a #PopplerFontsIter</doc>
+                 line="2909">a #PopplerFontsIter</doc>
             <type name="FontsIter" c:type="PopplerFontsIter*"/>
           </instance-parameter>
         </parameters>
@@ -6516,19 +6516,19 @@ the font is embedded</doc>
               c:identifier="poppler_fonts_iter_get_font_type">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2928">Returns the type of the font associated with @iter</doc>
+             line="2930">Returns the type of the font associated with @iter</doc>
         <source-position filename="glib/poppler-document.h" line="475"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2934">the font type</doc>
+               line="2936">the font type</doc>
           <type name="FontType" c:type="PopplerFontType"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2930">a #PopplerFontsIter</doc>
+                 line="2932">a #PopplerFontsIter</doc>
             <type name="FontsIter" c:type="PopplerFontsIter*"/>
           </instance-parameter>
         </parameters>
@@ -6537,19 +6537,19 @@ the font is embedded</doc>
               c:identifier="poppler_fonts_iter_get_full_name">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2829">Returns the full name of the font associated with @iter</doc>
+             line="2831">Returns the full name of the font associated with @iter</doc>
         <source-position filename="glib/poppler-document.h" line="469"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2835">the font full name</doc>
+               line="2837">the font full name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2831">a #PopplerFontsIter</doc>
+                 line="2833">a #PopplerFontsIter</doc>
             <type name="FontsIter" c:type="PopplerFontsIter*"/>
           </instance-parameter>
         </parameters>
@@ -6557,19 +6557,19 @@ the font is embedded</doc>
       <method name="get_name" c:identifier="poppler_fonts_iter_get_name">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2851">Returns the name of the font associated with @iter</doc>
+             line="2853">Returns the name of the font associated with @iter</doc>
         <source-position filename="glib/poppler-document.h" line="467"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2857">the font name</doc>
+               line="2859">the font name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2853">a #PopplerFontsIter</doc>
+                 line="2855">a #PopplerFontsIter</doc>
             <type name="FontsIter" c:type="PopplerFontsIter*"/>
           </instance-parameter>
         </parameters>
@@ -6579,20 +6579,20 @@ the font is embedded</doc>
               version="0.20">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2880">The name of the substitute font of the font associated with @iter or %NULL if
+             line="2882">The name of the substitute font of the font associated with @iter or %NULL if
 the font is embedded</doc>
         <source-position filename="glib/poppler-document.h" line="471"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2887">the name of the substitute font or %NULL if font is embedded</doc>
+               line="2889">the name of the substitute font or %NULL if font is embedded</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2882">a #PopplerFontsIter</doc>
+                 line="2884">a #PopplerFontsIter</doc>
             <type name="FontsIter" c:type="PopplerFontsIter*"/>
           </instance-parameter>
         </parameters>
@@ -6600,19 +6600,19 @@ the font is embedded</doc>
       <method name="is_embedded" c:identifier="poppler_fonts_iter_is_embedded">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2971">Returns whether the font associated with @iter is embedded in the document</doc>
+             line="2973">Returns whether the font associated with @iter is embedded in the document</doc>
         <source-position filename="glib/poppler-document.h" line="479"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2977">%TRUE if font is embedded, %FALSE otherwise</doc>
+               line="2979">%TRUE if font is embedded, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2973">a #PopplerFontsIter</doc>
+                 line="2975">a #PopplerFontsIter</doc>
             <type name="FontsIter" c:type="PopplerFontsIter*"/>
           </instance-parameter>
         </parameters>
@@ -6620,19 +6620,19 @@ the font is embedded</doc>
       <method name="is_subset" c:identifier="poppler_fonts_iter_is_subset">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2988">Returns whether the font associated with @iter is a subset of another font</doc>
+             line="2990">Returns whether the font associated with @iter is a subset of another font</doc>
         <source-position filename="glib/poppler-document.h" line="481"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2994">%TRUE if font is a subset, %FALSE otherwise</doc>
+               line="2996">%TRUE if font is a subset, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2990">a #PopplerFontsIter</doc>
+                 line="2992">a #PopplerFontsIter</doc>
             <type name="FontsIter" c:type="PopplerFontsIter*"/>
           </instance-parameter>
         </parameters>
@@ -6640,19 +6640,19 @@ the font is embedded</doc>
       <method name="next" c:identifier="poppler_fonts_iter_next">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3005">Sets @iter to point to the next font</doc>
+             line="3007">Sets @iter to point to the next font</doc>
         <source-position filename="glib/poppler-document.h" line="483"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3011">%TRUE, if @iter was set to the next font</doc>
+               line="3013">%TRUE, if @iter was set to the next font</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3007">a #PopplerFontsIter</doc>
+                 line="3009">a #PopplerFontsIter</doc>
             <type name="FontsIter" c:type="PopplerFontsIter*"/>
           </instance-parameter>
         </parameters>
@@ -7993,7 +7993,7 @@ of an image on the page</doc>
       <constructor name="new" c:identifier="poppler_index_iter_new">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2626">Returns the root #PopplerIndexIter for @document, or %NULL.  This must be
+             line="2627">Returns the root #PopplerIndexIter for @document, or %NULL.  This must be
 freed with poppler_index_iter_free().
 
 Certain documents have an index associated with them.  This index can be used
@@ -8029,14 +8029,14 @@ walk_index (PopplerIndexIter *iter)
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2663">a new #PopplerIndexIter</doc>
+               line="2664">a new #PopplerIndexIter</doc>
           <type name="IndexIter" c:type="PopplerIndexIter*"/>
         </return-value>
         <parameters>
           <parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2628">a #PopplerDocument</doc>
+                 line="2629">a #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </parameter>
         </parameters>
@@ -8044,20 +8044,20 @@ walk_index (PopplerIndexIter *iter)
       <method name="copy" c:identifier="poppler_index_iter_copy">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2605">Creates a new #PopplerIndexIter as a copy of @iter.  This must be freed with
+             line="2606">Creates a new #PopplerIndexIter as a copy of @iter.  This must be freed with
 poppler_index_iter_free().</doc>
         <source-position filename="glib/poppler-document.h" line="433"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2612">a new #PopplerIndexIter</doc>
+               line="2613">a new #PopplerIndexIter</doc>
           <type name="IndexIter" c:type="PopplerIndexIter*"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2607">a #PopplerIndexIter</doc>
+                 line="2608">a #PopplerIndexIter</doc>
             <type name="IndexIter" c:type="PopplerIndexIter*"/>
           </instance-parameter>
         </parameters>
@@ -8065,7 +8065,7 @@ poppler_index_iter_free().</doc>
       <method name="free" c:identifier="poppler_index_iter_free">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2805">Frees @iter.</doc>
+             line="2807">Frees @iter.</doc>
         <source-position filename="glib/poppler-document.h" line="435"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8074,7 +8074,7 @@ poppler_index_iter_free().</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2807">a #PopplerIndexIter</doc>
+                 line="2809">a #PopplerIndexIter</doc>
             <type name="IndexIter" c:type="PopplerIndexIter*"/>
           </instance-parameter>
         </parameters>
@@ -8082,20 +8082,20 @@ poppler_index_iter_free().</doc>
       <method name="get_action" c:identifier="poppler_index_iter_get_action">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2755">Returns the #PopplerAction associated with @iter.  It must be freed with
+             line="2756">Returns the #PopplerAction associated with @iter.  It must be freed with
 poppler_action_free().</doc>
         <source-position filename="glib/poppler-document.h" line="442"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2762">a new #PopplerAction</doc>
+               line="2763">a new #PopplerAction</doc>
           <type name="Action" c:type="PopplerAction*"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2757">a #PopplerIndexIter</doc>
+                 line="2758">a #PopplerIndexIter</doc>
             <type name="IndexIter" c:type="PopplerIndexIter*"/>
           </instance-parameter>
         </parameters>
@@ -8103,20 +8103,20 @@ poppler_action_free().</doc>
       <method name="get_child" c:identifier="poppler_index_iter_get_child">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2689">Returns a newly created child of @parent, or %NULL if the iter has no child.
+             line="2690">Returns a newly created child of @parent, or %NULL if the iter has no child.
 See poppler_index_iter_new() for more information on this function.</doc>
         <source-position filename="glib/poppler-document.h" line="438"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2696">a new #PopplerIndexIter</doc>
+               line="2697">a new #PopplerIndexIter</doc>
           <type name="IndexIter" c:type="PopplerIndexIter*"/>
         </return-value>
         <parameters>
           <instance-parameter name="parent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2691">a #PopplerIndexIter</doc>
+                 line="2692">a #PopplerIndexIter</doc>
             <type name="IndexIter" c:type="PopplerIndexIter*"/>
           </instance-parameter>
         </parameters>
@@ -8124,21 +8124,21 @@ See poppler_index_iter_new() for more information on this function.</doc>
       <method name="is_open" c:identifier="poppler_index_iter_is_open">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2736">Returns whether this node should be expanded by default to the user.  The
+             line="2737">Returns whether this node should be expanded by default to the user.  The
 document can provide a hint as to how the document's index should be expanded
 initially.</doc>
         <source-position filename="glib/poppler-document.h" line="440"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2744">%TRUE, if the document wants @iter to be expanded</doc>
+               line="2745">%TRUE, if the document wants @iter to be expanded</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2738">a #PopplerIndexIter</doc>
+                 line="2739">a #PopplerIndexIter</doc>
             <type name="IndexIter" c:type="PopplerIndexIter*"/>
           </instance-parameter>
         </parameters>
@@ -8146,20 +8146,20 @@ initially.</doc>
       <method name="next" c:identifier="poppler_index_iter_next">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="2784">Sets @iter to point to the next action at the current level, if valid.  See
+             line="2786">Sets @iter to point to the next action at the current level, if valid.  See
 poppler_index_iter_new() for more information.</doc>
         <source-position filename="glib/poppler-document.h" line="444"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="2791">%TRUE, if @iter was set to the next action</doc>
+               line="2793">%TRUE, if @iter was set to the next action</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="2786">a #PopplerIndexIter</doc>
+                 line="2788">a #PopplerIndexIter</doc>
             <type name="IndexIter" c:type="PopplerIndexIter*"/>
           </instance-parameter>
         </parameters>
@@ -8325,7 +8325,7 @@ is shown again</doc>
           <parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3408">a #PopplerDocument</doc>
+                 line="3410">a #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </parameter>
         </parameters>
@@ -8333,13 +8333,13 @@ is shown again</doc>
       <method name="copy" c:identifier="poppler_layers_iter_copy">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3365">Creates a new #PopplerLayersIter as a copy of @iter.  This must be freed with
+             line="3367">Creates a new #PopplerLayersIter as a copy of @iter.  This must be freed with
 poppler_layers_iter_free().</doc>
         <source-position filename="glib/poppler-document.h" line="492"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3372">a new #PopplerLayersIter
+               line="3374">a new #PopplerLayersIter
 
 Since 0.12</doc>
           <type name="LayersIter" c:type="PopplerLayersIter*"/>
@@ -8348,7 +8348,7 @@ Since 0.12</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3367">a #PopplerLayersIter</doc>
+                 line="3369">a #PopplerLayersIter</doc>
             <type name="LayersIter" c:type="PopplerLayersIter*"/>
           </instance-parameter>
         </parameters>
@@ -8358,7 +8358,7 @@ Since 0.12</doc>
               version="0.12">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3388">Frees @iter.</doc>
+             line="3390">Frees @iter.</doc>
         <source-position filename="glib/poppler-document.h" line="494"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8367,7 +8367,7 @@ Since 0.12</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3390">a #PopplerLayersIter</doc>
+                 line="3392">a #PopplerLayersIter</doc>
             <type name="LayersIter" c:type="PopplerLayersIter*"/>
           </instance-parameter>
         </parameters>
@@ -8377,20 +8377,20 @@ Since 0.12</doc>
               version="0.12">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3430">Returns a newly created child of @parent, or %NULL if the iter has no child.
+             line="3432">Returns a newly created child of @parent, or %NULL if the iter has no child.
 See poppler_layers_iter_new() for more information on this function.</doc>
         <source-position filename="glib/poppler-document.h" line="497"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3437">a new #PopplerLayersIter, or %NULL</doc>
+               line="3439">a new #PopplerLayersIter, or %NULL</doc>
           <type name="LayersIter" c:type="PopplerLayersIter*"/>
         </return-value>
         <parameters>
           <instance-parameter name="parent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3432">a #PopplerLayersIter</doc>
+                 line="3434">a #PopplerLayersIter</doc>
             <type name="LayersIter" c:type="PopplerLayersIter*"/>
           </instance-parameter>
         </parameters>
@@ -8400,12 +8400,12 @@ See poppler_layers_iter_new() for more information on this function.</doc>
               version="0.12">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3485">Returns the #PopplerLayer associated with @iter.</doc>
+             line="3487">Returns the #PopplerLayer associated with @iter.</doc>
         <source-position filename="glib/poppler-document.h" line="501"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3491">a new #PopplerLayer, or %NULL if
+               line="3493">a new #PopplerLayer, or %NULL if
 there isn't any layer associated with @iter</doc>
           <type name="Layer" c:type="PopplerLayer*"/>
         </return-value>
@@ -8413,7 +8413,7 @@ there isn't any layer associated with @iter</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3487">a #PopplerLayersIter</doc>
+                 line="3489">a #PopplerLayersIter</doc>
             <type name="LayersIter" c:type="PopplerLayersIter*"/>
           </instance-parameter>
         </parameters>
@@ -8423,13 +8423,13 @@ there isn't any layer associated with @iter</doc>
               version="0.12">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3462">Returns the title associated with @iter.  It must be freed with
+             line="3464">Returns the title associated with @iter.  It must be freed with
 g_free().</doc>
         <source-position filename="glib/poppler-document.h" line="499"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3469">a new string containing the @iter's title or %NULL if @iter doesn't have a title.
+               line="3471">a new string containing the @iter's title or %NULL if @iter doesn't have a title.
 The returned string should be freed with g_free() when no longer needed.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -8437,7 +8437,7 @@ The returned string should be freed with g_free() when no longer needed.</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3464">a #PopplerLayersIter</doc>
+                 line="3466">a #PopplerLayersIter</doc>
             <type name="LayersIter" c:type="PopplerLayersIter*"/>
           </instance-parameter>
         </parameters>
@@ -8447,20 +8447,20 @@ The returned string should be freed with g_free() when no longer needed.</doc>
               version="0.12">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3514">Sets @iter to point to the next action at the current level, if valid.  See
+             line="3516">Sets @iter to point to the next action at the current level, if valid.  See
 poppler_layers_iter_new() for more information.</doc>
         <source-position filename="glib/poppler-document.h" line="503"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3521">%TRUE, if @iter was set to the next action</doc>
+               line="3523">%TRUE, if @iter was set to the next action</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3516">a #PopplerLayersIter</doc>
+                 line="3518">a #PopplerLayersIter</doc>
             <type name="LayersIter" c:type="PopplerLayersIter*"/>
           </instance-parameter>
         </parameters>
@@ -8539,7 +8539,7 @@ of @action on the page</doc>
       </method>
     </record>
     <constant name="MAJOR_VERSION"
-              value="23"
+              value="24"
               c:type="POPPLER_MAJOR_VERSION"
               version="0.12">
       <doc xml:space="preserve"
@@ -8570,7 +8570,7 @@ of @action on the page</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MINOR_VERSION"
-              value="8"
+              value="2"
               c:type="POPPLER_MINOR_VERSION"
               version="0.12">
       <doc xml:space="preserve"
@@ -9489,37 +9489,37 @@ from the movie file.</doc>
       <constructor name="new" c:identifier="poppler_ps_file_new">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3580">Create a new postscript file to render to</doc>
+             line="3582">Create a new postscript file to render to</doc>
         <source-position filename="glib/poppler-document.h" line="512"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3589">a PopplerPSFile</doc>
+               line="3591">a PopplerPSFile</doc>
           <type name="PSFile" c:type="PopplerPSFile*"/>
         </return-value>
         <parameters>
           <parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3582">a #PopplerDocument</doc>
+                 line="3584">a #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3583">the path of the output filename</doc>
+                 line="3585">the path of the output filename</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="first_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3584">the first page to print</doc>
+                 line="3586">the first page to print</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="n_pages" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3585">the number of pages to print</doc>
+                 line="3587">the number of pages to print</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -9529,39 +9529,39 @@ from the movie file.</doc>
                    version="21.12.0">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3610">Create a new postscript file to render to.
+             line="3612">Create a new postscript file to render to.
 Note that this function takes ownership of @fd; you must not operate on it
 again, nor close it.</doc>
         <source-position filename="glib/poppler-document.h" line="515"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="3621">a #PopplerPSFile</doc>
+               line="3623">a #PopplerPSFile</doc>
           <type name="PSFile" c:type="PopplerPSFile*"/>
         </return-value>
         <parameters>
           <parameter name="document" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3612">a #PopplerDocument</doc>
+                 line="3614">a #PopplerDocument</doc>
             <type name="Document" c:type="PopplerDocument*"/>
           </parameter>
           <parameter name="fd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3613">a valid file descriptor open for writing</doc>
+                 line="3615">a valid file descriptor open for writing</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="first_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3614">the first page to print</doc>
+                 line="3616">the first page to print</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="n_pages" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3615">the number of pages to print</doc>
+                 line="3617">the number of pages to print</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -9569,7 +9569,7 @@ again, nor close it.</doc>
       <method name="free" c:identifier="poppler_ps_file_free">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3678">Frees @ps_file</doc>
+             line="3680">Frees @ps_file</doc>
         <source-position filename="glib/poppler-document.h" line="522"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9578,7 +9578,7 @@ again, nor close it.</doc>
           <instance-parameter name="ps_file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3680">a PopplerPSFile</doc>
+                 line="3682">a PopplerPSFile</doc>
             <type name="PSFile" c:type="PopplerPSFile*"/>
           </instance-parameter>
         </parameters>
@@ -9586,7 +9586,7 @@ again, nor close it.</doc>
       <method name="set_duplex" c:identifier="poppler_ps_file_set_duplex">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3663">Enable or disable Duplex printing.</doc>
+             line="3665">Enable or disable Duplex printing.</doc>
         <source-position filename="glib/poppler-document.h" line="520"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9595,13 +9595,13 @@ again, nor close it.</doc>
           <instance-parameter name="ps_file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3665">a PopplerPSFile which was not yet printed to</doc>
+                 line="3667">a PopplerPSFile which was not yet printed to</doc>
             <type name="PSFile" c:type="PopplerPSFile*"/>
           </instance-parameter>
           <parameter name="duplex" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3666">whether to force duplex printing (on printers which support this)</doc>
+                 line="3668">whether to force duplex printing (on printers which support this)</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -9610,7 +9610,7 @@ again, nor close it.</doc>
               c:identifier="poppler_ps_file_set_paper_size">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="3644">Set the output paper size. These values will end up in the
+             line="3646">Set the output paper size. These values will end up in the
 DocumentMedia, the BoundingBox DSC comments and other places in the
 generated PostScript.</doc>
         <source-position filename="glib/poppler-document.h" line="518"/>
@@ -9621,19 +9621,19 @@ generated PostScript.</doc>
           <instance-parameter name="ps_file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3646">a PopplerPSFile which was not yet printed to.</doc>
+                 line="3648">a PopplerPSFile which was not yet printed to.</doc>
             <type name="PSFile" c:type="PopplerPSFile*"/>
           </instance-parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3647">the paper width in 1/72 inch</doc>
+                 line="3649">the paper width in 1/72 inch</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="glib/poppler-document.cc"
-                 line="3648">the paper height in 1/72 inch</doc>
+                 line="3650">the paper height in 1/72 inch</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -16178,7 +16178,7 @@ if the parsing fails or the input string is not a valid PDF format date string</
               version="0.73">
       <doc xml:space="preserve"
            filename="glib/poppler-document.cc"
-           line="878">Converts a bytestring into a zero-terminated string suitable to
+           line="879">Converts a bytestring into a zero-terminated string suitable to
 pass to poppler_document_find_dest().
 
 Note that the returned string has no defined encoding and is not
@@ -16189,14 +16189,14 @@ The returned data must be freed using g_free().</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="891">the named dest</doc>
+             line="892">the named dest</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
       <parameters>
         <parameter name="data" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="880">the bytestring data</doc>
+               line="881">the bytestring data</doc>
           <array length="1" zero-terminated="0" c:type="const guint8*">
             <type name="guint8" c:type="guint8"/>
           </array>
@@ -16204,7 +16204,7 @@ The returned data must be freed using g_free().</doc>
         <parameter name="length" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="881">the bytestring length</doc>
+               line="882">the bytestring length</doc>
           <type name="gsize" c:type="gsize"/>
         </parameter>
       </parameters>
@@ -16214,7 +16214,7 @@ The returned data must be freed using g_free().</doc>
               version="0.73">
       <doc xml:space="preserve"
            filename="glib/poppler-document.cc"
-           line="925">Converts a named dest string (e.g. from #PopplerDest.named_dest) into a
+           line="926">Converts a named dest string (e.g. from #PopplerDest.named_dest) into a
 bytestring, inverting the transformation of
 poppler_named_dest_from_bytestring().
 
@@ -16228,7 +16228,7 @@ The returned data must be freed using g_free().</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="glib/poppler-document.cc"
-             line="941">a new bytestring,
+             line="942">a new bytestring,
   or %NULL</doc>
         <array length="1" zero-terminated="0" c:type="guint8*">
           <type name="guint8" c:type="guint8"/>
@@ -16238,7 +16238,7 @@ The returned data must be freed using g_free().</doc>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="927">the named dest string</doc>
+               line="928">the named dest string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="length"
@@ -16247,7 +16247,7 @@ The returned data must be freed using g_free().</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="glib/poppler-document.cc"
-               line="928">a location to store the length of the returned bytestring</doc>
+               line="929">a location to store the length of the returned bytestring</doc>
           <type name="gsize" c:type="gsize*"/>
         </parameter>
       </parameters>
@@ -16255,7 +16255,7 @@ The returned data must be freed using g_free().</doc>
     <docsection name="poppler-document">
       <doc xml:space="preserve"
            filename="glib/poppler-document.cc"
-           line="72">The #PopplerDocument is an object used to refer to a main document.</doc>
+           line="73">The #PopplerDocument is an object used to refer to a main document.</doc>
     </docsection>
     <docsection name="poppler-features">
       <doc xml:space="preserve"

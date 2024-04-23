@@ -55,7 +55,7 @@ that can be used by the C pre-processor.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MICRO_VERSION"
-              value="2"
+              value="3"
               c:type="LIBXFCE4WINDOWINGUI_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="libxfce4windowingui-config.h"
@@ -87,12 +87,12 @@ that can be used by the C pre-processor.</doc>
       <constructor name="new" c:identifier="xfw_window_action_menu_new">
         <doc xml:space="preserve"
              filename="xfw-window-action-menu.c"
-             line="561">Creates a new window action menu that acts on @window.</doc>
+             line="560">Creates a new window action menu that acts on @window.</doc>
         <source-position filename="xfw-window-action-menu.h" line="40"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="xfw-window-action-menu.c"
-               line="567">a new #XfwWindowActionMenu
+               line="566">a new #XfwWindowActionMenu
 instance, with a floating reference owned by the caller.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
@@ -100,7 +100,7 @@ instance, with a floating reference owned by the caller.</doc>
           <parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="xfw-window-action-menu.c"
-                 line="563">an #XfwWindow.</doc>
+                 line="562">an #XfwWindow.</doc>
             <type name="Libxfce4windowing.Window" c:type="XfwWindow*"/>
           </parameter>
         </parameters>
@@ -111,7 +111,7 @@ instance, with a floating reference owned by the caller.</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="xfw-window-action-menu.c"
-             line="128">The #XfwWindow instance used to create the action menu.</doc>
+             line="129">The #XfwWindow instance used to create the action menu.</doc>
         <type name="Libxfce4windowing.Window"/>
       </property>
       <field name="parent">

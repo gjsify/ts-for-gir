@@ -24,7 +24,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="APPLET_IN_PROCESS_FACTORY"
                     c:identifier="MATE_PANEL_APPLET_IN_PROCESS_FACTORY"
                     introspectable="0">
-      <source-position filename="mate-panel-applet.h" line="196"/>
+      <source-position filename="mate-panel-applet.h" line="195"/>
       <parameters>
         <parameter name="factory_id">
         </parameter>
@@ -41,7 +41,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="APPLET_OUT_PROCESS_FACTORY"
                     c:identifier="MATE_PANEL_APPLET_OUT_PROCESS_FACTORY"
                     introspectable="0">
-      <source-position filename="mate-panel-applet.h" line="160"/>
+      <source-position filename="mate-panel-applet.h" line="159"/>
       <parameters>
         <parameter name="factory_id">
         </parameter>
@@ -77,26 +77,26 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-panel-applet.c"
-               line="2478">0 on success, 1 if there is an error.</doc>
+               line="2470">0 on success, 1 if there is an error.</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <parameter name="factory_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-panel-applet.c"
-                 line="2473">Factory ID.</doc>
+                 line="2465">Factory ID.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="out_process" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-panel-applet.c"
-                 line="2472">boolean, dummy to support applets sending it</doc>
+                 line="2464">boolean, dummy to support applets sending it</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="applet_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-panel-applet.c"
-                 line="2474">GType of the applet this factory creates.</doc>
+                 line="2466">GType of the applet this factory creates.</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="callback"
@@ -105,7 +105,7 @@ and/or use gtk-doc annotations.  -->
                      closure="4">
             <doc xml:space="preserve"
                  filename="mate-panel-applet.c"
-                 line="2475">Callback to be called when a new applet is to be created.</doc>
+                 line="2467">Callback to be called when a new applet is to be created.</doc>
             <type name="AppletFactoryCallback"
                   c:type="MatePanelAppletFactoryCallback"/>
           </parameter>
@@ -115,7 +115,7 @@ and/or use gtk-doc annotations.  -->
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="mate-panel-applet.c"
-                 line="2476">Callback data.</doc>
+                 line="2468">Callback data.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -127,20 +127,20 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-panel-applet.c"
-               line="2498">0 on success, 1 if there is an error.</doc>
+               line="2490">0 on success, 1 if there is an error.</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <parameter name="factory_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-panel-applet.c"
-                 line="2493">Factory ID.</doc>
+                 line="2485">Factory ID.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="applet_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-panel-applet.c"
-                 line="2494">GType of the applet this factory creates.</doc>
+                 line="2486">GType of the applet this factory creates.</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="callback"
@@ -149,7 +149,7 @@ and/or use gtk-doc annotations.  -->
                      closure="3">
             <doc xml:space="preserve"
                  filename="mate-panel-applet.c"
-                 line="2495">Callback to be called when a new applet is to be created.</doc>
+                 line="2487">Callback to be called when a new applet is to be created.</doc>
             <type name="AppletFactoryCallback"
                   c:type="MatePanelAppletFactoryCallback"/>
           </parameter>
@@ -159,7 +159,7 @@ and/or use gtk-doc annotations.  -->
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="mate-panel-applet.c"
-                 line="2496">Callback data.</doc>
+                 line="2488">Callback data.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -167,7 +167,7 @@ and/or use gtk-doc annotations.  -->
       <function name="settings_get_glist"
                 c:identifier="mate_panel_applet_settings_get_glist"
                 introspectable="0">
-        <source-position filename="mate-panel-applet-gsettings.h" line="39"/>
+        <source-position filename="mate-panel-applet-gsettings.h" line="47"/>
         <return-value>
           <type name="GLib.List" c:type="GList*">
             <type name="gpointer" c:type="gpointer"/>
@@ -185,7 +185,7 @@ and/or use gtk-doc annotations.  -->
       <function name="settings_get_gslist"
                 c:identifier="mate_panel_applet_settings_get_gslist"
                 introspectable="0">
-        <source-position filename="mate-panel-applet-gsettings.h" line="41"/>
+        <source-position filename="mate-panel-applet-gsettings.h" line="49"/>
         <return-value>
           <type name="GLib.SList" c:type="GSList*">
             <type name="gpointer" c:type="gpointer"/>
@@ -203,7 +203,7 @@ and/or use gtk-doc annotations.  -->
       <function name="settings_set_glist"
                 c:identifier="mate_panel_applet_settings_set_glist"
                 introspectable="0">
-        <source-position filename="mate-panel-applet-gsettings.h" line="40"/>
+        <source-position filename="mate-panel-applet-gsettings.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -224,7 +224,7 @@ and/or use gtk-doc annotations.  -->
       <function name="settings_set_gslist"
                 c:identifier="mate_panel_applet_settings_set_gslist"
                 introspectable="0">
-        <source-position filename="mate-panel-applet-gsettings.h" line="42"/>
+        <source-position filename="mate-panel-applet-gsettings.h" line="50"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -410,7 +410,7 @@ and/or use gtk-doc annotations.  -->
               deprecated-version="3.20">
         <doc xml:space="preserve"
              filename="mate-panel-applet.c"
-             line="2510">Configure #PanelApplet to automatically draw the background of the applet on
+             line="2502">Configure #PanelApplet to automatically draw the background of the applet on
 @widget. It is generally enough to call this function with @applet as
 @widget.</doc>
         <doc-deprecated xml:space="preserve">Do not use this API. Since 3.20 this function does nothing.</doc-deprecated>
@@ -422,13 +422,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="applet" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-panel-applet.c"
-                 line="2512">a #PanelApplet.</doc>
+                 line="2504">a #PanelApplet.</doc>
             <type name="Applet" c:type="MatePanelApplet*"/>
           </instance-parameter>
           <parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-panel-applet.c"
-                 line="2513">a #GtkWidget.</doc>
+                 line="2505">a #GtkWidget.</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -460,13 +460,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="applet" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-panel-applet.c"
-                 line="296">applet</doc>
+                 line="297">applet</doc>
             <type name="Applet" c:type="MatePanelApplet*"/>
           </instance-parameter>
           <parameter name="size_hints" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-panel-applet.c"
-                 line="297">List of integers</doc>
+                 line="298">List of integers</doc>
             <array length="1" zero-terminated="0" c:type="const int*">
               <type name="gint" c:type="int"/>
             </array>
@@ -474,22 +474,28 @@ and/or use gtk-doc annotations.  -->
           <parameter name="n_elements" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-panel-applet.c"
-                 line="298">Length of @size_hints</doc>
+                 line="299">Length of @size_hints</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="base_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-panel-applet.c"
-                 line="299">base_size</doc>
+                 line="300">base_size</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
       </method>
       <method name="settings_new"
-              c:identifier="mate_panel_applet_settings_new"
-              introspectable="0">
-        <source-position filename="mate-panel-applet-gsettings.h" line="38"/>
-        <return-value>
+              c:identifier="mate_panel_applet_settings_new">
+        <doc xml:space="preserve"
+             filename="mate-panel-applet-gsettings.h"
+             line="38">@applet A #MatePanelApplet
+@schema applet's schema id</doc>
+        <source-position filename="mate-panel-applet-gsettings.h" line="45"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="mate-panel-applet-gsettings.h"
+               line="43">a #GSettings. free when you used it</doc>
           <type name="Gio.Settings" c:type="GSettings*"/>
         </return-value>
         <parameters>
@@ -541,7 +547,7 @@ and/or use gtk-doc annotations.  -->
               version="1.20.1">
         <doc xml:space="preserve"
              filename="mate-panel-applet.c"
-             line="793">Sets up the context menu of @applet. @filename is a resource path to a menu
+             line="792">Sets up the context menu of @applet. @filename is a resource path to a menu
 XML file, containing a #GtkUIManager UI definition that describes how to
 display the menu items. @action_group contains the various #GtkAction that
 are referenced in @xml.
@@ -556,19 +562,19 @@ Menu&lt;/link&gt; section.</doc>
           <instance-parameter name="applet" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-panel-applet.c"
-                 line="795">a #MatePanelApplet.</doc>
+                 line="794">a #MatePanelApplet.</doc>
             <type name="Applet" c:type="MatePanelApplet*"/>
           </instance-parameter>
           <parameter name="resource_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-panel-applet.c"
-                 line="796">a resource path</doc>
+                 line="795">a resource path</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="action_group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-panel-applet.c"
-                 line="797">a #GtkActionGroup.</doc>
+                 line="796">a #GtkActionGroup.</doc>
             <type name="Gtk.ActionGroup" c:type="GtkActionGroup*"/>
           </parameter>
         </parameters>

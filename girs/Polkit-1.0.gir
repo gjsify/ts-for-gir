@@ -3960,26 +3960,26 @@ polkit_subject_from_string().</doc>
            glib:type-struct="SystemBusNameClass">
       <doc xml:space="preserve"
            filename="src/polkit/polkitsystembusname.c"
-           line="34">An object that represents a process owning a unique name on the system bus.</doc>
+           line="35">An object that represents a process owning a unique name on the system bus.</doc>
       <source-position filename="src/polkit/polkitsystembusname.h" line="47"/>
       <implements name="Subject"/>
       <function name="new" c:identifier="polkit_system_bus_name_new">
         <doc xml:space="preserve"
              filename="src/polkit/polkitsystembusname.c"
-             line="192">Creates a new #PolkitSystemBusName for @name.</doc>
+             line="193">Creates a new #PolkitSystemBusName for @name.</doc>
         <source-position filename="src/polkit/polkitsystembusname.h"
                          line="50"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/polkit/polkitsystembusname.c"
-               line="198">A #PolkitSystemBusName. Free with g_object_unref().</doc>
+               line="199">A #PolkitSystemBusName. Free with g_object_unref().</doc>
           <type name="Subject" c:type="PolkitSubject*"/>
         </return-value>
         <parameters>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitsystembusname.c"
-                 line="194">A unique system bus name.</doc>
+                 line="195">A unique system bus name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3989,13 +3989,13 @@ polkit_subject_from_string().</doc>
               glib:get-property="name">
         <doc xml:space="preserve"
              filename="src/polkit/polkitsystembusname.c"
-             line="159">Gets the unique system bus name for @system_bus_name.</doc>
+             line="160">Gets the unique system bus name for @system_bus_name.</doc>
         <source-position filename="src/polkit/polkitsystembusname.h"
                          line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/polkit/polkitsystembusname.c"
-               line="165">The unique system bus name for @system_bus_name. Do not
+               line="166">The unique system bus name for @system_bus_name. Do not
 free, this string is owned by @system_bus_name.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -4003,7 +4003,7 @@ free, this string is owned by @system_bus_name.</doc>
           <instance-parameter name="system_bus_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitsystembusname.c"
-                 line="161">A #PolkitSystemBusName.</doc>
+                 line="162">A #PolkitSystemBusName.</doc>
             <type name="SystemBusName" c:type="PolkitSystemBusName*"/>
           </instance-parameter>
         </parameters>
@@ -4013,21 +4013,21 @@ free, this string is owned by @system_bus_name.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/polkit/polkitsystembusname.c"
-             line="487">Synchronously gets a #PolkitUnixProcess object for @system_bus_name
+             line="607">Synchronously gets a #PolkitUnixProcess object for @system_bus_name
 - the calling thread is blocked until a reply is received.</doc>
         <source-position filename="src/polkit/polkitsystembusname.h"
                          line="55"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/polkit/polkitsystembusname.c"
-               line="496">A #PolkitUnixProcess object or %NULL if @error is set.</doc>
+               line="616">A #PolkitUnixProcess object or %NULL if @error is set.</doc>
           <type name="Subject" c:type="PolkitSubject*"/>
         </return-value>
         <parameters>
           <instance-parameter name="system_bus_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitsystembusname.c"
-                 line="489">A #PolkitSystemBusName.</doc>
+                 line="609">A #PolkitSystemBusName.</doc>
             <type name="SystemBusName" c:type="PolkitSystemBusName*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -4036,7 +4036,7 @@ free, this string is owned by @system_bus_name.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitsystembusname.c"
-                 line="490">A #GCancellable or %NULL.</doc>
+                 line="610">A #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -4046,21 +4046,21 @@ free, this string is owned by @system_bus_name.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/polkit/polkitsystembusname.c"
-             line="521">Synchronously gets a #PolkitUnixUser object for @system_bus_name;
+             line="650">Synchronously gets a #PolkitUnixUser object for @system_bus_name;
 the calling thread is blocked until a reply is received.</doc>
         <source-position filename="src/polkit/polkitsystembusname.h"
                          line="59"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/polkit/polkitsystembusname.c"
-               line="530">A #PolkitUnixUser object or %NULL if @error is set.</doc>
+               line="659">A #PolkitUnixUser object or %NULL if @error is set.</doc>
           <type name="UnixUser" c:type="PolkitUnixUser*"/>
         </return-value>
         <parameters>
           <instance-parameter name="system_bus_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitsystembusname.c"
-                 line="523">A #PolkitSystemBusName.</doc>
+                 line="652">A #PolkitSystemBusName.</doc>
             <type name="SystemBusName" c:type="PolkitSystemBusName*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -4069,7 +4069,7 @@ the calling thread is blocked until a reply is received.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitsystembusname.c"
-                 line="524">A #GCancellable or %NULL.</doc>
+                 line="653">A #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -4079,7 +4079,7 @@ the calling thread is blocked until a reply is received.</doc>
               glib:set-property="name">
         <doc xml:space="preserve"
              filename="src/polkit/polkitsystembusname.c"
-             line="175">Sets the unique system bus name for @system_bus_name.</doc>
+             line="176">Sets the unique system bus name for @system_bus_name.</doc>
         <source-position filename="src/polkit/polkitsystembusname.h"
                          line="52"/>
         <return-value transfer-ownership="none">
@@ -4089,13 +4089,13 @@ the calling thread is blocked until a reply is received.</doc>
           <instance-parameter name="system_bus_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitsystembusname.c"
-                 line="177">A #PolkitSystemBusName.</doc>
+                 line="178">A #PolkitSystemBusName.</doc>
             <type name="SystemBusName" c:type="PolkitSystemBusName*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitsystembusname.c"
-                 line="178">A unique system bus name.</doc>
+                 line="179">A unique system bus name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4109,7 +4109,7 @@ the calling thread is blocked until a reply is received.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/polkit/polkitsystembusname.c"
-             line="140">The unique name on the system message bus.</doc>
+             line="141">The unique name on the system message bus.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
     </class>
@@ -4654,9 +4654,15 @@ is set.</doc>
            glib:type-struct="UnixProcessClass">
       <doc xml:space="preserve"
            filename="src/polkit/polkitunixprocess.c"
-           line="49">An object for representing a UNIX process.  NOTE: This object as
-designed is now known broken; a mechanism to exploit a delay in
-start time in the Linux kernel was identified.  Avoid
+           line="52">An object for representing a UNIX process. In order to be reliable and
+race-free, this requires support for PID File Descriptors in the kernel,
+dbus-daemon/broker and systemd. With this functionality, we can reliably
+track processes without risking PID reuse and race conditions, and compare
+them.
+
+NOTE: If PID FDs are not available, this object will fall back to using
+PIDs, and this designed is now known broken; a mechanism to exploit a delay
+in start time in the Linux kernel was identified.  Avoid
 calling polkit_subject_equal() to compare two processes.
 
 To uniquely identify processes, both the process id and the start
@@ -4675,7 +4681,7 @@ polkit_unix_process_new_for_owner() with trusted data.</doc>
       <function name="new" c:identifier="polkit_unix_process_new">
         <doc xml:space="preserve"
              filename="src/polkit/polkitunixprocess.c"
-             line="438">Creates a new #PolkitUnixProcess for @pid.
+             line="740">Creates a new #PolkitUnixProcess for @pid.
 
 The uid and start time of the process will be looked up in using
 e.g. the &lt;filename&gt;/proc&lt;/filename&gt; filesystem depending on the
@@ -4684,14 +4690,14 @@ platform in use.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/polkit/polkitunixprocess.c"
-               line="448">A #PolkitSubject. Free with g_object_unref().</doc>
+               line="750">A #PolkitSubject. Free with g_object_unref().</doc>
           <type name="Subject" c:type="PolkitSubject*"/>
         </return-value>
         <parameters>
           <parameter name="pid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitunixprocess.c"
-                 line="440">The process id.</doc>
+                 line="742">The process id.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -4700,31 +4706,31 @@ platform in use.</doc>
                 c:identifier="polkit_unix_process_new_for_owner">
         <doc xml:space="preserve"
              filename="src/polkit/polkitunixprocess.c"
-             line="481">Creates a new #PolkitUnixProcess object for @pid, @start_time and @uid.</doc>
+             line="783">Creates a new #PolkitUnixProcess object for @pid, @start_time and @uid.</doc>
         <source-position filename="src/polkit/polkitunixprocess.h" line="55"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/polkit/polkitunixprocess.c"
-               line="489">A #PolkitSubject. Free with g_object_unref().</doc>
+               line="791">A #PolkitSubject. Free with g_object_unref().</doc>
           <type name="Subject" c:type="PolkitSubject*"/>
         </return-value>
         <parameters>
           <parameter name="pid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitunixprocess.c"
-                 line="483">The process id.</doc>
+                 line="785">The process id.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="start_time" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitunixprocess.c"
-                 line="484">The start time for @pid or 0 to look it up in e.g. &lt;filename&gt;/proc&lt;/filename&gt;.</doc>
+                 line="786">The start time for @pid or 0 to look it up in e.g. &lt;filename&gt;/proc&lt;/filename&gt;.</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
           <parameter name="uid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitunixprocess.c"
-                 line="485">The (real, not effective) uid of the owner of @pid or -1 to look it up in e.g. &lt;filename&gt;/proc&lt;/filename&gt;.</doc>
+                 line="787">The (real, not effective) uid of the owner of @pid or -1 to look it up in e.g. &lt;filename&gt;/proc&lt;/filename&gt;.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -4732,7 +4738,7 @@ platform in use.</doc>
       <function name="new_full" c:identifier="polkit_unix_process_new_full">
         <doc xml:space="preserve"
              filename="src/polkit/polkitunixprocess.c"
-             line="458">Creates a new #PolkitUnixProcess object for @pid and @start_time.
+             line="760">Creates a new #PolkitUnixProcess object for @pid and @start_time.
 
 The uid of the process will be looked up in using e.g. the
 &lt;filename&gt;/proc&lt;/filename&gt; filesystem depending on the platform in
@@ -4741,31 +4747,97 @@ use.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/polkit/polkitunixprocess.c"
-               line="469">A #PolkitSubject. Free with g_object_unref().</doc>
+               line="771">A #PolkitSubject. Free with g_object_unref().</doc>
           <type name="Subject" c:type="PolkitSubject*"/>
         </return-value>
         <parameters>
           <parameter name="pid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitunixprocess.c"
-                 line="460">The process id.</doc>
+                 line="762">The process id.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="start_time" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitunixprocess.c"
-                 line="461">The start time for @pid.</doc>
+                 line="763">The start time for @pid.</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
         </parameters>
       </function>
+      <function name="new_pidfd" c:identifier="polkit_unix_process_new_pidfd">
+        <doc xml:space="preserve"
+             filename="src/polkit/polkitunixprocess.c"
+             line="805">Creates a new #PolkitUnixProcess object for @pidfd and @uid.</doc>
+        <source-position filename="src/polkit/polkitunixprocess.h" line="58"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/polkit/polkitunixprocess.c"
+               line="813">A #PolkitSubject. Free with g_object_unref().</doc>
+          <type name="Subject" c:type="PolkitSubject*"/>
+        </return-value>
+        <parameters>
+          <parameter name="pidfd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/polkit/polkitunixprocess.c"
+                 line="807">The process id file descriptor.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="uid" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/polkit/polkitunixprocess.c"
+                 line="808">The (real, not effective) uid of the owner of @pid or -1 to look it up in e.g. &lt;filename&gt;/proc&lt;/filename&gt;.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="gids"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/polkit/polkitunixprocess.c"
+                 line="809">The (real, not effective) gids of the owner of @pid or %NULL.</doc>
+            <array name="GLib.Array" c:type="GArray*">
+              <type name="gint"/>
+            </array>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="get_gids"
+              c:identifier="polkit_unix_process_get_gids"
+              glib:get-property="gids">
+        <doc xml:space="preserve"
+             filename="src/polkit/polkitunixprocess.c"
+             line="557">Gets the group ids for @process. Note that this is the real group-ids,
+not the effective group-ids.</doc>
+        <source-position filename="src/polkit/polkitunixprocess.h" line="61"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/polkit/polkitunixprocess.c"
+               line="564">a #GArray
+         of #gid_t containing the group ids for @process or NULL if unknown,
+         as a new reference to the array, caller must deref it when done.</doc>
+          <array name="GLib.Array" c:type="GArray*">
+            <array name="GLib.Array">
+              <type name="gpointer" c:type="gpointer"/>
+            </array>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="process" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/polkit/polkitunixprocess.c"
+                 line="559">A #PolkitUnixProcess.</doc>
+            <type name="UnixProcess" c:type="PolkitUnixProcess*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
       <method name="get_owner"
               c:identifier="polkit_unix_process_get_owner"
               throws="1">
         <doc xml:space="preserve"
              filename="src/polkit/polkitunixprocess.c"
-             line="911">(deprecated)</doc>
-        <source-position filename="src/polkit/polkitunixprocess.h" line="68"/>
+             line="1269">(deprecated)</doc>
+        <source-position filename="src/polkit/polkitunixprocess.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -4773,7 +4845,7 @@ use.</doc>
           <instance-parameter name="process" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitunixprocess.c"
-                 line="913">A #PolkitUnixProcess.</doc>
+                 line="1271">A #PolkitUnixProcess.</doc>
             <type name="UnixProcess" c:type="PolkitUnixProcess*"/>
           </instance-parameter>
         </parameters>
@@ -4783,19 +4855,64 @@ use.</doc>
               glib:get-property="pid">
         <doc xml:space="preserve"
              filename="src/polkit/polkitunixprocess.c"
-             line="378">Gets the process id for @process.</doc>
-        <source-position filename="src/polkit/polkitunixprocess.h" line="58"/>
+             line="595">Gets the process id for @process.</doc>
+        <source-position filename="src/polkit/polkitunixprocess.h" line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/polkit/polkitunixprocess.c"
-               line="384">The process id for @process.</doc>
+               line="601">The process id for @process.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="process" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitunixprocess.c"
-                 line="380">A #PolkitUnixProcess.</doc>
+                 line="597">A #PolkitUnixProcess.</doc>
+            <type name="UnixProcess" c:type="PolkitUnixProcess*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_pidfd"
+              c:identifier="polkit_unix_process_get_pidfd"
+              glib:get-property="pidfd">
+        <doc xml:space="preserve"
+             filename="src/polkit/polkitunixprocess.c"
+             line="689">Gets the process id file descriptor for @process.</doc>
+        <source-position filename="src/polkit/polkitunixprocess.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/polkit/polkitunixprocess.c"
+               line="695">The process id file descriptor for @process.</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="process" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/polkit/polkitunixprocess.c"
+                 line="691">A #PolkitUnixProcess.</doc>
+            <type name="UnixProcess" c:type="PolkitUnixProcess*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_pidfd_is_safe"
+              c:identifier="polkit_unix_process_get_pidfd_is_safe"
+              glib:get-property="pidfd-is-safe">
+        <doc xml:space="preserve"
+             filename="src/polkit/polkitunixprocess.c"
+             line="704">Checks if the process id file descriptor for @process is safe
+or if it was opened locally and thus vulnerable to reuse.</doc>
+        <source-position filename="src/polkit/polkitunixprocess.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/polkit/polkitunixprocess.c"
+               line="711">TRUE or FALSE.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="process" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/polkit/polkitunixprocess.c"
+                 line="706">A #PolkitUnixProcess.</doc>
             <type name="UnixProcess" c:type="PolkitUnixProcess*"/>
           </instance-parameter>
         </parameters>
@@ -4805,19 +4922,19 @@ use.</doc>
               glib:get-property="start-time">
         <doc xml:space="preserve"
              filename="src/polkit/polkitunixprocess.c"
-             line="393">Gets the start time of @process.</doc>
-        <source-position filename="src/polkit/polkitunixprocess.h" line="59"/>
+             line="623">Gets the start time of @process.</doc>
+        <source-position filename="src/polkit/polkitunixprocess.h" line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/polkit/polkitunixprocess.c"
-               line="399">The start time of @process.</doc>
+               line="629">The start time of @process.</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="process" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitunixprocess.c"
-                 line="395">A #PolkitUnixProcess.</doc>
+                 line="625">A #PolkitUnixProcess.</doc>
             <type name="UnixProcess" c:type="PolkitUnixProcess*"/>
           </instance-parameter>
         </parameters>
@@ -4827,7 +4944,7 @@ use.</doc>
               glib:get-property="uid">
         <doc xml:space="preserve"
              filename="src/polkit/polkitunixprocess.c"
-             line="341">Gets the user id for @process. Note that this is the real user-id,
+             line="520">Gets the user id for @process. Note that this is the real user-id,
 not the effective user-id.
 
 NOTE: The UID may change over time, so the returned value may not match the
@@ -4835,29 +4952,29 @@ current state of the underlying process; or the UID may have been set by
 polkit_unix_process_new_for_owner() or polkit_unix_process_set_uid(),
 in which case it may not correspond to the actual UID of the referenced
 process at all (at any point in time).</doc>
-        <source-position filename="src/polkit/polkitunixprocess.h" line="60"/>
+        <source-position filename="src/polkit/polkitunixprocess.h" line="64"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/polkit/polkitunixprocess.c"
-               line="354">The user id for @process or -1 if unknown.</doc>
+               line="533">The user id for @process or -1 if unknown.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="process" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitunixprocess.c"
-                 line="343">A #PolkitUnixProcess.</doc>
+                 line="522">A #PolkitUnixProcess.</doc>
             <type name="UnixProcess" c:type="PolkitUnixProcess*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="set_pid"
-              c:identifier="polkit_unix_process_set_pid"
-              glib:set-property="pid">
+      <method name="set_gids"
+              c:identifier="polkit_unix_process_set_gids"
+              glib:set-property="gids">
         <doc xml:space="preserve"
              filename="src/polkit/polkitunixprocess.c"
-             line="423">Sets @pid for @process.</doc>
-        <source-position filename="src/polkit/polkitunixprocess.h" line="61"/>
+             line="575">Sets the (real, not effective) group ids for @process.</doc>
+        <source-position filename="src/polkit/polkitunixprocess.h" line="65"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4865,13 +4982,69 @@ process at all (at any point in time).</doc>
           <instance-parameter name="process" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitunixprocess.c"
-                 line="425">A #PolkitUnixProcess.</doc>
+                 line="577">A #PolkitUnixProcess.</doc>
+            <type name="UnixProcess" c:type="PolkitUnixProcess*"/>
+          </instance-parameter>
+          <parameter name="gids" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/polkit/polkitunixprocess.c"
+                 line="578">A #GList of #gid_t containing the group
+       ids to set for @process or NULL to unset them.
+       A reference to @gids is taken.</doc>
+            <array name="GLib.Array" c:type="GArray*">
+              <array name="GLib.Array">
+                <type name="gpointer" c:type="gpointer"/>
+              </array>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_pid"
+              c:identifier="polkit_unix_process_set_pid"
+              glib:set-property="pid">
+        <doc xml:space="preserve"
+             filename="src/polkit/polkitunixprocess.c"
+             line="653">Sets @pid for @process.</doc>
+        <source-position filename="src/polkit/polkitunixprocess.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="process" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/polkit/polkitunixprocess.c"
+                 line="655">A #PolkitUnixProcess.</doc>
             <type name="UnixProcess" c:type="PolkitUnixProcess*"/>
           </instance-parameter>
           <parameter name="pid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitunixprocess.c"
-                 line="426">A process id.</doc>
+                 line="656">A process id.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_pidfd"
+              c:identifier="polkit_unix_process_set_pidfd"
+              glib:set-property="pidfd">
+        <doc xml:space="preserve"
+             filename="src/polkit/polkitunixprocess.c"
+             line="720">Sets @pidfd for @process.</doc>
+        <source-position filename="src/polkit/polkitunixprocess.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="process" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/polkit/polkitunixprocess.c"
+                 line="722">A #PolkitUnixProcess.</doc>
+            <type name="UnixProcess" c:type="PolkitUnixProcess*"/>
+          </instance-parameter>
+          <parameter name="pidfd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/polkit/polkitunixprocess.c"
+                 line="723">A process id file descriptor.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -4881,8 +5054,8 @@ process at all (at any point in time).</doc>
               glib:set-property="start-time">
         <doc xml:space="preserve"
              filename="src/polkit/polkitunixprocess.c"
-             line="408">Set the start time of @process.</doc>
-        <source-position filename="src/polkit/polkitunixprocess.h" line="65"/>
+             line="638">Set the start time of @process.</doc>
+        <source-position filename="src/polkit/polkitunixprocess.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4890,13 +5063,13 @@ process at all (at any point in time).</doc>
           <instance-parameter name="process" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitunixprocess.c"
-                 line="410">A #PolkitUnixProcess.</doc>
+                 line="640">A #PolkitUnixProcess.</doc>
             <type name="UnixProcess" c:type="PolkitUnixProcess*"/>
           </instance-parameter>
           <parameter name="start_time" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitunixprocess.c"
-                 line="411">The start time for @pid.</doc>
+                 line="641">The start time for @pid.</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
         </parameters>
@@ -4906,8 +5079,8 @@ process at all (at any point in time).</doc>
               glib:set-property="uid">
         <doc xml:space="preserve"
              filename="src/polkit/polkitunixprocess.c"
-             line="363">Sets the (real, not effective) user id for @process.</doc>
-        <source-position filename="src/polkit/polkitunixprocess.h" line="63"/>
+             line="542">Sets the (real, not effective) user id for @process.</doc>
+        <source-position filename="src/polkit/polkitunixprocess.h" line="69"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4915,17 +5088,30 @@ process at all (at any point in time).</doc>
           <instance-parameter name="process" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitunixprocess.c"
-                 line="365">A #PolkitUnixProcess.</doc>
+                 line="544">A #PolkitUnixProcess.</doc>
             <type name="UnixProcess" c:type="PolkitUnixProcess*"/>
           </instance-parameter>
           <parameter name="uid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/polkit/polkitunixprocess.c"
-                 line="366">The user id to set for @process or -1 to unset it.</doc>
+                 line="545">The user id to set for @process or -1 to unset it.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
       </method>
+      <property name="gids"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_gids"
+                getter="get_gids">
+        <doc xml:space="preserve"
+             filename="src/polkit/polkitunixprocess.c"
+             line="502">The UNIX group ids of the process.</doc>
+        <array name="GLib.Array">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </property>
       <property name="pid"
                 writable="1"
                 construct="1"
@@ -4935,8 +5121,26 @@ process at all (at any point in time).</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="src/polkit/polkitunixprocess.c"
-             line="280">The UNIX process id.</doc>
+             line="407">The UNIX process id.</doc>
         <type name="gint" c:type="gint"/>
+      </property>
+      <property name="pidfd"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_pidfd"
+                getter="get_pidfd"
+                default-value="-1">
+        <doc xml:space="preserve"
+             filename="src/polkit/polkitunixprocess.c"
+             line="466">The UNIX process id file descriptor.</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+      <property name="pidfd-is-safe"
+                transfer-ownership="none"
+                getter="get_pidfd_is_safe"
+                default-value="FALSE">
+        <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="start-time"
                 writable="1"
@@ -4947,7 +5151,7 @@ process at all (at any point in time).</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="src/polkit/polkitunixprocess.c"
-             line="320">The start time of the process.</doc>
+             line="447">The start time of the process.</doc>
         <type name="guint64" c:type="guint64"/>
       </property>
       <property name="uid"
@@ -4959,7 +5163,7 @@ process at all (at any point in time).</doc>
                 default-value="-1">
         <doc xml:space="preserve"
              filename="src/polkit/polkitunixprocess.c"
-             line="299">The UNIX user id of the process or -1 if unknown.
+             line="426">The UNIX user id of the process or -1 if unknown.
 
 Note that this is the real user-id, not the effective user-id.</doc>
         <type name="gint" c:type="gint"/>

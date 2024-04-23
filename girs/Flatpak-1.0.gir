@@ -2312,7 +2312,7 @@ FLATPAK_UPDATE_FLAGS_NO_PULL to install previously pulled refs.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="common/flatpak-installation.c"
-             line="3131">Lists the installed references that are pinned, meaning they will not be
+             line="3141">Lists the installed references that are pinned, meaning they will not be
 returned by flatpak_installation_list_unused_refs() and won't be removed
 unless explicitly specified for removal.
 
@@ -2322,7 +2322,7 @@ Flatpak or because the user pinned them; see flatpak-pin(1).</doc>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="common/flatpak-installation.c"
-               line="3145">a GPtrArray of
+               line="3155">a GPtrArray of
   #FlatpakInstalledRef instances</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="InstalledRef"/>
@@ -2332,7 +2332,7 @@ Flatpak or because the user pinned them; see flatpak-pin(1).</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-installation.c"
-                 line="3133">a #FlatpakInstallation</doc>
+                 line="3143">a #FlatpakInstallation</doc>
             <type name="Installation" c:type="FlatpakInstallation*"/>
           </instance-parameter>
           <parameter name="arch"
@@ -2341,7 +2341,7 @@ Flatpak or because the user pinned them; see flatpak-pin(1).</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="common/flatpak-installation.c"
-                 line="3134">if non-%NULL, the architecture of refs to collect</doc>
+                 line="3144">if non-%NULL, the architecture of refs to collect</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="cancellable"
@@ -2350,7 +2350,7 @@ Flatpak or because the user pinned them; see flatpak-pin(1).</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="common/flatpak-installation.c"
-                 line="3135">a #GCancellable</doc>
+                 line="3145">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -2718,14 +2718,15 @@ currently defined:
 
   * exclude-refs (as): Act as if these refs are not installed even if they
       are when determining the set of unused refs
-  * filter-by-eol (b): Only return refs as unused if they are End-Of-Life.
-      Note that if this option is combined with other filters (of which there
-      are none currently) non-EOL refs may also be returned.</doc>
+  * filter-by-eol (b): Return refs as unused if they are End-Of-Life.
+      Note that if this option is combined with other filters then non-EOL refs may also be returned.
+  * filter-by-autoprune (b): Return refs as unused if they should be autopruned.
+      Note that if this option is combined with other filters then non-autoprune refs may also be returned.</doc>
         <source-position filename="common/flatpak-installation.h" line="253"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="common/flatpak-installation.c"
-               line="3078">a GPtrArray of
+               line="3079">a GPtrArray of
   #FlatpakInstalledRef instances</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="InstalledRef"/>
@@ -4523,7 +4524,7 @@ for the child with g_child_watch_add(). (Since: 1.1)</doc>
       <source-position filename="common/flatpak-version-macros.h" line="34"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="6" c:type="FLATPAK_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="8" c:type="FLATPAK_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="common/flatpak-version-macros.h"
            line="43">The micro version.</doc>
@@ -6456,7 +6457,7 @@ contents or %NULL</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1523">Creates a new #FlatpakTransaction object that can be used to do installation
+             line="1524">Creates a new #FlatpakTransaction object that can be used to do installation
 and updates of multiple refs, as well as their dependencies, in a single
 operation. Set the options you want on the transaction and add the
 refs you want to install/update, then start the transaction with
@@ -6465,14 +6466,14 @@ flatpak_transaction_run ().</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="1535">a #FlatpakTransaction, or %NULL on failure.</doc>
+               line="1536">a #FlatpakTransaction, or %NULL on failure.</doc>
           <type name="Transaction" c:type="FlatpakTransaction*"/>
         </return-value>
         <parameters>
           <parameter name="installation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1525">a #FlatpakInstallation</doc>
+                 line="1526">a #FlatpakInstallation</doc>
             <type name="Installation" c:type="FlatpakInstallation*"/>
           </parameter>
           <parameter name="cancellable"
@@ -6481,7 +6482,7 @@ flatpak_transaction_run ().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1526">a #GCancellable</doc>
+                 line="1527">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -6703,7 +6704,7 @@ flatpak_transaction_run ().</doc>
       <virtual-method name="run" invoker="run" throws="1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="4707">Executes the transaction.
+             line="4711">Executes the transaction.
 
 During the course of the execution, various signals will get emitted.
 The FlatpakTransaction::choose-remote-for-ref  and
@@ -6719,14 +6720,14 @@ Note that this call blocks until the transaction is done.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="4726">%TRUE on success, %FALSE if an error occurred</doc>
+               line="4730">%TRUE on success, %FALSE if an error occurred</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="transaction" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="4709">a #FlatpakTransaction</doc>
+                 line="4713">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -6735,7 +6736,7 @@ Note that this call blocks until the transaction is done.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="4710">a #GCancellable</doc>
+                 line="4714">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -6785,7 +6786,7 @@ Note that this call blocks until the transaction is done.</doc>
               version="1.5.1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="3813">Cancel an ongoing webflow authentication request. This can be call
+             line="3814">Cancel an ongoing webflow authentication request. This can be call
 in the time between #FlatpakTransaction::webflow-start returned
 %TRUE, and #FlatpakTransaction::webflow-done is emitted. It will
 cancel the ongoing authentication operation.
@@ -6800,13 +6801,13 @@ window with a browser, but the user closed it before it was finished.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="3815">a #FlatpakTransaction</doc>
+                 line="3816">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="3816">The webflow id, as passed into the webflow-start signal</doc>
+                 line="3817">The webflow id, as passed into the webflow-start signal</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -6815,7 +6816,7 @@ window with a browser, but the user closed it before it was finished.</doc>
               c:identifier="flatpak_transaction_add_default_dependency_sources">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="502">Similar to flatpak_transaction_add_dependency_source(), but adds
+             line="503">Similar to flatpak_transaction_add_dependency_source(), but adds
 all the default installations, which means all the defined system-wide
 (but not per-user) installations.</doc>
         <source-position filename="common/flatpak-transaction.h" line="275"/>
@@ -6826,7 +6827,7 @@ all the default installations, which means all the defined system-wide
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="504">a #FlatpakTransaction</doc>
+                 line="505">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
         </parameters>
@@ -6835,7 +6836,7 @@ all the default installations, which means all the defined system-wide
               c:identifier="flatpak_transaction_add_dependency_source">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="457">Adds an extra installation as a source for application dependencies.
+             line="458">Adds an extra installation as a source for application dependencies.
 This means that applications can be installed in this transaction relying
 on runtimes from this additional installation (whereas it would normally
 install required runtimes that are not installed in the installation
@@ -6850,13 +6851,13 @@ Also see flatpak_transaction_add_default_dependency_sources().</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="459">a #FlatpakTransaction</doc>
+                 line="460">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="installation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="460">a #FlatpakInstallation</doc>
+                 line="461">a #FlatpakInstallation</doc>
             <type name="Installation" c:type="FlatpakInstallation*"/>
           </parameter>
         </parameters>
@@ -6866,7 +6867,7 @@ Also see flatpak_transaction_add_default_dependency_sources().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="2754">Adds installing the given ref to this transaction.
+             line="2755">Adds installing the given ref to this transaction.
 
 The @remote can either be a configured remote of the installation,
 or a file:// uri pointing at a local repository to install from,
@@ -6875,26 +6876,26 @@ in which case an origin remote is created.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="2769">%TRUE on success; %FALSE with @error set on failure.</doc>
+               line="2770">%TRUE on success; %FALSE with @error set on failure.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2756">a #FlatpakTransaction</doc>
+                 line="2757">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="remote" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2757">the name of the remote</doc>
+                 line="2758">the name of the remote</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2758">the ref</doc>
+                 line="2759">the ref</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="subpaths"
@@ -6903,7 +6904,7 @@ in which case an origin remote is created.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2759">subpaths to install, or the
+                 line="2760">subpaths to install, or the
  empty list or %NULL to pull all subpaths</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
@@ -6916,25 +6917,25 @@ in which case an origin remote is created.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="2970">Adds installing the given bundle to this transaction.</doc>
+             line="2971">Adds installing the given bundle to this transaction.</doc>
         <source-position filename="common/flatpak-transaction.h" line="324"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="2980">%TRUE on success; %FALSE with @error set on failure.</doc>
+               line="2981">%TRUE on success; %FALSE with @error set on failure.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2972">a #FlatpakTransaction</doc>
+                 line="2973">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2973">a #GFile that is an flatpak bundle</doc>
+                 line="2974">a #GFile that is an flatpak bundle</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="gpg_data"
@@ -6943,7 +6944,7 @@ in which case an origin remote is created.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2974">GPG key with which to check bundle signatures, or
+                 line="2975">GPG key with which to check bundle signatures, or
  %NULL to use the key embedded in the bundle (if any)</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
@@ -6954,25 +6955,25 @@ in which case an origin remote is created.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="2995">Adds installing the given flatpakref to this transaction.</doc>
+             line="2996">Adds installing the given flatpakref to this transaction.</doc>
         <source-position filename="common/flatpak-transaction.h" line="329"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="3003">%TRUE on success; %FALSE with @error set on failure.</doc>
+               line="3004">%TRUE on success; %FALSE with @error set on failure.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2997">a #FlatpakTransaction</doc>
+                 line="2998">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="flatpakref_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2998">data from a flatpakref file</doc>
+                 line="2999">data from a flatpakref file</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
         </parameters>
@@ -6983,7 +6984,7 @@ in which case an origin remote is created.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="2804">Adds updating the @previous_ids of the given ref to this transaction, via either
+             line="2805">Adds updating the @previous_ids of the given ref to this transaction, via either
 installing the @ref if it was not already present or updating it. This will
 treat @ref as the result of following an eol-rebase, and data migration from
 the refs in @previous_ids will be set up.
@@ -6997,26 +6998,26 @@ See flatpak_transaction_add_install() for a description of @remote.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="2826">%TRUE on success; %FALSE with @error set on failure.</doc>
+               line="2827">%TRUE on success; %FALSE with @error set on failure.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2806">a #FlatpakTransaction</doc>
+                 line="2807">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="remote" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2807">the name of the remote</doc>
+                 line="2808">the name of the remote</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2808">the ref</doc>
+                 line="2809">the ref</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="subpaths"
@@ -7025,7 +7026,7 @@ See flatpak_transaction_add_install() for a description of @remote.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2809">the subpaths to include, or %NULL to install the complete ref</doc>
+                 line="2810">the subpaths to include, or %NULL to install the complete ref</doc>
             <type name="utf8" c:type="const char**"/>
           </parameter>
           <parameter name="previous_ids"
@@ -7034,7 +7035,7 @@ See flatpak_transaction_add_install() for a description of @remote.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2810">Previous ids to add to the
+                 line="2811">Previous ids to add to the
     given ref. These should simply be the ids, not the full ref names (e.g. org.foo.Bar,
     not org.foo.Bar/x86_64/master).</doc>
             <array c:type="const char**">
@@ -7049,7 +7050,7 @@ See flatpak_transaction_add_install() for a description of @remote.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="2861">Adds updating the @previous_ids of the given @new_ref to this transaction,
+             line="2862">Adds updating the @previous_ids of the given @new_ref to this transaction,
 via either installing the @new_ref if it was not already present or updating
 it. This will treat @new_ref as the result of following an eol-rebase, and
 data migration from the refs in @previous_ids will be set up.
@@ -7068,32 +7069,32 @@ See flatpak_transaction_add_install() for a description of @remote.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="2889">%TRUE on success; %FALSE with @error set on failure.</doc>
+               line="2890">%TRUE on success; %FALSE with @error set on failure.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2863">a #FlatpakTransaction</doc>
+                 line="2864">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="remote" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2864">the name of the remote</doc>
+                 line="2865">the name of the remote</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="new_ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2865">the ref to rebase to</doc>
+                 line="2866">the ref to rebase to</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="old_ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2866">the ref to uninstall</doc>
+                 line="2867">the ref to uninstall</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="subpaths"
@@ -7102,7 +7103,7 @@ See flatpak_transaction_add_install() for a description of @remote.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2867">the subpaths to include, or %NULL to install the complete ref</doc>
+                 line="2868">the subpaths to include, or %NULL to install the complete ref</doc>
             <type name="utf8" c:type="const char**"/>
           </parameter>
           <parameter name="previous_ids"
@@ -7111,7 +7112,7 @@ See flatpak_transaction_add_install() for a description of @remote.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="2868">Previous ids to add to the
+                 line="2869">Previous ids to add to the
     given ref. These should simply be the ids, not the full ref names (e.g. org.foo.Bar,
     not org.foo.Bar/x86_64/master).</doc>
             <array c:type="const char**">
@@ -7125,7 +7126,7 @@ See flatpak_transaction_add_install() for a description of @remote.</doc>
               version="1.7.1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="480">Adds an extra local ostree repo as source for installation. This is
+             line="481">Adds an extra local ostree repo as source for installation. This is
 equivalent to using the sideload-repos directories (see flatpak(1)), but can
 be done dynamically. Any path added here is used in addition to ones in
 those directories.</doc>
@@ -7137,13 +7138,13 @@ those directories.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="482">a #FlatpakTransaction</doc>
+                 line="483">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="483">a path to a local flatpak repository</doc>
+                 line="484">a path to a local flatpak repository</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -7153,26 +7154,26 @@ those directories.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="3064">Adds uninstalling the given ref to this transaction. If the transaction is
+             line="3065">Adds uninstalling the given ref to this transaction. If the transaction is
 set to not deploy updates, the request is ignored.</doc>
         <source-position filename="common/flatpak-transaction.h" line="339"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="3073">%TRUE on success; %FALSE with @error set on failure.</doc>
+               line="3074">%TRUE on success; %FALSE with @error set on failure.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="3066">a #FlatpakTransaction</doc>
+                 line="3067">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="3067">the ref</doc>
+                 line="3068">the ref</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -7182,25 +7183,25 @@ set to not deploy updates, the request is ignored.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="3026">Adds updating the given ref to this transaction.</doc>
+             line="3027">Adds updating the given ref to this transaction.</doc>
         <source-position filename="common/flatpak-transaction.h" line="333"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="3038">%TRUE on success; %FALSE with @error set on failure.</doc>
+               line="3039">%TRUE on success; %FALSE with @error set on failure.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="3028">a #FlatpakTransaction</doc>
+                 line="3029">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="3029">the ref</doc>
+                 line="3030">the ref</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="subpaths"
@@ -7209,7 +7210,7 @@ set to not deploy updates, the request is ignored.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="3030">subpaths to install; %NULL
+                 line="3031">subpaths to install; %NULL
  to use the current set plus the set of configured languages, or
  `{ NULL }` or `{ "", NULL }` to pull all subpaths.</doc>
             <array c:type="const char**">
@@ -7222,7 +7223,7 @@ set to not deploy updates, the request is ignored.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="3033">the commit to update to, or %NULL to use the latest</doc>
+                 line="3034">the commit to update to, or %NULL to use the latest</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -7232,7 +7233,7 @@ set to not deploy updates, the request is ignored.</doc>
               version="1.5.2">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="3850">Finishes (or aborts) an ongoing basic auth request.</doc>
+             line="3851">Finishes (or aborts) an ongoing basic auth request.</doc>
         <source-position filename="common/flatpak-transaction.h" line="296"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7241,31 +7242,31 @@ set to not deploy updates, the request is ignored.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="3852">a #FlatpakTransaction</doc>
+                 line="3853">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="3853">The webflow id, as passed into the webflow-start signal</doc>
+                 line="3854">The webflow id, as passed into the webflow-start signal</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="user" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="3854">The user name, or %NULL if aborting request</doc>
+                 line="3855">The user name, or %NULL if aborting request</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="password" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="3855">The password</doc>
+                 line="3856">The password</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="3856">Extra a{sv] variant with options (or %NULL), currently unused.</doc>
+                 line="3857">Extra a{sv] variant with options (or %NULL), currently unused.</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
         </parameters>
@@ -7275,20 +7276,20 @@ set to not deploy updates, the request is ignored.</doc>
               version="1.13.3">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1956">Gets the value set by
+             line="1957">Gets the value set by
 flatpak_transaction_set_auto_install_debug().</doc>
         <source-position filename="common/flatpak-transaction.h" line="267"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="1963">%TRUE if auto_install_debug is set, %FALSE otherwise</doc>
+               line="1964">%TRUE if auto_install_debug is set, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1958">a #FlatpakTransaction</doc>
+                 line="1959">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
         </parameters>
@@ -7298,20 +7299,20 @@ flatpak_transaction_set_auto_install_debug().</doc>
               version="1.13.3">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1917">Gets the value set by
+             line="1918">Gets the value set by
 flatpak_transaction_set_auto_install_sdk().</doc>
         <source-position filename="common/flatpak-transaction.h" line="262"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="1924">%TRUE if auto_install_sdk is set, %FALSE otherwise</doc>
+               line="1925">%TRUE if auto_install_sdk is set, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1919">a #FlatpakTransaction</doc>
+                 line="1920">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
         </parameters>
@@ -7320,12 +7321,12 @@ flatpak_transaction_set_auto_install_sdk().</doc>
               c:identifier="flatpak_transaction_get_current_operation">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="4251">Gets the current operation.</doc>
+             line="4255">Gets the current operation.</doc>
         <source-position filename="common/flatpak-transaction.h" line="281"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="4257">the current #FlatpakTransactionOperation</doc>
+               line="4261">the current #FlatpakTransactionOperation</doc>
           <type name="TransactionOperation"
                 c:type="FlatpakTransactionOperation*"/>
         </return-value>
@@ -7333,7 +7334,7 @@ flatpak_transaction_set_auto_install_sdk().</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="4253">a #FlatpakTransaction</doc>
+                 line="4257">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
         </parameters>
@@ -7343,20 +7344,20 @@ flatpak_transaction_set_auto_install_sdk().</doc>
               version="1.9.1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1878">Gets the value set by
+             line="1879">Gets the value set by
 flatpak_transaction_set_include_unused_uninstall_ops().</doc>
         <source-position filename="common/flatpak-transaction.h" line="257"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="1885">%TRUE if include_unused_uninstall_ops is set, %FALSE otherwise</doc>
+               line="1886">%TRUE if include_unused_uninstall_ops is set, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1880">a #FlatpakTransaction</doc>
+                 line="1881">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
         </parameters>
@@ -7366,19 +7367,19 @@ flatpak_transaction_set_include_unused_uninstall_ops().</doc>
               glib:get-property="installation">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="4335">Gets the installation this transaction was created for.</doc>
+             line="4339">Gets the installation this transaction was created for.</doc>
         <source-position filename="common/flatpak-transaction.h" line="288"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="4341">a #FlatpakInstallation</doc>
+               line="4345">a #FlatpakInstallation</doc>
           <type name="Installation" c:type="FlatpakInstallation*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="4337">a #FlatpakTransactionOperation</doc>
+                 line="4341">a #FlatpakTransactionOperation</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
         </parameters>
@@ -7388,20 +7389,20 @@ flatpak_transaction_set_include_unused_uninstall_ops().</doc>
               version="1.5.1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1650">Gets whether the transaction is only downloading updates,
+             line="1651">Gets whether the transaction is only downloading updates,
 and not deploying them.</doc>
         <source-position filename="common/flatpak-transaction.h" line="218"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="1657">%TRUE if no_deploy is set, %FALSE otherwise</doc>
+               line="1658">%TRUE if no_deploy is set, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1652">a #FlatpakTransaction</doc>
+                 line="1653">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
         </parameters>
@@ -7412,20 +7413,20 @@ and not deploying them.</doc>
               version="1.13.0">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1775">Gets whether the transaction is interactive. See
+             line="1776">Gets whether the transaction is interactive. See
 flatpak_transaction_set_no_interaction().</doc>
         <source-position filename="common/flatpak-transaction.h" line="238"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="1782">%TRUE if the transaction is not interactive, %FALSE otherwise</doc>
+               line="1783">%TRUE if the transaction is not interactive, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1777">a #FlatpakTransaction</doc>
+                 line="1778">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
         </parameters>
@@ -7435,20 +7436,20 @@ flatpak_transaction_set_no_interaction().</doc>
               version="1.5.1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1565">Gets whether the transaction should operate only on locally
+             line="1566">Gets whether the transaction should operate only on locally
 available data.</doc>
         <source-position filename="common/flatpak-transaction.h" line="213"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="1572">%TRUE if no_pull is set, %FALSE otherwise</doc>
+               line="1573">%TRUE if no_pull is set, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1567">a #FlatpakTransaction</doc>
+                 line="1568">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
         </parameters>
@@ -7459,7 +7460,7 @@ available data.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="4270">Gets the operation for @ref, if any match. If @remote is non-%NULL, only an
+             line="4274">Gets the operation for @ref, if any match. If @remote is non-%NULL, only an
 operation for that remote will be returned. If remote is %NULL and the
 transaction has more than one operation for @ref from different remotes, an
 error will be returned.</doc>
@@ -7467,7 +7468,7 @@ error will be returned.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="4282">the #FlatpakTransactionOperation for @ref, or
+               line="4286">the #FlatpakTransactionOperation for @ref, or
   %NULL with @error set</doc>
           <type name="TransactionOperation"
                 c:type="FlatpakTransactionOperation*"/>
@@ -7476,7 +7477,7 @@ error will be returned.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="4272">a #FlatpakTransaction</doc>
+                 line="4276">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="remote"
@@ -7485,13 +7486,13 @@ error will be returned.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="4273">a remote name</doc>
+                 line="4277">a remote name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="4274">a ref</doc>
+                 line="4278">a ref</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -7500,13 +7501,13 @@ error will be returned.</doc>
               c:identifier="flatpak_transaction_get_operations">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="4225">Gets the list of operations. Skipped operations are not included. The order
+             line="4229">Gets the list of operations. Skipped operations are not included. The order
 of the list is the order in which the operations are executed.</doc>
         <source-position filename="common/flatpak-transaction.h" line="290"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="4232">a #GList of operations</doc>
+               line="4236">a #GList of operations</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="TransactionOperation"/>
           </type>
@@ -7515,7 +7516,7 @@ of the list is the order in which the operations are executed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="4227">a #FlatpakTransaction</doc>
+                 line="4231">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
         </parameters>
@@ -7525,20 +7526,20 @@ of the list is the order in which the operations are executed.</doc>
               version="1.5.1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1614">Gets the parent window set for this transaction, or %NULL if unset. See
+             line="1615">Gets the parent window set for this transaction, or %NULL if unset. See
 flatpak_transaction_get_parent_window().</doc>
         <source-position filename="common/flatpak-transaction.h" line="252"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="1621">a window name, or %NULL</doc>
+               line="1622">a window name, or %NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1616">a #FlatpakTransaction</doc>
+                 line="1617">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
         </parameters>
@@ -7546,19 +7547,19 @@ flatpak_transaction_get_parent_window().</doc>
       <method name="is_empty" c:identifier="flatpak_transaction_is_empty">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="971">Returns whether the transaction contains any non-skipped operations.</doc>
+             line="972">Returns whether the transaction contains any non-skipped operations.</doc>
         <source-position filename="common/flatpak-transaction.h" line="343"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="977">%TRUE if the transaction is empty</doc>
+               line="978">%TRUE if the transaction is empty</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="973">a #FlatpakTransaction</doc>
+                 line="974">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
         </parameters>
@@ -7566,7 +7567,7 @@ flatpak_transaction_get_parent_window().</doc>
       <method name="run" c:identifier="flatpak_transaction_run" throws="1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="4707">Executes the transaction.
+             line="4711">Executes the transaction.
 
 During the course of the execution, various signals will get emitted.
 The FlatpakTransaction::choose-remote-for-ref  and
@@ -7582,14 +7583,14 @@ Note that this call blocks until the transaction is done.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="4726">%TRUE on success, %FALSE if an error occurred</doc>
+               line="4730">%TRUE on success, %FALSE if an error occurred</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="transaction" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="4709">a #FlatpakTransaction</doc>
+                 line="4713">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -7598,7 +7599,7 @@ Note that this call blocks until the transaction is done.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="4710">a #GCancellable</doc>
+                 line="4714">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -7608,7 +7609,7 @@ Note that this call blocks until the transaction is done.</doc>
               version="1.13.3">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1936">When this is set to %TRUE, Flatpak will automatically install the debug info
+             line="1937">When this is set to %TRUE, Flatpak will automatically install the debug info
 for each app currently being installed or updated, as well as its
 dependencies. Does nothing if an uninstall is taking place.</doc>
         <source-position filename="common/flatpak-transaction.h" line="264"/>
@@ -7619,13 +7620,13 @@ dependencies. Does nothing if an uninstall is taking place.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1938">a #FlatpakTransaction</doc>
+                 line="1939">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="auto_install_debug" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1939">whether to auto install debug info for apps</doc>
+                 line="1940">whether to auto install debug info for apps</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -7635,7 +7636,7 @@ dependencies. Does nothing if an uninstall is taking place.</doc>
               version="1.13.3">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1897">When this is set to %TRUE, Flatpak will automatically install the SDK for
+             line="1898">When this is set to %TRUE, Flatpak will automatically install the SDK for
 each app currently being installed or updated. Does nothing if an uninstall
 is taking place.</doc>
         <source-position filename="common/flatpak-transaction.h" line="259"/>
@@ -7646,13 +7647,13 @@ is taking place.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1899">a #FlatpakTransaction</doc>
+                 line="1900">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="auto_install_sdk" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1900">whether to auto install SDKs for apps</doc>
+                 line="1901">whether to auto install SDKs for apps</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -7661,7 +7662,7 @@ is taking place.</doc>
               c:identifier="flatpak_transaction_set_default_arch">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1836">Sets the architecture to default to where it is unspecified.</doc>
+             line="1837">Sets the architecture to default to where it is unspecified.</doc>
         <source-position filename="common/flatpak-transaction.h" line="246"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7670,13 +7671,13 @@ is taking place.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1838">a #FlatpakTransaction</doc>
+                 line="1839">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="arch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1839">the arch to make default</doc>
+                 line="1840">the arch to make default</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -7686,7 +7687,7 @@ is taking place.</doc>
               version="1.9.1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1703">Normally the transaction pins any explicit installations so they will not
+             line="1704">Normally the transaction pins any explicit installations so they will not
 be automatically removed. But this can be disabled if you don't want this
 behaviour.</doc>
         <source-position filename="common/flatpak-transaction.h" line="232"/>
@@ -7697,13 +7698,13 @@ behaviour.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1705">a #FlatpakTransaction</doc>
+                 line="1706">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="disable_pin" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1706">whether to disable auto-pinning</doc>
+                 line="1707">whether to disable auto-pinning</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -7712,7 +7713,7 @@ behaviour.</doc>
               c:identifier="flatpak_transaction_set_disable_dependencies">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1723">Sets whether the transaction should ignore runtime dependencies
+             line="1724">Sets whether the transaction should ignore runtime dependencies
 when resolving operations for applications.</doc>
         <source-position filename="common/flatpak-transaction.h" line="226"/>
         <return-value transfer-ownership="none">
@@ -7722,13 +7723,13 @@ when resolving operations for applications.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1725">a #FlatpakTransaction</doc>
+                 line="1726">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="disable_dependencies" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1726">whether to disable runtime dependencies</doc>
+                 line="1727">whether to disable runtime dependencies</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -7737,7 +7738,7 @@ when resolving operations for applications.</doc>
               c:identifier="flatpak_transaction_set_disable_prune">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1686">Sets whether the transaction should avoid pruning the local OSTree
+             line="1687">Sets whether the transaction should avoid pruning the local OSTree
 repository after updating.</doc>
         <source-position filename="common/flatpak-transaction.h" line="223"/>
         <return-value transfer-ownership="none">
@@ -7747,13 +7748,13 @@ repository after updating.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1688">a #FlatpakTransaction</doc>
+                 line="1689">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="disable_prune" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1689">whether to avoid pruning</doc>
+                 line="1690">whether to avoid pruning</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -7762,7 +7763,7 @@ repository after updating.</doc>
               c:identifier="flatpak_transaction_set_disable_related">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1740">Sets whether the transaction should avoid adding related refs
+             line="1741">Sets whether the transaction should avoid adding related refs
 when resolving operations. Related refs are extensions that are
 suggested by apps, such as locales.</doc>
         <source-position filename="common/flatpak-transaction.h" line="229"/>
@@ -7773,13 +7774,13 @@ suggested by apps, such as locales.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1742">a #FlatpakTransaction</doc>
+                 line="1743">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="disable_related" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1743">whether to avoid adding related refs</doc>
+                 line="1744">whether to avoid adding related refs</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -7788,7 +7789,7 @@ suggested by apps, such as locales.</doc>
               c:identifier="flatpak_transaction_set_disable_static_deltas">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1669">Sets whether the transaction should avoid using static
+             line="1670">Sets whether the transaction should avoid using static
 deltas when pulling.</doc>
         <source-position filename="common/flatpak-transaction.h" line="220"/>
         <return-value transfer-ownership="none">
@@ -7798,13 +7799,13 @@ deltas when pulling.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1671">a #FlatpakTransaction</doc>
+                 line="1672">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="disable_static_deltas" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1672">whether to avoid static deltas</doc>
+                 line="1673">whether to avoid static deltas</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -7813,7 +7814,7 @@ deltas when pulling.</doc>
               c:identifier="flatpak_transaction_set_force_uninstall">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1819">Sets whether the transaction should uninstall files even
+             line="1820">Sets whether the transaction should uninstall files even
 if they're used by a running application.</doc>
         <source-position filename="common/flatpak-transaction.h" line="243"/>
         <return-value transfer-ownership="none">
@@ -7823,13 +7824,13 @@ if they're used by a running application.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1821">a #FlatpakTransaction</doc>
+                 line="1822">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="force_uninstall" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1822">whether to force-uninstall refs</doc>
+                 line="1823">whether to force-uninstall refs</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -7839,7 +7840,7 @@ if they're used by a running application.</doc>
               version="1.9.1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1853">When this is set to %TRUE, Flatpak will add uninstall operations to the
+             line="1854">When this is set to %TRUE, Flatpak will add uninstall operations to the
 transaction for each runtime it considers unused. This is used by the
 "update" CLI command to garbage collect runtimes and free disk space.
 
@@ -7855,14 +7856,14 @@ flatpak_installation_list_unused_refs().</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1855">a #FlatpakTransaction</doc>
+                 line="1856">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="include_unused_uninstall_ops"
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1856">whether to include unused uninstall ops</doc>
+                 line="1857">whether to include unused uninstall ops</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -7871,7 +7872,7 @@ flatpak_installation_list_unused_refs().</doc>
               c:identifier="flatpak_transaction_set_no_deploy">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1633">Sets whether the transaction should download updates, but
+             line="1634">Sets whether the transaction should download updates, but
 not deploy them.</doc>
         <source-position filename="common/flatpak-transaction.h" line="215"/>
         <return-value transfer-ownership="none">
@@ -7881,13 +7882,13 @@ not deploy them.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1635">a #FlatpakTransaction</doc>
+                 line="1636">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="no_deploy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1636">whether to avoid deploying</doc>
+                 line="1637">whether to avoid deploying</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -7898,7 +7899,7 @@ not deploy them.</doc>
               version="1.7.3">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1793">This method can be used to prevent interactive authorization dialogs to appear
+             line="1794">This method can be used to prevent interactive authorization dialogs to appear
 for operations on @self. This is useful for background operations that are not
 directly triggered by a user action.
 
@@ -7911,13 +7912,13 @@ By default, the setting from the parent #FlatpakInstallation is used.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1795">a #FlatpakTransaction</doc>
+                 line="1796">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="no_interaction" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1796">Whether to disallow interactive authorization for operations</doc>
+                 line="1797">Whether to disallow interactive authorization for operations</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -7926,7 +7927,7 @@ By default, the setting from the parent #FlatpakInstallation is used.</doc>
               c:identifier="flatpak_transaction_set_no_pull">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1548">Sets whether the transaction should operate only on locally
+             line="1549">Sets whether the transaction should operate only on locally
 available data.</doc>
         <source-position filename="common/flatpak-transaction.h" line="210"/>
         <return-value transfer-ownership="none">
@@ -7936,13 +7937,13 @@ available data.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1550">a #FlatpakTransaction</doc>
+                 line="1551">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="no_pull" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1551">whether to avoid pulls</doc>
+                 line="1552">whether to avoid pulls</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -7952,7 +7953,7 @@ available data.</doc>
               version="1.5.1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1584">Sets the parent window (if any) to use for any UI show by this transaction.
+             line="1585">Sets the parent window (if any) to use for any UI show by this transaction.
 This is used by authenticators if they need to interact with the user during
 authentication.
 
@@ -7972,13 +7973,13 @@ using the export call of the xdg-foreign-unstable wayland extension.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1586">a #FlatpakTransaction</doc>
+                 line="1587">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="parent_window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1587">whether to avoid pulls</doc>
+                 line="1588">whether to avoid pulls</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -7987,7 +7988,7 @@ using the export call of the xdg-foreign-unstable wayland extension.</doc>
               c:identifier="flatpak_transaction_set_reinstall">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1758">Sets whether the transaction should uninstall first if a
+             line="1759">Sets whether the transaction should uninstall first if a
 ref is already installed.</doc>
         <source-position filename="common/flatpak-transaction.h" line="235"/>
         <return-value transfer-ownership="none">
@@ -7997,13 +7998,13 @@ ref is already installed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1760">a #FlatpakTransaction</doc>
+                 line="1761">a #FlatpakTransaction</doc>
             <type name="Transaction" c:type="FlatpakTransaction*"/>
           </instance-parameter>
           <parameter name="reinstall" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1761">whether to reinstall refs</doc>
+                 line="1762">whether to reinstall refs</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -8015,7 +8016,7 @@ ref is already installed.</doc>
                 getter="get_installation">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1135">The installation that the transaction operates on.</doc>
+             line="1136">The installation that the transaction operates on.</doc>
         <type name="Installation"/>
       </property>
       <property name="no-interaction"
@@ -8027,7 +8028,7 @@ ref is already installed.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1148">%TRUE if the transaction is not interactive, %FALSE otherwise.
+             line="1149">%TRUE if the transaction is not interactive, %FALSE otherwise.
 
 See flatpak_transaction_set_no_interaction().</doc>
         <type name="gboolean" c:type="gboolean"/>
@@ -8038,38 +8039,38 @@ See flatpak_transaction_set_no_interaction().</doc>
       <glib:signal name="add-new-remote" when="last">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1346">The ::add-new-remote signal gets emitted if, as part of the transaction,
+             line="1347">The ::add-new-remote signal gets emitted if, as part of the transaction,
 it is required or recommended that a new remote is added, for the reason
 described in @reason.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="1358">%TRUE to add the remote</doc>
+               line="1359">%TRUE to add the remote</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="reason" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1349">A #FlatpakTransactionRemoteReason for this suggestion</doc>
+                 line="1350">A #FlatpakTransactionRemoteReason for this suggestion</doc>
             <type name="TransactionRemoteReason" c:type="gint"/>
           </parameter>
           <parameter name="from_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1350">The id of the app/runtime</doc>
+                 line="1351">The id of the app/runtime</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="suggested_remote_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1351">The suggested remote name</doc>
+                 line="1352">The suggested remote name</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="url" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1352">The repo url</doc>
+                 line="1353">The repo url</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -8077,7 +8078,7 @@ described in @reason.</doc>
       <glib:signal name="basic-auth-start" when="last" version="1.5.2">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1450">The ::basic-auth-start signal gets emitted when a basic user/password
+             line="1451">The ::basic-auth-start signal gets emitted when a basic user/password
 authentication is needed during the operation. If the caller handles this
 it should ask the user for the user and password and return %TRUE. Once
 the information is gathered call flatpak_transaction_complete_basic_auth()
@@ -8094,25 +8095,25 @@ optional).</doc>
           <parameter name="remote" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1453">The remote we're authenticating with</doc>
+                 line="1454">The remote we're authenticating with</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="realm" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1454">The url to show</doc>
+                 line="1455">The url to show</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1455">Extra options, currently unused</doc>
+                 line="1456">Extra options, currently unused</doc>
             <type name="GLib.Variant"/>
           </parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1456">The id of the operation, can be used to finish it</doc>
+                 line="1457">The id of the operation, can be used to finish it</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -8120,31 +8121,31 @@ optional).</doc>
       <glib:signal name="choose-remote-for-ref" when="last">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1223">The ::choose-remote-for-ref signal gets emitted when a
+             line="1224">The ::choose-remote-for-ref signal gets emitted when a
 remote needs to be selected during the execution of the transaction.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="1233">the index of the remote to use, or -1 to not pick one (and fail)</doc>
+               line="1234">the index of the remote to use, or -1 to not pick one (and fail)</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <parameter name="for_ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1226">The ref we are installing</doc>
+                 line="1227">The ref we are installing</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="runtime_ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1227">The ref we are looking for</doc>
+                 line="1228">The ref we are looking for</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="remotes" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1228">the remotes that has the ref, sorted in prio order</doc>
+                 line="1229">the remotes that has the ref, sorted in prio order</doc>
             <array>
               <type name="utf8"/>
             </array>
@@ -8154,7 +8155,7 @@ remote needs to be selected during the execution of the transaction.</doc>
       <glib:signal name="end-of-lifed" when="last">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1244">The ::end-of-lifed signal gets emitted when a ref is found to
+             line="1245">The ::end-of-lifed signal gets emitted when a ref is found to
 be marked as end-of-life during the execution of the transaction.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8163,19 +8164,19 @@ be marked as end-of-life during the execution of the transaction.</doc>
           <parameter name="ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1247">The ref we are installing</doc>
+                 line="1248">The ref we are installing</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="reason" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1248">The eol reason, or %NULL</doc>
+                 line="1249">The eol reason, or %NULL</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="rebase" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1249">The new name, if rebased, or %NULL</doc>
+                 line="1250">The new name, if rebased, or %NULL</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -8183,7 +8184,7 @@ be marked as end-of-life during the execution of the transaction.</doc>
       <glib:signal name="end-of-lifed-with-rebase" when="last" version="1.3.2">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1263">The ::end-of-lifed-with-rebase signal gets emitted when a ref is found
+             line="1264">The ::end-of-lifed-with-rebase signal gets emitted when a ref is found
 to be marked as end-of-life before the transaction begins. Unlike
 #FlatpakTransaction::end-of-lifed, this signal allows for the
 transaction to be modified in order to e.g. install the rebased
@@ -8195,7 +8196,7 @@ and return %TRUE. Otherwise %FALSE may be returned.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="1282">%TRUE if the operation on this end-of-lifed ref should
+               line="1283">%TRUE if the operation on this end-of-lifed ref should
 be skipped (e.g. because the rebased ref has been added to the
 transaction), %FALSE if it should remain.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -8204,31 +8205,31 @@ transaction), %FALSE if it should remain.</doc>
           <parameter name="remote" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1266">The remote for the ref we are processing</doc>
+                 line="1267">The remote for the ref we are processing</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1267">The ref we are processing</doc>
+                 line="1268">The ref we are processing</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="reason" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1268">The eol reason, or %NULL</doc>
+                 line="1269">The eol reason, or %NULL</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="rebased_to_ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1269">The new name, if rebased, or %NULL</doc>
+                 line="1270">The new name, if rebased, or %NULL</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="previous_ids" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1270">The previous names for the rebased ref (if any), including the one from @ref</doc>
+                 line="1271">The previous names for the rebased ref (if any), including the one from @ref</doc>
             <array>
               <type name="utf8"/>
             </array>
@@ -8238,7 +8239,7 @@ transaction), %FALSE if it should remain.</doc>
       <glib:signal name="install-authenticator" when="last" version="1.8.0">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1369">The ::install-authenticator signal gets emitted if, as part of
+             line="1370">The ::install-authenticator signal gets emitted if, as part of
 resolving the transaction, we need to use an authenticator, but the authentication
 is not installed, but is available to be installed from the ref.
 
@@ -8254,13 +8255,13 @@ the signal handler fails the transaction will error out.</doc>
           <parameter name="remote" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1372">The remote name</doc>
+                 line="1373">The remote name</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="authenticator_ref" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1373">The ref for the authenticator</doc>
+                 line="1374">The ref for the authenticator</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -8268,7 +8269,7 @@ the signal handler fails the transaction will error out.</doc>
       <glib:signal name="new-operation" when="last">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1165">The ::new-operation signal gets emitted during the execution of
+             line="1166">The ::new-operation signal gets emitted during the execution of
 the transaction when a new operation is beginning.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8277,13 +8278,13 @@ the transaction when a new operation is beginning.</doc>
           <parameter name="operation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1168">The new #FlatpakTransactionOperation</doc>
+                 line="1169">The new #FlatpakTransactionOperation</doc>
             <type name="TransactionOperation"/>
           </parameter>
           <parameter name="progress" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1169">A #FlatpakTransactionProgress for @operation</doc>
+                 line="1170">A #FlatpakTransactionProgress for @operation</doc>
             <type name="TransactionProgress"/>
           </parameter>
         </parameters>
@@ -8291,7 +8292,7 @@ the transaction when a new operation is beginning.</doc>
       <glib:signal name="operation-done" when="last">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1204">The ::operation-done signal gets emitted during the execution of
+             line="1205">The ::operation-done signal gets emitted during the execution of
 the transaction when an operation is finished.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8300,7 +8301,7 @@ the transaction when an operation is finished.</doc>
           <parameter name="operation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1207">The #FlatpakTransactionOperation which finished</doc>
+                 line="1208">The #FlatpakTransactionOperation which finished</doc>
             <type name="TransactionOperation"/>
           </parameter>
           <parameter name="commit"
@@ -8309,13 +8310,13 @@ the transaction when an operation is finished.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1208">The commit</doc>
+                 line="1209">The commit</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1209">A #FlatpakTransactionResult giving details about the result</doc>
+                 line="1210">A #FlatpakTransactionResult giving details about the result</doc>
             <type name="TransactionResult" c:type="gint"/>
           </parameter>
         </parameters>
@@ -8323,31 +8324,31 @@ the transaction when an operation is finished.</doc>
       <glib:signal name="operation-error" when="last">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1183">The ::operation-error signal gets emitted when an error occurs during the
+             line="1184">The ::operation-error signal gets emitted when an error occurs during the
 execution of the transaction.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="1193">the %TRUE to continue transaction, %FALSE to stop</doc>
+               line="1194">the %TRUE to continue transaction, %FALSE to stop</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="operation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1186">The #FlatpakTransactionOperation which failed</doc>
+                 line="1187">The #FlatpakTransactionOperation which failed</doc>
             <type name="TransactionOperation"/>
           </parameter>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1187">A #GError</doc>
+                 line="1188">A #GError</doc>
             <type name="GLib.Error"/>
           </parameter>
           <parameter name="details" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1188">A #FlatpakTransactionErrorDetails with details about the error</doc>
+                 line="1189">A #FlatpakTransactionErrorDetails with details about the error</doc>
             <type name="TransactionErrorDetails" c:type="gint"/>
           </parameter>
         </parameters>
@@ -8355,21 +8356,21 @@ execution of the transaction.</doc>
       <glib:signal name="ready" when="last">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1297">The ::ready signal is emitted when all the refs involved in the operation
+             line="1298">The ::ready signal is emitted when all the refs involved in the operation
 have been resolved to commits, and the required authentication for all ops is gotten.
 At this point flatpak_transaction_get_operations() will return all the operations
 that will be executed as part of the transaction.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="1306">%TRUE to carry on with the transaction, %FALSE to abort</doc>
+               line="1307">%TRUE to carry on with the transaction, %FALSE to abort</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
       </glib:signal>
       <glib:signal name="ready-pre-auth" when="last" version="1.9.1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1317">The ::ready-pre-auth signal is emitted when all the refs involved in the
+             line="1318">The ::ready-pre-auth signal is emitted when all the refs involved in the
 transaction have been resolved to commits, but we might not necessarily
 have asked for authentication for all their required operations. This is
 very similar to the ::ready signal, and you can choose which one (or both)
@@ -8383,14 +8384,14 @@ will require authentication.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="1333">%TRUE to carry on with the transaction, %FALSE to abort</doc>
+               line="1334">%TRUE to carry on with the transaction, %FALSE to abort</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
       </glib:signal>
       <glib:signal name="webflow-done" when="last" version="1.5.1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1430">The ::webflow-done signal gets emitted when the authentication
+             line="1431">The ::webflow-done signal gets emitted when the authentication
 finished the webflow, independent of the reason and results.  If
 you for were showing a web-browser window it can now be closed.</doc>
         <return-value transfer-ownership="none">
@@ -8400,13 +8401,13 @@ you for were showing a web-browser window it can now be closed.</doc>
           <parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1433">Extra options, currently unused</doc>
+                 line="1434">Extra options, currently unused</doc>
             <type name="GLib.Variant"/>
           </parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1434">The id of the operation</doc>
+                 line="1435">The id of the operation</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -8414,7 +8415,7 @@ you for were showing a web-browser window it can now be closed.</doc>
       <glib:signal name="webflow-start" when="last" version="1.5.1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="1396">The ::webflow-start signal gets emitted when some kind of user
+             line="1397">The ::webflow-start signal gets emitted when some kind of user
 authentication is needed during the operation. If the caller handles this
 it should show the url in a webbrowser and return %TRUE. This will
 eventually cause the webbrowser to finish the authentication operation and
@@ -8436,25 +8437,25 @@ like e.g. closing the browser window.</doc>
           <parameter name="remote" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1399">The remote we're authenticating with</doc>
+                 line="1400">The remote we're authenticating with</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="url" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1400">The url to show</doc>
+                 line="1401">The url to show</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1401">Extra options, currently unused</doc>
+                 line="1402">Extra options, currently unused</doc>
             <type name="GLib.Variant"/>
           </parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="1402">The id of the operation, can be used to cancel it</doc>
+                 line="1403">The id of the operation, can be used to cancel it</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -8625,14 +8626,14 @@ like e.g. closing the browser window.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="4726">%TRUE on success, %FALSE if an error occurred</doc>
+                 line="4730">%TRUE on success, %FALSE if an error occurred</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="transaction" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="common/flatpak-transaction.c"
-                   line="4709">a #FlatpakTransaction</doc>
+                   line="4713">a #FlatpakTransaction</doc>
               <type name="Transaction" c:type="FlatpakTransaction*"/>
             </parameter>
             <parameter name="cancellable"
@@ -8641,7 +8642,7 @@ like e.g. closing the browser window.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="common/flatpak-transaction.c"
-                   line="4710">a #GCancellable</doc>
+                   line="4714">a #GCancellable</doc>
               <type name="Gio.Cancellable" c:type="GCancellable*"/>
             </parameter>
           </parameters>
@@ -8811,19 +8812,19 @@ like e.g. closing the browser window.</doc>
               c:identifier="flatpak_transaction_operation_get_bundle_path">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="800">Gets the path to the bundle.</doc>
+             line="801">Gets the path to the bundle.</doc>
         <source-position filename="common/flatpak-transaction.h" line="191"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="806">the bundle #GFile or %NULL</doc>
+               line="807">the bundle #GFile or %NULL</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="802">a #FlatpakTransactionOperation</doc>
+                 line="803">a #FlatpakTransactionOperation</doc>
             <type name="TransactionOperation"
                   c:type="FlatpakTransactionOperation*"/>
           </instance-parameter>
@@ -8833,7 +8834,7 @@ like e.g. closing the browser window.</doc>
               c:identifier="flatpak_transaction_operation_get_commit">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="814">Gets the commit ID for the operation.
+             line="815">Gets the commit ID for the operation.
 
 This information is available when the transaction is resolved,
 i.e. when #FlatpakTransaction::ready is emitted.</doc>
@@ -8841,14 +8842,14 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="823">the commit ID</doc>
+               line="824">the commit ID</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="816">a #FlatpakTransactionOperation</doc>
+                 line="817">a #FlatpakTransactionOperation</doc>
             <type name="TransactionOperation"
                   c:type="FlatpakTransactionOperation*"/>
           </instance-parameter>
@@ -8859,7 +8860,7 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
               version="1.1.2">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="831">Gets the maximum download size for the operation.
+             line="832">Gets the maximum download size for the operation.
 
 Note that this does not include the size of dependencies, and
 the actual download may be smaller, if some of the data is already
@@ -8873,14 +8874,14 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="846">the download size, in bytes</doc>
+               line="847">the download size, in bytes</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="833">a #flatpakTransactionOperation</doc>
+                 line="834">a #flatpakTransactionOperation</doc>
             <type name="TransactionOperation"
                   c:type="FlatpakTransactionOperation*"/>
           </instance-parameter>
@@ -8891,7 +8892,7 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
               version="1.1.2">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="855">Gets the installed size for the operation.
+             line="856">Gets the installed size for the operation.
 
 Note that even for a new install, the extra space required on
 disk may be smaller than this number, if some of the data is already
@@ -8905,14 +8906,14 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="870">the installed size, in bytes</doc>
+               line="871">the installed size, in bytes</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="857">a #flatpakTransactionOperation</doc>
+                 line="858">a #flatpakTransactionOperation</doc>
             <type name="TransactionOperation"
                   c:type="FlatpakTransactionOperation*"/>
           </instance-parameter>
@@ -8923,7 +8924,7 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
               version="1.7.3">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="743">Gets whether this operation will be skipped when the transaction is run.
+             line="744">Gets whether this operation will be skipped when the transaction is run.
 Operations are skipped in some transaction situations, for example when an
 app has reached end of life and needs a rebase, or when it would have been
 updated but no update is available. By default, skipped
@@ -8934,14 +8935,14 @@ flatpak_transaction_operation_get_related_to_ops().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="755">%TRUE if the operation has been marked as to skip, %FALSE otherwise</doc>
+               line="756">%TRUE if the operation has been marked as to skip, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="745">a #FlatpakTransactionOperation</doc>
+                 line="746">a #FlatpakTransactionOperation</doc>
             <type name="TransactionOperation"
                   c:type="FlatpakTransactionOperation*"/>
           </instance-parameter>
@@ -8951,7 +8952,7 @@ flatpak_transaction_operation_get_related_to_ops().</doc>
               c:identifier="flatpak_transaction_operation_get_metadata">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="879">Gets the metadata that will be applicable when the
+             line="880">Gets the metadata that will be applicable when the
 operation is done.
 
 This can be compared to the current metadata returned
@@ -8964,14 +8965,14 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="893">the metadata #GKeyFile</doc>
+               line="894">the metadata #GKeyFile</doc>
           <type name="GLib.KeyFile" c:type="GKeyFile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="881">a #FlatpakTransactionOperation</doc>
+                 line="882">a #FlatpakTransactionOperation</doc>
             <type name="TransactionOperation"
                   c:type="FlatpakTransactionOperation*"/>
           </instance-parameter>
@@ -8981,7 +8982,7 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
               c:identifier="flatpak_transaction_operation_get_old_metadata">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="901">Gets the metadata current metadata for the ref that @self works on.
+             line="902">Gets the metadata current metadata for the ref that @self works on.
 Also see flatpak_transaction_operation_get_metadata().
 
 This information is available when the transaction is resolved,
@@ -8990,14 +8991,14 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="911">the old metadata #GKeyFile</doc>
+               line="912">the old metadata #GKeyFile</doc>
           <type name="GLib.KeyFile" c:type="GKeyFile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="903">a #FlatpakTransactionOperation</doc>
+                 line="904">a #FlatpakTransactionOperation</doc>
             <type name="TransactionOperation"
                   c:type="FlatpakTransactionOperation*"/>
           </instance-parameter>
@@ -9007,12 +9008,12 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
               c:identifier="flatpak_transaction_operation_get_operation_type">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="670">Gets the type of the operation.</doc>
+             line="671">Gets the type of the operation.</doc>
         <source-position filename="common/flatpak-transaction.h" line="181"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="676">the type of operation, as #FlatpakTransactionOperationType</doc>
+               line="677">the type of operation, as #FlatpakTransactionOperationType</doc>
           <type name="TransactionOperationType"
                 c:type="FlatpakTransactionOperationType"/>
         </return-value>
@@ -9020,7 +9021,7 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="672">a #FlatpakTransactionOperation</doc>
+                 line="673">a #FlatpakTransactionOperation</doc>
             <type name="TransactionOperation"
                   c:type="FlatpakTransactionOperation*"/>
           </instance-parameter>
@@ -9030,19 +9031,19 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
               c:identifier="flatpak_transaction_operation_get_ref">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="684">Gets the ref that the operation applies to.</doc>
+             line="685">Gets the ref that the operation applies to.</doc>
         <source-position filename="common/flatpak-transaction.h" line="183"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="690">the ref</doc>
+               line="691">the ref</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="686">a #FlatpakTransactionOperation</doc>
+                 line="687">a #FlatpakTransactionOperation</doc>
             <type name="TransactionOperation"
                   c:type="FlatpakTransactionOperation*"/>
           </instance-parameter>
@@ -9053,7 +9054,7 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
               version="1.7.3">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="704">Gets the operation(s) which caused this operation to be added to the
+             line="705">Gets the operation(s) which caused this operation to be added to the
 transaction. In the case of a runtime, it's the app(s) whose runtime it is,
 and/or a runtime extension in the special case of an extra-data extension
 that doesn't define the "NoRuntime" key. In the case of a related ref such
@@ -9071,7 +9072,7 @@ Elements in the returned array are only safe to access while the parent
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="723">the
+               line="724">the
   #FlatpakTransactionOperations this one is related to (may be %NULL or an
   empty array, which are equivalent)</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
@@ -9082,7 +9083,7 @@ Elements in the returned array are only safe to access while the parent
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="706">a #FlatpakTransactionOperation</doc>
+                 line="707">a #FlatpakTransactionOperation</doc>
             <type name="TransactionOperation"
                   c:type="FlatpakTransactionOperation*"/>
           </instance-parameter>
@@ -9092,19 +9093,19 @@ Elements in the returned array are only safe to access while the parent
               c:identifier="flatpak_transaction_operation_get_remote">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="764">Gets the remote that the operation applies to.</doc>
+             line="765">Gets the remote that the operation applies to.</doc>
         <source-position filename="common/flatpak-transaction.h" line="189"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="770">the remote</doc>
+               line="771">the remote</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="766">a #FlatpakTransactionOperation</doc>
+                 line="767">a #FlatpakTransactionOperation</doc>
             <type name="TransactionOperation"
                   c:type="FlatpakTransactionOperation*"/>
           </instance-parameter>
@@ -9115,21 +9116,21 @@ Elements in the returned array are only safe to access while the parent
               version="1.9.1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="951">Gets whether the given operation will require authentication to acquire
+             line="952">Gets whether the given operation will require authentication to acquire
 needed tokens. See also the documentation for
 #FlatpakTransaction::ready-pre-auth.</doc>
         <source-position filename="common/flatpak-transaction.h" line="205"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="959">whether @self requires authentication</doc>
+               line="960">whether @self requires authentication</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="953">a #FlatpakTransactionOperation</doc>
+                 line="954">a #FlatpakTransactionOperation</doc>
             <type name="TransactionOperation"
                   c:type="FlatpakTransactionOperation*"/>
           </instance-parameter>
@@ -9140,7 +9141,7 @@ needed tokens. See also the documentation for
               version="1.9.1">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="919">Gets the set of subpaths that will be pulled from this ref.
+             line="920">Gets the set of subpaths that will be pulled from this ref.
 
 Some refs are only partially installed, such as translations. These
 are subset by the toplevel directory (typically by translation name).
@@ -9158,7 +9159,7 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="938">the set of subpaths that will be pulled, or %NULL if no subsetting.</doc>
+               line="939">the set of subpaths that will be pulled, or %NULL if no subsetting.</doc>
           <array c:type="const char* const*">
             <type name="utf8"/>
           </array>
@@ -9167,7 +9168,7 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="921">a #FlatpakTransactionOperation</doc>
+                 line="922">a #FlatpakTransactionOperation</doc>
             <type name="TransactionOperation"
                   c:type="FlatpakTransactionOperation*"/>
           </instance-parameter>
@@ -9238,19 +9239,19 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
                 c:identifier="flatpak_transaction_operation_type_to_string">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="778">Converts the operation type to a string.</doc>
+             line="779">Converts the operation type to a string.</doc>
         <source-position filename="common/flatpak-transaction.h" line="207"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="784">a string representing @kind</doc>
+               line="785">a string representing @kind</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <parameter name="kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="780">a #FlatpakTransactionOperationType</doc>
+                 line="781">a #FlatpakTransactionOperationType</doc>
             <type name="TransactionOperationType"
                   c:type="FlatpakTransactionOperationType"/>
           </parameter>
@@ -9270,19 +9271,19 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
               version="1.1.2">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="335">Gets the number of bytes that have been transferred.</doc>
+             line="336">Gets the number of bytes that have been transferred.</doc>
         <source-position filename="common/flatpak-transaction.h" line="175"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="341">the number of bytes transferred</doc>
+               line="342">the number of bytes transferred</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="337">a #FlatpakTransactionProgress</doc>
+                 line="338">a #FlatpakTransactionProgress</doc>
             <type name="TransactionProgress"
                   c:type="FlatpakTransactionProgress*"/>
           </instance-parameter>
@@ -9292,19 +9293,19 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
               c:identifier="flatpak_transaction_progress_get_is_estimating">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="307">Gets whether the progress is currently estimating</doc>
+             line="308">Gets whether the progress is currently estimating</doc>
         <source-position filename="common/flatpak-transaction.h" line="171"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="313">whether we're estimating</doc>
+               line="314">whether we're estimating</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="309">a #FlatpakTransactionProgress</doc>
+                 line="310">a #FlatpakTransactionProgress</doc>
             <type name="TransactionProgress"
                   c:type="FlatpakTransactionProgress*"/>
           </instance-parameter>
@@ -9314,19 +9315,19 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
               c:identifier="flatpak_transaction_progress_get_progress">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="321">Gets the current progress.</doc>
+             line="322">Gets the current progress.</doc>
         <source-position filename="common/flatpak-transaction.h" line="173"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="327">the current progress, as an integer between 0 and 100</doc>
+               line="328">the current progress, as an integer between 0 and 100</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="323">a #FlatpakTransactionProgress</doc>
+                 line="324">a #FlatpakTransactionProgress</doc>
             <type name="TransactionProgress"
                   c:type="FlatpakTransactionProgress*"/>
           </instance-parameter>
@@ -9337,19 +9338,19 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
               version="1.1.2">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="355">Gets the time at which this operation has started, as monotonic time.</doc>
+             line="356">Gets the time at which this operation has started, as monotonic time.</doc>
         <source-position filename="common/flatpak-transaction.h" line="177"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="361">the start time</doc>
+               line="362">the start time</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="357">a #FlatpakTransactionProgress</doc>
+                 line="358">a #FlatpakTransactionProgress</doc>
             <type name="TransactionProgress"
                   c:type="FlatpakTransactionProgress*"/>
           </instance-parameter>
@@ -9359,19 +9360,19 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
               c:identifier="flatpak_transaction_progress_get_status">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="293">Gets the current status string</doc>
+             line="294">Gets the current status string</doc>
         <source-position filename="common/flatpak-transaction.h" line="169"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="299">the current status</doc>
+               line="300">the current status</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="295">a #FlatpakTransactionProgress</doc>
+                 line="296">a #FlatpakTransactionProgress</doc>
             <type name="TransactionProgress"
                   c:type="FlatpakTransactionProgress*"/>
           </instance-parameter>
@@ -9381,7 +9382,7 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
               c:identifier="flatpak_transaction_progress_set_update_frequency">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="279">Sets how often progress should be updated.</doc>
+             line="280">Sets how often progress should be updated.</doc>
         <source-position filename="common/flatpak-transaction.h" line="166"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9390,14 +9391,14 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="281">a #FlatpakTransactionProgress</doc>
+                 line="282">a #FlatpakTransactionProgress</doc>
             <type name="TransactionProgress"
                   c:type="FlatpakTransactionProgress*"/>
           </instance-parameter>
           <parameter name="update_interval" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="common/flatpak-transaction.c"
-                 line="282">the update interval, in milliseconds</doc>
+                 line="283">the update interval, in milliseconds</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -9405,7 +9406,7 @@ i.e. when #FlatpakTransaction::ready is emitted.</doc>
       <glib:signal name="changed" when="last">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="387">Emitted when some detail of the progress object changes, you can call the various methods to get the current status.</doc>
+             line="388">Emitted when some detail of the progress object changes, you can call the various methods to get the current status.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -9690,7 +9691,7 @@ flatpak_installation_get_remote_by_name().</doc>
     <docsection name="flatpak-transaction">
       <doc xml:space="preserve"
            filename="common/flatpak-transaction.c"
-           line="36">FlatpakTransaction is an object representing an install/update/uninstall
+           line="37">FlatpakTransaction is an object representing an install/update/uninstall
 transaction. You create an object like this using flatpak_transaction_new_for_installation()
 and then you add all the operations (installs, updates, etc) you wish to do. Then
 you start the transaction with flatpak_transaction_run() which will resolve all kinds
@@ -9735,14 +9736,14 @@ that other apps using libflatpak do this too.</doc>
     <docsection name="flatpak-transaction-operation">
       <doc xml:space="preserve"
            filename="common/flatpak-transaction.c"
-           line="581">FlatpakTransactionOperation is an object that represents a single operation
+           line="582">FlatpakTransactionOperation is an object that represents a single operation
 in a transaction. You receive a FlatpakTransactionOperation object with the
 #FlatpakTransaction::new-operation signal.</doc>
     </docsection>
     <docsection name="flatpak-transaction-progress">
       <doc xml:space="preserve"
            filename="common/flatpak-transaction.c"
-           line="267">FlatpakTransactionProgress is an object that represents the progress
+           line="268">FlatpakTransactionProgress is an object that represents the progress
 of a single operation in a transaction. You obtain a FlatpakTransactionProgress
 with the #FlatpakTransaction::new-operation signal.</doc>
     </docsection>
@@ -9821,19 +9822,19 @@ availability (e.g. doesn't return a configured installation if not reachable).</
               moved-to="TransactionOperationType.to_string">
       <doc xml:space="preserve"
            filename="common/flatpak-transaction.c"
-           line="778">Converts the operation type to a string.</doc>
+           line="779">Converts the operation type to a string.</doc>
       <source-position filename="common/flatpak-transaction.h" line="207"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="common/flatpak-transaction.c"
-             line="784">a string representing @kind</doc>
+             line="785">a string representing @kind</doc>
         <type name="utf8" c:type="const char*"/>
       </return-value>
       <parameters>
         <parameter name="kind" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="common/flatpak-transaction.c"
-               line="780">a #FlatpakTransactionOperationType</doc>
+               line="781">a #FlatpakTransactionOperationType</doc>
           <type name="TransactionOperationType"
                 c:type="FlatpakTransactionOperationType"/>
         </parameter>

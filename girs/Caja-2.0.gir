@@ -190,7 +190,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="caja-column-provider.c"
-               line="76">the provided #CajaColumn objects</doc>
+               line="77">the provided #CajaColumn objects</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Column"/>
           </type>
@@ -199,7 +199,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-column-provider.c"
-                 line="74">a #CajaColumnProvider</doc>
+                 line="75">a #CajaColumnProvider</doc>
             <type name="ColumnProvider" c:type="CajaColumnProvider*"/>
           </instance-parameter>
         </parameters>
@@ -210,7 +210,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="caja-column-provider.c"
-               line="76">the provided #CajaColumn objects</doc>
+               line="77">the provided #CajaColumn objects</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Column"/>
           </type>
@@ -219,7 +219,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-column-provider.c"
-                 line="74">a #CajaColumnProvider</doc>
+                 line="75">a #CajaColumnProvider</doc>
             <type name="ColumnProvider" c:type="CajaColumnProvider*"/>
           </instance-parameter>
         </parameters>
@@ -244,7 +244,7 @@ and/or use gtk-doc annotations.  -->
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="caja-column-provider.c"
-                 line="76">the provided #CajaColumn objects</doc>
+                 line="77">the provided #CajaColumn objects</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="Column"/>
             </type>
@@ -253,7 +253,7 @@ and/or use gtk-doc annotations.  -->
             <parameter name="provider" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-column-provider.c"
-                   line="74">a #CajaColumnProvider</doc>
+                   line="75">a #CajaColumnProvider</doc>
               <type name="ColumnProvider" c:type="CajaColumnProvider*"/>
             </parameter>
           </parameters>
@@ -345,36 +345,36 @@ and/or use gtk-doc annotations.  -->
                glib:type-struct="FileInfoIface">
       <source-position filename="caja-file-info.h" line="127"/>
       <function name="create" c:identifier="caja_file_info_create">
-        <source-position filename="caja-file-info.h" line="172"/>
+        <source-position filename="caja-file-info.h" line="171"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="caja-file-info.c"
-               line="337">a #CajaFileInfo</doc>
+               line="338">a #CajaFileInfo</doc>
           <type name="FileInfo" c:type="CajaFileInfo*"/>
         </return-value>
         <parameters>
           <parameter name="location" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-file-info.c"
-                 line="335">the location to create the file info for</doc>
+                 line="336">the location to create the file info for</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
       </function>
       <function name="create_for_uri"
                 c:identifier="caja_file_info_create_for_uri">
-        <source-position filename="caja-file-info.h" line="174"/>
+        <source-position filename="caja-file-info.h" line="173"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="caja-file-info.c"
-               line="368">a #CajaFileInfo</doc>
+               line="369">a #CajaFileInfo</doc>
           <type name="FileInfo" c:type="CajaFileInfo*"/>
         </return-value>
         <parameters>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-file-info.c"
-                 line="366">the URI to lookup the file info for</doc>
+                 line="367">the URI to lookup the file info for</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -419,36 +419,36 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </function>
       <function name="lookup" c:identifier="caja_file_info_lookup">
-        <source-position filename="caja-file-info.h" line="171"/>
+        <source-position filename="caja-file-info.h" line="170"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="caja-file-info.c"
-               line="325">a #CajaFileInfo</doc>
+               line="326">a #CajaFileInfo</doc>
           <type name="FileInfo" c:type="CajaFileInfo*"/>
         </return-value>
         <parameters>
           <parameter name="location" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-file-info.c"
-                 line="323">the location to lookup the file info for</doc>
+                 line="324">the location to lookup the file info for</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
       </function>
       <function name="lookup_for_uri"
                 c:identifier="caja_file_info_lookup_for_uri">
-        <source-position filename="caja-file-info.h" line="173"/>
+        <source-position filename="caja-file-info.h" line="172"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="caja-file-info.c"
-               line="349">a #CajaFileInfo</doc>
+               line="350">a #CajaFileInfo</doc>
           <type name="FileInfo" c:type="CajaFileInfo*"/>
         </return-value>
         <parameters>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-file-info.c"
-                 line="347">the URI to lookup the file info for</doc>
+                 line="348">the URI to lookup the file info for</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -523,14 +523,14 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="caja-file-info.c"
-               line="142">a #GFile for the location of @file</doc>
+               line="143">a #GFile for the location of @file</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-file-info.c"
-                 line="140">a #CajaFileInfo</doc>
+                 line="141">a #CajaFileInfo</doc>
             <type name="FileInfo" c:type="CajaFileInfo*"/>
           </instance-parameter>
         </parameters>
@@ -551,7 +551,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="caja-file-info.c"
-               line="216">a #GMount for the mount of @file,
+               line="217">a #GMount for the mount of @file,
   or %NULL if @file has no mount</doc>
           <type name="Gio.Mount" c:type="GMount*"/>
         </return-value>
@@ -559,7 +559,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-file-info.c"
-                 line="214">a #CajaFileInfo</doc>
+                 line="215">a #CajaFileInfo</doc>
             <type name="FileInfo" c:type="CajaFileInfo*"/>
           </instance-parameter>
         </parameters>
@@ -580,7 +580,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="caja-file-info.c"
-               line="200">a #CajaFileInfo for the parent of @file,
+               line="201">a #CajaFileInfo for the parent of @file,
   or %NULL if @file has no parent</doc>
           <type name="FileInfo" c:type="CajaFileInfo*"/>
         </return-value>
@@ -588,7 +588,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-file-info.c"
-                 line="198">a #CajaFileInfo</doc>
+                 line="199">a #CajaFileInfo</doc>
             <type name="FileInfo" c:type="CajaFileInfo*"/>
           </instance-parameter>
         </parameters>
@@ -598,7 +598,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="caja-file-info.c"
-               line="175">a #GFile for the parent location of @file,
+               line="176">a #GFile for the parent location of @file,
   or %NULL if @file has no parent</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </return-value>
@@ -606,7 +606,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-file-info.c"
-                 line="173">a #CajaFileInfo</doc>
+                 line="174">a #CajaFileInfo</doc>
             <type name="FileInfo" c:type="CajaFileInfo*"/>
           </instance-parameter>
         </parameters>
@@ -708,7 +708,7 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </virtual-method>
       <method name="add_emblem" c:identifier="caja_file_info_add_emblem">
-        <source-position filename="caja-file-info.h" line="160"/>
+        <source-position filename="caja-file-info.h" line="159"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -723,7 +723,7 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="add_string_attribute"
               c:identifier="caja_file_info_add_string_attribute">
-        <source-position filename="caja-file-info.h" line="164"/>
+        <source-position filename="caja-file-info.h" line="163"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -778,14 +778,14 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="caja-file-info.c"
-               line="142">a #GFile for the location of @file</doc>
+               line="143">a #GFile for the location of @file</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-file-info.c"
-                 line="140">a #CajaFileInfo</doc>
+                 line="141">a #CajaFileInfo</doc>
             <type name="FileInfo" c:type="CajaFileInfo*"/>
           </instance-parameter>
         </parameters>
@@ -806,7 +806,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="caja-file-info.c"
-               line="216">a #GMount for the mount of @file,
+               line="217">a #GMount for the mount of @file,
   or %NULL if @file has no mount</doc>
           <type name="Gio.Mount" c:type="GMount*"/>
         </return-value>
@@ -814,7 +814,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-file-info.c"
-                 line="214">a #CajaFileInfo</doc>
+                 line="215">a #CajaFileInfo</doc>
             <type name="FileInfo" c:type="CajaFileInfo*"/>
           </instance-parameter>
         </parameters>
@@ -836,7 +836,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="caja-file-info.c"
-               line="200">a #CajaFileInfo for the parent of @file,
+               line="201">a #CajaFileInfo for the parent of @file,
   or %NULL if @file has no parent</doc>
           <type name="FileInfo" c:type="CajaFileInfo*"/>
         </return-value>
@@ -844,7 +844,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-file-info.c"
-                 line="198">a #CajaFileInfo</doc>
+                 line="199">a #CajaFileInfo</doc>
             <type name="FileInfo" c:type="CajaFileInfo*"/>
           </instance-parameter>
         </parameters>
@@ -855,7 +855,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="caja-file-info.c"
-               line="175">a #GFile for the parent location of @file,
+               line="176">a #GFile for the parent location of @file,
   or %NULL if @file has no parent</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </return-value>
@@ -863,7 +863,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-file-info.c"
-                 line="173">a #CajaFileInfo</doc>
+                 line="174">a #CajaFileInfo</doc>
             <type name="FileInfo" c:type="CajaFileInfo*"/>
           </instance-parameter>
         </parameters>
@@ -882,7 +882,7 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="get_string_attribute"
               c:identifier="caja_file_info_get_string_attribute">
-        <source-position filename="caja-file-info.h" line="162"/>
+        <source-position filename="caja-file-info.h" line="161"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="char*"/>
         </return-value>
@@ -920,7 +920,7 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="invalidate_extension_info"
               c:identifier="caja_file_info_invalidate_extension_info">
-        <source-position filename="caja-file-info.h" line="169"/>
+        <source-position filename="caja-file-info.h" line="168"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1184,14 +1184,14 @@ about file objects.</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="caja-file-info.c"
-                 line="142">a #GFile for the location of @file</doc>
+                 line="143">a #GFile for the location of @file</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </return-value>
           <parameters>
             <parameter name="file" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-file-info.c"
-                   line="140">a #CajaFileInfo</doc>
+                   line="141">a #CajaFileInfo</doc>
               <type name="FileInfo" c:type="CajaFileInfo*"/>
             </parameter>
           </parameters>
@@ -1203,7 +1203,7 @@ about file objects.</doc>
           <return-value transfer-ownership="full" nullable="1">
             <doc xml:space="preserve"
                  filename="caja-file-info.c"
-                 line="175">a #GFile for the parent location of @file,
+                 line="176">a #GFile for the parent location of @file,
   or %NULL if @file has no parent</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </return-value>
@@ -1211,7 +1211,7 @@ about file objects.</doc>
             <parameter name="file" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-file-info.c"
-                   line="173">a #CajaFileInfo</doc>
+                   line="174">a #CajaFileInfo</doc>
               <type name="FileInfo" c:type="CajaFileInfo*"/>
             </parameter>
           </parameters>
@@ -1223,7 +1223,7 @@ about file objects.</doc>
           <return-value transfer-ownership="full" nullable="1">
             <doc xml:space="preserve"
                  filename="caja-file-info.c"
-                 line="200">a #CajaFileInfo for the parent of @file,
+                 line="201">a #CajaFileInfo for the parent of @file,
   or %NULL if @file has no parent</doc>
             <type name="FileInfo" c:type="CajaFileInfo*"/>
           </return-value>
@@ -1231,7 +1231,7 @@ about file objects.</doc>
             <parameter name="file" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-file-info.c"
-                   line="198">a #CajaFileInfo</doc>
+                   line="199">a #CajaFileInfo</doc>
               <type name="FileInfo" c:type="CajaFileInfo*"/>
             </parameter>
           </parameters>
@@ -1243,7 +1243,7 @@ about file objects.</doc>
           <return-value transfer-ownership="full" nullable="1">
             <doc xml:space="preserve"
                  filename="caja-file-info.c"
-                 line="216">a #GMount for the mount of @file,
+                 line="217">a #GMount for the mount of @file,
   or %NULL if @file has no mount</doc>
             <type name="Gio.Mount" c:type="GMount*"/>
           </return-value>
@@ -1251,7 +1251,7 @@ about file objects.</doc>
             <parameter name="file" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-file-info.c"
-                   line="214">a #CajaFileInfo</doc>
+                   line="215">a #CajaFileInfo</doc>
               <type name="FileInfo" c:type="CajaFileInfo*"/>
             </parameter>
           </parameters>
@@ -1424,7 +1424,7 @@ about file objects.</doc>
       <source-position filename="caja-info-provider.h" line="72"/>
       <function name="update_complete_invoke"
                 c:identifier="caja_info_provider_update_complete_invoke">
-        <source-position filename="caja-info-provider.h" line="86"/>
+        <source-position filename="caja-info-provider.h" line="84"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1621,27 +1621,27 @@ about file objects.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="caja-location-widget-provider.c"
-               line="78">the location widget for @provider at @uri</doc>
+               line="79">the location widget for @provider at @uri</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-location-widget-provider.c"
-                 line="74">a #CajaLocationWidgetProvider</doc>
+                 line="75">a #CajaLocationWidgetProvider</doc>
             <type name="LocationWidgetProvider"
                   c:type="CajaLocationWidgetProvider*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-location-widget-provider.c"
-                 line="75">the URI of the location</doc>
+                 line="76">the URI of the location</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-location-widget-provider.c"
-                 line="76">parent #GtkWindow</doc>
+                 line="77">parent #GtkWindow</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -1652,27 +1652,27 @@ about file objects.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="caja-location-widget-provider.c"
-               line="78">the location widget for @provider at @uri</doc>
+               line="79">the location widget for @provider at @uri</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-location-widget-provider.c"
-                 line="74">a #CajaLocationWidgetProvider</doc>
+                 line="75">a #CajaLocationWidgetProvider</doc>
             <type name="LocationWidgetProvider"
                   c:type="CajaLocationWidgetProvider*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-location-widget-provider.c"
-                 line="75">the URI of the location</doc>
+                 line="76">the URI of the location</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-location-widget-provider.c"
-                 line="76">parent #GtkWindow</doc>
+                 line="77">parent #GtkWindow</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -1698,27 +1698,27 @@ about file objects.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-location-widget-provider.c"
-                 line="78">the location widget for @provider at @uri</doc>
+                 line="79">the location widget for @provider at @uri</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </return-value>
           <parameters>
             <parameter name="provider" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-location-widget-provider.c"
-                   line="74">a #CajaLocationWidgetProvider</doc>
+                   line="75">a #CajaLocationWidgetProvider</doc>
               <type name="LocationWidgetProvider"
                     c:type="CajaLocationWidgetProvider*"/>
             </parameter>
             <parameter name="uri" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-location-widget-provider.c"
-                   line="75">the URI of the location</doc>
+                   line="76">the URI of the location</doc>
               <type name="utf8" c:type="const char*"/>
             </parameter>
             <parameter name="window" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-location-widget-provider.c"
-                   line="76">parent #GtkWindow</doc>
+                   line="77">parent #GtkWindow</doc>
               <type name="Gtk.Widget" c:type="GtkWidget*"/>
             </parameter>
           </parameters>
@@ -1846,7 +1846,7 @@ about file objects.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="caja-menu.c"
-               line="64">the provided #CajaMenuItem list</doc>
+               line="63">the provided #CajaMenuItem list</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="MenuItem"/>
           </type>
@@ -1855,7 +1855,7 @@ about file objects.</doc>
           <instance-parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu.c"
-                 line="62">a #CajaMenu</doc>
+                 line="61">a #CajaMenu</doc>
             <type name="Menu" c:type="CajaMenu*"/>
           </instance-parameter>
         </parameters>
@@ -1930,7 +1930,7 @@ about file objects.</doc>
           <parameter name="item_list" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu.c"
-                 line="81">a list of #CajaMenuItem</doc>
+                 line="80">a list of #CajaMenuItem</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="MenuItem"/>
             </type>
@@ -2095,7 +2095,7 @@ about file objects.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="caja-menu-provider.c"
-               line="115">the provided list of #CajaMenuItem</doc>
+               line="116">the provided list of #CajaMenuItem</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="MenuItem"/>
           </type>
@@ -2104,19 +2104,19 @@ about file objects.</doc>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="111">a #CajaMenuProvider</doc>
+                 line="112">a #CajaMenuProvider</doc>
             <type name="MenuProvider" c:type="CajaMenuProvider*"/>
           </instance-parameter>
           <parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="112">the parent #GtkWidget window</doc>
+                 line="113">the parent #GtkWidget window</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="current_folder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="113">the folder for which background items are requested</doc>
+                 line="114">the folder for which background items are requested</doc>
             <type name="FileInfo" c:type="CajaFileInfo*"/>
           </parameter>
         </parameters>
@@ -2126,7 +2126,7 @@ about file objects.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="caja-menu-provider.c"
-               line="92">the provided list of #CajaMenuItem</doc>
+               line="93">the provided list of #CajaMenuItem</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="MenuItem"/>
           </type>
@@ -2135,19 +2135,19 @@ about file objects.</doc>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="88">a #CajaMenuProvider</doc>
+                 line="89">a #CajaMenuProvider</doc>
             <type name="MenuProvider" c:type="CajaMenuProvider*"/>
           </instance-parameter>
           <parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="89">the parent #GtkWidget window</doc>
+                 line="90">the parent #GtkWidget window</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="files" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="90">a list of #CajaFileInfo</doc>
+                 line="91">a list of #CajaFileInfo</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="FileInfo"/>
             </type>
@@ -2159,7 +2159,7 @@ about file objects.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="caja-menu-provider.c"
-               line="139">the provided list of #CajaMenuItem</doc>
+               line="140">the provided list of #CajaMenuItem</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="MenuItem"/>
           </type>
@@ -2168,19 +2168,19 @@ about file objects.</doc>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="135">a #CajaMenuProvider</doc>
+                 line="136">a #CajaMenuProvider</doc>
             <type name="MenuProvider" c:type="CajaMenuProvider*"/>
           </instance-parameter>
           <parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="136">the parent #GtkWidget window</doc>
+                 line="137">the parent #GtkWidget window</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="current_folder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="137">the folder for which toolbar items are requested</doc>
+                 line="138">the folder for which toolbar items are requested</doc>
             <type name="FileInfo" c:type="CajaFileInfo*"/>
           </parameter>
         </parameters>
@@ -2203,7 +2203,7 @@ about file objects.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="caja-menu-provider.c"
-               line="115">the provided list of #CajaMenuItem</doc>
+               line="116">the provided list of #CajaMenuItem</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="MenuItem"/>
           </type>
@@ -2212,19 +2212,19 @@ about file objects.</doc>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="111">a #CajaMenuProvider</doc>
+                 line="112">a #CajaMenuProvider</doc>
             <type name="MenuProvider" c:type="CajaMenuProvider*"/>
           </instance-parameter>
           <parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="112">the parent #GtkWidget window</doc>
+                 line="113">the parent #GtkWidget window</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="current_folder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="113">the folder for which background items are requested</doc>
+                 line="114">the folder for which background items are requested</doc>
             <type name="FileInfo" c:type="CajaFileInfo*"/>
           </parameter>
         </parameters>
@@ -2235,7 +2235,7 @@ about file objects.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="caja-menu-provider.c"
-               line="92">the provided list of #CajaMenuItem</doc>
+               line="93">the provided list of #CajaMenuItem</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="MenuItem"/>
           </type>
@@ -2244,19 +2244,19 @@ about file objects.</doc>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="88">a #CajaMenuProvider</doc>
+                 line="89">a #CajaMenuProvider</doc>
             <type name="MenuProvider" c:type="CajaMenuProvider*"/>
           </instance-parameter>
           <parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="89">the parent #GtkWidget window</doc>
+                 line="90">the parent #GtkWidget window</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="files" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="90">a list of #CajaFileInfo</doc>
+                 line="91">a list of #CajaFileInfo</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="FileInfo"/>
             </type>
@@ -2269,7 +2269,7 @@ about file objects.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="caja-menu-provider.c"
-               line="139">the provided list of #CajaMenuItem</doc>
+               line="140">the provided list of #CajaMenuItem</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="MenuItem"/>
           </type>
@@ -2278,19 +2278,19 @@ about file objects.</doc>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="135">a #CajaMenuProvider</doc>
+                 line="136">a #CajaMenuProvider</doc>
             <type name="MenuProvider" c:type="CajaMenuProvider*"/>
           </instance-parameter>
           <parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="136">the parent #GtkWidget window</doc>
+                 line="137">the parent #GtkWidget window</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="current_folder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="137">the folder for which toolbar items are requested</doc>
+                 line="138">the folder for which toolbar items are requested</doc>
             <type name="FileInfo" c:type="CajaFileInfo*"/>
           </parameter>
         </parameters>
@@ -2320,7 +2320,7 @@ about file objects.</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="92">the provided list of #CajaMenuItem</doc>
+                 line="93">the provided list of #CajaMenuItem</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="MenuItem"/>
             </type>
@@ -2329,19 +2329,19 @@ about file objects.</doc>
             <parameter name="provider" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-menu-provider.c"
-                   line="88">a #CajaMenuProvider</doc>
+                   line="89">a #CajaMenuProvider</doc>
               <type name="MenuProvider" c:type="CajaMenuProvider*"/>
             </parameter>
             <parameter name="window" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-menu-provider.c"
-                   line="89">the parent #GtkWidget window</doc>
+                   line="90">the parent #GtkWidget window</doc>
               <type name="Gtk.Widget" c:type="GtkWidget*"/>
             </parameter>
             <parameter name="files" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-menu-provider.c"
-                   line="90">a list of #CajaFileInfo</doc>
+                   line="91">a list of #CajaFileInfo</doc>
               <type name="GLib.List" c:type="GList*">
                 <type name="FileInfo"/>
               </type>
@@ -2355,7 +2355,7 @@ about file objects.</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="115">the provided list of #CajaMenuItem</doc>
+                 line="116">the provided list of #CajaMenuItem</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="MenuItem"/>
             </type>
@@ -2364,19 +2364,19 @@ about file objects.</doc>
             <parameter name="provider" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-menu-provider.c"
-                   line="111">a #CajaMenuProvider</doc>
+                   line="112">a #CajaMenuProvider</doc>
               <type name="MenuProvider" c:type="CajaMenuProvider*"/>
             </parameter>
             <parameter name="window" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-menu-provider.c"
-                   line="112">the parent #GtkWidget window</doc>
+                   line="113">the parent #GtkWidget window</doc>
               <type name="Gtk.Widget" c:type="GtkWidget*"/>
             </parameter>
             <parameter name="current_folder" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-menu-provider.c"
-                   line="113">the folder for which background items are requested</doc>
+                   line="114">the folder for which background items are requested</doc>
               <type name="FileInfo" c:type="CajaFileInfo*"/>
             </parameter>
           </parameters>
@@ -2388,7 +2388,7 @@ about file objects.</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="caja-menu-provider.c"
-                 line="139">the provided list of #CajaMenuItem</doc>
+                 line="140">the provided list of #CajaMenuItem</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="MenuItem"/>
             </type>
@@ -2397,19 +2397,19 @@ about file objects.</doc>
             <parameter name="provider" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-menu-provider.c"
-                   line="135">a #CajaMenuProvider</doc>
+                   line="136">a #CajaMenuProvider</doc>
               <type name="MenuProvider" c:type="CajaMenuProvider*"/>
             </parameter>
             <parameter name="window" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-menu-provider.c"
-                   line="136">the parent #GtkWidget window</doc>
+                   line="137">the parent #GtkWidget window</doc>
               <type name="Gtk.Widget" c:type="GtkWidget*"/>
             </parameter>
             <parameter name="current_folder" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-menu-provider.c"
-                   line="137">the folder for which toolbar items are requested</doc>
+                   line="138">the folder for which toolbar items are requested</doc>
               <type name="FileInfo" c:type="CajaFileInfo*"/>
             </parameter>
           </parameters>
@@ -2591,7 +2591,7 @@ that return CAJA_OPERATION_IN_PROGRESS.</doc>
       <virtual-method name="get_pages" invoker="get_pages">
         <doc xml:space="preserve"
              filename="caja-property-page-provider.c"
-             line="73">This function is called by Caja when it wants property page
+             line="74">This function is called by Caja when it wants property page
 items from the extension.
 
 This function is called in the main thread before a property page
@@ -2600,7 +2600,7 @@ is shown, so it should return quickly.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="caja-property-page-provider.c"
-               line="84">A #GList of allocated #CajaPropertyPage items.</doc>
+               line="85">A #GList of allocated #CajaPropertyPage items.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="PropertyPage"/>
           </type>
@@ -2609,14 +2609,14 @@ is shown, so it should return quickly.</doc>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-property-page-provider.c"
-                 line="75">a #CajaPropertyPageProvider</doc>
+                 line="76">a #CajaPropertyPageProvider</doc>
             <type name="PropertyPageProvider"
                   c:type="CajaPropertyPageProvider*"/>
           </instance-parameter>
           <parameter name="files" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-property-page-provider.c"
-                 line="76">a #GList of #CajaFileInfo</doc>
+                 line="77">a #GList of #CajaFileInfo</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="FileInfo"/>
             </type>
@@ -2627,7 +2627,7 @@ is shown, so it should return quickly.</doc>
               c:identifier="caja_property_page_provider_get_pages">
         <doc xml:space="preserve"
              filename="caja-property-page-provider.c"
-             line="73">This function is called by Caja when it wants property page
+             line="74">This function is called by Caja when it wants property page
 items from the extension.
 
 This function is called in the main thread before a property page
@@ -2636,7 +2636,7 @@ is shown, so it should return quickly.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="caja-property-page-provider.c"
-               line="84">A #GList of allocated #CajaPropertyPage items.</doc>
+               line="85">A #GList of allocated #CajaPropertyPage items.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="PropertyPage"/>
           </type>
@@ -2645,14 +2645,14 @@ is shown, so it should return quickly.</doc>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-property-page-provider.c"
-                 line="75">a #CajaPropertyPageProvider</doc>
+                 line="76">a #CajaPropertyPageProvider</doc>
             <type name="PropertyPageProvider"
                   c:type="CajaPropertyPageProvider*"/>
           </instance-parameter>
           <parameter name="files" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-property-page-provider.c"
-                 line="76">a #GList of #CajaFileInfo</doc>
+                 line="77">a #GList of #CajaFileInfo</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="FileInfo"/>
             </type>
@@ -2679,7 +2679,7 @@ is shown, so it should return quickly.</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="caja-property-page-provider.c"
-                 line="84">A #GList of allocated #CajaPropertyPage items.</doc>
+                 line="85">A #GList of allocated #CajaPropertyPage items.</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="PropertyPage"/>
             </type>
@@ -2688,14 +2688,14 @@ is shown, so it should return quickly.</doc>
             <parameter name="provider" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-property-page-provider.c"
-                   line="75">a #CajaPropertyPageProvider</doc>
+                   line="76">a #CajaPropertyPageProvider</doc>
               <type name="PropertyPageProvider"
                     c:type="CajaPropertyPageProvider*"/>
             </parameter>
             <parameter name="files" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-property-page-provider.c"
-                   line="76">a #GList of #CajaFileInfo</doc>
+                   line="77">a #GList of #CajaFileInfo</doc>
               <type name="GLib.List" c:type="GList*">
                 <type name="FileInfo"/>
               </type>
@@ -2732,7 +2732,7 @@ is shown, so it should return quickly.</doc>
       <virtual-method name="add_file" invoker="add_file">
         <doc xml:space="preserve"
              filename="caja-widget-view-provider.c"
-             line="87">Add a file of this location into the widget view.</doc>
+             line="88">Add a file of this location into the widget view.</doc>
         <source-position filename="caja-widget-view-provider.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2741,19 +2741,19 @@ is shown, so it should return quickly.</doc>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="89">a #CajaWidgetViewProvider</doc>
+                 line="90">a #CajaWidgetViewProvider</doc>
             <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="90">add a #CajaFile into the widget view.</doc>
+                 line="91">add a #CajaFile into the widget view.</doc>
             <type name="File" c:type="CajaFile*"/>
           </parameter>
           <parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="91">the directory of the file.</doc>
+                 line="92">the directory of the file.</doc>
             <type name="File" c:type="CajaFile*"/>
           </parameter>
         </parameters>
@@ -2761,7 +2761,7 @@ is shown, so it should return quickly.</doc>
       <virtual-method name="clear" invoker="clear">
         <doc xml:space="preserve"
              filename="caja-widget-view-provider.c"
-             line="164">Clear the content of this widget view.</doc>
+             line="165">Clear the content of this widget view.</doc>
         <source-position filename="caja-widget-view-provider.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2770,7 +2770,7 @@ is shown, so it should return quickly.</doc>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="166">a #CajaWidgetViewProvider</doc>
+                 line="167">a #CajaWidgetViewProvider</doc>
             <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
           </instance-parameter>
         </parameters>
@@ -2779,20 +2779,20 @@ is shown, so it should return quickly.</doc>
                       invoker="get_first_visible_file">
         <doc xml:space="preserve"
              filename="caja-widget-view-provider.c"
-             line="147">Return the first visible file. When use start visit the location, the caja's status is waiting, until
+             line="148">Return the first visible file. When use start visit the location, the caja's status is waiting, until
 get the first visible file.</doc>
         <source-position filename="caja-widget-view-provider.h" line="67"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="caja-widget-view-provider.c"
-               line="154">the first visible file.</doc>
+               line="155">the first visible file.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="149">a #CajaWidgetViewProvider</doc>
+                 line="150">a #CajaWidgetViewProvider</doc>
             <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
           </instance-parameter>
         </parameters>
@@ -2802,14 +2802,14 @@ get the first visible file.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="caja-widget-view-provider.c"
-               line="137">The item count of this #CajaWidgetViewProvider</doc>
+               line="138">The item count of this #CajaWidgetViewProvider</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="135">a #CajaWidgetViewProvider</doc>
+                 line="136">a #CajaWidgetViewProvider</doc>
             <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
           </instance-parameter>
         </parameters>
@@ -2819,19 +2819,19 @@ get the first visible file.</doc>
                       introspectable="0">
         <doc xml:space="preserve"
              filename="caja-widget-view-provider.c"
-             line="70">Return a #GtkWidget to show the current location content.</doc>
+             line="71">Return a #GtkWidget to show the current location content.</doc>
         <source-position filename="caja-widget-view-provider.h" line="62"/>
         <return-value>
           <doc xml:space="preserve"
                filename="caja-widget-view-provider.c"
-               line="76">The #GtkWidget used to show the contents.</doc>
+               line="77">The #GtkWidget used to show the contents.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="72">a #CajaWidgetViewProvider</doc>
+                 line="73">a #CajaWidgetViewProvider</doc>
             <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
           </instance-parameter>
         </parameters>
@@ -2839,7 +2839,7 @@ get the first visible file.</doc>
       <virtual-method name="set_location" invoker="set_location">
         <doc xml:space="preserve"
              filename="caja-widget-view-provider.c"
-             line="103">Set the location of this #CajaWidgetViewProvider.</doc>
+             line="104">Set the location of this #CajaWidgetViewProvider.</doc>
         <source-position filename="caja-widget-view-provider.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2848,7 +2848,7 @@ get the first visible file.</doc>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="105">a #CajaWidgetViewProvider</doc>
+                 line="106">a #CajaWidgetViewProvider</doc>
             <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
           </instance-parameter>
           <parameter name="location" transfer-ownership="none">
@@ -2859,7 +2859,7 @@ get the first visible file.</doc>
       <virtual-method name="set_window" invoker="set_window">
         <doc xml:space="preserve"
              filename="caja-widget-view-provider.c"
-             line="118">Set parent #GtkWindow of this #CajaWidgetViewProvider.</doc>
+             line="119">Set parent #GtkWindow of this #CajaWidgetViewProvider.</doc>
         <source-position filename="caja-widget-view-provider.h" line="65"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2868,13 +2868,13 @@ get the first visible file.</doc>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="120">a #CajaWidgetViewProvider</doc>
+                 line="121">a #CajaWidgetViewProvider</doc>
             <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
           </instance-parameter>
           <parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="121">parent #GtkWindow</doc>
+                 line="122">parent #GtkWindow</doc>
             <type name="Gtk.Window" c:type="GtkWindow*"/>
           </parameter>
         </parameters>
@@ -2882,37 +2882,37 @@ get the first visible file.</doc>
       <virtual-method name="supports_uri" invoker="supports_uri">
         <doc xml:space="preserve"
              filename="caja-widget-view-provider.c"
-             line="178">Whether this widget view works for the uri.</doc>
+             line="179">Whether this widget view works for the uri.</doc>
         <source-position filename="caja-widget-view-provider.h" line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="caja-widget-view-provider.c"
-               line="187">True to use custom widget view, False to ignore, and caja use normal view.</doc>
+               line="188">True to use custom widget view, False to ignore, and caja use normal view.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="180">a #CajaWidgetViewProvider</doc>
+                 line="181">a #CajaWidgetViewProvider</doc>
             <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="181">the location to visit.</doc>
+                 line="182">the location to visit.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="file_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="182">The #GFileType for the uri</doc>
+                 line="183">The #GFileType for the uri</doc>
             <type name="Gio.FileType" c:type="GFileType"/>
           </parameter>
           <parameter name="mime_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="183">The mimetype for the uri</doc>
+                 line="184">The mimetype for the uri</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -2921,7 +2921,7 @@ get the first visible file.</doc>
               c:identifier="caja_widget_view_provider_add_file">
         <doc xml:space="preserve"
              filename="caja-widget-view-provider.c"
-             line="87">Add a file of this location into the widget view.</doc>
+             line="88">Add a file of this location into the widget view.</doc>
         <source-position filename="caja-widget-view-provider.h" line="75"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2930,19 +2930,19 @@ get the first visible file.</doc>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="89">a #CajaWidgetViewProvider</doc>
+                 line="90">a #CajaWidgetViewProvider</doc>
             <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="90">add a #CajaFile into the widget view.</doc>
+                 line="91">add a #CajaFile into the widget view.</doc>
             <type name="File" c:type="CajaFile*"/>
           </parameter>
           <parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="91">the directory of the file.</doc>
+                 line="92">the directory of the file.</doc>
             <type name="File" c:type="CajaFile*"/>
           </parameter>
         </parameters>
@@ -2950,7 +2950,7 @@ get the first visible file.</doc>
       <method name="clear" c:identifier="caja_widget_view_provider_clear">
         <doc xml:space="preserve"
              filename="caja-widget-view-provider.c"
-             line="164">Clear the content of this widget view.</doc>
+             line="165">Clear the content of this widget view.</doc>
         <source-position filename="caja-widget-view-provider.h" line="84"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2959,7 +2959,7 @@ get the first visible file.</doc>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="166">a #CajaWidgetViewProvider</doc>
+                 line="167">a #CajaWidgetViewProvider</doc>
             <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
           </instance-parameter>
         </parameters>
@@ -2968,20 +2968,20 @@ get the first visible file.</doc>
               c:identifier="caja_widget_view_provider_get_first_visible_file">
         <doc xml:space="preserve"
              filename="caja-widget-view-provider.c"
-             line="147">Return the first visible file. When use start visit the location, the caja's status is waiting, until
+             line="148">Return the first visible file. When use start visit the location, the caja's status is waiting, until
 get the first visible file.</doc>
         <source-position filename="caja-widget-view-provider.h" line="83"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="caja-widget-view-provider.c"
-               line="154">the first visible file.</doc>
+               line="155">the first visible file.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="149">a #CajaWidgetViewProvider</doc>
+                 line="150">a #CajaWidgetViewProvider</doc>
             <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
           </instance-parameter>
         </parameters>
@@ -2992,14 +2992,14 @@ get the first visible file.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="caja-widget-view-provider.c"
-               line="137">The item count of this #CajaWidgetViewProvider</doc>
+               line="138">The item count of this #CajaWidgetViewProvider</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="135">a #CajaWidgetViewProvider</doc>
+                 line="136">a #CajaWidgetViewProvider</doc>
             <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
           </instance-parameter>
         </parameters>
@@ -3009,19 +3009,19 @@ get the first visible file.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="caja-widget-view-provider.c"
-             line="70">Return a #GtkWidget to show the current location content.</doc>
+             line="71">Return a #GtkWidget to show the current location content.</doc>
         <source-position filename="caja-widget-view-provider.h" line="74"/>
         <return-value>
           <doc xml:space="preserve"
                filename="caja-widget-view-provider.c"
-               line="76">The #GtkWidget used to show the contents.</doc>
+               line="77">The #GtkWidget used to show the contents.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="72">a #CajaWidgetViewProvider</doc>
+                 line="73">a #CajaWidgetViewProvider</doc>
             <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
           </instance-parameter>
         </parameters>
@@ -3030,7 +3030,7 @@ get the first visible file.</doc>
               c:identifier="caja_widget_view_provider_set_location">
         <doc xml:space="preserve"
              filename="caja-widget-view-provider.c"
-             line="103">Set the location of this #CajaWidgetViewProvider.</doc>
+             line="104">Set the location of this #CajaWidgetViewProvider.</doc>
         <source-position filename="caja-widget-view-provider.h" line="78"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3039,7 +3039,7 @@ get the first visible file.</doc>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="105">a #CajaWidgetViewProvider</doc>
+                 line="106">a #CajaWidgetViewProvider</doc>
             <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
           </instance-parameter>
           <parameter name="location" transfer-ownership="none">
@@ -3051,7 +3051,7 @@ get the first visible file.</doc>
               c:identifier="caja_widget_view_provider_set_window">
         <doc xml:space="preserve"
              filename="caja-widget-view-provider.c"
-             line="118">Set parent #GtkWindow of this #CajaWidgetViewProvider.</doc>
+             line="119">Set parent #GtkWindow of this #CajaWidgetViewProvider.</doc>
         <source-position filename="caja-widget-view-provider.h" line="80"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3060,13 +3060,13 @@ get the first visible file.</doc>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="120">a #CajaWidgetViewProvider</doc>
+                 line="121">a #CajaWidgetViewProvider</doc>
             <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
           </instance-parameter>
           <parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="121">parent #GtkWindow</doc>
+                 line="122">parent #GtkWindow</doc>
             <type name="Gtk.Window" c:type="GtkWindow*"/>
           </parameter>
         </parameters>
@@ -3075,37 +3075,37 @@ get the first visible file.</doc>
               c:identifier="caja_widget_view_provider_supports_uri">
         <doc xml:space="preserve"
              filename="caja-widget-view-provider.c"
-             line="178">Whether this widget view works for the uri.</doc>
+             line="179">Whether this widget view works for the uri.</doc>
         <source-position filename="caja-widget-view-provider.h" line="85"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="caja-widget-view-provider.c"
-               line="187">True to use custom widget view, False to ignore, and caja use normal view.</doc>
+               line="188">True to use custom widget view, False to ignore, and caja use normal view.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="provider" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="180">a #CajaWidgetViewProvider</doc>
+                 line="181">a #CajaWidgetViewProvider</doc>
             <type name="WidgetViewProvider" c:type="CajaWidgetViewProvider*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="181">the location to visit.</doc>
+                 line="182">the location to visit.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="file_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="182">The #GFileType for the uri</doc>
+                 line="183">The #GFileType for the uri</doc>
             <type name="Gio.FileType" c:type="GFileType"/>
           </parameter>
           <parameter name="mime_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="183">The mimetype for the uri</doc>
+                 line="184">The mimetype for the uri</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3127,33 +3127,33 @@ get the first visible file.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="187">True to use custom widget view, False to ignore, and caja use normal view.</doc>
+                 line="188">True to use custom widget view, False to ignore, and caja use normal view.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="provider" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-widget-view-provider.c"
-                   line="180">a #CajaWidgetViewProvider</doc>
+                   line="181">a #CajaWidgetViewProvider</doc>
               <type name="WidgetViewProvider"
                     c:type="CajaWidgetViewProvider*"/>
             </parameter>
             <parameter name="uri" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-widget-view-provider.c"
-                   line="181">the location to visit.</doc>
+                   line="182">the location to visit.</doc>
               <type name="utf8" c:type="const char*"/>
             </parameter>
             <parameter name="file_type" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-widget-view-provider.c"
-                   line="182">The #GFileType for the uri</doc>
+                   line="183">The #GFileType for the uri</doc>
               <type name="Gio.FileType" c:type="GFileType"/>
             </parameter>
             <parameter name="mime_type" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-widget-view-provider.c"
-                   line="183">The mimetype for the uri</doc>
+                   line="184">The mimetype for the uri</doc>
               <type name="utf8" c:type="const char*"/>
             </parameter>
           </parameters>
@@ -3165,14 +3165,14 @@ get the first visible file.</doc>
           <return-value>
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="76">The #GtkWidget used to show the contents.</doc>
+                 line="77">The #GtkWidget used to show the contents.</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </return-value>
           <parameters>
             <parameter name="provider" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-widget-view-provider.c"
-                   line="72">a #CajaWidgetViewProvider</doc>
+                   line="73">a #CajaWidgetViewProvider</doc>
               <type name="WidgetViewProvider"
                     c:type="CajaWidgetViewProvider*"/>
             </parameter>
@@ -3189,20 +3189,20 @@ get the first visible file.</doc>
             <parameter name="provider" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-widget-view-provider.c"
-                   line="89">a #CajaWidgetViewProvider</doc>
+                   line="90">a #CajaWidgetViewProvider</doc>
               <type name="WidgetViewProvider"
                     c:type="CajaWidgetViewProvider*"/>
             </parameter>
             <parameter name="file" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-widget-view-provider.c"
-                   line="90">add a #CajaFile into the widget view.</doc>
+                   line="91">add a #CajaFile into the widget view.</doc>
               <type name="File" c:type="CajaFile*"/>
             </parameter>
             <parameter name="directory" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-widget-view-provider.c"
-                   line="91">the directory of the file.</doc>
+                   line="92">the directory of the file.</doc>
               <type name="File" c:type="CajaFile*"/>
             </parameter>
           </parameters>
@@ -3218,7 +3218,7 @@ get the first visible file.</doc>
             <parameter name="provider" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-widget-view-provider.c"
-                   line="105">a #CajaWidgetViewProvider</doc>
+                   line="106">a #CajaWidgetViewProvider</doc>
               <type name="WidgetViewProvider"
                     c:type="CajaWidgetViewProvider*"/>
             </parameter>
@@ -3238,14 +3238,14 @@ get the first visible file.</doc>
             <parameter name="provider" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-widget-view-provider.c"
-                   line="120">a #CajaWidgetViewProvider</doc>
+                   line="121">a #CajaWidgetViewProvider</doc>
               <type name="WidgetViewProvider"
                     c:type="CajaWidgetViewProvider*"/>
             </parameter>
             <parameter name="window" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-widget-view-provider.c"
-                   line="121">parent #GtkWindow</doc>
+                   line="122">parent #GtkWindow</doc>
               <type name="Gtk.Window" c:type="GtkWindow*"/>
             </parameter>
           </parameters>
@@ -3257,14 +3257,14 @@ get the first visible file.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="137">The item count of this #CajaWidgetViewProvider</doc>
+                 line="138">The item count of this #CajaWidgetViewProvider</doc>
             <type name="guint" c:type="guint"/>
           </return-value>
           <parameters>
             <parameter name="provider" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-widget-view-provider.c"
-                   line="135">a #CajaWidgetViewProvider</doc>
+                   line="136">a #CajaWidgetViewProvider</doc>
               <type name="WidgetViewProvider"
                     c:type="CajaWidgetViewProvider*"/>
             </parameter>
@@ -3277,14 +3277,14 @@ get the first visible file.</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="caja-widget-view-provider.c"
-                 line="154">the first visible file.</doc>
+                 line="155">the first visible file.</doc>
             <type name="utf8" c:type="gchar*"/>
           </return-value>
           <parameters>
             <parameter name="provider" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-widget-view-provider.c"
-                   line="149">a #CajaWidgetViewProvider</doc>
+                   line="150">a #CajaWidgetViewProvider</doc>
               <type name="WidgetViewProvider"
                     c:type="CajaWidgetViewProvider*"/>
             </parameter>
@@ -3301,7 +3301,7 @@ get the first visible file.</doc>
             <parameter name="provider" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="caja-widget-view-provider.c"
-                   line="166">a #CajaWidgetViewProvider</doc>
+                   line="167">a #CajaWidgetViewProvider</doc>
               <type name="WidgetViewProvider"
                     c:type="CajaWidgetViewProvider*"/>
             </parameter>
@@ -3402,18 +3402,18 @@ in the file manager.</doc>
     <function name="file_info_create"
               c:identifier="caja_file_info_create"
               moved-to="FileInfo.create">
-      <source-position filename="caja-file-info.h" line="172"/>
+      <source-position filename="caja-file-info.h" line="171"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="caja-file-info.c"
-             line="337">a #CajaFileInfo</doc>
+             line="338">a #CajaFileInfo</doc>
         <type name="FileInfo" c:type="CajaFileInfo*"/>
       </return-value>
       <parameters>
         <parameter name="location" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="caja-file-info.c"
-               line="335">the location to create the file info for</doc>
+               line="336">the location to create the file info for</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
       </parameters>
@@ -3421,18 +3421,18 @@ in the file manager.</doc>
     <function name="file_info_create_for_uri"
               c:identifier="caja_file_info_create_for_uri"
               moved-to="FileInfo.create_for_uri">
-      <source-position filename="caja-file-info.h" line="174"/>
+      <source-position filename="caja-file-info.h" line="173"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="caja-file-info.c"
-             line="368">a #CajaFileInfo</doc>
+             line="369">a #CajaFileInfo</doc>
         <type name="FileInfo" c:type="CajaFileInfo*"/>
       </return-value>
       <parameters>
         <parameter name="uri" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="caja-file-info.c"
-               line="366">the URI to lookup the file info for</doc>
+               line="367">the URI to lookup the file info for</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -3483,18 +3483,18 @@ in the file manager.</doc>
     <function name="file_info_lookup"
               c:identifier="caja_file_info_lookup"
               moved-to="FileInfo.lookup">
-      <source-position filename="caja-file-info.h" line="171"/>
+      <source-position filename="caja-file-info.h" line="170"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="caja-file-info.c"
-             line="325">a #CajaFileInfo</doc>
+             line="326">a #CajaFileInfo</doc>
         <type name="FileInfo" c:type="CajaFileInfo*"/>
       </return-value>
       <parameters>
         <parameter name="location" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="caja-file-info.c"
-               line="323">the location to lookup the file info for</doc>
+               line="324">the location to lookup the file info for</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
       </parameters>
@@ -3502,18 +3502,18 @@ in the file manager.</doc>
     <function name="file_info_lookup_for_uri"
               c:identifier="caja_file_info_lookup_for_uri"
               moved-to="FileInfo.lookup_for_uri">
-      <source-position filename="caja-file-info.h" line="173"/>
+      <source-position filename="caja-file-info.h" line="172"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="caja-file-info.c"
-             line="349">a #CajaFileInfo</doc>
+             line="350">a #CajaFileInfo</doc>
         <type name="FileInfo" c:type="CajaFileInfo*"/>
       </return-value>
       <parameters>
         <parameter name="uri" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="caja-file-info.c"
-               line="347">the URI to lookup the file info for</doc>
+               line="348">the URI to lookup the file info for</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -3521,7 +3521,7 @@ in the file manager.</doc>
     <function name="info_provider_update_complete_invoke"
               c:identifier="caja_info_provider_update_complete_invoke"
               moved-to="InfoProvider.update_complete_invoke">
-      <source-position filename="caja-info-provider.h" line="86"/>
+      <source-position filename="caja-info-provider.h" line="84"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>

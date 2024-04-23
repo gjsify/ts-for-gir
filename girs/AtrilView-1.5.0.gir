@@ -3885,7 +3885,7 @@ Equivalent to function  ev_view_disconnect_handlers in ev-view.c</doc>
     <function name="stock_icons_init" c:identifier="ev_stock_icons_init">
       <doc xml:space="preserve"
            filename="ev-stock-icons.c"
-           line="86">Creates a new icon factory, adding the base stock icons to it.</doc>
+           line="84">Creates a new icon factory, adding the base stock icons to it.</doc>
       <source-position filename="ev-stock-icons.h" line="52"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -3893,7 +3893,7 @@ Equivalent to function  ev_view_disconnect_handlers in ev-view.c</doc>
     </function>
     <function name="stock_icons_set_screen"
               c:identifier="ev_stock_icons_set_screen">
-      <source-position filename="ev-stock-icons.h" line="54"/>
+      <source-position filename="ev-stock-icons.h" line="53"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -3902,13 +3902,6 @@ Equivalent to function  ev_view_disconnect_handlers in ev-view.c</doc>
           <type name="Gdk.Screen" c:type="GdkScreen*"/>
         </parameter>
       </parameters>
-    </function>
-    <function name="stock_icons_shutdown"
-              c:identifier="ev_stock_icons_shutdown">
-      <source-position filename="ev-stock-icons.h" line="53"/>
-      <return-value transfer-ownership="none">
-        <type name="none" c:type="void"/>
-      </return-value>
     </function>
   </namespace>
 </repository>

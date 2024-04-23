@@ -381,19 +381,19 @@ structure are private to the #LtExtModule implementation.</doc>
       <method name="ref" c:identifier="lt_ext_module_ref">
         <doc xml:space="preserve"
              filename="lt-ext-module.gir.c"
-             line="692">Increases the reference count of @module.</doc>
+             line="698">Increases the reference count of @module.</doc>
         <source-position filename="lt-ext-module.gir.h" line="166"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-ext-module.gir.c"
-               line="698">the same @module object.</doc>
+               line="704">the same @module object.</doc>
           <type name="ExtModule" c:type="LtExtModule*"/>
         </return-value>
         <parameters>
           <instance-parameter name="module" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-ext-module.gir.c"
-                 line="694">a #lt_ext_module_t.</doc>
+                 line="700">a #lt_ext_module_t.</doc>
             <type name="ExtModule" c:type="LtExtModule*"/>
           </instance-parameter>
         </parameters>
@@ -401,7 +401,7 @@ structure are private to the #LtExtModule implementation.</doc>
       <method name="unref" c:identifier="lt_ext_module_unref">
         <doc xml:space="preserve"
              filename="lt-ext-module.gir.c"
-             line="708">Decreases the reference count of @module. when its reference count
+             line="714">Decreases the reference count of @module. when its reference count
 drops to 0, the object is finalized (i.e. its memory is freed).</doc>
         <source-position filename="lt-ext-module.gir.h" line="167"/>
         <return-value transfer-ownership="none">
@@ -411,7 +411,7 @@ drops to 0, the object is finalized (i.e. its memory is freed).</doc>
           <instance-parameter name="module" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-ext-module.gir.c"
-                 line="710">a #lt_ext_module_t.</doc>
+                 line="716">a #lt_ext_module_t.</doc>
             <type name="ExtModule" c:type="LtExtModule*"/>
           </instance-parameter>
         </parameters>
@@ -1082,24 +1082,24 @@ structure are private to the #LtExtlangDb implementation.</doc>
       <constructor name="new" c:identifier="lt_extlang_db_new">
         <doc xml:space="preserve"
              filename="lt-extlang-db.gir.c"
-             line="268">Create a new instance of a #LtExtlangDb.</doc>
+             line="269">Create a new instance of a #LtExtlangDb.</doc>
         <source-position filename="lt-extlang-db.gir.h" line="35"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lt-extlang-db.gir.c"
-               line="273">a new instance of #LtExtlangDb.</doc>
+               line="274">a new instance of #LtExtlangDb.</doc>
           <type name="ExtlangDb" c:type="LtExtlangDb*"/>
         </return-value>
       </constructor>
       <method name="lookup" c:identifier="lt_extlang_db_lookup">
         <doc xml:space="preserve"
              filename="lt-extlang-db.gir.c"
-             line="316">Lookup @LtExtlang if @subtag is valid and registered into the database.</doc>
+             line="317">Lookup @LtExtlang if @subtag is valid and registered into the database.</doc>
         <source-position filename="lt-extlang-db.gir.h" line="38"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lt-extlang-db.gir.c"
-               line="323">a #LtExtlang that meets with @subtag.
+               line="324">a #LtExtlang that meets with @subtag.
                           otherwise %NULL.</doc>
           <type name="Extlang" c:type="LtExtlang*"/>
         </return-value>
@@ -1107,13 +1107,13 @@ structure are private to the #LtExtlangDb implementation.</doc>
           <instance-parameter name="extlangdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-extlang-db.gir.c"
-                 line="318">a #LtExtlangDb.</doc>
+                 line="319">a #LtExtlangDb.</doc>
             <type name="ExtlangDb" c:type="LtExtlangDb*"/>
           </instance-parameter>
           <parameter name="subtag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-extlang-db.gir.c"
-                 line="319">a subtag name to lookup.</doc>
+                 line="320">a subtag name to lookup.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1121,19 +1121,19 @@ structure are private to the #LtExtlangDb implementation.</doc>
       <method name="ref" c:identifier="lt_extlang_db_ref">
         <doc xml:space="preserve"
              filename="lt-extlang-db.gir.c"
-             line="286">Increases the reference count of @extlangdb.</doc>
+             line="287">Increases the reference count of @extlangdb.</doc>
         <source-position filename="lt-extlang-db.gir.h" line="36"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-extlang-db.gir.c"
-               line="292">the same @extlangdb object.</doc>
+               line="293">the same @extlangdb object.</doc>
           <type name="ExtlangDb" c:type="LtExtlangDb*"/>
         </return-value>
         <parameters>
           <instance-parameter name="extlangdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-extlang-db.gir.c"
-                 line="288">a #LtExtlangDb.</doc>
+                 line="289">a #LtExtlangDb.</doc>
             <type name="ExtlangDb" c:type="LtExtlangDb*"/>
           </instance-parameter>
         </parameters>
@@ -1141,7 +1141,7 @@ structure are private to the #LtExtlangDb implementation.</doc>
       <method name="unref" c:identifier="lt_extlang_db_unref">
         <doc xml:space="preserve"
              filename="lt-extlang-db.gir.c"
-             line="302">Decreases the reference count of @extlangdb. when its reference count
+             line="303">Decreases the reference count of @extlangdb. when its reference count
 drops to 0, the object is finalized (i.e. its memory is freed).</doc>
         <source-position filename="lt-extlang-db.gir.h" line="37"/>
         <return-value transfer-ownership="none">
@@ -1151,7 +1151,7 @@ drops to 0, the object is finalized (i.e. its memory is freed).</doc>
           <instance-parameter name="extlangdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-extlang-db.gir.c"
-                 line="304">a #LtExtlangDb.</doc>
+                 line="305">a #LtExtlangDb.</doc>
             <type name="ExtlangDb" c:type="LtExtlangDb*"/>
           </instance-parameter>
         </parameters>
@@ -1383,24 +1383,24 @@ structure are private to the #LtGrandfatheredDb implementation.</doc>
       <constructor name="new" c:identifier="lt_grandfathered_db_new">
         <doc xml:space="preserve"
              filename="lt-grandfathered-db.gir.c"
-             line="232">Create a new instance of a #LtGrandfatheredDb.</doc>
+             line="233">Create a new instance of a #LtGrandfatheredDb.</doc>
         <source-position filename="lt-grandfathered-db.gir.h" line="35"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lt-grandfathered-db.gir.c"
-               line="237">a new instance of #LtGrandfatheredDb.</doc>
+               line="238">a new instance of #LtGrandfatheredDb.</doc>
           <type name="GrandfatheredDb" c:type="LtGrandfatheredDb*"/>
         </return-value>
       </constructor>
       <method name="lookup" c:identifier="lt_grandfathered_db_lookup">
         <doc xml:space="preserve"
              filename="lt-grandfathered-db.gir.c"
-             line="280">Lookup @LtGrandfathered if @tag is valid and registered into the database.</doc>
+             line="281">Lookup @LtGrandfathered if @tag is valid and registered into the database.</doc>
         <source-position filename="lt-grandfathered-db.gir.h" line="38"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lt-grandfathered-db.gir.c"
-               line="287">a #LtGrandfathered that meets with @tag.
+               line="288">a #LtGrandfathered that meets with @tag.
                           otherwise %NULL.</doc>
           <type name="Grandfathered" c:type="LtGrandfathered*"/>
         </return-value>
@@ -1408,13 +1408,13 @@ structure are private to the #LtGrandfatheredDb implementation.</doc>
           <instance-parameter name="grandfathereddb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-grandfathered-db.gir.c"
-                 line="282">a #LtGrandfatheredDb.</doc>
+                 line="283">a #LtGrandfatheredDb.</doc>
             <type name="GrandfatheredDb" c:type="LtGrandfatheredDb*"/>
           </instance-parameter>
           <parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-grandfathered-db.gir.c"
-                 line="283">a tag name to lookup.</doc>
+                 line="284">a tag name to lookup.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1422,19 +1422,19 @@ structure are private to the #LtGrandfatheredDb implementation.</doc>
       <method name="ref" c:identifier="lt_grandfathered_db_ref">
         <doc xml:space="preserve"
              filename="lt-grandfathered-db.gir.c"
-             line="250">Increases the reference count of @grandfathereddb.</doc>
+             line="251">Increases the reference count of @grandfathereddb.</doc>
         <source-position filename="lt-grandfathered-db.gir.h" line="36"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-grandfathered-db.gir.c"
-               line="256">the same @grandfathereddb object.</doc>
+               line="257">the same @grandfathereddb object.</doc>
           <type name="GrandfatheredDb" c:type="LtGrandfatheredDb*"/>
         </return-value>
         <parameters>
           <instance-parameter name="grandfathereddb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-grandfathered-db.gir.c"
-                 line="252">a #LtGrandfatheredDb.</doc>
+                 line="253">a #LtGrandfatheredDb.</doc>
             <type name="GrandfatheredDb" c:type="LtGrandfatheredDb*"/>
           </instance-parameter>
         </parameters>
@@ -1442,7 +1442,7 @@ structure are private to the #LtGrandfatheredDb implementation.</doc>
       <method name="unref" c:identifier="lt_grandfathered_db_unref">
         <doc xml:space="preserve"
              filename="lt-grandfathered-db.gir.c"
-             line="266">Decreases the reference count of @grandfathereddb. when its reference count
+             line="267">Decreases the reference count of @grandfathereddb. when its reference count
 drops to 0, the object is finalized (i.e. its memory is freed).</doc>
         <source-position filename="lt-grandfathered-db.gir.h" line="37"/>
         <return-value transfer-ownership="none">
@@ -1452,7 +1452,7 @@ drops to 0, the object is finalized (i.e. its memory is freed).</doc>
           <instance-parameter name="grandfathereddb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-grandfathered-db.gir.c"
-                 line="268">a #LtGrandfatheredDb.</doc>
+                 line="269">a #LtGrandfatheredDb.</doc>
             <type name="GrandfatheredDb" c:type="LtGrandfatheredDb*"/>
           </instance-parameter>
         </parameters>
@@ -1891,24 +1891,24 @@ structure are private to the #LtLangDb implementation.</doc>
       <constructor name="new" c:identifier="lt_lang_db_new">
         <doc xml:space="preserve"
              filename="lt-lang-db.gir.c"
-             line="273">Create a new instance of a #LtLangDb.</doc>
+             line="274">Create a new instance of a #LtLangDb.</doc>
         <source-position filename="lt-lang-db.gir.h" line="35"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lt-lang-db.gir.c"
-               line="278">a new instance of #LtLangDb.</doc>
+               line="279">a new instance of #LtLangDb.</doc>
           <type name="LangDb" c:type="LtLangDb*"/>
         </return-value>
       </constructor>
       <method name="lookup" c:identifier="lt_lang_db_lookup">
         <doc xml:space="preserve"
              filename="lt-lang-db.gir.c"
-             line="321">Lookup @LtLang if @subtag is valid and registered into the database.</doc>
+             line="322">Lookup @LtLang if @subtag is valid and registered into the database.</doc>
         <source-position filename="lt-lang-db.gir.h" line="38"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lt-lang-db.gir.c"
-               line="328">a #LtLang that meets with @subtag.
+               line="329">a #LtLang that meets with @subtag.
                           otherwise %NULL.</doc>
           <type name="Lang" c:type="LtLang*"/>
         </return-value>
@@ -1916,13 +1916,13 @@ structure are private to the #LtLangDb implementation.</doc>
           <instance-parameter name="langdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-lang-db.gir.c"
-                 line="323">a #LtLangDb.</doc>
+                 line="324">a #LtLangDb.</doc>
             <type name="LangDb" c:type="LtLangDb*"/>
           </instance-parameter>
           <parameter name="subtag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-lang-db.gir.c"
-                 line="324">a subtag name to lookup.</doc>
+                 line="325">a subtag name to lookup.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1930,19 +1930,19 @@ structure are private to the #LtLangDb implementation.</doc>
       <method name="ref" c:identifier="lt_lang_db_ref">
         <doc xml:space="preserve"
              filename="lt-lang-db.gir.c"
-             line="291">Increases the reference count of @langdb.</doc>
+             line="292">Increases the reference count of @langdb.</doc>
         <source-position filename="lt-lang-db.gir.h" line="36"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-lang-db.gir.c"
-               line="297">the same @langdb object.</doc>
+               line="298">the same @langdb object.</doc>
           <type name="LangDb" c:type="LtLangDb*"/>
         </return-value>
         <parameters>
           <instance-parameter name="langdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-lang-db.gir.c"
-                 line="293">a #LtLangDb.</doc>
+                 line="294">a #LtLangDb.</doc>
             <type name="LangDb" c:type="LtLangDb*"/>
           </instance-parameter>
         </parameters>
@@ -1950,7 +1950,7 @@ structure are private to the #LtLangDb implementation.</doc>
       <method name="unref" c:identifier="lt_lang_db_unref">
         <doc xml:space="preserve"
              filename="lt-lang-db.gir.c"
-             line="307">Decreases the reference count of @langdb. when its reference count
+             line="308">Decreases the reference count of @langdb. when its reference count
 drops to 0, the object is finalized (i.e. its memory is freed).</doc>
         <source-position filename="lt-lang-db.gir.h" line="37"/>
         <return-value transfer-ownership="none">
@@ -1960,7 +1960,7 @@ drops to 0, the object is finalized (i.e. its memory is freed).</doc>
           <instance-parameter name="langdb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-lang-db.gir.c"
-                 line="309">a #LtLangDb.</doc>
+                 line="310">a #LtLangDb.</doc>
             <type name="LangDb" c:type="LtLangDb*"/>
           </instance-parameter>
         </parameters>
@@ -3778,31 +3778,31 @@ structure are private to the #LtTag implementation.</doc>
       <constructor name="new" c:identifier="lt_tag_new">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="1572">Create a new instance of #LtTag.</doc>
+             line="1624">Create a new instance of #LtTag.</doc>
         <source-position filename="lt-tag.gir.h" line="72"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="1577">a new instance of #LtTag.</doc>
+               line="1629">a new instance of #LtTag.</doc>
           <type name="Tag" c:type="LtTag*"/>
         </return-value>
       </constructor>
       <method name="canonicalize" c:identifier="lt_tag_canonicalize">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="1908">Canonicalize the language tag according to various information of subtags.</doc>
+             line="1960">Canonicalize the language tag according to various information of subtags.</doc>
         <source-position filename="lt-tag.gir.h" line="88"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="1915">a language tag string.</doc>
+               line="1967">a language tag string.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1910">a #LtTag.</doc>
+                 line="1962">a #LtTag.</doc>
             <type name="Tag" c:type="LtTag*"/>
           </instance-parameter>
           <parameter name="error"
@@ -3811,7 +3811,7 @@ structure are private to the #LtTag implementation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1911">a #LtError or %NULL.</doc>
+                 line="1963">a #LtError or %NULL.</doc>
             <type name="Error" c:type="LtError**"/>
           </parameter>
         </parameters>
@@ -3820,20 +3820,20 @@ structure are private to the #LtTag implementation.</doc>
               c:identifier="lt_tag_canonicalize_in_extlang_form">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="1924">Canonicalize the language tag in the extlang form
+             line="1976">Canonicalize the language tag in the extlang form
 according to various information of subtags.</doc>
         <source-position filename="lt-tag.gir.h" line="90"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="1932">a language tag string.</doc>
+               line="1984">a language tag string.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1926">a #LtTag.</doc>
+                 line="1978">a #LtTag.</doc>
             <type name="Tag" c:type="LtTag*"/>
           </instance-parameter>
           <parameter name="error"
@@ -3842,7 +3842,7 @@ according to various information of subtags.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1927">a #LtError or %NULL.</doc>
+                 line="1979">a #LtError or %NULL.</doc>
             <type name="Error" c:type="LtError**"/>
           </parameter>
         </parameters>
@@ -3850,7 +3850,7 @@ according to various information of subtags.</doc>
       <method name="clear" c:identifier="lt_tag_clear">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="1625">(Re-)Initialize all of the subtag information stored in @tag.</doc>
+             line="1677">(Re-)Initialize all of the subtag information stored in @tag.</doc>
         <source-position filename="lt-tag.gir.h" line="81"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3859,7 +3859,7 @@ according to various information of subtags.</doc>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1627">a #LtTag.</doc>
+                 line="1679">a #LtTag.</doc>
             <type name="Tag" c:type="LtTag*"/>
           </instance-parameter>
         </parameters>
@@ -3867,25 +3867,25 @@ according to various information of subtags.</doc>
       <method name="compare" c:identifier="lt_tag_compare">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="2085">Compare if @v1 and @v2 is the same object or not.</doc>
+             line="2137">Compare if @v1 and @v2 is the same object or not.</doc>
         <source-position filename="lt-tag.gir.h" line="98"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="2092">%TRUE if it's the same, otherwise %FALSE.</doc>
+               line="2144">%TRUE if it's the same, otherwise %FALSE.</doc>
           <type name="Bool" c:type="LtBool"/>
         </return-value>
         <parameters>
           <instance-parameter name="v1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="2087">a #LtTag.</doc>
+                 line="2139">a #LtTag.</doc>
             <type name="Tag" c:type="const LtTag*"/>
           </instance-parameter>
           <parameter name="v2" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="2088">a #LtTag.</doc>
+                 line="2140">a #LtTag.</doc>
             <type name="Tag" c:type="const LtTag*"/>
           </parameter>
         </parameters>
@@ -3893,19 +3893,19 @@ according to various information of subtags.</doc>
       <method name="convert_to_locale" c:identifier="lt_tag_convert_to_locale">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="1978">Convert the language tag to the locale.</doc>
+             line="2030">Convert the language tag to the locale.</doc>
         <source-position filename="lt-tag.gir.h" line="92"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="1985">a locale string or %NULL if fails</doc>
+               line="2037">a locale string or %NULL if fails</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1980">a #LtTag.</doc>
+                 line="2032">a #LtTag.</doc>
             <type name="Tag" c:type="LtTag*"/>
           </instance-parameter>
           <parameter name="error"
@@ -3914,7 +3914,7 @@ according to various information of subtags.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1981">a #LtError or %NULL.</doc>
+                 line="2033">a #LtError or %NULL.</doc>
             <type name="Error" c:type="LtError**"/>
           </parameter>
         </parameters>
@@ -3922,19 +3922,19 @@ according to various information of subtags.</doc>
       <method name="copy" c:identifier="lt_tag_copy">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="1691">Create a copy instance of @tag.</doc>
+             line="1743">Create a copy instance of @tag.</doc>
         <source-position filename="lt-tag.gir.h" line="82"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="1697">a new instance of #LtTag or %NULL if fails.</doc>
+               line="1749">a new instance of #LtTag or %NULL if fails.</doc>
           <type name="Tag" c:type="LtTag*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1693">a #LtTag.</doc>
+                 line="1745">a #LtTag.</doc>
             <type name="Tag" c:type="const LtTag*"/>
           </instance-parameter>
         </parameters>
@@ -3942,7 +3942,7 @@ according to various information of subtags.</doc>
       <method name="dump" c:identifier="lt_tag_dump">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="2050">Dumps the container information to the standard output.</doc>
+             line="2102">Dumps the container information to the standard output.</doc>
         <source-position filename="lt-tag.gir.h" line="97"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3951,7 +3951,7 @@ according to various information of subtags.</doc>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="2052">a #LtTag.</doc>
+                 line="2104">a #LtTag.</doc>
             <type name="Tag" c:type="const LtTag*"/>
           </instance-parameter>
         </parameters>
@@ -3959,19 +3959,19 @@ according to various information of subtags.</doc>
       <method name="get_extension" c:identifier="lt_tag_get_extension">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="2568">Obtain a #LtExtension instance in @tag.</doc>
+             line="2624">Obtain a #LtExtension instance in @tag.</doc>
         <source-position filename="lt-tag.gir.h" line="113"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="2574">a #LtExtension.</doc>
+               line="2630">a #LtExtension.</doc>
           <type name="Extension" c:type="const LtExtension*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="2570">a #LtTag.</doc>
+                 line="2626">a #LtTag.</doc>
             <type name="Tag" c:type="const LtTag*"/>
           </instance-parameter>
         </parameters>
@@ -3979,19 +3979,19 @@ according to various information of subtags.</doc>
       <method name="get_extlang" c:identifier="lt_tag_get_extlang">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="2532">Obtain a #LtExtlang instance in @tag.</doc>
+             line="2588">Obtain a #LtExtlang instance in @tag.</doc>
         <source-position filename="lt-tag.gir.h" line="109"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="2538">a #LtExtlang.</doc>
+               line="2594">a #LtExtlang.</doc>
           <type name="Extlang" c:type="const LtExtlang*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="2534">a #LtTag.</doc>
+                 line="2590">a #LtTag.</doc>
             <type name="Tag" c:type="const LtTag*"/>
           </instance-parameter>
         </parameters>
@@ -3999,19 +3999,19 @@ according to various information of subtags.</doc>
       <method name="get_grandfathered" c:identifier="lt_tag_get_grandfathered">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="2586">Obtain a #LtGrandfathered instance in @tag.</doc>
+             line="2642">Obtain a #LtGrandfathered instance in @tag.</doc>
         <source-position filename="lt-tag.gir.h" line="115"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="2592">a #LtGrandfathered.</doc>
+               line="2648">a #LtGrandfathered.</doc>
           <type name="Grandfathered" c:type="const LtGrandfathered*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="2588">a #LtTag.</doc>
+                 line="2644">a #LtTag.</doc>
             <type name="Tag" c:type="const LtTag*"/>
           </instance-parameter>
         </parameters>
@@ -4019,19 +4019,19 @@ according to various information of subtags.</doc>
       <method name="get_language" c:identifier="lt_tag_get_language">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="2523">Obtain a #LtLang instance in @tag.</doc>
+             line="2579">Obtain a #LtLang instance in @tag.</doc>
         <source-position filename="lt-tag.gir.h" line="108"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="2529">a #LtLang.</doc>
+               line="2585">a #LtLang.</doc>
           <type name="Lang" c:type="const LtLang*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="2525">a #LtTag.</doc>
+                 line="2581">a #LtTag.</doc>
             <type name="Tag" c:type="const LtTag*"/>
           </instance-parameter>
         </parameters>
@@ -4039,19 +4039,19 @@ according to various information of subtags.</doc>
       <method name="get_privateuse" c:identifier="lt_tag_get_privateuse">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="2577">Obtain a #LtString instance in @tag.</doc>
+             line="2633">Obtain a #LtString instance in @tag.</doc>
         <source-position filename="lt-tag.gir.h" line="114"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="2583">a #LtString.</doc>
+               line="2639">a #LtString.</doc>
           <type name="String" c:type="const LtString*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="2579">a #LtTag.</doc>
+                 line="2635">a #LtTag.</doc>
             <type name="Tag" c:type="const LtTag*"/>
           </instance-parameter>
         </parameters>
@@ -4059,19 +4059,19 @@ according to various information of subtags.</doc>
       <method name="get_region" c:identifier="lt_tag_get_region">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="2550">Obtain a #LtRegion instance in @tag.</doc>
+             line="2606">Obtain a #LtRegion instance in @tag.</doc>
         <source-position filename="lt-tag.gir.h" line="111"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="2556">a #LtRegion.</doc>
+               line="2612">a #LtRegion.</doc>
           <type name="Region" c:type="const LtRegion*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="2552">a #LtTag.</doc>
+                 line="2608">a #LtTag.</doc>
             <type name="Tag" c:type="const LtTag*"/>
           </instance-parameter>
         </parameters>
@@ -4079,19 +4079,19 @@ according to various information of subtags.</doc>
       <method name="get_script" c:identifier="lt_tag_get_script">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="2541">Obtain a #LtScript instance in @tag.</doc>
+             line="2597">Obtain a #LtScript instance in @tag.</doc>
         <source-position filename="lt-tag.gir.h" line="110"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="2547">a #LtScript.</doc>
+               line="2603">a #LtScript.</doc>
           <type name="Script" c:type="const LtScript*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="2543">a #LtTag.</doc>
+                 line="2599">a #LtTag.</doc>
             <type name="Tag" c:type="const LtTag*"/>
           </instance-parameter>
         </parameters>
@@ -4099,19 +4099,19 @@ according to various information of subtags.</doc>
       <method name="get_string" c:identifier="lt_tag_get_string">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="1894">Obtains a language tag in string.</doc>
+             line="1946">Obtains a language tag in string.</doc>
         <source-position filename="lt-tag.gir.h" line="87"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="1900">a language tag string.</doc>
+               line="1952">a language tag string.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1896">a #LtTag.</doc>
+                 line="1948">a #LtTag.</doc>
             <type name="Tag" c:type="LtTag*"/>
           </instance-parameter>
         </parameters>
@@ -4120,25 +4120,25 @@ according to various information of subtags.</doc>
               c:identifier="lt_tag_get_string_with_filter">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="1835">Obtains a language tag in string against @filter.</doc>
+             line="1887">Obtains a language tag in string against @filter.</doc>
         <source-position filename="lt-tag.gir.h" line="85"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="1842">a language tag string.</doc>
+               line="1894">a language tag string.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1837">a #LtTag.</doc>
+                 line="1889">a #LtTag.</doc>
             <type name="Tag" c:type="LtTag*"/>
           </instance-parameter>
           <parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1838">a binary count sequence of #lt_tag_filter_t.</doc>
+                 line="1890">a binary count sequence of #lt_tag_filter_t.</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -4146,19 +4146,19 @@ according to various information of subtags.</doc>
       <method name="get_variants" c:identifier="lt_tag_get_variants">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="2559">Obtain a list of #LtVariant instance in @tag.</doc>
+             line="2615">Obtain a list of #LtVariant instance in @tag.</doc>
         <source-position filename="lt-tag.gir.h" line="112"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="2565">a #LtList containing #LtVariant.</doc>
+               line="2621">a #LtList containing #LtVariant.</doc>
           <type name="List" c:type="const LtList*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="2561">a #LtTag.</doc>
+                 line="2617">a #LtTag.</doc>
             <type name="Tag" c:type="const LtTag*"/>
           </instance-parameter>
         </parameters>
@@ -4166,27 +4166,27 @@ according to various information of subtags.</doc>
       <method name="lookup" c:identifier="lt_tag_lookup">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="2175">Lookup the language tag that @tag meets with @pattern.
+             line="2227">Lookup the language tag that @tag meets with @pattern.
 Any of subtags in @pattern is allowed to use the wildcard according to
 the syntax in RFC 4647.</doc>
         <source-position filename="lt-tag.gir.h" line="103"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="2185">a language tag string if any matches, otherwise %NULL.</doc>
+               line="2237">a language tag string if any matches, otherwise %NULL.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="2177">a #LtTag.</doc>
+                 line="2229">a #LtTag.</doc>
             <type name="Tag" c:type="const LtTag*"/>
           </instance-parameter>
           <parameter name="pattern" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="2178">a language range string.</doc>
+                 line="2230">a language range string.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="error"
@@ -4195,7 +4195,7 @@ the syntax in RFC 4647.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="2179">a #LtError or %NULL.</doc>
+                 line="2231">a #LtError or %NULL.</doc>
             <type name="Error" c:type="LtError**"/>
           </parameter>
         </parameters>
@@ -4203,26 +4203,26 @@ the syntax in RFC 4647.</doc>
       <method name="match" c:identifier="lt_tag_match">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="2132">Try matching of @v1 and @v2. any of subtags in @v2 is allowed to use
+             line="2184">Try matching of @v1 and @v2. any of subtags in @v2 is allowed to use
 the wildcard according to the syntax in RFC 4647.</doc>
         <source-position filename="lt-tag.gir.h" line="100"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="2141">%TRUE if it matches, otherwise %FALSE.</doc>
+               line="2193">%TRUE if it matches, otherwise %FALSE.</doc>
           <type name="Bool" c:type="LtBool"/>
         </return-value>
         <parameters>
           <instance-parameter name="v1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="2134">a #LtTag.</doc>
+                 line="2186">a #LtTag.</doc>
             <type name="Tag" c:type="const LtTag*"/>
           </instance-parameter>
           <parameter name="v2" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="2135">a language range string.</doc>
+                 line="2187">a language range string.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="error"
@@ -4231,7 +4231,7 @@ the wildcard according to the syntax in RFC 4647.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="2136">a #LtError or %NULL.</doc>
+                 line="2188">a #LtError or %NULL.</doc>
             <type name="Error" c:type="LtError**"/>
           </parameter>
         </parameters>
@@ -4239,25 +4239,25 @@ the wildcard according to the syntax in RFC 4647.</doc>
       <method name="parse" c:identifier="lt_tag_parse">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="1649">Parse @tag_string and create appropriate instances for subtags.</doc>
+             line="1701">Parse @tag_string and create appropriate instances for subtags.</doc>
         <source-position filename="lt-tag.gir.h" line="75"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="1657">%TRUE if it's successfully completed, otherwise %FALSE.</doc>
+               line="1709">%TRUE if it's successfully completed, otherwise %FALSE.</doc>
           <type name="Bool" c:type="LtBool"/>
         </return-value>
         <parameters>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1651">a #LtTag.</doc>
+                 line="1703">a #LtTag.</doc>
             <type name="Tag" c:type="LtTag*"/>
           </instance-parameter>
           <parameter name="tag_string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1652">language tag to be parsed.</doc>
+                 line="1704">language tag to be parsed.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="error"
@@ -4266,7 +4266,7 @@ the wildcard according to the syntax in RFC 4647.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1653">a #LtError or %NULL.</doc>
+                 line="1705">a #LtError or %NULL.</doc>
             <type name="Error" c:type="LtError**"/>
           </parameter>
         </parameters>
@@ -4275,26 +4275,26 @@ the wildcard according to the syntax in RFC 4647.</doc>
               c:identifier="lt_tag_parse_with_extra_token">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="1669">Continue to parse a language tag with @tag_string. please use lt_tag_parse()
+             line="1721">Continue to parse a language tag with @tag_string. please use lt_tag_parse()
 at first.</doc>
         <source-position filename="lt-tag.gir.h" line="78"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="1678">%TRUE if it's successfully completed, otherwise %FALSE.</doc>
+               line="1730">%TRUE if it's successfully completed, otherwise %FALSE.</doc>
           <type name="Bool" c:type="LtBool"/>
         </return-value>
         <parameters>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1671">a #LtTag.</doc>
+                 line="1723">a #LtTag.</doc>
             <type name="Tag" c:type="LtTag*"/>
           </instance-parameter>
           <parameter name="tag_string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1672">a language tag to be parsed much more.</doc>
+                 line="1724">a language tag to be parsed much more.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="error"
@@ -4303,7 +4303,7 @@ at first.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1673">a #LtError or %NULL.</doc>
+                 line="1725">a #LtError or %NULL.</doc>
             <type name="Error" c:type="LtError**"/>
           </parameter>
         </parameters>
@@ -4311,19 +4311,19 @@ at first.</doc>
       <method name="ref" c:identifier="lt_tag_ref">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="1595">Increases the reference count of @tag.</doc>
+             line="1647">Increases the reference count of @tag.</doc>
         <source-position filename="lt-tag.gir.h" line="73"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="1601">the same @tag object.</doc>
+               line="1653">the same @tag object.</doc>
           <type name="Tag" c:type="LtTag*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1597">a #LtTag.</doc>
+                 line="1649">a #LtTag.</doc>
             <type name="Tag" c:type="LtTag*"/>
           </instance-parameter>
         </parameters>
@@ -4359,7 +4359,7 @@ at first.</doc>
       <method name="unref" c:identifier="lt_tag_unref">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="1611">Decreases the reference count of @tag. when its reference count
+             line="1663">Decreases the reference count of @tag. when its reference count
 drops to 0, the object is finalized (i.e. its memory is freed).</doc>
         <source-position filename="lt-tag.gir.h" line="74"/>
         <return-value transfer-ownership="none">
@@ -4369,7 +4369,7 @@ drops to 0, the object is finalized (i.e. its memory is freed).</doc>
           <instance-parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1613">a #LtTag.</doc>
+                 line="1665">a #LtTag.</doc>
             <type name="Tag" c:type="LtTag*"/>
           </instance-parameter>
         </parameters>
@@ -4378,12 +4378,12 @@ drops to 0, the object is finalized (i.e. its memory is freed).</doc>
                 c:identifier="lt_tag_convert_from_locale">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="1941">Convert current locale to the language tag.</doc>
+             line="1993">Convert current locale to the language tag.</doc>
         <source-position filename="lt-tag.gir.h" line="94"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="1947">a #LtTag, %NULL if fails.</doc>
+               line="1999">a #LtTag, %NULL if fails.</doc>
           <type name="Tag" c:type="LtTag*"/>
         </return-value>
         <parameters>
@@ -4393,7 +4393,7 @@ drops to 0, the object is finalized (i.e. its memory is freed).</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1943">a #LtError.</doc>
+                 line="1995">a #LtError.</doc>
             <type name="Error" c:type="LtError**"/>
           </parameter>
         </parameters>
@@ -4402,19 +4402,19 @@ drops to 0, the object is finalized (i.e. its memory is freed).</doc>
                 c:identifier="lt_tag_convert_from_locale_string">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="1960">Convert @locale to the language tag.</doc>
+             line="2012">Convert @locale to the language tag.</doc>
         <source-position filename="lt-tag.gir.h" line="95"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="1967">a #LtTag, %NULL if fails.</doc>
+               line="2019">a #LtTag, %NULL if fails.</doc>
           <type name="Tag" c:type="LtTag*"/>
         </return-value>
         <parameters>
           <parameter name="locale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1962">a locale string</doc>
+                 line="2014">a locale string</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="error"
@@ -4423,7 +4423,7 @@ drops to 0, the object is finalized (i.e. its memory is freed).</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lt-tag.gir.c"
-                 line="1963">a #LtError or %NULL.</doc>
+                 line="2015">a #LtError or %NULL.</doc>
             <type name="Error" c:type="LtError**"/>
           </parameter>
         </parameters>
@@ -4832,7 +4832,7 @@ drops to 0, the object is finalized (i.e. its memory is freed).</doc>
     <function name="ext_modules_load" c:identifier="lt_ext_modules_load">
       <doc xml:space="preserve"
            filename="lt-ext-module.gir.c"
-           line="564">Load all of the modules on the system, including the internal accessor.
+           line="570">Load all of the modules on the system, including the internal accessor.
 This has to be invoked before processing something with #lt_extension_t.
 or lt_db_initialize() does.</doc>
       <source-position filename="lt-ext-module.gir.h" line="164"/>
@@ -4843,7 +4843,7 @@ or lt_db_initialize() does.</doc>
     <function name="ext_modules_unload" c:identifier="lt_ext_modules_unload">
       <doc xml:space="preserve"
            filename="lt-ext-module.gir.c"
-           line="672">Unload all of the modules already loaded.</doc>
+           line="678">Unload all of the modules already loaded.</doc>
       <source-position filename="lt-ext-module.gir.h" line="165"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -4933,7 +4933,7 @@ extension subtag.</doc>
     <docsection name="lt-extlang-db">
       <doc xml:space="preserve"
            filename="lt-extlang-db.gir.c"
-           line="33">This class provides an interface to access Extlang database. which has been
+           line="34">This class provides an interface to access Extlang database. which has been
 registered as ISO 639 code.</doc>
     </docsection>
     <docsection name="lt-grandfathered">
@@ -4944,7 +4944,7 @@ registered as ISO 639 code.</doc>
     <docsection name="lt-grandfathered-db">
       <doc xml:space="preserve"
            filename="lt-grandfathered-db.gir.c"
-           line="33">This class provides an interface to access Grandfathered database.
+           line="34">This class provides an interface to access Grandfathered database.
 which has been registered under RFC 3066 and mostly deprecated.</doc>
     </docsection>
     <docsection name="lt-iter">
@@ -4961,7 +4961,7 @@ in an initiated object.</doc>
     <docsection name="lt-lang-db">
       <doc xml:space="preserve"
            filename="lt-lang-db.gir.c"
-           line="32">This class provides an interface to access Language database. which has been
+           line="33">This class provides an interface to access Language database. which has been
 registered as ISO 639 code.</doc>
     </docsection>
     <docsection name="lt-list">
@@ -5024,7 +5024,7 @@ string.</doc>
     <docsection name="lt-tag">
       <doc xml:space="preserve"
            filename="lt-tag.gir.c"
-           line="39">This container class provides an interface to deal with the language tag.</doc>
+           line="40">This container class provides an interface to deal with the language tag.</doc>
     </docsection>
     <docsection name="lt-variant">
       <doc xml:space="preserve"
@@ -5042,12 +5042,12 @@ registered with IANA.</doc>
               moved-to="Tag.convert_from_locale">
       <doc xml:space="preserve"
            filename="lt-tag.gir.c"
-           line="1941">Convert current locale to the language tag.</doc>
+           line="1993">Convert current locale to the language tag.</doc>
       <source-position filename="lt-tag.gir.h" line="94"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="1947">a #LtTag, %NULL if fails.</doc>
+             line="1999">a #LtTag, %NULL if fails.</doc>
         <type name="Tag" c:type="LtTag*"/>
       </return-value>
       <parameters>
@@ -5057,7 +5057,7 @@ registered with IANA.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="1943">a #LtError.</doc>
+               line="1995">a #LtError.</doc>
           <type name="Error" c:type="LtError**"/>
         </parameter>
       </parameters>
@@ -5067,19 +5067,19 @@ registered with IANA.</doc>
               moved-to="Tag.convert_from_locale_string">
       <doc xml:space="preserve"
            filename="lt-tag.gir.c"
-           line="1960">Convert @locale to the language tag.</doc>
+           line="2012">Convert @locale to the language tag.</doc>
       <source-position filename="lt-tag.gir.h" line="95"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="lt-tag.gir.c"
-             line="1967">a #LtTag, %NULL if fails.</doc>
+             line="2019">a #LtTag, %NULL if fails.</doc>
         <type name="Tag" c:type="LtTag*"/>
       </return-value>
       <parameters>
         <parameter name="locale" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="1962">a locale string</doc>
+               line="2014">a locale string</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="error"
@@ -5088,7 +5088,7 @@ registered with IANA.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="lt-tag.gir.c"
-               line="1963">a #LtError or %NULL.</doc>
+               line="2015">a #LtError or %NULL.</doc>
           <type name="Error" c:type="LtError**"/>
         </parameter>
       </parameters>

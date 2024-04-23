@@ -7550,7 +7550,7 @@ is compiled against.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MICRO_VERSION"
-              value="8"
+              value="0"
               c:type="MBIM_MICRO_VERSION"
               version="1.2">
       <doc xml:space="preserve"
@@ -7561,7 +7561,7 @@ compiled against.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MINOR_VERSION"
-              value="29"
+              value="30"
               c:type="MBIM_MINOR_VERSION"
               version="1.2">
       <doc xml:space="preserve"
@@ -28822,7 +28822,7 @@ with @payload_size set to 0 and @payload set to %NULL).</doc>
       </member>
       <function name="get_string"
                 c:identifier="mbim_trace_command_get_string"
-                version="1.28">
+                version="1.30">
         <doc xml:space="preserve"
              filename="src/libmbim-glib/generated/mbim-enum-types.h"
              line="1793">Gets the nickname string for the #MbimTraceCommand specified at @val.</doc>
@@ -34006,7 +34006,7 @@ each #MbimSubscriberReadyStatusFlag in @mask.</doc>
     <function name="trace_command_get_string"
               c:identifier="mbim_trace_command_get_string"
               moved-to="TraceCommand.get_string"
-              version="1.28">
+              version="1.30">
       <doc xml:space="preserve"
            filename="src/libmbim-glib/generated/mbim-enum-types.h"
            line="1793">Gets the nickname string for the #MbimTraceCommand specified at @val.</doc>

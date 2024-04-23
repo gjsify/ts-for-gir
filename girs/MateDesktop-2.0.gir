@@ -15,7 +15,6 @@ and/or use gtk-doc annotations.  -->
   <package name="gtk+-3.0"/>
   <c:include name="libmate-desktop/mate-bg-crossfade.h"/>
   <c:include name="libmate-desktop/mate-bg.h"/>
-  <c:include name="libmate-desktop/mate-colorbutton.h"/>
   <c:include name="libmate-desktop/mate-colorsel.h"/>
   <c:include name="libmate-desktop/mate-colorseldialog.h"/>
   <c:include name="libmate-desktop/mate-dconf.h"/>
@@ -25,6 +24,7 @@ and/or use gtk-doc annotations.  -->
   <c:include name="libmate-desktop/mate-desktop.h"/>
   <c:include name="libmate-desktop/mate-gsettings.h"/>
   <c:include name="libmate-desktop/mate-hsv.h"/>
+  <c:include name="libmate-desktop/mate-image-menu-item.h"/>
   <c:include name="libmate-desktop/mate-languages.h"/>
   <c:include name="libmate-desktop/mate-rr-config.h"/>
   <c:include name="libmate-desktop/mate-rr-labeler.h"/>
@@ -52,7 +52,7 @@ and/or use gtk-doc annotations.  -->
                 c:identifier="mate_bg_get_surface_from_root">
         <doc xml:space="preserve"
              filename="mate-bg.c"
-             line="1422">This function queries the _XROOTPMAP_ID property from
+             line="1412">This function queries the _XROOTPMAP_ID property from
 the root window associated with @screen to determine
 the current root window background surface and returns
 a copy of it. If the _XROOTPMAP_ID is not set, then
@@ -61,14 +61,14 @@ a black surface is returned.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="mate-bg.c"
-               line="1432">a #cairo_surface_t if successful or %NULL</doc>
+               line="1422">a #cairo_surface_t if successful or %NULL</doc>
           <type name="cairo.Surface" c:type="cairo_surface_t*"/>
         </return-value>
         <parameters>
           <parameter name="screen" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-bg.c"
-                 line="1424">a #GdkScreen</doc>
+                 line="1414">a #GdkScreen</doc>
             <type name="Gdk.Screen" c:type="GdkScreen*"/>
           </parameter>
         </parameters>
@@ -77,7 +77,7 @@ a black surface is returned.</doc>
                 c:identifier="mate_bg_set_surface_as_root">
         <doc xml:space="preserve"
              filename="mate-bg.c"
-             line="1603">Set the root pixmap, and properties pointing to it. We
+             line="1593">Set the root pixmap, and properties pointing to it. We
 do this atomically with a server grab to make sure that
 we won't leak the pixmap if somebody else it setting
 it at the same time. (This assumes that they follow the
@@ -91,13 +91,13 @@ to mate_bg_create_surface().</doc>
           <parameter name="screen" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-bg.c"
-                 line="1605">the #GdkScreen to change root background on</doc>
+                 line="1595">the #GdkScreen to change root background on</doc>
             <type name="Gdk.Screen" c:type="GdkScreen*"/>
           </parameter>
           <parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-bg.c"
-                 line="1606">the #cairo_surface_t to set root background from.
+                 line="1596">the #cairo_surface_t to set root background from.
   Must be an xlib surface backing a pixmap.</doc>
             <type name="cairo.Surface" c:type="cairo_surface_t*"/>
           </parameter>
@@ -107,7 +107,7 @@ to mate_bg_create_surface().</doc>
                 c:identifier="mate_bg_set_surface_as_root_with_crossfade">
         <doc xml:space="preserve"
              filename="mate-bg.c"
-             line="1639">Set the root pixmap, and properties pointing to it.
+             line="1629">Set the root pixmap, and properties pointing to it.
 This function differs from mate_bg_set_surface_as_root()
 in that it adds a subtle crossfade animation from the
 current root pixmap to the new one.</doc>
@@ -115,20 +115,20 @@ current root pixmap to the new one.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="mate-bg.c"
-               line="1649">a #MateBGCrossfade object</doc>
+               line="1639">a #MateBGCrossfade object</doc>
           <type name="BGCrossfade" c:type="MateBGCrossfade*"/>
         </return-value>
         <parameters>
           <parameter name="screen" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-bg.c"
-                 line="1641">the #GdkScreen to change root background on</doc>
+                 line="1631">the #GdkScreen to change root background on</doc>
             <type name="Gdk.Screen" c:type="GdkScreen*"/>
           </parameter>
           <parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-bg.c"
-                 line="1642">the cairo xlib surface to set root background from</doc>
+                 line="1632">the cairo xlib surface to set root background from</doc>
             <type name="cairo.Surface" c:type="cairo_surface_t*"/>
           </parameter>
         </parameters>
@@ -149,14 +149,14 @@ current root pixmap to the new one.</doc>
               c:identifier="mate_bg_create_frame_thumbnail">
         <doc xml:space="preserve"
              filename="mate-bg.c"
-             line="3210">Creates a thumbnail for a certain frame, where 'frame' is somewhat
+             line="3191">Creates a thumbnail for a certain frame, where 'frame' is somewhat
 vaguely defined as 'suitable point to show while single-stepping
 through the slideshow'.</doc>
         <source-position filename="mate-bg.h" line="154"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="mate-bg.c"
-               line="3217">the newly created thumbnail or
+               line="3198">the newly created thumbnail or
 or NULL if frame_num is out of bounds.</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
@@ -185,7 +185,7 @@ or NULL if frame_num is out of bounds.</doc>
       <method name="create_surface" c:identifier="mate_bg_create_surface">
         <doc xml:space="preserve"
              filename="mate-bg.c"
-             line="1124">Create a surface that can be set as background for @window. If @root is
+             line="1112">Create a surface that can be set as background for @window. If @root is
 TRUE, the surface created will be created by a temporary X server connection
 so that if someone calls XKillClient on it, it won't affect the application
 who created it.</doc>
@@ -197,7 +197,7 @@ who created it.</doc>
           <instance-parameter name="bg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-bg.c"
-                 line="1126">MateBG</doc>
+                 line="1114">MateBG</doc>
             <type name="BG" c:type="MateBG*"/>
           </instance-parameter>
           <parameter name="window" transfer-ownership="none">
@@ -218,7 +218,7 @@ who created it.</doc>
               c:identifier="mate_bg_create_surface_scale">
         <doc xml:space="preserve"
              filename="mate-bg.c"
-             line="1152">Create a scaled surface that can be set as background for @window. If @root is
+             line="1140">Create a scaled surface that can be set as background for @window. If @root is
 TRUE, the surface created will be created by a temporary X server connection
 so that if someone calls XKillClient on it, it won't affect the application
 who created it.</doc>
@@ -230,7 +230,7 @@ who created it.</doc>
           <instance-parameter name="bg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-bg.c"
-                 line="1154">MateBG</doc>
+                 line="1142">MateBG</doc>
             <type name="BG" c:type="MateBG*"/>
           </instance-parameter>
           <parameter name="window" transfer-ownership="none">
@@ -255,7 +255,7 @@ who created it.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="mate-bg.c"
-               line="1392">a #GdkPixbuf showing the background as a thumbnail</doc>
+               line="1382">a #GdkPixbuf showing the background as a thumbnail</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
         <parameters>
@@ -995,33 +995,6 @@ get emitted.</doc>
       <source-position filename="mate-bg.h" line="50"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
-    <function-macro name="COLOR_BUTTON"
-                    c:identifier="MATE_COLOR_BUTTON"
-                    introspectable="0">
-      <source-position filename="mate-colorbutton.h" line="48"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="COLOR_BUTTON_CLASS"
-                    c:identifier="MATE_COLOR_BUTTON_CLASS"
-                    introspectable="0">
-      <source-position filename="mate-colorbutton.h" line="49"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="COLOR_BUTTON_GET_CLASS"
-                    c:identifier="MATE_COLOR_BUTTON_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="mate-colorbutton.h" line="52"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
     <function-macro name="COLOR_SELECTION"
                     c:identifier="MATE_COLOR_SELECTION"
                     introspectable="0">
@@ -1076,447 +1049,6 @@ get emitted.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <class name="ColorButton"
-           c:symbol-prefix="color_button"
-           c:type="MateColorButton"
-           parent="Gtk.Button"
-           glib:type-name="MateColorButton"
-           glib:get-type="mate_color_button_get_type"
-           glib:type-struct="ColorButtonClass">
-      <source-position filename="mate-colorbutton.h" line="76"/>
-      <implements name="Atk.ImplementorIface"/>
-      <implements name="Gtk.Actionable"/>
-      <implements name="Gtk.Activatable"/>
-      <implements name="Gtk.Buildable"/>
-      <constructor name="new"
-                   c:identifier="mate_color_button_new"
-                   version="1.9.1">
-        <doc xml:space="preserve"
-             filename="mate-colorbutton.c"
-             line="484">Creates a new color button. This returns a widget in the form of
-a small button containing a swatch representing the current selected
-color. When the button is clicked, a color-selection dialog will open,
-allowing the user to select a color. The swatch will be updated to reflect
-the new color when the user finishes.</doc>
-        <source-position filename="mate-colorbutton.h" line="80"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="mate-colorbutton.c"
-               line="493">a new color button.</doc>
-          <type name="Gtk.Widget" c:type="GtkWidget*"/>
-        </return-value>
-      </constructor>
-      <constructor name="new_with_color"
-                   c:identifier="mate_color_button_new_with_color"
-                   version="1.9.1">
-        <doc xml:space="preserve"
-             filename="mate-colorbutton.c"
-             line="503">Creates a new color button.</doc>
-        <source-position filename="mate-colorbutton.h" line="81"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="mate-colorbutton.c"
-               line="509">a new color button.</doc>
-          <type name="Gtk.Widget" c:type="GtkWidget*"/>
-        </return-value>
-        <parameters>
-          <parameter name="color" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mate-colorbutton.c"
-                 line="505">A #GdkColor to set the current color with.</doc>
-            <type name="Gdk.Color" c:type="const GdkColor*"/>
-          </parameter>
-        </parameters>
-      </constructor>
-      <virtual-method name="color_set">
-        <source-position filename="mate-colorbutton.h" line="69"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="cp" transfer-ownership="none">
-            <type name="ColorButton" c:type="MateColorButton*"/>
-          </instance-parameter>
-        </parameters>
-      </virtual-method>
-      <method name="get_alpha"
-              c:identifier="mate_color_button_get_alpha"
-              glib:get-property="alpha"
-              version="1.9.1">
-        <doc xml:space="preserve"
-             filename="mate-colorbutton.c"
-             line="732">Returns the current alpha value.</doc>
-        <source-position filename="mate-colorbutton.h" line="92"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="mate-colorbutton.c"
-               line="738">an integer between 0 and 65535.</doc>
-          <type name="guint16" c:type="guint16"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="color_button" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mate-colorbutton.c"
-                 line="734">a #MateColorButton.</doc>
-            <type name="ColorButton" c:type="MateColorButton*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_color"
-              c:identifier="mate_color_button_get_color"
-              glib:get-property="color"
-              version="1.9.1">
-        <doc xml:space="preserve"
-             filename="mate-colorbutton.c"
-             line="691">Sets @color to be the current color in the #MateColorButton widget.</doc>
-        <source-position filename="mate-colorbutton.h" line="88"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="color_button" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mate-colorbutton.c"
-                 line="693">a #MateColorButton.</doc>
-            <type name="ColorButton" c:type="MateColorButton*"/>
-          </instance-parameter>
-          <parameter name="color" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mate-colorbutton.c"
-                 line="694">a #GdkColor to fill in with the current color.</doc>
-            <type name="Gdk.Color" c:type="GdkColor*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_rgba"
-              c:identifier="mate_color_button_get_rgba"
-              version="1.9.1">
-        <doc xml:space="preserve"
-             filename="mate-colorbutton.c"
-             line="711">Sets @color to be the current color in the #MateColorButton widget.</doc>
-        <source-position filename="mate-colorbutton.h" line="90"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="color_button" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mate-colorbutton.c"
-                 line="713">a #MateColorButton.</doc>
-            <type name="ColorButton" c:type="MateColorButton*"/>
-          </instance-parameter>
-          <parameter name="color" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mate-colorbutton.c"
-                 line="714">a #GdkRGBA to fill in with the current color.</doc>
-            <type name="Gdk.RGBA" c:type="GdkRGBA*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_title"
-              c:identifier="mate_color_button_get_title"
-              glib:get-property="title"
-              version="1.9.1">
-        <doc xml:space="preserve"
-             filename="mate-colorbutton.c"
-             line="824">Gets the title of the color selection dialog.</doc>
-        <source-position filename="mate-colorbutton.h" line="98"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="mate-colorbutton.c"
-               line="830">An internal string, do not free the return value</doc>
-          <type name="utf8" c:type="const gchar*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="color_button" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mate-colorbutton.c"
-                 line="826">a #MateColorButton</doc>
-            <type name="ColorButton" c:type="MateColorButton*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_use_alpha"
-              c:identifier="mate_color_button_get_use_alpha"
-              glib:get-property="use-alpha"
-              version="1.9.1">
-        <doc xml:space="preserve"
-             filename="mate-colorbutton.c"
-             line="777">Does the color selection dialog use the alpha channel?</doc>
-        <source-position filename="mate-colorbutton.h" line="95"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="mate-colorbutton.c"
-               line="783">%TRUE if the color sample uses alpha channel, %FALSE if not.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="color_button" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mate-colorbutton.c"
-                 line="779">a #MateColorButton.</doc>
-            <type name="ColorButton" c:type="MateColorButton*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="set_alpha"
-              c:identifier="mate_color_button_set_alpha"
-              glib:set-property="alpha"
-              version="1.9.1">
-        <doc xml:space="preserve"
-             filename="mate-colorbutton.c"
-             line="669">Sets the current opacity to be @alpha.</doc>
-        <source-position filename="mate-colorbutton.h" line="86"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="color_button" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mate-colorbutton.c"
-                 line="671">a #MateColorButton.</doc>
-            <type name="ColorButton" c:type="MateColorButton*"/>
-          </instance-parameter>
-          <parameter name="alpha" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mate-colorbutton.c"
-                 line="672">an integer between 0 and 65535.</doc>
-            <type name="guint16" c:type="guint16"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_color"
-              c:identifier="mate_color_button_set_color"
-              glib:set-property="color"
-              version="1.9.1">
-        <doc xml:space="preserve"
-             filename="mate-colorbutton.c"
-             line="618">Sets the current color to be @color.</doc>
-        <source-position filename="mate-colorbutton.h" line="82"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="color_button" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mate-colorbutton.c"
-                 line="620">a #MateColorButton.</doc>
-            <type name="ColorButton" c:type="MateColorButton*"/>
-          </instance-parameter>
-          <parameter name="color" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mate-colorbutton.c"
-                 line="621">A #GdkColor to set the current color with.</doc>
-            <type name="Gdk.Color" c:type="const GdkColor*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_rgba"
-              c:identifier="mate_color_button_set_rgba"
-              version="1.9.1">
-        <doc xml:space="preserve"
-             filename="mate-colorbutton.c"
-             line="643">Sets the current color to be @color.</doc>
-        <source-position filename="mate-colorbutton.h" line="84"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="color_button" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mate-colorbutton.c"
-                 line="645">a #MateColorButton.</doc>
-            <type name="ColorButton" c:type="MateColorButton*"/>
-          </instance-parameter>
-          <parameter name="color" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mate-colorbutton.c"
-                 line="646">A #GdkRGBA to set the current color with.</doc>
-            <type name="Gdk.RGBA" c:type="const GdkRGBA*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_title"
-              c:identifier="mate_color_button_set_title"
-              glib:set-property="title"
-              version="1.9.1">
-        <doc xml:space="preserve"
-             filename="mate-colorbutton.c"
-             line="796">Sets the title for the color selection dialog.</doc>
-        <source-position filename="mate-colorbutton.h" line="96"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="color_button" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mate-colorbutton.c"
-                 line="798">a #MateColorButton</doc>
-            <type name="ColorButton" c:type="MateColorButton*"/>
-          </instance-parameter>
-          <parameter name="title" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mate-colorbutton.c"
-                 line="799">String containing new window title.</doc>
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_use_alpha"
-              c:identifier="mate_color_button_set_use_alpha"
-              glib:set-property="use-alpha"
-              version="1.9.1">
-        <doc xml:space="preserve"
-             filename="mate-colorbutton.c"
-             line="750">Sets whether or not the color button should use the alpha channel.</doc>
-        <source-position filename="mate-colorbutton.h" line="93"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="color_button" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mate-colorbutton.c"
-                 line="752">a #MateColorButton.</doc>
-            <type name="ColorButton" c:type="MateColorButton*"/>
-          </instance-parameter>
-          <parameter name="use_alpha" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="mate-colorbutton.c"
-                 line="753">%TRUE if color button should use alpha channel, %FALSE if not.</doc>
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-        </parameters>
-      </method>
-      <property name="alpha"
-                version="1.9.1"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_alpha"
-                getter="get_alpha"
-                default-value="65535">
-        <doc xml:space="preserve"
-             filename="mate-colorbutton.c"
-             line="187">The selected opacity value (0 fully transparent, 65535 fully opaque).</doc>
-        <type name="guint" c:type="guint"/>
-      </property>
-      <property name="color"
-                version="1.9.1"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_color"
-                getter="get_color">
-        <doc xml:space="preserve"
-             filename="mate-colorbutton.c"
-             line="172">The selected color.</doc>
-        <type name="Gdk.Color"/>
-      </property>
-      <property name="title"
-                version="1.9.1"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_title"
-                getter="get_title"
-                default-value="Pick a Color">
-        <doc xml:space="preserve"
-             filename="mate-colorbutton.c"
-             line="157">The title of the color selection dialog</doc>
-        <type name="utf8" c:type="gchar*"/>
-      </property>
-      <property name="use-alpha"
-                version="1.9.1"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_use_alpha"
-                getter="get_use_alpha"
-                default-value="FALSE">
-        <doc xml:space="preserve"
-             filename="mate-colorbutton.c"
-             line="141">If this property is set to %TRUE, the color swatch on the button is rendered against a
-checkerboard background to show its opacity and the opacity slider is displayed in the
-color selection dialog.</doc>
-        <type name="gboolean" c:type="gboolean"/>
-      </property>
-      <field name="button">
-        <type name="Gtk.Button" c:type="GtkButton"/>
-      </field>
-      <field name="priv" readable="0" private="1">
-        <type name="ColorButtonPrivate" c:type="MateColorButtonPrivate*"/>
-      </field>
-      <glib:signal name="color-set" when="first" version="1.9.1">
-        <doc xml:space="preserve"
-             filename="mate-colorbutton.c"
-             line="202">The ::color-set signal is emitted when the user selects a color.
-When handling this signal, use mate_color_button_get_color() and
-mate_color_button_get_alpha() to find out which color was just selected.
-
-Note that this signal is only emitted when the &lt;emphasis&gt;user&lt;/emphasis&gt;
-changes the color. If you need to react to programmatic color changes
-as well, use the notify::color signal.</doc>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-      </glib:signal>
-    </class>
-    <record name="ColorButtonClass"
-            c:type="MateColorButtonClass"
-            glib:is-gtype-struct-for="ColorButton">
-      <source-position filename="mate-colorbutton.h" line="76"/>
-      <field name="parent_class">
-        <type name="Gtk.ButtonClass" c:type="GtkButtonClass"/>
-      </field>
-      <field name="color_set">
-        <callback name="color_set">
-          <source-position filename="mate-colorbutton.h" line="69"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-          <parameters>
-            <parameter name="cp" transfer-ownership="none">
-              <type name="ColorButton" c:type="MateColorButton*"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
-      <field name="_gtk_reserved1" introspectable="0">
-        <callback name="_gtk_reserved1">
-          <source-position filename="mate-colorbutton.h" line="72"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-        </callback>
-      </field>
-      <field name="_gtk_reserved2" introspectable="0">
-        <callback name="_gtk_reserved2">
-          <source-position filename="mate-colorbutton.h" line="73"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-        </callback>
-      </field>
-      <field name="_gtk_reserved3" introspectable="0">
-        <callback name="_gtk_reserved3">
-          <source-position filename="mate-colorbutton.h" line="74"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-        </callback>
-      </field>
-      <field name="_gtk_reserved4" introspectable="0">
-        <callback name="_gtk_reserved4">
-          <source-position filename="mate-colorbutton.h" line="75"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-        </callback>
-      </field>
-    </record>
-    <record name="ColorButtonPrivate"
-            c:type="MateColorButtonPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="mate-colorbutton.h" line="56"/>
-    </record>
     <class name="ColorSelection"
            c:symbol-prefix="color_selection"
            c:type="MateColorSelection"
@@ -1524,19 +1056,19 @@ as well, use the notify::color signal.</doc>
            glib:type-name="MateColorSelection"
            glib:get-type="mate_color_selection_get_type"
            glib:type-struct="ColorSelectionClass">
-      <source-position filename="mate-colorsel.h" line="74"/>
+      <source-position filename="mate-colorsel.h" line="72"/>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.Orientable"/>
       <constructor name="new" c:identifier="mate_color_selection_new">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2275">Creates a new MateColorSelection.</doc>
-        <source-position filename="mate-colorsel.h" line="80"/>
+             line="2213">Creates a new MateColorSelection.</doc>
+        <source-position filename="mate-colorsel.h" line="77"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-colorsel.c"
-               line="2280">a new #MateColorSelection</doc>
+               line="2218">a new #MateColorSelection</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -1544,20 +1076,20 @@ as well, use the notify::color signal.</doc>
                 c:identifier="mate_color_selection_palette_from_string">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2725">Parses a color palette string; the string is a colon-separated
+             line="2666">Parses a color palette string; the string is a colon-separated
 list of color names readable by gdk_color_parse().</doc>
-        <source-position filename="mate-colorsel.h" line="106"/>
+        <source-position filename="mate-colorsel.h" line="102"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-colorsel.c"
-               line="2735">%TRUE if a palette was successfully parsed.</doc>
+               line="2676">%TRUE if a palette was successfully parsed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2727">a string encoding a color palette.</doc>
+                 line="2668">a string encoding a color palette.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="colors"
@@ -1566,10 +1098,10 @@ list of color names readable by gdk_color_parse().</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2728">return location for allocated
-         array of #GdkColor.</doc>
-            <array length="2" zero-terminated="0" c:type="GdkColor**">
-              <type name="Gdk.Color" c:type="GdkColor*"/>
+                 line="2669">return location for allocated
+         array of #GdkRGBA.</doc>
+            <array length="2" zero-terminated="0" c:type="GdkRGBA**">
+              <type name="Gdk.RGBA" c:type="GdkRGBA*"/>
             </array>
           </parameter>
           <parameter name="n_colors"
@@ -1578,7 +1110,7 @@ list of color names readable by gdk_color_parse().</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2730">return location for length of array.</doc>
+                 line="2671">return location for length of array.</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
         </parameters>
@@ -1587,27 +1119,27 @@ list of color names readable by gdk_color_parse().</doc>
                 c:identifier="mate_color_selection_palette_to_string">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2812">Encodes a palette as a string, useful for persistent storage.</doc>
-        <source-position filename="mate-colorsel.h" line="109"/>
+             line="2753">Encodes a palette as a string, useful for persistent storage.</doc>
+        <source-position filename="mate-colorsel.h" line="105"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="mate-colorsel.c"
-               line="2819">allocated string encoding the palette.</doc>
+               line="2760">allocated string encoding the palette.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <parameter name="colors" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2814">an array of colors.</doc>
-            <array length="1" zero-terminated="0" c:type="const GdkColor*">
-              <type name="Gdk.Color" c:type="GdkColor"/>
+                 line="2755">an array of colors.</doc>
+            <array length="1" zero-terminated="0" c:type="const GdkRGBA*">
+              <type name="Gdk.RGBA" c:type="GdkRGBA"/>
             </array>
           </parameter>
           <parameter name="n_colors" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2815">length of the array.</doc>
+                 line="2756">length of the array.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -1619,17 +1151,17 @@ list of color names readable by gdk_color_parse().</doc>
                 deprecated-version="2.4">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2859">Installs a global function to be called whenever the user tries to
+             line="2800">Installs a global function to be called whenever the user tries to
 modify the palette in a color selection. This function should save
 the new palette contents, and update the GtkSettings property
 "gtk-color-palette" so all MateColorSelection widgets will be modified.</doc>
         <doc-deprecated xml:space="preserve">This function does not work in multihead environments.
     Use mate_color_selection_set_change_palette_with_screen_hook() instead.</doc-deprecated>
-        <source-position filename="mate-colorsel.h" line="114"/>
+        <source-position filename="mate-colorsel.h" line="110"/>
         <return-value>
           <doc xml:space="preserve"
                filename="mate-colorsel.c"
-               line="2868">the previous change palette hook (that was replaced).</doc>
+               line="2809">the previous change palette hook (that was replaced).</doc>
           <type name="ColorSelectionChangePaletteFunc"
                 c:type="MateColorSelectionChangePaletteFunc"/>
         </return-value>
@@ -1637,7 +1169,7 @@ the new palette contents, and update the GtkSettings property
           <parameter name="func" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2861">a function to call when the custom palette needs saving.</doc>
+                 line="2802">a function to call when the custom palette needs saving.</doc>
             <type name="ColorSelectionChangePaletteFunc"
                   c:type="MateColorSelectionChangePaletteFunc"/>
           </parameter>
@@ -1649,15 +1181,15 @@ the new palette contents, and update the GtkSettings property
                 introspectable="0">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2886">Installs a global function to be called whenever the user tries to
+             line="2827">Installs a global function to be called whenever the user tries to
 modify the palette in a color selection. This function should save
 the new palette contents, and update the GtkSettings property
 "gtk-color-palette" so all MateColorSelection widgets will be modified.</doc>
-        <source-position filename="mate-colorsel.h" line="118"/>
+        <source-position filename="mate-colorsel.h" line="114"/>
         <return-value>
           <doc xml:space="preserve"
                filename="mate-colorsel.c"
-               line="2895">the previous change palette hook (that was replaced).</doc>
+               line="2836">the previous change palette hook (that was replaced).</doc>
           <type name="ColorSelectionChangePaletteWithScreenFunc"
                 c:type="MateColorSelectionChangePaletteWithScreenFunc"/>
         </return-value>
@@ -1665,14 +1197,14 @@ the new palette contents, and update the GtkSettings property
           <parameter name="func" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2888">a function to call when the custom palette needs saving.</doc>
+                 line="2829">a function to call when the custom palette needs saving.</doc>
             <type name="ColorSelectionChangePaletteWithScreenFunc"
                   c:type="MateColorSelectionChangePaletteWithScreenFunc"/>
           </parameter>
         </parameters>
       </function>
       <virtual-method name="color_changed">
-        <source-position filename="mate-colorsel.h" line="67"/>
+        <source-position filename="mate-colorsel.h" line="65"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1688,9 +1220,9 @@ the new palette contents, and update the GtkSettings property
               deprecated-version="2.0">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2546">Sets @color to be the current color in the MateColorSelection widget.</doc>
+             line="2489">Sets @color to be the current color in the MateColorSelection widget.</doc>
         <doc-deprecated xml:space="preserve">Use mate_color_selection_get_current_color() instead.</doc-deprecated>
-        <source-position filename="mate-colorsel.h" line="124"/>
+        <source-position filename="mate-colorsel.h" line="120"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1698,13 +1230,13 @@ the new palette contents, and update the GtkSettings property
           <instance-parameter name="colorsel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2548">a #MateColorSelection.</doc>
+                 line="2491">a #MateColorSelection.</doc>
             <type name="ColorSelection" c:type="MateColorSelection*"/>
           </instance-parameter>
           <parameter name="color" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2549">an array of 4 #gdouble to fill in with the current color.</doc>
+                 line="2492">an array of 4 #gdouble to fill in with the current color.</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
         </parameters>
@@ -1714,30 +1246,30 @@ the new palette contents, and update the GtkSettings property
               glib:get-property="current-alpha">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2527">Returns the current alpha value.</doc>
-        <source-position filename="mate-colorsel.h" line="95"/>
+             line="2470">Returns the current alpha value.</doc>
+        <source-position filename="mate-colorsel.h" line="91"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-colorsel.c"
-               line="2533">an integer between 0 and 65535.</doc>
+               line="2476">an integer between 0 and 65535.</doc>
           <type name="guint16" c:type="guint16"/>
         </return-value>
         <parameters>
           <instance-parameter name="colorsel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2529">a #MateColorSelection.</doc>
+                 line="2472">a #MateColorSelection.</doc>
             <type name="ColorSelection" c:type="MateColorSelection*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_current_color"
-              c:identifier="mate_color_selection_get_current_color"
-              glib:get-property="current-color">
+      <method name="get_current_rgba"
+              c:identifier="mate_color_selection_get_current_rgba"
+              glib:get-property="current-rgba">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2505">Sets @color to be the current color in the MateColorSelection widget.</doc>
-        <source-position filename="mate-colorsel.h" line="93"/>
+             line="2448">Sets @color to be the current color in the MateColorSelection widget.</doc>
+        <source-position filename="mate-colorsel.h" line="89"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1745,7 +1277,7 @@ the new palette contents, and update the GtkSettings property
           <instance-parameter name="colorsel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2507">a #MateColorSelection.</doc>
+                 line="2450">a #MateColorSelection.</doc>
             <type name="ColorSelection" c:type="MateColorSelection*"/>
           </instance-parameter>
           <parameter name="color"
@@ -1754,8 +1286,8 @@ the new palette contents, and update the GtkSettings property
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2508">a #GdkColor to fill in with the current color.</doc>
-            <type name="Gdk.Color" c:type="GdkColor*"/>
+                 line="2451">a #GdkRGBA to fill in with the current color.</doc>
+            <type name="Gdk.RGBA" c:type="GdkRGBA*"/>
           </parameter>
         </parameters>
       </method>
@@ -1764,19 +1296,19 @@ the new palette contents, and update the GtkSettings property
               glib:get-property="has-opacity-control">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2306">Determines whether the colorsel has an opacity control.</doc>
-        <source-position filename="mate-colorsel.h" line="81"/>
+             line="2244">Determines whether the colorsel has an opacity control.</doc>
+        <source-position filename="mate-colorsel.h" line="78"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-colorsel.c"
-               line="2312">%TRUE if the @colorsel has an opacity control.  %FALSE if it does't.</doc>
+               line="2250">%TRUE if the @colorsel has an opacity control.  %FALSE if it does't.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="colorsel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2308">a #MateColorSelection.</doc>
+                 line="2246">a #MateColorSelection.</doc>
             <type name="ColorSelection" c:type="MateColorSelection*"/>
           </instance-parameter>
         </parameters>
@@ -1786,19 +1318,19 @@ the new palette contents, and update the GtkSettings property
               glib:get-property="has-palette">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2366">Determines whether the color selector has a color palette.</doc>
-        <source-position filename="mate-colorsel.h" line="84"/>
+             line="2304">Determines whether the color selector has a color palette.</doc>
+        <source-position filename="mate-colorsel.h" line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-colorsel.c"
-               line="2372">%TRUE if the selector has a palette.  %FALSE if it hasn't.</doc>
+               line="2310">%TRUE if the selector has a palette.  %FALSE if it hasn't.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="colorsel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2368">a #MateColorSelection.</doc>
+                 line="2306">a #MateColorSelection.</doc>
             <type name="ColorSelection" c:type="MateColorSelection*"/>
           </instance-parameter>
         </parameters>
@@ -1807,19 +1339,19 @@ the new palette contents, and update the GtkSettings property
               c:identifier="mate_color_selection_get_previous_alpha">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2652">Returns the previous alpha value.</doc>
-        <source-position filename="mate-colorsel.h" line="102"/>
+             line="2594">Returns the previous alpha value.</doc>
+        <source-position filename="mate-colorsel.h" line="98"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-colorsel.c"
-               line="2658">an integer between 0 and 65535.</doc>
+               line="2600">an integer between 0 and 65535.</doc>
           <type name="guint16" c:type="guint16"/>
         </return-value>
         <parameters>
           <instance-parameter name="colorsel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2654">a #MateColorSelection.</doc>
+                 line="2596">a #MateColorSelection.</doc>
             <type name="ColorSelection" c:type="MateColorSelection*"/>
           </instance-parameter>
         </parameters>
@@ -1828,8 +1360,8 @@ the new palette contents, and update the GtkSettings property
               c:identifier="mate_color_selection_get_previous_color">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2630">Fills @color in with the original color value.</doc>
-        <source-position filename="mate-colorsel.h" line="100"/>
+             line="2572">Fills @color in with the original color value.</doc>
+        <source-position filename="mate-colorsel.h" line="96"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1837,7 +1369,7 @@ the new palette contents, and update the GtkSettings property
           <instance-parameter name="colorsel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2632">a #MateColorSelection.</doc>
+                 line="2574">a #MateColorSelection.</doc>
             <type name="ColorSelection" c:type="MateColorSelection*"/>
           </instance-parameter>
           <parameter name="color"
@@ -1846,8 +1378,8 @@ the new palette contents, and update the GtkSettings property
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2633">a #GdkColor to fill in with the original color value.</doc>
-            <type name="Gdk.Color" c:type="GdkColor*"/>
+                 line="2575">a #GdkRGBA to fill in with the original color value.</doc>
+            <type name="Gdk.RGBA" c:type="GdkRGBA*"/>
           </parameter>
         </parameters>
       </method>
@@ -1855,12 +1387,12 @@ the new palette contents, and update the GtkSettings property
               c:identifier="mate_color_selection_is_adjusting">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2703">Gets the current state of the @colorsel.</doc>
-        <source-position filename="mate-colorsel.h" line="104"/>
+             line="2645">Gets the current state of the @colorsel.</doc>
+        <source-position filename="mate-colorsel.h" line="100"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-colorsel.c"
-               line="2709">%TRUE if the user is currently dragging a color around, and %FALSE
+               line="2651">%TRUE if the user is currently dragging a color around, and %FALSE
 if the selection has stopped.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1868,7 +1400,7 @@ if the selection has stopped.</doc>
           <instance-parameter name="colorsel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2705">a #MateColorSelection.</doc>
+                 line="2647">a #MateColorSelection.</doc>
             <type name="ColorSelection" c:type="MateColorSelection*"/>
           </instance-parameter>
         </parameters>
@@ -1879,10 +1411,10 @@ if the selection has stopped.</doc>
               deprecated-version="2.0">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2485">Sets the current color to be @color.  The first time this is called, it will
+             line="2428">Sets the current color to be @color.  The first time this is called, it will
 also set the original color to be @color too.</doc>
         <doc-deprecated xml:space="preserve">Use mate_color_selection_set_current_color() instead.</doc-deprecated>
-        <source-position filename="mate-colorsel.h" line="122"/>
+        <source-position filename="mate-colorsel.h" line="118"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1890,13 +1422,13 @@ also set the original color to be @color too.</doc>
           <instance-parameter name="colorsel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2487">a #MateColorSelection.</doc>
+                 line="2430">a #MateColorSelection.</doc>
             <type name="ColorSelection" c:type="MateColorSelection*"/>
           </instance-parameter>
           <parameter name="color" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2488">an array of 4 doubles specifying the red, green, blue and opacity
+                 line="2431">an array of 4 doubles specifying the red, green, blue and opacity
   to set the current color to.</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
@@ -1907,9 +1439,9 @@ also set the original color to be @color too.</doc>
               glib:set-property="current-alpha">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2456">Sets the current opacity to be @alpha.  The first time this is called, it will
+             line="2399">Sets the current opacity to be @alpha.  The first time this is called, it will
 also set the original opacity to be @alpha too.</doc>
-        <source-position filename="mate-colorsel.h" line="91"/>
+        <source-position filename="mate-colorsel.h" line="87"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1917,25 +1449,25 @@ also set the original opacity to be @alpha too.</doc>
           <instance-parameter name="colorsel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2458">a #MateColorSelection.</doc>
+                 line="2401">a #MateColorSelection.</doc>
             <type name="ColorSelection" c:type="MateColorSelection*"/>
           </instance-parameter>
           <parameter name="alpha" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2459">an integer between 0 and 65535.</doc>
+                 line="2402">an integer between 0 and 65535.</doc>
             <type name="guint16" c:type="guint16"/>
           </parameter>
         </parameters>
       </method>
-      <method name="set_current_color"
-              c:identifier="mate_color_selection_set_current_color"
-              glib:set-property="current-color">
+      <method name="set_current_rgba"
+              c:identifier="mate_color_selection_set_current_rgba"
+              glib:set-property="current-rgba">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2418">Sets the current color to be @color.  The first time this is called, it will
+             line="2356">Sets the current color to be @color.  The first time this is called, it will
 also set the original color to be @color too.</doc>
-        <source-position filename="mate-colorsel.h" line="89"/>
+        <source-position filename="mate-colorsel.h" line="85"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1943,14 +1475,14 @@ also set the original color to be @color too.</doc>
           <instance-parameter name="colorsel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2420">a #MateColorSelection.</doc>
+                 line="2358">a #MateColorSelection.</doc>
             <type name="ColorSelection" c:type="MateColorSelection*"/>
           </instance-parameter>
           <parameter name="color" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2421">A #GdkColor to set the current color with.</doc>
-            <type name="Gdk.Color" c:type="const GdkColor*"/>
+                 line="2359">A #GdkRGBA to set the current color with.</doc>
+            <type name="Gdk.RGBA" c:type="const GdkRGBA*"/>
           </parameter>
         </parameters>
       </method>
@@ -1959,8 +1491,8 @@ also set the original color to be @color too.</doc>
               glib:set-property="has-opacity-control">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2326">Sets the @colorsel to use or not use opacity.</doc>
-        <source-position filename="mate-colorsel.h" line="82"/>
+             line="2264">Sets the @colorsel to use or not use opacity.</doc>
+        <source-position filename="mate-colorsel.h" line="79"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1968,13 +1500,13 @@ also set the original color to be @color too.</doc>
           <instance-parameter name="colorsel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2328">a #MateColorSelection.</doc>
+                 line="2266">a #MateColorSelection.</doc>
             <type name="ColorSelection" c:type="MateColorSelection*"/>
           </instance-parameter>
           <parameter name="has_opacity" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2329">%TRUE if @colorsel can set the opacity, %FALSE otherwise.</doc>
+                 line="2267">%TRUE if @colorsel can set the opacity, %FALSE otherwise.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1984,8 +1516,8 @@ also set the original color to be @color too.</doc>
               glib:set-property="has-palette">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2386">Shows and hides the palette based upon the value of @has_palette.</doc>
-        <source-position filename="mate-colorsel.h" line="85"/>
+             line="2324">Shows and hides the palette based upon the value of @has_palette.</doc>
+        <source-position filename="mate-colorsel.h" line="82"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1993,13 +1525,13 @@ also set the original color to be @color too.</doc>
           <instance-parameter name="colorsel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2388">a #MateColorSelection.</doc>
+                 line="2326">a #MateColorSelection.</doc>
             <type name="ColorSelection" c:type="MateColorSelection*"/>
           </instance-parameter>
           <parameter name="has_palette" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2389">%TRUE if palette is to be visible, %FALSE otherwise.</doc>
+                 line="2327">%TRUE if palette is to be visible, %FALSE otherwise.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -2008,9 +1540,9 @@ also set the original color to be @color too.</doc>
               c:identifier="mate_color_selection_set_previous_alpha">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2605">Sets the 'previous' alpha to be @alpha.  This function should be called with
+             line="2548">Sets the 'previous' alpha to be @alpha.  This function should be called with
 some hesitations, as it might seem confusing to have that alpha change.</doc>
-        <source-position filename="mate-colorsel.h" line="98"/>
+        <source-position filename="mate-colorsel.h" line="94"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2018,13 +1550,13 @@ some hesitations, as it might seem confusing to have that alpha change.</doc>
           <instance-parameter name="colorsel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2607">a #MateColorSelection.</doc>
+                 line="2550">a #MateColorSelection.</doc>
             <type name="ColorSelection" c:type="MateColorSelection*"/>
           </instance-parameter>
           <parameter name="alpha" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2608">an integer between 0 and 65535.</doc>
+                 line="2551">an integer between 0 and 65535.</doc>
             <type name="guint16" c:type="guint16"/>
           </parameter>
         </parameters>
@@ -2033,11 +1565,11 @@ some hesitations, as it might seem confusing to have that alpha change.</doc>
               c:identifier="mate_color_selection_set_previous_color">
         <doc xml:space="preserve"
              filename="mate-colorsel.c"
-             line="2570">Sets the 'previous' color to be @color.  This function should be called with
+             line="2513">Sets the 'previous' color to be @color.  This function should be called with
 some hesitations, as it might seem confusing to have that color change.
 Calling mate_color_selection_set_current_color() will also set this color the first
 time it is called.</doc>
-        <source-position filename="mate-colorsel.h" line="96"/>
+        <source-position filename="mate-colorsel.h" line="92"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2045,14 +1577,14 @@ time it is called.</doc>
           <instance-parameter name="colorsel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2572">a #MateColorSelection.</doc>
+                 line="2515">a #MateColorSelection.</doc>
             <type name="ColorSelection" c:type="MateColorSelection*"/>
           </instance-parameter>
           <parameter name="color" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorsel.c"
-                 line="2573">a #GdkColor to set the previous color with.</doc>
-            <type name="Gdk.Color" c:type="const GdkColor*"/>
+                 line="2516">a #GdkRGBA to set the previous color with.</doc>
+            <type name="Gdk.RGBA" c:type="const GdkRGBA*"/>
           </parameter>
         </parameters>
       </method>
@@ -2064,12 +1596,12 @@ time it is called.</doc>
                 default-value="65535">
         <type name="guint" c:type="guint"/>
       </property>
-      <property name="current-color"
+      <property name="current-rgba"
                 writable="1"
                 transfer-ownership="none"
-                setter="set_current_color"
-                getter="get_current_color">
-        <type name="Gdk.Color"/>
+                setter="set_current_rgba"
+                getter="get_current_rgba">
+        <type name="Gdk.RGBA"/>
       </property>
       <property name="has-opacity-control"
                 writable="1"
@@ -2105,13 +1637,13 @@ time it is called.</doc>
     </class>
     <callback name="ColorSelectionChangePaletteFunc"
               c:type="MateColorSelectionChangePaletteFunc">
-      <source-position filename="mate-colorsel.h" line="49"/>
+      <source-position filename="mate-colorsel.h" line="47"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="colors" transfer-ownership="none">
-          <type name="Gdk.Color" c:type="const GdkColor*"/>
+          <type name="Gdk.RGBA" c:type="const GdkRGBA*"/>
         </parameter>
         <parameter name="n_colors" transfer-ownership="none">
           <type name="gint" c:type="gint"/>
@@ -2120,7 +1652,7 @@ time it is called.</doc>
     </callback>
     <callback name="ColorSelectionChangePaletteWithScreenFunc"
               c:type="MateColorSelectionChangePaletteWithScreenFunc">
-      <source-position filename="mate-colorsel.h" line="51"/>
+      <source-position filename="mate-colorsel.h" line="49"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2129,7 +1661,7 @@ time it is called.</doc>
           <type name="Gdk.Screen" c:type="GdkScreen*"/>
         </parameter>
         <parameter name="colors" transfer-ownership="none">
-          <type name="Gdk.Color" c:type="const GdkColor*"/>
+          <type name="Gdk.RGBA" c:type="const GdkRGBA*"/>
         </parameter>
         <parameter name="n_colors" transfer-ownership="none">
           <type name="gint" c:type="gint"/>
@@ -2139,13 +1671,13 @@ time it is called.</doc>
     <record name="ColorSelectionClass"
             c:type="MateColorSelectionClass"
             glib:is-gtype-struct-for="ColorSelection">
-      <source-position filename="mate-colorsel.h" line="74"/>
+      <source-position filename="mate-colorsel.h" line="72"/>
       <field name="parent_class">
         <type name="Gtk.BoxClass" c:type="GtkBoxClass"/>
       </field>
       <field name="color_changed">
         <callback name="color_changed">
-          <source-position filename="mate-colorsel.h" line="67"/>
+          <source-position filename="mate-colorsel.h" line="65"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2158,7 +1690,7 @@ time it is called.</doc>
       </field>
       <field name="_gtk_reserved1" introspectable="0">
         <callback name="_gtk_reserved1">
-          <source-position filename="mate-colorsel.h" line="70"/>
+          <source-position filename="mate-colorsel.h" line="68"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2166,7 +1698,7 @@ time it is called.</doc>
       </field>
       <field name="_gtk_reserved2" introspectable="0">
         <callback name="_gtk_reserved2">
-          <source-position filename="mate-colorsel.h" line="71"/>
+          <source-position filename="mate-colorsel.h" line="69"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2174,7 +1706,7 @@ time it is called.</doc>
       </field>
       <field name="_gtk_reserved3" introspectable="0">
         <callback name="_gtk_reserved3">
-          <source-position filename="mate-colorsel.h" line="72"/>
+          <source-position filename="mate-colorsel.h" line="70"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2182,7 +1714,7 @@ time it is called.</doc>
       </field>
       <field name="_gtk_reserved4" introspectable="0">
         <callback name="_gtk_reserved4">
-          <source-position filename="mate-colorsel.h" line="73"/>
+          <source-position filename="mate-colorsel.h" line="71"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2196,11 +1728,11 @@ time it is called.</doc>
            glib:type-name="MateColorSelectionDialog"
            glib:get-type="mate_color_selection_dialog_get_type"
            glib:type-struct="ColorSelectionDialogClass">
-      <source-position filename="mate-colorseldialog.h" line="66"/>
+      <source-position filename="mate-colorseldialog.h" line="64"/>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Gtk.Buildable"/>
       <constructor name="new" c:identifier="mate_color_selection_dialog_new">
-        <source-position filename="mate-colorseldialog.h" line="71"/>
+        <source-position filename="mate-colorseldialog.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
@@ -2216,19 +1748,19 @@ time it is called.</doc>
               version="1.9.1">
         <doc xml:space="preserve"
              filename="mate-colorseldialog.c"
-             line="205">Retrieves the #MateColorSelection widget embedded in the dialog.</doc>
-        <source-position filename="mate-colorseldialog.h" line="72"/>
+             line="202">Retrieves the #MateColorSelection widget embedded in the dialog.</doc>
+        <source-position filename="mate-colorseldialog.h" line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-colorseldialog.c"
-               line="211">the embedded #MateColorSelection</doc>
+               line="208">the embedded #MateColorSelection</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="colorsel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-colorseldialog.c"
-                 line="207">a #MateColorSelectionDialog</doc>
+                 line="204">a #MateColorSelectionDialog</doc>
             <type name="ColorSelectionDialog"
                   c:type="MateColorSelectionDialog*"/>
           </instance-parameter>
@@ -2267,13 +1799,13 @@ time it is called.</doc>
     <record name="ColorSelectionDialogClass"
             c:type="MateColorSelectionDialogClass"
             glib:is-gtype-struct-for="ColorSelectionDialog">
-      <source-position filename="mate-colorseldialog.h" line="66"/>
+      <source-position filename="mate-colorseldialog.h" line="64"/>
       <field name="parent_class">
         <type name="Gtk.DialogClass" c:type="GtkDialogClass"/>
       </field>
       <field name="_gtk_reserved1" introspectable="0">
         <callback name="_gtk_reserved1">
-          <source-position filename="mate-colorseldialog.h" line="62"/>
+          <source-position filename="mate-colorseldialog.h" line="60"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2281,7 +1813,7 @@ time it is called.</doc>
       </field>
       <field name="_gtk_reserved2" introspectable="0">
         <callback name="_gtk_reserved2">
-          <source-position filename="mate-colorseldialog.h" line="63"/>
+          <source-position filename="mate-colorseldialog.h" line="61"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2289,7 +1821,7 @@ time it is called.</doc>
       </field>
       <field name="_gtk_reserved3" introspectable="0">
         <callback name="_gtk_reserved3">
-          <source-position filename="mate-colorseldialog.h" line="64"/>
+          <source-position filename="mate-colorseldialog.h" line="62"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2297,7 +1829,7 @@ time it is called.</doc>
       </field>
       <field name="_gtk_reserved4" introspectable="0">
         <callback name="_gtk_reserved4">
-          <source-position filename="mate-colorseldialog.h" line="65"/>
+          <source-position filename="mate-colorseldialog.h" line="63"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2308,12 +1840,12 @@ time it is called.</doc>
             c:type="MateColorSelectionPrivate"
             disguised="1"
             opaque="1">
-      <source-position filename="mate-colorsel.h" line="46"/>
+      <source-position filename="mate-colorsel.h" line="45"/>
     </record>
     <function-macro name="DESKTOP_CHECK_VERSION"
                     c:identifier="MATE_DESKTOP_CHECK_VERSION"
                     introspectable="0">
-      <source-position filename="mate-desktop.h" line="37"/>
+      <source-position filename="mate-desktop.h" line="29"/>
       <parameters>
         <parameter name="major">
         </parameter>
@@ -2551,6 +2083,12 @@ time it is called.</doc>
         </parameter>
       </parameters>
     </function-macro>
+    <constant name="DESKTOP_VERSION"
+              value="1.28.2"
+              c:type="MATE_DESKTOP_VERSION">
+      <source-position filename="mate-desktop.h" line="35"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
     <record name="DesktopItem"
             c:type="MateDesktopItem"
             opaque="1"
@@ -2639,7 +2177,7 @@ time it is called.</doc>
         </parameters>
       </constructor>
       <method name="attr_exists" c:identifier="mate_desktop_item_attr_exists">
-        <source-position filename="mate-desktop-item.h" line="232"/>
+        <source-position filename="mate-desktop-item.h" line="231"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2654,7 +2192,7 @@ time it is called.</doc>
       </method>
       <method name="clear_localestring"
               c:identifier="mate_desktop_item_clear_localestring">
-        <source-position filename="mate-desktop-item.h" line="267"/>
+        <source-position filename="mate-desktop-item.h" line="266"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2669,7 +2207,7 @@ time it is called.</doc>
       </method>
       <method name="clear_section"
               c:identifier="mate_desktop_item_clear_section">
-        <source-position filename="mate-desktop-item.h" line="303"/>
+        <source-position filename="mate-desktop-item.h" line="302"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2749,7 +2287,7 @@ time it is called.</doc>
       </method>
       <method name="get_attr_locale"
               c:identifier="mate_desktop_item_get_attr_locale">
-        <source-position filename="mate-desktop-item.h" line="245"/>
+        <source-position filename="mate-desktop-item.h" line="244"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -2763,7 +2301,7 @@ time it is called.</doc>
         </parameters>
       </method>
       <method name="get_boolean" c:identifier="mate_desktop_item_get_boolean">
-        <source-position filename="mate-desktop-item.h" line="285"/>
+        <source-position filename="mate-desktop-item.h" line="284"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2817,7 +2355,7 @@ time it is called.</doc>
       <method name="get_languages"
               c:identifier="mate_desktop_item_get_languages"
               introspectable="0">
-        <source-position filename="mate-desktop-item.h" line="257"/>
+        <source-position filename="mate-desktop-item.h" line="256"/>
         <return-value>
           <type name="GLib.List" c:type="GList*">
             <type name="gpointer" c:type="gpointer"/>
@@ -2834,7 +2372,7 @@ time it is called.</doc>
       </method>
       <method name="get_localestring"
               c:identifier="mate_desktop_item_get_localestring">
-        <source-position filename="mate-desktop-item.h" line="251"/>
+        <source-position filename="mate-desktop-item.h" line="250"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -2849,7 +2387,7 @@ time it is called.</doc>
       </method>
       <method name="get_localestring_lang"
               c:identifier="mate_desktop_item_get_localestring_lang">
-        <source-position filename="mate-desktop-item.h" line="253"/>
+        <source-position filename="mate-desktop-item.h" line="252"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -2878,7 +2416,7 @@ time it is called.</doc>
         </parameters>
       </method>
       <method name="get_string" c:identifier="mate_desktop_item_get_string">
-        <source-position filename="mate-desktop-item.h" line="238"/>
+        <source-position filename="mate-desktop-item.h" line="237"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -2894,7 +2432,7 @@ time it is called.</doc>
       <method name="get_strings"
               c:identifier="mate_desktop_item_get_strings"
               introspectable="0">
-        <source-position filename="mate-desktop-item.h" line="275"/>
+        <source-position filename="mate-desktop-item.h" line="274"/>
         <return-value>
           <array c:type="char**">
             <type name="utf8"/>
@@ -3016,7 +2554,7 @@ time it is called.</doc>
         </parameters>
       </method>
       <method name="set_boolean" c:identifier="mate_desktop_item_set_boolean">
-        <source-position filename="mate-desktop-item.h" line="288"/>
+        <source-position filename="mate-desktop-item.h" line="287"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3049,7 +2587,7 @@ time it is called.</doc>
       </method>
       <method name="set_launch_time"
               c:identifier="mate_desktop_item_set_launch_time">
-        <source-position filename="mate-desktop-item.h" line="295"/>
+        <source-position filename="mate-desktop-item.h" line="294"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3064,7 +2602,7 @@ time it is called.</doc>
       </method>
       <method name="set_localestring"
               c:identifier="mate_desktop_item_set_localestring">
-        <source-position filename="mate-desktop-item.h" line="260"/>
+        <source-position filename="mate-desktop-item.h" line="259"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3082,7 +2620,7 @@ time it is called.</doc>
       </method>
       <method name="set_localestring_lang"
               c:identifier="mate_desktop_item_set_localestring_lang">
-        <source-position filename="mate-desktop-item.h" line="263"/>
+        <source-position filename="mate-desktop-item.h" line="262"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3132,7 +2670,7 @@ time it is called.</doc>
         </parameters>
       </method>
       <method name="set_string" c:identifier="mate_desktop_item_set_string">
-        <source-position filename="mate-desktop-item.h" line="241"/>
+        <source-position filename="mate-desktop-item.h" line="240"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3149,7 +2687,7 @@ time it is called.</doc>
         </parameters>
       </method>
       <method name="set_strings" c:identifier="mate_desktop_item_set_strings">
-        <source-position filename="mate-desktop-item.h" line="278"/>
+        <source-position filename="mate-desktop-item.h" line="277"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3640,23 +3178,23 @@ Usage of this function is threadsafe.</doc>
            glib:type-name="MateHSV"
            glib:get-type="mate_hsv_get_type"
            glib:type-struct="HSVClass">
-      <source-position filename="mate-hsv.h" line="76"/>
+      <source-position filename="mate-hsv.h" line="75"/>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Gtk.Buildable"/>
       <constructor name="new" c:identifier="mate_hsv_new">
         <doc xml:space="preserve"
              filename="mate-hsv.c"
-             line="1201">Creates a new HSV color selector.</doc>
-        <source-position filename="mate-hsv.h" line="80"/>
+             line="1196">Creates a new HSV color selector.</doc>
+        <source-position filename="mate-hsv.h" line="78"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-hsv.c"
-               line="1206">A newly-created HSV color selector.</doc>
+               line="1201">A newly-created HSV color selector.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
       <virtual-method name="changed">
-        <source-position filename="mate-hsv.h" line="65"/>
+        <source-position filename="mate-hsv.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3667,7 +3205,7 @@ Usage of this function is threadsafe.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="move">
-        <source-position filename="mate-hsv.h" line="68"/>
+        <source-position filename="mate-hsv.h" line="67"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3683,9 +3221,9 @@ Usage of this function is threadsafe.</doc>
       <method name="get_color" c:identifier="mate_hsv_get_color">
         <doc xml:space="preserve"
              filename="mate-hsv.c"
-             line="1248">Queries the current color in an HSV color selector.
+             line="1243">Queries the current color in an HSV color selector.
 Returned values will be in the [0.0, 1.0] range.</doc>
-        <source-position filename="mate-hsv.h" line="85"/>
+        <source-position filename="mate-hsv.h" line="83"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3693,7 +3231,7 @@ Returned values will be in the [0.0, 1.0] range.</doc>
           <instance-parameter name="hsv" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-hsv.c"
-                 line="1250">An HSV color selector</doc>
+                 line="1245">An HSV color selector</doc>
             <type name="HSV" c:type="MateHSV*"/>
           </instance-parameter>
           <parameter name="h"
@@ -3702,7 +3240,7 @@ Returned values will be in the [0.0, 1.0] range.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="mate-hsv.c"
-                 line="1251">Return value for the hue</doc>
+                 line="1246">Return value for the hue</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
           <parameter name="s"
@@ -3711,7 +3249,7 @@ Returned values will be in the [0.0, 1.0] range.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="mate-hsv.c"
-                 line="1252">Return value for the saturation</doc>
+                 line="1247">Return value for the saturation</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
           <parameter name="v"
@@ -3720,7 +3258,7 @@ Returned values will be in the [0.0, 1.0] range.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="mate-hsv.c"
-                 line="1253">Return value for the value</doc>
+                 line="1248">Return value for the value</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
         </parameters>
@@ -3728,8 +3266,8 @@ Returned values will be in the [0.0, 1.0] range.</doc>
       <method name="get_metrics" c:identifier="mate_hsv_get_metrics">
         <doc xml:space="preserve"
              filename="mate-hsv.c"
-             line="1314">Queries the size and ring width of an HSV color selector.</doc>
-        <source-position filename="mate-hsv.h" line="92"/>
+             line="1309">Queries the size and ring width of an HSV color selector.</doc>
+        <source-position filename="mate-hsv.h" line="90"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3737,7 +3275,7 @@ Returned values will be in the [0.0, 1.0] range.</doc>
           <instance-parameter name="hsv" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-hsv.c"
-                 line="1316">An HSV color selector</doc>
+                 line="1311">An HSV color selector</doc>
             <type name="HSV" c:type="MateHSV*"/>
           </instance-parameter>
           <parameter name="size"
@@ -3746,7 +3284,7 @@ Returned values will be in the [0.0, 1.0] range.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="mate-hsv.c"
-                 line="1317">Return value for the diameter of the hue ring</doc>
+                 line="1312">Return value for the diameter of the hue ring</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
           <parameter name="ring_width"
@@ -3755,7 +3293,7 @@ Returned values will be in the [0.0, 1.0] range.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="mate-hsv.c"
-                 line="1318">Return value for the width of the hue ring</doc>
+                 line="1313">Return value for the width of the hue ring</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
         </parameters>
@@ -3763,15 +3301,15 @@ Returned values will be in the [0.0, 1.0] range.</doc>
       <method name="is_adjusting" c:identifier="mate_hsv_is_adjusting">
         <doc xml:space="preserve"
              filename="mate-hsv.c"
-             line="1340">An HSV color selector can be said to be adjusting if multiple rapid
+             line="1335">An HSV color selector can be said to be adjusting if multiple rapid
 changes are being made to its value, for example, when the user is
 adjusting the value with the mouse. This function queries whether
 the HSV color selector is being adjusted or not.</doc>
-        <source-position filename="mate-hsv.h" line="95"/>
+        <source-position filename="mate-hsv.h" line="93"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-hsv.c"
-               line="1349">%TRUE if clients can ignore changes to the color value,
+               line="1344">%TRUE if clients can ignore changes to the color value,
     since they may be transitory, or %FALSE if they should consider
     the color value status to be final.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -3780,7 +3318,7 @@ the HSV color selector is being adjusted or not.</doc>
           <instance-parameter name="hsv" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-hsv.c"
-                 line="1342">A #MateHSV</doc>
+                 line="1337">A #MateHSV</doc>
             <type name="HSV" c:type="MateHSV*"/>
           </instance-parameter>
         </parameters>
@@ -3788,9 +3326,9 @@ the HSV color selector is being adjusted or not.</doc>
       <method name="set_color" c:identifier="mate_hsv_set_color">
         <doc xml:space="preserve"
              filename="mate-hsv.c"
-             line="1214">Sets the current color in an HSV color selector.
+             line="1209">Sets the current color in an HSV color selector.
 Color component values must be in the [0.0, 1.0] range.</doc>
-        <source-position filename="mate-hsv.h" line="81"/>
+        <source-position filename="mate-hsv.h" line="79"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3798,25 +3336,25 @@ Color component values must be in the [0.0, 1.0] range.</doc>
           <instance-parameter name="hsv" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-hsv.c"
-                 line="1216">An HSV color selector</doc>
+                 line="1211">An HSV color selector</doc>
             <type name="HSV" c:type="MateHSV*"/>
           </instance-parameter>
           <parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-hsv.c"
-                 line="1217">Hue</doc>
+                 line="1212">Hue</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="s" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-hsv.c"
-                 line="1218">Saturation</doc>
+                 line="1213">Saturation</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="v" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-hsv.c"
-                 line="1219">Value</doc>
+                 line="1214">Value</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -3824,8 +3362,8 @@ Color component values must be in the [0.0, 1.0] range.</doc>
       <method name="set_metrics" c:identifier="mate_hsv_set_metrics">
         <doc xml:space="preserve"
              filename="mate-hsv.c"
-             line="1280">Sets the size and ring width of an HSV color selector.</doc>
-        <source-position filename="mate-hsv.h" line="89"/>
+             line="1275">Sets the size and ring width of an HSV color selector.</doc>
+        <source-position filename="mate-hsv.h" line="87"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3833,19 +3371,19 @@ Color component values must be in the [0.0, 1.0] range.</doc>
           <instance-parameter name="hsv" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-hsv.c"
-                 line="1282">An HSV color selector</doc>
+                 line="1277">An HSV color selector</doc>
             <type name="HSV" c:type="MateHSV*"/>
           </instance-parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-hsv.c"
-                 line="1283">Diameter for the hue ring</doc>
+                 line="1278">Diameter for the hue ring</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="ring_width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-hsv.c"
-                 line="1284">Width of the hue ring</doc>
+                 line="1279">Width of the hue ring</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -3875,13 +3413,13 @@ Color component values must be in the [0.0, 1.0] range.</doc>
     <record name="HSVClass"
             c:type="MateHSVClass"
             glib:is-gtype-struct-for="HSV">
-      <source-position filename="mate-hsv.h" line="76"/>
+      <source-position filename="mate-hsv.h" line="75"/>
       <field name="parent_class">
         <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
       </field>
       <field name="changed">
         <callback name="changed">
-          <source-position filename="mate-hsv.h" line="65"/>
+          <source-position filename="mate-hsv.h" line="64"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3894,7 +3432,7 @@ Color component values must be in the [0.0, 1.0] range.</doc>
       </field>
       <field name="move">
         <callback name="move">
-          <source-position filename="mate-hsv.h" line="68"/>
+          <source-position filename="mate-hsv.h" line="67"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3910,7 +3448,7 @@ Color component values must be in the [0.0, 1.0] range.</doc>
       </field>
       <field name="_gtk_reserved1" introspectable="0">
         <callback name="_gtk_reserved1">
-          <source-position filename="mate-hsv.h" line="72"/>
+          <source-position filename="mate-hsv.h" line="71"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3918,7 +3456,7 @@ Color component values must be in the [0.0, 1.0] range.</doc>
       </field>
       <field name="_gtk_reserved2" introspectable="0">
         <callback name="_gtk_reserved2">
-          <source-position filename="mate-hsv.h" line="73"/>
+          <source-position filename="mate-hsv.h" line="72"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3926,7 +3464,7 @@ Color component values must be in the [0.0, 1.0] range.</doc>
       </field>
       <field name="_gtk_reserved3" introspectable="0">
         <callback name="_gtk_reserved3">
-          <source-position filename="mate-hsv.h" line="74"/>
+          <source-position filename="mate-hsv.h" line="73"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3934,7 +3472,7 @@ Color component values must be in the [0.0, 1.0] range.</doc>
       </field>
       <field name="_gtk_reserved4" introspectable="0">
         <callback name="_gtk_reserved4">
-          <source-position filename="mate-hsv.h" line="75"/>
+          <source-position filename="mate-hsv.h" line="74"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -3942,7 +3480,7 @@ Color component values must be in the [0.0, 1.0] range.</doc>
       </field>
     </record>
     <record name="HSVPrivate" c:type="MateHSVPrivate" disguised="1" opaque="1">
-      <source-position filename="mate-hsv.h" line="49"/>
+      <source-position filename="mate-hsv.h" line="48"/>
     </record>
     <function-macro name="HSV_CLASS"
                     c:identifier="MATE_HSV_CLASS"
@@ -3957,6 +3495,33 @@ Color component values must be in the [0.0, 1.0] range.</doc>
                     c:identifier="MATE_HSV_GET_CLASS"
                     introspectable="0">
       <source-position filename="mate-hsv.h" line="45"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IMAGE_MENU_ITEM"
+                    c:identifier="MATE_IMAGE_MENU_ITEM"
+                    introspectable="0">
+      <source-position filename="mate-image-menu-item.h" line="26"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IMAGE_MENU_ITEM_CLASS"
+                    c:identifier="MATE_IMAGE_MENU_ITEM_CLASS"
+                    introspectable="0">
+      <source-position filename="mate-image-menu-item.h" line="27"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IMAGE_MENU_ITEM_GET_CLASS"
+                    c:identifier="MATE_IMAGE_MENU_ITEM_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="mate-image-menu-item.h" line="30"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -3991,24 +3556,6 @@ Color component values must be in the [0.0, 1.0] range.</doc>
                     c:identifier="MATE_IS_BG_CROSSFADE_CLASS"
                     introspectable="0">
       <source-position filename="mate-bg-crossfade.h" line="42"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_COLOR_BUTTON"
-                    c:identifier="MATE_IS_COLOR_BUTTON"
-                    introspectable="0">
-      <source-position filename="mate-colorbutton.h" line="50"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_COLOR_BUTTON_CLASS"
-                    c:identifier="MATE_IS_COLOR_BUTTON_CLASS"
-                    introspectable="0">
-      <source-position filename="mate-colorbutton.h" line="51"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -4068,10 +3615,28 @@ Color component values must be in the [0.0, 1.0] range.</doc>
         </parameter>
       </parameters>
     </function-macro>
+    <function-macro name="IS_IMAGE_MENU_ITEM"
+                    c:identifier="MATE_IS_IMAGE_MENU_ITEM"
+                    introspectable="0">
+      <source-position filename="mate-image-menu-item.h" line="28"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_IMAGE_MENU_ITEM_CLASS"
+                    c:identifier="MATE_IS_IMAGE_MENU_ITEM_CLASS"
+                    introspectable="0">
+      <source-position filename="mate-image-menu-item.h" line="29"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
     <function-macro name="IS_RR_CONFIG"
                     c:identifier="MATE_IS_RR_CONFIG"
                     introspectable="0">
-      <source-position filename="mate-rr-config.h" line="105"/>
+      <source-position filename="mate-rr-config.h" line="104"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -4080,7 +3645,7 @@ Color component values must be in the [0.0, 1.0] range.</doc>
     <function-macro name="IS_RR_CONFIG_CLASS"
                     c:identifier="MATE_IS_RR_CONFIG_CLASS"
                     introspectable="0">
-      <source-position filename="mate-rr-config.h" line="107"/>
+      <source-position filename="mate-rr-config.h" line="106"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -4140,6 +3705,162 @@ Color component values must be in the [0.0, 1.0] range.</doc>
         </parameter>
       </parameters>
     </function-macro>
+    <class name="ImageMenuItem"
+           c:symbol-prefix="image_menu_item"
+           c:type="MateImageMenuItem"
+           parent="Gtk.MenuItem"
+           glib:type-name="MateImageMenuItem"
+           glib:get-type="mate_image_menu_item_get_type"
+           glib:type-struct="ImageMenuItemClass">
+      <source-position filename="mate-image-menu-item.h" line="51"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Actionable"/>
+      <implements name="Gtk.Activatable"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new" c:identifier="mate_image_menu_item_new">
+        <doc xml:space="preserve"
+             filename="mate-image-menu-item.c"
+             line="419">Creates a new #MateImageMenuItem with an empty label.</doc>
+        <source-position filename="mate-image-menu-item.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="mate-image-menu-item.c"
+               line="424">a new #MateImageMenuItem</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_with_label"
+                   c:identifier="mate_image_menu_item_new_with_label">
+        <doc xml:space="preserve"
+             filename="mate-image-menu-item.c"
+             line="433">Creates a new #MateImageMenuItem containing a label.</doc>
+        <source-position filename="mate-image-menu-item.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="mate-image-menu-item.c"
+               line="439">a new #MateImageMenuItem.</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="label" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mate-image-menu-item.c"
+                 line="435">the text of the menu item.</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_with_mnemonic"
+                   c:identifier="mate_image_menu_item_new_with_mnemonic">
+        <doc xml:space="preserve"
+             filename="mate-image-menu-item.c"
+             line="450">Creates a new #MateImageMenuItem containing a label. The label
+will be created using gtk_label_new_with_mnemonic(), so underscores
+in @label indicate the mnemonic for the menu item.</doc>
+        <source-position filename="mate-image-menu-item.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="mate-image-menu-item.c"
+               line="459">a new #MateImageMenuItem</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="label" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mate-image-menu-item.c"
+                 line="452">the text of the menu item, with an underscore in front of the
+        mnemonic character</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_image"
+              c:identifier="mate_image_menu_item_get_image"
+              glib:get-property="image">
+        <doc xml:space="preserve"
+             filename="mate-image-menu-item.c"
+             line="513">Gets the widget that is currently set as the image of @image_menu_item.
+See mate_image_menu_item_set_image().</doc>
+        <source-position filename="mate-image-menu-item.h" line="64"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="mate-image-menu-item.c"
+               line="520">the widget set as image of @image_menu_item</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="image_menu_item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mate-image-menu-item.c"
+                 line="515">a #MateImageMenuItem</doc>
+            <type name="ImageMenuItem" c:type="MateImageMenuItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_image"
+              c:identifier="mate_image_menu_item_set_image"
+              glib:set-property="image">
+        <doc xml:space="preserve"
+             filename="mate-image-menu-item.c"
+             line="471">Sets the image of @image_menu_item to the given widget.
+Note that it depends on the show-menu-images setting whether
+the image will be displayed or not.</doc>
+        <source-position filename="mate-image-menu-item.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="image_menu_item" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="mate-image-menu-item.c"
+                 line="473">a #MateImageMenuItem.</doc>
+            <type name="ImageMenuItem" c:type="MateImageMenuItem*"/>
+          </instance-parameter>
+          <parameter name="image"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="mate-image-menu-item.c"
+                 line="474">a widget to set as the image for the menu item.</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="image"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_image"
+                getter="get_image">
+        <doc xml:space="preserve"
+             filename="mate-image-menu-item.c"
+             line="393">Child widget to appear next to the menu text.</doc>
+        <type name="Gtk.Widget"/>
+      </property>
+      <field name="menu_item">
+        <type name="Gtk.MenuItem" c:type="GtkMenuItem"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ImageMenuItemPrivate" c:type="MateImageMenuItemPrivate*"/>
+      </field>
+    </class>
+    <record name="ImageMenuItemClass"
+            c:type="MateImageMenuItemClass"
+            glib:is-gtype-struct-for="ImageMenuItem">
+      <source-position filename="mate-image-menu-item.h" line="51"/>
+      <field name="parent_class">
+        <doc xml:space="preserve"
+             filename="mate-image-menu-item.h"
+             line="46">The parent class.</doc>
+        <type name="Gtk.MenuItemClass" c:type="GtkMenuItemClass"/>
+      </field>
+    </record>
+    <record name="ImageMenuItemPrivate"
+            c:type="MateImageMenuItemPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="mate-image-menu-item.h" line="33"/>
+    </record>
     <class name="RRConfig"
            c:symbol-prefix="rr_config"
            c:type="MateRRConfig"
@@ -4147,11 +3868,11 @@ Color component values must be in the [0.0, 1.0] range.</doc>
            glib:type-name="MateRRConfig"
            glib:get-type="mate_rr_config_get_type"
            glib:type-struct="RRConfigClass">
-      <source-position filename="mate-rr-config.h" line="101"/>
+      <source-position filename="mate-rr-config.h" line="100"/>
       <constructor name="new_current"
                    c:identifier="mate_rr_config_new_current"
                    throws="1">
-        <source-position filename="mate-rr-config.h" line="112"/>
+        <source-position filename="mate-rr-config.h" line="111"/>
         <return-value transfer-ownership="full">
           <type name="RRConfig" c:type="MateRRConfig*"/>
         </return-value>
@@ -4164,7 +3885,7 @@ Color component values must be in the [0.0, 1.0] range.</doc>
       <constructor name="new_stored"
                    c:identifier="mate_rr_config_new_stored"
                    throws="1">
-        <source-position filename="mate-rr-config.h" line="114"/>
+        <source-position filename="mate-rr-config.h" line="113"/>
         <return-value transfer-ownership="full">
           <type name="RRConfig" c:type="MateRRConfig*"/>
         </return-value>
@@ -4177,7 +3898,7 @@ Color component values must be in the [0.0, 1.0] range.</doc>
       <function name="apply_from_filename_with_time"
                 c:identifier="mate_rr_config_apply_from_filename_with_time"
                 throws="1">
-        <source-position filename="mate-rr-config.h" line="135"/>
+        <source-position filename="mate-rr-config.h" line="134"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -4195,14 +3916,14 @@ Color component values must be in the [0.0, 1.0] range.</doc>
       </function>
       <function name="get_backup_filename"
                 c:identifier="mate_rr_config_get_backup_filename">
-        <source-position filename="mate-rr-config.h" line="148"/>
+        <source-position filename="mate-rr-config.h" line="147"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="char*"/>
         </return-value>
       </function>
       <function name="get_intended_filename"
                 c:identifier="mate_rr_config_get_intended_filename">
-        <source-position filename="mate-rr-config.h" line="149"/>
+        <source-position filename="mate-rr-config.h" line="148"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="char*"/>
         </return-value>
@@ -4210,7 +3931,7 @@ Color component values must be in the [0.0, 1.0] range.</doc>
       <method name="applicable"
               c:identifier="mate_rr_config_applicable"
               throws="1">
-        <source-position filename="mate-rr-config.h" line="140"/>
+        <source-position filename="mate-rr-config.h" line="139"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -4226,7 +3947,7 @@ Color component values must be in the [0.0, 1.0] range.</doc>
       <method name="apply_with_time"
               c:identifier="mate_rr_config_apply_with_time"
               throws="1">
-        <source-position filename="mate-rr-config.h" line="130"/>
+        <source-position filename="mate-rr-config.h" line="129"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -4244,7 +3965,7 @@ Color component values must be in the [0.0, 1.0] range.</doc>
       </method>
       <method name="ensure_primary"
               c:identifier="mate_rr_config_ensure_primary">
-        <source-position filename="mate-rr-config.h" line="128"/>
+        <source-position filename="mate-rr-config.h" line="127"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -4255,7 +3976,7 @@ Color component values must be in the [0.0, 1.0] range.</doc>
         </parameters>
       </method>
       <method name="equal" c:identifier="mate_rr_config_equal">
-        <source-position filename="mate-rr-config.h" line="123"/>
+        <source-position filename="mate-rr-config.h" line="122"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -4269,7 +3990,7 @@ Color component values must be in the [0.0, 1.0] range.</doc>
         </parameters>
       </method>
       <method name="get_clone" c:identifier="mate_rr_config_get_clone">
-        <source-position filename="mate-rr-config.h" line="144"/>
+        <source-position filename="mate-rr-config.h" line="143"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-rr-config.c"
@@ -4285,7 +4006,7 @@ have the same width/height.  Those outputs are of course connected and on
         </parameters>
       </method>
       <method name="get_outputs" c:identifier="mate_rr_config_get_outputs">
-        <source-position filename="mate-rr-config.h" line="146"/>
+        <source-position filename="mate-rr-config.h" line="145"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-rr-config.c"
@@ -4303,7 +4024,7 @@ have the same width/height.  Those outputs are of course connected and on
       <method name="load_current"
               c:identifier="mate_rr_config_load_current"
               throws="1">
-        <source-position filename="mate-rr-config.h" line="116"/>
+        <source-position filename="mate-rr-config.h" line="115"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -4316,7 +4037,7 @@ have the same width/height.  Those outputs are of course connected and on
       <method name="load_filename"
               c:identifier="mate_rr_config_load_filename"
               throws="1">
-        <source-position filename="mate-rr-config.h" line="118"/>
+        <source-position filename="mate-rr-config.h" line="117"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -4330,7 +4051,7 @@ have the same width/height.  Those outputs are of course connected and on
         </parameters>
       </method>
       <method name="match" c:identifier="mate_rr_config_match">
-        <source-position filename="mate-rr-config.h" line="121"/>
+        <source-position filename="mate-rr-config.h" line="120"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -4344,7 +4065,7 @@ have the same width/height.  Those outputs are of course connected and on
         </parameters>
       </method>
       <method name="sanitize" c:identifier="mate_rr_config_sanitize">
-        <source-position filename="mate-rr-config.h" line="127"/>
+        <source-position filename="mate-rr-config.h" line="126"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4355,7 +4076,7 @@ have the same width/height.  Those outputs are of course connected and on
         </parameters>
       </method>
       <method name="save" c:identifier="mate_rr_config_save" throws="1">
-        <source-position filename="mate-rr-config.h" line="125"/>
+        <source-position filename="mate-rr-config.h" line="124"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -4366,7 +4087,7 @@ have the same width/height.  Those outputs are of course connected and on
         </parameters>
       </method>
       <method name="set_clone" c:identifier="mate_rr_config_set_clone">
-        <source-position filename="mate-rr-config.h" line="145"/>
+        <source-position filename="mate-rr-config.h" line="144"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4396,7 +4117,7 @@ have the same width/height.  Those outputs are of course connected and on
     <record name="RRConfigClass"
             c:type="MateRRConfigClass"
             glib:is-gtype-struct-for="RRConfig">
-      <source-position filename="mate-rr-config.h" line="101"/>
+      <source-position filename="mate-rr-config.h" line="100"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -4435,14 +4156,14 @@ have the same width/height.  Those outputs are of course connected and on
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-rr.c"
-               line="1801">the current mode of this crtc</doc>
+               line="1800">the current mode of this crtc</doc>
           <type name="RRMode" c:type="MateRRMode*"/>
         </return-value>
         <parameters>
           <instance-parameter name="crtc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="1800">a #MateRRCrtc</doc>
+                 line="1799">a #MateRRCrtc</doc>
             <type name="RRCrtc" c:type="MateRRCrtc*"/>
           </instance-parameter>
         </parameters>
@@ -4464,14 +4185,14 @@ have the same width/height.  Those outputs are of course connected and on
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-rr.c"
-               line="2119">%TRUE for success</doc>
+               line="2118">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="crtc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="2113">a #MateRRCrtc</doc>
+                 line="2112">a #MateRRCrtc</doc>
             <type name="RRCrtc" c:type="MateRRCrtc*"/>
           </instance-parameter>
           <parameter name="size" transfer-ownership="none">
@@ -4483,7 +4204,7 @@ have the same width/height.  Those outputs are of course connected and on
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="2115">the minimum width</doc>
+                 line="2114">the minimum width</doc>
             <type name="gushort" c:type="unsigned short**"/>
           </parameter>
           <parameter name="green"
@@ -4492,7 +4213,7 @@ have the same width/height.  Those outputs are of course connected and on
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="2116">the maximum width</doc>
+                 line="2115">the maximum width</doc>
             <type name="gushort" c:type="unsigned short**"/>
           </parameter>
           <parameter name="blue"
@@ -4501,7 +4222,7 @@ have the same width/height.  Those outputs are of course connected and on
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="2117">the minimum height</doc>
+                 line="2116">the minimum height</doc>
             <type name="gushort" c:type="unsigned short**"/>
           </parameter>
         </parameters>
@@ -4526,7 +4247,7 @@ have the same width/height.  Those outputs are of course connected and on
           <instance-parameter name="crtc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="1841">a #MateRRCrtc</doc>
+                 line="1840">a #MateRRCrtc</doc>
             <type name="RRCrtc" c:type="MateRRCrtc*"/>
           </instance-parameter>
           <parameter name="x"
@@ -4700,7 +4421,7 @@ have the same width/height.  Those outputs are of course connected and on
       <constructor name="new" c:identifier="mate_rr_labeler_new">
         <doc xml:space="preserve"
              filename="mate-rr-labeler.c"
-             line="469">Create a GUI element that will display colored labels on each connected monitor.
+             line="489">Create a GUI element that will display colored labels on each connected monitor.
 This is useful when users are required to identify which monitor is which, e.g. for
 for configuring multiple monitors.
 The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc>
@@ -4708,14 +4429,14 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="mate-rr-labeler.c"
-               line="478">A new #MateRRLabeler</doc>
+               line="498">A new #MateRRLabeler</doc>
           <type name="RRLabeler" c:type="MateRRLabeler*"/>
         </return-value>
         <parameters>
           <parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-rr-labeler.c"
-                 line="471">Configuration of the screens to label</doc>
+                 line="491">Configuration of the screens to label</doc>
             <type name="RRConfig" c:type="MateRRConfig*"/>
           </parameter>
         </parameters>
@@ -4724,7 +4445,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
               c:identifier="mate_rr_labeler_get_rgba_for_output">
         <doc xml:space="preserve"
              filename="mate-rr-labeler.c"
-             line="516">Get the color used for the label on a given output (monitor).</doc>
+             line="536">Get the color used for the label on a given output (monitor).</doc>
         <source-position filename="mate-rr-labeler.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4733,13 +4454,13 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
           <instance-parameter name="labeler" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-rr-labeler.c"
-                 line="518">A #MateRRLabeler</doc>
+                 line="538">A #MateRRLabeler</doc>
             <type name="RRLabeler" c:type="MateRRLabeler*"/>
           </instance-parameter>
           <parameter name="output" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-rr-labeler.c"
-                 line="519">Output device (i.e. monitor) to query</doc>
+                 line="539">Output device (i.e. monitor) to query</doc>
             <type name="RROutputInfo" c:type="MateRROutputInfo*"/>
           </parameter>
           <parameter name="color_out"
@@ -4748,7 +4469,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-rr-labeler.c"
-                 line="520">Color of selected monitor.</doc>
+                 line="540">Color of selected monitor.</doc>
             <type name="Gdk.RGBA" c:type="GdkRGBA*"/>
           </parameter>
         </parameters>
@@ -4756,7 +4477,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
       <method name="hide" c:identifier="mate_rr_labeler_hide">
         <doc xml:space="preserve"
              filename="mate-rr-labeler.c"
-             line="488">Hide ouput labels.</doc>
+             line="508">Hide ouput labels.</doc>
         <source-position filename="mate-rr-labeler.h" line="61"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4765,7 +4486,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
           <instance-parameter name="labeler" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-rr-labeler.c"
-                 line="490">A #MateRRLabeler</doc>
+                 line="510">A #MateRRLabeler</doc>
             <type name="RRLabeler" c:type="MateRRLabeler*"/>
           </instance-parameter>
         </parameters>
@@ -4892,7 +4613,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
           <instance-parameter name="output" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="1429">a #MateRROutput</doc>
+                 line="1428">a #MateRROutput</doc>
             <type name="RROutput" c:type="MateRROutput*"/>
           </instance-parameter>
         </parameters>
@@ -4903,14 +4624,14 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-rr.c"
-               line="1496">the current mode of this output</doc>
+               line="1495">the current mode of this output</doc>
           <type name="RRMode" c:type="MateRRMode*"/>
         </return-value>
         <parameters>
           <instance-parameter name="output" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="1495">a #MateRROutput</doc>
+                 line="1494">a #MateRROutput</doc>
             <type name="RROutput" c:type="MateRROutput*"/>
           </instance-parameter>
         </parameters>
@@ -4980,7 +4701,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
           <instance-parameter name="output" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="1513">a #MateRROutput</doc>
+                 line="1512">a #MateRROutput</doc>
             <type name="RROutput" c:type="MateRROutput*"/>
           </instance-parameter>
           <parameter name="x"
@@ -5013,7 +4734,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
           <instance-parameter name="output" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="1442">a #MateRROutput</doc>
+                 line="1441">a #MateRROutput</doc>
             <type name="RROutput" c:type="MateRROutput*"/>
           </instance-parameter>
         </parameters>
@@ -5028,7 +4749,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
           <instance-parameter name="output" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="1553">a #MateRROutput</doc>
+                 line="1552">a #MateRROutput</doc>
             <type name="RROutput" c:type="MateRROutput*"/>
           </instance-parameter>
         </parameters>
@@ -5089,7 +4810,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
           <instance-parameter name="output" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="1568">a #MateRROutput</doc>
+                 line="1567">a #MateRROutput</doc>
             <type name="RROutput" c:type="MateRROutput*"/>
           </instance-parameter>
         </parameters>
@@ -5119,7 +4840,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
       <source-position filename="mate-rr-config.h" line="51"/>
       <method name="get_aspect_ratio"
               c:identifier="mate_rr_output_info_get_aspect_ratio">
-        <source-position filename="mate-rr-config.h" line="81"/>
+        <source-position filename="mate-rr-config.h" line="80"/>
         <return-value transfer-ownership="none">
           <type name="gdouble" c:type="double"/>
         </return-value>
@@ -5131,7 +4852,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
       </method>
       <method name="get_display_name"
               c:identifier="mate_rr_output_info_get_display_name">
-        <source-position filename="mate-rr-config.h" line="82"/>
+        <source-position filename="mate-rr-config.h" line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-rr-output-info.c"
@@ -5146,7 +4867,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
       </method>
       <method name="get_geometry"
               c:identifier="mate_rr_output_info_get_geometry">
-        <source-position filename="mate-rr-config.h" line="68"/>
+        <source-position filename="mate-rr-config.h" line="67"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5207,7 +4928,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
       </method>
       <method name="get_preferred_height"
               c:identifier="mate_rr_output_info_get_preferred_height">
-        <source-position filename="mate-rr-config.h" line="88"/>
+        <source-position filename="mate-rr-config.h" line="87"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="int"/>
         </return-value>
@@ -5219,7 +4940,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
       </method>
       <method name="get_preferred_width"
               c:identifier="mate_rr_output_info_get_preferred_width">
-        <source-position filename="mate-rr-config.h" line="87"/>
+        <source-position filename="mate-rr-config.h" line="86"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="int"/>
         </return-value>
@@ -5231,7 +4952,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
       </method>
       <method name="get_primary"
               c:identifier="mate_rr_output_info_get_primary">
-        <source-position filename="mate-rr-config.h" line="84"/>
+        <source-position filename="mate-rr-config.h" line="83"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -5243,7 +4964,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
       </method>
       <method name="get_product"
               c:identifier="mate_rr_output_info_get_product">
-        <source-position filename="mate-rr-config.h" line="79"/>
+        <source-position filename="mate-rr-config.h" line="78"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -5255,7 +4976,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
       </method>
       <method name="get_refresh_rate"
               c:identifier="mate_rr_output_info_get_refresh_rate">
-        <source-position filename="mate-rr-config.h" line="71"/>
+        <source-position filename="mate-rr-config.h" line="70"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="int"/>
         </return-value>
@@ -5267,7 +4988,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
       </method>
       <method name="get_rotation"
               c:identifier="mate_rr_output_info_get_rotation">
-        <source-position filename="mate-rr-config.h" line="74"/>
+        <source-position filename="mate-rr-config.h" line="73"/>
         <return-value transfer-ownership="none">
           <type name="RRRotation" c:type="MateRRRotation"/>
         </return-value>
@@ -5278,7 +4999,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
         </parameters>
       </method>
       <method name="get_serial" c:identifier="mate_rr_output_info_get_serial">
-        <source-position filename="mate-rr-config.h" line="80"/>
+        <source-position filename="mate-rr-config.h" line="79"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -5289,7 +5010,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
         </parameters>
       </method>
       <method name="get_vendor" c:identifier="mate_rr_output_info_get_vendor">
-        <source-position filename="mate-rr-config.h" line="78"/>
+        <source-position filename="mate-rr-config.h" line="77"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5326,7 +5047,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
       </method>
       <method name="is_connected"
               c:identifier="mate_rr_output_info_is_connected">
-        <source-position filename="mate-rr-config.h" line="77"/>
+        <source-position filename="mate-rr-config.h" line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-rr-output-info.c"
@@ -5358,7 +5079,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
         <doc xml:space="preserve"
              filename="mate-rr-output-info.c"
              line="117">Set the geometry for the monitor connected to the specified output.</doc>
-        <source-position filename="mate-rr-config.h" line="69"/>
+        <source-position filename="mate-rr-config.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5397,7 +5118,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
       </method>
       <method name="set_primary"
               c:identifier="mate_rr_output_info_set_primary">
-        <source-position filename="mate-rr-config.h" line="85"/>
+        <source-position filename="mate-rr-config.h" line="84"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5412,7 +5133,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
       </method>
       <method name="set_refresh_rate"
               c:identifier="mate_rr_output_info_set_refresh_rate">
-        <source-position filename="mate-rr-config.h" line="72"/>
+        <source-position filename="mate-rr-config.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5427,7 +5148,7 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
       </method>
       <method name="set_rotation"
               c:identifier="mate_rr_output_info_set_rotation">
-        <source-position filename="mate-rr-config.h" line="75"/>
+        <source-position filename="mate-rr-config.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5492,12 +5213,12 @@ The labels will be shown by default, use mate_rr_labeler_hide to hide them.</doc
       <constructor name="new" c:identifier="mate_rr_screen_new" throws="1">
         <doc xml:space="preserve"
              filename="mate-rr.c"
-             line="817">Creates a new #MateRRScreen instance</doc>
+             line="816">Creates a new #MateRRScreen instance</doc>
         <source-position filename="mate-rr.h" line="95"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="mate-rr.c"
-               line="824">a new #MateRRScreen instance or NULL if screen could not be created,
+               line="823">a new #MateRRScreen instance or NULL if screen could not be created,
 for instance if the driver does not support Xrandr 1.2</doc>
           <type name="RRScreen" c:type="MateRRScreen*"/>
         </return-value>
@@ -5505,7 +5226,7 @@ for instance if the driver does not support Xrandr 1.2</doc>
           <parameter name="screen" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="819">the #GdkScreen on which to operate</doc>
+                 line="818">the #GdkScreen on which to operate</doc>
             <type name="Gdk.Screen" c:type="GdkScreen*"/>
           </parameter>
         </parameters>
@@ -5516,7 +5237,7 @@ for instance if the driver does not support Xrandr 1.2</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-rr.c"
-               line="1074">the CRTC identified by @id</doc>
+               line="1073">the CRTC identified by @id</doc>
           <type name="RRCrtc" c:type="MateRRCrtc*"/>
         </return-value>
         <parameters>
@@ -5534,7 +5255,7 @@ for instance if the driver does not support Xrandr 1.2</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-rr.c"
-               line="1100">the output identified by @id</doc>
+               line="1099">the output identified by @id</doc>
           <type name="RROutput" c:type="MateRROutput*"/>
         </return-value>
         <parameters>
@@ -5552,7 +5273,7 @@ for instance if the driver does not support Xrandr 1.2</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-rr.c"
-               line="1405">the output identified by @name</doc>
+               line="1404">the output identified by @name</doc>
           <type name="RROutput" c:type="MateRROutput*"/>
         </return-value>
         <parameters>
@@ -5567,7 +5288,7 @@ for instance if the driver does not support Xrandr 1.2</doc>
       <method name="get_ranges" c:identifier="mate_rr_screen_get_ranges">
         <doc xml:space="preserve"
              filename="mate-rr.c"
-             line="855">Get the ranges of the screen</doc>
+             line="854">Get the ranges of the screen</doc>
         <source-position filename="mate-rr.h" line="114"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5576,7 +5297,7 @@ for instance if the driver does not support Xrandr 1.2</doc>
           <instance-parameter name="screen" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="857">a #MateRRScreen</doc>
+                 line="856">a #MateRRScreen</doc>
             <type name="RRScreen" c:type="MateRRScreen*"/>
           </instance-parameter>
           <parameter name="min_width"
@@ -5585,7 +5306,7 @@ for instance if the driver does not support Xrandr 1.2</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="858">the minimum width</doc>
+                 line="857">the minimum width</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="max_width"
@@ -5594,7 +5315,7 @@ for instance if the driver does not support Xrandr 1.2</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="859">the maximum width</doc>
+                 line="858">the maximum width</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="min_height"
@@ -5603,7 +5324,7 @@ for instance if the driver does not support Xrandr 1.2</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="860">the minimum height</doc>
+                 line="859">the minimum height</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="max_height"
@@ -5612,7 +5333,7 @@ for instance if the driver does not support Xrandr 1.2</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="861">the maximum height</doc>
+                 line="860">the maximum height</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -5621,7 +5342,7 @@ for instance if the driver does not support Xrandr 1.2</doc>
               c:identifier="mate_rr_screen_get_timestamps">
         <doc xml:space="preserve"
              filename="mate-rr.c"
-             line="891">Queries the two timestamps that the X RANDR extension maintains.  The X
+             line="890">Queries the two timestamps that the X RANDR extension maintains.  The X
 server will prevent change requests for stale configurations, those whose
 timestamp is not equal to that of the latest request for configuration.  The
 X server will also prevent change requests that have an older timestamp to
@@ -5634,7 +5355,7 @@ the latest change request.</doc>
           <instance-parameter name="screen" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="893">a #MateRRScreen</doc>
+                 line="892">a #MateRRScreen</doc>
             <type name="RRScreen" c:type="MateRRScreen*"/>
           </instance-parameter>
           <parameter name="change_timestamp_ret"
@@ -5643,7 +5364,7 @@ the latest change request.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="894">Location in which to store the timestamp at which the RANDR configuration was last changed</doc>
+                 line="893">Location in which to store the timestamp at which the RANDR configuration was last changed</doc>
             <type name="guint32" c:type="guint32*"/>
           </parameter>
           <parameter name="config_timestamp_ret"
@@ -5652,7 +5373,7 @@ the latest change request.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="895">Location in which to store the timestamp at which the RANDR configuration was last obtained</doc>
+                 line="894">Location in which to store the timestamp at which the RANDR configuration was last obtained</doc>
             <type name="guint32" c:type="guint32*"/>
           </parameter>
         </parameters>
@@ -5661,7 +5382,7 @@ the latest change request.</doc>
               c:identifier="mate_rr_screen_list_clone_modes">
         <doc xml:space="preserve"
              filename="mate-rr.c"
-             line="1023">List available XRandR clone modes</doc>
+             line="1022">List available XRandR clone modes</doc>
         <source-position filename="mate-rr.h" line="100"/>
         <return-value transfer-ownership="none">
           <array c:type="MateRRMode**">
@@ -5677,7 +5398,7 @@ the latest change request.</doc>
       <method name="list_crtcs" c:identifier="mate_rr_screen_list_crtcs">
         <doc xml:space="preserve"
              filename="mate-rr.c"
-             line="1039">List all CRTCs</doc>
+             line="1038">List all CRTCs</doc>
         <source-position filename="mate-rr.h" line="98"/>
         <return-value transfer-ownership="none">
           <array c:type="MateRRCrtc**">
@@ -5693,7 +5414,7 @@ the latest change request.</doc>
       <method name="list_modes" c:identifier="mate_rr_screen_list_modes">
         <doc xml:space="preserve"
              filename="mate-rr.c"
-             line="1007">List available XRandR modes</doc>
+             line="1006">List available XRandR modes</doc>
         <source-position filename="mate-rr.h" line="99"/>
         <return-value transfer-ownership="none">
           <array c:type="MateRRMode**">
@@ -5709,7 +5430,7 @@ the latest change request.</doc>
       <method name="list_outputs" c:identifier="mate_rr_screen_list_outputs">
         <doc xml:space="preserve"
              filename="mate-rr.c"
-             line="1055">List all outputs</doc>
+             line="1054">List all outputs</doc>
         <source-position filename="mate-rr.h" line="97"/>
         <return-value transfer-ownership="none">
           <array c:type="MateRROutput**">
@@ -5725,13 +5446,13 @@ the latest change request.</doc>
       <method name="refresh" c:identifier="mate_rr_screen_refresh" throws="1">
         <doc xml:space="preserve"
              filename="mate-rr.c"
-             line="976">Refreshes the screen configuration, and calls the screen's callback if it
+             line="975">Refreshes the screen configuration, and calls the screen's callback if it
 exists and if the screen's configuration changed.</doc>
         <source-position filename="mate-rr.h" line="108"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="mate-rr.c"
-               line="984">TRUE if the screen's configuration changed; otherwise, the
+               line="983">TRUE if the screen's configuration changed; otherwise, the
 function returns FALSE and a NULL error if the configuration didn't change,
 or FALSE and a non-NULL error if there was an error while refreshing the
 configuration.</doc>
@@ -5741,7 +5462,7 @@ configuration.</doc>
           <instance-parameter name="screen" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="mate-rr.c"
-                 line="978">a #MateRRScreen</doc>
+                 line="977">a #MateRRScreen</doc>
             <type name="RRScreen" c:type="MateRRScreen*"/>
           </instance-parameter>
         </parameters>
@@ -5827,7 +5548,7 @@ configuration.</doc>
     <function-macro name="RR_CONFIG"
                     c:identifier="MATE_RR_CONFIG"
                     introspectable="0">
-      <source-position filename="mate-rr-config.h" line="104"/>
+      <source-position filename="mate-rr-config.h" line="103"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -5836,7 +5557,7 @@ configuration.</doc>
     <function-macro name="RR_CONFIG_CLASS"
                     c:identifier="MATE_RR_CONFIG_CLASS"
                     introspectable="0">
-      <source-position filename="mate-rr-config.h" line="106"/>
+      <source-position filename="mate-rr-config.h" line="105"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -5845,7 +5566,7 @@ configuration.</doc>
     <function-macro name="RR_CONFIG_GET_CLASS"
                     c:identifier="MATE_RR_CONFIG_GET_CLASS"
                     introspectable="0">
-      <source-position filename="mate-rr-config.h" line="108"/>
+      <source-position filename="mate-rr-config.h" line="107"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -6064,7 +5785,7 @@ paths.</doc>
     <function-macro name="desktop_item_clear_attr"
                     c:identifier="mate_desktop_item_clear_attr"
                     introspectable="0">
-      <source-position filename="mate-desktop-item.h" line="301"/>
+      <source-position filename="mate-desktop-item.h" line="300"/>
       <parameters>
         <parameter name="item">
         </parameter>
@@ -6139,7 +5860,7 @@ empty, will just create a new vector for you.</doc>
            filename="mate-desktop-thumbnail.c"
            line="1297">Returns whether the thumbnail has the correct uri embedded in the
 Thumb::URI option in the png.</doc>
-      <source-position filename="mate-desktop-thumbnail.h" line="92"/>
+      <source-position filename="mate-desktop-thumbnail.h" line="91"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="mate-desktop-thumbnail.c"
@@ -6168,7 +5889,7 @@ Thumb::URI option in the png.</doc>
            filename="mate-desktop-thumbnail.c"
            line="1319">Returns whether the thumbnail has the correct uri and mtime embedded in the
 png options.</doc>
-      <source-position filename="mate-desktop-thumbnail.h" line="94"/>
+      <source-position filename="mate-desktop-thumbnail.h" line="93"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="mate-desktop-thumbnail.c"
@@ -6202,7 +5923,7 @@ png options.</doc>
       <doc xml:space="preserve"
            filename="mate-desktop-thumbnail.c"
            line="1279">Returns the filename that a thumbnail of size @size for @uri would have.</doc>
-      <source-position filename="mate-desktop-thumbnail.h" line="97"/>
+      <source-position filename="mate-desktop-thumbnail.h" line="96"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="mate-desktop-thumbnail.c"
@@ -6628,12 +6349,12 @@ store the modifier, or %NULL</doc>
     <function name="rr_error_quark" c:identifier="mate_rr_error_quark">
       <doc xml:space="preserve"
            filename="mate-rr.c"
-           line="179">Returns the #GQuark that will be used for #GError values returned by the
+           line="178">Returns the #GQuark that will be used for #GError values returned by the
 MateRR API.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="mate-rr.c"
-             line="185">a #GQuark used to identify errors coming from the MateRR API.</doc>
+             line="184">a #GQuark used to identify errors coming from the MateRR API.</doc>
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
     </function>

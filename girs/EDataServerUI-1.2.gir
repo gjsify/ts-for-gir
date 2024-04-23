@@ -17,7 +17,7 @@ and/or use gtk-doc annotations.  -->
   <c:include name="libedataserverui/libedataserverui.h"/>
   <namespace name="EDataServerUI"
              version="1.2"
-             shared-library="libcamel-1.2.so.64,libecal-2.0.so.2,libedataserver-1.2.so.27,libedataserverui-1.2.so.4"
+             shared-library="libcamel-1.2.so.64,libecal-2.0.so.3,libedataserver-1.2.so.27,libedataserverui-1.2.so.4"
              c:identifier-prefixes="E"
              c:symbol-prefixes="e">
     <function-macro name="CELL_RENDERER_COLOR"
@@ -424,21 +424,21 @@ functions below.</doc>
                    version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1207">Creates a new #ECredentialsPrompter, which listens for credential requests
+             line="1191">Creates a new #ECredentialsPrompter, which listens for credential requests
 from @registry.</doc>
         <source-position filename="src/libedataserverui/e-credentials-prompter.h"
                          line="137"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libedataserverui/e-credentials-prompter.c"
-               line="1214">a new #ECredentialsPrompter</doc>
+               line="1198">a new #ECredentialsPrompter</doc>
           <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
         </return-value>
         <parameters>
           <parameter name="registry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1209">an #ESourceRegistry to have the prompter listen to</doc>
+                 line="1193">an #ESourceRegistry to have the prompter listen to</doc>
             <type name="EDataServer.SourceRegistry" c:type="ESourceRegistry*"/>
           </parameter>
         </parameters>
@@ -448,7 +448,7 @@ from @registry.</doc>
                       version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1395">Returns a #GtkWindow, which should be used as a dialog parent. This is determined
+             line="1379">Returns a #GtkWindow, which should be used as a dialog parent. This is determined
 by an ECredentialsPrompter::get-dialog-parent signal emission. If there is no callback
 registered or the current callbacks don't have any suitable window, then there's
 chosen the last active window from the default GApplication, if any available.</doc>
@@ -457,7 +457,7 @@ chosen the last active window from the default GApplication, if any available.</
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/libedataserverui/e-credentials-prompter.c"
-               line="1404">a #GtkWindow, to be used as a dialog parent,
+               line="1388">a #GtkWindow, to be used as a dialog parent,
    or %NULL.</doc>
           <type name="Gtk.Window" c:type="GtkWindow*"/>
         </return-value>
@@ -465,73 +465,18 @@ chosen the last active window from the default GApplication, if any available.</
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1397">an #ECredentialsPrompter</doc>
+                 line="1381">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
-      <method name="complete_prompt_call"
-              c:identifier="e_credentials_prompter_complete_prompt_call"
-              version="3.16">
-        <doc xml:space="preserve"
-             filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1763">Completes an ongoing credentials prompt on idle, by finishing the @async_result.
-This function is meant to be used by an #ECredentialsPrompterImpl implementation.
-To actually finish the credentials prompt previously started with
-e_credentials_prompter_prompt(), the e_credentials_prompter_prompt_finish() should
-be called from the provided callback.
-
-Using %NULL @credentials will result in a G_IO_ERROR_CANCELLED error, if
-no other @error is provided.</doc>
-        <source-position filename="src/libedataserverui/e-credentials-prompter.h"
-                         line="186"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="prompter" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1765">an #ECredentialsPrompter</doc>
-            <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
-          </instance-parameter>
-          <parameter name="async_result" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1766">a #GSimpleAsyncResult</doc>
-            <type name="Gio.SimpleAsyncResult" c:type="GSimpleAsyncResult*"/>
-          </parameter>
-          <parameter name="source" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1767">an #ESource, on which the prompt was started</doc>
-            <type name="EDataServer.Source" c:type="ESource*"/>
-          </parameter>
-          <parameter name="credentials"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1768">credentials, as provided by a user, on %NULL, when the prompt was cancelled</doc>
-            <type name="EDataServer.NamedParameters"
-                  c:type="const ENamedParameters*"/>
-          </parameter>
-          <parameter name="error" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1769">a resulting #GError, or %NULL</doc>
-            <type name="GLib.Error" c:type="const GError*"/>
-          </parameter>
-        </parameters>
-      </method>
       <method name="get_auto_prompt"
               c:identifier="e_credentials_prompter_get_auto_prompt"
               glib:get-property="auto-prompt"
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1263">Returns, whether can respond to credential prompts automatically.
+             line="1247">Returns, whether can respond to credential prompts automatically.
 Default value is %TRUE.
 
 This property does not influence direct calls of e_credentials_prompter_prompt().</doc>
@@ -540,14 +485,14 @@ This property does not influence direct calls of e_credentials_prompter_prompt()
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/e-credentials-prompter.c"
-               line="1272">Whether can respond to credential prompts automatically.</doc>
+               line="1256">Whether can respond to credential prompts automatically.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1265">an #ECredentialsPrompter</doc>
+                 line="1249">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
         </parameters>
@@ -557,7 +502,7 @@ This property does not influence direct calls of e_credentials_prompter_prompt()
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1346">Returns whether the auto-prompt is disabled for the given @source.
+             line="1330">Returns whether the auto-prompt is disabled for the given @source.
 All sources can be auto-prompted by default. This is a complementary
 value for the ECredentialsPrompter::auto-prompt property.
 
@@ -567,20 +512,20 @@ This value does not influence direct calls of e_credentials_prompter_prompt().</
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/e-credentials-prompter.c"
-               line="1357">Whether the auto-prompt is disabled for the given @source</doc>
+               line="1341">Whether the auto-prompt is disabled for the given @source</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1348">an #ECredentialsPrompter</doc>
+                 line="1332">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1349">an #ESource</doc>
+                 line="1333">an #ESource</doc>
             <type name="EDataServer.Source" c:type="ESource*"/>
           </parameter>
         </parameters>
@@ -590,7 +535,7 @@ This value does not influence direct calls of e_credentials_prompter_prompt().</
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1395">Returns a #GtkWindow, which should be used as a dialog parent. This is determined
+             line="1379">Returns a #GtkWindow, which should be used as a dialog parent. This is determined
 by an ECredentialsPrompter::get-dialog-parent signal emission. If there is no callback
 registered or the current callbacks don't have any suitable window, then there's
 chosen the last active window from the default GApplication, if any available.</doc>
@@ -599,7 +544,7 @@ chosen the last active window from the default GApplication, if any available.</
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/libedataserverui/e-credentials-prompter.c"
-               line="1404">a #GtkWindow, to be used as a dialog parent,
+               line="1388">a #GtkWindow, to be used as a dialog parent,
    or %NULL.</doc>
           <type name="Gtk.Window" c:type="GtkWindow*"/>
         </return-value>
@@ -607,7 +552,7 @@ chosen the last active window from the default GApplication, if any available.</
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1397">an #ECredentialsPrompter</doc>
+                 line="1381">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
         </parameters>
@@ -617,7 +562,7 @@ chosen the last active window from the default GApplication, if any available.</
               version="3.42">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1424">Returns a #GtkWindow, which should be used as a dialog parent for the @auth_source.
+             line="1408">Returns a #GtkWindow, which should be used as a dialog parent for the @auth_source.
 
 This is determined by an ECredentialsPrompter::get-dialog-parent-full signal emission
 and an ECredentialsPrompter::get-dialog-parent when the first doesn't return anything.
@@ -629,7 +574,7 @@ if any available.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/libedataserverui/e-credentials-prompter.c"
-               line="1437">a #GtkWindow, to be used as a dialog parent,
+               line="1421">a #GtkWindow, to be used as a dialog parent,
    or %NULL.</doc>
           <type name="Gtk.Window" c:type="GtkWindow*"/>
         </return-value>
@@ -637,7 +582,7 @@ if any available.</doc>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1426">an #ECredentialsPrompter</doc>
+                 line="1410">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="auth_source"
@@ -646,7 +591,7 @@ if any available.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1427">an #ESource</doc>
+                 line="1411">an #ESource</doc>
             <type name="EDataServer.Source" c:type="ESource*"/>
           </parameter>
         </parameters>
@@ -657,13 +602,13 @@ if any available.</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1244">Returns an #ESourceCredentialsProvider, which the @prompter uses.</doc>
+             line="1228">Returns an #ESourceCredentialsProvider, which the @prompter uses.</doc>
         <source-position filename="src/libedataserverui/e-credentials-prompter.h"
                          line="142"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/e-credentials-prompter.c"
-               line="1250">an #ESourceCredentialsProvider, which the @prompter uses.</doc>
+               line="1234">an #ESourceCredentialsProvider, which the @prompter uses.</doc>
           <type name="EDataServer.SourceCredentialsProvider"
                 c:type="ESourceCredentialsProvider*"/>
         </return-value>
@@ -671,7 +616,7 @@ if any available.</doc>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1246">an #ECredentialsPrompter</doc>
+                 line="1230">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
         </parameters>
@@ -682,20 +627,20 @@ if any available.</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1226">Returns an #ESourceRegistry, to which the @prompter listens.</doc>
+             line="1210">Returns an #ESourceRegistry, to which the @prompter listens.</doc>
         <source-position filename="src/libedataserverui/e-credentials-prompter.h"
                          line="139"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/e-credentials-prompter.c"
-               line="1232">an #ESourceRegistry, to which the @prompter listens.</doc>
+               line="1216">an #ESourceRegistry, to which the @prompter listens.</doc>
           <type name="EDataServer.SourceRegistry" c:type="ESourceRegistry*"/>
         </return-value>
         <parameters>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1228">an #ECredentialsPrompter</doc>
+                 line="1212">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
         </parameters>
@@ -706,7 +651,7 @@ if any available.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1885">Runs a credentials prompt loop for @source, as long as the @func doesn't
+             line="1820">Runs a credentials prompt loop for @source, as long as the @func doesn't
 indicate that the provided credentials can be used to successfully
 authenticate against @source&lt;!-- --&gt;'s server, or that the @func
 returns %FALSE. The loop is also teminated when a used cancels
@@ -717,11 +662,11 @@ Note: The function doesn't return until the loop is terminated, either
    successfully or unsuccessfully. The function can be called from any
    thread, though a dedicated thread is preferred.</doc>
         <source-position filename="src/libedataserverui/e-credentials-prompter.h"
-                         line="192"/>
+                         line="186"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/e-credentials-prompter.c"
-               line="1906">%TRUE, when the credentials were provided successfully and they
+               line="1841">%TRUE, when the credentials were provided successfully and they
   can be used to authenticate the @source; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -729,19 +674,19 @@ Note: The function doesn't return until the loop is terminated, either
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1887">an #ECredentialsPrompter</doc>
+                 line="1822">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1888">an #ESource to be prompted credentials for</doc>
+                 line="1823">an #ESource to be prompted credentials for</doc>
             <type name="EDataServer.Source" c:type="ESource*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1889">a bit-or of #ECredentialsPrompterPromptFlags initial flags</doc>
+                 line="1824">a bit-or of #ECredentialsPrompterPromptFlags initial flags</doc>
             <type name="CredentialsPrompterPromptFlags"
                   c:type="ECredentialsPrompterPromptFlags"/>
           </parameter>
@@ -751,7 +696,7 @@ Note: The function doesn't return until the loop is terminated, either
                      closure="3">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1890">an #ECredentialsPrompterLoopPromptFunc user function to call to check provided credentials</doc>
+                 line="1825">an #ECredentialsPrompterLoopPromptFunc user function to call to check provided credentials</doc>
             <type name="CredentialsPrompterLoopPromptFunc"
                   c:type="ECredentialsPrompterLoopPromptFunc"/>
           </parameter>
@@ -761,7 +706,7 @@ Note: The function doesn't return until the loop is terminated, either
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1891">user data to pass to @func</doc>
+                 line="1826">user data to pass to @func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="cancellable"
@@ -770,7 +715,7 @@ Note: The function doesn't return until the loop is terminated, either
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1892">an optional #GCancellable, or %NULL</doc>
+                 line="1827">an optional #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -780,7 +725,7 @@ Note: The function doesn't return until the loop is terminated, either
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1602">Process all enabled sources with connection state #E_SOURCE_CONNECTION_STATUS_AWAITING_CREDENTIALS,
+             line="1586">Process all enabled sources with connection state #E_SOURCE_CONNECTION_STATUS_AWAITING_CREDENTIALS,
 like if they just asked for its credentials for the first time.</doc>
         <source-position filename="src/libedataserverui/e-credentials-prompter.h"
                          line="169"/>
@@ -791,7 +736,7 @@ like if they just asked for its credentials for the first time.</doc>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1604">an #ECredentialsPrompter</doc>
+                 line="1588">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
         </parameters>
@@ -801,7 +746,7 @@ like if they just asked for its credentials for the first time.</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1634">Continues a credential prompt for @source. Returns, whether anything will be done.
+             line="1618">Continues a credential prompt for @source. Returns, whether anything will be done.
 The %FALSE either means that the @source&lt;!-- --&gt;'s connection status is not
 the %E_SOURCE_CONNECTION_STATUS_AWAITING_CREDENTIALS or it is disabled.</doc>
         <source-position filename="src/libedataserverui/e-credentials-prompter.h"
@@ -809,20 +754,20 @@ the %E_SOURCE_CONNECTION_STATUS_AWAITING_CREDENTIALS or it is disabled.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/e-credentials-prompter.c"
-               line="1643">Whether continues with the credentials prompt.</doc>
+               line="1627">Whether continues with the credentials prompt.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1636">an #ECredentialsPrompter</doc>
+                 line="1620">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1637">an #ESource</doc>
+                 line="1621">an #ESource</doc>
             <type name="EDataServer.Source" c:type="ESource*"/>
           </parameter>
         </parameters>
@@ -832,7 +777,7 @@ the %E_SOURCE_CONNECTION_STATUS_AWAITING_CREDENTIALS or it is disabled.</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1664">Asks the @prompter to prompt for credentials, which are returned
+             line="1648">Asks the @prompter to prompt for credentials, which are returned
 to the caller through @callback, when available.The @flags are ignored,
 when the @callback is %NULL; the credentials are passed to the @source
 with e_source_invoke_authenticate() directly, in this case.
@@ -847,13 +792,13 @@ the provided credentials.</doc>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1666">an #ECredentialsPrompter</doc>
+                 line="1650">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1667">an #ESource, which prompt the credentials for</doc>
+                 line="1651">an #ESource, which prompt the credentials for</doc>
             <type name="EDataServer.Source" c:type="ESource*"/>
           </parameter>
           <parameter name="error_text"
@@ -862,13 +807,13 @@ the provided credentials.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1668">Additional error text to show to a user, or %NULL</doc>
+                 line="1652">Additional error text to show to a user, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1669">a bit-or of #ECredentialsPrompterPromptFlags</doc>
+                 line="1653">a bit-or of #ECredentialsPrompterPromptFlags</doc>
             <type name="CredentialsPrompterPromptFlags"
                   c:type="ECredentialsPrompterPromptFlags"/>
           </parameter>
@@ -880,7 +825,7 @@ the provided credentials.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1670">a callback to call when the credentials are ready, or %NULL</doc>
+                 line="1654">a callback to call when the credentials are ready, or %NULL</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -889,7 +834,7 @@ the provided credentials.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1671">user data passed into @callback</doc>
+                 line="1655">user data passed into @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -900,7 +845,7 @@ the provided credentials.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1707">Finishes a credentials prompt previously started with e_credentials_prompter_prompt().
+             line="1693">Finishes a credentials prompt previously started with e_credentials_prompter_prompt().
 The @out_source will have set a referenced #ESource, for which the prompt
 was started. Unref it, when  no longer needed. Similarly the @out_credentials
 will have set a newly allocated #ENamedParameters structure with provided credentials,
@@ -911,20 +856,20 @@ Both output arguments will be set to %NULL on error and %FALSE will be returned.
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/e-credentials-prompter.c"
-               line="1722">%TRUE on success, %FALSE otherwise.</doc>
+               line="1708">%TRUE on success, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1709">an #ECredentialsPrompter</doc>
+                 line="1695">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1710">a #GAsyncResult</doc>
+                 line="1696">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
           <parameter name="out_source"
@@ -936,7 +881,7 @@ Both output arguments will be set to %NULL on error and %FALSE will be returned.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1711">optionally set to an #ESource, on which the prompt was started; can be %NULL</doc>
+                 line="1697">optionally set to an #ESource, on which the prompt was started; can be %NULL</doc>
             <type name="EDataServer.Source" c:type="ESource**"/>
           </parameter>
           <parameter name="out_credentials"
@@ -946,7 +891,7 @@ Both output arguments will be set to %NULL on error and %FALSE will be returned.
                      nullable="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1712">set to an #ENamedParameters with provied credentials</doc>
+                 line="1698">set to an #ENamedParameters with provided credentials</doc>
             <type name="EDataServer.NamedParameters"
                   c:type="ENamedParameters**"/>
           </parameter>
@@ -957,7 +902,7 @@ Both output arguments will be set to %NULL on error and %FALSE will be returned.
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1463">Registers a prompter implementation for a given authentication method. If there is
+             line="1447">Registers a prompter implementation for a given authentication method. If there is
 registered a prompter for the same @authentication_method, then the function does
 nothing, otherwise it adds its own reference on the @prompter_impl, and uses it
 for that authentication method. One @prompter_impl can be registered for multiple
@@ -971,7 +916,7 @@ registered for the exact authentication method.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libedataserverui/e-credentials-prompter.c"
-               line="1479">%TRUE on success, %FALSE on failure or when there was another prompter
+               line="1463">%TRUE on success, %FALSE on failure or when there was another prompter
 implementation registered for the given authentication method.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -979,7 +924,7 @@ implementation registered for the given authentication method.</doc>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1465">an #ECredentialsPrompter</doc>
+                 line="1449">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="authentication_method"
@@ -988,13 +933,13 @@ implementation registered for the given authentication method.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1466">an authentication method to registr @prompter_impl for; or %NULL</doc>
+                 line="1450">an authentication method to registr @prompter_impl for; or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="prompter_impl" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1467">an #ECredentialsPrompterImpl</doc>
+                 line="1451">an #ECredentialsPrompterImpl</doc>
             <type name="CredentialsPrompterImpl"
                   c:type="ECredentialsPrompterImpl*"/>
           </parameter>
@@ -1006,7 +951,7 @@ implementation registered for the given authentication method.</doc>
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1284">Sets whether can respond to credential prompts automatically. That means that
+             line="1268">Sets whether can respond to credential prompts automatically. That means that
 whenever any ESource will ask for credentials, it'll try to provide them.
 
 Use e_credentials_prompter_set_auto_prompt_disabled_for() to influence
@@ -1022,13 +967,13 @@ This property does not influence direct calls of e_credentials_prompter_prompt()
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1286">an #ECredentialsPrompter</doc>
+                 line="1270">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="auto_prompt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1287">new value of the auto-prompt property</doc>
+                 line="1271">new value of the auto-prompt property</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1038,7 +983,7 @@ This property does not influence direct calls of e_credentials_prompter_prompt()
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1313">Sets whether the auto-prompt should be disabled for the given @source.
+             line="1297">Sets whether the auto-prompt should be disabled for the given @source.
 All sources can be auto-prompted by default. This is a complementary
 value for the ECredentialsPrompter::auto-prompt property.
 
@@ -1052,19 +997,19 @@ This value does not influence direct calls of e_credentials_prompter_prompt().</
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1315">an #ECredentialsPrompter</doc>
+                 line="1299">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1316">an #ESource</doc>
+                 line="1300">an #ESource</doc>
             <type name="EDataServer.Source" c:type="ESource*"/>
           </parameter>
           <parameter name="is_disabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1317">whether the auto-prompt should be disabled for this @source</doc>
+                 line="1301">whether the auto-prompt should be disabled for this @source</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1074,7 +1019,7 @@ This value does not influence direct calls of e_credentials_prompter_prompt().</
               version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1517">Unregisters previously registered @prompter_impl for the given @autnetication_method with
+             line="1501">Unregisters previously registered @prompter_impl for the given @autnetication_method with
 e_credentials_prompter_register_impl(). Function does nothing, if no such authentication
 method is registered or if it has set a different prompter implementation.</doc>
         <source-position filename="src/libedataserverui/e-credentials-prompter.h"
@@ -1086,7 +1031,7 @@ method is registered or if it has set a different prompter implementation.</doc>
           <instance-parameter name="prompter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1519">an #ECredentialsPrompter</doc>
+                 line="1503">an #ECredentialsPrompter</doc>
             <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
           </instance-parameter>
           <parameter name="authentication_method"
@@ -1095,13 +1040,13 @@ method is registered or if it has set a different prompter implementation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1520">an authentication method to registr @prompter_impl for; or %NULL</doc>
+                 line="1504">an authentication method to registr @prompter_impl for; or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="prompter_impl" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1521">an #ECredentialsPrompterImpl</doc>
+                 line="1505">an #ECredentialsPrompterImpl</doc>
             <type name="CredentialsPrompterImpl"
                   c:type="ECredentialsPrompterImpl*"/>
           </parameter>
@@ -1117,7 +1062,7 @@ method is registered or if it has set a different prompter implementation.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1082">Whether the #ECredentialsPrompter can response to credential
+             line="1066">Whether the #ECredentialsPrompter can response to credential
 requests automatically.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -1127,7 +1072,7 @@ requests automatically.</doc>
                 getter="get_provider">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1122">The #ESourceCredentialsProvider object, which the prompter uses.</doc>
+             line="1106">The #ESourceCredentialsProvider object, which the prompter uses.</doc>
         <type name="EDataServer.SourceCredentialsProvider"/>
       </property>
       <property name="registry"
@@ -1138,7 +1083,7 @@ requests automatically.</doc>
                 getter="get_registry">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1103">The #ESourceRegistry object, to whose credential requests the prompter listens.</doc>
+             line="1087">The #ESourceRegistry object, to whose credential requests the prompter listens.</doc>
         <type name="EDataServer.SourceRegistry"/>
       </property>
       <field name="parent">
@@ -1151,13 +1096,13 @@ requests automatically.</doc>
       <glib:signal name="get-dialog-parent" when="last" version="3.16">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1140">Emitted when a new dialog will be shown, to get the right parent
+             line="1124">Emitted when a new dialog will be shown, to get the right parent
 window for it. If the result of the call is %NULL, then it tries
 to get the window from the default GtkApplication.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/libedataserverui/e-credentials-prompter.c"
-               line="1148">a #GtkWindow, to be used as a
+               line="1132">a #GtkWindow, to be used as a
 dialog parent, or %NULL.</doc>
           <type name="Gtk.Window"/>
         </return-value>
@@ -1165,13 +1110,13 @@ dialog parent, or %NULL.</doc>
       <glib:signal name="get-dialog-parent-full" when="last" version="3.42">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
-             line="1161">Emitted when a new dialog will be shown, to get the right parent
+             line="1145">Emitted when a new dialog will be shown, to get the right parent
 window for it. If the result of the call is %NULL, then it tries
 to get the window from the default GtkApplication.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/libedataserverui/e-credentials-prompter.c"
-               line="1170">a #GtkWindow, to be used as a
+               line="1154">a #GtkWindow, to be used as a
 dialog parent, or %NULL.</doc>
           <type name="Gtk.Window"/>
         </return-value>
@@ -1182,7 +1127,7 @@ dialog parent, or %NULL.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1164">an #ESource, for which to show the credentials prompt</doc>
+                 line="1148">an #ESource, for which to show the credentials prompt</doc>
             <type name="EDataServer.Source"/>
           </parameter>
         </parameters>
@@ -1203,7 +1148,7 @@ dialog parent, or %NULL.</doc>
           <return-value transfer-ownership="none" nullable="1">
             <doc xml:space="preserve"
                  filename="src/libedataserverui/e-credentials-prompter.c"
-                 line="1404">a #GtkWindow, to be used as a dialog parent,
+                 line="1388">a #GtkWindow, to be used as a dialog parent,
    or %NULL.</doc>
             <type name="Gtk.Window" c:type="GtkWindow*"/>
           </return-value>
@@ -1211,7 +1156,7 @@ dialog parent, or %NULL.</doc>
             <parameter name="prompter" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/libedataserverui/e-credentials-prompter.c"
-                   line="1397">an #ECredentialsPrompter</doc>
+                   line="1381">an #ECredentialsPrompter</doc>
               <type name="CredentialsPrompter" c:type="ECredentialsPrompter*"/>
             </parameter>
           </parameters>

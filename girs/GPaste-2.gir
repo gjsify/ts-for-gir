@@ -171,7 +171,10 @@ and/or use gtk-doc annotations.  -->
           </parameter>
         </parameters>
       </function>
-      <method name="about" c:identifier="g_paste_client_about">
+      <method name="about"
+              c:identifier="g_paste_client_about"
+              glib:finish-func="about_finish"
+              glib:sync-func="about_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="764">Display the about dialog</doc>
@@ -238,7 +241,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="about_sync"
               c:identifier="g_paste_client_about_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="about">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="185">Display the about dialog</doc>
@@ -256,7 +260,10 @@ care about the result of the method invocation.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="add" c:identifier="g_paste_client_add">
+      <method name="add"
+              c:identifier="g_paste_client_add"
+              glib:finish-func="add_finish"
+              glib:sync-func="add_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="781">Add an item to the #GPasteDaemon</doc>
@@ -301,7 +308,10 @@ care about the result of the method invocation.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="add_file" c:identifier="g_paste_client_add_file">
+      <method name="add_file"
+              c:identifier="g_paste_client_add_file"
+              glib:finish-func="add_file_finish"
+              glib:sync-func="add_file_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="800">Add the file contents to the #GPasteDaemon</doc>
@@ -374,7 +384,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="add_file_sync"
               c:identifier="g_paste_client_add_file_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="add_file">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="215">Add the file contents to the #GPasteDaemon</doc>
@@ -424,7 +435,10 @@ care about the result of the method invocation.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="add_password" c:identifier="g_paste_client_add_password">
+      <method name="add_password"
+              c:identifier="g_paste_client_add_password"
+              glib:finish-func="add_password_finish"
+              glib:sync-func="add_password_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="827">Add the password to the #GPasteDaemon</doc>
@@ -503,7 +517,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="add_password_sync"
               c:identifier="g_paste_client_add_password_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="add_password">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="239">Add the password to the #GPasteDaemon</doc>
@@ -535,7 +550,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="add_sync"
               c:identifier="g_paste_client_add_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="add">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="199">Add an item to the #GPasteDaemon</doc>
@@ -560,7 +576,9 @@ care about the result of the method invocation.</doc>
         </parameters>
       </method>
       <method name="backup_history"
-              c:identifier="g_paste_client_backup_history">
+              c:identifier="g_paste_client_backup_history"
+              glib:finish-func="backup_history_finish"
+              glib:sync-func="backup_history_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="853">Backup the current history</doc>
@@ -639,7 +657,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="backup_history_sync"
               c:identifier="g_paste_client_backup_history_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="backup_history">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="262">Backup the current history</doc>
@@ -669,7 +688,10 @@ care about the result of the method invocation.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="delete" c:identifier="g_paste_client_delete">
+      <method name="delete"
+              c:identifier="g_paste_client_delete"
+              glib:finish-func="delete_finish"
+              glib:sync-func="delete_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="879">Delete an item from the #GPasteDaemon</doc>
@@ -741,7 +763,9 @@ care about the result of the method invocation.</doc>
         </parameters>
       </method>
       <method name="delete_history"
-              c:identifier="g_paste_client_delete_history">
+              c:identifier="g_paste_client_delete_history"
+              glib:finish-func="delete_history_finish"
+              glib:sync-func="delete_history_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="898">Delete a history</doc>
@@ -814,7 +838,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="delete_history_sync"
               c:identifier="g_paste_client_delete_history_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="delete_history">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="301">Delete a history</doc>
@@ -839,7 +864,9 @@ care about the result of the method invocation.</doc>
         </parameters>
       </method>
       <method name="delete_password"
-              c:identifier="g_paste_client_delete_password">
+              c:identifier="g_paste_client_delete_password"
+              glib:finish-func="delete_password_finish"
+              glib:sync-func="delete_password_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="917">Delete the password from the #GPasteDaemon</doc>
@@ -912,7 +939,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="delete_password_sync"
               c:identifier="g_paste_client_delete_password_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="delete_password">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="317">Delete the password from the #GPasteDaemon</doc>
@@ -938,7 +966,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="delete_sync"
               c:identifier="g_paste_client_delete_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="delete">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="285">Delete an item from the #GPasteDaemon</doc>
@@ -962,7 +991,10 @@ care about the result of the method invocation.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="empty_history" c:identifier="g_paste_client_empty_history">
+      <method name="empty_history"
+              c:identifier="g_paste_client_empty_history"
+              glib:finish-func="empty_history_finish"
+              glib:sync-func="empty_history_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="936">Empty the history from the #GPasteDaemon</doc>
@@ -1035,7 +1067,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="empty_history_sync"
               c:identifier="g_paste_client_empty_history_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="empty_history">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="333">Empty the history from the #GPasteDaemon</doc>
@@ -1059,7 +1092,10 @@ care about the result of the method invocation.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="get_element" c:identifier="g_paste_client_get_element">
+      <method name="get_element"
+              c:identifier="g_paste_client_get_element"
+              glib:finish-func="get_element_finish"
+              glib:sync-func="get_element_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="955">Get an item from the #GPasteDaemon</doc>
@@ -1105,7 +1141,9 @@ care about the result of the method invocation.</doc>
         </parameters>
       </method>
       <method name="get_element_at_index"
-              c:identifier="g_paste_client_get_element_at_index">
+              c:identifier="g_paste_client_get_element_at_index"
+              glib:finish-func="get_element_at_index_finish"
+              glib:sync-func="get_element_at_index_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="974">Get an item from the #GPasteDaemon</doc>
@@ -1181,7 +1219,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="get_element_at_index_sync"
               c:identifier="g_paste_client_get_element_at_index_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="get_element_at_index">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="367">Get an item from the #GPasteDaemon</doc>
@@ -1238,7 +1277,9 @@ care about the result of the method invocation.</doc>
         </parameters>
       </method>
       <method name="get_element_kind"
-              c:identifier="g_paste_client_get_element_kind">
+              c:identifier="g_paste_client_get_element_kind"
+              glib:finish-func="get_element_kind_finish"
+              glib:sync-func="get_element_kind_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="993">Get the kind of an item from the #GPasteDaemon</doc>
@@ -1314,7 +1355,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="get_element_kind_sync"
               c:identifier="g_paste_client_get_element_kind_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="get_element_kind">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="393">Get the kind of an item from the #GPasteDaemon</doc>
@@ -1343,7 +1385,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="get_element_sync"
               c:identifier="g_paste_client_get_element_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="get_element">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="349">Get an item from the #GPasteDaemon</doc>
@@ -1370,7 +1413,10 @@ care about the result of the method invocation.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="get_elements" c:identifier="g_paste_client_get_elements">
+      <method name="get_elements"
+              c:identifier="g_paste_client_get_elements"
+              glib:finish-func="get_elements_finish"
+              glib:sync-func="get_elements_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="1012">Get some items from the #GPasteDaemon</doc>
@@ -1456,7 +1502,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="get_elements_sync"
               c:identifier="g_paste_client_get_elements_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="get_elements">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="414">Get some items from the #GPasteDaemon</doc>
@@ -1493,7 +1540,10 @@ care about the result of the method invocation.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="get_history" c:identifier="g_paste_client_get_history">
+      <method name="get_history"
+              c:identifier="g_paste_client_get_history"
+              glib:finish-func="get_history_finish"
+              glib:sync-func="get_history_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="1034">Get the history from the #GPasteDaemon</doc>
@@ -1564,7 +1614,9 @@ care about the result of the method invocation.</doc>
         </parameters>
       </method>
       <method name="get_history_name"
-              c:identifier="g_paste_client_get_history_name">
+              c:identifier="g_paste_client_get_history_name"
+              glib:finish-func="get_history_name_finish"
+              glib:sync-func="get_history_name_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="1051">Get the name of the history from the #GPasteDaemon</doc>
@@ -1634,7 +1686,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="get_history_name_sync"
               c:identifier="g_paste_client_get_history_name_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="get_history_name">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="451">Get the name of the history from the #GPasteDaemon</doc>
@@ -1656,7 +1709,9 @@ care about the result of the method invocation.</doc>
         </parameters>
       </method>
       <method name="get_history_size"
-              c:identifier="g_paste_client_get_history_size">
+              c:identifier="g_paste_client_get_history_size"
+              glib:finish-func="get_history_size_finish"
+              glib:sync-func="get_history_size_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="1068">Get the history isize from the #GPasteDaemon</doc>
@@ -1732,7 +1787,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="get_history_size_sync"
               c:identifier="g_paste_client_get_history_size_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="get_history_size">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="467">Get the history size from the #GPasteDaemon</doc>
@@ -1761,7 +1817,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="get_history_sync"
               c:identifier="g_paste_client_get_history_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="get_history">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="435">Get the history from the #GPasteDaemon</doc>
@@ -1785,7 +1842,9 @@ care about the result of the method invocation.</doc>
         </parameters>
       </method>
       <method name="get_raw_element"
-              c:identifier="g_paste_client_get_raw_element">
+              c:identifier="g_paste_client_get_raw_element"
+              glib:finish-func="get_raw_element_finish"
+              glib:sync-func="get_raw_element_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="1087">Get an item from the #GPasteDaemon</doc>
@@ -1861,7 +1920,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="get_raw_element_sync"
               c:identifier="g_paste_client_get_raw_element_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="get_raw_element">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="485">Get an item from the #GPasteDaemon</doc>
@@ -1889,7 +1949,9 @@ care about the result of the method invocation.</doc>
         </parameters>
       </method>
       <method name="get_raw_history"
-              c:identifier="g_paste_client_get_raw_history">
+              c:identifier="g_paste_client_get_raw_history"
+              glib:finish-func="get_raw_history_finish"
+              glib:sync-func="get_raw_history_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="1106">Get the history from the #GPasteDaemon</doc>
@@ -1961,7 +2023,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="get_raw_history_sync"
               c:identifier="g_paste_client_get_raw_history_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="get_raw_history">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="503">Get the history from the #GPasteDaemon</doc>
@@ -2027,7 +2090,9 @@ care about the result of the method invocation.</doc>
         </parameters>
       </method>
       <method name="list_histories"
-              c:identifier="g_paste_client_list_histories">
+              c:identifier="g_paste_client_list_histories"
+              glib:finish-func="list_histories_finish"
+              glib:sync-func="list_histories_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="1123">List all available hisotries</doc>
@@ -2099,7 +2164,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="list_histories_sync"
               c:identifier="g_paste_client_list_histories_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="list_histories">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="519">List all available hisotries</doc>
@@ -2122,7 +2188,10 @@ care about the result of the method invocation.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="merge" c:identifier="g_paste_client_merge">
+      <method name="merge"
+              c:identifier="g_paste_client_merge"
+              glib:finish-func="merge_finish"
+              glib:sync-func="merge_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="1140">Merge some history entries
@@ -2224,7 +2293,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="merge_sync"
               c:identifier="g_paste_client_merge_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="merge">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="535">Merge some history entries
@@ -2278,7 +2348,9 @@ result will be "foo","bar","baz"</doc>
         </parameters>
       </method>
       <method name="on_extension_state_changed"
-              c:identifier="g_paste_client_on_extension_state_changed">
+              c:identifier="g_paste_client_on_extension_state_changed"
+              glib:finish-func="on_extension_state_changed_finish"
+              glib:sync-func="on_extension_state_changed_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="1174">Call this when the extension changes its state</doc>
@@ -2351,7 +2423,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="on_extension_state_changed_sync"
               c:identifier="g_paste_client_on_extension_state_changed_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="on_extension_state_changed">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="566">Call this when the extension changes its state</doc>
@@ -2375,7 +2448,10 @@ care about the result of the method invocation.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="reexecute" c:identifier="g_paste_client_reexecute">
+      <method name="reexecute"
+              c:identifier="g_paste_client_reexecute"
+              glib:finish-func="reexecute_finish"
+              glib:sync-func="reexecute_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="1193">Reexecute the #GPasteDaemon</doc>
@@ -2442,7 +2518,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="reexecute_sync"
               c:identifier="g_paste_client_reexecute_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="reexecute">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="582">Reexecute the #GPasteDaemon</doc>
@@ -2461,7 +2538,9 @@ care about the result of the method invocation.</doc>
         </parameters>
       </method>
       <method name="rename_password"
-              c:identifier="g_paste_client_rename_password">
+              c:identifier="g_paste_client_rename_password"
+              glib:finish-func="rename_password_finish"
+              glib:sync-func="rename_password_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="1210">Rename the password in the #GPasteDaemon</doc>
@@ -2540,7 +2619,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="rename_password_sync"
               c:identifier="g_paste_client_rename_password_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="rename_password">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="596">Rename the password in the #GPasteDaemon</doc>
@@ -2570,7 +2650,10 @@ care about the result of the method invocation.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="replace" c:identifier="g_paste_client_replace">
+      <method name="replace"
+              c:identifier="g_paste_client_replace"
+              glib:finish-func="replace_finish"
+              glib:sync-func="replace_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="1236">Replace the contents of an item</doc>
@@ -2649,7 +2732,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="replace_sync"
               c:identifier="g_paste_client_replace_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="replace">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="619">Replace the contents of an item</doc>
@@ -2679,7 +2763,10 @@ care about the result of the method invocation.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="search" c:identifier="g_paste_client_search">
+      <method name="search"
+              c:identifier="g_paste_client_search"
+              glib:finish-func="search_finish"
+              glib:sync-func="search_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="1262">Search for items matching @pattern in history</doc>
@@ -2757,7 +2844,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="search_sync"
               c:identifier="g_paste_client_search_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="search">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="642">Search for items matching @pattern in history</doc>
@@ -2786,7 +2874,10 @@ care about the result of the method invocation.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="select" c:identifier="g_paste_client_select">
+      <method name="select"
+              c:identifier="g_paste_client_select"
+              glib:finish-func="select_finish"
+              glib:sync-func="select_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="1281">Select an item from the #GPasteDaemon</doc>
@@ -2859,7 +2950,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="select_sync"
               c:identifier="g_paste_client_select_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="select">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="660">Select an item from the #GPasteDaemon</doc>
@@ -2883,7 +2975,10 @@ care about the result of the method invocation.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="set_password" c:identifier="g_paste_client_set_password">
+      <method name="set_password"
+              c:identifier="g_paste_client_set_password"
+              glib:finish-func="set_password_finish"
+              glib:sync-func="set_password_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="1300">Set the item as password</doc>
@@ -2962,7 +3057,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="set_password_sync"
               c:identifier="g_paste_client_set_password_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="set_password">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="676">Set the item as password</doc>
@@ -2992,7 +3088,10 @@ care about the result of the method invocation.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="show_history" c:identifier="g_paste_client_show_history">
+      <method name="show_history"
+              c:identifier="g_paste_client_show_history"
+              glib:finish-func="show_history_finish"
+              glib:sync-func="show_history_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="1326">Emit the ShowHistory signal</doc>
@@ -3059,7 +3158,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="show_history_sync"
               c:identifier="g_paste_client_show_history_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="show_history">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="699">Emit the ShowHistory signal</doc>
@@ -3078,7 +3178,9 @@ care about the result of the method invocation.</doc>
         </parameters>
       </method>
       <method name="switch_history"
-              c:identifier="g_paste_client_switch_history">
+              c:identifier="g_paste_client_switch_history"
+              glib:finish-func="switch_history_finish"
+              glib:sync-func="switch_history_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="1343">Switch to another history</doc>
@@ -3151,7 +3253,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="switch_history_sync"
               c:identifier="g_paste_client_switch_history_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="switch_history">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="712">Switch to another history</doc>
@@ -3175,7 +3278,10 @@ care about the result of the method invocation.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="track" c:identifier="g_paste_client_track">
+      <method name="track"
+              c:identifier="g_paste_client_track"
+              glib:finish-func="track_finish"
+              glib:sync-func="track_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="1362">Change the tracking state of the #GPasteDaemon</doc>
@@ -3248,7 +3354,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="track_sync"
               c:identifier="g_paste_client_track_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="track">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="728">Change the tracking state of the #GPasteDaemon</doc>
@@ -3272,7 +3379,10 @@ care about the result of the method invocation.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="upload" c:identifier="g_paste_client_upload">
+      <method name="upload"
+              c:identifier="g_paste_client_upload"
+              glib:finish-func="upload_finish"
+              glib:sync-func="upload_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="1381">Upload an item to a pastebin service</doc>
@@ -3345,7 +3455,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="upload_sync"
               c:identifier="g_paste_client_upload_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="upload">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-client.c"
              line="744">Upload an item to a pastebin service</doc>
@@ -4144,7 +4255,9 @@ should be handled.</doc>
         </parameters>
       </function>
       <method name="grab_accelerator"
-              c:identifier="g_paste_gnome_shell_client_grab_accelerator">
+              c:identifier="g_paste_gnome_shell_client_grab_accelerator"
+              glib:finish-func="grab_accelerator_finish"
+              glib:sync-func="grab_accelerator_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-gnome-shell-client.c"
              line="181">Grab a keybinding</doc>
@@ -4221,7 +4334,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="grab_accelerator_sync"
               c:identifier="g_paste_gnome_shell_client_grab_accelerator_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="grab_accelerator">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-gnome-shell-client.c"
              line="102">Grab a keybinding</doc>
@@ -4250,7 +4364,9 @@ care about the result of the method invocation.</doc>
         </parameters>
       </method>
       <method name="grab_accelerators"
-              c:identifier="g_paste_gnome_shell_client_grab_accelerators">
+              c:identifier="g_paste_gnome_shell_client_grab_accelerators"
+              glib:finish-func="grab_accelerators_finish"
+              glib:sync-func="grab_accelerators_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-gnome-shell-client.c"
              line="205">Grab some keybindings</doc>
@@ -4329,7 +4445,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="grab_accelerators_sync"
               c:identifier="g_paste_gnome_shell_client_grab_accelerators_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="grab_accelerators">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-gnome-shell-client.c"
              line="125">Grab some keybindings</doc>
@@ -4360,7 +4477,9 @@ care about the result of the method invocation.</doc>
         </parameters>
       </method>
       <method name="ungrab_accelerator"
-              c:identifier="g_paste_gnome_shell_client_ungrab_accelerator">
+              c:identifier="g_paste_gnome_shell_client_ungrab_accelerator"
+              glib:finish-func="ungrab_accelerator_finish"
+              glib:sync-func="ungrab_accelerator_sync">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-gnome-shell-client.c"
              line="240">Ungrab a keybinding</doc>
@@ -4436,7 +4555,8 @@ care about the result of the method invocation.</doc>
       </method>
       <method name="ungrab_accelerator_sync"
               c:identifier="g_paste_gnome_shell_client_ungrab_accelerator_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="ungrab_accelerator">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste/gpaste-gnome-shell-client.c"
              line="159">Ungrab a keybinding</doc>

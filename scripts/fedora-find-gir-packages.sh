@@ -1,13 +1,22 @@
 #!/bin/bash
 
-# This script is used to find all the .gir files in the Fedora repositories.
-# It is used to find the packages that provide the .gir files.
+# This script is used to find all the .gir files in the Fedora repositories that are not already found on the filesystem.
 # Feel free to add a similar script for other distributions.
 
 echo "Starting to find .gir files..."
-# First, get the list of .gir file paths
-gir_files=$(dnf repoquery -l '*/*.gir' | grep '.gir$' | sort -u)
-echo "Found $(echo "$gir_files" | wc -l) .gir files."
+# First, get the list of .gir file paths from the repositories
+repo_gir_files=$(dnf repoquery -l '*/*.gir' | grep '.gir$' | sort -u)
+
+# Filter out .gir files that are already on the filesystem
+gir_files=()
+for file in $repo_gir_files; do
+    if [ ! -f "$file" ]; then
+        gir_files+=("$file")
+    fi
+done
+
+echo "Found ${#gir_files[@]} .gir files not on the filesystem:"
+echo "${gir_files[@]}"
 
 # Initialize an array to store all package names
 pkg_names=()
@@ -23,6 +32,9 @@ for file in $gir_files; do
     pkg_names+=("$pkg")
 done
 echo -ne '\n'
+
+echo "Found ${#pkg_names[@]} unique packages."
+echo "${pkg_names[@]}"
 
 echo "Sorting and deduplicating package names..."
 # Sort the package names to only get the latest version

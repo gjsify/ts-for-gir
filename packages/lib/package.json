@@ -66,7 +66,7 @@
     "dependencies": {
         "@gi.ts/parser": "workspace:^",
         "colorette": "^2.0.20",
-        "ejs": "^3.1.9",
+        "ejs": "^3.1.10",
         "lodash": "^4.17.21"
     }
 }

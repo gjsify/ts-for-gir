@@ -1251,7 +1251,7 @@ Like #tracker_major_version, but intended to be used at application compile time
                        line="10"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="1" c:type="TRACKER_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="2" c:type="TRACKER_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="src/libtracker-sparql/tracker-version-generated.h"
            line="21">The micro version of the Tracker library.
@@ -3789,7 +3789,8 @@ normally use the `https://` or `http://` protocols.</doc>
       </constructor>
       <function name="bus_new_async"
                 c:identifier="tracker_sparql_connection_bus_new_async"
-                version="3.1">
+                version="3.1"
+                glib:finish-func="bus_new_finish">
         <doc xml:space="preserve"
              filename="src/libtracker-sparql/tracker-connection.c"
              line="1339">Connects asynchronously to a database owned by another process on the
@@ -3857,7 +3858,8 @@ local machine via DBus.</doc>
         </parameters>
       </function>
       <function name="new_async"
-                c:identifier="tracker_sparql_connection_new_async">
+                c:identifier="tracker_sparql_connection_new_async"
+                glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/libtracker-sparql/tracker-connection.c"
              line="1222">Creates or opens a process-local database asynchronously.

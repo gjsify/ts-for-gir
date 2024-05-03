@@ -165,6 +165,10 @@ over the life of the NautilusColumn.</doc>
       <source-position filename="libnautilus-extension/nautilus-column-provider.h"
                        line="68"/>
       <virtual-method name="get_columns" invoker="get_columns">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-column-provider.h"
+             line="58">Returns a #GList of #NautilusColumn.
+              See nautilus_column_provider_get_columns() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-column-provider.h"
                          line="67"/>
         <return-value transfer-ownership="full" nullable="1">
@@ -221,6 +225,10 @@ over the life of the NautilusColumn.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_columns">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-column-provider.h"
+             line="58">Returns a #GList of #NautilusColumn.
+              See nautilus_column_provider_get_columns() for details.</doc>
         <callback name="get_columns">
           <source-position filename="libnautilus-extension/nautilus-column-provider.h"
                            line="67"/>
@@ -366,6 +374,10 @@ over the life of the NautilusColumn.</doc>
         </parameters>
       </function>
       <virtual-method name="add_emblem" invoker="add_emblem">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="68">Adds an emblem to this file.
+             See nautilus_file_info_add_emblem() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-file-info.h"
                          line="109"/>
         <return-value transfer-ownership="none">
@@ -388,6 +400,10 @@ over the life of the NautilusColumn.</doc>
       </virtual-method>
       <virtual-method name="add_string_attribute"
                       invoker="add_string_attribute">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="72">Sets the specified string file attribute value.
+                       See nautilus_file_info_add_string_attribute() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-file-info.h"
                          line="113"/>
         <return-value transfer-ownership="none">
@@ -415,6 +431,10 @@ over the life of the NautilusColumn.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="can_write" invoker="can_write">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="88">Returns whether the file is writable.
+            See nautilus_file_info_can_write() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-file-info.h"
                          line="125"/>
         <return-value transfer-ownership="none">
@@ -433,6 +453,10 @@ over the life of the NautilusColumn.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_activation_uri" invoker="get_activation_uri">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="76">Returns the file activation URI as a string.
+                     See nautilus_file_info_get_activation_uri() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-file-info.h"
                          line="118"/>
         <return-value transfer-ownership="full">
@@ -452,6 +476,10 @@ over the life of the NautilusColumn.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_file_type" invoker="get_file_type">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="78">Returns the file type.
+                See nautilus_file_info_get_file_type() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-file-info.h"
                          line="120"/>
         <return-value transfer-ownership="none">
@@ -470,6 +498,10 @@ over the life of the NautilusColumn.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_location" invoker="get_location">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="80">Returns the file location as a #GFile.
+               See nautilus_file_info_get_location() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-file-info.h"
                          line="121"/>
         <return-value transfer-ownership="full">
@@ -488,6 +520,10 @@ over the life of the NautilusColumn.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_mime_type" invoker="get_mime_type">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="62">Returns the file mime type as a string.
+                See nautilus_file_info_get_mime_type() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-file-info.h"
                          line="104"/>
         <return-value transfer-ownership="full">
@@ -506,6 +542,10 @@ over the life of the NautilusColumn.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_mount" invoker="get_mount">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="86">Returns the file mount as a #GMount.
+            See nautilus_file_info_get_mount() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-file-info.h"
                          line="124"/>
         <return-value transfer-ownership="full" nullable="1">
@@ -525,6 +565,10 @@ over the life of the NautilusColumn.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_name" invoker="get_name">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="54">Returns the file name as a string.
+           See nautilus_file_info_get_name() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-file-info.h"
                          line="99"/>
         <return-value transfer-ownership="full">
@@ -566,6 +610,10 @@ only for files already cached by Nautilus.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_parent_location" invoker="get_parent_location">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="82">Returns the file parent location as a #GFile.
+                      See nautilus_file_info_get_parent_location() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-file-info.h"
                          line="122"/>
         <return-value transfer-ownership="full" nullable="1">
@@ -585,6 +633,10 @@ only for files already cached by Nautilus.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_parent_uri" invoker="get_parent_uri">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="58">Returns the file parent URI as a string.
+                 See nautilus_file_info_get_parent_uri() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-file-info.h"
                          line="101"/>
         <return-value transfer-ownership="full">
@@ -605,6 +657,10 @@ only for files already cached by Nautilus.</doc>
       </virtual-method>
       <virtual-method name="get_string_attribute"
                       invoker="get_string_attribute">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="70">Returns the specified file attribute as a string.
+                       See nautilus_file_info_get_string_attribute() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-file-info.h"
                          line="111"/>
         <return-value transfer-ownership="full" nullable="1">
@@ -630,6 +686,10 @@ only for files already cached by Nautilus.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_uri" invoker="get_uri">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="56">Returns the file URI as a string.
+          See nautilus_file_info_get_uri() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-file-info.h"
                          line="100"/>
         <return-value transfer-ownership="full">
@@ -648,6 +708,10 @@ only for files already cached by Nautilus.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_uri_scheme" invoker="get_uri_scheme">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="60">Returns the file URI scheme as a string.
+                 See nautilus_file_info_get_uri_scheme() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-file-info.h"
                          line="102"/>
         <return-value transfer-ownership="full">
@@ -667,6 +731,10 @@ only for files already cached by Nautilus.</doc>
       </virtual-method>
       <virtual-method name="invalidate_extension_info"
                       invoker="invalidate_extension_info">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="74">Invalidates information of the file provided by extensions.
+                            See nautilus_file_info_invalidate_extension_info() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-file-info.h"
                          line="116"/>
         <return-value transfer-ownership="none">
@@ -682,6 +750,10 @@ only for files already cached by Nautilus.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="is_directory" invoker="is_directory">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="66">Returns whether the file is a directory.
+               See nautilus_file_info_is_directory() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-file-info.h"
                          line="107"/>
         <return-value transfer-ownership="none">
@@ -700,6 +772,10 @@ only for files already cached by Nautilus.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="is_gone" invoker="is_gone">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="52">Returns whether the file info is gone.
+          See nautilus_file_info_is_gone() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-file-info.h"
                          line="97"/>
         <return-value transfer-ownership="none">
@@ -718,6 +794,10 @@ only for files already cached by Nautilus.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="is_mime_type" invoker="is_mime_type">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="64">Returns whether the file is the given mime type.
+               See nautilus_file_info_is_mime_type() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-file-info.h"
                          line="105"/>
         <return-value transfer-ownership="none">
@@ -1145,6 +1225,10 @@ only for files already cached by Nautilus.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="is_gone">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="52">Returns whether the file info is gone.
+          See nautilus_file_info_is_gone() for details.</doc>
         <callback name="is_gone">
           <source-position filename="libnautilus-extension/nautilus-file-info.h"
                            line="97"/>
@@ -1165,6 +1249,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="get_name">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="54">Returns the file name as a string.
+           See nautilus_file_info_get_name() for details.</doc>
         <callback name="get_name">
           <source-position filename="libnautilus-extension/nautilus-file-info.h"
                            line="99"/>
@@ -1185,6 +1273,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="get_uri">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="56">Returns the file URI as a string.
+          See nautilus_file_info_get_uri() for details.</doc>
         <callback name="get_uri">
           <source-position filename="libnautilus-extension/nautilus-file-info.h"
                            line="100"/>
@@ -1205,6 +1297,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="get_parent_uri">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="58">Returns the file parent URI as a string.
+                 See nautilus_file_info_get_parent_uri() for details.</doc>
         <callback name="get_parent_uri">
           <source-position filename="libnautilus-extension/nautilus-file-info.h"
                            line="101"/>
@@ -1226,6 +1322,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="get_uri_scheme">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="60">Returns the file URI scheme as a string.
+                 See nautilus_file_info_get_uri_scheme() for details.</doc>
         <callback name="get_uri_scheme">
           <source-position filename="libnautilus-extension/nautilus-file-info.h"
                            line="102"/>
@@ -1246,6 +1346,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="get_mime_type">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="62">Returns the file mime type as a string.
+                See nautilus_file_info_get_mime_type() for details.</doc>
         <callback name="get_mime_type">
           <source-position filename="libnautilus-extension/nautilus-file-info.h"
                            line="104"/>
@@ -1266,6 +1370,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="is_mime_type">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="64">Returns whether the file is the given mime type.
+               See nautilus_file_info_is_mime_type() for details.</doc>
         <callback name="is_mime_type">
           <source-position filename="libnautilus-extension/nautilus-file-info.h"
                            line="105"/>
@@ -1293,6 +1401,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="is_directory">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="66">Returns whether the file is a directory.
+               See nautilus_file_info_is_directory() for details.</doc>
         <callback name="is_directory">
           <source-position filename="libnautilus-extension/nautilus-file-info.h"
                            line="107"/>
@@ -1313,6 +1425,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="add_emblem">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="68">Adds an emblem to this file.
+             See nautilus_file_info_add_emblem() for details.</doc>
         <callback name="add_emblem">
           <source-position filename="libnautilus-extension/nautilus-file-info.h"
                            line="109"/>
@@ -1336,6 +1452,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="get_string_attribute">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="70">Returns the specified file attribute as a string.
+                       See nautilus_file_info_get_string_attribute() for details.</doc>
         <callback name="get_string_attribute">
           <source-position filename="libnautilus-extension/nautilus-file-info.h"
                            line="111"/>
@@ -1363,6 +1483,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="add_string_attribute">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="72">Sets the specified string file attribute value.
+                       See nautilus_file_info_add_string_attribute() for details.</doc>
         <callback name="add_string_attribute">
           <source-position filename="libnautilus-extension/nautilus-file-info.h"
                            line="113"/>
@@ -1392,6 +1516,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="invalidate_extension_info">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="74">Invalidates information of the file provided by extensions.
+                            See nautilus_file_info_invalidate_extension_info() for details.</doc>
         <callback name="invalidate_extension_info">
           <source-position filename="libnautilus-extension/nautilus-file-info.h"
                            line="116"/>
@@ -1409,6 +1537,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="get_activation_uri">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="76">Returns the file activation URI as a string.
+                     See nautilus_file_info_get_activation_uri() for details.</doc>
         <callback name="get_activation_uri">
           <source-position filename="libnautilus-extension/nautilus-file-info.h"
                            line="118"/>
@@ -1430,6 +1562,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="get_file_type">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="78">Returns the file type.
+                See nautilus_file_info_get_file_type() for details.</doc>
         <callback name="get_file_type">
           <source-position filename="libnautilus-extension/nautilus-file-info.h"
                            line="120"/>
@@ -1450,6 +1586,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="get_location">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="80">Returns the file location as a #GFile.
+               See nautilus_file_info_get_location() for details.</doc>
         <callback name="get_location">
           <source-position filename="libnautilus-extension/nautilus-file-info.h"
                            line="121"/>
@@ -1470,6 +1610,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="get_parent_location">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="82">Returns the file parent location as a #GFile.
+                      See nautilus_file_info_get_parent_location() for details.</doc>
         <callback name="get_parent_location">
           <source-position filename="libnautilus-extension/nautilus-file-info.h"
                            line="122"/>
@@ -1491,6 +1635,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="get_parent_info">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="84">Returns the file parent #NautilusFileInfo.
+                  See nautilus_file_info_get_parent_info() for details.</doc>
         <callback name="get_parent_info">
           <source-position filename="libnautilus-extension/nautilus-file-info.h"
                            line="123"/>
@@ -1512,6 +1660,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="get_mount">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="86">Returns the file mount as a #GMount.
+            See nautilus_file_info_get_mount() for details.</doc>
         <callback name="get_mount">
           <source-position filename="libnautilus-extension/nautilus-file-info.h"
                            line="124"/>
@@ -1533,6 +1685,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="can_write">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-file-info.h"
+             line="88">Returns whether the file is writable.
+            See nautilus_file_info_can_write() for details.</doc>
         <callback name="can_write">
           <source-position filename="libnautilus-extension/nautilus-file-info.h"
                            line="125"/>
@@ -1596,6 +1752,10 @@ only for files already cached by Nautilus.</doc>
         </parameters>
       </function>
       <virtual-method name="cancel_update" invoker="cancel_update">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-info-provider.h"
+             line="99">Cancels a previous call to nautilus_info_provider_update_file_info().
+                See nautilus_info_provider_cancel_update() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-info-provider.h"
                          line="112"/>
         <return-value transfer-ownership="none">
@@ -1618,6 +1778,10 @@ only for files already cached by Nautilus.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="update_file_info" invoker="update_file_info">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-info-provider.h"
+             line="97">Returns a #NautilusOperationResult.
+                   See nautilus_info_provider_update_file_info() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-info-provider.h"
                          line="108"/>
         <return-value transfer-ownership="none">
@@ -1741,6 +1905,10 @@ only for files already cached by Nautilus.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="update_file_info">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-info-provider.h"
+             line="97">Returns a #NautilusOperationResult.
+                   See nautilus_info_provider_update_file_info() for details.</doc>
         <callback name="update_file_info">
           <source-position filename="libnautilus-extension/nautilus-info-provider.h"
                            line="108"/>
@@ -1785,6 +1953,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="cancel_update">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-info-provider.h"
+             line="99">Cancels a previous call to nautilus_info_provider_update_file_info().
+                See nautilus_info_provider_cancel_update() for details.</doc>
         <callback name="cancel_update">
           <source-position filename="libnautilus-extension/nautilus-info-provider.h"
                            line="112"/>
@@ -2098,6 +2270,10 @@ only for files already cached by Nautilus.</doc>
                        line="73"/>
       <virtual-method name="get_background_items"
                       invoker="get_background_items">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-menu-provider.h"
+             line="60">Returns a #GList of #NautilusMenuItem.
+                       See nautilus_menu_provider_get_background_items() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-menu-provider.h"
                          line="71"/>
         <return-value transfer-ownership="full" nullable="1">
@@ -2124,6 +2300,10 @@ only for files already cached by Nautilus.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_file_items" invoker="get_file_items">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-menu-provider.h"
+             line="58">Returns a #GList of #NautilusMenuItem.
+                 See nautilus_menu_provider_get_file_items() for details.</doc>
         <source-position filename="libnautilus-extension/nautilus-menu-provider.h"
                          line="69"/>
         <return-value transfer-ownership="full" nullable="1">
@@ -2247,6 +2427,10 @@ only for files already cached by Nautilus.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_file_items">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-menu-provider.h"
+             line="58">Returns a #GList of #NautilusMenuItem.
+                 See nautilus_menu_provider_get_file_items() for details.</doc>
         <callback name="get_file_items">
           <source-position filename="libnautilus-extension/nautilus-menu-provider.h"
                            line="69"/>
@@ -2277,6 +2461,10 @@ only for files already cached by Nautilus.</doc>
         </callback>
       </field>
       <field name="get_background_items">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-menu-provider.h"
+             line="60">Returns a #GList of #NautilusMenuItem.
+                       See nautilus_menu_provider_get_background_items() for details.</doc>
         <callback name="get_background_items">
           <source-position filename="libnautilus-extension/nautilus-menu-provider.h"
                            line="71"/>
@@ -2675,6 +2863,10 @@ asynchronously.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_models">
+        <doc xml:space="preserve"
+             filename="libnautilus-extension/nautilus-properties-model-provider.h"
+             line="36">Returns a #GList of #NautilusPropertiesModel.
+  See nautilus_properties_model_provider_get_models() for details.</doc>
         <callback name="get_models">
           <source-position filename="libnautilus-extension/nautilus-properties-model-provider.h"
                            line="45"/>
@@ -2870,10 +3062,10 @@ asynchronously.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="libnautilus-extension/nautilus-extension.h"
-           line="37">Called when the extension is begin loaded to register the types it exports
+           line="41">Called when the extension is begin loaded to register the types it exports
 and to perform other initializations.</doc>
       <source-position filename="libnautilus-extension/nautilus-extension.h"
-                       line="44"/>
+                       line="48"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2881,7 +3073,7 @@ and to perform other initializations.</doc>
         <parameter name="module" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnautilus-extension/nautilus-extension.h"
-               line="39">a #GTypeModule used in type registration</doc>
+               line="43">a #GTypeModule used in type registration</doc>
           <type name="GObject.TypeModule" c:type="GTypeModule*"/>
         </parameter>
       </parameters>
@@ -2891,10 +3083,10 @@ and to perform other initializations.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="libnautilus-extension/nautilus-extension.h"
-           line="51">Called after the extension has been initialized and has registered all the
+           line="55">Called after the extension has been initialized and has registered all the
 types it exports, to load them into Nautilus.</doc>
       <source-position filename="libnautilus-extension/nautilus-extension.h"
-                       line="59"/>
+                       line="63"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -2905,7 +3097,7 @@ types it exports, to load them into Nautilus.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libnautilus-extension/nautilus-extension.h"
-               line="53">array of GType *</doc>
+               line="57">array of GType *</doc>
           <array length="1" zero-terminated="0" c:type="const GType**">
             <type name="GType" c:type="GType*"/>
           </array>
@@ -2916,7 +3108,7 @@ types it exports, to load them into Nautilus.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libnautilus-extension/nautilus-extension.h"
-               line="54">the number of types in the array</doc>
+               line="58">the number of types in the array</doc>
           <type name="gint" c:type="int*"/>
         </parameter>
       </parameters>
@@ -2926,9 +3118,9 @@ types it exports, to load them into Nautilus.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="libnautilus-extension/nautilus-extension.h"
-           line="45">Called when the extension is being unloaded.</doc>
+           line="49">Called when the extension is being unloaded.</doc>
       <source-position filename="libnautilus-extension/nautilus-extension.h"
-                       line="50"/>
+                       line="54"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>

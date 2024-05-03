@@ -1097,27 +1097,27 @@ decoding process for the #GstH264Picture</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264decoder.c"
-             line="3346">Retrive DPB and return a #GstH264Picture corresponding to
+             line="3251">Retrive DPB and return a #GstH264Picture corresponding to
 the @system_frame_number</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264decoder.h"
                          line="251"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth264decoder.c"
-               line="3354">a #GstH264Picture if successful, or %NULL otherwise</doc>
+               line="3259">a #GstH264Picture if successful, or %NULL otherwise</doc>
           <type name="H264Picture" c:type="GstH264Picture*"/>
         </return-value>
         <parameters>
           <instance-parameter name="decoder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264decoder.c"
-                 line="3348">a #GstH264Decoder</doc>
+                 line="3253">a #GstH264Decoder</doc>
             <type name="H264Decoder" c:type="GstH264Decoder*"/>
           </instance-parameter>
           <parameter name="system_frame_number" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264decoder.c"
-                 line="3349">a target system frame number of #GstH264Picture</doc>
+                 line="3254">a target system frame number of #GstH264Picture</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -1127,7 +1127,7 @@ the @system_frame_number</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264decoder.c"
-             line="3330">Called to en/disable reference picture modification process.</doc>
+             line="3235">Called to en/disable reference picture modification process.</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264decoder.h"
                          line="247"/>
         <return-value transfer-ownership="none">
@@ -1137,13 +1137,13 @@ the @system_frame_number</doc>
           <instance-parameter name="decoder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264decoder.c"
-                 line="3332">a #GstH264Decoder</doc>
+                 line="3237">a #GstH264Decoder</doc>
             <type name="H264Decoder" c:type="GstH264Decoder*"/>
           </instance-parameter>
           <parameter name="process" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264decoder.c"
-                 line="3333">whether subclass is requiring reference picture modification process</doc>
+                 line="3238">whether subclass is requiring reference picture modification process</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1156,7 +1156,7 @@ the @system_frame_number</doc>
                 default-value="GST_H264_DECODER_COMPLIANCE_AUTO">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264decoder.c"
-             line="329">The compliance controls the behavior of the decoder to handle some
+             line="318">The compliance controls the behavior of the decoder to handle some
 subtle cases and contexts, such as the low-latency DPB bumping or
 mapping the baseline profile as the constrained-baseline profile,
 etc.</doc>
@@ -1516,65 +1516,11 @@ etc.</doc>
     </record>
     <record name="H264Dpb" c:type="GstH264Dpb" disguised="1" opaque="1">
       <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                       line="235"/>
+                       line="232"/>
       <method name="add" c:identifier="gst_h264_dpb_add">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="282">Store the @picture</doc>
-        <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="268"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="dpb" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="284">a #GstH264Dpb</doc>
-            <type name="H264Dpb" c:type="GstH264Dpb*"/>
-          </instance-parameter>
-          <parameter name="picture" transfer-ownership="full">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="285">a #GstH264Picture</doc>
-            <type name="H264Picture" c:type="GstH264Picture*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="bump" c:identifier="gst_h264_dpb_bump" version="1.20">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="892">Perform bumping process as defined in C.4.5.3 "Bumping" process.
-If @drain is %TRUE, @dpb will remove a #GstH264Picture from internal array
-so that returned #GstH264Picture could hold the last reference of it</doc>
-        <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="321"/>
-        <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve"
-               filename="gst-libs/gst/codecs/gsth264picture.c"
-               line="901">a #GstH264Picture which is needed to be
-outputted</doc>
-          <type name="H264Picture" c:type="GstH264Picture*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="dpb" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="894">a #GstH265Dpb</doc>
-            <type name="H264Dpb" c:type="GstH264Dpb*"/>
-          </instance-parameter>
-          <parameter name="drain" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="895">whether draining or not</doc>
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="clear" c:identifier="gst_h264_dpb_clear">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="233">Clear all stored #GstH264Picture</doc>
+             line="299">Store the @picture</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
                          line="265"/>
         <return-value transfer-ownership="none">
@@ -1584,33 +1530,51 @@ outputted</doc>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="235">a #GstH264Dpb</doc>
+                 line="301">a #GstH264Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
+          <parameter name="picture" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/codecs/gsth264picture.c"
+                 line="302">a #GstH264Picture</doc>
+            <type name="H264Picture" c:type="GstH264Picture*"/>
+          </parameter>
         </parameters>
       </method>
-      <method name="delete_unused" c:identifier="gst_h264_dpb_delete_unused">
+      <method name="bump" c:identifier="gst_h264_dpb_bump" version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="333">Delete already outputted and not referenced all pictures from dpb</doc>
+             line="909">Perform bumping process as defined in C.4.5.3 "Bumping" process.
+If @drain is %TRUE, @dpb will remove a #GstH264Picture from internal array
+so that returned #GstH264Picture could hold the last reference of it</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="272"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
+                         line="318"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/codecs/gsth264picture.c"
+               line="918">a #GstH264Picture which is needed to be
+outputted</doc>
+          <type name="H264Picture" c:type="GstH264Picture*"/>
         </return-value>
         <parameters>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="335">a #GstH264Dpb</doc>
+                 line="911">a #GstH265Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
+          <parameter name="drain" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/codecs/gsth264picture.c"
+                 line="912">whether draining or not</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
         </parameters>
       </method>
-      <method name="free" c:identifier="gst_h264_dpb_free">
+      <method name="clear" c:identifier="gst_h264_dpb_clear">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="217">Free the @dpb</doc>
+             line="250">Clear all stored #GstH264Picture</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
                          line="262"/>
         <return-value transfer-ownership="none">
@@ -1620,7 +1584,43 @@ outputted</doc>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="219">a #GstH264Dpb to free</doc>
+                 line="252">a #GstH264Dpb</doc>
+            <type name="H264Dpb" c:type="GstH264Dpb*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="delete_unused" c:identifier="gst_h264_dpb_delete_unused">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/codecs/gsth264picture.c"
+             line="350">Delete already outputted and not referenced all pictures from dpb</doc>
+        <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
+                         line="269"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="dpb" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/codecs/gsth264picture.c"
+                 line="352">a #GstH264Dpb</doc>
+            <type name="H264Dpb" c:type="GstH264Dpb*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="gst_h264_dpb_free">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/codecs/gsth264picture.c"
+             line="234">Free the @dpb</doc>
+        <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
+                         line="259"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="dpb" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/codecs/gsth264picture.c"
+                 line="236">a #GstH264Dpb to free</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
         </parameters>
@@ -1629,18 +1629,18 @@ outputted</doc>
               c:identifier="gst_h264_dpb_get_interlaced"
               version="1.20">
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="259"/>
+                         line="256"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth264picture.c"
-               line="205">%TRUE if @dpb is configured for interlaced stream</doc>
+               line="206">%TRUE if @dpb is configured for interlaced stream</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="203">a #GstH264Dpb</doc>
+                 line="204">a #GstH264Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
         </parameters>
@@ -1650,26 +1650,26 @@ outputted</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="444">Find a long term reference picture which has matching long term picture number</doc>
+             line="461">Find a long term reference picture which has matching long term picture number</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="285"/>
+                         line="282"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth264picture.c"
-               line="451">a #GstH264Picture</doc>
+               line="468">a #GstH264Picture</doc>
           <type name="H264Picture" c:type="GstH264Picture*"/>
         </return-value>
         <parameters>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="446">a #GstH264Dpb</doc>
+                 line="463">a #GstH264Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
           <parameter name="long_term_pic_num" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="447">a long term picture number</doc>
+                 line="464">a long term picture number</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -1678,20 +1678,20 @@ outputted</doc>
               c:identifier="gst_h264_dpb_get_lowest_frame_num_short_ref">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="477">Find a short term reference picture which has the lowest frame_num_wrap</doc>
+             line="494">Find a short term reference picture which has the lowest frame_num_wrap</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="289"/>
+                         line="286"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth264picture.c"
-               line="483">a #GstH264Picture</doc>
+               line="500">a #GstH264Picture</doc>
           <type name="H264Picture" c:type="GstH264Picture*"/>
         </return-value>
         <parameters>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="479">a #GstH264Dpb</doc>
+                 line="496">a #GstH264Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
         </parameters>
@@ -1700,18 +1700,18 @@ outputted</doc>
               c:identifier="gst_h264_dpb_get_max_num_frames"
               version="1.20">
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="245"/>
+                         line="242"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth264picture.c"
-               line="174">the number of maximum frames</doc>
+               line="175">the number of maximum frames</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="172">a #GstH264Dpb</doc>
+                 line="173">a #GstH264Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
         </parameters>
@@ -1720,18 +1720,18 @@ outputted</doc>
               c:identifier="gst_h264_dpb_get_max_num_reorder_frames"
               version="1.22.2">
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="256"/>
+                         line="253"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth264picture.c"
-               line="270">Maximum number of reorder frames</doc>
+               line="287">Maximum number of reorder frames</doc>
           <type name="guint32" c:type="guint32"/>
         </return-value>
         <parameters>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="268">a #GstH264Dpb</doc>
+                 line="285">a #GstH264Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
         </parameters>
@@ -1740,11 +1740,11 @@ outputted</doc>
               c:identifier="gst_h264_dpb_get_picture"
               version="1.18">
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="306"/>
+                         line="303"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth264picture.c"
-               line="615">the picture identified with the specified
+               line="632">the picture identified with the specified
 @system_frame_number, or %NULL if DPB does not contain a #GstH264Picture
 corresponding to the @system_frame_number</doc>
           <type name="H264Picture" c:type="GstH264Picture*"/>
@@ -1753,7 +1753,7 @@ corresponding to the @system_frame_number</doc>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="612">a #GstH264Dpb
+                 line="629">a #GstH264Dpb
 @system_frame_number The system frame number</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
@@ -1765,11 +1765,11 @@ corresponding to the @system_frame_number</doc>
       <method name="get_pictures_all"
               c:identifier="gst_h264_dpb_get_pictures_all">
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="303"/>
+                         line="300"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth264picture.c"
-               line="585">a #GArray of
+               line="602">a #GArray of
   #GstH264Picture stored in @dpb</doc>
           <array name="GLib.Array" c:type="GArray*">
             <type name="H264Picture"/>
@@ -1779,7 +1779,7 @@ corresponding to the @system_frame_number</doc>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="583">a #GstH264Dpb</doc>
+                 line="600">a #GstH264Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
         </parameters>
@@ -1789,10 +1789,10 @@ corresponding to the @system_frame_number</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="546">Retrieve all long-term reference pictures from @dpb. The picture will be
+             line="563">Retrieve all long-term reference pictures from @dpb. The picture will be
 appended to the array.</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="298"/>
+                         line="295"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1800,13 +1800,13 @@ appended to the array.</doc>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="548">a #GstH264Dpb</doc>
+                 line="565">a #GstH264Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
           <parameter name="include_second_field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="549">%TRUE if the second field pictures need to be included</doc>
+                 line="566">%TRUE if the second field pictures need to be included</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="out"
@@ -1815,7 +1815,7 @@ appended to the array.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="550">an array
+                 line="567">an array
   of #GstH264Picture pointer</doc>
             <array name="GLib.Array" c:type="GArray*">
               <type name="H264Picture"/>
@@ -1828,10 +1828,10 @@ appended to the array.</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="508">Retrieve all short-term reference pictures from @dpb. The picture will be
+             line="525">Retrieve all short-term reference pictures from @dpb. The picture will be
 appended to the array.</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="292"/>
+                         line="289"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1839,19 +1839,19 @@ appended to the array.</doc>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="510">a #GstH264Dpb</doc>
+                 line="527">a #GstH264Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
           <parameter name="include_non_existing" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="511">%TRUE if non-existing pictures need to be included</doc>
+                 line="528">%TRUE if non-existing pictures need to be included</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="include_second_field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="512">%TRUE if the second field pictures need to be included</doc>
+                 line="529">%TRUE if the second field pictures need to be included</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="out"
@@ -1860,7 +1860,7 @@ appended to the array.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="513">an array
+                 line="530">an array
   of #GstH264Picture pointers</doc>
             <array name="GLib.Array" c:type="GArray*">
               <type name="H264Picture"/>
@@ -1872,44 +1872,44 @@ appended to the array.</doc>
               c:identifier="gst_h264_dpb_get_short_ref_by_pic_num">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="414">Find a short term reference picture which has matching picture number</doc>
+             line="431">Find a short term reference picture which has matching picture number</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="281"/>
+                         line="278"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth264picture.c"
-               line="421">a #GstH264Picture</doc>
+               line="438">a #GstH264Picture</doc>
           <type name="H264Picture" c:type="GstH264Picture*"/>
         </return-value>
         <parameters>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="416">a #GstH264Dpb</doc>
+                 line="433">a #GstH264Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
           <parameter name="pic_num" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="417">a picture number</doc>
+                 line="434">a picture number</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_size" c:identifier="gst_h264_dpb_get_size">
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="310"/>
+                         line="307"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth264picture.c"
-               line="600">the length of stored dpb array</doc>
+               line="617">the length of stored dpb array</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="598">a #GstH264Dpb</doc>
+                 line="615">a #GstH264Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
         </parameters>
@@ -1918,18 +1918,18 @@ appended to the array.</doc>
               c:identifier="gst_h264_dpb_has_empty_frame_buffer"
               version="1.20">
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="313"/>
+                         line="310"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth264picture.c"
-               line="645">%TRUE if @dpb still has empty frame buffers.</doc>
+               line="662">%TRUE if @dpb still has empty frame buffers.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="643">a #GstH264Dpb</doc>
+                 line="660">a #GstH264Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
         </parameters>
@@ -1938,9 +1938,9 @@ appended to the array.</doc>
               c:identifier="gst_h264_dpb_mark_all_non_ref">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="393">Mark all pictures are not referenced</doc>
+             line="410">Mark all pictures are not referenced</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="278"/>
+                         line="275"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1948,7 +1948,7 @@ appended to the array.</doc>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="395">a #GstH264Dpb</doc>
+                 line="412">a #GstH264Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
         </parameters>
@@ -1957,30 +1957,30 @@ appended to the array.</doc>
               c:identifier="gst_h264_dpb_needs_bump"
               version="1.20">
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="316"/>
+                         line="313"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth264picture.c"
-               line="722">%TRUE if bumping is required</doc>
+               line="739">%TRUE if bumping is required</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="718">a #GstH264Dpb</doc>
+                 line="735">a #GstH264Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
           <parameter name="to_insert" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="719">the current #GstH264Picture to insert to dpb.</doc>
+                 line="736">the current #GstH264Picture to insert to dpb.</doc>
             <type name="H264Picture" c:type="GstH264Picture*"/>
           </parameter>
           <parameter name="latency_mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="720">The required #GstH264DpbBumpMode for bumping.</doc>
+                 line="737">The required #GstH264DpbBumpMode for bumping.</doc>
             <type name="H264DpbBumpMode" c:type="GstH264DpbBumpMode"/>
           </parameter>
         </parameters>
@@ -1989,18 +1989,18 @@ appended to the array.</doc>
               c:identifier="gst_h264_dpb_num_ref_frames"
               version="1.20">
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="275"/>
+                         line="272"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth264picture.c"
-               line="366">The number of referenced frames</doc>
+               line="383">The number of referenced frames</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="364">a #GstH264Dpb</doc>
+                 line="381">a #GstH264Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
         </parameters>
@@ -2011,32 +2011,32 @@ appended to the array.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="1003">Perform "8.2.5.4 Adaptive memory control decoded reference picture marking process"</doc>
+             line="1020">Perform "8.2.5.4 Adaptive memory control decoded reference picture marking process"</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="329"/>
+                         line="326"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth264picture.c"
-               line="1011">%TRUE if successful</doc>
+               line="1028">%TRUE if successful</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="1005">a #GstH265Dpb</doc>
+                 line="1022">a #GstH265Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
           <parameter name="ref_pic_marking" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="1006">a #GstH264RefPicMarking</doc>
+                 line="1023">a #GstH264RefPicMarking</doc>
             <type c:type="GstH264RefPicMarking*"/>
           </parameter>
           <parameter name="picture" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="1007">a #GstH264Picture</doc>
+                 line="1024">a #GstH264Picture</doc>
             <type name="H264Picture" c:type="GstH264Picture*"/>
           </parameter>
         </parameters>
@@ -2045,7 +2045,7 @@ appended to the array.</doc>
               c:identifier="gst_h264_dpb_set_interlaced"
               version="1.20">
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="248"/>
+                         line="245"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2053,13 +2053,13 @@ appended to the array.</doc>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="188">a #GstH264Dpb</doc>
+                 line="189">a #GstH264Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
           <parameter name="interlaced" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="189">%TRUE if interlaced</doc>
+                 line="190">%TRUE if interlaced</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -2069,10 +2069,10 @@ appended to the array.</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="976">Notify the DPB that @picture is output directly without storing
+             line="993">Notify the DPB that @picture is output directly without storing
 in the DPB.</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="325"/>
+                         line="322"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2080,13 +2080,13 @@ in the DPB.</doc>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="978">a #GstH264Dpb</doc>
+                 line="995">a #GstH264Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
           <parameter name="picture" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="979">a #GstH264Picture of the last output.</doc>
+                 line="996">a #GstH264Picture of the last output.</doc>
             <type name="H264Picture" c:type="GstH264Picture*"/>
           </parameter>
         </parameters>
@@ -2096,9 +2096,9 @@ in the DPB.</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="153">Set the number of maximum allowed frames to store</doc>
+             line="154">Set the number of maximum allowed frames to store</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="241"/>
+                         line="238"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2106,13 +2106,13 @@ in the DPB.</doc>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="155">a #GstH264Dpb</doc>
+                 line="156">a #GstH264Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
           <parameter name="max_num_frames" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="156">the maximum number of picture</doc>
+                 line="157">the maximum number of picture</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -2121,7 +2121,7 @@ in the DPB.</doc>
               c:identifier="gst_h264_dpb_set_max_num_reorder_frames"
               version="1.20">
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="252"/>
+                         line="249"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2129,13 +2129,13 @@ in the DPB.</doc>
           <instance-parameter name="dpb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="250">a #GstH264Dpb</doc>
+                 line="267">a #GstH264Dpb</doc>
             <type name="H264Dpb" c:type="GstH264Dpb*"/>
           </instance-parameter>
           <parameter name="max_num_reorder_frames" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="251">the max number of reorder frames, which
+                 line="268">the max number of reorder frames, which
 should not exceed the max size of DPB.</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
@@ -2144,13 +2144,13 @@ should not exceed the max size of DPB.</doc>
       <function name="new" c:identifier="gst_h264_dpb_new" introspectable="0">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="129">Create new #GstH264Dpb</doc>
+             line="130">Create new #GstH264Dpb</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="238"/>
+                         line="235"/>
         <return-value>
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth264picture.c"
-               line="134">a new #GstH264Dpb</doc>
+               line="135">a new #GstH264Dpb</doc>
           <type name="H264Dpb" c:type="GstH264Dpb*"/>
         </return-value>
       </function>
@@ -2159,27 +2159,27 @@ should not exceed the max size of DPB.</doc>
                  version="1.20"
                  c:type="GstH264DpbBumpMode">
       <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                       line="187"/>
+                       line="184"/>
       <member name="normal_latency"
               value="0"
               c:identifier="GST_H264_DPB_BUMP_NORMAL_LATENCY">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.h"
-             line="176">No latency requirement for DBP bumping.</doc>
+             line="173">No latency requirement for DBP bumping.</doc>
       </member>
       <member name="low_latency"
               value="1"
               c:identifier="GST_H264_DPB_BUMP_LOW_LATENCY">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.h"
-             line="177">Low-latency requirement for DBP bumping.</doc>
+             line="174">Low-latency requirement for DBP bumping.</doc>
       </member>
       <member name="very_low_latency"
               value="2"
               c:identifier="GST_H264_DPB_BUMP_VERY_LOW_LATENCY">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.h"
-             line="178">Very low-latency requirement for DBP bumping.</doc>
+             line="175">Very low-latency requirement for DBP bumping.</doc>
       </member>
     </enumeration>
     <record name="H264Picture"
@@ -2188,7 +2188,7 @@ should not exceed the max size of DPB.</doc>
             glib:get-type="gst_h264_picture_get_type"
             c:symbol-prefix="h264_picture">
       <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                       line="172"/>
+                       line="169"/>
       <field name="parent" readable="0" private="1">
         <type name="Gst.MiniObject" c:type="GstMiniObject"/>
       </field>
@@ -2279,9 +2279,6 @@ should not exceed the max size of DPB.</doc>
              private="1">
         <type c:type="GstH264DecRefPicMarking"/>
       </field>
-      <field name="reorder_frame_number" readable="0" private="1">
-        <type name="guint32" c:type="guint32"/>
-      </field>
       <field name="second_field" readable="0" private="1">
         <type name="gboolean" c:type="gboolean"/>
       </field>
@@ -2303,13 +2300,13 @@ should not exceed the max size of DPB.</doc>
       <constructor name="new" c:identifier="gst_h264_picture_new">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="44">Create new #GstH264Picture</doc>
+             line="45">Create new #GstH264Picture</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="193"/>
+                         line="190"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth264picture.c"
-               line="49">a new #GstH264Picture</doc>
+               line="50">a new #GstH264Picture</doc>
           <type name="H264Picture" c:type="GstH264Picture*"/>
         </return-value>
       </constructor>
@@ -2317,70 +2314,36 @@ should not exceed the max size of DPB.</doc>
               c:identifier="gst_h264_picture_get_user_data">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="94">Gets private data set on the picture via
+             line="95">Gets private data set on the picture via
 gst_h264_picture_set_user_data() previously.</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="230"/>
+                         line="227"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth264picture.c"
-               line="101">The previously set user_data</doc>
+               line="102">The previously set user_data</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="picture" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="96">a #GstH264Picture</doc>
+                 line="97">a #GstH264Picture</doc>
             <type name="H264Picture" c:type="GstH264Picture*"/>
           </instance-parameter>
-        </parameters>
-      </method>
-      <method name="set_reference"
-              c:identifier="gst_h264_picture_set_reference"
-              version="1.20">
-        <doc xml:space="preserve"
-             filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="1232">Update reference picture type of @picture with @reference</doc>
-        <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="334"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="picture" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="1234">a #GstH264Picture</doc>
-            <type name="H264Picture" c:type="GstH264Picture*"/>
-          </instance-parameter>
-          <parameter name="reference" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="1235">a GstH264PictureReference</doc>
-            <type name="H264PictureReference"
-                  c:type="GstH264PictureReference"/>
-          </parameter>
-          <parameter name="other_field" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="1236">%TRUE if @reference needs to be applied to the
-other field if any</doc>
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
         </parameters>
       </method>
       <method name="set_user_data"
               c:identifier="gst_h264_picture_set_user_data">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="69">Sets @user_data on the picture and the #GDestroyNotify that will be called when
+             line="70">Sets @user_data on the picture and the #GDestroyNotify that will be called when
 the picture is freed.
 
 If a @user_data was previously set, then the previous set @notify will be called
 before the @user_data is replaced.</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                         line="225"/>
+                         line="222"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2388,7 +2351,7 @@ before the @user_data is replaced.</doc>
           <instance-parameter name="picture" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="71">a #GstH264Picture</doc>
+                 line="72">a #GstH264Picture</doc>
             <type name="H264Picture" c:type="GstH264Picture*"/>
           </instance-parameter>
           <parameter name="user_data"
@@ -2397,7 +2360,7 @@ before the @user_data is replaced.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="72">private data</doc>
+                 line="73">private data</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="notify"
@@ -2406,7 +2369,7 @@ before the @user_data is replaced.</doc>
                      closure="0">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264picture.c"
-                 line="73">a #GDestroyNotify</doc>
+                 line="74">a #GDestroyNotify</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -2840,27 +2803,27 @@ decoding process for the #GstH265Picture</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth265decoder.c"
-             line="2069">Retrive DPB and return a #GstH265Picture corresponding to
+             line="2116">Retrive DPB and return a #GstH265Picture corresponding to
 the @system_frame_number</doc>
         <source-position filename="gst-libs/gst/codecs/gsth265decoder.h"
                          line="198"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth265decoder.c"
-               line="2077">a #GstH265Picture if successful, or %NULL otherwise</doc>
+               line="2124">a #GstH265Picture if successful, or %NULL otherwise</doc>
           <type name="H265Picture" c:type="GstH265Picture*"/>
         </return-value>
         <parameters>
           <instance-parameter name="decoder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth265decoder.c"
-                 line="2071">a #GstH265Decoder</doc>
+                 line="2118">a #GstH265Decoder</doc>
             <type name="H265Decoder" c:type="GstH265Decoder*"/>
           </instance-parameter>
           <parameter name="system_frame_number" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth265decoder.c"
-                 line="2072">a target system frame number of #GstH265Picture</doc>
+                 line="2119">a target system frame number of #GstH265Picture</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -2870,7 +2833,7 @@ the @system_frame_number</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth265decoder.c"
-             line="2053">Called to en/disable reference picture modification process.</doc>
+             line="2100">Called to en/disable reference picture modification process.</doc>
         <source-position filename="gst-libs/gst/codecs/gsth265decoder.h"
                          line="194"/>
         <return-value transfer-ownership="none">
@@ -2880,13 +2843,13 @@ the @system_frame_number</doc>
           <instance-parameter name="decoder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth265decoder.c"
-                 line="2055">a #GstH265Decoder</doc>
+                 line="2102">a #GstH265Decoder</doc>
             <type name="H265Decoder" c:type="GstH265Decoder*"/>
           </instance-parameter>
           <parameter name="process" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth265decoder.c"
-                 line="2056">whether subclass is requiring reference picture modification process</doc>
+                 line="2103">whether subclass is requiring reference picture modification process</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -6090,7 +6053,7 @@ profile.</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gstvp9decoder.c"
-             line="633">Called to set non-keyframe format change awareness</doc>
+             line="634">Called to set non-keyframe format change awareness</doc>
         <source-position filename="gst-libs/gst/codecs/gstvp9decoder.h"
                          line="206"/>
         <return-value transfer-ownership="none">
@@ -6100,13 +6063,13 @@ profile.</doc>
           <instance-parameter name="decoder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gstvp9decoder.c"
-                 line="635">a #GstVp9Decoder</doc>
+                 line="636">a #GstVp9Decoder</doc>
             <type name="Vp9Decoder" c:type="GstVp9Decoder*"/>
           </instance-parameter>
           <parameter name="support" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gstvp9decoder.c"
-                 line="636">whether subclass can support non-keyframe format change</doc>
+                 line="637">whether subclass can support non-keyframe format change</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -7421,13 +7384,13 @@ gst_vp9_stateful_parser_free() after use.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="gst-libs/gst/codecs/gsth264picture.c"
-           line="129">Create new #GstH264Dpb</doc>
+           line="130">Create new #GstH264Dpb</doc>
       <source-position filename="gst-libs/gst/codecs/gsth264picture.h"
-                       line="238"/>
+                       line="235"/>
       <return-value>
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264picture.c"
-             line="134">a new #GstH264Dpb</doc>
+             line="135">a new #GstH264Dpb</doc>
         <type name="H264Dpb" c:type="GstH264Dpb*"/>
       </return-value>
     </function>

@@ -261,7 +261,7 @@ list.</doc>
               version="0.2.0">
       <doc xml:space="preserve"
            filename="libs/pls/grl-pls.c"
-           line="1195">This function will update (if @content is non-%NULL) or create a
+           line="1196">This function will update (if @content is non-%NULL) or create a
 GrlMedia and populate it with information from @info.
 
 If @info is %NULL, a call to g_file_query_info() will be made.
@@ -272,38 +272,38 @@ and want to easily create GrlMedia from filesystem information.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libs/pls/grl-pls.c"
-             line="1212">a new #GrlMedia.</doc>
+             line="1213">a new #GrlMedia.</doc>
         <type name="Grl.Media" c:type="GrlMedia*"/>
       </return-value>
       <parameters>
         <parameter name="content" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="1197">an existing #GrlMedia for the file, or %NULL</doc>
+               line="1198">an existing #GrlMedia for the file, or %NULL</doc>
           <type name="Grl.Media" c:type="GrlMedia*"/>
         </parameter>
         <parameter name="file" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="1198">a #GFile pointing to the file or directory in question</doc>
+               line="1199">a #GFile pointing to the file or directory in question</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="1199">an existing #GFileInfo, or %NULL</doc>
+               line="1200">an existing #GFileInfo, or %NULL</doc>
           <type name="Gio.FileInfo" c:type="GFileInfo*"/>
         </parameter>
         <parameter name="handle_pls" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="1200">Whether playlists should be handled as containers</doc>
+               line="1201">Whether playlists should be handled as containers</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
         <parameter name="options" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="1201">a #GrlOperationOptions representing the options to apply
+               line="1202">a #GrlOperationOptions representing the options to apply
   to this operation.</doc>
           <type name="Grl.OperationOptions" c:type="GrlOperationOptions*"/>
         </parameter>
@@ -314,7 +314,7 @@ and want to easily create GrlMedia from filesystem information.</doc>
               version="0.2.0">
       <doc xml:space="preserve"
            filename="libs/pls/grl-pls.c"
-           line="1378">Returns the list of attributes to pass to
+           line="1382">Returns the list of attributes to pass to
 g_file_query_info() to make it possible to
 populate a GrlMedia using grl_pls_file_to_media().
 
@@ -323,7 +323,7 @@ Do not free the result of this function.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libs/pls/grl-pls.c"
-             line="1387">a string containing the
+             line="1391">a string containing the
 list of attributes.</doc>
         <type name="utf8" c:type="const char*"/>
       </return-value>

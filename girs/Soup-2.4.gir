@@ -14687,7 +14687,7 @@ counterpart instead.</doc>
               version="2.40">
         <doc xml:space="preserve"
              filename="libsoup/soup-multipart-input-stream.c"
-             line="567">Obtains the headers for the part currently being processed. Note
+             line="568">Obtains the headers for the part currently being processed. Note
 that the #SoupMessageHeaders that are returned are owned by the
 #SoupMultipartInputStream and will be replaced when a call is made
 to soup_multipart_input_stream_next_part() or its async
@@ -14701,7 +14701,7 @@ will be returned.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libsoup/soup-multipart-input-stream.c"
-               line="581">a #SoupMessageHeaders
+               line="582">a #SoupMessageHeaders
 containing the headers for the part currently being processed or
 %NULL if the headers failed to parse.</doc>
           <type name="MessageHeaders" c:type="SoupMessageHeaders*"/>
@@ -14710,7 +14710,7 @@ containing the headers for the part currently being processed or
           <instance-parameter name="multipart" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-multipart-input-stream.c"
-                 line="569">a #SoupMultipartInputStream.</doc>
+                 line="570">a #SoupMultipartInputStream.</doc>
             <type name="MultipartInputStream"
                   c:type="SoupMultipartInputStream*"/>
           </instance-parameter>
@@ -14825,13 +14825,13 @@ workflow.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-multipart-input-stream.c"
-             line="543">Finishes an asynchronous request for the next part.</doc>
+             line="544">Finishes an asynchronous request for the next part.</doc>
         <source-position filename="libsoup/soup-multipart-input-stream.h"
                          line="56"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libsoup/soup-multipart-input-stream.c"
-               line="551">a newly created
+               line="552">a newly created
 #GInputStream for reading the next part or %NULL if there are no
 more parts.</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
@@ -14840,14 +14840,14 @@ more parts.</doc>
           <instance-parameter name="multipart" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-multipart-input-stream.c"
-                 line="545">a #SoupMultipartInputStream.</doc>
+                 line="546">a #SoupMultipartInputStream.</doc>
             <type name="MultipartInputStream"
                   c:type="SoupMultipartInputStream*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-multipart-input-stream.c"
-                 line="546">a #GAsyncResult.</doc>
+                 line="547">a #GAsyncResult.</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -16119,7 +16119,7 @@ error.</doc>
               version="2.42">
       <doc xml:space="preserve"
            filename="libsoup/soup-request.c"
-           line="305">Alias for the #SoupRequest:session property, qv.</doc>
+           line="306">Alias for the #SoupRequest:session property, qv.</doc>
       <source-position filename="libsoup/soup-request.h" line="75"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
@@ -16129,7 +16129,7 @@ error.</doc>
               version="2.42">
       <doc xml:space="preserve"
            filename="libsoup/soup-request.c"
-           line="283">Alias for the #SoupRequest:uri property, qv.</doc>
+           line="284">Alias for the #SoupRequest:uri property, qv.</doc>
       <source-position filename="libsoup/soup-request.h" line="74"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
@@ -16196,14 +16196,14 @@ range", referring to the last -@start bytes of the resource body.
                       version="2.42">
         <doc xml:space="preserve"
              filename="libsoup/soup-request.c"
-             line="367">Gets the length of the data represented by @request. For most
+             line="368">Gets the length of the data represented by @request. For most
 request types, this will not be known until after you call
 soup_request_send() or soup_request_send_finish().</doc>
         <source-position filename="libsoup/soup-request.h" line="67"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-request.c"
-               line="375">the length of the data represented by @request,
+               line="376">the length of the data represented by @request,
   or -1 if not known.</doc>
           <type name="gint64" c:type="goffset"/>
         </return-value>
@@ -16211,7 +16211,7 @@ soup_request_send() or soup_request_send_finish().</doc>
           <instance-parameter name="request" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="369">a #SoupRequest</doc>
+                 line="370">a #SoupRequest</doc>
             <type name="Request" c:type="SoupRequest*"/>
           </instance-parameter>
         </parameters>
@@ -16221,7 +16221,7 @@ soup_request_send() or soup_request_send_finish().</doc>
                       version="2.42">
         <doc xml:space="preserve"
              filename="libsoup/soup-request.c"
-             line="386">Gets the type of the data represented by @request. For most request
+             line="387">Gets the type of the data represented by @request. For most request
 types, this will not be known until after you call
 soup_request_send() or soup_request_send_finish().
 
@@ -16231,7 +16231,7 @@ after the MIME type.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libsoup/soup-request.c"
-               line="397">the type of the data represented by
+               line="398">the type of the data represented by
   @request, or %NULL if not known.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -16239,7 +16239,7 @@ after the MIME type.</doc>
           <instance-parameter name="request" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="388">a #SoupRequest</doc>
+                 line="389">a #SoupRequest</doc>
             <type name="Request" c:type="SoupRequest*"/>
           </instance-parameter>
         </parameters>
@@ -16247,7 +16247,7 @@ after the MIME type.</doc>
       <virtual-method name="send" invoker="send" version="2.42" throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-request.c"
-             line="197">Synchronously requests the URI pointed to by @request, and returns
+             line="198">Synchronously requests the URI pointed to by @request, and returns
 a #GInputStream that can be used to read its contents.
 
 Note that you cannot use this method with #SoupRequests attached to
@@ -16256,7 +16256,7 @@ a #SoupSessionAsync.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-request.c"
-               line="209">a #GInputStream that can be used to
+               line="210">a #GInputStream that can be used to
   read from the URI pointed to by @request.</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </return-value>
@@ -16264,7 +16264,7 @@ a #SoupSessionAsync.</doc>
           <instance-parameter name="request" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="199">a #SoupRequest</doc>
+                 line="200">a #SoupRequest</doc>
             <type name="Request" c:type="SoupRequest*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -16273,7 +16273,7 @@ a #SoupSessionAsync.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="200">a #GCancellable or %NULL</doc>
+                 line="201">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -16281,7 +16281,7 @@ a #SoupSessionAsync.</doc>
       <virtual-method name="send_async" invoker="send_async" version="2.42">
         <doc xml:space="preserve"
              filename="libsoup/soup-request.c"
-             line="223">Begins an asynchronously request for the URI pointed to by
+             line="224">Begins an asynchronously request for the URI pointed to by
 @request.
 
 Note that you cannot use this method with #SoupRequests attached to
@@ -16294,7 +16294,7 @@ a #SoupSessionSync.</doc>
           <instance-parameter name="request" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="225">a #SoupRequest</doc>
+                 line="226">a #SoupRequest</doc>
             <type name="Request" c:type="SoupRequest*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -16303,7 +16303,7 @@ a #SoupSessionSync.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="226">a #GCancellable or %NULL</doc>
+                 line="227">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -16314,7 +16314,7 @@ a #SoupSessionSync.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="227">a #GAsyncReadyCallback</doc>
+                 line="228">a #GAsyncReadyCallback</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -16324,7 +16324,7 @@ a #SoupSessionSync.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="228">user data passed to @callback</doc>
+                 line="229">user data passed to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -16335,12 +16335,12 @@ a #SoupSessionSync.</doc>
                       throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-request.c"
-             line="248">Gets the result of a soup_request_send_async().</doc>
+             line="249">Gets the result of a soup_request_send_async().</doc>
         <source-position filename="libsoup/soup-request.h" line="63"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-request.c"
-               line="256">a #GInputStream that can be used to
+               line="257">a #GInputStream that can be used to
   read from the URI pointed to by @request.</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </return-value>
@@ -16348,13 +16348,13 @@ a #SoupSessionSync.</doc>
           <instance-parameter name="request" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="250">a #SoupRequest</doc>
+                 line="251">a #SoupRequest</doc>
             <type name="Request" c:type="SoupRequest*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="251">the #GAsyncResult</doc>
+                 line="252">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -16364,14 +16364,14 @@ a #SoupSessionSync.</doc>
               version="2.42">
         <doc xml:space="preserve"
              filename="libsoup/soup-request.c"
-             line="367">Gets the length of the data represented by @request. For most
+             line="368">Gets the length of the data represented by @request. For most
 request types, this will not be known until after you call
 soup_request_send() or soup_request_send_finish().</doc>
         <source-position filename="libsoup/soup-request.h" line="97"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-request.c"
-               line="375">the length of the data represented by @request,
+               line="376">the length of the data represented by @request,
   or -1 if not known.</doc>
           <type name="gint64" c:type="goffset"/>
         </return-value>
@@ -16379,7 +16379,7 @@ soup_request_send() or soup_request_send_finish().</doc>
           <instance-parameter name="request" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="369">a #SoupRequest</doc>
+                 line="370">a #SoupRequest</doc>
             <type name="Request" c:type="SoupRequest*"/>
           </instance-parameter>
         </parameters>
@@ -16389,7 +16389,7 @@ soup_request_send() or soup_request_send_finish().</doc>
               version="2.42">
         <doc xml:space="preserve"
              filename="libsoup/soup-request.c"
-             line="386">Gets the type of the data represented by @request. For most request
+             line="387">Gets the type of the data represented by @request. For most request
 types, this will not be known until after you call
 soup_request_send() or soup_request_send_finish().
 
@@ -16399,7 +16399,7 @@ after the MIME type.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libsoup/soup-request.c"
-               line="397">the type of the data represented by
+               line="398">the type of the data represented by
   @request, or %NULL if not known.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -16407,7 +16407,7 @@ after the MIME type.</doc>
           <instance-parameter name="request" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="388">a #SoupRequest</doc>
+                 line="389">a #SoupRequest</doc>
             <type name="Request" c:type="SoupRequest*"/>
           </instance-parameter>
         </parameters>
@@ -16418,19 +16418,19 @@ after the MIME type.</doc>
               version="2.42">
         <doc xml:space="preserve"
              filename="libsoup/soup-request.c"
-             line="351">Gets @request's #SoupSession</doc>
+             line="352">Gets @request's #SoupSession</doc>
         <source-position filename="libsoup/soup-request.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-request.c"
-               line="357">@request's #SoupSession</doc>
+               line="358">@request's #SoupSession</doc>
           <type name="Session" c:type="SoupSession*"/>
         </return-value>
         <parameters>
           <instance-parameter name="request" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="353">a #SoupRequest</doc>
+                 line="354">a #SoupRequest</doc>
             <type name="Request" c:type="SoupRequest*"/>
           </instance-parameter>
         </parameters>
@@ -16441,19 +16441,19 @@ after the MIME type.</doc>
               version="2.42">
         <doc xml:space="preserve"
              filename="libsoup/soup-request.c"
-             line="335">Gets @request's URI</doc>
+             line="336">Gets @request's URI</doc>
         <source-position filename="libsoup/soup-request.h" line="92"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-request.c"
-               line="341">@request's URI</doc>
+               line="342">@request's URI</doc>
           <type name="URI" c:type="SoupURI*"/>
         </return-value>
         <parameters>
           <instance-parameter name="request" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="337">a #SoupRequest</doc>
+                 line="338">a #SoupRequest</doc>
             <type name="Request" c:type="SoupRequest*"/>
           </instance-parameter>
         </parameters>
@@ -16464,7 +16464,7 @@ after the MIME type.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-request.c"
-             line="197">Synchronously requests the URI pointed to by @request, and returns
+             line="198">Synchronously requests the URI pointed to by @request, and returns
 a #GInputStream that can be used to read its contents.
 
 Note that you cannot use this method with #SoupRequests attached to
@@ -16473,7 +16473,7 @@ a #SoupSessionAsync.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-request.c"
-               line="209">a #GInputStream that can be used to
+               line="210">a #GInputStream that can be used to
   read from the URI pointed to by @request.</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </return-value>
@@ -16481,7 +16481,7 @@ a #SoupSessionAsync.</doc>
           <instance-parameter name="request" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="199">a #SoupRequest</doc>
+                 line="200">a #SoupRequest</doc>
             <type name="Request" c:type="SoupRequest*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -16490,7 +16490,7 @@ a #SoupSessionAsync.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="200">a #GCancellable or %NULL</doc>
+                 line="201">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -16500,7 +16500,7 @@ a #SoupSessionAsync.</doc>
               version="2.42">
         <doc xml:space="preserve"
              filename="libsoup/soup-request.c"
-             line="223">Begins an asynchronously request for the URI pointed to by
+             line="224">Begins an asynchronously request for the URI pointed to by
 @request.
 
 Note that you cannot use this method with #SoupRequests attached to
@@ -16513,7 +16513,7 @@ a #SoupSessionSync.</doc>
           <instance-parameter name="request" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="225">a #SoupRequest</doc>
+                 line="226">a #SoupRequest</doc>
             <type name="Request" c:type="SoupRequest*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -16522,7 +16522,7 @@ a #SoupSessionSync.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="226">a #GCancellable or %NULL</doc>
+                 line="227">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -16533,7 +16533,7 @@ a #SoupSessionSync.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="227">a #GAsyncReadyCallback</doc>
+                 line="228">a #GAsyncReadyCallback</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -16542,7 +16542,7 @@ a #SoupSessionSync.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="228">user data passed to @callback</doc>
+                 line="229">user data passed to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -16553,12 +16553,12 @@ a #SoupSessionSync.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-request.c"
-             line="248">Gets the result of a soup_request_send_async().</doc>
+             line="249">Gets the result of a soup_request_send_async().</doc>
         <source-position filename="libsoup/soup-request.h" line="87"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-request.c"
-               line="256">a #GInputStream that can be used to
+               line="257">a #GInputStream that can be used to
   read from the URI pointed to by @request.</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </return-value>
@@ -16566,13 +16566,13 @@ a #SoupSessionSync.</doc>
           <instance-parameter name="request" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="250">a #SoupRequest</doc>
+                 line="251">a #SoupRequest</doc>
             <type name="Request" c:type="SoupRequest*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="251">the #GAsyncResult</doc>
+                 line="252">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -16585,7 +16585,7 @@ a #SoupSessionSync.</doc>
                 getter="get_session">
         <doc xml:space="preserve"
              filename="libsoup/soup-request.c"
-             line="312">The request's #SoupSession.</doc>
+             line="313">The request's #SoupSession.</doc>
         <type name="Session"/>
       </property>
       <property name="uri"
@@ -16596,7 +16596,7 @@ a #SoupSessionSync.</doc>
                 getter="get_uri">
         <doc xml:space="preserve"
              filename="libsoup/soup-request.c"
-             line="290">The request URI.</doc>
+             line="291">The request URI.</doc>
         <type name="URI"/>
       </property>
       <field name="parent">
@@ -16638,7 +16638,7 @@ a #SoupSessionSync.</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="209">a #GInputStream that can be used to
+                 line="210">a #GInputStream that can be used to
   read from the URI pointed to by @request.</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </return-value>
@@ -16646,7 +16646,7 @@ a #SoupSessionSync.</doc>
             <parameter name="request" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libsoup/soup-request.c"
-                   line="199">a #SoupRequest</doc>
+                   line="200">a #SoupRequest</doc>
               <type name="Request" c:type="SoupRequest*"/>
             </parameter>
             <parameter name="cancellable"
@@ -16655,7 +16655,7 @@ a #SoupSessionSync.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="libsoup/soup-request.c"
-                   line="200">a #GCancellable or %NULL</doc>
+                   line="201">a #GCancellable or %NULL</doc>
               <type name="Gio.Cancellable" c:type="GCancellable*"/>
             </parameter>
           </parameters>
@@ -16671,7 +16671,7 @@ a #SoupSessionSync.</doc>
             <parameter name="request" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libsoup/soup-request.c"
-                   line="225">a #SoupRequest</doc>
+                   line="226">a #SoupRequest</doc>
               <type name="Request" c:type="SoupRequest*"/>
             </parameter>
             <parameter name="cancellable"
@@ -16680,7 +16680,7 @@ a #SoupSessionSync.</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="libsoup/soup-request.c"
-                   line="226">a #GCancellable or %NULL</doc>
+                   line="227">a #GCancellable or %NULL</doc>
               <type name="Gio.Cancellable" c:type="GCancellable*"/>
             </parameter>
             <parameter name="callback"
@@ -16691,7 +16691,7 @@ a #SoupSessionSync.</doc>
                        closure="3">
               <doc xml:space="preserve"
                    filename="libsoup/soup-request.c"
-                   line="227">a #GAsyncReadyCallback</doc>
+                   line="228">a #GAsyncReadyCallback</doc>
               <type name="Gio.AsyncReadyCallback"
                     c:type="GAsyncReadyCallback"/>
             </parameter>
@@ -16702,7 +16702,7 @@ a #SoupSessionSync.</doc>
                        closure="3">
               <doc xml:space="preserve"
                    filename="libsoup/soup-request.c"
-                   line="228">user data passed to @callback</doc>
+                   line="229">user data passed to @callback</doc>
               <type name="gpointer" c:type="gpointer"/>
             </parameter>
           </parameters>
@@ -16714,7 +16714,7 @@ a #SoupSessionSync.</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="256">a #GInputStream that can be used to
+                 line="257">a #GInputStream that can be used to
   read from the URI pointed to by @request.</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </return-value>
@@ -16722,13 +16722,13 @@ a #SoupSessionSync.</doc>
             <parameter name="request" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libsoup/soup-request.c"
-                   line="250">a #SoupRequest</doc>
+                   line="251">a #SoupRequest</doc>
               <type name="Request" c:type="SoupRequest*"/>
             </parameter>
             <parameter name="result" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libsoup/soup-request.c"
-                   line="251">the #GAsyncResult</doc>
+                   line="252">the #GAsyncResult</doc>
               <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
             </parameter>
           </parameters>
@@ -16740,7 +16740,7 @@ a #SoupSessionSync.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="375">the length of the data represented by @request,
+                 line="376">the length of the data represented by @request,
   or -1 if not known.</doc>
             <type name="gint64" c:type="goffset"/>
           </return-value>
@@ -16748,7 +16748,7 @@ a #SoupSessionSync.</doc>
             <parameter name="request" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libsoup/soup-request.c"
-                   line="369">a #SoupRequest</doc>
+                   line="370">a #SoupRequest</doc>
               <type name="Request" c:type="SoupRequest*"/>
             </parameter>
           </parameters>
@@ -16760,7 +16760,7 @@ a #SoupSessionSync.</doc>
           <return-value transfer-ownership="none" nullable="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request.c"
-                 line="397">the type of the data represented by
+                 line="398">the type of the data represented by
   @request, or %NULL if not known.</doc>
             <type name="utf8" c:type="const char*"/>
           </return-value>
@@ -16768,7 +16768,7 @@ a #SoupSessionSync.</doc>
             <parameter name="request" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libsoup/soup-request.c"
-                   line="388">a #SoupRequest</doc>
+                   line="389">a #SoupRequest</doc>
               <type name="Request" c:type="SoupRequest*"/>
             </parameter>
           </parameters>
@@ -16813,7 +16813,7 @@ a #SoupSessionSync.</doc>
                  glib:error-domain="soup_request_error_quark">
       <doc xml:space="preserve"
            filename="libsoup/soup-session.c"
-           line="4730">A #SoupRequest error.</doc>
+           line="4731">A #SoupRequest error.</doc>
       <member name="bad_uri"
               value="0"
               c:identifier="SOUP_REQUEST_ERROR_BAD_URI"
@@ -16821,7 +16821,7 @@ a #SoupSessionSync.</doc>
               glib:name="SOUP_REQUEST_ERROR_BAD_URI">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="4732">the URI could not be parsed</doc>
+             line="4733">the URI could not be parsed</doc>
       </member>
       <member name="unsupported_uri_scheme"
               value="1"
@@ -16830,7 +16830,7 @@ a #SoupSessionSync.</doc>
               glib:name="SOUP_REQUEST_ERROR_UNSUPPORTED_URI_SCHEME">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="4733">the URI scheme is not
+             line="4734">the URI scheme is not
   supported by this #SoupSession</doc>
       </member>
       <member name="parsing"
@@ -16840,7 +16840,7 @@ a #SoupSessionSync.</doc>
               glib:name="SOUP_REQUEST_ERROR_PARSING">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="4735">the server's response could not
+             line="4736">the server's response could not
   be parsed</doc>
       </member>
       <member name="encoding"
@@ -16850,7 +16850,7 @@ a #SoupSessionSync.</doc>
               glib:name="SOUP_REQUEST_ERROR_ENCODING">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="4737">the server's response was in an
+             line="4738">the server's response was in an
   unsupported format</doc>
       </member>
       <function name="quark" c:identifier="soup_request_error_quark">
@@ -16873,19 +16873,19 @@ a #SoupSessionSync.</doc>
               version="2.40">
         <doc xml:space="preserve"
              filename="libsoup/soup-request-file.c"
-             line="368">Gets a #GFile corresponding to @file's URI</doc>
+             line="369">Gets a #GFile corresponding to @file's URI</doc>
         <source-position filename="libsoup/soup-request-file.h" line="52"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-request-file.c"
-               line="374">a #GFile corresponding to @file</doc>
+               line="375">a #GFile corresponding to @file</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request-file.c"
-                 line="370">a #SoupRequestFile</doc>
+                 line="371">a #SoupRequestFile</doc>
             <type name="RequestFile" c:type="SoupRequestFile*"/>
           </instance-parameter>
         </parameters>
@@ -16925,19 +16925,19 @@ a #SoupSessionSync.</doc>
               version="2.40">
         <doc xml:space="preserve"
              filename="libsoup/soup-request-http.c"
-             line="218">Gets a new reference to the #SoupMessage associated to this SoupRequest</doc>
+             line="219">Gets a new reference to the #SoupMessage associated to this SoupRequest</doc>
         <source-position filename="libsoup/soup-request-http.h" line="52"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-request-http.c"
-               line="224">a new reference to the #SoupMessage</doc>
+               line="225">a new reference to the #SoupMessage</doc>
           <type name="Message" c:type="SoupMessage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="http" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-request-http.c"
-                 line="220">a #SoupRequestHTTP object</doc>
+                 line="221">a #SoupRequestHTTP object</doc>
             <type name="RequestHTTP" c:type="SoupRequestHTTP*"/>
           </instance-parameter>
         </parameters>
@@ -20084,7 +20084,7 @@ returning to the main loop.</doc>
               version="2.62">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="5073">Start a connection to @uri. The operation can be monitored by providing a @progress_callback
+             line="5075">Start a connection to @uri. The operation can be monitored by providing a @progress_callback
 and finishes when the connection is done or an error ocurred.
 
 Call soup_session_connect_finish() to get the #GIOStream to communicate with the server.</doc>
@@ -20096,13 +20096,13 @@ Call soup_session_connect_finish() to get the #GIOStream to communicate with the
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="5075">a #SoupSession</doc>
+                 line="5077">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="5076">a #SoupURI to connect to</doc>
+                 line="5078">a #SoupURI to connect to</doc>
             <type name="URI" c:type="SoupURI*"/>
           </parameter>
           <parameter name="cancellable"
@@ -20111,7 +20111,7 @@ Call soup_session_connect_finish() to get the #GIOStream to communicate with the
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="5077">a #GCancellable</doc>
+                 line="5079">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -20121,7 +20121,7 @@ Call soup_session_connect_finish() to get the #GIOStream to communicate with the
                      scope="async">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="5078">a #SoupSessionConnectProgressCallback which
+                 line="5080">a #SoupSessionConnectProgressCallback which
 will be called for every network event that occurs during the connection.</doc>
             <type name="SessionConnectProgressCallback"
                   c:type="SoupSessionConnectProgressCallback"/>
@@ -20134,7 +20134,7 @@ will be called for every network event that occurs during the connection.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="5080">the callback to invoke when the operation finishes</doc>
+                 line="5082">the callback to invoke when the operation finishes</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -20143,7 +20143,7 @@ will be called for every network event that occurs during the connection.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="5081">data for @progress_callback and @callback</doc>
+                 line="5083">data for @progress_callback and @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -20154,25 +20154,25 @@ will be called for every network event that occurs during the connection.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="5132">Gets the #GIOStream created for the connection to communicate with the server.</doc>
+             line="5135">Gets the #GIOStream created for the connection to communicate with the server.</doc>
         <source-position filename="libsoup/soup-session.h" line="251"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="5140">a new #GIOStream, or %NULL on error.</doc>
+               line="5143">a new #GIOStream, or %NULL on error.</doc>
           <type name="Gio.IOStream" c:type="GIOStream*"/>
         </return-value>
         <parameters>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="5134">a #SoupSession</doc>
+                 line="5137">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="5135">the #GAsyncResult passed to your callback</doc>
+                 line="5138">the #GAsyncResult passed to your callback</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -20624,12 +20624,12 @@ from the session at construct time by using the
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="4563">Creates a #SoupRequest for retrieving @uri_string.</doc>
+             line="4564">Creates a #SoupRequest for retrieving @uri_string.</doc>
         <source-position filename="libsoup/soup-session.h" line="190"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="4571">a new #SoupRequest, or
+               line="4572">a new #SoupRequest, or
   %NULL on error.</doc>
           <type name="Request" c:type="SoupRequest*"/>
         </return-value>
@@ -20637,13 +20637,13 @@ from the session at construct time by using the
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4565">a #SoupSession</doc>
+                 line="4566">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="uri_string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4566">a URI, in string form</doc>
+                 line="4567">a URI, in string form</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -20654,14 +20654,14 @@ from the session at construct time by using the
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="4660">Creates a #SoupRequest for retrieving @uri_string, which must be an
+             line="4661">Creates a #SoupRequest for retrieving @uri_string, which must be an
 "http" or "https" URI (or another protocol listed in @session's
 #SoupSession:http-aliases or #SoupSession:https-aliases).</doc>
         <source-position filename="libsoup/soup-session.h" line="198"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="4671">a new #SoupRequestHTTP, or
+               line="4672">a new #SoupRequestHTTP, or
   %NULL on error.</doc>
           <type name="RequestHTTP" c:type="SoupRequestHTTP*"/>
         </return-value>
@@ -20669,19 +20669,19 @@ from the session at construct time by using the
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4662">a #SoupSession</doc>
+                 line="4663">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4663">an HTTP method</doc>
+                 line="4664">an HTTP method</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="uri_string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4664">a URI, in string form</doc>
+                 line="4665">a URI, in string form</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -20692,14 +20692,14 @@ from the session at construct time by using the
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="4691">Creates a #SoupRequest for retrieving @uri, which must be an
+             line="4692">Creates a #SoupRequest for retrieving @uri, which must be an
 "http" or "https" URI (or another protocol listed in @session's
 #SoupSession:http-aliases or #SoupSession:https-aliases).</doc>
         <source-position filename="libsoup/soup-session.h" line="203"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="4702">a new #SoupRequestHTTP, or
+               line="4703">a new #SoupRequestHTTP, or
   %NULL on error.</doc>
           <type name="RequestHTTP" c:type="SoupRequestHTTP*"/>
         </return-value>
@@ -20707,19 +20707,19 @@ from the session at construct time by using the
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4693">a #SoupSession</doc>
+                 line="4694">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4694">an HTTP method</doc>
+                 line="4695">an HTTP method</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4695">a #SoupURI representing the URI to retrieve</doc>
+                 line="4696">a #SoupURI representing the URI to retrieve</doc>
             <type name="URI" c:type="SoupURI*"/>
           </parameter>
         </parameters>
@@ -20730,12 +20730,12 @@ from the session at construct time by using the
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="4596">Creates a #SoupRequest for retrieving @uri.</doc>
+             line="4597">Creates a #SoupRequest for retrieving @uri.</doc>
         <source-position filename="libsoup/soup-session.h" line="194"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="4604">a new #SoupRequest, or
+               line="4605">a new #SoupRequest, or
   %NULL on error.</doc>
           <type name="Request" c:type="SoupRequest*"/>
         </return-value>
@@ -20743,13 +20743,13 @@ from the session at construct time by using the
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4598">a #SoupSession</doc>
+                 line="4599">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4599">a #SoupURI representing the URI to retrieve</doc>
+                 line="4600">a #SoupURI representing the URI to retrieve</doc>
             <type name="URI" c:type="SoupURI*"/>
           </parameter>
         </parameters>
@@ -20785,7 +20785,7 @@ again.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="4416">Synchronously sends @msg and waits for the beginning of a response.
+             line="4417">Synchronously sends @msg and waits for the beginning of a response.
 On success, a #GInputStream will be returned which you can use to
 read the response body. ("Success" here means only that an HTTP
 response was received and understood; it does not necessarily mean
@@ -20814,7 +20814,7 @@ response has been completely read.
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="4449">a #GInputStream for reading the
+               line="4450">a #GInputStream for reading the
   response body, or %NULL on error.</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </return-value>
@@ -20822,13 +20822,13 @@ response has been completely read.
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4418">a #SoupSession</doc>
+                 line="4419">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4419">a #SoupMessage</doc>
+                 line="4420">a #SoupMessage</doc>
             <type name="Message" c:type="SoupMessage*"/>
           </parameter>
           <parameter name="cancellable"
@@ -20837,7 +20837,7 @@ response has been completely read.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4420">a #GCancellable</doc>
+                 line="4421">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -20917,14 +20917,14 @@ callback until the response has been completely read.
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="4374">Gets the response to a soup_session_send_async() call and (if
+             line="4375">Gets the response to a soup_session_send_async() call and (if
 successful), returns a #GInputStream that can be used to read the
 response body.</doc>
         <source-position filename="libsoup/soup-session.h" line="133"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="4384">a #GInputStream for reading the
+               line="4385">a #GInputStream for reading the
   response body, or %NULL on error.</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </return-value>
@@ -20932,13 +20932,13 @@ response body.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4376">a #SoupSession</doc>
+                 line="4377">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4377">the #GAsyncResult passed to your callback</doc>
+                 line="4378">the #GAsyncResult passed to your callback</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -20989,7 +20989,7 @@ response body, and allows you to read the response via a
               version="2.50">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="4790">"Steals" the HTTP connection associated with @msg from @session.
+             line="4791">"Steals" the HTTP connection associated with @msg from @session.
 This happens immediately, regardless of the current state of the
 connection, and @msg's callback will not be called. You can steal
 the connection from a #SoupMessage signal handler if you need to
@@ -21001,7 +21001,7 @@ holding any other reference to it.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="4804">the #GIOStream formerly associated
+               line="4805">the #GIOStream formerly associated
   with @msg (or %NULL if @msg was no longer associated with a
   connection). No guarantees are made about what kind of #GIOStream
   is returned.</doc>
@@ -21011,13 +21011,13 @@ holding any other reference to it.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4792">a #SoupSession</doc>
+                 line="4793">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4793">the message whose connection is to be stolen</doc>
+                 line="4794">the message whose connection is to be stolen</doc>
             <type name="Message" c:type="SoupMessage*"/>
           </parameter>
         </parameters>
@@ -21059,7 +21059,7 @@ This may only be called for asynchronous messages (those sent on a
               version="2.50">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="4900">Asynchronously creates a #SoupWebsocketConnection to communicate
+             line="4901">Asynchronously creates a #SoupWebsocketConnection to communicate
 with a remote server.
 
 All necessary WebSocket-related headers will be added to @msg, and
@@ -21085,13 +21085,13 @@ soup_session_websocket_connect_finish() will return
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4902">a #SoupSession</doc>
+                 line="4903">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4903">#SoupMessage indicating the WebSocket server to connect to</doc>
+                 line="4904">#SoupMessage indicating the WebSocket server to connect to</doc>
             <type name="Message" c:type="SoupMessage*"/>
           </parameter>
           <parameter name="origin"
@@ -21100,7 +21100,7 @@ soup_session_websocket_connect_finish() will return
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4904">origin of the connection</doc>
+                 line="4905">origin of the connection</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="protocols"
@@ -21109,7 +21109,7 @@ soup_session_websocket_connect_finish() will return
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4905">a
+                 line="4906">a
   %NULL-terminated array of protocols supported</doc>
             <array c:type="char**">
               <type name="utf8" c:type="char*"/>
@@ -21121,7 +21121,7 @@ soup_session_websocket_connect_finish() will return
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4907">a #GCancellable</doc>
+                 line="4908">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -21132,7 +21132,7 @@ soup_session_websocket_connect_finish() will return
                      closure="5">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4908">the callback to invoke</doc>
+                 line="4909">the callback to invoke</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -21141,7 +21141,7 @@ soup_session_websocket_connect_finish() will return
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4909">data for @callback</doc>
+                 line="4910">data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -21152,7 +21152,7 @@ soup_session_websocket_connect_finish() will return
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-session.c"
-             line="4974">Gets the #SoupWebsocketConnection response to a
+             line="4976">Gets the #SoupWebsocketConnection response to a
 soup_session_websocket_connect_async() call and (if successful),
 returns a #SoupWebsocketConnection that can be used to communicate
 with the server.</doc>
@@ -21160,7 +21160,7 @@ with the server.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="4985">a new #SoupWebsocketConnection, or
+               line="4987">a new #SoupWebsocketConnection, or
   %NULL on error.</doc>
           <type name="WebsocketConnection" c:type="SoupWebsocketConnection*"/>
         </return-value>
@@ -21168,13 +21168,13 @@ with the server.</doc>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4976">a #SoupSession</doc>
+                 line="4978">a #SoupSession</doc>
             <type name="Session" c:type="SoupSession*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-session.c"
-                 line="4977">the #GAsyncResult passed to your callback</doc>
+                 line="4979">the #GAsyncResult passed to your callback</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -22163,7 +22163,7 @@ be called after the message completes or when an unrecoverable error occurs.</do
               version="2.62">
       <doc xml:space="preserve"
            filename="libsoup/soup-session.c"
-           line="5001">Prototype for the progress callback passed to soup_session_connect_async().</doc>
+           line="5003">Prototype for the progress callback passed to soup_session_connect_async().</doc>
       <source-position filename="libsoup/soup-session.h" line="237"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -22172,19 +22172,19 @@ be called after the message completes or when an unrecoverable error occurs.</do
         <parameter name="session" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="5003">the #SoupSession</doc>
+               line="5005">the #SoupSession</doc>
           <type name="Session" c:type="SoupSession*"/>
         </parameter>
         <parameter name="event" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="5004">a #GSocketClientEvent</doc>
+               line="5006">a #GSocketClientEvent</doc>
           <type name="Gio.SocketClientEvent" c:type="GSocketClientEvent"/>
         </parameter>
         <parameter name="connection" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="5005">the current state of the network connection</doc>
+               line="5007">the current state of the network connection</doc>
           <type name="Gio.IOStream" c:type="GIOStream*"/>
         </parameter>
         <parameter name="user_data"
@@ -22194,7 +22194,7 @@ be called after the message completes or when an unrecoverable error occurs.</do
                    closure="3">
           <doc xml:space="preserve"
                filename="libsoup/soup-session.c"
-               line="5006">the data passed to soup_session_connect_async().</doc>
+               line="5008">the data passed to soup_session_connect_async().</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -22874,7 +22874,7 @@ linkend="libsoup-session-porting"&gt;porting guide&lt;/link&gt;.</doc-deprecated
       <method name="connect_async" c:identifier="soup_socket_connect_async">
         <doc xml:space="preserve"
              filename="libsoup/soup-socket.c"
-             line="1017">Begins asynchronously connecting to @sock's remote address. The
+             line="1018">Begins asynchronously connecting to @sock's remote address. The
 socket will call @callback when it succeeds or fails (but not
 before returning from this function).
 
@@ -22889,7 +22889,7 @@ status of %SOUP_STATUS_CANCELLED.</doc>
           <instance-parameter name="sock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1019">a client #SoupSocket (which must not already be connected)</doc>
+                 line="1020">a client #SoupSocket (which must not already be connected)</doc>
             <type name="Socket" c:type="SoupSocket*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -22898,7 +22898,7 @@ status of %SOUP_STATUS_CANCELLED.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1020">a #GCancellable, or %NULL</doc>
+                 line="1021">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -22907,7 +22907,7 @@ status of %SOUP_STATUS_CANCELLED.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1021">callback to call after connecting</doc>
+                 line="1022">callback to call after connecting</doc>
             <type name="SocketCallback" c:type="SoupSocketCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -22916,7 +22916,7 @@ status of %SOUP_STATUS_CANCELLED.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1022">data to pass to @callback</doc>
+                 line="1023">data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -22924,7 +22924,7 @@ status of %SOUP_STATUS_CANCELLED.</doc>
       <method name="connect_sync" c:identifier="soup_socket_connect_sync">
         <doc xml:space="preserve"
              filename="libsoup/soup-socket.c"
-             line="1087">Attempt to synchronously connect @sock to its remote address.
+             line="1088">Attempt to synchronously connect @sock to its remote address.
 
 If @cancellable is non-%NULL, it can be used to cancel the
 connection, in which case soup_socket_connect_sync() will return
@@ -22933,14 +22933,14 @@ connection, in which case soup_socket_connect_sync() will return
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-socket.c"
-               line="1098">a success or failure code.</doc>
+               line="1099">a success or failure code.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="sock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1089">a client #SoupSocket (which must not already be connected)</doc>
+                 line="1090">a client #SoupSocket (which must not already be connected)</doc>
             <type name="Socket" c:type="SoupSocket*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -22949,7 +22949,7 @@ connection, in which case soup_socket_connect_sync() will return
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1090">a #GCancellable, or %NULL</doc>
+                 line="1091">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -22957,7 +22957,7 @@ connection, in which case soup_socket_connect_sync() will return
       <method name="disconnect" c:identifier="soup_socket_disconnect">
         <doc xml:space="preserve"
              filename="libsoup/soup-socket.c"
-             line="1578">Disconnects @sock. Any further read or write attempts on it will
+             line="1587">Disconnects @sock. Any further read or write attempts on it will
 fail.</doc>
         <source-position filename="libsoup/soup-socket.h" line="92"/>
         <return-value transfer-ownership="none">
@@ -22967,7 +22967,7 @@ fail.</doc>
           <instance-parameter name="sock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1580">a #SoupSocket</doc>
+                 line="1589">a #SoupSocket</doc>
             <type name="Socket" c:type="SoupSocket*"/>
           </instance-parameter>
         </parameters>
@@ -22977,7 +22977,7 @@ fail.</doc>
               glib:get-property="fd">
         <doc xml:space="preserve"
              filename="libsoup/soup-socket.c"
-             line="1118">Gets @sock's underlying file descriptor.
+             line="1119">Gets @sock's underlying file descriptor.
 
 Note that fiddling with the file descriptor may break the
 #SoupSocket.</doc>
@@ -22985,14 +22985,14 @@ Note that fiddling with the file descriptor may break the
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-socket.c"
-               line="1127">@sock's file descriptor.</doc>
+               line="1128">@sock's file descriptor.</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="sock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1120">a #SoupSocket</doc>
+                 line="1121">a #SoupSocket</doc>
             <type name="Socket" c:type="SoupSocket*"/>
           </instance-parameter>
         </parameters>
@@ -23002,7 +23002,7 @@ Note that fiddling with the file descriptor may break the
               glib:get-property="local-address">
         <doc xml:space="preserve"
              filename="libsoup/soup-socket.c"
-             line="1654">Returns the #SoupAddress corresponding to the local end of @sock.
+             line="1663">Returns the #SoupAddress corresponding to the local end of @sock.
 
 Calling this method on an unconnected socket is considered to be
 an error, and produces undefined results.</doc>
@@ -23010,14 +23010,14 @@ an error, and produces undefined results.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-socket.c"
-               line="1663">the #SoupAddress</doc>
+               line="1672">the #SoupAddress</doc>
           <type name="Address" c:type="SoupAddress*"/>
         </return-value>
         <parameters>
           <instance-parameter name="sock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1656">a #SoupSocket</doc>
+                 line="1665">a #SoupSocket</doc>
             <type name="Socket" c:type="SoupSocket*"/>
           </instance-parameter>
         </parameters>
@@ -23027,7 +23027,7 @@ an error, and produces undefined results.</doc>
               glib:get-property="remote-address">
         <doc xml:space="preserve"
              filename="libsoup/soup-socket.c"
-             line="1702">Returns the #SoupAddress corresponding to the remote end of @sock.
+             line="1711">Returns the #SoupAddress corresponding to the remote end of @sock.
 
 Calling this method on an unconnected socket is considered to be
 an error, and produces undefined results.</doc>
@@ -23035,14 +23035,14 @@ an error, and produces undefined results.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-socket.c"
-               line="1711">the #SoupAddress</doc>
+               line="1720">the #SoupAddress</doc>
           <type name="Address" c:type="SoupAddress*"/>
         </return-value>
         <parameters>
           <instance-parameter name="sock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1704">a #SoupSocket</doc>
+                 line="1713">a #SoupSocket</doc>
             <type name="Socket" c:type="SoupSocket*"/>
           </instance-parameter>
         </parameters>
@@ -23050,19 +23050,19 @@ an error, and produces undefined results.</doc>
       <method name="is_connected" c:identifier="soup_socket_is_connected">
         <doc xml:space="preserve"
              filename="libsoup/soup-socket.c"
-             line="1635">Tests if @sock is connected to another host</doc>
+             line="1644">Tests if @sock is connected to another host</doc>
         <source-position filename="libsoup/soup-socket.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-socket.c"
-               line="1641">%TRUE or %FALSE.</doc>
+               line="1650">%TRUE or %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="sock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1637">a #SoupSocket</doc>
+                 line="1646">a #SoupSocket</doc>
             <type name="Socket" c:type="SoupSocket*"/>
           </instance-parameter>
         </parameters>
@@ -23070,19 +23070,19 @@ an error, and produces undefined results.</doc>
       <method name="is_ssl" c:identifier="soup_socket_is_ssl">
         <doc xml:space="preserve"
              filename="libsoup/soup-socket.c"
-             line="1562">Tests if @sock is doing (or has attempted to do) SSL.</doc>
+             line="1571">Tests if @sock is doing (or has attempted to do) SSL.</doc>
         <source-position filename="libsoup/soup-socket.h" line="89"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-socket.c"
-               line="1568">%TRUE if @sock has SSL credentials set</doc>
+               line="1577">%TRUE if @sock has SSL credentials set</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="sock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1564">a #SoupSocket</doc>
+                 line="1573">a #SoupSocket</doc>
             <type name="Socket" c:type="SoupSocket*"/>
           </instance-parameter>
         </parameters>
@@ -23090,20 +23090,20 @@ an error, and produces undefined results.</doc>
       <method name="listen" c:identifier="soup_socket_listen">
         <doc xml:space="preserve"
              filename="libsoup/soup-socket.c"
-             line="1262">Makes @sock start listening on its local address. When connections
+             line="1270">Makes @sock start listening on its local address. When connections
 come in, @sock will emit #SoupSocket::new_connection.</doc>
         <source-position filename="libsoup/soup-socket.h" line="79"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-socket.c"
-               line="1270">whether or not @sock is now listening.</doc>
+               line="1278">whether or not @sock is now listening.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="sock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1264">a server #SoupSocket (which must not already be connected or
+                 line="1272">a server #SoupSocket (which must not already be connected or
 listening)</doc>
             <type name="Socket" c:type="SoupSocket*"/>
           </instance-parameter>
@@ -23112,7 +23112,7 @@ listening)</doc>
       <method name="read" c:identifier="soup_socket_read" throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-socket.c"
-             line="1827">Attempts to read up to @len bytes from @sock into @buffer. If some
+             line="1836">Attempts to read up to @len bytes from @sock into @buffer. If some
 data is successfully read, soup_socket_read() will return
 %SOUP_SOCKET_OK, and *@nread will contain the number of bytes
 actually read (which may be less than @len).
@@ -23128,7 +23128,7 @@ emitted once. See the documentation for #SoupSocket:non-blocking.)</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-socket.c"
-               line="1850">a #SoupSocketIOStatus, as described above (or
+               line="1859">a #SoupSocketIOStatus, as described above (or
 %SOUP_SOCKET_EOF if the socket is no longer connected, or
 %SOUP_SOCKET_ERROR on any other error, in which case @error will
 also be set).</doc>
@@ -23138,13 +23138,13 @@ also be set).</doc>
           <instance-parameter name="sock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1829">the socket</doc>
+                 line="1838">the socket</doc>
             <type name="Socket" c:type="SoupSocket*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1830">buffer to read
+                 line="1839">buffer to read
   into</doc>
             <array length="1" zero-terminated="0" c:type="gpointer">
               <type name="guint8"/>
@@ -23153,7 +23153,7 @@ also be set).</doc>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1832">size of @buffer in bytes</doc>
+                 line="1841">size of @buffer in bytes</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
           <parameter name="nread"
@@ -23162,7 +23162,7 @@ also be set).</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1833">on return, the number of bytes read into @buffer</doc>
+                 line="1842">on return, the number of bytes read into @buffer</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
           <parameter name="cancellable"
@@ -23171,7 +23171,7 @@ also be set).</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1834">a #GCancellable, or %NULL</doc>
+                 line="1843">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -23181,7 +23181,7 @@ also be set).</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-socket.c"
-             line="1893">Like soup_socket_read(), but reads no further than the first
+             line="1902">Like soup_socket_read(), but reads no further than the first
 occurrence of @boundary. (If the boundary is found, it will be
 included in the returned data, and *@got_boundary will be set to
 %TRUE.) Any data after the boundary will returned in future reads.
@@ -23197,20 +23197,20 @@ longer than @boundary_len if you want to make any progress at all.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-socket.c"
-               line="1920">as for soup_socket_read()</doc>
+               line="1929">as for soup_socket_read()</doc>
           <type name="SocketIOStatus" c:type="SoupSocketIOStatus"/>
         </return-value>
         <parameters>
           <instance-parameter name="sock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1895">the socket</doc>
+                 line="1904">the socket</doc>
             <type name="Socket" c:type="SoupSocket*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1896">buffer to read
+                 line="1905">buffer to read
   into</doc>
             <array length="1" zero-terminated="0" c:type="gpointer">
               <type name="guint8"/>
@@ -23219,7 +23219,7 @@ longer than @boundary_len if you want to make any progress at all.</doc>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1898">size of @buffer in bytes</doc>
+                 line="1907">size of @buffer in bytes</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
           <parameter name="boundary"
@@ -23228,13 +23228,13 @@ longer than @boundary_len if you want to make any progress at all.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1899">boundary to read until</doc>
+                 line="1908">boundary to read until</doc>
             <type name="gpointer" c:type="gconstpointer"/>
           </parameter>
           <parameter name="boundary_len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1900">length of @boundary in bytes</doc>
+                 line="1909">length of @boundary in bytes</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
           <parameter name="nread"
@@ -23243,7 +23243,7 @@ longer than @boundary_len if you want to make any progress at all.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1901">on return, the number of bytes read into @buffer</doc>
+                 line="1910">on return, the number of bytes read into @buffer</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
           <parameter name="got_boundary"
@@ -23252,7 +23252,7 @@ longer than @boundary_len if you want to make any progress at all.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1902">on return, whether or not the data in @buffer
+                 line="1911">on return, whether or not the data in @buffer
 ends with the boundary string</doc>
             <type name="gboolean" c:type="gboolean*"/>
           </parameter>
@@ -23262,7 +23262,7 @@ ends with the boundary string</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1904">a #GCancellable, or %NULL</doc>
+                 line="1913">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -23271,26 +23271,26 @@ ends with the boundary string</doc>
               c:identifier="soup_socket_start_proxy_ssl">
         <doc xml:space="preserve"
              filename="libsoup/soup-socket.c"
-             line="1470">Starts using SSL on @socket, expecting to find a host named
+             line="1478">Starts using SSL on @socket, expecting to find a host named
 @ssl_host.</doc>
         <source-position filename="libsoup/soup-socket.h" line="85"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-socket.c"
-               line="1479">success or failure</doc>
+               line="1487">success or failure</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="sock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1472">the socket</doc>
+                 line="1480">the socket</doc>
             <type name="Socket" c:type="SoupSocket*"/>
           </instance-parameter>
           <parameter name="ssl_host" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1473">hostname of the SSL server</doc>
+                 line="1481">hostname of the SSL server</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="cancellable"
@@ -23299,7 +23299,7 @@ ends with the boundary string</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1474">a #GCancellable</doc>
+                 line="1482">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -23307,19 +23307,19 @@ ends with the boundary string</doc>
       <method name="start_ssl" c:identifier="soup_socket_start_ssl">
         <doc xml:space="preserve"
              filename="libsoup/soup-socket.c"
-             line="1452">Starts using SSL on @socket.</doc>
+             line="1460">Starts using SSL on @socket.</doc>
         <source-position filename="libsoup/soup-socket.h" line="82"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-socket.c"
-               line="1459">success or failure</doc>
+               line="1467">success or failure</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="sock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1454">the socket</doc>
+                 line="1462">the socket</doc>
             <type name="Socket" c:type="SoupSocket*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -23328,7 +23328,7 @@ ends with the boundary string</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1455">a #GCancellable</doc>
+                 line="1463">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -23336,7 +23336,7 @@ ends with the boundary string</doc>
       <method name="write" c:identifier="soup_socket_write" throws="1">
         <doc xml:space="preserve"
              filename="libsoup/soup-socket.c"
-             line="1970">Attempts to write @len bytes from @buffer to @sock. If some data is
+             line="1979">Attempts to write @len bytes from @buffer to @sock. If some data is
 successfully written, the return status will be %SOUP_SOCKET_OK,
 and *@nwrote will contain the number of bytes actually written
 (which may be less than @len).
@@ -23352,7 +23352,7 @@ and it is only emitted once. See the documentation for
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-socket.c"
-               line="1992">a #SoupSocketIOStatus, as described above (or
+               line="2001">a #SoupSocketIOStatus, as described above (or
 %SOUP_SOCKET_EOF or %SOUP_SOCKET_ERROR. @error will be set if the
 return value is %SOUP_SOCKET_ERROR.)</doc>
           <type name="SocketIOStatus" c:type="SoupSocketIOStatus"/>
@@ -23361,13 +23361,13 @@ return value is %SOUP_SOCKET_ERROR.)</doc>
           <instance-parameter name="sock" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1972">the socket</doc>
+                 line="1981">the socket</doc>
             <type name="Socket" c:type="SoupSocket*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1973">data to write</doc>
+                 line="1982">data to write</doc>
             <array length="1" zero-terminated="0" c:type="gconstpointer">
               <type name="guint8"/>
             </array>
@@ -23375,7 +23375,7 @@ return value is %SOUP_SOCKET_ERROR.)</doc>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1974">size of @buffer, in bytes</doc>
+                 line="1983">size of @buffer, in bytes</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
           <parameter name="nwrote"
@@ -23384,7 +23384,7 @@ return value is %SOUP_SOCKET_ERROR.)</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1975">on return, number of bytes written</doc>
+                 line="1984">on return, number of bytes written</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
           <parameter name="cancellable"
@@ -23393,7 +23393,7 @@ return value is %SOUP_SOCKET_ERROR.)</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-socket.c"
-                 line="1976">a #GCancellable, or %NULL</doc>
+                 line="1985">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -23620,7 +23620,7 @@ soup_socket_write() and #SoupSocket:non-blocking.</doc>
     <callback name="SocketCallback" c:type="SoupSocketCallback">
       <doc xml:space="preserve"
            filename="libsoup/soup-socket.c"
-           line="982">The callback function passed to soup_socket_connect_async().</doc>
+           line="983">The callback function passed to soup_socket_connect_async().</doc>
       <source-position filename="libsoup/soup-socket.h" line="56"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -23629,13 +23629,13 @@ soup_socket_write() and #SoupSocket:non-blocking.</doc>
         <parameter name="sock" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-socket.c"
-               line="984">the #SoupSocket</doc>
+               line="985">the #SoupSocket</doc>
           <type name="Socket" c:type="SoupSocket*"/>
         </parameter>
         <parameter name="status" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-socket.c"
-               line="985">an HTTP status code indicating success or failure</doc>
+               line="986">an HTTP status code indicating success or failure</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="user_data"
@@ -23645,7 +23645,7 @@ soup_socket_write() and #SoupSocket:non-blocking.</doc>
                    closure="2">
           <doc xml:space="preserve"
                filename="libsoup/soup-socket.c"
-               line="986">the data passed to soup_socket_connect_async()</doc>
+               line="987">the data passed to soup_socket_connect_async()</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -23751,7 +23751,7 @@ soup_socket_write() and #SoupSocket:non-blocking.</doc>
                  c:type="SoupSocketIOStatus">
       <doc xml:space="preserve"
            filename="libsoup/soup-socket.c"
-           line="1817">Return value from the #SoupSocket IO methods.</doc>
+           line="1826">Return value from the #SoupSocket IO methods.</doc>
       <member name="ok"
               value="0"
               c:identifier="SOUP_SOCKET_OK"
@@ -23759,7 +23759,7 @@ soup_socket_write() and #SoupSocket:non-blocking.</doc>
               glib:name="SOUP_SOCKET_OK">
         <doc xml:space="preserve"
              filename="libsoup/soup-socket.c"
-             line="1819">Success</doc>
+             line="1828">Success</doc>
       </member>
       <member name="would_block"
               value="1"
@@ -23768,7 +23768,7 @@ soup_socket_write() and #SoupSocket:non-blocking.</doc>
               glib:name="SOUP_SOCKET_WOULD_BLOCK">
         <doc xml:space="preserve"
              filename="libsoup/soup-socket.c"
-             line="1820">Cannot read/write any more at this time</doc>
+             line="1829">Cannot read/write any more at this time</doc>
       </member>
       <member name="eof"
               value="2"
@@ -23777,7 +23777,7 @@ soup_socket_write() and #SoupSocket:non-blocking.</doc>
               glib:name="SOUP_SOCKET_EOF">
         <doc xml:space="preserve"
              filename="libsoup/soup-socket.c"
-             line="1821">End of file</doc>
+             line="1830">End of file</doc>
       </member>
       <member name="error"
               value="3"
@@ -23786,7 +23786,7 @@ soup_socket_write() and #SoupSocket:non-blocking.</doc>
               glib:name="SOUP_SOCKET_ERROR">
         <doc xml:space="preserve"
              filename="libsoup/soup-socket.c"
-             line="1822">Other error</doc>
+             line="1831">Other error</doc>
       </member>
     </enumeration>
     <enumeration name="Status"
@@ -25781,7 +25781,7 @@ are also allowed.)</doc>
                    version="2.50">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1731">Creates a #SoupWebsocketConnection on @stream. This should be
+             line="1746">Creates a #SoupWebsocketConnection on @stream. This should be
 called after completing the handshake to begin using the WebSocket
 protocol.</doc>
         <source-position filename="libsoup/soup-websocket-connection.h"
@@ -25789,26 +25789,26 @@ protocol.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-websocket-connection.c"
-               line="1743">a new #SoupWebsocketConnection</doc>
+               line="1758">a new #SoupWebsocketConnection</doc>
           <type name="WebsocketConnection" c:type="SoupWebsocketConnection*"/>
         </return-value>
         <parameters>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1733">a #GIOStream connected to the WebSocket server</doc>
+                 line="1748">a #GIOStream connected to the WebSocket server</doc>
             <type name="Gio.IOStream" c:type="GIOStream*"/>
           </parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1734">the URI of the connection</doc>
+                 line="1749">the URI of the connection</doc>
             <type name="URI" c:type="SoupURI*"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1735">the type of connection (client/side)</doc>
+                 line="1750">the type of connection (client/side)</doc>
             <type name="WebsocketConnectionType"
                   c:type="SoupWebsocketConnectionType"/>
           </parameter>
@@ -25818,7 +25818,7 @@ protocol.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1736">the Origin of the client</doc>
+                 line="1751">the Origin of the client</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="protocol"
@@ -25827,7 +25827,7 @@ protocol.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1737">the subprotocol in use</doc>
+                 line="1752">the subprotocol in use</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -25837,7 +25837,7 @@ protocol.</doc>
                    version="2.68">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1757">Creates a #SoupWebsocketConnection on @stream with the given active @extensions.
+             line="1772">Creates a #SoupWebsocketConnection on @stream with the given active @extensions.
 This should be called after completing the handshake to begin using the WebSocket
 protocol.</doc>
         <source-position filename="libsoup/soup-websocket-connection.h"
@@ -25845,26 +25845,26 @@ protocol.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libsoup/soup-websocket-connection.c"
-               line="1770">a new #SoupWebsocketConnection</doc>
+               line="1785">a new #SoupWebsocketConnection</doc>
           <type name="WebsocketConnection" c:type="SoupWebsocketConnection*"/>
         </return-value>
         <parameters>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1759">a #GIOStream connected to the WebSocket server</doc>
+                 line="1774">a #GIOStream connected to the WebSocket server</doc>
             <type name="Gio.IOStream" c:type="GIOStream*"/>
           </parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1760">the URI of the connection</doc>
+                 line="1775">the URI of the connection</doc>
             <type name="URI" c:type="SoupURI*"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1761">the type of connection (client/side)</doc>
+                 line="1776">the type of connection (client/side)</doc>
             <type name="WebsocketConnectionType"
                   c:type="SoupWebsocketConnectionType"/>
           </parameter>
@@ -25874,7 +25874,7 @@ protocol.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1762">the Origin of the client</doc>
+                 line="1777">the Origin of the client</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="protocol"
@@ -25883,13 +25883,13 @@ protocol.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1763">the subprotocol in use</doc>
+                 line="1778">the subprotocol in use</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="extensions" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1764">a #GList of #SoupWebsocketExtension objects</doc>
+                 line="1779">a #GList of #SoupWebsocketExtension objects</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="WebsocketExtension"/>
             </type>
@@ -25978,7 +25978,7 @@ protocol.</doc>
               version="2.50">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="2062">Close the connection in an orderly fashion.
+             line="2077">Close the connection in an orderly fashion.
 
 Note that until the #SoupWebsocketConnection::closed signal fires, the connection
 is not yet completely closed. The close message is not even sent until the
@@ -25997,14 +25997,14 @@ Note that the @data must be UTF-8 valid.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="2064">the WebSocket</doc>
+                 line="2079">the WebSocket</doc>
             <type name="WebsocketConnection"
                   c:type="SoupWebsocketConnection*"/>
           </instance-parameter>
           <parameter name="code" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="2065">close code</doc>
+                 line="2080">close code</doc>
             <type name="gushort" c:type="gushort"/>
           </parameter>
           <parameter name="data"
@@ -26013,7 +26013,7 @@ Note that the @data must be UTF-8 valid.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="2066">close data</doc>
+                 line="2081">close data</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -26023,7 +26023,7 @@ Note that the @data must be UTF-8 valid.</doc>
               version="2.50">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1930">Get the close code received from the WebSocket peer.
+             line="1945">Get the close code received from the WebSocket peer.
 
 This only becomes valid once the WebSocket is in the
 %SOUP_WEBSOCKET_STATE_CLOSED state. The value will often be in the
@@ -26034,14 +26034,14 @@ defined close code.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-websocket-connection.c"
-               line="1941">the close code or zero.</doc>
+               line="1956">the close code or zero.</doc>
           <type name="gushort" c:type="gushort"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1932">the WebSocket</doc>
+                 line="1947">the WebSocket</doc>
             <type name="WebsocketConnection"
                   c:type="SoupWebsocketConnection*"/>
           </instance-parameter>
@@ -26052,7 +26052,7 @@ defined close code.</doc>
               version="2.50">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1953">Get the close data received from the WebSocket peer.
+             line="1968">Get the close data received from the WebSocket peer.
 
 This only becomes valid once the WebSocket is in the
 %SOUP_WEBSOCKET_STATE_CLOSED state. The data may be freed once
@@ -26062,14 +26062,14 @@ the main loop is run, so copy it if you need to keep it around.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-websocket-connection.c"
-               line="1963">the close data or %NULL</doc>
+               line="1978">the close data or %NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1955">the WebSocket</doc>
+                 line="1970">the WebSocket</doc>
             <type name="WebsocketConnection"
                   c:type="SoupWebsocketConnection*"/>
           </instance-parameter>
@@ -26081,13 +26081,13 @@ the main loop is run, so copy it if you need to keep it around.</doc>
               version="2.50">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1814">Get the connection type (client/server) of the connection.</doc>
+             line="1829">Get the connection type (client/server) of the connection.</doc>
         <source-position filename="libsoup/soup-websocket-connection.h"
                          line="85"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-websocket-connection.c"
-               line="1820">the connection type</doc>
+               line="1835">the connection type</doc>
           <type name="WebsocketConnectionType"
                 c:type="SoupWebsocketConnectionType"/>
         </return-value>
@@ -26095,7 +26095,7 @@ the main loop is run, so copy it if you need to keep it around.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1816">the WebSocket</doc>
+                 line="1831">the WebSocket</doc>
             <type name="WebsocketConnection"
                   c:type="SoupWebsocketConnection*"/>
           </instance-parameter>
@@ -26107,13 +26107,13 @@ the main loop is run, so copy it if you need to keep it around.</doc>
               version="2.68">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1889">Get the extensions chosen via negotiation with the peer.</doc>
+             line="1904">Get the extensions chosen via negotiation with the peer.</doc>
         <source-position filename="libsoup/soup-websocket-connection.h"
                          line="97"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-websocket-connection.c"
-               line="1895">a #GList of #SoupWebsocketExtension objects</doc>
+               line="1910">a #GList of #SoupWebsocketExtension objects</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="WebsocketExtension"/>
           </type>
@@ -26122,7 +26122,7 @@ the main loop is run, so copy it if you need to keep it around.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1891">the WebSocket</doc>
+                 line="1906">the WebSocket</doc>
             <type name="WebsocketConnection"
                   c:type="SoupWebsocketConnection*"/>
           </instance-parameter>
@@ -26134,20 +26134,20 @@ the main loop is run, so copy it if you need to keep it around.</doc>
               version="2.50">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1796">Get the I/O stream the WebSocket is communicating over.</doc>
+             line="1811">Get the I/O stream the WebSocket is communicating over.</doc>
         <source-position filename="libsoup/soup-websocket-connection.h"
                          line="82"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-websocket-connection.c"
-               line="1802">the WebSocket's I/O stream.</doc>
+               line="1817">the WebSocket's I/O stream.</doc>
           <type name="Gio.IOStream" c:type="GIOStream*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1798">the WebSocket</doc>
+                 line="1813">the WebSocket</doc>
             <type name="WebsocketConnection"
                   c:type="SoupWebsocketConnection*"/>
           </instance-parameter>
@@ -26159,20 +26159,20 @@ the main loop is run, so copy it if you need to keep it around.</doc>
               version="2.58">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="2148">Gets the keepalive interval in seconds or 0 if disabled.</doc>
+             line="2163">Gets the keepalive interval in seconds or 0 if disabled.</doc>
         <source-position filename="libsoup/soup-websocket-connection.h"
                          line="133"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-websocket-connection.c"
-               line="2154">the keepalive interval.</doc>
+               line="2169">the keepalive interval.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="2150">the WebSocket</doc>
+                 line="2165">the WebSocket</doc>
             <type name="WebsocketConnection"
                   c:type="SoupWebsocketConnection*"/>
           </instance-parameter>
@@ -26184,20 +26184,20 @@ the main loop is run, so copy it if you need to keep it around.</doc>
               version="2.56">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="2102">Gets the maximum payload size allowed for incoming packets.</doc>
+             line="2117">Gets the maximum payload size allowed for incoming packets.</doc>
         <source-position filename="libsoup/soup-websocket-connection.h"
                          line="126"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-websocket-connection.c"
-               line="2108">the maximum payload size.</doc>
+               line="2123">the maximum payload size.</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="2104">the WebSocket</doc>
+                 line="2119">the WebSocket</doc>
             <type name="WebsocketConnection"
                   c:type="SoupWebsocketConnection*"/>
           </instance-parameter>
@@ -26209,20 +26209,20 @@ the main loop is run, so copy it if you need to keep it around.</doc>
               version="2.50">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1853">Get the origin of the WebSocket.</doc>
+             line="1868">Get the origin of the WebSocket.</doc>
         <source-position filename="libsoup/soup-websocket-connection.h"
                          line="91"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libsoup/soup-websocket-connection.c"
-               line="1859">the origin, or %NULL</doc>
+               line="1874">the origin, or %NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1855">the WebSocket</doc>
+                 line="1870">the WebSocket</doc>
             <type name="WebsocketConnection"
                   c:type="SoupWebsocketConnection*"/>
           </instance-parameter>
@@ -26234,20 +26234,20 @@ the main loop is run, so copy it if you need to keep it around.</doc>
               version="2.50">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1871">Get the protocol chosen via negotiation with the peer.</doc>
+             line="1886">Get the protocol chosen via negotiation with the peer.</doc>
         <source-position filename="libsoup/soup-websocket-connection.h"
                          line="94"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libsoup/soup-websocket-connection.c"
-               line="1877">the chosen protocol, or %NULL</doc>
+               line="1892">the chosen protocol, or %NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1873">the WebSocket</doc>
+                 line="1888">the WebSocket</doc>
             <type name="WebsocketConnection"
                   c:type="SoupWebsocketConnection*"/>
           </instance-parameter>
@@ -26259,20 +26259,20 @@ the main loop is run, so copy it if you need to keep it around.</doc>
               version="2.50">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1907">Get the current state of the WebSocket.</doc>
+             line="1922">Get the current state of the WebSocket.</doc>
         <source-position filename="libsoup/soup-websocket-connection.h"
                          line="100"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-websocket-connection.c"
-               line="1913">the state</doc>
+               line="1928">the state</doc>
           <type name="WebsocketState" c:type="SoupWebsocketState"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1909">the WebSocket</doc>
+                 line="1924">the WebSocket</doc>
             <type name="WebsocketConnection"
                   c:type="SoupWebsocketConnection*"/>
           </instance-parameter>
@@ -26284,7 +26284,7 @@ the main loop is run, so copy it if you need to keep it around.</doc>
               version="2.50">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1832">Get the URI of the WebSocket.
+             line="1847">Get the URI of the WebSocket.
 
 For servers this represents the address of the WebSocket, and
 for clients it is the address connected to.</doc>
@@ -26293,14 +26293,14 @@ for clients it is the address connected to.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-websocket-connection.c"
-               line="1841">the URI</doc>
+               line="1856">the URI</doc>
           <type name="URI" c:type="SoupURI*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1834">the WebSocket</doc>
+                 line="1849">the WebSocket</doc>
             <type name="WebsocketConnection"
                   c:type="SoupWebsocketConnection*"/>
           </instance-parameter>
@@ -26311,7 +26311,7 @@ for clients it is the address connected to.</doc>
               version="2.50">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="2005">Send a binary message to the peer. If @length is 0, @data may be %NULL.
+             line="2020">Send a binary message to the peer. If @length is 0, @data may be %NULL.
 
 The message is queued to be sent and will be sent when the main loop
 is run.</doc>
@@ -26324,7 +26324,7 @@ is run.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="2007">the WebSocket</doc>
+                 line="2022">the WebSocket</doc>
             <type name="WebsocketConnection"
                   c:type="SoupWebsocketConnection*"/>
           </instance-parameter>
@@ -26334,7 +26334,7 @@ is run.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="2008">the message contents</doc>
+                 line="2023">the message contents</doc>
             <array length="1" zero-terminated="0" c:type="gconstpointer">
               <type name="guint8"/>
             </array>
@@ -26342,7 +26342,7 @@ is run.</doc>
           <parameter name="length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="2009">the length of @data</doc>
+                 line="2024">the length of @data</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
@@ -26352,7 +26352,7 @@ is run.</doc>
               version="2.68">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="2030">Send a message of the given @type to the peer. Note that this method,
+             line="2045">Send a message of the given @type to the peer. Note that this method,
 allows to send text messages containing %NULL characters.
 
 The message is queued to be sent and will be sent when the main loop
@@ -26366,20 +26366,20 @@ is run.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="2032">the WebSocket</doc>
+                 line="2047">the WebSocket</doc>
             <type name="WebsocketConnection"
                   c:type="SoupWebsocketConnection*"/>
           </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="2033">the type of message contents</doc>
+                 line="2048">the type of message contents</doc>
             <type name="WebsocketDataType" c:type="SoupWebsocketDataType"/>
           </parameter>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="2034">the message data as #GBytes</doc>
+                 line="2049">the message data as #GBytes</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
         </parameters>
@@ -26389,7 +26389,7 @@ is run.</doc>
               version="2.50">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1975">Send a %NULL-terminated text (UTF-8) message to the peer. If you need
+             line="1990">Send a %NULL-terminated text (UTF-8) message to the peer. If you need
 to send text messages containing %NULL characters use
 soup_websocket_connection_send_message() instead.
 
@@ -26404,14 +26404,14 @@ is run.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1977">the WebSocket</doc>
+                 line="1992">the WebSocket</doc>
             <type name="WebsocketConnection"
                   c:type="SoupWebsocketConnection*"/>
           </instance-parameter>
           <parameter name="text" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1978">the message contents</doc>
+                 line="1993">the message contents</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -26422,7 +26422,7 @@ is run.</doc>
               version="2.58">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="2183">Sets the interval in seconds on when to send a ping message which will serve
+             line="2198">Sets the interval in seconds on when to send a ping message which will serve
 as a keepalive message. If set to 0 the keepalive message is disabled.</doc>
         <source-position filename="libsoup/soup-websocket-connection.h"
                          line="136"/>
@@ -26433,14 +26433,14 @@ as a keepalive message. If set to 0 the keepalive message is disabled.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="2185">the WebSocket</doc>
+                 line="2200">the WebSocket</doc>
             <type name="WebsocketConnection"
                   c:type="SoupWebsocketConnection*"/>
           </instance-parameter>
           <parameter name="interval" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="2186">the interval to send a ping message or 0 to disable it</doc>
+                 line="2201">the interval to send a ping message or 0 to disable it</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -26451,7 +26451,7 @@ as a keepalive message. If set to 0 the keepalive message is disabled.</doc>
               version="2.56">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="2123">Sets the maximum payload size allowed for incoming packets. It
+             line="2138">Sets the maximum payload size allowed for incoming packets. It
 does not limit the outgoing packet size.</doc>
         <source-position filename="libsoup/soup-websocket-connection.h"
                          line="129"/>
@@ -26462,7 +26462,7 @@ does not limit the outgoing packet size.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="2125">the WebSocket</doc>
+                 line="2140">the WebSocket</doc>
             <type name="WebsocketConnection"
                   c:type="SoupWebsocketConnection*"/>
           </instance-parameter>
@@ -26470,7 +26470,7 @@ does not limit the outgoing packet size.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="2126">the maximum payload size</doc>
+                 line="2141">the maximum payload size</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
         </parameters>
@@ -26484,7 +26484,7 @@ does not limit the outgoing packet size.</doc>
                 default-value="SOUP_WEBSOCKET_CONNECTION_UNKNOWN">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1496">The type of connection (client/server).</doc>
+             line="1511">The type of connection (client/server).</doc>
         <type name="WebsocketConnectionType"/>
       </property>
       <property name="extensions"
@@ -26495,7 +26495,7 @@ does not limit the outgoing packet size.</doc>
                 getter="get_extensions">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1620">List of #SoupWebsocketExtension objects that are active in the connection.</doc>
+             line="1635">List of #SoupWebsocketExtension objects that are active in the connection.</doc>
         <type name="gpointer" c:type="gpointer"/>
       </property>
       <property name="io-stream"
@@ -26506,7 +26506,7 @@ does not limit the outgoing packet size.</doc>
                 getter="get_io_stream">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1477">The underlying IO stream the WebSocket is communicating
+             line="1492">The underlying IO stream the WebSocket is communicating
 over.
 
 The input and output streams must be pollable streams.</doc>
@@ -26522,7 +26522,7 @@ The input and output streams must be pollable streams.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1600">Interval in seconds on when to send a ping message which will
+             line="1615">Interval in seconds on when to send a ping message which will
 serve as a keepalive message. If set to 0 the keepalive message is
 disabled.</doc>
         <type name="guint" c:type="guint"/>
@@ -26537,7 +26537,7 @@ disabled.</doc>
                 default-value="131072">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1581">The maximum payload size for incoming packets the protocol expects
+             line="1596">The maximum payload size for incoming packets the protocol expects
 or 0 to not limit it.</doc>
         <type name="guint64" c:type="guint64"/>
       </property>
@@ -26550,7 +26550,7 @@ or 0 to not limit it.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1532">The client's Origin.</doc>
+             line="1547">The client's Origin.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="protocol"
@@ -26562,7 +26562,7 @@ or 0 to not limit it.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1548">The chosen protocol, or %NULL if a protocol was not agreed
+             line="1563">The chosen protocol, or %NULL if a protocol was not agreed
 upon.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -26573,7 +26573,7 @@ upon.</doc>
                 default-value="SOUP_WEBSOCKET_STATE_OPEN">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1565">The current state of the WebSocket.</doc>
+             line="1580">The current state of the WebSocket.</doc>
         <type name="WebsocketState"/>
       </property>
       <property name="uri"
@@ -26584,7 +26584,7 @@ upon.</doc>
                 getter="get_uri">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1513">The URI of the WebSocket.
+             line="1528">The URI of the WebSocket.
 
 For servers this represents the address of the WebSocket,
 and for clients it is the address connected to.</doc>
@@ -26600,7 +26600,7 @@ and for clients it is the address connected to.</doc>
       <glib:signal name="closed" when="first" version="2.50">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1689">Emitted when the connection has completely closed, either
+             line="1704">Emitted when the connection has completely closed, either
 due to an orderly close from the peer, one initiated via
 soup_websocket_connection_close() or a fatal error
 condition that caused a close.
@@ -26613,7 +26613,7 @@ This signal will be emitted once.</doc>
       <glib:signal name="closing" when="last" version="2.50">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1674">This signal will be emitted during an orderly close.</doc>
+             line="1689">This signal will be emitted during an orderly close.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -26621,7 +26621,7 @@ This signal will be emitted once.</doc>
       <glib:signal name="error" when="first" version="2.50">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1656">Emitted when an error occurred on the WebSocket. This may
+             line="1671">Emitted when an error occurred on the WebSocket. This may
 be fired multiple times. Fatal errors will be followed by
 the #SoupWebsocketConnection::closed signal being emitted.</doc>
         <return-value transfer-ownership="none">
@@ -26631,7 +26631,7 @@ the #SoupWebsocketConnection::closed signal being emitted.</doc>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1659">the error that occured</doc>
+                 line="1674">the error that occured</doc>
             <type name="GLib.Error"/>
           </parameter>
         </parameters>
@@ -26639,7 +26639,7 @@ the #SoupWebsocketConnection::closed signal being emitted.</doc>
       <glib:signal name="message" when="first" version="2.50">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1635">Emitted when we receive a message from the peer.
+             line="1650">Emitted when we receive a message from the peer.
 
 As a convenience, the @message data will always be
 NUL-terminated, but the NUL byte will not be included in
@@ -26651,13 +26651,13 @@ the length count.</doc>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1638">the type of message contents</doc>
+                 line="1653">the type of message contents</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1639">the message data</doc>
+                 line="1654">the message data</doc>
             <type name="GLib.Bytes"/>
           </parameter>
         </parameters>
@@ -26665,7 +26665,7 @@ the length count.</doc>
       <glib:signal name="pong" when="first" version="2.60">
         <doc xml:space="preserve"
              filename="libsoup/soup-websocket-connection.c"
-             line="1709">Emitted when we receive a Pong frame (solicited or
+             line="1724">Emitted when we receive a Pong frame (solicited or
 unsolicited) from the peer.
 
 As a convenience, the @message data will always be
@@ -26678,7 +26678,7 @@ the length count.</doc>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libsoup/soup-websocket-connection.c"
-                 line="1712">the application data (if any)</doc>
+                 line="1727">the application data (if any)</doc>
             <type name="GLib.Bytes"/>
           </parameter>
         </parameters>
@@ -27792,14 +27792,14 @@ Deserialization details:
               introspectable="0">
       <doc xml:space="preserve"
            filename="libsoup/soup-misc.c"
-           line="134">Adds @function to be executed from inside @async_context with the
+           line="149">Adds @function to be executed from inside @async_context with the
 default priority. Use this when you want to complete an action in
 @async_context's main loop, as soon as possible.</doc>
       <source-position filename="libsoup/soup-misc.h" line="25"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libsoup/soup-misc.c"
-             line="145">a #GSource, which can be removed from @async_context
+             line="160">a #GSource, which can be removed from @async_context
 with g_source_destroy().</doc>
         <type name="GLib.Source" c:type="GSource*"/>
       </return-value>
@@ -27810,14 +27810,14 @@ with g_source_destroy().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libsoup/soup-misc.c"
-               line="136">the #GMainContext to dispatch the I/O
+               line="151">the #GMainContext to dispatch the I/O
 watch in, or %NULL for the default context</doc>
           <type name="GLib.MainContext" c:type="GMainContext*"/>
         </parameter>
         <parameter name="function" transfer-ownership="none" closure="2">
           <doc xml:space="preserve"
                filename="libsoup/soup-misc.c"
-               line="138">the callback to invoke</doc>
+               line="153">the callback to invoke</doc>
           <type name="GLib.SourceFunc" c:type="GSourceFunc"/>
         </parameter>
         <parameter name="data"
@@ -27826,7 +27826,7 @@ watch in, or %NULL for the default context</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libsoup/soup-misc.c"
-               line="139">user data to pass to @function</doc>
+               line="154">user data to pass to @function</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -27834,7 +27834,7 @@ watch in, or %NULL for the default context</doc>
     <function name="add_idle" c:identifier="soup_add_idle" introspectable="0">
       <doc xml:space="preserve"
            filename="libsoup/soup-misc.c"
-           line="92">Adds an idle event as with g_idle_add(), but using the given
+           line="97">Adds an idle event as with g_idle_add(), but using the given
 @async_context.
 
 If you want @function to run "right away", use
@@ -27844,7 +27844,7 @@ soup_add_completion(), since that sets a higher priority on the
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libsoup/soup-misc.c"
-             line="106">a #GSource, which can be removed from @async_context
+             line="111">a #GSource, which can be removed from @async_context
 with g_source_destroy().</doc>
         <type name="GLib.Source" c:type="GSource*"/>
       </return-value>
@@ -27855,14 +27855,14 @@ with g_source_destroy().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libsoup/soup-misc.c"
-               line="94">the #GMainContext to dispatch the I/O
+               line="99">the #GMainContext to dispatch the I/O
 watch in, or %NULL for the default context</doc>
           <type name="GLib.MainContext" c:type="GMainContext*"/>
         </parameter>
         <parameter name="function" transfer-ownership="none" closure="2">
           <doc xml:space="preserve"
                filename="libsoup/soup-misc.c"
-               line="96">the callback to invoke at idle time</doc>
+               line="101">the callback to invoke at idle time</doc>
           <type name="GLib.SourceFunc" c:type="GSourceFunc"/>
         </parameter>
         <parameter name="data"
@@ -27871,7 +27871,7 @@ watch in, or %NULL for the default context</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libsoup/soup-misc.c"
-               line="97">user data to pass to @function</doc>
+               line="102">user data to pass to @function</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -27936,13 +27936,13 @@ watch in, or %NULL for the default context</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="libsoup/soup-misc.c"
-           line="161">Adds a timeout as with g_timeout_add(), but using the given
+           line="176">Adds a timeout as with g_timeout_add(), but using the given
 @async_context.</doc>
       <source-position filename="libsoup/soup-misc.h" line="29"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libsoup/soup-misc.c"
-             line="172">a #GSource, which can be removed from @async_context
+             line="187">a #GSource, which can be removed from @async_context
 with g_source_destroy().</doc>
         <type name="GLib.Source" c:type="GSource*"/>
       </return-value>
@@ -27953,20 +27953,20 @@ with g_source_destroy().</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libsoup/soup-misc.c"
-               line="163">the #GMainContext to dispatch the I/O
+               line="178">the #GMainContext to dispatch the I/O
 watch in, or %NULL for the default context</doc>
           <type name="GLib.MainContext" c:type="GMainContext*"/>
         </parameter>
         <parameter name="interval" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libsoup/soup-misc.c"
-               line="165">the timeout interval, in milliseconds</doc>
+               line="180">the timeout interval, in milliseconds</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="function" transfer-ownership="none" closure="3">
           <doc xml:space="preserve"
                filename="libsoup/soup-misc.c"
-               line="166">the callback to invoke at timeout time</doc>
+               line="181">the callback to invoke at timeout time</doc>
           <type name="GLib.SourceFunc" c:type="GSourceFunc"/>
         </parameter>
         <parameter name="data"
@@ -27975,7 +27975,7 @@ watch in, or %NULL for the default context</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libsoup/soup-misc.c"
-               line="167">user data to pass to @function</doc>
+               line="182">user data to pass to @function</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>

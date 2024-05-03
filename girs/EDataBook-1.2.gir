@@ -17947,6 +17947,11 @@ addressbook backends must implement methods on this class.</doc>
            filename="src/addressbook/libedata-book/e-book-backend-cache.c"
            line="21">The #EBookBackendCache is deprecated, use #EBookSqlite instead.</doc>
     </docsection>
+    <docsection name="e-book-backend-db-cache">
+      <doc xml:space="preserve"
+           filename="src/addressbook/libedata-book/e-book-backend-db-cache.c"
+           line="21">This API is deprecated, use #EBookSqlite instead.</doc>
+    </docsection>
     <docsection name="e-book-backend-factory">
       <doc xml:space="preserve"
            filename="src/addressbook/libedata-book/e-book-backend-factory.c"

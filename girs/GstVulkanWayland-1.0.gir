@@ -99,14 +99,14 @@ through the provided API</doc>
                    version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/vulkan/wayland/gstvkdisplay_wayland.c"
-             line="106">Create a new #GstVulkanDisplayWayland from the wayland display name.  See `wl_display_connect`()
+             line="145">Create a new #GstVulkanDisplayWayland from the wayland display name.  See `wl_display_connect`()
 for details on what is a valid name.</doc>
         <source-position filename="gst-libs/gst/vulkan/wayland/gstvkdisplay_wayland.h"
                          line="91"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/wayland/gstvkdisplay_wayland.c"
-               line="113">a new #GstVulkanDisplayWayland or %NULL</doc>
+               line="152">a new #GstVulkanDisplayWayland or %NULL</doc>
           <type name="VulkanDisplayWayland" c:type="GstVulkanDisplayWayland*"/>
         </return-value>
         <parameters>
@@ -116,7 +116,7 @@ for details on what is a valid name.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/vulkan/wayland/gstvkdisplay_wayland.c"
-                 line="108">a display name</doc>
+                 line="147">a display name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -126,13 +126,13 @@ for details on what is a valid name.</doc>
                    version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/vulkan/wayland/gstvkdisplay_wayland.c"
-             line="148">Creates a new display connection from a wl_display Display.</doc>
+             line="187">Creates a new display connection from a wl_display Display.</doc>
         <source-position filename="gst-libs/gst/vulkan/wayland/gstvkdisplay_wayland.h"
                          line="93"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/wayland/gstvkdisplay_wayland.c"
-               line="154">a new #GstVulkanDisplayWayland</doc>
+               line="193">a new #GstVulkanDisplayWayland</doc>
           <type name="VulkanDisplayWayland" c:type="GstVulkanDisplayWayland*"/>
         </return-value>
         <parameters>
@@ -142,7 +142,7 @@ for details on what is a valid name.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/vulkan/wayland/gstvkdisplay_wayland.c"
-                 line="150">an existing, wayland display</doc>
+                 line="189">an existing, wayland display</doc>
             <type name="gpointer" c:type="wl_display*"/>
           </parameter>
         </parameters>

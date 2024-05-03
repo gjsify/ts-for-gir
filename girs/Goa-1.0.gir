@@ -686,6 +686,9 @@ Since this D-Bus property is both readable and writable, it is meaningful to use
         </parameters>
       </virtual-method>
       <virtual-method name="handle_ensure_credentials">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="913">Handler for the #GoaAccount::handle-ensure-credentials signal.</doc>
         <source-position filename="src/goa/goa-generated.h" line="34"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -701,6 +704,9 @@ Since this D-Bus property is both readable and writable, it is meaningful to use
         </parameters>
       </virtual-method>
       <virtual-method name="handle_remove">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="914">Handler for the #GoaAccount::handle-remove signal.</doc>
         <source-position filename="src/goa/goa-generated.h" line="38"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -716,7 +722,9 @@ Since this D-Bus property is both readable and writable, it is meaningful to use
         </parameters>
       </virtual-method>
       <method name="call_ensure_credentials"
-              c:identifier="goa_account_call_ensure_credentials">
+              c:identifier="goa_account_call_ensure_credentials"
+              glib:finish-func="call_ensure_credentials_finish"
+              glib:sync-func="call_ensure_credentials_sync">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="2161">Asynchronously invokes the &lt;link linkend="gdbus-method-org-gnome-OnlineAccounts-Account.EnsureCredentials"&gt;EnsureCredentials()&lt;/link&gt; D-Bus method on @proxy.
@@ -807,7 +815,8 @@ See goa_account_call_ensure_credentials_sync() for the synchronous, blocking ver
       </method>
       <method name="call_ensure_credentials_sync"
               c:identifier="goa_account_call_ensure_credentials_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="call_ensure_credentials">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="2221">Synchronously invokes the &lt;link linkend="gdbus-method-org-gnome-OnlineAccounts-Account.EnsureCredentials"&gt;EnsureCredentials()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
@@ -849,7 +858,10 @@ See goa_account_call_ensure_credentials() for the asynchronous version of this m
           </parameter>
         </parameters>
       </method>
-      <method name="call_remove" c:identifier="goa_account_call_remove">
+      <method name="call_remove"
+              c:identifier="goa_account_call_remove"
+              glib:finish-func="call_remove_finish"
+              glib:sync-func="call_remove_sync">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="2069">Asynchronously invokes the &lt;link linkend="gdbus-method-org-gnome-OnlineAccounts-Account.Remove"&gt;Remove()&lt;/link&gt; D-Bus method on @proxy.
@@ -929,7 +941,8 @@ See goa_account_call_remove_sync() for the synchronous, blocking version of this
       </method>
       <method name="call_remove_sync"
               c:identifier="goa_account_call_remove_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="call_remove">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="2126">Synchronously invokes the &lt;link linkend="gdbus-method-org-gnome-OnlineAccounts-Account.Remove"&gt;Remove()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
@@ -2715,6 +2728,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="handle_ensure_credentials">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="913">Handler for the #GoaAccount::handle-ensure-credentials signal.</doc>
         <callback name="handle_ensure_credentials">
           <source-position filename="src/goa/goa-generated.h" line="34"/>
           <return-value transfer-ownership="none">
@@ -2732,6 +2748,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="handle_remove">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="914">Handler for the #GoaAccount::handle-remove signal.</doc>
         <callback name="handle_remove">
           <source-position filename="src/goa/goa-generated.h" line="38"/>
           <return-value transfer-ownership="none">
@@ -2749,6 +2768,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_attention_needed">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="915">Getter for the #GoaAccount:attention-needed property.</doc>
         <callback name="get_attention_needed">
           <source-position filename="src/goa/goa-generated.h" line="42"/>
           <return-value transfer-ownership="none">
@@ -2768,6 +2790,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_calendar_disabled">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="916">Getter for the #GoaAccount:calendar-disabled property.</doc>
         <callback name="get_calendar_disabled">
           <source-position filename="src/goa/goa-generated.h" line="44"/>
           <return-value transfer-ownership="none">
@@ -2787,6 +2812,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_chat_disabled">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="917">Getter for the #GoaAccount:chat-disabled property.</doc>
         <callback name="get_chat_disabled">
           <source-position filename="src/goa/goa-generated.h" line="46"/>
           <return-value transfer-ownership="none">
@@ -2806,6 +2834,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_contacts_disabled">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="918">Getter for the #GoaAccount:contacts-disabled property.</doc>
         <callback name="get_contacts_disabled">
           <source-position filename="src/goa/goa-generated.h" line="48"/>
           <return-value transfer-ownership="none">
@@ -2825,6 +2856,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_documents_disabled">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="919">Getter for the #GoaAccount:documents-disabled property.</doc>
         <callback name="get_documents_disabled">
           <source-position filename="src/goa/goa-generated.h" line="50"/>
           <return-value transfer-ownership="none">
@@ -2844,6 +2878,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_files_disabled">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="920">Getter for the #GoaAccount:files-disabled property.</doc>
         <callback name="get_files_disabled">
           <source-position filename="src/goa/goa-generated.h" line="52"/>
           <return-value transfer-ownership="none">
@@ -2863,6 +2900,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_id">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="921">Getter for the #GoaAccount:id property.</doc>
         <callback name="get_id">
           <source-position filename="src/goa/goa-generated.h" line="54"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -2882,6 +2922,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_identity">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="922">Getter for the #GoaAccount:identity property.</doc>
         <callback name="get_identity">
           <source-position filename="src/goa/goa-generated.h" line="56"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -2901,6 +2944,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_is_locked">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="923">Getter for the #GoaAccount:is-locked property.</doc>
         <callback name="get_is_locked">
           <source-position filename="src/goa/goa-generated.h" line="58"/>
           <return-value transfer-ownership="none">
@@ -2920,6 +2966,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_is_temporary">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="924">Getter for the #GoaAccount:is-temporary property.</doc>
         <callback name="get_is_temporary">
           <source-position filename="src/goa/goa-generated.h" line="60"/>
           <return-value transfer-ownership="none">
@@ -2939,6 +2988,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_mail_disabled">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="925">Getter for the #GoaAccount:mail-disabled property.</doc>
         <callback name="get_mail_disabled">
           <source-position filename="src/goa/goa-generated.h" line="62"/>
           <return-value transfer-ownership="none">
@@ -2958,6 +3010,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_maps_disabled">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="926">Getter for the #GoaAccount:maps-disabled property.</doc>
         <callback name="get_maps_disabled">
           <source-position filename="src/goa/goa-generated.h" line="64"/>
           <return-value transfer-ownership="none">
@@ -2977,6 +3032,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_music_disabled">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="927">Getter for the #GoaAccount:music-disabled property.</doc>
         <callback name="get_music_disabled">
           <source-position filename="src/goa/goa-generated.h" line="66"/>
           <return-value transfer-ownership="none">
@@ -2996,6 +3054,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_photos_disabled">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="928">Getter for the #GoaAccount:photos-disabled property.</doc>
         <callback name="get_photos_disabled">
           <source-position filename="src/goa/goa-generated.h" line="68"/>
           <return-value transfer-ownership="none">
@@ -3015,6 +3076,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_presentation_identity">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="929">Getter for the #GoaAccount:presentation-identity property.</doc>
         <callback name="get_presentation_identity">
           <source-position filename="src/goa/goa-generated.h" line="70"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -3034,6 +3098,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_printers_disabled">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="930">Getter for the #GoaAccount:printers-disabled property.</doc>
         <callback name="get_printers_disabled">
           <source-position filename="src/goa/goa-generated.h" line="72"/>
           <return-value transfer-ownership="none">
@@ -3053,6 +3120,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_provider_icon">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="931">Getter for the #GoaAccount:provider-icon property.</doc>
         <callback name="get_provider_icon">
           <source-position filename="src/goa/goa-generated.h" line="74"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -3072,6 +3142,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_provider_name">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="932">Getter for the #GoaAccount:provider-name property.</doc>
         <callback name="get_provider_name">
           <source-position filename="src/goa/goa-generated.h" line="76"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -3091,6 +3164,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_provider_type">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="933">Getter for the #GoaAccount:provider-type property.</doc>
         <callback name="get_provider_type">
           <source-position filename="src/goa/goa-generated.h" line="78"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -3110,6 +3186,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_read_later_disabled">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="934">Getter for the #GoaAccount:read-later-disabled property.</doc>
         <callback name="get_read_later_disabled">
           <source-position filename="src/goa/goa-generated.h" line="80"/>
           <return-value transfer-ownership="none">
@@ -3129,6 +3208,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_ticketing_disabled">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="935">Getter for the #GoaAccount:ticketing-disabled property.</doc>
         <callback name="get_ticketing_disabled">
           <source-position filename="src/goa/goa-generated.h" line="82"/>
           <return-value transfer-ownership="none">
@@ -3148,6 +3230,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_todo_disabled">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="936">Getter for the #GoaAccount:todo-disabled property.</doc>
         <callback name="get_todo_disabled">
           <source-position filename="src/goa/goa-generated.h" line="84"/>
           <return-value transfer-ownership="none">
@@ -4082,6 +4167,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_accept_ssl_errors">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="11468">Getter for the #GoaCalendar:accept-ssl-errors property.</doc>
         <callback name="get_accept_ssl_errors">
           <source-position filename="src/goa/goa-generated.h" line="1318"/>
           <return-value transfer-ownership="none">
@@ -4101,6 +4189,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_uri">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="11469">Getter for the #GoaCalendar:uri property.</doc>
         <callback name="get_uri">
           <source-position filename="src/goa/goa-generated.h" line="1320"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -5516,6 +5607,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_accept_ssl_errors">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="12602">Getter for the #GoaContacts:accept-ssl-errors property.</doc>
         <callback name="get_accept_ssl_errors">
           <source-position filename="src/goa/goa-generated.h" line="1463"/>
           <return-value transfer-ownership="none">
@@ -5535,6 +5629,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_uri">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="12603">Getter for the #GoaContacts:uri property.</doc>
         <callback name="get_uri">
           <source-position filename="src/goa/goa-generated.h" line="1465"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -6942,6 +7039,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_accept_ssl_errors">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="18648">Getter for the #GoaExchange:accept-ssl-errors property.</doc>
         <callback name="get_accept_ssl_errors">
           <source-position filename="src/goa/goa-generated.h" line="2408"/>
           <return-value transfer-ownership="none">
@@ -6961,6 +7061,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_host">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="18649">Getter for the #GoaExchange:host property.</doc>
         <callback name="get_host">
           <source-position filename="src/goa/goa-generated.h" line="2410"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -7742,6 +7845,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_accept_ssl_errors">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="17470">Getter for the #GoaFiles:accept-ssl-errors property.</doc>
         <callback name="get_accept_ssl_errors">
           <source-position filename="src/goa/goa-generated.h" line="2263"/>
           <return-value transfer-ownership="none">
@@ -7761,6 +7867,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_uri">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="17471">Getter for the #GoaFiles:uri property.</doc>
         <callback name="get_uri">
           <source-position filename="src/goa/goa-generated.h" line="2265"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -9554,7 +9663,7 @@ linked against at application run time.</doc>
       </parameters>
     </function-macro>
     <constant name="MICRO_VERSION"
-              value="0"
+              value="1"
               c:type="GOA_MICRO_VERSION"
               version="3.8">
       <doc xml:space="preserve"
@@ -11502,6 +11611,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_email_address">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="9082">Getter for the #GoaMail:email-address property.</doc>
         <callback name="get_email_address">
           <source-position filename="src/goa/goa-generated.h" line="1088"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -11521,6 +11633,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_imap_accept_ssl_errors">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="9083">Getter for the #GoaMail:imap-accept-ssl-errors property.</doc>
         <callback name="get_imap_accept_ssl_errors">
           <source-position filename="src/goa/goa-generated.h" line="1090"/>
           <return-value transfer-ownership="none">
@@ -11540,6 +11655,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_imap_host">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="9084">Getter for the #GoaMail:imap-host property.</doc>
         <callback name="get_imap_host">
           <source-position filename="src/goa/goa-generated.h" line="1092"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -11559,6 +11677,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_imap_supported">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="9085">Getter for the #GoaMail:imap-supported property.</doc>
         <callback name="get_imap_supported">
           <source-position filename="src/goa/goa-generated.h" line="1094"/>
           <return-value transfer-ownership="none">
@@ -11578,6 +11699,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_imap_use_ssl">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="9086">Getter for the #GoaMail:imap-use-ssl property.</doc>
         <callback name="get_imap_use_ssl">
           <source-position filename="src/goa/goa-generated.h" line="1096"/>
           <return-value transfer-ownership="none">
@@ -11597,6 +11721,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_imap_use_tls">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="9087">Getter for the #GoaMail:imap-use-tls property.</doc>
         <callback name="get_imap_use_tls">
           <source-position filename="src/goa/goa-generated.h" line="1098"/>
           <return-value transfer-ownership="none">
@@ -11616,6 +11743,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_imap_user_name">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="9088">Getter for the #GoaMail:imap-user-name property.</doc>
         <callback name="get_imap_user_name">
           <source-position filename="src/goa/goa-generated.h" line="1100"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -11635,6 +11765,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_name">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="9089">Getter for the #GoaMail:name property.</doc>
         <callback name="get_name">
           <source-position filename="src/goa/goa-generated.h" line="1102"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -11654,6 +11787,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_smtp_accept_ssl_errors">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="9090">Getter for the #GoaMail:smtp-accept-ssl-errors property.</doc>
         <callback name="get_smtp_accept_ssl_errors">
           <source-position filename="src/goa/goa-generated.h" line="1104"/>
           <return-value transfer-ownership="none">
@@ -11673,6 +11809,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_smtp_auth_login">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="9091">Getter for the #GoaMail:smtp-auth-login property.</doc>
         <callback name="get_smtp_auth_login">
           <source-position filename="src/goa/goa-generated.h" line="1106"/>
           <return-value transfer-ownership="none">
@@ -11692,6 +11831,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_smtp_auth_plain">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="9092">Getter for the #GoaMail:smtp-auth-plain property.</doc>
         <callback name="get_smtp_auth_plain">
           <source-position filename="src/goa/goa-generated.h" line="1108"/>
           <return-value transfer-ownership="none">
@@ -11711,6 +11853,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_smtp_auth_xoauth2">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="9093">Getter for the #GoaMail:smtp-auth-xoauth2 property.</doc>
         <callback name="get_smtp_auth_xoauth2">
           <source-position filename="src/goa/goa-generated.h" line="1110"/>
           <return-value transfer-ownership="none">
@@ -11730,6 +11875,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_smtp_host">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="9094">Getter for the #GoaMail:smtp-host property.</doc>
         <callback name="get_smtp_host">
           <source-position filename="src/goa/goa-generated.h" line="1112"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -11749,6 +11897,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_smtp_supported">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="9095">Getter for the #GoaMail:smtp-supported property.</doc>
         <callback name="get_smtp_supported">
           <source-position filename="src/goa/goa-generated.h" line="1114"/>
           <return-value transfer-ownership="none">
@@ -11768,6 +11919,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_smtp_use_auth">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="9096">Getter for the #GoaMail:smtp-use-auth property.</doc>
         <callback name="get_smtp_use_auth">
           <source-position filename="src/goa/goa-generated.h" line="1116"/>
           <return-value transfer-ownership="none">
@@ -11787,6 +11941,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_smtp_use_ssl">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="9097">Getter for the #GoaMail:smtp-use-ssl property.</doc>
         <callback name="get_smtp_use_ssl">
           <source-position filename="src/goa/goa-generated.h" line="1118"/>
           <return-value transfer-ownership="none">
@@ -11806,6 +11963,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_smtp_use_tls">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="9098">Getter for the #GoaMail:smtp-use-tls property.</doc>
         <callback name="get_smtp_use_tls">
           <source-position filename="src/goa/goa-generated.h" line="1120"/>
           <return-value transfer-ownership="none">
@@ -11825,6 +11985,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_smtp_user_name">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="9099">Getter for the #GoaMail:smtp-user-name property.</doc>
         <callback name="get_smtp_user_name">
           <source-position filename="src/goa/goa-generated.h" line="1122"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -12286,6 +12449,9 @@ The properties are overridden in the order they are defined.</doc>
         </parameters>
       </function>
       <virtual-method name="handle_add_account">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="7752">Handler for the #GoaManager::handle-add-account signal.</doc>
         <source-position filename="src/goa/goa-generated.h" line="878"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -12317,6 +12483,9 @@ The properties are overridden in the order they are defined.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="handle_is_supported_provider">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="7753">Handler for the #GoaManager::handle-is-supported-provider signal.</doc>
         <source-position filename="src/goa/goa-generated.h" line="887"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -12335,7 +12504,9 @@ The properties are overridden in the order they are defined.</doc>
         </parameters>
       </virtual-method>
       <method name="call_add_account"
-              c:identifier="goa_manager_call_add_account">
+              c:identifier="goa_manager_call_add_account"
+              glib:finish-func="call_add_account_finish"
+              glib:sync-func="call_add_account_sync">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="7817">Asynchronously invokes the &lt;link linkend="gdbus-method-org-gnome-OnlineAccounts-Manager.AddAccount"&gt;AddAccount()&lt;/link&gt; D-Bus method on @proxy.
@@ -12457,7 +12628,8 @@ See goa_manager_call_add_account_sync() for the synchronous, blocking version of
       </method>
       <method name="call_add_account_sync"
               c:identifier="goa_manager_call_add_account_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="call_add_account">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="7892">Synchronously invokes the &lt;link linkend="gdbus-method-org-gnome-OnlineAccounts-Manager.AddAccount"&gt;AddAccount()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
@@ -12531,7 +12703,9 @@ See goa_manager_call_add_account() for the asynchronous version of this method.<
         </parameters>
       </method>
       <method name="call_is_supported_provider"
-              c:identifier="goa_manager_call_is_supported_provider">
+              c:identifier="goa_manager_call_is_supported_provider"
+              glib:finish-func="call_is_supported_provider_finish"
+              glib:sync-func="call_is_supported_provider_sync">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="7945">Asynchronously invokes the &lt;link linkend="gdbus-method-org-gnome-OnlineAccounts-Manager.IsSupportedProvider"&gt;IsSupportedProvider()&lt;/link&gt; D-Bus method on @proxy.
@@ -12628,7 +12802,8 @@ See goa_manager_call_is_supported_provider_sync() for the synchronous, blocking 
       </method>
       <method name="call_is_supported_provider_sync"
               c:identifier="goa_manager_call_is_supported_provider_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="call_is_supported_provider">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="8008">Synchronously invokes the &lt;link linkend="gdbus-method-org-gnome-OnlineAccounts-Manager.IsSupportedProvider"&gt;IsSupportedProvider()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
@@ -12836,6 +13011,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="handle_add_account">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="7752">Handler for the #GoaManager::handle-add-account signal.</doc>
         <callback name="handle_add_account">
           <source-position filename="src/goa/goa-generated.h" line="878"/>
           <return-value transfer-ownership="none">
@@ -12869,6 +13047,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="handle_is_supported_provider">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="7753">Handler for the #GoaManager::handle-is-supported-provider signal.</doc>
         <callback name="handle_is_supported_provider">
           <source-position filename="src/goa/goa-generated.h" line="887"/>
           <return-value transfer-ownership="none">
@@ -14098,6 +14279,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_dlna_supported">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="19874">Getter for the #GoaMediaServer:dlna-supported property.</doc>
         <callback name="get_dlna_supported">
           <source-position filename="src/goa/goa-generated.h" line="2553"/>
           <return-value transfer-ownership="none">
@@ -14117,6 +14301,9 @@ Since the D-Bus property for this #GObject property is readable but not writable
         </callback>
       </field>
       <field name="get_udn">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="19875">Getter for the #GoaMediaServer:udn property.</doc>
         <callback name="get_udn">
           <source-position filename="src/goa/goa-generated.h" line="2555"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -15284,6 +15471,9 @@ The returned value is only valid until the property changes so on the client-sid
         </parameters>
       </virtual-method>
       <virtual-method name="handle_get_access_token">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="3954">Handler for the #GoaOAuth2Based::handle-get-access-token signal.</doc>
         <source-position filename="src/goa/goa-generated.h" line="342"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -15299,7 +15489,9 @@ The returned value is only valid until the property changes so on the client-sid
         </parameters>
       </virtual-method>
       <method name="call_get_access_token"
-              c:identifier="goa_oauth2_based_call_get_access_token">
+              c:identifier="goa_oauth2_based_call_get_access_token"
+              glib:finish-func="call_get_access_token_finish"
+              glib:sync-func="call_get_access_token_sync">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="4117">Asynchronously invokes the &lt;link linkend="gdbus-method-org-gnome-OnlineAccounts-OAuth2Based.GetAccessToken"&gt;GetAccessToken()&lt;/link&gt; D-Bus method on @proxy.
@@ -15401,7 +15593,8 @@ See goa_oauth2_based_call_get_access_token_sync() for the synchronous, blocking 
       </method>
       <method name="call_get_access_token_sync"
               c:identifier="goa_oauth2_based_call_get_access_token_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="call_get_access_token">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="4180">Synchronously invokes the &lt;link linkend="gdbus-method-org-gnome-OnlineAccounts-OAuth2Based.GetAccessToken"&gt;GetAccessToken()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
@@ -15713,6 +15906,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="handle_get_access_token">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="3954">Handler for the #GoaOAuth2Based::handle-get-access-token signal.</doc>
         <callback name="handle_get_access_token">
           <source-position filename="src/goa/goa-generated.h" line="342"/>
           <return-value transfer-ownership="none">
@@ -15730,6 +15926,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_client_id">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="3955">Getter for the #GoaOAuth2Based:client-id property.</doc>
         <callback name="get_client_id">
           <source-position filename="src/goa/goa-generated.h" line="346"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -15749,6 +15948,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_client_secret">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="3956">Getter for the #GoaOAuth2Based:client-secret property.</doc>
         <callback name="get_client_secret">
           <source-position filename="src/goa/goa-generated.h" line="348"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -16265,6 +16467,9 @@ The returned value is only valid until the property changes so on the client-sid
         </parameters>
       </virtual-method>
       <virtual-method name="handle_get_access_token">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="5333">Handler for the #GoaOAuthBased::handle-get-access-token signal.</doc>
         <source-position filename="src/goa/goa-generated.h" line="525"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -16280,7 +16485,9 @@ The returned value is only valid until the property changes so on the client-sid
         </parameters>
       </virtual-method>
       <method name="call_get_access_token"
-              c:identifier="goa_oauth_based_call_get_access_token">
+              c:identifier="goa_oauth_based_call_get_access_token"
+              glib:finish-func="call_get_access_token_finish"
+              glib:sync-func="call_get_access_token_sync">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="5496">Asynchronously invokes the &lt;link linkend="gdbus-method-org-gnome-OnlineAccounts-OAuthBased.GetAccessToken"&gt;GetAccessToken()&lt;/link&gt; D-Bus method on @proxy.
@@ -16393,7 +16600,8 @@ See goa_oauth_based_call_get_access_token_sync() for the synchronous, blocking v
       </method>
       <method name="call_get_access_token_sync"
               c:identifier="goa_oauth_based_call_get_access_token_sync"
-              throws="1">
+              throws="1"
+              glib:async-func="call_get_access_token">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="5562">Synchronously invokes the &lt;link linkend="gdbus-method-org-gnome-OnlineAccounts-OAuthBased.GetAccessToken"&gt;GetAccessToken()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
@@ -16722,6 +16930,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="handle_get_access_token">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="5333">Handler for the #GoaOAuthBased::handle-get-access-token signal.</doc>
         <callback name="handle_get_access_token">
           <source-position filename="src/goa/goa-generated.h" line="525"/>
           <return-value transfer-ownership="none">
@@ -16739,6 +16950,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_consumer_key">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="5334">Getter for the #GoaOAuthBased:consumer-key property.</doc>
         <callback name="get_consumer_key">
           <source-position filename="src/goa/goa-generated.h" line="529"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -16758,6 +16972,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_consumer_secret">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="5335">Getter for the #GoaOAuthBased:consumer-secret property.</doc>
         <callback name="get_consumer_secret">
           <source-position filename="src/goa/goa-generated.h" line="531"/>
           <return-value transfer-ownership="none" nullable="1">
@@ -19848,6 +20065,9 @@ The properties are overridden in the order they are defined.</doc>
         </parameters>
       </function>
       <virtual-method name="handle_get_password">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="6683">Handler for the #GoaPasswordBased::handle-get-password signal.</doc>
         <source-position filename="src/goa/goa-generated.h" line="710"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -19867,7 +20087,9 @@ The properties are overridden in the order they are defined.</doc>
       </virtual-method>
       <method name="call_get_password"
               c:identifier="goa_password_based_call_get_password"
-              version="3.6.0">
+              version="3.6.0"
+              glib:finish-func="call_get_password_finish"
+              glib:sync-func="call_get_password_sync">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="6724">Asynchronously invokes the &lt;link linkend="gdbus-method-org-gnome-OnlineAccounts-PasswordBased.GetPassword"&gt;GetPassword()&lt;/link&gt; D-Bus method on @proxy.
@@ -19966,7 +20188,8 @@ See goa_password_based_call_get_password_sync() for the synchronous, blocking ve
       <method name="call_get_password_sync"
               c:identifier="goa_password_based_call_get_password_sync"
               version="3.6.0"
-              throws="1">
+              throws="1"
+              glib:async-func="call_get_password">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="6791">Synchronously invokes the &lt;link linkend="gdbus-method-org-gnome-OnlineAccounts-PasswordBased.GetPassword"&gt;GetPassword()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
@@ -20091,6 +20314,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="handle_get_password">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="6683">Handler for the #GoaPasswordBased::handle-get-password signal.</doc>
         <callback name="handle_get_password">
           <source-position filename="src/goa/goa-generated.h" line="710"/>
           <return-value transfer-ownership="none">
@@ -22295,6 +22521,9 @@ The returned value is only valid until the property changes so on the client-sid
         </parameters>
       </virtual-method>
       <virtual-method name="handle_get_ticket">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="21106">Handler for the #GoaTicketing::handle-get-ticket signal.</doc>
         <source-position filename="src/goa/goa-generated.h" line="2699"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -22311,7 +22540,9 @@ The returned value is only valid until the property changes so on the client-sid
       </virtual-method>
       <method name="call_get_ticket"
               c:identifier="goa_ticketing_call_get_ticket"
-              version="3.6.0">
+              version="3.6.0"
+              glib:finish-func="call_get_ticket_finish"
+              glib:sync-func="call_get_ticket_sync">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="21218">Asynchronously invokes the &lt;link linkend="gdbus-method-org-gnome-OnlineAccounts-Ticketing.GetTicket"&gt;GetTicket()&lt;/link&gt; D-Bus method on @proxy.
@@ -22393,7 +22624,8 @@ See goa_ticketing_call_get_ticket_sync() for the synchronous, blocking version o
       <method name="call_get_ticket_sync"
               c:identifier="goa_ticketing_call_get_ticket_sync"
               version="3.6.0"
-              throws="1">
+              throws="1"
+              glib:async-func="call_get_ticket">
         <doc xml:space="preserve"
              filename="src/goa/goa-generated.c"
              line="21279">Synchronously invokes the &lt;link linkend="gdbus-method-org-gnome-OnlineAccounts-Ticketing.GetTicket"&gt;GetTicket()&lt;/link&gt; D-Bus method on @proxy. The calling thread is blocked until a reply is received.
@@ -22584,6 +22816,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="handle_get_ticket">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="21106">Handler for the #GoaTicketing::handle-get-ticket signal.</doc>
         <callback name="handle_get_ticket">
           <source-position filename="src/goa/goa-generated.h" line="2699"/>
           <return-value transfer-ownership="none">
@@ -22601,6 +22836,9 @@ If a signal handler returns %TRUE, it means the signal handler will handle the i
         </callback>
       </field>
       <field name="get_details">
+        <doc xml:space="preserve"
+             filename="src/goa/goa-generated.c"
+             line="21107">Getter for the #GoaTicketing:details property.</doc>
         <callback name="get_details">
           <source-position filename="src/goa/goa-generated.h" line="2703"/>
           <return-value transfer-ownership="none" nullable="1">

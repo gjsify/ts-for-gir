@@ -940,6 +940,12 @@ g_free() after usage.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="authenticate">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-auth.h"
+             line="59">check the authentication of a client. The default implementation
+        checks if the authentication in the header matches one of the basic
+        authentication tokens. This function should set the authgroup field
+        in the context.</doc>
         <source-position filename="gst/rtsp-server/rtsp-auth.h" line="73"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -954,6 +960,12 @@ g_free() after usage.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="check">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-auth.h"
+             line="63">check if a resource can be accessed. this function should
+        call authenticate to authenticate the client when needed. The method
+        should also construct and send an appropriate response message on
+        error.</doc>
         <source-position filename="gst/rtsp-server/rtsp-auth.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1486,6 +1498,12 @@ no one else overrides it.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="authenticate">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-auth.h"
+             line="59">check the authentication of a client. The default implementation
+        checks if the authentication in the header matches one of the basic
+        authentication tokens. This function should set the authgroup field
+        in the context.</doc>
         <callback name="authenticate">
           <source-position filename="gst/rtsp-server/rtsp-auth.h" line="73"/>
           <return-value transfer-ownership="none">
@@ -1502,6 +1520,12 @@ no one else overrides it.</doc>
         </callback>
       </field>
       <field name="check">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-auth.h"
+             line="63">check if a resource can be accessed. this function should
+        call authenticate to authenticate the client when needed. The method
+        should also construct and send an appropriate response message on
+        error.</doc>
         <callback name="check">
           <source-position filename="gst/rtsp-server/rtsp-auth.h" line="74"/>
           <return-value transfer-ownership="none">
@@ -1628,6 +1652,10 @@ possibility to adjust the error code.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="adjust_play_mode">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-client.h"
+             line="111">called to give the application the possibility to adjust
+   the range, seek flags, rate and rate-control. Since 1.18</doc>
         <source-position filename="gst/rtsp-server/rtsp-client.h" line="134"/>
         <return-value transfer-ownership="none">
           <type name="GstRtsp.RTSPStatusCode" c:type="GstRTSPStatusCode"/>
@@ -1657,6 +1685,11 @@ possibility to adjust the error code.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="adjust_play_response">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-client.h"
+             line="113">called to give the implementation the possibility to
+   adjust the response to a play request, for example if extra headers were
+   parsed when #GstRTSPClientClass.adjust_play_mode was called. Since 1.18</doc>
         <source-position filename="gst/rtsp-server/rtsp-client.h" line="141"/>
         <return-value transfer-ownership="none">
           <type name="GstRtsp.RTSPStatusCode" c:type="GstRTSPStatusCode"/>
@@ -1713,6 +1746,11 @@ possibility to adjust the error code.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="configure_client_media">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-client.h"
+             line="101">called when the stream in media needs to be configured.
+   The default implementation will configure the blocksize on the payloader when
+   spcified in the request headers.</doc>
         <source-position filename="gst/rtsp-server/rtsp-client.h" line="125"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1733,6 +1771,10 @@ possibility to adjust the error code.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="configure_client_transport">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-client.h"
+             line="104">called when the client transport needs to be
+   configured.</doc>
         <source-position filename="gst/rtsp-server/rtsp-client.h" line="128"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1750,6 +1792,9 @@ possibility to adjust the error code.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="create_sdp">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-client.h"
+             line="100">called when the SDP needs to be created for media.</doc>
         <source-position filename="gst/rtsp-server/rtsp-client.h" line="124"/>
         <return-value transfer-ownership="full">
           <type name="GstSdp.SDPMessage" c:type="GstSDPMessage*"/>
@@ -1826,6 +1871,9 @@ possibility to adjust the error code.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="make_path_from_uri">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-client.h"
+             line="110">called to create path from uri.</doc>
         <source-position filename="gst/rtsp-server/rtsp-client.h" line="133"/>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
@@ -1868,6 +1916,10 @@ possibility to adjust the error code.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="params_get">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-client.h"
+             line="108">get parameters. This function should also initialize the
+   RTSP response(ctx-&gt;response) via a call to gst_rtsp_message_init_response()</doc>
         <source-position filename="gst/rtsp-server/rtsp-client.h" line="132"/>
         <return-value transfer-ownership="none">
           <type name="GstRtsp.RTSPResult" c:type="GstRTSPResult"/>
@@ -1882,6 +1934,10 @@ possibility to adjust the error code.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="params_set">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-client.h"
+             line="106">set parameters. This function should also initialize the
+   RTSP response(ctx-&gt;response) via a call to gst_rtsp_message_init_response()</doc>
         <source-position filename="gst/rtsp-server/rtsp-client.h" line="131"/>
         <return-value transfer-ownership="none">
           <type name="GstRtsp.RTSPResult" c:type="GstRTSPResult"/>
@@ -2137,6 +2193,10 @@ possibility to adjust the error code.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="tunnel_http_response">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-client.h"
+             line="116">called when a response to the GET request is about to
+  be sent for a tunneled connection. The response can be modified. Since: 1.4</doc>
         <source-position filename="gst/rtsp-server/rtsp-client.h" line="157"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3184,6 +3244,9 @@ that created the client but can be overridden later.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="create_sdp">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-client.h"
+             line="100">called when the SDP needs to be created for media.</doc>
         <callback name="create_sdp">
           <source-position filename="gst/rtsp-server/rtsp-client.h"
                            line="124"/>
@@ -3201,6 +3264,11 @@ that created the client but can be overridden later.</doc>
         </callback>
       </field>
       <field name="configure_client_media">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-client.h"
+             line="101">called when the stream in media needs to be configured.
+   The default implementation will configure the blocksize on the payloader when
+   spcified in the request headers.</doc>
         <callback name="configure_client_media">
           <source-position filename="gst/rtsp-server/rtsp-client.h"
                            line="125"/>
@@ -3224,6 +3292,10 @@ that created the client but can be overridden later.</doc>
         </callback>
       </field>
       <field name="configure_client_transport">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-client.h"
+             line="104">called when the client transport needs to be
+   configured.</doc>
         <callback name="configure_client_transport">
           <source-position filename="gst/rtsp-server/rtsp-client.h"
                            line="128"/>
@@ -3244,6 +3316,10 @@ that created the client but can be overridden later.</doc>
         </callback>
       </field>
       <field name="params_set">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-client.h"
+             line="106">set parameters. This function should also initialize the
+   RTSP response(ctx-&gt;response) via a call to gst_rtsp_message_init_response()</doc>
         <callback name="params_set">
           <source-position filename="gst/rtsp-server/rtsp-client.h"
                            line="131"/>
@@ -3261,6 +3337,10 @@ that created the client but can be overridden later.</doc>
         </callback>
       </field>
       <field name="params_get">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-client.h"
+             line="108">get parameters. This function should also initialize the
+   RTSP response(ctx-&gt;response) via a call to gst_rtsp_message_init_response()</doc>
         <callback name="params_get">
           <source-position filename="gst/rtsp-server/rtsp-client.h"
                            line="132"/>
@@ -3278,6 +3358,9 @@ that created the client but can be overridden later.</doc>
         </callback>
       </field>
       <field name="make_path_from_uri">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-client.h"
+             line="110">called to create path from uri.</doc>
         <callback name="make_path_from_uri">
           <source-position filename="gst/rtsp-server/rtsp-client.h"
                            line="133"/>
@@ -3295,6 +3378,10 @@ that created the client but can be overridden later.</doc>
         </callback>
       </field>
       <field name="adjust_play_mode">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-client.h"
+             line="111">called to give the application the possibility to adjust
+   the range, seek flags, rate and rate-control. Since 1.18</doc>
         <callback name="adjust_play_mode">
           <source-position filename="gst/rtsp-server/rtsp-client.h"
                            line="134"/>
@@ -3327,6 +3414,11 @@ that created the client but can be overridden later.</doc>
         </callback>
       </field>
       <field name="adjust_play_response">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-client.h"
+             line="113">called to give the implementation the possibility to
+   adjust the response to a play request, for example if extra headers were
+   parsed when #GstRTSPClientClass.adjust_play_mode was called. Since 1.18</doc>
         <callback name="adjust_play_response">
           <source-position filename="gst/rtsp-server/rtsp-client.h"
                            line="141"/>
@@ -3528,6 +3620,10 @@ that created the client but can be overridden later.</doc>
         </callback>
       </field>
       <field name="tunnel_http_response">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-client.h"
+             line="116">called when a response to the GET request is about to
+  be sent for a tunneled connection. The response can be modified. Since: 1.4</doc>
         <callback name="tunnel_http_response">
           <source-position filename="gst/rtsp-server/rtsp-client.h"
                            line="157"/>
@@ -4260,6 +4356,9 @@ Ownership is taken of @element.</doc>
         </parameters>
       </constructor>
       <virtual-method name="convert_range">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media.h"
+             line="155">convert a range to the given unit</doc>
         <source-position filename="gst/rtsp-server/rtsp-media.h" line="170"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -4288,6 +4387,9 @@ Ownership is taken of @element.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="handle_message">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media.h"
+             line="143">handle a message</doc>
         <source-position filename="gst/rtsp-server/rtsp-media.h" line="165"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -4402,6 +4504,9 @@ such as the duration.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="query_position">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media.h"
+             line="156">query the current position in the pipeline</doc>
         <source-position filename="gst/rtsp-server/rtsp-media.h" line="172"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -4416,6 +4521,9 @@ such as the duration.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="query_stop">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media.h"
+             line="157">query when playback will stop</doc>
         <source-position filename="gst/rtsp-server/rtsp-media.h" line="173"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -6642,6 +6750,9 @@ when the media was not in the suspended state.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="handle_message">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media.h"
+             line="143">handle a message</doc>
         <callback name="handle_message">
           <source-position filename="gst/rtsp-server/rtsp-media.h" line="165"/>
           <return-value transfer-ownership="none">
@@ -6658,6 +6769,11 @@ when the media was not in the suspended state.</doc>
         </callback>
       </field>
       <field name="prepare">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media.h"
+             line="144">the default implementation adds all elements and sets the
+          pipeline's state to GST_STATE_PAUSED (or GST_STATE_PLAYING
+          in case of NO_PREROLL elements).</doc>
         <callback name="prepare">
           <source-position filename="gst/rtsp-server/rtsp-media.h" line="166"/>
           <return-value transfer-ownership="none">
@@ -6687,6 +6803,10 @@ when the media was not in the suspended state.</doc>
         </callback>
       </field>
       <field name="unprepare">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media.h"
+             line="147">the default implementation sets the pipeline's state
+            to GST_STATE_NULL and removes all elements.</doc>
         <callback name="unprepare">
           <source-position filename="gst/rtsp-server/rtsp-media.h" line="167"/>
           <return-value transfer-ownership="none">
@@ -6706,6 +6826,11 @@ when the media was not in the suspended state.</doc>
         </callback>
       </field>
       <field name="suspend">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media.h"
+             line="149">the default implementation sets the pipeline's state to
+          GST_STATE_NULL GST_STATE_PAUSED depending on the selected
+          suspend mode.</doc>
         <callback name="suspend">
           <source-position filename="gst/rtsp-server/rtsp-media.h" line="168"/>
           <return-value transfer-ownership="none">
@@ -6725,6 +6850,11 @@ when the media was not in the suspended state.</doc>
         </callback>
       </field>
       <field name="unsuspend">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media.h"
+             line="152">the default implementation reverts the suspend operation.
+            The pipeline will be prerolled again if it's state was
+            set to GST_STATE_NULL in suspend.</doc>
         <callback name="unsuspend">
           <source-position filename="gst/rtsp-server/rtsp-media.h" line="169"/>
           <return-value transfer-ownership="none">
@@ -6744,6 +6874,9 @@ when the media was not in the suspended state.</doc>
         </callback>
       </field>
       <field name="convert_range">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media.h"
+             line="155">convert a range to the given unit</doc>
         <callback name="convert_range">
           <source-position filename="gst/rtsp-server/rtsp-media.h" line="170"/>
           <return-value transfer-ownership="none">
@@ -6763,6 +6896,9 @@ when the media was not in the suspended state.</doc>
         </callback>
       </field>
       <field name="query_position">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media.h"
+             line="156">query the current position in the pipeline</doc>
         <callback name="query_position">
           <source-position filename="gst/rtsp-server/rtsp-media.h" line="172"/>
           <return-value transfer-ownership="none">
@@ -6779,6 +6915,9 @@ when the media was not in the suspended state.</doc>
         </callback>
       </field>
       <field name="query_stop">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media.h"
+             line="157">query when playback will stop</doc>
         <callback name="query_stop">
           <source-position filename="gst/rtsp-server/rtsp-media.h" line="173"/>
           <return-value transfer-ownership="none">
@@ -7002,6 +7141,10 @@ can contain multiple streams like audio and video.</doc>
         </return-value>
       </constructor>
       <virtual-method name="configure">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media-factory.h"
+             line="75">configure the media created with @construct. The default
+      implementation will configure the 'shared' property of the media.</doc>
         <source-position filename="gst/rtsp-server/rtsp-media-factory.h"
                          line="90"/>
         <return-value transfer-ownership="none">
@@ -7084,6 +7227,10 @@ launch parameter.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="create_pipeline" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media-factory.h"
+             line="73">create a new pipeline or re-use an existing one and
+      add the #GstRTSPMedia's element created by @construct to the pipeline.</doc>
         <source-position filename="gst/rtsp-server/rtsp-media-factory.h"
                          line="89"/>
         <return-value>
@@ -7099,6 +7246,11 @@ launch parameter.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="gen_key">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media-factory.h"
+             line="62">convert @url to a key for caching shared #GstRTSPMedia objects.
+      The default implementation of this function will use the complete URL
+      including the query parameters to return a key.</doc>
         <source-position filename="gst/rtsp-server/rtsp-media-factory.h"
                          line="85"/>
         <return-value transfer-ownership="full">
@@ -7114,6 +7266,9 @@ launch parameter.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="media_configure">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media-factory.h"
+             line="78">signal emitted when a media should be configured</doc>
         <source-position filename="gst/rtsp-server/rtsp-media-factory.h"
                          line="94"/>
         <return-value transfer-ownership="none">
@@ -7129,6 +7284,9 @@ launch parameter.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="media_constructed">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media-factory.h"
+             line="77">signal emitted when a media was constructed</doc>
         <source-position filename="gst/rtsp-server/rtsp-media-factory.h"
                          line="93"/>
         <return-value transfer-ownership="none">
@@ -8525,6 +8683,11 @@ when a client disconnects without sending TEARDOWN.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="gen_key">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media-factory.h"
+             line="62">convert @url to a key for caching shared #GstRTSPMedia objects.
+      The default implementation of this function will use the complete URL
+      including the query parameters to return a key.</doc>
         <callback name="gen_key">
           <source-position filename="gst/rtsp-server/rtsp-media-factory.h"
                            line="85"/>
@@ -8542,6 +8705,12 @@ when a client disconnects without sending TEARDOWN.</doc>
         </callback>
       </field>
       <field name="create_element">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media-factory.h"
+             line="65">Construct and return a #GstElement that is a #GstBin containing
+      the elements to use for streaming the media. The bin should contain
+      payloaders pay\%d for each stream. The default implementation of this
+      function returns the bin created from the launch parameter.</doc>
         <callback name="create_element">
           <source-position filename="gst/rtsp-server/rtsp-media-factory.h"
                            line="87"/>
@@ -8568,6 +8737,12 @@ when a client disconnects without sending TEARDOWN.</doc>
         </callback>
       </field>
       <field name="construct">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media-factory.h"
+             line="69">the vmethod that will be called when the factory has to create the
+      #GstRTSPMedia for @url. The default implementation of this
+      function calls create_element to retrieve an element and then looks for
+      pay\%d to create the streams.</doc>
         <callback name="construct">
           <source-position filename="gst/rtsp-server/rtsp-media-factory.h"
                            line="88"/>
@@ -8594,6 +8769,10 @@ when a client disconnects without sending TEARDOWN.</doc>
         </callback>
       </field>
       <field name="create_pipeline" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media-factory.h"
+             line="73">create a new pipeline or re-use an existing one and
+      add the #GstRTSPMedia's element created by @construct to the pipeline.</doc>
         <callback name="create_pipeline" introspectable="0">
           <source-position filename="gst/rtsp-server/rtsp-media-factory.h"
                            line="89"/>
@@ -8611,6 +8790,10 @@ when a client disconnects without sending TEARDOWN.</doc>
         </callback>
       </field>
       <field name="configure">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media-factory.h"
+             line="75">configure the media created with @construct. The default
+      implementation will configure the 'shared' property of the media.</doc>
         <callback name="configure">
           <source-position filename="gst/rtsp-server/rtsp-media-factory.h"
                            line="90"/>
@@ -8628,6 +8811,9 @@ when a client disconnects without sending TEARDOWN.</doc>
         </callback>
       </field>
       <field name="media_constructed">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media-factory.h"
+             line="77">signal emitted when a media was constructed</doc>
         <callback name="media_constructed">
           <source-position filename="gst/rtsp-server/rtsp-media-factory.h"
                            line="93"/>
@@ -8645,6 +8831,9 @@ when a client disconnects without sending TEARDOWN.</doc>
         </callback>
       </field>
       <field name="media_configure">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-media-factory.h"
+             line="78">signal emitted when a media should be configured</doc>
         <callback name="media_configure">
           <source-position filename="gst/rtsp-server/rtsp-media-factory.h"
                            line="94"/>
@@ -9113,6 +9302,9 @@ g_object_unref() after usage.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="make_path">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-mount-points.h"
+             line="57">make a path from the given url.</doc>
         <callback name="make_path">
           <source-position filename="gst/rtsp-server/rtsp-mount-points.h"
                            line="64"/>
@@ -10143,6 +10335,9 @@ new connection on @socket or @server.</doc>
         </parameters>
       </function>
       <virtual-method name="client_connected">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-server-object.h"
+             line="80">emitted when a new client connected.</doc>
         <source-position filename="gst/rtsp-server/rtsp-server-object.h"
                          line="90"/>
         <return-value transfer-ownership="none">
@@ -10158,6 +10353,12 @@ new connection on @socket or @server.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="create_client" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-server-object.h"
+             line="76">Create, configure a new GstRTSPClient
+         object that handles the new connection on @socket. The default
+         implementation will create a GstRTSPClient and will configure the
+         mount-points, auth, session-pool and thread-pool on the client.</doc>
         <source-position filename="gst/rtsp-server/rtsp-server-object.h"
                          line="87"/>
         <return-value>
@@ -10922,6 +11123,12 @@ that the HTTP server read from the socket while parsing the HTTP header.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="create_client" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-server-object.h"
+             line="76">Create, configure a new GstRTSPClient
+         object that handles the new connection on @socket. The default
+         implementation will create a GstRTSPClient and will configure the
+         mount-points, auth, session-pool and thread-pool on the client.</doc>
         <callback name="create_client" introspectable="0">
           <source-position filename="gst/rtsp-server/rtsp-server-object.h"
                            line="87"/>
@@ -10936,6 +11143,9 @@ that the HTTP server read from the socket while parsing the HTTP header.</doc>
         </callback>
       </field>
       <field name="client_connected">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-server-object.h"
+             line="80">emitted when a new client connected.</doc>
         <callback name="client_connected">
           <source-position filename="gst/rtsp-server/rtsp-server-object.h"
                            line="90"/>
@@ -12001,6 +12211,9 @@ usage.</doc>
         </return-value>
       </constructor>
       <virtual-method name="create_session" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-session-pool.h"
+             line="62">make a new session object.</doc>
         <source-position filename="gst/rtsp-server/rtsp-session-pool.h"
                          line="69"/>
         <return-value>
@@ -12016,6 +12229,10 @@ usage.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="create_session_id">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-session-pool.h"
+             line="60">create a new random session id. Subclasses can create
+   custom session ids and should not check if the session exists.</doc>
         <source-position filename="gst/rtsp-server/rtsp-session-pool.h"
                          line="68"/>
         <return-value transfer-ownership="full">
@@ -12028,6 +12245,9 @@ usage.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="session_removed">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-session-pool.h"
+             line="63">a session was removed from the pool</doc>
         <source-position filename="gst/rtsp-server/rtsp-session-pool.h"
                          line="72"/>
         <return-value transfer-ownership="none">
@@ -12336,6 +12556,10 @@ A value of 0 means an unlimited amount of sessions.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="create_session_id">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-session-pool.h"
+             line="60">create a new random session id. Subclasses can create
+   custom session ids and should not check if the session exists.</doc>
         <callback name="create_session_id">
           <source-position filename="gst/rtsp-server/rtsp-session-pool.h"
                            line="68"/>
@@ -12350,6 +12574,9 @@ A value of 0 means an unlimited amount of sessions.</doc>
         </callback>
       </field>
       <field name="create_session" introspectable="0">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-session-pool.h"
+             line="62">make a new session object.</doc>
         <callback name="create_session" introspectable="0">
           <source-position filename="gst/rtsp-server/rtsp-session-pool.h"
                            line="69"/>
@@ -12367,6 +12594,9 @@ A value of 0 means an unlimited amount of sessions.</doc>
         </callback>
       </field>
       <field name="session_removed">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-session-pool.h"
+             line="63">a session was removed from the pool</doc>
         <callback name="session_removed">
           <source-position filename="gst/rtsp-server/rtsp-session-pool.h"
                            line="72"/>
@@ -12534,45 +12764,45 @@ or a depayloader element @payloader if @pad is a sink pad.</doc>
               version="1.16">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="5079">Add multicast client address to stream. At this point, the sockets that
+             line="5086">Add multicast client address to stream. At this point, the sockets that
 will stream RTP and RTCP data to @destination are supposed to be
 allocated.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="242"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="5091">%TRUE if @destination can be addedd and handled by @stream.</doc>
+               line="5098">%TRUE if @destination can be addedd and handled by @stream.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5081">a #GstRTSPStream</doc>
+                 line="5088">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
           <parameter name="destination" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5082">a multicast address to add</doc>
+                 line="5089">a multicast address to add</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="rtp_port" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5083">RTP port</doc>
+                 line="5090">RTP port</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="rtcp_port" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5084">RTCP port</doc>
+                 line="5091">RTCP port</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="family" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5085">socket family</doc>
+                 line="5092">socket family</doc>
             <type name="Gio.SocketFamily" c:type="GSocketFamily"/>
           </parameter>
         </parameters>
@@ -12581,7 +12811,7 @@ allocated.</doc>
               c:identifier="gst_rtsp_stream_add_transport">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="4831">Add the transport in @trans to @stream. The media of @stream will
+             line="4838">Add the transport in @trans to @stream. The media of @stream will
 then also be send to the values configured in @trans. Adding the
 same transport twice will not add it a second time.
 
@@ -12592,20 +12822,20 @@ same transport twice will not add it a second time.
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="4844">%TRUE if @trans was added</doc>
+               line="4851">%TRUE if @trans was added</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4833">a #GstRTSPStream</doc>
+                 line="4840">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
           <parameter name="trans" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4834">a #GstRTSPStreamTransport</doc>
+                 line="4841">a #GstRTSPStreamTransport</doc>
             <type name="RTSPStreamTransport" c:type="GstRTSPStreamTransport*"/>
           </parameter>
         </parameters>
@@ -12654,26 +12884,26 @@ same transport twice will not add it a second time.
               version="1.14">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="5786">Add a receiver and sender part to the pipeline based on the transport from
+             line="5793">Add a receiver and sender part to the pipeline based on the transport from
 SETUP.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="326"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="5794">%TRUE if the stream has been successfully updated.</doc>
+               line="5801">%TRUE if the stream has been successfully updated.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5788">a #GstRTSPStream</doc>
+                 line="5795">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
           <parameter name="transport" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5789">a #GstRTSPTransport</doc>
+                 line="5796">a #GstRTSPTransport</doc>
             <type name="GstRtsp.RTSPTransport"
                   c:type="const GstRTSPTransport*"/>
           </parameter>
@@ -12726,12 +12956,12 @@ g_object_unref() after usage.</doc>
       <method name="get_caps" c:identifier="gst_rtsp_stream_get_caps">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="4519">Retrieve the current caps of @stream.</doc>
+             line="4526">Retrieve the current caps of @stream.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="207"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="4525">the #GstCaps of @stream.
+               line="4532">the #GstCaps of @stream.
 use gst_caps_unref() after usage.</doc>
           <type name="Gst.Caps" c:type="GstCaps*"/>
         </return-value>
@@ -12739,7 +12969,7 @@ use gst_caps_unref() after usage.</doc>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4521">a #GstRTSPStream</doc>
+                 line="4528">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
         </parameters>
@@ -12822,19 +13052,19 @@ use gst_caps_unref() after usage.</doc>
               c:identifier="gst_rtsp_stream_get_joined_bin">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="4251">Get the previous joined bin with gst_rtsp_stream_join_bin() or NULL.</doc>
+             line="4258">Get the previous joined bin with gst_rtsp_stream_join_bin() or NULL.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="156"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="4257">the joined bin or NULL.</doc>
+               line="4264">the joined bin or NULL.</doc>
           <type name="Gst.Bin" c:type="GstBin*"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4253">a #GstRTSPStream</doc>
+                 line="4260">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
         </parameters>
@@ -12917,19 +13147,19 @@ after usage.</doc>
               version="1.16">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="5135">Get all multicast client addresses that RTP data will be sent to</doc>
+             line="5142">Get all multicast client addresses that RTP data will be sent to</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="249"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="5141">A comma separated list of host:port pairs with destinations</doc>
+               line="5148">A comma separated list of host:port pairs with destinations</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5137">a #GstRTSPStream</doc>
+                 line="5144">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
         </parameters>
@@ -13049,7 +13279,7 @@ g_free() after usage.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="6368">whether @stream will follow the Rate-Control=no behaviour as specified
+               line="6375">whether @stream will follow the Rate-Control=no behaviour as specified
 in the ONVIF replay spec.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -13064,19 +13294,19 @@ in the ONVIF replay spec.</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="4455">Retrieve the current rate and/or applied_rate.</doc>
+             line="4462">Retrieve the current rate and/or applied_rate.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="202"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="4463">%TRUE if rate and/or applied_rate could be determined.</doc>
+               line="4470">%TRUE if rate and/or applied_rate could be determined.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4457">a #GstRTSPStream</doc>
+                 line="4464">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
           <parameter name="rate"
@@ -13087,7 +13317,7 @@ in the ONVIF replay spec.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4458">the configured rate</doc>
+                 line="4465">the configured rate</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
           <parameter name="applied_rate"
@@ -13098,7 +13328,7 @@ in the ONVIF replay spec.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4459">the configured applied_rate</doc>
+                 line="4466">the configured applied_rate</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
         </parameters>
@@ -13150,12 +13380,12 @@ in the ONVIF replay spec.</doc>
               version="1.14">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="5043">Get the multicast RTCP socket from @stream for a @family.</doc>
+             line="5050">Get the multicast RTCP socket from @stream for a @family.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="238"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="5050">the multicast RTCP socket or %NULL if no
+               line="5057">the multicast RTCP socket or %NULL if no
 socket could be allocated for @family. Unref after usage</doc>
           <type name="Gio.Socket" c:type="GSocket*"/>
         </return-value>
@@ -13163,13 +13393,13 @@ socket could be allocated for @family. Unref after usage</doc>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5045">a #GstRTSPStream</doc>
+                 line="5052">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
           <parameter name="family" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5046">the socket family</doc>
+                 line="5053">the socket family</doc>
             <type name="Gio.SocketFamily" c:type="GSocketFamily"/>
           </parameter>
         </parameters>
@@ -13178,14 +13408,14 @@ socket could be allocated for @family. Unref after usage</doc>
               c:identifier="gst_rtsp_stream_get_rtcp_socket">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="4973">Get the RTCP socket from @stream for a @family.
+             line="4980">Get the RTCP socket from @stream for a @family.
 
 @stream must be joined to a bin.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="230"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="4982">the RTCP socket or %NULL if no
+               line="4989">the RTCP socket or %NULL if no
 socket could be allocated for @family. Unref after usage</doc>
           <type name="Gio.Socket" c:type="GSocket*"/>
         </return-value>
@@ -13193,13 +13423,13 @@ socket could be allocated for @family. Unref after usage</doc>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4975">a #GstRTSPStream</doc>
+                 line="4982">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
           <parameter name="family" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4976">the socket family</doc>
+                 line="4983">the socket family</doc>
             <type name="Gio.SocketFamily" c:type="GSocketFamily"/>
           </parameter>
         </parameters>
@@ -13208,12 +13438,12 @@ socket could be allocated for @family. Unref after usage</doc>
               c:identifier="gst_rtsp_stream_get_rtp_multicast_socket">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="5008">Get the multicast RTP socket from @stream for a @family.</doc>
+             line="5015">Get the multicast RTP socket from @stream for a @family.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="234"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="5015">the multicast RTP socket or %NULL if no
+               line="5022">the multicast RTP socket or %NULL if no
 
 socket could be allocated for @family. Unref after usage</doc>
           <type name="Gio.Socket" c:type="GSocket*"/>
@@ -13222,13 +13452,13 @@ socket could be allocated for @family. Unref after usage</doc>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5010">a #GstRTSPStream</doc>
+                 line="5017">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
           <parameter name="family" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5011">the socket family</doc>
+                 line="5018">the socket family</doc>
             <type name="Gio.SocketFamily" c:type="GSocketFamily"/>
           </parameter>
         </parameters>
@@ -13237,14 +13467,14 @@ socket could be allocated for @family. Unref after usage</doc>
               c:identifier="gst_rtsp_stream_get_rtp_socket">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="4938">Get the RTP socket from @stream for a @family.
+             line="4945">Get the RTP socket from @stream for a @family.
 
 @stream must be joined to a bin.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="226"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="4947">the RTP socket or %NULL if no
+               line="4954">the RTP socket or %NULL if no
 socket could be allocated for @family. Unref after usage</doc>
           <type name="Gio.Socket" c:type="GSocket*"/>
         </return-value>
@@ -13252,13 +13482,13 @@ socket could be allocated for @family. Unref after usage</doc>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4940">a #GstRTSPStream</doc>
+                 line="4947">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
           <parameter name="family" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4941">the socket family</doc>
+                 line="4948">the socket family</doc>
             <type name="Gio.SocketFamily" c:type="GSocketFamily"/>
           </parameter>
         </parameters>
@@ -13266,20 +13496,20 @@ socket could be allocated for @family. Unref after usage</doc>
       <method name="get_rtpinfo" c:identifier="gst_rtsp_stream_get_rtpinfo">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="4276">Retrieve the current rtptime, seq and running-time. This is used to
+             line="4283">Retrieve the current rtptime, seq and running-time. This is used to
 construct a RTPInfo reply header.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="196"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="4287">%TRUE when rtptime, seq and running-time could be determined.</doc>
+               line="4294">%TRUE when rtptime, seq and running-time could be determined.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4278">a #GstRTSPStream</doc>
+                 line="4285">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
           <parameter name="rtptime"
@@ -13290,7 +13520,7 @@ construct a RTPInfo reply header.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4279">result RTP timestamp</doc>
+                 line="4286">result RTP timestamp</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
           <parameter name="seq"
@@ -13301,7 +13531,7 @@ construct a RTPInfo reply header.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4280">result RTP seqnum</doc>
+                 line="4287">result RTP seqnum</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
           <parameter name="clock_rate"
@@ -13312,7 +13542,7 @@ construct a RTPInfo reply header.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4281">the clock rate</doc>
+                 line="4288">the clock rate</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
           <parameter name="running_time"
@@ -13321,7 +13551,7 @@ construct a RTPInfo reply header.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4282">result running-time</doc>
+                 line="4289">result running-time</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime*"/>
           </parameter>
         </parameters>
@@ -13488,7 +13718,7 @@ be called when @stream has been joined.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="6318">the amount of redundancy applied when creating ULPFEC
+               line="6325">the amount of redundancy applied when creating ULPFEC
 protection packets.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -13505,7 +13735,7 @@ protection packets.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="6203">the payload type used for ULPFEC protection packets</doc>
+               line="6210">the payload type used for ULPFEC protection packets</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
@@ -13519,7 +13749,7 @@ protection packets.</doc>
               version="1.16">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="6151">Parse and handle a KeyMgmt header.</doc>
+             line="6158">Parse and handle a KeyMgmt header.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="338"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -13528,13 +13758,13 @@ protection packets.</doc>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="6153">a #GstRTSPStream</doc>
+                 line="6160">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
           <parameter name="keymgmt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="6154">a keymgmt header</doc>
+                 line="6161">a keymgmt header</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -13593,19 +13823,19 @@ protection packets.</doc>
       <method name="is_blocking" c:identifier="gst_rtsp_stream_is_blocking">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="5528">Check if @stream is blocking on a #GstBuffer.</doc>
+             line="5535">Check if @stream is blocking on a #GstBuffer.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="163"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="5534">%TRUE if @stream is blocking</doc>
+               line="5541">%TRUE if @stream is blocking</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5530">a #GstRTSPStream</doc>
+                 line="5537">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
         </parameters>
@@ -13636,21 +13866,21 @@ protection packets.</doc>
               version="1.14">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="5838">Checks whether the stream is complete, contains the receiver and the sender
+             line="5845">Checks whether the stream is complete, contains the receiver and the sender
 parts. As the stream contains sink(s) element(s), it's possible to perform
 seek operations on it.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="329"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="5846">%TRUE if the stream contains at least one sink element.</doc>
+               line="5853">%TRUE if the stream contains at least one sink element.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5840">a #GstRTSPStream</doc>
+                 line="5847">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
         </parameters>
@@ -13660,19 +13890,19 @@ seek operations on it.</doc>
               version="1.14">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="5892">Checks whether the stream is a receiver.</doc>
+             line="5899">Checks whether the stream is a receiver.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="335"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="5898">%TRUE if the stream is a receiver and %FALSE otherwise.</doc>
+               line="5905">%TRUE if the stream is a receiver and %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5894">a #GstRTSPStream</doc>
+                 line="5901">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
         </parameters>
@@ -13682,19 +13912,19 @@ seek operations on it.</doc>
               version="1.14">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="5866">Checks whether the stream is a sender.</doc>
+             line="5873">Checks whether the stream is a sender.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="332"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="5872">%TRUE if the stream is a sender and %FALSE otherwise.</doc>
+               line="5879">%TRUE if the stream is a sender and %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5868">a #GstRTSPStream</doc>
+                 line="5875">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
         </parameters>
@@ -13803,20 +14033,20 @@ added to @bin will be set to the state given in @state.</doc>
               c:identifier="gst_rtsp_stream_query_position">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="5553">Query the position of the stream in %GST_FORMAT_TIME. This only considers
+             line="5560">Query the position of the stream in %GST_FORMAT_TIME. This only considers
 the RTP parts of the pipeline and not the RTCP parts.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="256"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="5561">%TRUE if the position could be queried</doc>
+               line="5568">%TRUE if the position could be queried</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5555">a #GstRTSPStream</doc>
+                 line="5562">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
           <parameter name="position"
@@ -13825,7 +14055,7 @@ the RTP parts of the pipeline and not the RTCP parts.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5556">current position of a #GstRTSPStream</doc>
+                 line="5563">current position of a #GstRTSPStream</doc>
             <type name="gint64" c:type="gint64*"/>
           </parameter>
         </parameters>
@@ -13833,20 +14063,20 @@ the RTP parts of the pipeline and not the RTCP parts.</doc>
       <method name="query_stop" c:identifier="gst_rtsp_stream_query_stop">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="5640">Query the stop of the stream in %GST_FORMAT_TIME. This only considers
+             line="5647">Query the stop of the stream in %GST_FORMAT_TIME. This only considers
 the RTP parts of the pipeline and not the RTCP parts.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="260"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="5648">%TRUE if the stop could be queried</doc>
+               line="5655">%TRUE if the stop could be queried</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5642">a #GstRTSPStream</doc>
+                 line="5649">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
           <parameter name="stop"
@@ -13855,7 +14085,7 @@ the RTP parts of the pipeline and not the RTCP parts.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5643">current stop of a #GstRTSPStream</doc>
+                 line="5650">current stop of a #GstRTSPStream</doc>
             <type name="gint64" c:type="gint64*"/>
           </parameter>
         </parameters>
@@ -13863,7 +14093,7 @@ the RTP parts of the pipeline and not the RTCP parts.</doc>
       <method name="recv_rtcp" c:identifier="gst_rtsp_stream_recv_rtcp">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="4611">Handle an RTCP buffer for the stream. This method is usually called when a
+             line="4618">Handle an RTCP buffer for the stream. This method is usually called when a
 message has been received from a client using the TCP transport.
 
 This function takes ownership of @buffer.</doc>
@@ -13871,20 +14101,20 @@ This function takes ownership of @buffer.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="4621">a GstFlowReturn.</doc>
+               line="4628">a GstFlowReturn.</doc>
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4613">a #GstRTSPStream</doc>
+                 line="4620">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4614">a #GstBuffer</doc>
+                 line="4621">a #GstBuffer</doc>
             <type name="Gst.Buffer" c:type="GstBuffer*"/>
           </parameter>
         </parameters>
@@ -13892,7 +14122,7 @@ This function takes ownership of @buffer.</doc>
       <method name="recv_rtp" c:identifier="gst_rtsp_stream_recv_rtp">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="4546">Handle an RTP buffer for the stream. This method is usually called when a
+             line="4553">Handle an RTP buffer for the stream. This method is usually called when a
 message has been received from a client using the TCP transport.
 
 This function takes ownership of @buffer.</doc>
@@ -13900,20 +14130,20 @@ This function takes ownership of @buffer.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="4556">a GstFlowReturn.</doc>
+               line="4563">a GstFlowReturn.</doc>
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4548">a #GstRTSPStream</doc>
+                 line="4555">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4549">a #GstBuffer</doc>
+                 line="4556">a #GstBuffer</doc>
             <type name="Gst.Buffer" c:type="GstBuffer*"/>
           </parameter>
         </parameters>
@@ -13922,7 +14152,7 @@ This function takes ownership of @buffer.</doc>
               c:identifier="gst_rtsp_stream_remove_transport">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="4868">Remove the transport in @trans from @stream. The media of @stream will
+             line="4875">Remove the transport in @trans from @stream. The media of @stream will
 not be sent to the values configured in @trans.
 
 @stream must be joined to a bin.
@@ -13932,20 +14162,20 @@ not be sent to the values configured in @trans.
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="4880">%TRUE if @trans was removed</doc>
+               line="4887">%TRUE if @trans was removed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4870">a #GstRTSPStream</doc>
+                 line="4877">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
           <parameter name="trans" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4871">a #GstRTSPStreamTransport</doc>
+                 line="4878">a #GstRTSPStreamTransport</doc>
             <type name="RTSPStreamTransport" c:type="GstRTSPStreamTransport*"/>
           </parameter>
         </parameters>
@@ -14011,12 +14241,12 @@ not be sent to the values configured in @trans.
               version="1.16">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="6239">Creating a rtpulpfecdec element</doc>
+             line="6246">Creating a rtpulpfecdec element</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="351"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="6244">a #GstElement.</doc>
+               line="6251">a #GstElement.</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </return-value>
         <parameters>
@@ -14036,12 +14266,12 @@ not be sent to the values configured in @trans.
               version="1.16">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="6268">Creating a rtpulpfecenc element</doc>
+             line="6275">Creating a rtpulpfecenc element</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="354"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="6273">a #GstElement.</doc>
+               line="6280">a #GstElement.</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </return-value>
         <parameters>
@@ -14107,19 +14337,19 @@ usage.</doc>
               version="1.14">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="5732">Checks whether the individual @stream is seekable.</doc>
+             line="5739">Checks whether the individual @stream is seekable.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="264"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="5738">%TRUE if @stream is seekable, else %FALSE.</doc>
+               line="5745">%TRUE if @stream is seekable, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5734">a #GstRTSPStream</doc>
+                 line="5741">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
         </parameters>
@@ -14180,25 +14410,25 @@ INADDR_ANY.</doc>
       <method name="set_blocked" c:identifier="gst_rtsp_stream_set_blocked">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="5478">Blocks or unblocks the dataflow on @stream.</doc>
+             line="5485">Blocks or unblocks the dataflow on @stream.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="159"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="5485">%TRUE on success</doc>
+               line="5492">%TRUE on success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5480">a #GstRTSPStream</doc>
+                 line="5487">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
           <parameter name="blocked" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5481">boolean indicating we should block or unblock</doc>
+                 line="5488">boolean indicating we should block or unblock</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -14497,7 +14727,7 @@ an RTSP connection.</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="6335">Define whether @stream will follow the Rate-Control=no behaviour as specified
+             line="6342">Define whether @stream will follow the Rate-Control=no behaviour as specified
 in the ONVIF replay spec.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="363"/>
         <return-value transfer-ownership="none">
@@ -14580,7 +14810,7 @@ in the ONVIF replay spec.</doc>
               version="1.16">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="6294">Sets the amount of redundancy to apply when creating ULPFEC
+             line="6301">Sets the amount of redundancy to apply when creating ULPFEC
 protection packets.</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="357"/>
         <return-value transfer-ownership="none">
@@ -14600,7 +14830,7 @@ protection packets.</doc>
               version="1.16">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="6219">Set the payload type to be used for ULPFEC protection packets</doc>
+             line="6226">Set the payload type to be used for ULPFEC protection packets</doc>
         <source-position filename="gst/rtsp-server/rtsp-stream.h" line="345"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -14618,7 +14848,7 @@ protection packets.</doc>
               c:identifier="gst_rtsp_stream_transport_filter">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="5214">Call @func for each transport managed by @stream. The result value of @func
+             line="5221">Call @func for each transport managed by @stream. The result value of @func
 determines what happens to the transport. @func will be called with @stream
 locked so no further actions on @stream can be performed from @func.
 
@@ -14636,7 +14866,7 @@ When @func is %NULL, #GST_RTSP_FILTER_REF will be assumed for each transport.</d
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="5235">a #GList with all
+               line="5242">a #GList with all
 transports for which @func returned #GST_RTSP_FILTER_REF. After usage, each
 element in the #GList should be unreffed before the list is freed.</doc>
           <type name="GLib.List" c:type="GList*">
@@ -14647,7 +14877,7 @@ element in the #GList should be unreffed before the list is freed.</doc>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5216">a #GstRTSPStream</doc>
+                 line="5223">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
           <parameter name="func"
@@ -14658,7 +14888,7 @@ element in the #GList should be unreffed before the list is freed.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5217">a callback</doc>
+                 line="5224">a callback</doc>
             <type name="RTSPStreamTransportFilterFunc"
                   c:type="GstRTSPStreamTransportFilterFunc"/>
           </parameter>
@@ -14668,7 +14898,7 @@ element in the #GList should be unreffed before the list is freed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="5218">user data passed to @func</doc>
+                 line="5225">user data passed to @func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -14690,7 +14920,7 @@ element in the #GList should be unreffed before the list is freed.</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="6385">Remove blocking probe from the RTCP source. When creating an UDP source for
+             line="6392">Remove blocking probe from the RTCP source. When creating an UDP source for
 RTCP it is initially blocked until this function is called.
 This functions should be called once the pipeline is ready for handling RTCP
 packets.</doc>
@@ -14708,7 +14938,7 @@ packets.</doc>
               c:identifier="gst_rtsp_stream_update_crypto">
         <doc xml:space="preserve"
              filename="gst/rtsp-server/rtsp-stream.c"
-             line="4901">Update the new crypto information for @ssrc in @stream. If information
+             line="4908">Update the new crypto information for @ssrc in @stream. If information
 for @ssrc did not exist, it will be added. If information
 for @ssrc existed, it will be replaced. If @crypto is %NULL, it will
 be removed from @stream.</doc>
@@ -14716,20 +14946,20 @@ be removed from @stream.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst/rtsp-server/rtsp-stream.c"
-               line="4912">%TRUE if @crypto could be updated</doc>
+               line="4919">%TRUE if @crypto could be updated</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4903">a #GstRTSPStream</doc>
+                 line="4910">a #GstRTSPStream</doc>
             <type name="RTSPStream" c:type="GstRTSPStream*"/>
           </instance-parameter>
           <parameter name="ssrc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4904">the SSRC</doc>
+                 line="4911">the SSRC</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="crypto"
@@ -14738,7 +14968,7 @@ be removed from @stream.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst/rtsp-server/rtsp-stream.c"
-                 line="4905">a #GstCaps with crypto info</doc>
+                 line="4912">a #GstCaps with crypto info</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
         </parameters>
@@ -15825,6 +16055,10 @@ structures.</doc>
         </return-value>
       </function>
       <virtual-method name="configure_thread">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-thread-pool.h"
+             line="134">configure a thread object. this vmethod is called when
+      a new thread has been created and should be configured.</doc>
         <source-position filename="gst/rtsp-server/rtsp-thread-pool.h"
                          line="149"/>
         <return-value transfer-ownership="none">
@@ -15877,6 +16111,9 @@ gst_rtsp_thread_stop() after usage</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="thread_enter">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-thread-pool.h"
+             line="136">called from the thread when it is entered</doc>
         <source-position filename="gst/rtsp-server/rtsp-thread-pool.h"
                          line="153"/>
         <return-value transfer-ownership="none">
@@ -15892,6 +16129,9 @@ gst_rtsp_thread_stop() after usage</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="thread_leave">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-thread-pool.h"
+             line="137">called from the thread when it is left</doc>
         <source-position filename="gst/rtsp-server/rtsp-thread-pool.h"
                          line="155"/>
         <return-value transfer-ownership="none">
@@ -16030,6 +16270,10 @@ unlimited number of threads.</doc>
         <type name="GLib.ThreadPool" c:type="GThreadPool*"/>
       </field>
       <field name="get_thread">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-thread-pool.h"
+             line="132">this function should make or reuse an existing thread that runs
+       a mainloop.</doc>
         <callback name="get_thread">
           <source-position filename="gst/rtsp-server/rtsp-thread-pool.h"
                            line="146"/>
@@ -16063,6 +16307,10 @@ gst_rtsp_thread_stop() after usage</doc>
         </callback>
       </field>
       <field name="configure_thread">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-thread-pool.h"
+             line="134">configure a thread object. this vmethod is called when
+      a new thread has been created and should be configured.</doc>
         <callback name="configure_thread">
           <source-position filename="gst/rtsp-server/rtsp-thread-pool.h"
                            line="149"/>
@@ -16083,6 +16331,9 @@ gst_rtsp_thread_stop() after usage</doc>
         </callback>
       </field>
       <field name="thread_enter">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-thread-pool.h"
+             line="136">called from the thread when it is entered</doc>
         <callback name="thread_enter">
           <source-position filename="gst/rtsp-server/rtsp-thread-pool.h"
                            line="153"/>
@@ -16100,6 +16351,9 @@ gst_rtsp_thread_stop() after usage</doc>
         </callback>
       </field>
       <field name="thread_leave">
+        <doc xml:space="preserve"
+             filename="gst/rtsp-server/rtsp-thread-pool.h"
+             line="137">called from the thread when it is left</doc>
         <callback name="thread_leave">
           <source-position filename="gst/rtsp-server/rtsp-thread-pool.h"
                            line="155"/>

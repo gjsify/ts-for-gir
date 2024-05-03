@@ -116,7 +116,7 @@ is the same as or newer than the passed-in version.</doc>
       <source-position filename="ical.h" line="28"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
-    <constant name="PATCH_VERSION" value="17" c:type="ICAL_PATCH_VERSION">
+    <constant name="PATCH_VERSION" value="18" c:type="ICAL_PATCH_VERSION">
       <source-position filename="ical.h" line="33"/>
       <type name="gint" c:type="gint"/>
     </constant>

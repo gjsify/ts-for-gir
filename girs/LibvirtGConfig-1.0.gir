@@ -1523,36 +1523,6 @@ a newly allocated #GList of #GVirConfigCapabilitiesHostSecModel.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <function-macro name="DOMAIN_AUDIO"
-                    c:identifier="GVIR_CONFIG_DOMAIN_AUDIO"
-                    introspectable="0">
-      <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-audio.h"
-                       line="32"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DOMAIN_AUDIO_CLASS"
-                    c:identifier="GVIR_CONFIG_DOMAIN_AUDIO_CLASS"
-                    introspectable="0">
-      <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-audio.h"
-                       line="33"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DOMAIN_AUDIO_GET_CLASS"
-                    c:identifier="GVIR_CONFIG_DOMAIN_AUDIO_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-audio.h"
-                       line="36"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
     <function-macro name="DOMAIN_CAPABILITIES"
                     c:identifier="GVIR_CONFIG_DOMAIN_CAPABILITIES"
                     introspectable="0">
@@ -2190,36 +2160,6 @@ a newly allocated #GList of #GVirConfigCapabilitiesHostSecModel.</doc>
                        line="33"/>
       <parameters>
         <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DOMAIN_GRAPHICS_DBUS"
-                    c:identifier="GVIR_CONFIG_DOMAIN_GRAPHICS_DBUS"
-                    introspectable="0">
-      <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-graphics-dbus.h"
-                       line="32"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DOMAIN_GRAPHICS_DBUS_CLASS"
-                    c:identifier="GVIR_CONFIG_DOMAIN_GRAPHICS_DBUS_CLASS"
-                    introspectable="0">
-      <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-graphics-dbus.h"
-                       line="33"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="DOMAIN_GRAPHICS_DBUS_GET_CLASS"
-                    c:identifier="GVIR_CONFIG_DOMAIN_GRAPHICS_DBUS_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-graphics-dbus.h"
-                       line="36"/>
-      <parameters>
-        <parameter name="obj">
         </parameter>
       </parameters>
     </function-macro>
@@ -3570,7 +3510,7 @@ object should be unreffed with g_object_unref() when no longer needed.</doc>
              line="472">Sets the current amount of RAM allocated to @domain in kilobytes (i.e.
 blocks of 1024 bytes). This can be set to less than the maximum domain
 memory to allow to balloon the guest memory on the fly. Be aware that
-libvirt will set it automatically if it's not explicitly set, which means
+libvirt will set it automatically if it's not explictly set, which means
 you may need to set this value in addition to 'memory' if you want to
 change the available domain memory after creation.</doc>
         <source-position filename="libvirt-gconfig/libvirt-gconfig-domain.h"
@@ -4347,157 +4287,6 @@ unsets the current domain title.</doc>
             disguised="1"
             opaque="1">
       <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-address-usb.h"
-                       line="39"/>
-    </record>
-    <class name="DomainAudio"
-           c:symbol-prefix="domain_audio"
-           c:type="GVirConfigDomainAudio"
-           parent="DomainDevice"
-           glib:type-name="GVirConfigDomainAudio"
-           glib:get-type="gvir_config_domain_audio_get_type"
-           glib:type-struct="DomainAudioClass">
-      <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-audio.h"
-                       line="56"/>
-      <constructor name="new" c:identifier="gvir_config_domain_audio_new">
-        <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-audio.h"
-                         line="72"/>
-        <return-value transfer-ownership="full">
-          <type name="DomainAudio" c:type="GVirConfigDomainAudio*"/>
-        </return-value>
-      </constructor>
-      <constructor name="new_from_xml"
-                   c:identifier="gvir_config_domain_audio_new_from_xml"
-                   throws="1">
-        <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-audio.h"
-                         line="73"/>
-        <return-value transfer-ownership="full">
-          <type name="DomainAudio" c:type="GVirConfigDomainAudio*"/>
-        </return-value>
-        <parameters>
-          <parameter name="xml" transfer-ownership="none">
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
-        </parameters>
-      </constructor>
-      <method name="set_backend"
-              c:identifier="gvir_config_domain_audio_set_backend">
-        <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-audio.h"
-                         line="75"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="audio" transfer-ownership="none">
-            <type name="DomainAudio" c:type="GVirConfigDomainAudio*"/>
-          </instance-parameter>
-          <parameter name="backend" transfer-ownership="none">
-            <type name="DomainAudioBackend"
-                  c:type="GVirConfigDomainAudioBackend"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_server_name"
-              c:identifier="gvir_config_domain_audio_set_server_name">
-        <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-audio.h"
-                         line="77"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="audio" transfer-ownership="none">
-            <type name="DomainAudio" c:type="GVirConfigDomainAudio*"/>
-          </instance-parameter>
-          <parameter name="server_name" transfer-ownership="none">
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <field name="parent">
-        <type name="DomainDevice" c:type="GVirConfigDomainDevice"/>
-      </field>
-      <field name="priv">
-        <type name="DomainAudioPrivate"
-              c:type="GVirConfigDomainAudioPrivate*"/>
-      </field>
-    </class>
-    <enumeration name="DomainAudioBackend"
-                 glib:type-name="GVirConfigDomainAudioBackend"
-                 glib:get-type="gvir_config_domain_audio_backend_get_type"
-                 c:type="GVirConfigDomainAudioBackend">
-      <member name="none"
-              value="0"
-              c:identifier="GVIR_CONFIG_DOMAIN_AUDIO_BACKEND_NONE"
-              glib:nick="none"
-              glib:name="GVIR_CONFIG_DOMAIN_AUDIO_BACKEND_NONE">
-      </member>
-      <member name="alsa"
-              value="1"
-              c:identifier="GVIR_CONFIG_DOMAIN_AUDIO_BACKEND_ALSA"
-              glib:nick="alsa"
-              glib:name="GVIR_CONFIG_DOMAIN_AUDIO_BACKEND_ALSA">
-      </member>
-      <member name="coreaudio"
-              value="2"
-              c:identifier="GVIR_CONFIG_DOMAIN_AUDIO_BACKEND_COREAUDIO"
-              glib:nick="coreaudio"
-              glib:name="GVIR_CONFIG_DOMAIN_AUDIO_BACKEND_COREAUDIO">
-      </member>
-      <member name="jack"
-              value="3"
-              c:identifier="GVIR_CONFIG_DOMAIN_AUDIO_BACKEND_JACK"
-              glib:nick="jack"
-              glib:name="GVIR_CONFIG_DOMAIN_AUDIO_BACKEND_JACK">
-      </member>
-      <member name="oss"
-              value="4"
-              c:identifier="GVIR_CONFIG_DOMAIN_AUDIO_BACKEND_OSS"
-              glib:nick="oss"
-              glib:name="GVIR_CONFIG_DOMAIN_AUDIO_BACKEND_OSS">
-      </member>
-      <member name="pulseaudio"
-              value="5"
-              c:identifier="GVIR_CONFIG_DOMAIN_AUDIO_BACKEND_PULSEAUDIO"
-              glib:nick="pulseaudio"
-              glib:name="GVIR_CONFIG_DOMAIN_AUDIO_BACKEND_PULSEAUDIO">
-      </member>
-      <member name="sdl"
-              value="6"
-              c:identifier="GVIR_CONFIG_DOMAIN_AUDIO_BACKEND_SDL"
-              glib:nick="sdl"
-              glib:name="GVIR_CONFIG_DOMAIN_AUDIO_BACKEND_SDL">
-      </member>
-      <member name="spice"
-              value="7"
-              c:identifier="GVIR_CONFIG_DOMAIN_AUDIO_BACKEND_SPICE"
-              glib:nick="spice"
-              glib:name="GVIR_CONFIG_DOMAIN_AUDIO_BACKEND_SPICE">
-      </member>
-      <member name="file"
-              value="8"
-              c:identifier="GVIR_CONFIG_DOMAIN_AUDIO_BACKEND_FILE"
-              glib:nick="file"
-              glib:name="GVIR_CONFIG_DOMAIN_AUDIO_BACKEND_FILE">
-      </member>
-    </enumeration>
-    <record name="DomainAudioClass"
-            c:type="GVirConfigDomainAudioClass"
-            glib:is-gtype-struct-for="DomainAudio">
-      <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-audio.h"
-                       line="56"/>
-      <field name="parent_class">
-        <type name="DomainDeviceClass" c:type="GVirConfigDomainDeviceClass"/>
-      </field>
-      <field name="padding">
-        <array zero-terminated="0" fixed-size="20">
-          <type name="gpointer" c:type="gpointer"/>
-        </array>
-      </field>
-    </record>
-    <record name="DomainAudioPrivate"
-            c:type="GVirConfigDomainAudioPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-audio.h"
                        line="39"/>
     </record>
     <class name="DomainCapabilities"
@@ -6396,13 +6185,13 @@ After this call, @controller's index will be set to @master's index.</doc>
               c:identifier="gvir_config_domain_disk_get_driver">
         <doc xml:space="preserve"
              filename="libvirt-gconfig/libvirt-gconfig-domain-disk.c"
-             line="418">Gets the driver configuration for @disk.</doc>
+             line="411">Gets the driver configuration for @disk.</doc>
         <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-disk.h"
                          line="133"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libvirt-gconfig/libvirt-gconfig-domain-disk.c"
-               line="424">A #GVirConfigDomainDiskDriver. The returned
+               line="417">A #GVirConfigDomainDiskDriver. The returned
 object should be unreffed with g_object_unref() when no longer needed.</doc>
           <type name="DomainDiskDriver" c:type="GVirConfigDomainDiskDriver*"/>
         </return-value>
@@ -6410,7 +6199,7 @@ object should be unreffed with g_object_unref() when no longer needed.</doc>
           <instance-parameter name="disk" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libvirt-gconfig/libvirt-gconfig-domain-disk.c"
-                 line="420">a #GVirConfigDomainDisk</doc>
+                 line="413">a #GVirConfigDomainDisk</doc>
             <type name="DomainDisk" c:type="GVirConfigDomainDisk*"/>
           </instance-parameter>
         </parameters>
@@ -6557,7 +6346,7 @@ instead</doc-deprecated>
               c:identifier="gvir_config_domain_disk_set_driver">
         <doc xml:space="preserve"
              filename="libvirt-gconfig/libvirt-gconfig-domain-disk.c"
-             line="399">Uses @driver as the driver configuration for @disk.</doc>
+             line="392">Uses @driver as the driver configuration for @disk.</doc>
         <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-disk.h"
                          line="131"/>
         <return-value transfer-ownership="none">
@@ -6567,7 +6356,7 @@ instead</doc-deprecated>
           <instance-parameter name="disk" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libvirt-gconfig/libvirt-gconfig-domain-disk.c"
-                 line="401">a #GVirConfigDomainDisk</doc>
+                 line="394">a #GVirConfigDomainDisk</doc>
             <type name="DomainDisk" c:type="GVirConfigDomainDisk*"/>
           </instance-parameter>
           <parameter name="driver"
@@ -6576,7 +6365,7 @@ instead</doc-deprecated>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libvirt-gconfig/libvirt-gconfig-domain-disk.c"
-                 line="402">a #GVirConfigDomainDiskDriver</doc>
+                 line="395">a #GVirConfigDomainDiskDriver</doc>
             <type name="DomainDiskDriver"
                   c:type="GVirConfigDomainDiskDriver*"/>
           </parameter>
@@ -7764,117 +7553,6 @@ instead</doc-deprecated>
           <type name="gpointer" c:type="gpointer"/>
         </array>
       </field>
-    </record>
-    <class name="DomainGraphicsDBus"
-           c:symbol-prefix="domain_graphics_dbus"
-           c:type="GVirConfigDomainGraphicsDBus"
-           parent="DomainGraphics"
-           glib:type-name="GVirConfigDomainGraphicsDBus"
-           glib:get-type="gvir_config_domain_graphics_dbus_get_type"
-           glib:type-struct="DomainGraphicsDBusClass">
-      <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-graphics-dbus.h"
-                       line="56"/>
-      <constructor name="new"
-                   c:identifier="gvir_config_domain_graphics_dbus_new">
-        <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-graphics-dbus.h"
-                         line="60"/>
-        <return-value transfer-ownership="full">
-          <type name="DomainGraphicsDBus"
-                c:type="GVirConfigDomainGraphicsDBus*"/>
-        </return-value>
-      </constructor>
-      <constructor name="new_from_xml"
-                   c:identifier="gvir_config_domain_graphics_dbus_new_from_xml"
-                   throws="1">
-        <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-graphics-dbus.h"
-                         line="61"/>
-        <return-value transfer-ownership="full">
-          <type name="DomainGraphicsDBus"
-                c:type="GVirConfigDomainGraphicsDBus*"/>
-        </return-value>
-        <parameters>
-          <parameter name="xml" transfer-ownership="none">
-            <type name="utf8" c:type="const gchar*"/>
-          </parameter>
-        </parameters>
-      </constructor>
-      <method name="get_address"
-              c:identifier="gvir_config_domain_graphics_dbus_get_address">
-        <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-graphics-dbus.h"
-                         line="64"/>
-        <return-value transfer-ownership="none">
-          <type name="utf8" c:type="const char*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="graphics" transfer-ownership="none">
-            <type name="DomainGraphicsDBus"
-                  c:type="GVirConfigDomainGraphicsDBus*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="set_address"
-              c:identifier="gvir_config_domain_graphics_dbus_set_address">
-        <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-graphics-dbus.h"
-                         line="65"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="graphics" transfer-ownership="none">
-            <type name="DomainGraphicsDBus"
-                  c:type="GVirConfigDomainGraphicsDBus*"/>
-          </instance-parameter>
-          <parameter name="address" transfer-ownership="none">
-            <type name="utf8" c:type="const char*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_gl"
-              c:identifier="gvir_config_domain_graphics_dbus_set_gl">
-        <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-graphics-dbus.h"
-                         line="68"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="graphics" transfer-ownership="none">
-            <type name="DomainGraphicsDBus"
-                  c:type="GVirConfigDomainGraphicsDBus*"/>
-          </instance-parameter>
-          <parameter name="gl" transfer-ownership="none">
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-        </parameters>
-      </method>
-      <field name="parent">
-        <type name="DomainGraphics" c:type="GVirConfigDomainGraphics"/>
-      </field>
-      <field name="priv">
-        <type name="DomainGraphicsDBusPrivate"
-              c:type="GVirConfigDomainGraphicsDBusPrivate*"/>
-      </field>
-    </class>
-    <record name="DomainGraphicsDBusClass"
-            c:type="GVirConfigDomainGraphicsDBusClass"
-            glib:is-gtype-struct-for="DomainGraphicsDBus">
-      <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-graphics-dbus.h"
-                       line="56"/>
-      <field name="parent_class">
-        <type name="DomainGraphicsClass"
-              c:type="GVirConfigDomainGraphicsClass"/>
-      </field>
-      <field name="padding">
-        <array zero-terminated="0" fixed-size="20">
-          <type name="gpointer" c:type="gpointer"/>
-        </array>
-      </field>
-    </record>
-    <record name="DomainGraphicsDBusPrivate"
-            c:type="GVirConfigDomainGraphicsDBusPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-graphics-dbus.h"
-                       line="39"/>
     </record>
     <class name="DomainGraphicsDesktop"
            c:symbol-prefix="domain_graphics_desktop"
@@ -10178,25 +9856,6 @@ a newly allocated #GList of #GVirConfigDomainInterfaceFilterrefParameter.</doc>
           <instance-parameter name="os" transfer-ownership="none">
             <type name="DomainOs" c:type="GVirConfigDomainOs*"/>
           </instance-parameter>
-          <parameter name="enable" transfer-ownership="none">
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="enable_firmware_feature"
-              c:identifier="gvir_config_domain_os_enable_firmware_feature">
-        <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-os.h"
-                         line="109"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="os" transfer-ownership="none">
-            <type name="DomainOs" c:type="GVirConfigDomainOs*"/>
-          </instance-parameter>
-          <parameter name="name" transfer-ownership="none">
-            <type name="utf8" c:type="const char*"/>
-          </parameter>
           <parameter name="enable" transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -13051,26 +12710,6 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <function-macro name="IS_DOMAIN_AUDIO"
-                    c:identifier="GVIR_CONFIG_IS_DOMAIN_AUDIO"
-                    introspectable="0">
-      <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-audio.h"
-                       line="34"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_DOMAIN_AUDIO_CLASS"
-                    c:identifier="GVIR_CONFIG_IS_DOMAIN_AUDIO_CLASS"
-                    introspectable="0">
-      <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-audio.h"
-                       line="35"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
     <function-macro name="IS_DOMAIN_CAPABILITIES"
                     c:identifier="GVIR_CONFIG_IS_DOMAIN_CAPABILITIES"
                     introspectable="0">
@@ -13495,26 +13134,6 @@ should be unreffed with g_object_unref() when no longer needed.</doc>
                     c:identifier="GVIR_CONFIG_IS_DOMAIN_GRAPHICS_CLASS"
                     introspectable="0">
       <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-graphics.h"
-                       line="35"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_DOMAIN_GRAPHICS_DBUS"
-                    c:identifier="GVIR_CONFIG_IS_DOMAIN_GRAPHICS_DBUS"
-                    introspectable="0">
-      <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-graphics-dbus.h"
-                       line="34"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_DOMAIN_GRAPHICS_DBUS_CLASS"
-                    c:identifier="GVIR_CONFIG_IS_DOMAIN_GRAPHICS_DBUS_CLASS"
-                    introspectable="0">
-      <source-position filename="libvirt-gconfig/libvirt-gconfig-domain-graphics-dbus.h"
                        line="35"/>
       <parameters>
         <parameter name="klass">

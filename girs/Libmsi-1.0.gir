@@ -13,7 +13,7 @@ and/or use gtk-doc annotations.  -->
   <c:include name="libmsi.h"/>
   <namespace name="Libmsi"
              version="1.0"
-             shared-library="libmsi.so.0"
+             shared-library="libmsi-1.0.so.0"
              c:identifier-prefixes="Libmsi"
              c:symbol-prefixes="libmsi">
     <enumeration name="ColInfo"
@@ -1076,19 +1076,19 @@ containing informations or %NULL on error.</doc>
       <method name="clear" c:identifier="libmsi_record_clear">
         <doc xml:space="preserve"
              filename="libmsi/libmsi-record.c"
-             line="265">Clear record fields.</doc>
+             line="266">Clear record fields.</doc>
         <source-position filename="include/libmsi-record.h" line="46"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libmsi/libmsi-record.c"
-               line="271">%TRUE on success.</doc>
+               line="272">%TRUE on success.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="record" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="267">a %LibmsiRecord</doc>
+                 line="268">a %LibmsiRecord</doc>
             <type name="Record" c:type="LibmsiRecord*"/>
           </instance-parameter>
         </parameters>
@@ -1099,14 +1099,14 @@ containing informations or %NULL on error.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libmsi/libmsi-record.c"
-               line="149">the number of record fields.</doc>
+               line="150">the number of record fields.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="record" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="147">a %LibmsiRecord</doc>
+                 line="148">a %LibmsiRecord</doc>
             <type name="Record" c:type="const LibmsiRecord*"/>
           </instance-parameter>
         </parameters>
@@ -1114,14 +1114,14 @@ containing informations or %NULL on error.</doc>
       <method name="get_int" c:identifier="libmsi_record_get_int">
         <doc xml:space="preserve"
              filename="libmsi/libmsi-record.c"
-             line="225">Get the integer value of %field. If the field is a string
+             line="226">Get the integer value of %field. If the field is a string
 representing an integer, it will be converted to an integer value.
 Other values and types will return %LIBMSI_NULL_INT.</doc>
         <source-position filename="include/libmsi-record.h" line="53"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libmsi/libmsi-record.c"
-               line="234">The integer value, or %LIBMSI_NULL_INT if the field is
+               line="235">The integer value, or %LIBMSI_NULL_INT if the field is
 not an integer.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -1129,13 +1129,13 @@ not an integer.</doc>
           <instance-parameter name="record" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="227">a %LibmsiRecord</doc>
+                 line="228">a %LibmsiRecord</doc>
             <type name="Record" c:type="const LibmsiRecord*"/>
           </instance-parameter>
           <parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="228">a field identifier</doc>
+                 line="229">a field identifier</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1143,25 +1143,25 @@ not an integer.</doc>
       <method name="get_stream" c:identifier="libmsi_record_get_stream">
         <doc xml:space="preserve"
              filename="libmsi/libmsi-record.c"
-             line="660">Get the stream associated with the given record @field.</doc>
+             line="661">Get the stream associated with the given record @field.</doc>
         <source-position filename="include/libmsi-record.h" line="69"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libmsi/libmsi-record.c"
-               line="667">a new #GInputStream</doc>
+               line="668">a new #GInputStream</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </return-value>
         <parameters>
           <instance-parameter name="record" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="662">a #LibmsiRecord</doc>
+                 line="663">a #LibmsiRecord</doc>
             <type name="Record" c:type="LibmsiRecord*"/>
           </instance-parameter>
           <parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="663">a field identifier</doc>
+                 line="664">a field identifier</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1169,25 +1169,25 @@ not an integer.</doc>
       <method name="get_string" c:identifier="libmsi_record_get_string">
         <doc xml:space="preserve"
              filename="libmsi/libmsi-record.c"
-             line="343">Get a string representation of %field.</doc>
+             line="344">Get a string representation of %field.</doc>
         <source-position filename="include/libmsi-record.h" line="58"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libmsi/libmsi-record.c"
-               line="350">a string, or %NULL on error.</doc>
+               line="351">a string, or %NULL on error.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="record" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="345">a %LibmsiRecord</doc>
+                 line="346">a %LibmsiRecord</doc>
             <type name="Record" c:type="const LibmsiRecord*"/>
           </instance-parameter>
           <parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="346">a field identifier</doc>
+                 line="347">a field identifier</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1197,20 +1197,20 @@ not an integer.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libmsi/libmsi-record.c"
-               line="326">%TRUE if the field is null (or %field &gt; record field count)</doc>
+               line="327">%TRUE if the field is null (or %field &gt; record field count)</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="record" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="323">a %LibmsiRecord</doc>
+                 line="324">a %LibmsiRecord</doc>
             <type name="Record" c:type="const LibmsiRecord*"/>
           </instance-parameter>
           <parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="324">a field identifier</doc>
+                 line="325">a field identifier</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1218,31 +1218,31 @@ not an integer.</doc>
       <method name="load_stream" c:identifier="libmsi_record_load_stream">
         <doc xml:space="preserve"
              filename="libmsi/libmsi-record.c"
-             line="560">Load the file content as a stream in @field.</doc>
+             line="561">Load the file content as a stream in @field.</doc>
         <source-position filename="include/libmsi-record.h" line="60"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libmsi/libmsi-record.c"
-               line="568">%TRUE on success.</doc>
+               line="569">%TRUE on success.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="record" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="562">a #LibmsiRecord</doc>
+                 line="563">a #LibmsiRecord</doc>
             <type name="Record" c:type="LibmsiRecord*"/>
           </instance-parameter>
           <parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="563">a field identifier</doc>
+                 line="564">a field identifier</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="564">a filename or %NULL</doc>
+                 line="565">a filename or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1250,31 +1250,31 @@ not an integer.</doc>
       <method name="set_int" c:identifier="libmsi_record_set_int">
         <doc xml:space="preserve"
              filename="libmsi/libmsi-record.c"
-             line="294">Set the %field to the integer value %val.</doc>
+             line="295">Set the %field to the integer value %val.</doc>
         <source-position filename="include/libmsi-record.h" line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libmsi/libmsi-record.c"
-               line="302">%TRUE on success.</doc>
+               line="303">%TRUE on success.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="record" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="296">a %LibmsiRecord</doc>
+                 line="297">a %LibmsiRecord</doc>
             <type name="Record" c:type="LibmsiRecord*"/>
           </instance-parameter>
           <parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="297">a field identifier</doc>
+                 line="298">a field identifier</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="val" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="298">value to set field to</doc>
+                 line="299">value to set field to</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -1284,37 +1284,37 @@ not an integer.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libmsi/libmsi-record.c"
-             line="586">Set the stream content from @input stream.</doc>
+             line="587">Set the stream content from @input stream.</doc>
         <source-position filename="include/libmsi-record.h" line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libmsi/libmsi-record.c"
-               line="597">%TRUE on success</doc>
+               line="598">%TRUE on success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="record" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="588">a #LibmsiRecord</doc>
+                 line="589">a #LibmsiRecord</doc>
             <type name="Record" c:type="LibmsiRecord*"/>
           </instance-parameter>
           <parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="589">a field identifier</doc>
+                 line="590">a field identifier</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="input" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="590">a #GInputStream</doc>
+                 line="591">a #GInputStream</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </parameter>
           <parameter name="count" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="591">the number of bytes to read from @input</doc>
+                 line="592">the number of bytes to read from @input</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
           <parameter name="cancellable"
@@ -1323,7 +1323,7 @@ not an integer.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="592">optional GCancellable object, %NULL to ignore</doc>
+                 line="593">optional GCancellable object, %NULL to ignore</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1331,31 +1331,31 @@ not an integer.</doc>
       <method name="set_string" c:identifier="libmsi_record_set_string">
         <doc xml:space="preserve"
              filename="libmsi/libmsi-record.c"
-             line="435">Set the %field value to %val string.</doc>
+             line="436">Set the %field value to %val string.</doc>
         <source-position filename="include/libmsi-record.h" line="55"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libmsi/libmsi-record.c"
-               line="443">%TRUE on success.</doc>
+               line="444">%TRUE on success.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="record" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="437">a %LibmsiRecord</doc>
+                 line="438">a %LibmsiRecord</doc>
             <type name="Record" c:type="LibmsiRecord*"/>
           </instance-parameter>
           <parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="438">a field identifier</doc>
+                 line="439">a field identifier</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="val" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmsi/libmsi-record.c"
-                 line="439">a string or %NULL</doc>
+                 line="440">a string or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>

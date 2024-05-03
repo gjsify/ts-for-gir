@@ -4516,8 +4516,8 @@ __metadata:
     "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
-    "@girs/rest-1.0": "workspace:^"
-    "@girs/soup-3.0": "workspace:^"
+    "@girs/rest-0.7": "workspace:^"
+    "@girs/soup-2.4": "workspace:^"
     typescript: "npm:*"
   languageName: unknown
   linkType: soft
@@ -7126,6 +7126,7 @@ __metadata:
     "@girs/clutter-1.0": "workspace:^"
     "@girs/cogl-1.0": "workspace:^"
     "@girs/coglpango-1.0": "workspace:^"
+    "@girs/fontconfig-2.0": "workspace:^"
     "@girs/freetype2-2.0": "workspace:^"
     "@girs/gio-2.0": "workspace:^"
     "@girs/gjs": "workspace:^"
@@ -7136,6 +7137,8 @@ __metadata:
     "@girs/json-1.0": "workspace:^"
     "@girs/pango-1.0": "workspace:^"
     "@girs/pangocairo-1.0": "workspace:^"
+    "@girs/pangofc-1.0": "workspace:^"
+    "@girs/pangoft2-1.0": "workspace:^"
     typescript: "npm:*"
   languageName: unknown
   linkType: soft

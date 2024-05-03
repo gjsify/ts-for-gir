@@ -774,7 +774,8 @@ the %E_SOURCE_CONNECTION_STATUS_AWAITING_CREDENTIALS or it is disabled.</doc>
       </method>
       <method name="prompt"
               c:identifier="e_credentials_prompter_prompt"
-              version="3.16">
+              version="3.16"
+              glib:finish-func="prompt_finish">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-credentials-prompter.c"
              line="1648">Asks the @prompter to prompt for credentials, which are returned
@@ -2508,7 +2509,8 @@ This value has meaning only with calendar sources.</doc>
       </method>
       <method name="refresh"
               c:identifier="e_webdav_discover_content_refresh"
-              version="3.18">
+              version="3.18"
+              glib:finish-func="refresh_finish">
         <doc xml:space="preserve"
              filename="src/libedataserverui/e-webdav-discover-widget.c"
              line="842">Asynchronously starts refresh of the @content. This means to access the server

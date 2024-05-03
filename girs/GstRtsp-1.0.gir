@@ -6680,6 +6680,9 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
       <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                        line="295"/>
       <field name="message_received">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtsp/gstrtspconnection.h"
+             line="256">callback when a message was received</doc>
         <callback name="message_received">
           <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                            line="275"/>
@@ -6704,6 +6707,9 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
         </callback>
       </field>
       <field name="message_sent">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtsp/gstrtspconnection.h"
+             line="257">callback when a message was sent</doc>
         <callback name="message_sent">
           <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                            line="277"/>
@@ -6728,6 +6734,9 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
         </callback>
       </field>
       <field name="closed">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtsp/gstrtspconnection.h"
+             line="258">callback when the connection is closed</doc>
         <callback name="closed">
           <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                            line="279"/>
@@ -6749,6 +6758,9 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
         </callback>
       </field>
       <field name="error">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtsp/gstrtspconnection.h"
+             line="259">callback when an error occurred</doc>
         <callback name="error">
           <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                            line="280"/>
@@ -6773,6 +6785,10 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
         </callback>
       </field>
       <field name="tunnel_start">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtsp/gstrtspconnection.h"
+             line="260">a client started a tunneled connection. The tunnelid of the
+  connection must be saved.</doc>
         <callback name="tunnel_start">
           <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                            line="282"/>
@@ -6794,6 +6810,11 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
         </callback>
       </field>
       <field name="tunnel_complete">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtsp/gstrtspconnection.h"
+             line="262">a client finished a tunneled connection. In this callback
+  you usually pair the tunnelid of this connection with the saved one using
+  gst_rtsp_connection_do_tunnel().</doc>
         <callback name="tunnel_complete">
           <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                            line="283"/>
@@ -6815,6 +6836,10 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
         </callback>
       </field>
       <field name="error_full">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtsp/gstrtspconnection.h"
+             line="265">callback when an error occurred with more information than
+  the @error callback.</doc>
         <callback name="error_full">
           <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                            line="284"/>
@@ -6845,6 +6870,9 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
         </callback>
       </field>
       <field name="tunnel_lost">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtsp/gstrtspconnection.h"
+             line="267">callback when the post connection of a tunnel is closed.</doc>
         <callback name="tunnel_lost">
           <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                            line="287"/>
@@ -6866,6 +6894,11 @@ communication. Free with gst_rtsp_watch_unref () after usage.</doc>
         </callback>
       </field>
       <field name="tunnel_http_response">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/rtsp/gstrtspconnection.h"
+             line="268">callback when an HTTP response to the GET request
+  is about to be sent for a tunneled connection. The response can be
+  modified in the callback. Since: 1.4.</doc>
         <callback name="tunnel_http_response">
           <source-position filename="gst-libs/gst/rtsp/gstrtspconnection.h"
                            line="288"/>

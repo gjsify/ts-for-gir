@@ -72,20 +72,20 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="512">A new #MateMenuTree instance</doc>
+               line="516">A new #MateMenuTree instance</doc>
           <type name="Tree" c:type="MateMenuTree*"/>
         </return-value>
         <parameters>
           <parameter name="menu_basename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="509">Basename of menu file</doc>
+                 line="513">Basename of menu file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="510">Flags controlling menu content</doc>
+                 line="514">Flags controlling menu content</doc>
             <type name="TreeFlags" c:type="MateMenuTreeFlags"/>
           </parameter>
         </parameters>
@@ -110,7 +110,7 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1806">The same @item, or %NULL if @item is not a valid #MateMenuTreeItem</doc>
+               line="1804">The same @item, or %NULL if @item is not a valid #MateMenuTreeItem</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
@@ -120,7 +120,7 @@ and/or use gtk-doc annotations.  -->
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1804">a #MateMenuTreeItem</doc>
+                 line="1802">a #MateMenuTreeItem</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -143,20 +143,20 @@ and/or use gtk-doc annotations.  -->
               c:identifier="matemenu_tree_get_canonical_menu_path">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="821">This function is only available if the tree has been loaded via
+             line="830">This function is only available if the tree has been loaded via
 matemenu_tree_load_sync() or a variant thereof.</doc>
         <source-position filename="matemenu-tree.h" line="99"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="828">The absolute and canonicalized path to the loaded menu file</doc>
+               line="837">The absolute and canonicalized path to the loaded menu file</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tree" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="823">a #MateMenuTree</doc>
+                 line="832">a #MateMenuTree</doc>
             <type name="Tree" c:type="MateMenuTree*"/>
           </instance-parameter>
         </parameters>
@@ -180,25 +180,25 @@ matemenu_tree_load_sync() or a variant thereof.</doc>
               c:identifier="matemenu_tree_get_entry_by_id">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="968">Look up the entry corresponding to the given "desktop file id".</doc>
+             line="977">Look up the entry corresponding to the given "desktop file id".</doc>
         <source-position filename="matemenu-tree.h" line="103"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="975">A newly referenced #MateMenuTreeEntry, or %NULL if none</doc>
+               line="984">A newly referenced #MateMenuTreeEntry, or %NULL if none</doc>
           <type name="TreeEntry" c:type="MateMenuTreeEntry*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tree" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="970">a #MateMenuTree</doc>
+                 line="979">a #MateMenuTree</doc>
             <type name="Tree" c:type="MateMenuTree*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="971">a desktop file ID</doc>
+                 line="980">a desktop file ID</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -207,20 +207,20 @@ matemenu_tree_load_sync() or a variant thereof.</doc>
               c:identifier="matemenu_tree_get_root_directory">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="871">Get the root directory; you must have loaded the tree first (at
+             line="880">Get the root directory; you must have loaded the tree first (at
 least once) via matemenu_tree_load_sync() or a variant thereof.</doc>
         <source-position filename="matemenu-tree.h" line="100"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="878">Root of the tree</doc>
+               line="887">Root of the tree</doc>
           <type name="TreeDirectory" c:type="MateMenuTreeDirectory*"/>
         </return-value>
         <parameters>
           <instance-parameter name="tree" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="873">a #MateMenuTree</doc>
+                 line="882">a #MateMenuTree</doc>
             <type name="Tree" c:type="MateMenuTree*"/>
           </instance-parameter>
         </parameters>
@@ -230,21 +230,21 @@ least once) via matemenu_tree_load_sync() or a variant thereof.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="839">Synchronously load the menu contents.  This function
+             line="848">Synchronously load the menu contents.  This function
 performs a significant amount of blocking I/O if the
 tree has not been loaded yet.</doc>
         <source-position filename="matemenu-tree.h" line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="848">%TRUE on success, %FALSE on error</doc>
+               line="857">%TRUE on success, %FALSE on error</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="tree" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="841">a #MateMenuTree</doc>
+                 line="850">a #MateMenuTree</doc>
             <type name="Tree" c:type="MateMenuTree*"/>
           </instance-parameter>
         </parameters>
@@ -256,7 +256,7 @@ tree has not been loaded yet.</doc>
                 default-value="MATEMENU_TREE_FLAGS_NONE">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="792">Flags controlling the content of the menu.</doc>
+             line="801">Flags controlling the content of the menu.</doc>
         <type name="TreeFlags"/>
       </property>
       <property name="menu-basename"
@@ -266,7 +266,7 @@ tree has not been loaded yet.</doc>
                 default-value="applications.menu">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="769">The name of the menu file; must be a basename or a relative path. The file
+             line="778">The name of the menu file; must be a basename or a relative path. The file
 will be looked up in $XDG_CONFIG_DIRS/menus/. See the Desktop Menu
 specification.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -278,7 +278,7 @@ specification.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="781">The full path of the menu file. If set, MateMenuTree:menu-basename will get
+             line="790">The full path of the menu file. If set, MateMenuTree:menu-basename will get
 ignored.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -301,14 +301,14 @@ ignored.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1541">The aliased directory entry</doc>
+               line="1549">The aliased directory entry</doc>
           <type name="TreeDirectory" c:type="MateMenuTreeDirectory*"/>
         </return-value>
         <parameters>
           <instance-parameter name="alias" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1539">alias</doc>
+                 line="1547">alias</doc>
             <type name="TreeAlias" c:type="MateMenuTreeAlias*"/>
           </instance-parameter>
         </parameters>
@@ -319,14 +319,14 @@ ignored.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1556">The aliased entry</doc>
+               line="1564">The aliased entry</doc>
           <type name="TreeEntry" c:type="MateMenuTreeEntry*"/>
         </return-value>
         <parameters>
           <instance-parameter name="alias" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1554">alias</doc>
+                 line="1562">alias</doc>
             <type name="TreeAlias" c:type="MateMenuTreeAlias*"/>
           </instance-parameter>
         </parameters>
@@ -360,14 +360,14 @@ ignored.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1033">The parent directory, or %NULL if none</doc>
+               line="1042">The parent directory, or %NULL if none</doc>
           <type name="TreeDirectory" c:type="MateMenuTreeDirectory*"/>
         </return-value>
         <parameters>
           <instance-parameter name="alias" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1031">a #MateMenuTreeAlias</doc>
+                 line="1040">a #MateMenuTreeAlias</doc>
             <type name="TreeAlias" c:type="MateMenuTreeAlias*"/>
           </instance-parameter>
         </parameters>
@@ -375,19 +375,19 @@ ignored.</doc>
       <method name="get_tree" c:identifier="matemenu_tree_alias_get_tree">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="1505">Grab the tree associated with a #MateMenuTreeAlias.</doc>
+             line="1513">Grab the tree associated with a #MateMenuTreeAlias.</doc>
         <source-position filename="matemenu-tree.h" line="155"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1511">The #MateMenuTree</doc>
+               line="1519">The #MateMenuTree</doc>
           <type name="Tree" c:type="MateMenuTree*"/>
         </return-value>
         <parameters>
           <instance-parameter name="alias" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1507">A #MateMenuTreeAlias</doc>
+                 line="1515">A #MateMenuTreeAlias</doc>
             <type name="TreeAlias" c:type="MateMenuTreeAlias*"/>
           </instance-parameter>
         </parameters>
@@ -447,19 +447,19 @@ ignored.</doc>
       <method name="get_icon" c:identifier="matemenu_tree_directory_get_icon">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="1280">Gets the icon for the directory.</doc>
+             line="1288">Gets the icon for the directory.</doc>
         <source-position filename="matemenu-tree.h" line="113"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1286">The #GIcon for this directory</doc>
+               line="1294">The #GIcon for this directory</doc>
           <type name="Gio.Icon" c:type="GIcon*"/>
         </return-value>
         <parameters>
           <instance-parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1282">a #MateMenuTreeDirectory</doc>
+                 line="1290">a #MateMenuTreeDirectory</doc>
             <type name="TreeDirectory" c:type="MateMenuTreeDirectory*"/>
           </instance-parameter>
         </parameters>
@@ -505,14 +505,14 @@ ignored.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1009">The parent directory, or %NULL if none</doc>
+               line="1018">The parent directory, or %NULL if none</doc>
           <type name="TreeDirectory" c:type="MateMenuTreeDirectory*"/>
         </return-value>
         <parameters>
           <instance-parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1007">a #MateMenuTreeDirectory</doc>
+                 line="1016">a #MateMenuTreeDirectory</doc>
             <type name="TreeDirectory" c:type="MateMenuTreeDirectory*"/>
           </instance-parameter>
         </parameters>
@@ -520,19 +520,19 @@ ignored.</doc>
       <method name="get_tree" c:identifier="matemenu_tree_directory_get_tree">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="1326">Grab the tree associated with a #MateMenuTreeItem.</doc>
+             line="1334">Grab the tree associated with a #MateMenuTreeItem.</doc>
         <source-position filename="matemenu-tree.h" line="116"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1332">The #MateMenuTree</doc>
+               line="1340">The #MateMenuTree</doc>
           <type name="Tree" c:type="MateMenuTree*"/>
         </return-value>
         <parameters>
           <instance-parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1328">A #MateMenuTreeDirectory</doc>
+                 line="1336">A #MateMenuTreeDirectory</doc>
             <type name="TreeDirectory" c:type="MateMenuTreeDirectory*"/>
           </instance-parameter>
         </parameters>
@@ -542,14 +542,14 @@ ignored.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1109">A new iterator over the directory contents</doc>
+               line="1117">A new iterator over the directory contents</doc>
           <type name="TreeIter" c:type="MateMenuTreeIter*"/>
         </return-value>
         <parameters>
           <instance-parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1107">directory</doc>
+                 line="1115">directory</doc>
             <type name="TreeDirectory" c:type="MateMenuTreeDirectory*"/>
           </instance-parameter>
         </parameters>
@@ -583,14 +583,14 @@ ignored.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1382">The #GDesktopAppInfo for this entry</doc>
+               line="1390">The #GDesktopAppInfo for this entry</doc>
           <type name="Gio.DesktopAppInfo" c:type="GDesktopAppInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1380">a #MateMenuTreeEntry</doc>
+                 line="1388">a #MateMenuTreeEntry</doc>
             <type name="TreeEntry" c:type="MateMenuTreeEntry*"/>
           </instance-parameter>
         </parameters>
@@ -660,14 +660,14 @@ ignored.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1021">The parent directory, or %NULL if none</doc>
+               line="1030">The parent directory, or %NULL if none</doc>
           <type name="TreeDirectory" c:type="MateMenuTreeDirectory*"/>
         </return-value>
         <parameters>
           <instance-parameter name="entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1019">a #MateMenuTreeEntry</doc>
+                 line="1028">a #MateMenuTreeEntry</doc>
             <type name="TreeEntry" c:type="MateMenuTreeEntry*"/>
           </instance-parameter>
         </parameters>
@@ -675,19 +675,19 @@ ignored.</doc>
       <method name="get_tree" c:identifier="matemenu_tree_entry_get_tree">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="1449">Grab the tree associated with a #MateMenuTreeEntry.</doc>
+             line="1457">Grab the tree associated with a #MateMenuTreeEntry.</doc>
         <source-position filename="matemenu-tree.h" line="138"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1455">The #MateMenuTree</doc>
+               line="1463">The #MateMenuTree</doc>
           <type name="Tree" c:type="MateMenuTree*"/>
         </return-value>
         <parameters>
           <instance-parameter name="entry" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1451">A #MateMenuTreeEntry</doc>
+                 line="1459">A #MateMenuTreeEntry</doc>
             <type name="TreeEntry" c:type="MateMenuTreeEntry*"/>
           </instance-parameter>
         </parameters>
@@ -764,14 +764,14 @@ ignored.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1045">The parent directory, or %NULL if none</doc>
+               line="1054">The parent directory, or %NULL if none</doc>
           <type name="TreeDirectory" c:type="MateMenuTreeDirectory*"/>
         </return-value>
         <parameters>
           <instance-parameter name="header" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1043">a #MateMenuTreeHeader</doc>
+                 line="1052">a #MateMenuTreeHeader</doc>
             <type name="TreeHeader" c:type="MateMenuTreeHeader*"/>
           </instance-parameter>
         </parameters>
@@ -779,19 +779,19 @@ ignored.</doc>
       <method name="get_tree" c:identifier="matemenu_tree_header_get_tree">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="1473">Grab the tree associated with a #MateMenuTreeHeader.</doc>
+             line="1481">Grab the tree associated with a #MateMenuTreeHeader.</doc>
         <source-position filename="matemenu-tree.h" line="148"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1479">The #MateMenuTree</doc>
+               line="1487">The #MateMenuTree</doc>
           <type name="Tree" c:type="MateMenuTree*"/>
         </return-value>
         <parameters>
           <instance-parameter name="header" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1475">A #MateMenuTreeHeader</doc>
+                 line="1483">A #MateMenuTreeHeader</doc>
             <type name="TreeHeader" c:type="MateMenuTreeHeader*"/>
           </instance-parameter>
         </parameters>
@@ -828,20 +828,20 @@ ignored.</doc>
       <method name="get_alias" c:identifier="matemenu_tree_iter_get_alias">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="1209">This method may only be called if matemenu_tree_iter_next()
+             line="1217">This method may only be called if matemenu_tree_iter_next()
 returned MATEMENU_TREE_ITEM_ALIAS.</doc>
         <source-position filename="matemenu-tree.h" line="129"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1216">An alias</doc>
+               line="1224">An alias</doc>
           <type name="TreeAlias" c:type="MateMenuTreeAlias*"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1211">iter</doc>
+                 line="1219">iter</doc>
             <type name="TreeIter" c:type="MateMenuTreeIter*"/>
           </instance-parameter>
         </parameters>
@@ -850,20 +850,20 @@ returned MATEMENU_TREE_ITEM_ALIAS.</doc>
               c:identifier="matemenu_tree_iter_get_directory">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="1152">This method may only be called if matemenu_tree_iter_next()
+             line="1160">This method may only be called if matemenu_tree_iter_next()
 returned MATEMENU_TREE_ITEM_DIRECTORY.</doc>
         <source-position filename="matemenu-tree.h" line="126"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1159">A directory</doc>
+               line="1167">A directory</doc>
           <type name="TreeDirectory" c:type="MateMenuTreeDirectory*"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1154">iter</doc>
+                 line="1162">iter</doc>
             <type name="TreeIter" c:type="MateMenuTreeIter*"/>
           </instance-parameter>
         </parameters>
@@ -871,20 +871,20 @@ returned MATEMENU_TREE_ITEM_DIRECTORY.</doc>
       <method name="get_entry" c:identifier="matemenu_tree_iter_get_entry">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="1171">This method may only be called if matemenu_tree_iter_next()
+             line="1179">This method may only be called if matemenu_tree_iter_next()
 returned MATEMENU_TREE_ITEM_ENTRY.</doc>
         <source-position filename="matemenu-tree.h" line="127"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1178">An entry</doc>
+               line="1186">An entry</doc>
           <type name="TreeEntry" c:type="MateMenuTreeEntry*"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1173">iter</doc>
+                 line="1181">iter</doc>
             <type name="TreeIter" c:type="MateMenuTreeIter*"/>
           </instance-parameter>
         </parameters>
@@ -892,20 +892,20 @@ returned MATEMENU_TREE_ITEM_ENTRY.</doc>
       <method name="get_header" c:identifier="matemenu_tree_iter_get_header">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="1190">This method may only be called if matemenu_tree_iter_next()
+             line="1198">This method may only be called if matemenu_tree_iter_next()
 returned MATEMENU_TREE_ITEM_HEADER.</doc>
         <source-position filename="matemenu-tree.h" line="128"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1197">A header</doc>
+               line="1205">A header</doc>
           <type name="TreeHeader" c:type="MateMenuTreeHeader*"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1192">iter</doc>
+                 line="1200">iter</doc>
             <type name="TreeIter" c:type="MateMenuTreeIter*"/>
           </instance-parameter>
         </parameters>
@@ -914,20 +914,20 @@ returned MATEMENU_TREE_ITEM_HEADER.</doc>
               c:identifier="matemenu_tree_iter_get_separator">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="1228">This method may only be called if matemenu_tree_iter_next()
+             line="1236">This method may only be called if matemenu_tree_iter_next()
 returned #MATEMENU_TREE_ITEM_SEPARATOR.</doc>
         <source-position filename="matemenu-tree.h" line="130"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1235">A separator</doc>
+               line="1243">A separator</doc>
           <type name="TreeSeparator" c:type="MateMenuTreeSeparator*"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1230">iter</doc>
+                 line="1238">iter</doc>
             <type name="TreeIter" c:type="MateMenuTreeIter*"/>
           </instance-parameter>
         </parameters>
@@ -935,20 +935,20 @@ returned #MATEMENU_TREE_ITEM_SEPARATOR.</doc>
       <method name="next" c:identifier="matemenu_tree_iter_next">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="1128">Change the iterator to the next item, and return its type.  If
+             line="1136">Change the iterator to the next item, and return its type.  If
 there are no more items, %MATEMENU_TREE_ITEM_INVALID is returned.</doc>
         <source-position filename="matemenu-tree.h" line="125"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1135">The type of the next item that can be retrived from the iterator</doc>
+               line="1143">The type of the next item that can be retrived from the iterator</doc>
           <type name="TreeItemType" c:type="MateMenuTreeItemType"/>
         </return-value>
         <parameters>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1130">iter</doc>
+                 line="1138">iter</doc>
             <type name="TreeIter" c:type="MateMenuTreeIter*"/>
           </instance-parameter>
         </parameters>
@@ -958,7 +958,7 @@ there are no more items, %MATEMENU_TREE_ITEM_INVALID is returned.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="1074">Increment the reference count of @iter</doc>
+             line="1083">Increment the reference count of @iter</doc>
         <source-position filename="matemenu-tree.h" line="122"/>
         <return-value transfer-ownership="full">
           <type name="TreeIter" c:type="MateMenuTreeIter*"/>
@@ -967,7 +967,7 @@ there are no more items, %MATEMENU_TREE_ITEM_INVALID is returned.</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1076">iter</doc>
+                 line="1085">iter</doc>
             <type name="TreeIter" c:type="MateMenuTreeIter*"/>
           </instance-parameter>
         </parameters>
@@ -977,7 +977,7 @@ there are no more items, %MATEMENU_TREE_ITEM_INVALID is returned.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="1087">Decrement the reference count of @iter</doc>
+             line="1096">Decrement the reference count of @iter</doc>
         <source-position filename="matemenu-tree.h" line="123"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -986,7 +986,7 @@ there are no more items, %MATEMENU_TREE_ITEM_INVALID is returned.</doc>
           <instance-parameter name="iter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1089">iter</doc>
+                 line="1098">iter</doc>
             <type name="TreeIter" c:type="MateMenuTreeIter*"/>
           </instance-parameter>
         </parameters>
@@ -1005,14 +1005,14 @@ there are no more items, %MATEMENU_TREE_ITEM_INVALID is returned.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1057">The parent directory, or %NULL if none</doc>
+               line="1066">The parent directory, or %NULL if none</doc>
           <type name="TreeDirectory" c:type="MateMenuTreeDirectory*"/>
         </return-value>
         <parameters>
           <instance-parameter name="separator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1055">a #MateMenuTreeSeparator</doc>
+                 line="1064">a #MateMenuTreeSeparator</doc>
             <type name="TreeSeparator" c:type="MateMenuTreeSeparator*"/>
           </instance-parameter>
         </parameters>
@@ -1020,19 +1020,19 @@ there are no more items, %MATEMENU_TREE_ITEM_INVALID is returned.</doc>
       <method name="get_tree" c:identifier="matemenu_tree_separator_get_tree">
         <doc xml:space="preserve"
              filename="matemenu-tree.c"
-             line="1521">Grab the tree associated with a #MateMenuTreeSeparator.</doc>
+             line="1529">Grab the tree associated with a #MateMenuTreeSeparator.</doc>
         <source-position filename="matemenu-tree.h" line="158"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="matemenu-tree.c"
-               line="1527">The #MateMenuTree</doc>
+               line="1535">The #MateMenuTree</doc>
           <type name="Tree" c:type="MateMenuTree*"/>
         </return-value>
         <parameters>
           <instance-parameter name="separator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="matemenu-tree.c"
-                 line="1523">A #MateMenuTreeSeparator</doc>
+                 line="1531">A #MateMenuTreeSeparator</doc>
             <type name="TreeSeparator" c:type="MateMenuTreeSeparator*"/>
           </instance-parameter>
         </parameters>

@@ -467,6 +467,10 @@ The memory is only mmapped on gst_buffer_map() request.</doc>
                        line="52"/>
       <prerequisite name="Gst.Allocator"/>
       <virtual-method name="get_phys_addr">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/allocators/gstphysmemory.h"
+             line="38">Implementations shall return the physicall memory address
+   that is backing the provided memory, or 0 if none.</doc>
         <source-position filename="gst-libs/gst/allocators/gstphysmemory.h"
                          line="51"/>
         <return-value transfer-ownership="none">
@@ -495,6 +499,10 @@ The memory is only mmapped on gst_buffer_map() request.</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_phys_addr">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/allocators/gstphysmemory.h"
+             line="38">Implementations shall return the physicall memory address
+   that is backing the provided memory, or 0 if none.</doc>
         <callback name="get_phys_addr">
           <source-position filename="gst-libs/gst/allocators/gstphysmemory.h"
                            line="51"/>

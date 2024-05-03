@@ -1840,7 +1840,7 @@ additional information in the info #GstStructure of the returned sample:
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioaggregator.c"
-             line="746">Causes the element to aggregate on a timeout even when no live source is
+             line="734">Causes the element to aggregate on a timeout even when no live source is
 connected to its sinks. See #GstAggregator:min-upstream-latency for a
 companion property: in the vast majority of cases where you plan to plug in
 live sources with a non-zero latency, you should set it to a non-zero value.</doc>
@@ -1853,7 +1853,7 @@ live sources with a non-zero latency, you should set it to a non-zero value.</do
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioaggregator.c"
-             line="726">Don't wait for inactive pads when live. An inactive pad
+             line="714">Don't wait for inactive pads when live. An inactive pad
 is a pad that hasn't yet received a buffer, but that has
 been waited on at least once.
 
@@ -1876,7 +1876,7 @@ but wants to configure it already.</doc>
                 default-value="1/100">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioaggregator.c"
-             line="695">Output block size in nanoseconds, expressed as a fraction.</doc>
+             line="683">Output block size in nanoseconds, expressed as a fraction.</doc>
         <type name="Gst.Fraction"/>
       </property>
       <field name="parent">
@@ -2175,7 +2175,7 @@ writing samples to the ringbuffer, synchronisation, clipping and flushing.</doc>
       <virtual-method name="create_ringbuffer" invoker="create_ringbuffer">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudiobasesink.c"
-             line="2260">Create and return the #GstAudioRingBuffer for @sink. This function will
+             line="2251">Create and return the #GstAudioRingBuffer for @sink. This function will
 call the ::create_ringbuffer vmethod and will set @sink as the parent of
 the returned buffer (see gst_object_set_parent()).</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiobasesink.h"
@@ -2183,14 +2183,14 @@ the returned buffer (see gst_object_set_parent()).</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudiobasesink.c"
-               line="2268">The new ringbuffer of @sink.</doc>
+               line="2259">The new ringbuffer of @sink.</doc>
           <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="sink" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesink.c"
-                 line="2262">a #GstAudioBaseSink.</doc>
+                 line="2253">a #GstAudioBaseSink.</doc>
             <type name="AudioBaseSink" c:type="GstAudioBaseSink*"/>
           </instance-parameter>
         </parameters>
@@ -2214,7 +2214,7 @@ the returned buffer (see gst_object_set_parent()).</doc>
               c:identifier="gst_audio_base_sink_create_ringbuffer">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudiobasesink.c"
-             line="2260">Create and return the #GstAudioRingBuffer for @sink. This function will
+             line="2251">Create and return the #GstAudioRingBuffer for @sink. This function will
 call the ::create_ringbuffer vmethod and will set @sink as the parent of
 the returned buffer (see gst_object_set_parent()).</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiobasesink.h"
@@ -2222,14 +2222,14 @@ the returned buffer (see gst_object_set_parent()).</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudiobasesink.c"
-               line="2268">The new ringbuffer of @sink.</doc>
+               line="2259">The new ringbuffer of @sink.</doc>
           <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="sink" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesink.c"
-                 line="2262">a #GstAudioBaseSink.</doc>
+                 line="2253">a #GstAudioBaseSink.</doc>
             <type name="AudioBaseSink" c:type="GstAudioBaseSink*"/>
           </instance-parameter>
         </parameters>
@@ -2680,14 +2680,14 @@ functionality.</doc>
           <return-value transfer-ownership="none" nullable="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesink.c"
-                 line="2268">The new ringbuffer of @sink.</doc>
+                 line="2259">The new ringbuffer of @sink.</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </return-value>
           <parameters>
             <parameter name="sink" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudiobasesink.c"
-                   line="2262">a #GstAudioBaseSink.</doc>
+                   line="2253">a #GstAudioBaseSink.</doc>
               <type name="AudioBaseSink" c:type="GstAudioBaseSink*"/>
             </parameter>
           </parameters>
@@ -2927,7 +2927,7 @@ reading samples from the ringbuffer, synchronisation and flushing.</doc>
       <virtual-method name="create_ringbuffer" invoker="create_ringbuffer">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-             line="1085">Create and return the #GstAudioRingBuffer for @src. This function will call
+             line="1081">Create and return the #GstAudioRingBuffer for @src. This function will call
 the ::create_ringbuffer vmethod and will set @src as the parent of the
 returned buffer (see gst_object_set_parent()).</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiobasesrc.h"
@@ -2935,14 +2935,14 @@ returned buffer (see gst_object_set_parent()).</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-               line="1093">The new ringbuffer of @src.</doc>
+               line="1089">The new ringbuffer of @src.</doc>
           <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="src" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                 line="1087">a #GstAudioBaseSrc.</doc>
+                 line="1083">a #GstAudioBaseSrc.</doc>
             <type name="AudioBaseSrc" c:type="GstAudioBaseSrc*"/>
           </instance-parameter>
         </parameters>
@@ -2951,7 +2951,7 @@ returned buffer (see gst_object_set_parent()).</doc>
               c:identifier="gst_audio_base_src_create_ringbuffer">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-             line="1085">Create and return the #GstAudioRingBuffer for @src. This function will call
+             line="1081">Create and return the #GstAudioRingBuffer for @src. This function will call
 the ::create_ringbuffer vmethod and will set @src as the parent of the
 returned buffer (see gst_object_set_parent()).</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiobasesrc.h"
@@ -2959,14 +2959,14 @@ returned buffer (see gst_object_set_parent()).</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-               line="1093">The new ringbuffer of @src.</doc>
+               line="1089">The new ringbuffer of @src.</doc>
           <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="src" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                 line="1087">a #GstAudioBaseSrc.</doc>
+                 line="1083">a #GstAudioBaseSrc.</doc>
             <type name="AudioBaseSrc" c:type="GstAudioBaseSrc*"/>
           </instance-parameter>
         </parameters>
@@ -2976,21 +2976,21 @@ returned buffer (see gst_object_set_parent()).</doc>
               glib:get-property="provide-clock">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-             line="363">Queries whether @src will provide a clock or not. See also
+             line="359">Queries whether @src will provide a clock or not. See also
 gst_audio_base_src_set_provide_clock.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiobasesrc.h"
                          line="146"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-               line="370">%TRUE if @src will provide a clock.</doc>
+               line="366">%TRUE if @src will provide a clock.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="src" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                 line="365">a #GstAudioBaseSrc</doc>
+                 line="361">a #GstAudioBaseSrc</doc>
             <type name="AudioBaseSrc" c:type="GstAudioBaseSrc*"/>
           </instance-parameter>
         </parameters>
@@ -3000,13 +3000,13 @@ gst_audio_base_src_set_provide_clock.</doc>
               glib:get-property="slave-method">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-             line="404">Get the current slave method used by @src.</doc>
+             line="400">Get the current slave method used by @src.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiobasesrc.h"
                          line="153"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-               line="410">The current slave method used by @src.</doc>
+               line="406">The current slave method used by @src.</doc>
           <type name="AudioBaseSrcSlaveMethod"
                 c:type="GstAudioBaseSrcSlaveMethod"/>
         </return-value>
@@ -3014,7 +3014,7 @@ gst_audio_base_src_set_provide_clock.</doc>
           <instance-parameter name="src" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                 line="406">a #GstAudioBaseSrc</doc>
+                 line="402">a #GstAudioBaseSrc</doc>
             <type name="AudioBaseSrc" c:type="GstAudioBaseSrc*"/>
           </instance-parameter>
         </parameters>
@@ -3024,7 +3024,7 @@ gst_audio_base_src_set_provide_clock.</doc>
               glib:set-property="provide-clock">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-             line="341">Controls whether @src will provide a clock or not. If @provide is %TRUE,
+             line="337">Controls whether @src will provide a clock or not. If @provide is %TRUE,
 gst_element_provide_clock() will return a clock that reflects the datarate
 of @src. If @provide is %FALSE, gst_element_provide_clock() will return NULL.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiobasesrc.h"
@@ -3036,13 +3036,13 @@ of @src. If @provide is %FALSE, gst_element_provide_clock() will return NULL.</d
           <instance-parameter name="src" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                 line="343">a #GstAudioBaseSrc</doc>
+                 line="339">a #GstAudioBaseSrc</doc>
             <type name="AudioBaseSrc" c:type="GstAudioBaseSrc*"/>
           </instance-parameter>
           <parameter name="provide" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                 line="344">new state</doc>
+                 line="340">new state</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -3052,7 +3052,7 @@ of @src. If @provide is %FALSE, gst_element_provide_clock() will return NULL.</d
               glib:set-property="slave-method">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-             line="386">Controls how clock slaving will be performed in @src.</doc>
+             line="382">Controls how clock slaving will be performed in @src.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudiobasesrc.h"
                          line="149"/>
         <return-value transfer-ownership="none">
@@ -3062,13 +3062,13 @@ of @src. If @provide is %FALSE, gst_element_provide_clock() will return NULL.</d
           <instance-parameter name="src" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                 line="388">a #GstAudioBaseSrc</doc>
+                 line="384">a #GstAudioBaseSrc</doc>
             <type name="AudioBaseSrc" c:type="GstAudioBaseSrc*"/>
           </instance-parameter>
           <parameter name="method" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                 line="389">the new slave method</doc>
+                 line="385">the new slave method</doc>
             <type name="AudioBaseSrcSlaveMethod"
                   c:type="GstAudioBaseSrcSlaveMethod"/>
           </parameter>
@@ -3079,7 +3079,7 @@ of @src. If @provide is %FALSE, gst_element_provide_clock() will return NULL.</d
                 default-value="-1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-             line="163">Actual configured size of audio buffer in microseconds.</doc>
+             line="159">Actual configured size of audio buffer in microseconds.</doc>
         <type name="gint64" c:type="gint64"/>
       </property>
       <property name="actual-latency-time"
@@ -3087,7 +3087,7 @@ of @src. If @provide is %FALSE, gst_element_provide_clock() will return NULL.</d
                 default-value="-1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-             line="174">Actual configured audio latency in microseconds.</doc>
+             line="170">Actual configured audio latency in microseconds.</doc>
         <type name="gint64" c:type="gint64"/>
       </property>
       <property name="buffer-time"
@@ -3167,14 +3167,14 @@ functionality.</doc>
           <return-value transfer-ownership="none" nullable="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                 line="1093">The new ringbuffer of @src.</doc>
+                 line="1089">The new ringbuffer of @src.</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </return-value>
           <parameters>
             <parameter name="src" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudiobasesrc.c"
-                   line="1087">a #GstAudioBaseSrc.</doc>
+                   line="1083">a #GstAudioBaseSrc.</doc>
               <type name="AudioBaseSrc" c:type="GstAudioBaseSrc*"/>
             </parameter>
           </parameters>
@@ -11085,7 +11085,7 @@ FALSE on error.</doc>
       <virtual-method name="clear_all" invoker="clear_all">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1358">Clear all samples from the ringbuffer.
+             line="1316">Clear all samples from the ringbuffer.
 
 MT safe.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
@@ -11097,7 +11097,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1360">the #GstAudioRingBuffer to clear</doc>
+                 line="1318">the #GstAudioRingBuffer to clear</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -11129,7 +11129,7 @@ MT safe.</doc>
       <virtual-method name="commit" invoker="commit">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1717">Commit @in_samples samples pointed to by @data to the ringbuffer @buf.
+             line="1675">Commit @in_samples samples pointed to by @data to the ringbuffer @buf.
 
 @in_samples and @out_samples define the rate conversion to perform on the
 samples in @data. For negative rates, @out_samples must be negative and
@@ -11153,7 +11153,7 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1746">The number of samples written to the ringbuffer or -1 on error. The
+               line="1704">The number of samples written to the ringbuffer or -1 on error. The
 number of samples written can be less than @out_samples when @buf was interrupted
 with a flush or stop.</doc>
           <type name="guint" c:type="guint"/>
@@ -11162,7 +11162,7 @@ with a flush or stop.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1719">the #GstAudioRingBuffer to commit</doc>
+                 line="1677">the #GstAudioRingBuffer to commit</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
           <parameter name="sample"
@@ -11171,13 +11171,13 @@ with a flush or stop.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1720">the sample position of the data</doc>
+                 line="1678">the sample position of the data</doc>
             <type name="guint64" c:type="guint64*"/>
           </parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1721">the data to commit</doc>
+                 line="1679">the data to commit</doc>
             <array length="2" zero-terminated="0" c:type="guint8*">
               <type name="guint8" c:type="guint8"/>
             </array>
@@ -11185,13 +11185,13 @@ with a flush or stop.</doc>
           <parameter name="in_samples" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1722">the number of samples in the data to commit</doc>
+                 line="1680">the number of samples in the data to commit</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="out_samples" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1723">the number of samples to write to the ringbuffer</doc>
+                 line="1681">the number of samples to write to the ringbuffer</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="accum"
@@ -11200,7 +11200,7 @@ with a flush or stop.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1724">accumulator for rate conversion.</doc>
+                 line="1682">accumulator for rate conversion.</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
         </parameters>
@@ -11208,7 +11208,7 @@ with a flush or stop.</doc>
       <virtual-method name="delay" invoker="delay">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1225">Get the number of samples queued in the audio device. This is
+             line="1183">Get the number of samples queued in the audio device. This is
 usually less than the segment size but can be bigger when the
 implementation uses another internal buffer between the audio
 device.
@@ -11223,7 +11223,7 @@ not yet transferred to the ringbuffer.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1240">The number of samples queued in the audio device.
+               line="1198">The number of samples queued in the audio device.
 
 MT safe.</doc>
           <type name="guint" c:type="guint"/>
@@ -11232,7 +11232,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1227">the #GstAudioRingBuffer to query</doc>
+                 line="1185">the #GstAudioRingBuffer to query</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -11265,13 +11265,13 @@ MT safe.</doc>
       <virtual-method name="pause" invoker="pause">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1114">Pause processing samples from the ringbuffer.</doc>
+             line="1079">Pause processing samples from the ringbuffer.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                          line="254"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1120">TRUE if the device could be paused, FALSE on error.
+               line="1085">TRUE if the device could be paused, FALSE on error.
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -11280,7 +11280,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1116">the #GstAudioRingBuffer to pause</doc>
+                 line="1081">the #GstAudioRingBuffer to pause</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -11346,13 +11346,13 @@ MT safe.</doc>
       <virtual-method name="stop" invoker="stop">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1158">Stop processing samples from the ringbuffer.</doc>
+             line="1123">Stop processing samples from the ringbuffer.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                          line="256"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1164">TRUE if the device could be stopped, FALSE on error.
+               line="1129">TRUE if the device could be stopped, FALSE on error.
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -11361,7 +11361,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1160">the #GstAudioRingBuffer to stop</doc>
+                 line="1125">the #GstAudioRingBuffer to stop</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -11430,7 +11430,7 @@ FALSE on error.</doc>
       <method name="advance" c:identifier="gst_audio_ring_buffer_advance">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1963">Subclasses should call this function to notify the fact that
+             line="1921">Subclasses should call this function to notify the fact that
 @advance segments are now processed by the device.
 
 MT safe.</doc>
@@ -11443,13 +11443,13 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1965">the #GstAudioRingBuffer to advance</doc>
+                 line="1923">the #GstAudioRingBuffer to advance</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
           <parameter name="advance" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1966">the number of segments written</doc>
+                 line="1924">the number of segments written</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -11457,7 +11457,7 @@ MT safe.</doc>
       <method name="clear" c:identifier="gst_audio_ring_buffer_clear">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1992">Clear the given segment of the buffer with silence samples.
+             line="1950">Clear the given segment of the buffer with silence samples.
 This function is used by subclasses.
 
 MT safe.</doc>
@@ -11470,13 +11470,13 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1994">the #GstAudioRingBuffer to clear</doc>
+                 line="1952">the #GstAudioRingBuffer to clear</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
           <parameter name="segment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1995">the segment to clear</doc>
+                 line="1953">the segment to clear</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -11484,7 +11484,7 @@ MT safe.</doc>
       <method name="clear_all" c:identifier="gst_audio_ring_buffer_clear_all">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1358">Clear all samples from the ringbuffer.
+             line="1316">Clear all samples from the ringbuffer.
 
 MT safe.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
@@ -11496,7 +11496,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1360">the #GstAudioRingBuffer to clear</doc>
+                 line="1318">the #GstAudioRingBuffer to clear</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -11529,7 +11529,7 @@ MT safe.</doc>
       <method name="commit" c:identifier="gst_audio_ring_buffer_commit">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1717">Commit @in_samples samples pointed to by @data to the ringbuffer @buf.
+             line="1675">Commit @in_samples samples pointed to by @data to the ringbuffer @buf.
 
 @in_samples and @out_samples define the rate conversion to perform on the
 samples in @data. For negative rates, @out_samples must be negative and
@@ -11553,7 +11553,7 @@ MT safe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1746">The number of samples written to the ringbuffer or -1 on error. The
+               line="1704">The number of samples written to the ringbuffer or -1 on error. The
 number of samples written can be less than @out_samples when @buf was interrupted
 with a flush or stop.</doc>
           <type name="guint" c:type="guint"/>
@@ -11562,7 +11562,7 @@ with a flush or stop.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1719">the #GstAudioRingBuffer to commit</doc>
+                 line="1677">the #GstAudioRingBuffer to commit</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
           <parameter name="sample"
@@ -11571,13 +11571,13 @@ with a flush or stop.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1720">the sample position of the data</doc>
+                 line="1678">the sample position of the data</doc>
             <type name="guint64" c:type="guint64*"/>
           </parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1721">the data to commit</doc>
+                 line="1679">the data to commit</doc>
             <array length="2" zero-terminated="0" c:type="guint8*">
               <type name="guint8" c:type="guint8"/>
             </array>
@@ -11585,13 +11585,13 @@ with a flush or stop.</doc>
           <parameter name="in_samples" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1722">the number of samples in the data to commit</doc>
+                 line="1680">the number of samples in the data to commit</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="out_samples" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1723">the number of samples to write to the ringbuffer</doc>
+                 line="1681">the number of samples to write to the ringbuffer</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="accum"
@@ -11600,7 +11600,7 @@ with a flush or stop.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1724">accumulator for rate conversion.</doc>
+                 line="1682">accumulator for rate conversion.</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
         </parameters>
@@ -11657,7 +11657,7 @@ will be put in @dest_val.</doc>
       <method name="delay" c:identifier="gst_audio_ring_buffer_delay">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1225">Get the number of samples queued in the audio device. This is
+             line="1183">Get the number of samples queued in the audio device. This is
 usually less than the segment size but can be bigger when the
 implementation uses another internal buffer between the audio
 device.
@@ -11672,7 +11672,7 @@ not yet transferred to the ringbuffer.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1240">The number of samples queued in the audio device.
+               line="1198">The number of samples queued in the audio device.
 
 MT safe.</doc>
           <type name="guint" c:type="guint"/>
@@ -11681,7 +11681,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1227">the #GstAudioRingBuffer to query</doc>
+                 line="1185">the #GstAudioRingBuffer to query</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -11784,7 +11784,7 @@ MT safe.</doc>
       <method name="may_start" c:identifier="gst_audio_ring_buffer_may_start">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="2027">Tell the ringbuffer that it is allowed to start playback when
+             line="1985">Tell the ringbuffer that it is allowed to start playback when
 the ringbuffer is filled with samples.
 
 MT safe.</doc>
@@ -11797,13 +11797,13 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="2029">the #GstAudioRingBuffer</doc>
+                 line="1987">the #GstAudioRingBuffer</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
           <parameter name="allowed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="2030">the new value</doc>
+                 line="1988">the new value</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -11837,13 +11837,13 @@ MT safe.</doc>
       <method name="pause" c:identifier="gst_audio_ring_buffer_pause">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1114">Pause processing samples from the ringbuffer.</doc>
+             line="1079">Pause processing samples from the ringbuffer.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                          line="352"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1120">TRUE if the device could be paused, FALSE on error.
+               line="1085">TRUE if the device could be paused, FALSE on error.
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -11852,7 +11852,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1116">the #GstAudioRingBuffer to pause</doc>
+                 line="1081">the #GstAudioRingBuffer to pause</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -11861,14 +11861,14 @@ MT safe.</doc>
               c:identifier="gst_audio_ring_buffer_prepare_read">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1908">Returns a pointer to memory where the data from segment @segment
+             line="1866">Returns a pointer to memory where the data from segment @segment
 can be found. This function is mostly used by subclasses.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                          line="398"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1919">FALSE if the buffer is not started.
+               line="1877">FALSE if the buffer is not started.
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -11877,7 +11877,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1910">the #GstAudioRingBuffer to read from</doc>
+                 line="1868">the #GstAudioRingBuffer to read from</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
           <parameter name="segment"
@@ -11886,7 +11886,7 @@ MT safe.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1911">the segment to read</doc>
+                 line="1869">the segment to read</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
           <parameter name="readptr"
@@ -11895,7 +11895,7 @@ MT safe.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1912">
+                 line="1870">
     the pointer to the memory where samples can be read</doc>
             <array length="2" zero-terminated="0" c:type="guint8**">
               <type name="guint8" c:type="guint8*"/>
@@ -11907,7 +11907,7 @@ MT safe.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1914">the number of bytes to read</doc>
+                 line="1872">the number of bytes to read</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
         </parameters>
@@ -11915,7 +11915,7 @@ MT safe.</doc>
       <method name="read" c:identifier="gst_audio_ring_buffer_read">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1770">Read @len samples from the ringbuffer into the memory pointed
+             line="1728">Read @len samples from the ringbuffer into the memory pointed
 to by @data.
 The first sample should be read from position @sample in
 the ringbuffer.
@@ -11929,7 +11929,7 @@ although it is recommended.
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1788">The number of samples read from the ringbuffer or -1 on
+               line="1746">The number of samples read from the ringbuffer or -1 on
 error.
 
 MT safe.</doc>
@@ -11939,19 +11939,19 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1772">the #GstAudioRingBuffer to read from</doc>
+                 line="1730">the #GstAudioRingBuffer to read from</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
           <parameter name="sample" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1773">the sample position of the data</doc>
+                 line="1731">the sample position of the data</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1774">where the data should be read</doc>
+                 line="1732">where the data should be read</doc>
             <array length="2" zero-terminated="0" c:type="guint8*">
               <type name="guint8" c:type="guint8"/>
             </array>
@@ -11959,7 +11959,7 @@ MT safe.</doc>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1775">the number of samples in data to read</doc>
+                 line="1733">the number of samples in data to read</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="timestamp"
@@ -11968,7 +11968,7 @@ MT safe.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1776">where the timestamp is returned</doc>
+                 line="1734">where the timestamp is returned</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime*"/>
           </parameter>
         </parameters>
@@ -12000,7 +12000,7 @@ MT safe.</doc>
               c:identifier="gst_audio_ring_buffer_samples_done">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1271">Get the number of samples that were processed by the ringbuffer
+             line="1229">Get the number of samples that were processed by the ringbuffer
 since it was last started. This does not include the number of samples not
 yet processed (see gst_audio_ring_buffer_delay()).</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
@@ -12008,7 +12008,7 @@ yet processed (see gst_audio_ring_buffer_delay()).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1279">The number of samples processed by the ringbuffer.
+               line="1237">The number of samples processed by the ringbuffer.
 
 MT safe.</doc>
           <type name="guint64" c:type="guint64"/>
@@ -12017,7 +12017,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1273">the #GstAudioRingBuffer to query</doc>
+                 line="1231">the #GstAudioRingBuffer to query</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -12122,7 +12122,7 @@ MT safe.</doc>
               c:identifier="gst_audio_ring_buffer_set_channel_positions">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="2063">Tell the ringbuffer about the device's channel positions. This must
+             line="2021">Tell the ringbuffer about the device's channel positions. This must
 be called in when the ringbuffer is acquired.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                          line="328"/>
@@ -12133,13 +12133,13 @@ be called in when the ringbuffer is acquired.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="2065">the #GstAudioRingBuffer</doc>
+                 line="2023">the #GstAudioRingBuffer</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="2066">the device channel positions</doc>
+                 line="2024">the device channel positions</doc>
             <array zero-terminated="0" c:type="const GstAudioChannelPosition*">
               <type name="AudioChannelPosition"
                     c:type="GstAudioChannelPosition"/>
@@ -12178,7 +12178,7 @@ MT safe.</doc>
               c:identifier="gst_audio_ring_buffer_set_sample">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1300">Make sure that the next sample written to the device is
+             line="1258">Make sure that the next sample written to the device is
 accounted for as being the @sample sample written to the
 device. This value will be used in reporting the current
 sample position of the ringbuffer.
@@ -12195,13 +12195,13 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1302">the #GstAudioRingBuffer to use</doc>
+                 line="1260">the #GstAudioRingBuffer to use</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
           <parameter name="sample" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1303">the sample number to set</doc>
+                 line="1261">the sample number to set</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
         </parameters>
@@ -12251,13 +12251,13 @@ MT safe.</doc>
       <method name="stop" c:identifier="gst_audio_ring_buffer_stop">
         <doc xml:space="preserve"
              filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-             line="1158">Stop processing samples from the ringbuffer.</doc>
+             line="1123">Stop processing samples from the ringbuffer.</doc>
         <source-position filename="gst-libs/gst/audio/gstaudioringbuffer.h"
                          line="355"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-               line="1164">TRUE if the device could be stopped, FALSE on error.
+               line="1129">TRUE if the device could be stopped, FALSE on error.
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -12266,7 +12266,7 @@ MT safe.</doc>
           <instance-parameter name="buf" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1160">the #GstAudioRingBuffer to stop</doc>
+                 line="1125">the #GstAudioRingBuffer to stop</doc>
             <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -12564,7 +12564,7 @@ MT safe.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1120">TRUE if the device could be paused, FALSE on error.
+                 line="1085">TRUE if the device could be paused, FALSE on error.
 
 MT safe.</doc>
             <type name="gboolean" c:type="gboolean"/>
@@ -12573,7 +12573,7 @@ MT safe.</doc>
             <parameter name="buf" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1116">the #GstAudioRingBuffer to pause</doc>
+                   line="1081">the #GstAudioRingBuffer to pause</doc>
               <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
             </parameter>
           </parameters>
@@ -12600,7 +12600,7 @@ MT safe.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1164">TRUE if the device could be stopped, FALSE on error.
+                 line="1129">TRUE if the device could be stopped, FALSE on error.
 
 MT safe.</doc>
             <type name="gboolean" c:type="gboolean"/>
@@ -12609,7 +12609,7 @@ MT safe.</doc>
             <parameter name="buf" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1160">the #GstAudioRingBuffer to stop</doc>
+                   line="1125">the #GstAudioRingBuffer to stop</doc>
               <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
             </parameter>
           </parameters>
@@ -12622,7 +12622,7 @@ MT safe.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1240">The number of samples queued in the audio device.
+                 line="1198">The number of samples queued in the audio device.
 
 MT safe.</doc>
             <type name="guint" c:type="guint"/>
@@ -12631,7 +12631,7 @@ MT safe.</doc>
             <parameter name="buf" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1227">the #GstAudioRingBuffer to query</doc>
+                   line="1185">the #GstAudioRingBuffer to query</doc>
               <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
             </parameter>
           </parameters>
@@ -12671,7 +12671,7 @@ FALSE on error.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                 line="1746">The number of samples written to the ringbuffer or -1 on error. The
+                 line="1704">The number of samples written to the ringbuffer or -1 on error. The
 number of samples written can be less than @out_samples when @buf was interrupted
 with a flush or stop.</doc>
             <type name="guint" c:type="guint"/>
@@ -12680,7 +12680,7 @@ with a flush or stop.</doc>
             <parameter name="buf" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1719">the #GstAudioRingBuffer to commit</doc>
+                   line="1677">the #GstAudioRingBuffer to commit</doc>
               <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
             </parameter>
             <parameter name="sample"
@@ -12689,13 +12689,13 @@ with a flush or stop.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1720">the sample position of the data</doc>
+                   line="1678">the sample position of the data</doc>
               <type name="guint64" c:type="guint64*"/>
             </parameter>
             <parameter name="data" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1721">the data to commit</doc>
+                   line="1679">the data to commit</doc>
               <array length="3" zero-terminated="0" c:type="guint8*">
                 <type name="guint8" c:type="guint8"/>
               </array>
@@ -12703,13 +12703,13 @@ with a flush or stop.</doc>
             <parameter name="in_samples" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1722">the number of samples in the data to commit</doc>
+                   line="1680">the number of samples in the data to commit</doc>
               <type name="gint" c:type="gint"/>
             </parameter>
             <parameter name="out_samples" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1723">the number of samples to write to the ringbuffer</doc>
+                   line="1681">the number of samples to write to the ringbuffer</doc>
               <type name="gint" c:type="gint"/>
             </parameter>
             <parameter name="accum"
@@ -12718,7 +12718,7 @@ with a flush or stop.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1724">accumulator for rate conversion.</doc>
+                   line="1682">accumulator for rate conversion.</doc>
               <type name="gint" c:type="gint*"/>
             </parameter>
           </parameters>
@@ -12735,7 +12735,7 @@ with a flush or stop.</doc>
             <parameter name="buf" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gst-libs/gst/audio/gstaudioringbuffer.c"
-                   line="1360">the #GstAudioRingBuffer to clear</doc>
+                   line="1318">the #GstAudioRingBuffer to clear</doc>
               <type name="AudioRingBuffer" c:type="GstAudioRingBuffer*"/>
             </parameter>
           </parameters>

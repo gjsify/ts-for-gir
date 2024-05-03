@@ -745,7 +745,9 @@ Note: The @dbus_error is automatically freed if returned %TRUE.</doc>
       </virtual-method>
       <virtual-method name="get_backend_property"
                       invoker="get_backend_property"
-                      version="3.2">
+                      version="3.2"
+                      glib:finish-func="get_backend_property_finish"
+                      glib:sync-func="get_backend_property_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1294">Queries @client's backend for a property of name @prop_name.
@@ -841,7 +843,8 @@ from the @callback.</doc>
       <virtual-method name="get_backend_property_sync"
                       invoker="get_backend_property_sync"
                       version="3.2"
-                      throws="1">
+                      throws="1"
+                      glib:async-func="get_backend_property">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1361">Queries @client's backend for a property of name @prop_name.</doc>
@@ -900,7 +903,9 @@ from the @callback.</doc>
                       invoker="open"
                       version="3.2"
                       deprecated="1"
-                      deprecated-version="3.8">
+                      deprecated-version="3.8"
+                      glib:finish-func="open_finish"
+                      glib:sync-func="open_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1508">Opens the @client, making it ready for queries and other operations.
@@ -998,7 +1003,8 @@ The call is finished by e_client_open_finish() from the @callback.</doc>
                       version="3.2"
                       deprecated="1"
                       deprecated-version="3.8"
-                      throws="1">
+                      throws="1"
+                      glib:async-func="open">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1578">Opens the @client, making it ready for queries and other operations.</doc>
@@ -1049,7 +1055,11 @@ The call is finished by e_client_open_finish() from the @callback.</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="refresh" invoker="refresh" version="3.2">
+      <virtual-method name="refresh"
+                      invoker="refresh"
+                      version="3.2"
+                      glib:finish-func="refresh_finish"
+                      glib:sync-func="refresh_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1701">Initiates refresh on the @client. Finishing the method doesn't mean
@@ -1132,7 +1142,8 @@ The call is finished by e_client_refresh_finish() from the @callback.</doc>
       <virtual-method name="refresh_sync"
                       invoker="refresh_sync"
                       version="3.2"
-                      throws="1">
+                      throws="1"
+                      glib:async-func="refresh">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1762">Initiates refresh on the @client. Finishing the method doesn't mean
@@ -1168,7 +1179,9 @@ whether the backend supports this method.</doc>
                       invoker="remove"
                       version="3.2"
                       deprecated="1"
-                      deprecated-version="3.6">
+                      deprecated-version="3.6"
+                      glib:finish-func="remove_finish"
+                      glib:sync-func="remove_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1609">Removes the backing data for this #EClient. For example, with the file
@@ -1255,7 +1268,8 @@ The call is finished by e_client_remove_finish() from the @callback.</doc>
                       version="3.2"
                       deprecated="1"
                       deprecated-version="3.6"
-                      throws="1">
+                      throws="1"
+                      glib:async-func="remove">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1672">Removes the backing data for this #EClient. For example, with the file
@@ -1290,7 +1304,9 @@ backend this deletes the database file. You cannot get it back!</doc>
                       invoker="retrieve_capabilities"
                       version="3.2"
                       deprecated="1"
-                      deprecated-version="3.8">
+                      deprecated-version="3.8"
+                      glib:finish-func="retrieve_capabilities_finish"
+                      glib:sync-func="retrieve_capabilities_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1172">Initiates retrieval of capabilities on the @client. This is usually
@@ -1391,7 +1407,8 @@ when no longer needed.</doc>
                       version="3.2"
                       deprecated="1"
                       deprecated-version="3.8"
-                      throws="1">
+                      throws="1"
+                      glib:async-func="retrieve_capabilities">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1250">Initiates retrieval of capabilities on the @client. This is usually
@@ -1473,7 +1490,9 @@ If an error occurs, the function sets @error and returns %FALSE.</doc>
                       invoker="set_backend_property"
                       version="3.2"
                       deprecated="1"
-                      deprecated-version="3.8">
+                      deprecated-version="3.8"
+                      glib:finish-func="set_backend_property_finish"
+                      glib:sync-func="set_backend_property_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1396">Sets @client's backend property of name @prop_name
@@ -1574,7 +1593,8 @@ by e_client_set_backend_property_finish() from the @callback.</doc>
                       version="3.2"
                       deprecated="1"
                       deprecated-version="3.8"
-                      throws="1">
+                      throws="1"
+                      glib:async-func="set_backend_property">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1469">Sets @client's backend property of name @prop_name
@@ -1750,7 +1770,9 @@ client to the backend subprocess.</doc>
       </method>
       <method name="get_backend_property"
               c:identifier="e_client_get_backend_property"
-              version="3.2">
+              version="3.2"
+              glib:finish-func="get_backend_property_finish"
+              glib:sync-func="get_backend_property_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1294">Queries @client's backend for a property of name @prop_name.
@@ -1845,7 +1867,8 @@ from the @callback.</doc>
       <method name="get_backend_property_sync"
               c:identifier="e_client_get_backend_property_sync"
               version="3.2"
-              throws="1">
+              throws="1"
+              glib:async-func="get_backend_property">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1361">Queries @client's backend for a property of name @prop_name.</doc>
@@ -2016,7 +2039,9 @@ Every other operation results in an %E_CLIENT_ERROR_BUSY error.</doc>
               c:identifier="e_client_open"
               version="3.2"
               deprecated="1"
-              deprecated-version="3.8">
+              deprecated-version="3.8"
+              glib:finish-func="open_finish"
+              glib:sync-func="open_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1508">Opens the @client, making it ready for queries and other operations.
@@ -2113,7 +2138,8 @@ The call is finished by e_client_open_finish() from the @callback.</doc>
               version="3.2"
               deprecated="1"
               deprecated-version="3.8"
-              throws="1">
+              throws="1"
+              glib:async-func="open">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1578">Opens the @client, making it ready for queries and other operations.</doc>
@@ -2176,7 +2202,11 @@ unreferenced with g_main_context_unref() when finished with it.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="refresh" c:identifier="e_client_refresh" version="3.2">
+      <method name="refresh"
+              c:identifier="e_client_refresh"
+              version="3.2"
+              glib:finish-func="refresh_finish"
+              glib:sync-func="refresh_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1701">Initiates refresh on the @client. Finishing the method doesn't mean
@@ -2258,7 +2288,8 @@ The call is finished by e_client_refresh_finish() from the @callback.</doc>
       <method name="refresh_sync"
               c:identifier="e_client_refresh_sync"
               version="3.2"
-              throws="1">
+              throws="1"
+              glib:async-func="refresh">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1762">Initiates refresh on the @client. Finishing the method doesn't mean
@@ -2294,7 +2325,9 @@ whether the backend supports this method.</doc>
               c:identifier="e_client_remove"
               version="3.2"
               deprecated="1"
-              deprecated-version="3.6">
+              deprecated-version="3.6"
+              glib:finish-func="remove_finish"
+              glib:sync-func="remove_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1609">Removes the backing data for this #EClient. For example, with the file
@@ -2380,7 +2413,8 @@ The call is finished by e_client_remove_finish() from the @callback.</doc>
               version="3.2"
               deprecated="1"
               deprecated-version="3.6"
-              throws="1">
+              throws="1"
+              glib:async-func="remove">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1672">Removes the backing data for this #EClient. For example, with the file
@@ -2415,7 +2449,9 @@ backend this deletes the database file. You cannot get it back!</doc>
               c:identifier="e_client_retrieve_capabilities"
               version="3.2"
               deprecated="1"
-              deprecated-version="3.8">
+              deprecated-version="3.8"
+              glib:finish-func="retrieve_capabilities_finish"
+              glib:sync-func="retrieve_capabilities_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1172">Initiates retrieval of capabilities on the @client. This is usually
@@ -2515,7 +2551,8 @@ when no longer needed.</doc>
               version="3.2"
               deprecated="1"
               deprecated-version="3.8"
-              throws="1">
+              throws="1"
+              glib:async-func="retrieve_capabilities">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1250">Initiates retrieval of capabilities on the @client. This is usually
@@ -2560,7 +2597,9 @@ of @capabilities should be freed with g_free(), when no longer needed.</doc>
       </method>
       <method name="retrieve_properties"
               c:identifier="e_client_retrieve_properties"
-              version="3.16">
+              version="3.16"
+              glib:finish-func="retrieve_properties_finish"
+              glib:sync-func="retrieve_properties_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="2018">Asynchronously retrieves @client properties to match server-side values,
@@ -2644,7 +2683,8 @@ If an error occurs, the function sets @error and returns %FALSE.</doc>
       <method name="retrieve_properties_sync"
               c:identifier="e_client_retrieve_properties_sync"
               version="3.16"
-              throws="1">
+              throws="1"
+              glib:async-func="retrieve_properties">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1969">Retrieves @client properties to match server-side values, without waiting
@@ -2680,7 +2720,9 @@ If an error occurs, the function sets @error and returns %FALSE.</doc>
               c:identifier="e_client_set_backend_property"
               version="3.2"
               deprecated="1"
-              deprecated-version="3.8">
+              deprecated-version="3.8"
+              glib:finish-func="set_backend_property_finish"
+              glib:sync-func="set_backend_property_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1396">Sets @client's backend property of name @prop_name
@@ -2780,7 +2822,8 @@ by e_client_set_backend_property_finish() from the @callback.</doc>
               version="3.2"
               deprecated="1"
               deprecated-version="3.8"
-              throws="1">
+              throws="1"
+              glib:async-func="set_backend_property">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1469">Sets @client's backend property of name @prop_name
@@ -2882,7 +2925,9 @@ to the backend subprocess.</doc>
       </method>
       <method name="wait_for_connected"
               c:identifier="e_client_wait_for_connected"
-              version="3.16">
+              version="3.16"
+              glib:finish-func="wait_for_connected_finish"
+              glib:sync-func="wait_for_connected_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1811">Asynchronously waits until the @client is connected (according
@@ -2970,7 +3015,8 @@ the @callback.</doc>
       <method name="wait_for_connected_sync"
               c:identifier="e_client_wait_for_connected_sync"
               version="3.16"
-              throws="1">
+              throws="1"
+              glib:async-func="wait_for_connected">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-client.c"
              line="1894">Synchronously waits until the @client is connected (according
@@ -4617,7 +4663,7 @@ time.</doc>
       <source-position filename="src/libedataserver/eds-version.h" line="32"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="EDS_MICRO_VERSION" value="0" c:type="EDS_MICRO_VERSION">
+    <constant name="EDS_MICRO_VERSION" value="1" c:type="EDS_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="src/libedataserver/eds-version.h"
            line="44">The micro version number of the Evolution-Data-Server library.  Like
@@ -14640,7 +14686,9 @@ parameter.</doc>
       </method>
       <method name="send_message"
               c:identifier="e_soup_session_send_message"
-              version="3.46">
+              version="3.46"
+              glib:finish-func="send_message_finish"
+              glib:sync-func="send_message_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-soup-session.c"
              line="1565">Asynchronously sends the @message. Finish the call with
@@ -14825,7 +14873,8 @@ more control on the content read.</doc>
       <method name="send_message_sync"
               c:identifier="e_soup_session_send_message_sync"
               version="3.26"
-              throws="1">
+              throws="1"
+              glib:async-func="send_message">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-soup-session.c"
              line="1667">Synchronously sends prepared message and returns #GInputStream
@@ -15232,7 +15281,9 @@ when emitting a #GObject::notify signal on one of its properties.</doc>
       </virtual-method>
       <virtual-method name="get_oauth2_access_token"
                       invoker="get_oauth2_access_token"
-                      version="3.8">
+                      version="3.8"
+                      glib:finish-func="get_oauth2_access_token_finish"
+                      glib:sync-func="get_oauth2_access_token_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3967">Asynchronously obtains the OAuth 2.0 access token for @source along
@@ -15344,7 +15395,8 @@ If an error occurred, the function will set @error and return %FALSE.</doc>
       <virtual-method name="get_oauth2_access_token_sync"
                       invoker="get_oauth2_access_token_sync"
                       version="3.8"
-                      throws="1">
+                      throws="1"
+                      glib:async-func="get_oauth2_access_token">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3928">Obtains the OAuth 2.0 access token for @source along with its expiry
@@ -15467,7 +15519,9 @@ If an error occurs, the function will set @error and return %FALSE.</doc>
       </virtual-method>
       <virtual-method name="remote_create"
                       invoker="remote_create"
-                      version="3.6">
+                      version="3.6"
+                      glib:finish-func="remote_create_finish"
+                      glib:sync-func="remote_create_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3760">Asynchronously creates a new remote resource by picking out relevant
@@ -15563,7 +15617,8 @@ an error occurred, the function will set @error and return %FALSE.</doc>
       <virtual-method name="remote_create_sync"
                       invoker="remote_create_sync"
                       version="3.6"
-                      throws="1">
+                      throws="1"
+                      glib:async-func="remote_create">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3719">Creates a new remote resource by picking out relevant details from
@@ -15609,7 +15664,9 @@ If an error occurs, the function will set @error and return %FALSE.</doc>
       </virtual-method>
       <virtual-method name="remote_delete"
                       invoker="remote_delete"
-                      version="3.6">
+                      version="3.6"
+                      glib:finish-func="remote_delete_finish"
+                      glib:sync-func="remote_delete_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3865">Asynchronously deletes the resource represented by @source from a remote
@@ -15695,7 +15752,8 @@ an error occurred, the function will set @error and return %FALSE.</doc>
       <virtual-method name="remote_delete_sync"
                       invoker="remote_delete_sync"
                       version="3.6"
-                      throws="1">
+                      throws="1"
+                      glib:async-func="remote_delete">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3832">Deletes the resource represented by @source from a remote server.
@@ -15729,7 +15787,11 @@ If an error occurs, the function will set @error and return %FALSE.</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="remove" invoker="remove" version="3.6">
+      <virtual-method name="remove"
+                      invoker="remove"
+                      version="3.6"
+                      glib:finish-func="remove_finish"
+                      glib:sync-func="remove_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3561">Asynchronously requests the D-Bus service to delete the key files for
@@ -15814,7 +15876,8 @@ error occurred, the function will set @error and return %FALSE.</doc>
       <virtual-method name="remove_sync"
                       invoker="remove_sync"
                       version="3.6"
-                      throws="1">
+                      throws="1"
+                      glib:async-func="remove">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3529">Requests the D-Bus service to delete the key files for @source and all of
@@ -15865,7 +15928,11 @@ If an error occurs, the functon will set @error and return %FALSE.</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <virtual-method name="write" invoker="write" version="3.6">
+      <virtual-method name="write"
+                      invoker="write"
+                      version="3.6"
+                      glib:finish-func="write_finish"
+                      glib:sync-func="write_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3656">Asynchronously submits the current contents of @source to the D-Bus
@@ -15950,7 +16017,8 @@ error occurred, the function will set @error and return %FALSE.</doc>
       <virtual-method name="write_sync"
                       invoker="write_sync"
                       version="3.6"
-                      throws="1">
+                      throws="1"
+                      glib:async-func="write">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3624">Submits the current contents of @source to the D-Bus service to be
@@ -16068,7 +16136,9 @@ ordering sources in a user interface.</doc>
       </method>
       <method name="delete_password"
               c:identifier="e_source_delete_password"
-              version="3.12">
+              version="3.12"
+              glib:finish-func="delete_password_finish"
+              glib:sync-func="delete_password_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="4390">Asynchronously deletes the password for @source from either the default
@@ -16156,7 +16226,8 @@ deleted.  If no password was found, the function will still return
       <method name="delete_password_sync"
               c:identifier="e_source_delete_password_sync"
               version="3.12"
-              throws="1">
+              throws="1"
+              glib:async-func="delete_password">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="4336">Deletes the password for @source from either the default keyring or
@@ -16489,7 +16560,9 @@ use this function to fetch the extension instance as needed.</doc>
       </method>
       <method name="get_last_credentials_required_arguments"
               c:identifier="e_source_get_last_credentials_required_arguments"
-              version="3.16">
+              version="3.16"
+              glib:finish-func="get_last_credentials_required_arguments_finish"
+              glib:sync-func="get_last_credentials_required_arguments_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="5021">Asynchronously calls the GetLastCredentialsRequiredArguments method
@@ -16616,7 +16689,8 @@ If an error occurs, the function sets @error and returns %FALSE.</doc>
       <method name="get_last_credentials_required_arguments_sync"
               c:identifier="e_source_get_last_credentials_required_arguments_sync"
               version="3.16"
-              throws="1">
+              throws="1"
+              glib:async-func="get_last_credentials_required_arguments">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="4902">Retrieves the last used arguments of the 'credentials-required' signal emission.
@@ -16691,7 +16765,9 @@ values should be freed with g_free() when no longer needed.</doc>
       </method>
       <method name="get_oauth2_access_token"
               c:identifier="e_source_get_oauth2_access_token"
-              version="3.8">
+              version="3.8"
+              glib:finish-func="get_oauth2_access_token_finish"
+              glib:sync-func="get_oauth2_access_token_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3967">Asynchronously obtains the OAuth 2.0 access token for @source along
@@ -16802,7 +16878,8 @@ If an error occurred, the function will set @error and return %FALSE.</doc>
       <method name="get_oauth2_access_token_sync"
               c:identifier="e_source_get_oauth2_access_token_sync"
               version="3.8"
-              throws="1">
+              throws="1"
+              glib:async-func="get_oauth2_access_token">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3928">Obtains the OAuth 2.0 access token for @source along with its expiry
@@ -17064,7 +17141,9 @@ structure.</doc>
       </method>
       <method name="invoke_authenticate"
               c:identifier="e_source_invoke_authenticate"
-              version="3.16">
+              version="3.16"
+              glib:finish-func="invoke_authenticate_finish"
+              glib:sync-func="invoke_authenticate_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="4806">Asynchronously calls the InvokeAuthenticate method on the server side,
@@ -17159,7 +17238,8 @@ If an error occurs, the function sets @error and returns %FALSE.</doc>
       <method name="invoke_authenticate_sync"
               c:identifier="e_source_invoke_authenticate_sync"
               version="3.16"
-              throws="1">
+              throws="1"
+              glib:async-func="invoke_authenticate">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="4699">Calls the InvokeAuthenticate method on the server side, thus the backend
@@ -17203,7 +17283,9 @@ If an error occurs, the function sets @error and returns %FALSE.</doc>
       </method>
       <method name="invoke_credentials_required"
               c:identifier="e_source_invoke_credentials_required"
-              version="3.16">
+              version="3.16"
+              glib:finish-func="invoke_credentials_required_finish"
+              glib:sync-func="invoke_credentials_required_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="4621">Asynchronously calls the InvokeCredentialsRequired method on the server side,
@@ -17316,7 +17398,8 @@ If an error occurs, the function sets @error and returns %FALSE.</doc>
       <method name="invoke_credentials_required_sync"
               c:identifier="e_source_invoke_credentials_required_sync"
               version="3.16"
-              throws="1">
+              throws="1"
+              glib:async-func="invoke_credentials_required">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="4456">Let's the client-side know that credentials are required. The @reason defines which
@@ -17393,7 +17476,9 @@ If an error occurs, the function sets @error and returns %FALSE.</doc>
       </method>
       <method name="lookup_password"
               c:identifier="e_source_lookup_password"
-              version="3.12">
+              version="3.12"
+              glib:finish-func="lookup_password_finish"
+              glib:sync-func="lookup_password_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="4250">Asynchronously looks up a password for @source.  Both the default and
@@ -17495,7 +17580,8 @@ and returns %FALSE.</doc>
       <method name="lookup_password_sync"
               c:identifier="e_source_lookup_password_sync"
               version="3.12"
-              throws="1">
+              throws="1"
+              glib:async-func="lookup_password">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="4188">Looks up a password for @source.  Both the default and session keyrings
@@ -17546,7 +17632,9 @@ and returns %FALSE.</doc>
       </method>
       <method name="mail_signature_load"
               c:identifier="e_source_mail_signature_load"
-              version="3.6">
+              version="3.6"
+              glib:finish-func="mail_signature_load_finish"
+              glib:sync-func="mail_signature_load_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-mail-signature.c"
              line="538">Asynchronously loads a signature from the signature file for @source,
@@ -17665,7 +17753,8 @@ with g_free() when no longer needed.</doc>
       <method name="mail_signature_load_sync"
               c:identifier="e_source_mail_signature_load_sync"
               version="3.6"
-              throws="1">
+              throws="1"
+              glib:async-func="mail_signature_load">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-mail-signature.c"
              line="347">Loads a signature from the signature file for @source, which is
@@ -17726,7 +17815,9 @@ executable, the email signature content is read directly from the file.</doc>
       </method>
       <method name="mail_signature_replace"
               c:identifier="e_source_mail_signature_replace"
-              version="3.6">
+              version="3.6"
+              glib:finish-func="mail_signature_replace_finish"
+              glib:sync-func="mail_signature_replace_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-mail-signature.c"
              line="683">Asynchrously replaces the signature file for @source with the given
@@ -17830,7 +17921,8 @@ of the operation.</doc>
       <method name="mail_signature_replace_sync"
               c:identifier="e_source_mail_signature_replace_sync"
               version="3.6"
-              throws="1">
+              throws="1"
+              glib:async-func="mail_signature_replace">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-mail-signature.c"
              line="643">Replaces the signature file for @source with the given @contents
@@ -17876,7 +17968,9 @@ e_source_mail_signature_get_file().</doc>
       </method>
       <method name="mail_signature_symlink"
               c:identifier="e_source_mail_signature_symlink"
-              version="3.6">
+              version="3.6"
+              glib:finish-func="mail_signature_symlink_finish"
+              glib:sync-func="mail_signature_symlink_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-mail-signature.c"
              line="814">Asynchronously replaces the signature file for @source with a symbolic
@@ -17975,7 +18069,8 @@ of the operation.</doc>
       <method name="mail_signature_symlink_sync"
               c:identifier="e_source_mail_signature_symlink_sync"
               version="3.6"
-              throws="1">
+              throws="1"
+              glib:async-func="mail_signature_symlink">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-mail-signature.c"
              line="771">Replaces the signature file for @source with a symbolic link to
@@ -18016,7 +18111,9 @@ a mail signature to standard output.  The signature file for
       </method>
       <method name="proxy_lookup"
               c:identifier="e_source_proxy_lookup"
-              version="3.12">
+              version="3.12"
+              glib:finish-func="proxy_lookup_finish"
+              glib:sync-func="proxy_lookup_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-proxy.c"
              line="1769">Asynchronously determines what proxy, if any, to use to connect to @uri.
@@ -18111,7 +18208,8 @@ Free the returned proxy URIs with g_strfreev() when finished with them.</doc>
       <method name="proxy_lookup_sync"
               c:identifier="e_source_proxy_lookup_sync"
               version="3.12"
-              throws="1">
+              throws="1"
+              glib:async-func="proxy_lookup">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-proxy.c"
              line="1577">Looks into @source's #ESourceProxy extension to determine what proxy,
@@ -18387,7 +18485,9 @@ whose callback data pointer matches @user_data.</doc>
       </method>
       <method name="remote_create"
               c:identifier="e_source_remote_create"
-              version="3.6">
+              version="3.6"
+              glib:finish-func="remote_create_finish"
+              glib:sync-func="remote_create_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3760">Asynchronously creates a new remote resource by picking out relevant
@@ -18482,7 +18582,8 @@ an error occurred, the function will set @error and return %FALSE.</doc>
       <method name="remote_create_sync"
               c:identifier="e_source_remote_create_sync"
               version="3.6"
-              throws="1">
+              throws="1"
+              glib:async-func="remote_create">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3719">Creates a new remote resource by picking out relevant details from
@@ -18528,7 +18629,9 @@ If an error occurs, the function will set @error and return %FALSE.</doc>
       </method>
       <method name="remote_delete"
               c:identifier="e_source_remote_delete"
-              version="3.6">
+              version="3.6"
+              glib:finish-func="remote_delete_finish"
+              glib:sync-func="remote_delete_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3865">Asynchronously deletes the resource represented by @source from a remote
@@ -18613,7 +18716,8 @@ an error occurred, the function will set @error and return %FALSE.</doc>
       <method name="remote_delete_sync"
               c:identifier="e_source_remote_delete_sync"
               version="3.6"
-              throws="1">
+              throws="1"
+              glib:async-func="remote_delete">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3832">Deletes the resource represented by @source from a remote server.
@@ -18647,7 +18751,11 @@ If an error occurs, the function will set @error and return %FALSE.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="remove" c:identifier="e_source_remove" version="3.6">
+      <method name="remove"
+              c:identifier="e_source_remove"
+              version="3.6"
+              glib:finish-func="remove_finish"
+              glib:sync-func="remove_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3561">Asynchronously requests the D-Bus service to delete the key files for
@@ -18731,7 +18839,8 @@ error occurred, the function will set @error and return %FALSE.</doc>
       <method name="remove_sync"
               c:identifier="e_source_remove_sync"
               version="3.6"
-              throws="1">
+              throws="1"
+              glib:async-func="remove">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3529">Requests the D-Bus service to delete the key files for @source and all of
@@ -18887,7 +18996,9 @@ instead.</doc>
       </method>
       <method name="store_password"
               c:identifier="e_source_store_password"
-              version="3.12">
+              version="3.12"
+              glib:finish-func="store_password_finish"
+              glib:sync-func="store_password_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="4111">Asynchronously stores a password for @source.  This operation does
@@ -18986,7 +19097,8 @@ call e_source_store_password_finish() to get the result of the operation.</doc>
       <method name="store_password_sync"
               c:identifier="e_source_store_password_sync"
               version="3.12"
-              throws="1">
+              throws="1"
+              glib:async-func="store_password">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="4041">Stores a password for @source.  This operation does not rely on the
@@ -19068,7 +19180,9 @@ Free the returned string with g_free().</doc>
       </method>
       <method name="unset_last_credentials_required_arguments"
               c:identifier="e_source_unset_last_credentials_required_arguments"
-              version="3.18">
+              version="3.18"
+              glib:finish-func="unset_last_credentials_required_arguments_finish"
+              glib:sync-func="unset_last_credentials_required_arguments_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="5161">Asynchronously calls the UnsetLastCredentialsRequiredArguments method
@@ -19154,7 +19268,8 @@ If an error occurs, the function sets @error and returns %FALSE.</doc>
       <method name="unset_last_credentials_required_arguments_sync"
               c:identifier="e_source_unset_last_credentials_required_arguments_sync"
               version="3.18"
-              throws="1">
+              throws="1"
+              glib:async-func="unset_last_credentials_required_arguments">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="5113">Unsets the last used arguments of the 'credentials-required' signal emission.
@@ -19185,7 +19300,11 @@ If an error occurs, the function sets @error and returns %FALSE.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="write" c:identifier="e_source_write" version="3.6">
+      <method name="write"
+              c:identifier="e_source_write"
+              version="3.6"
+              glib:finish-func="write_finish"
+              glib:sync-func="write_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3656">Asynchronously submits the current contents of @source to the D-Bus
@@ -19269,7 +19388,8 @@ error occurred, the function will set @error and return %FALSE.</doc>
       <method name="write_sync"
               c:identifier="e_source_write_sync"
               version="3.6"
-              throws="1">
+              throws="1"
+              glib:async-func="write">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source.c"
              line="3624">Submits the current contents of @source to the D-Bus service to be
@@ -22835,7 +22955,9 @@ e_source_credentials_provider_store_sync() will fail for this @source.</doc>
       </method>
       <method name="delete"
               c:identifier="e_source_credentials_provider_delete"
-              version="3.16">
+              version="3.16"
+              glib:finish-func="delete_finish"
+              glib:sync-func="delete_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-credentials-provider.c"
              line="914">Asynchronously deletes any previously stored credentials for @source.
@@ -22929,7 +23051,8 @@ If an error occurs, the function sets @error and returns %FALSE.</doc>
       <method name="delete_sync"
               c:identifier="e_source_credentials_provider_delete_sync"
               version="3.16"
-              throws="1">
+              throws="1"
+              glib:async-func="delete">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-credentials-provider.c"
              line="854">Deletes any previously stored credentials for @source.
@@ -22970,7 +23093,9 @@ If an error occurs, the function sets @error and returns %FALSE.</doc>
       </method>
       <method name="lookup"
               c:identifier="e_source_credentials_provider_lookup"
-              version="3.16">
+              version="3.16"
+              glib:finish-func="lookup_finish"
+              glib:sync-func="lookup_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-credentials-provider.c"
              line="613">Asynchronously looks up for credentials for @source.
@@ -23073,7 +23198,8 @@ If an error occurs, the function sets @error and returns %FALSE.</doc>
       <method name="lookup_sync"
               c:identifier="e_source_credentials_provider_lookup_sync"
               version="3.16"
-              throws="1">
+              throws="1"
+              glib:async-func="lookup">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-credentials-provider.c"
              line="547">Looks up the credentials for @source.
@@ -23248,7 +23374,9 @@ the @provider_impl.</doc>
       </method>
       <method name="store"
               c:identifier="e_source_credentials_provider_store"
-              version="3.16">
+              version="3.16"
+              glib:finish-func="store_finish"
+              glib:sync-func="store_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-credentials-provider.c"
              line="772">Asynchronously stores the @credentials for @source. Note the actual stored
@@ -23356,7 +23484,8 @@ If an error occurs, the function sets @error and returns %FALSE.</doc>
       <method name="store_sync"
               c:identifier="e_source_credentials_provider_store_sync"
               version="3.16"
-              throws="1">
+              throws="1"
+              glib:async-func="store">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-credentials-provider.c"
              line="701">Stores the @credentials for @source. Note the actual stored values
@@ -31048,7 +31177,9 @@ whether to act on the data set described by the #ESource.</doc>
       </method>
       <method name="commit_source"
               c:identifier="e_source_registry_commit_source"
-              version="3.6">
+              version="3.6"
+              glib:finish-func="commit_source_finish"
+              glib:sync-func="commit_source_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-registry.c"
              line="1992">See e_source_registry_commit_source_sync() for details.
@@ -31140,7 +31271,8 @@ If an error occurred, the function will set @error and return %FALSE.</doc>
       <method name="commit_source_sync"
               c:identifier="e_source_registry_commit_source_sync"
               version="3.6"
-              throws="1">
+              throws="1"
+              glib:async-func="commit_source">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-registry.c"
              line="1922">This is a convenience function intended for use with graphical
@@ -31191,7 +31323,9 @@ If an error occurs, the function will set @error and return %FALSE.</doc>
       </method>
       <method name="create_sources"
               c:identifier="e_source_registry_create_sources"
-              version="3.6">
+              version="3.6"
+              glib:finish-func="create_sources_finish"
+              glib:sync-func="create_sources_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-registry.c"
              line="2232">Asynchronously requests the D-Bus service create new key files for each
@@ -31288,7 +31422,8 @@ If an error occurred, the function will set @error and return %FALSE.</doc>
       <method name="create_sources_sync"
               c:identifier="e_source_registry_create_sources_sync"
               version="3.6"
-              throws="1">
+              throws="1"
+              glib:async-func="create_sources">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-registry.c"
              line="2116">Requests the D-Bus service create new key files for each #ESource in
@@ -32005,7 +32140,9 @@ unreferenced with g_object_unref() when finished with it.</doc>
       </method>
       <method name="refresh_backend"
               c:identifier="e_source_registry_refresh_backend"
-              version="3.30">
+              version="3.30"
+              glib:finish-func="refresh_backend_finish"
+              glib:sync-func="refresh_backend_sync">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-registry.c"
              line="2351">Asynchronously requests the D-Bus service to refresh collection backend
@@ -32100,7 +32237,8 @@ If an error occurred, the function will set @error and return %FALSE.</doc>
       <method name="refresh_backend_sync"
               c:identifier="e_source_registry_refresh_backend_sync"
               version="3.30"
-              throws="1">
+              throws="1"
+              glib:async-func="refresh_backend">
         <doc xml:space="preserve"
              filename="src/libedataserver/e-source-registry.c"
              line="2302">Requests the D-Bus service to refresh collection backend for an #ESource

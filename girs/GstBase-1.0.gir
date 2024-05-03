@@ -1398,6 +1398,15 @@ Control is given to the subclass when all pads have data.
 This class used to live in gst-plugins-bad and was moved to core.</doc>
       <source-position filename="libs/gst/base/gstaggregator.h" line="358"/>
       <virtual-method name="aggregate">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="198">Mandatory.
+                 Called when buffers are queued on all sinkpads. Classes
+                 should iterate the GstElement-&gt;sinkpads and peek or steal
+                 buffers from the #GstAggregatorPads. If the subclass returns
+                 GST_FLOW_EOS, sending of the eos event will be taken care
+                 of. Once / if a buffer has been constructed from the
+                 aggregated buffers, the subclass should call _finish_buffer.</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="294"/>
         <return-value transfer-ownership="none">
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
@@ -1412,6 +1421,16 @@ This class used to live in gst-plugins-bad and was moved to core.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="clip">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="168">Optional.
+                 Called when a buffer is received on a sink pad, the task of
+                 clipping it and translating it to the current segment falls
+                 on the subclass. The function should use the segment of data
+                 and the negotiated media type on the pad to perform
+                 clipping of input buffer. This function takes ownership of
+                 buf and should output a buffer or return NULL in
+                 if the buffer should be dropped.</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="267"/>
         <return-value transfer-ownership="full">
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
@@ -1429,6 +1448,12 @@ This class used to live in gst-plugins-bad and was moved to core.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="create_new_pad" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="218">Optional.
+                 Called when a new pad needs to be created. Allows subclass that
+                 don't have a single sink pad template to provide a pad based
+                 on the provided information.</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="303"/>
         <return-value>
           <type name="AggregatorPad" c:type="GstAggregatorPad*"/>
@@ -1449,6 +1474,13 @@ This class used to live in gst-plugins-bad and was moved to core.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="decide_allocation">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="234">Optional.
+                    Allows the subclass to influence the allocation choices.
+                    Setup the allocation parameters for allocating output
+                    buffers. The passed in query contains the result of the
+                    downstream allocation query.</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="319"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1515,6 +1547,12 @@ sent before pushing the buffer.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="fixate_src_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="228">Optional.
+                  Fixate and return the src pad caps provided.  The function takes
+                  ownership of @caps and returns a fixated version of
+                  @caps. @caps is not guaranteed to be writable.</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="315"/>
         <return-value transfer-ownership="full">
           <type name="Gst.Caps" c:type="GstCaps*"/>
@@ -1529,6 +1567,12 @@ sent before pushing the buffer.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="flush">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="164">Optional.
+                 Called after a successful flushing seek, once all the flush
+                 stops have been received. Flush pad-specific data in
+                 #GstAggregatorPad-&gt;flush.</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="265"/>
         <return-value transfer-ownership="none">
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
@@ -1540,6 +1584,14 @@ sent before pushing the buffer.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_next_time">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="212">Optional.
+                 Called when the element needs to know the running time of the next
+                 rendered buffer for live pipelines. This causes deadline
+                 based aggregation to occur. Defaults to returning
+                 GST_CLOCK_TIME_NONE causing the element to wait for buffers
+                 on all sink pads before aggregating.</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="301"/>
         <return-value transfer-ownership="none">
           <type name="Gst.ClockTime" c:type="GstClockTime"/>
@@ -1573,6 +1625,10 @@ if #GstAggregatorClass::negotiate fails.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="negotiated_src_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="232">Optional.
+                      Notifies subclasses what caps format has been negotiated</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="317"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1615,6 +1671,10 @@ control aggregating parameters for a given set of input samples.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="propose_allocation">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="239">Optional.
+                    Allows the subclass to handle the allocation query from upstream.</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="321"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1635,6 +1695,11 @@ control aggregating parameters for a given set of input samples.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="sink_event">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="183">Optional.
+                 Called when an event is received on a sink pad, the subclass
+                 should always chain up.</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="275"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1652,6 +1717,11 @@ control aggregating parameters for a given set of input samples.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="sink_event_pre_queue">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="243">Optional.
+                       Called when an event is received on a sink pad before queueing up
+                       serialized events. The subclass should always chain up (Since: 1.18).</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="328"/>
         <return-value transfer-ownership="none">
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
@@ -1669,6 +1739,11 @@ control aggregating parameters for a given set of input samples.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="sink_query">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="186">Optional.
+                 Called when a query is received on a sink pad, the subclass
+                 should always chain up.</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="279"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1686,6 +1761,11 @@ control aggregating parameters for a given set of input samples.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="sink_query_pre_queue">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="246">Optional.
+                       Called when a query is received on a sink pad before queueing up
+                       serialized queries. The subclass should always chain up (Since: 1.18).</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="332"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1703,6 +1783,11 @@ control aggregating parameters for a given set of input samples.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="src_activate">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="195">Optional.
+                 Called when the src pad is activated, it will start/stop its
+                 pad task right after that call.</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="290"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1720,6 +1805,11 @@ control aggregating parameters for a given set of input samples.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="src_event">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="189">Optional.
+                 Called when an event is received on the src pad, the subclass
+                 should always chain up.</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="284"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1734,6 +1824,11 @@ control aggregating parameters for a given set of input samples.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="src_query">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="192">Optional.
+                 Called when a query is received on the src pad, the subclass
+                 should always chain up.</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="287"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1748,6 +1843,12 @@ control aggregating parameters for a given set of input samples.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="start">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="208">Optional.
+                 Called when the element goes from READY to PAUSED.
+                 The subclass should get ready to process
+                 aggregated buffers.</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="299"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1759,6 +1860,11 @@ control aggregating parameters for a given set of input samples.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="stop">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="205">Optional.
+                 Called when the element goes from PAUSED to READY.
+                 The subclass should free all resources and reset its state.</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="297"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -2355,6 +2461,12 @@ _finish_buffer from inside that function.</doc>
         <type name="Gst.ElementClass" c:type="GstElementClass"/>
       </field>
       <field name="flush">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="164">Optional.
+                 Called after a successful flushing seek, once all the flush
+                 stops have been received. Flush pad-specific data in
+                 #GstAggregatorPad-&gt;flush.</doc>
         <callback name="flush">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="265"/>
@@ -2369,6 +2481,16 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="clip">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="168">Optional.
+                 Called when a buffer is received on a sink pad, the task of
+                 clipping it and translating it to the current segment falls
+                 on the subclass. The function should use the segment of data
+                 and the negotiated media type on the pad to perform
+                 clipping of input buffer. This function takes ownership of
+                 buf and should output a buffer or return NULL in
+                 if the buffer should be dropped.</doc>
         <callback name="clip">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="267"/>
@@ -2389,6 +2511,15 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="finish_buffer">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="176">Optional.
+                 Called when a subclass calls gst_aggregator_finish_buffer()
+                 from their aggregate function to push out a buffer.
+                 Subclasses can override this to modify or decorate buffers
+                 before they get pushed out. This function takes ownership
+                 of the buffer passed. Subclasses that override this method
+                 should always chain up to the parent class virtual method.</doc>
         <callback name="finish_buffer">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="271"/>
@@ -2412,6 +2543,11 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="sink_event">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="183">Optional.
+                 Called when an event is received on a sink pad, the subclass
+                 should always chain up.</doc>
         <callback name="sink_event">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="275"/>
@@ -2432,6 +2568,11 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="sink_query">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="186">Optional.
+                 Called when a query is received on a sink pad, the subclass
+                 should always chain up.</doc>
         <callback name="sink_query">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="279"/>
@@ -2452,6 +2593,11 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="src_event">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="189">Optional.
+                 Called when an event is received on the src pad, the subclass
+                 should always chain up.</doc>
         <callback name="src_event">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="284"/>
@@ -2469,6 +2615,11 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="src_query">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="192">Optional.
+                 Called when a query is received on the src pad, the subclass
+                 should always chain up.</doc>
         <callback name="src_query">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="287"/>
@@ -2486,6 +2637,11 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="src_activate">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="195">Optional.
+                 Called when the src pad is activated, it will start/stop its
+                 pad task right after that call.</doc>
         <callback name="src_activate">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="290"/>
@@ -2506,6 +2662,15 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="aggregate">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="198">Mandatory.
+                 Called when buffers are queued on all sinkpads. Classes
+                 should iterate the GstElement-&gt;sinkpads and peek or steal
+                 buffers from the #GstAggregatorPads. If the subclass returns
+                 GST_FLOW_EOS, sending of the eos event will be taken care
+                 of. Once / if a buffer has been constructed from the
+                 aggregated buffers, the subclass should call _finish_buffer.</doc>
         <callback name="aggregate">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="294"/>
@@ -2523,6 +2688,11 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="stop">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="205">Optional.
+                 Called when the element goes from PAUSED to READY.
+                 The subclass should free all resources and reset its state.</doc>
         <callback name="stop">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="297"/>
@@ -2537,6 +2707,12 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="start">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="208">Optional.
+                 Called when the element goes from READY to PAUSED.
+                 The subclass should get ready to process
+                 aggregated buffers.</doc>
         <callback name="start">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="299"/>
@@ -2551,6 +2727,14 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="get_next_time">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="212">Optional.
+                 Called when the element needs to know the running time of the next
+                 rendered buffer for live pipelines. This causes deadline
+                 based aggregation to occur. Defaults to returning
+                 GST_CLOCK_TIME_NONE causing the element to wait for buffers
+                 on all sink pads before aggregating.</doc>
         <callback name="get_next_time">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="301"/>
@@ -2565,6 +2749,12 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="create_new_pad" introspectable="0">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="218">Optional.
+                 Called when a new pad needs to be created. Allows subclass that
+                 don't have a single sink pad template to provide a pad based
+                 on the provided information.</doc>
         <callback name="create_new_pad" introspectable="0">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="303"/>
@@ -2588,6 +2778,14 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="update_src_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="222">Lets subclasses update the #GstCaps representing
+                  the src pad caps before usage.  The result should end up
+                  in @ret. Return %GST_AGGREGATOR_FLOW_NEED_DATA to indicate that the
+                  element needs more information (caps, a buffer, etc) to
+                  choose the correct caps. Should return ANY caps if the
+                  stream has not caps at all.</doc>
         <callback name="update_src_caps">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="312"/>
@@ -2613,6 +2811,12 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="fixate_src_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="228">Optional.
+                  Fixate and return the src pad caps provided.  The function takes
+                  ownership of @caps and returns a fixated version of
+                  @caps. @caps is not guaranteed to be writable.</doc>
         <callback name="fixate_src_caps">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="315"/>
@@ -2630,6 +2834,10 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="negotiated_src_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="232">Optional.
+                      Notifies subclasses what caps format has been negotiated</doc>
         <callback name="negotiated_src_caps">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="317"/>
@@ -2647,6 +2855,13 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="decide_allocation">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="234">Optional.
+                    Allows the subclass to influence the allocation choices.
+                    Setup the allocation parameters for allocating output
+                    buffers. The passed in query contains the result of the
+                    downstream allocation query.</doc>
         <callback name="decide_allocation">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="319"/>
@@ -2664,6 +2879,10 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="propose_allocation">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="239">Optional.
+                    Allows the subclass to handle the allocation query from upstream.</doc>
         <callback name="propose_allocation">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="321"/>
@@ -2687,6 +2906,10 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="negotiate">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="241">Optional.
+            Negotiate the caps with the peer (Since: 1.18).</doc>
         <callback name="negotiate">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="326"/>
@@ -2707,6 +2930,11 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="sink_event_pre_queue">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="243">Optional.
+                       Called when an event is received on a sink pad before queueing up
+                       serialized events. The subclass should always chain up (Since: 1.18).</doc>
         <callback name="sink_event_pre_queue">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="328"/>
@@ -2727,6 +2955,11 @@ _finish_buffer from inside that function.</doc>
         </callback>
       </field>
       <field name="sink_query_pre_queue">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="246">Optional.
+                       Called when a query is received on a sink pad before queueing up
+                       serialized queries. The subclass should always chain up (Since: 1.18).</doc>
         <callback name="sink_query_pre_queue">
           <source-position filename="libs/gst/base/gstaggregator.h"
                            line="332"/>
@@ -2813,6 +3046,12 @@ _finish_buffer from inside that function.</doc>
 This class used to live in gst-plugins-bad and was moved to core.</doc>
       <source-position filename="libs/gst/base/gstaggregator.h" line="100"/>
       <virtual-method name="flush">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="81">Optional
+              Called when the pad has received a flush stop, this is the place
+              to flush any information specific to the pad, it allows for individual
+              pads to be flushed while others might not be.</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="95"/>
         <return-value transfer-ownership="none">
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
@@ -2827,6 +3066,11 @@ This class used to live in gst-plugins-bad and was moved to core.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="skip_buffer">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="85">Optional
+              Called before input buffers are queued in the pad, return %TRUE
+              if the buffer should be skipped.</doc>
         <source-position filename="libs/gst/base/gstaggregator.h" line="96"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -3014,6 +3258,12 @@ usage.</doc>
         <type name="Gst.PadClass" c:type="GstPadClass"/>
       </field>
       <field name="flush">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="81">Optional
+              Called when the pad has received a flush stop, this is the place
+              to flush any information specific to the pad, it allows for individual
+              pads to be flushed while others might not be.</doc>
         <callback name="flush">
           <source-position filename="libs/gst/base/gstaggregator.h" line="95"/>
           <return-value transfer-ownership="none">
@@ -3030,6 +3280,11 @@ usage.</doc>
         </callback>
       </field>
       <field name="skip_buffer">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstaggregator.h"
+             line="85">Optional
+              Called before input buffers are queued in the pad, return %TRUE
+              if the buffer should be skipped.</doc>
         <callback name="skip_buffer">
           <source-position filename="libs/gst/base/gstaggregator.h" line="96"/>
           <return-value transfer-ownership="none">
@@ -3744,6 +3999,10 @@ Things that subclass need to take care of:
   frame intervals.</doc>
       <source-position filename="libs/gst/base/gstbaseparse.h" line="293"/>
       <virtual-method name="convert">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="202">Optional.
+                 Convert between formats.</doc>
         <source-position filename="libs/gst/base/gstbaseparse.h" line="267"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -3767,6 +4026,12 @@ Things that subclass need to take care of:
         </parameters>
       </virtual-method>
       <virtual-method name="detect">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="217">Optional.
+                  Called until it doesn't return GST_FLOW_OK anymore for
+                  the first buffers. Can be used by the subclass to detect
+                  the stream format.</doc>
         <source-position filename="libs/gst/base/gstbaseparse.h" line="282"/>
         <return-value transfer-ownership="none">
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
@@ -3781,6 +4046,10 @@ Things that subclass need to take care of:
         </parameters>
       </virtual-method>
       <virtual-method name="get_sink_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="190">Optional.
+                 Allows the subclass to do its own sink get caps if needed.</doc>
         <source-position filename="libs/gst/base/gstbaseparse.h" line="279"/>
         <return-value transfer-ownership="full">
           <type name="Gst.Caps" c:type="GstCaps*"/>
@@ -3827,6 +4096,14 @@ if desired.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="pre_push_frame">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="211">Optional.
+                  Called just prior to pushing a frame (after any pending
+                  events have been sent) to give subclass a chance to perform
+                  additional actions at this time (e.g. tag sending) or to
+                  decide whether this buffer should be dropped or not
+                  (e.g. custom segment clipping).</doc>
         <source-position filename="libs/gst/base/gstbaseparse.h" line="264"/>
         <return-value transfer-ownership="none">
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
@@ -3841,6 +4118,10 @@ if desired.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="set_sink_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="188">Optional.
+                 Allows the subclass to be notified of the actual caps set.</doc>
         <source-position filename="libs/gst/base/gstbaseparse.h" line="242"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -3855,6 +4136,12 @@ if desired.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="sink_event">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="204">Optional.
+                 Event handler on the sink pad. This function should chain
+                 up to the parent implementation to let the default handler
+                 run.</doc>
         <source-position filename="libs/gst/base/gstbaseparse.h" line="273"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -3869,6 +4156,12 @@ if desired.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="sink_query">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="221">Optional.
+                  Query handler on the sink pad. This function should chain
+                  up to the parent implementation to let the default handler
+                  run (Since: 1.2)</doc>
         <source-position filename="libs/gst/base/gstbaseparse.h" line="285"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -3883,6 +4176,11 @@ if desired.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="src_event">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="208">Optional.
+                 Event handler on the source pad. Should chain up to the
+                 parent to let the default handler run.</doc>
         <source-position filename="libs/gst/base/gstbaseparse.h" line="276"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -3897,6 +4195,11 @@ if desired.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="src_query">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="225">Optional.
+                  Query handler on the source pad. Should chain up to the
+                  parent to let the default handler run (Since: 1.2)</doc>
         <source-position filename="libs/gst/base/gstbaseparse.h" line="288"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -3911,6 +4214,11 @@ if desired.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="start">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="182">Optional.
+                 Called when the element starts processing.
+                 Allows opening external resources.</doc>
         <source-position filename="libs/gst/base/gstbaseparse.h" line="238"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -3922,6 +4230,11 @@ if desired.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="stop">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="185">Optional.
+                 Called when the element stops processing.
+                 Allows closing external resources.</doc>
         <source-position filename="libs/gst/base/gstbaseparse.h" line="240"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -4557,6 +4870,11 @@ needed. At minimum @handle_frame needs to be overridden.</doc>
         <type name="Gst.ElementClass" c:type="GstElementClass"/>
       </field>
       <field name="start">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="182">Optional.
+                 Called when the element starts processing.
+                 Allows opening external resources.</doc>
         <callback name="start">
           <source-position filename="libs/gst/base/gstbaseparse.h" line="238"/>
           <return-value transfer-ownership="none">
@@ -4570,6 +4888,11 @@ needed. At minimum @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="stop">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="185">Optional.
+                 Called when the element stops processing.
+                 Allows closing external resources.</doc>
         <callback name="stop">
           <source-position filename="libs/gst/base/gstbaseparse.h" line="240"/>
           <return-value transfer-ownership="none">
@@ -4583,6 +4906,10 @@ needed. At minimum @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="set_sink_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="188">Optional.
+                 Allows the subclass to be notified of the actual caps set.</doc>
         <callback name="set_sink_caps">
           <source-position filename="libs/gst/base/gstbaseparse.h" line="242"/>
           <return-value transfer-ownership="none">
@@ -4599,6 +4926,18 @@ needed. At minimum @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="handle_frame">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="192">Parses the input data into valid frames as defined by subclass
+                 which should be passed to gst_base_parse_finish_frame().
+                 The frame's input buffer is guaranteed writable,
+                 whereas the input frame ownership is held by caller
+                 (so subclass should make a copy if it needs to hang on).
+                 Input buffer (data) is provided by baseclass with as much
+                 metadata set as possible by baseclass according to upstream
+                 information and/or subclass settings,
+                 though subclass may still set buffer timestamp and duration
+                 if desired.</doc>
         <callback name="handle_frame">
           <source-position filename="libs/gst/base/gstbaseparse.h" line="260"/>
           <return-value transfer-ownership="none">
@@ -4621,6 +4960,14 @@ needed. At minimum @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="pre_push_frame">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="211">Optional.
+                  Called just prior to pushing a frame (after any pending
+                  events have been sent) to give subclass a chance to perform
+                  additional actions at this time (e.g. tag sending) or to
+                  decide whether this buffer should be dropped or not
+                  (e.g. custom segment clipping).</doc>
         <callback name="pre_push_frame">
           <source-position filename="libs/gst/base/gstbaseparse.h" line="264"/>
           <return-value transfer-ownership="none">
@@ -4637,6 +4984,10 @@ needed. At minimum @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="convert">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="202">Optional.
+                 Convert between formats.</doc>
         <callback name="convert">
           <source-position filename="libs/gst/base/gstbaseparse.h" line="267"/>
           <return-value transfer-ownership="none">
@@ -4662,6 +5013,12 @@ needed. At minimum @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="sink_event">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="204">Optional.
+                 Event handler on the sink pad. This function should chain
+                 up to the parent implementation to let the default handler
+                 run.</doc>
         <callback name="sink_event">
           <source-position filename="libs/gst/base/gstbaseparse.h" line="273"/>
           <return-value transfer-ownership="none">
@@ -4678,6 +5035,11 @@ needed. At minimum @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="src_event">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="208">Optional.
+                 Event handler on the source pad. Should chain up to the
+                 parent to let the default handler run.</doc>
         <callback name="src_event">
           <source-position filename="libs/gst/base/gstbaseparse.h" line="276"/>
           <return-value transfer-ownership="none">
@@ -4694,6 +5056,10 @@ needed. At minimum @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="get_sink_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="190">Optional.
+                 Allows the subclass to do its own sink get caps if needed.</doc>
         <callback name="get_sink_caps">
           <source-position filename="libs/gst/base/gstbaseparse.h" line="279"/>
           <return-value transfer-ownership="full">
@@ -4710,6 +5076,12 @@ needed. At minimum @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="detect">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="217">Optional.
+                  Called until it doesn't return GST_FLOW_OK anymore for
+                  the first buffers. Can be used by the subclass to detect
+                  the stream format.</doc>
         <callback name="detect">
           <source-position filename="libs/gst/base/gstbaseparse.h" line="282"/>
           <return-value transfer-ownership="none">
@@ -4726,6 +5098,12 @@ needed. At minimum @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="sink_query">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="221">Optional.
+                  Query handler on the sink pad. This function should chain
+                  up to the parent implementation to let the default handler
+                  run (Since: 1.2)</doc>
         <callback name="sink_query">
           <source-position filename="libs/gst/base/gstbaseparse.h" line="285"/>
           <return-value transfer-ownership="none">
@@ -4742,6 +5120,11 @@ needed. At minimum @handle_frame needs to be overridden.</doc>
         </callback>
       </field>
       <field name="src_query">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbaseparse.h"
+             line="225">Optional.
+                  Query handler on the source pad. Should chain up to the
+                  parent to let the default handler run (Since: 1.2)</doc>
         <callback name="src_query">
           <source-position filename="libs/gst/base/gstbaseparse.h" line="288"/>
           <return-value transfer-ownership="none">
@@ -5117,6 +5500,13 @@ perform an ASYNC state change. This feature is mostly usable when dealing
 with non-synchronized streams or sparse streams.</doc>
       <source-position filename="libs/gst/base/gstbasesink.h" line="214"/>
       <virtual-method name="activate_pull">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="115">Subclasses should override this when they can provide an
+    alternate method of spawning a thread to drive the pipeline in pull mode.
+    Should start or stop the pulling thread, depending on the value of the
+    "active" argument. Called after actually activating the sink pad in pull
+    mode. The default implementation starts a task on the sink pad.</doc>
         <source-position filename="libs/gst/base/gstbasesink.h" line="167"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5131,6 +5521,9 @@ with non-synchronized streams or sparse streams.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="event">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="133">Override this to handle events arriving on the sink pad</doc>
         <source-position filename="libs/gst/base/gstbasesink.h" line="198"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5145,6 +5538,10 @@ with non-synchronized streams or sparse streams.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="fixate">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="113">Only useful in pull mode. Implement if you have
+    ideas about what should be the default values for the caps you support.</doc>
         <source-position filename="libs/gst/base/gstbasesink.h" line="165"/>
         <return-value transfer-ownership="full">
           <type name="Gst.Caps" c:type="GstCaps*"/>
@@ -5214,6 +5611,10 @@ with non-synchronized streams or sparse streams.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="prepare">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="137">Called to prepare the buffer for @render and @preroll. This
+    function is called before synchronisation is performed.</doc>
         <source-position filename="libs/gst/base/gstbasesink.h" line="203"/>
         <return-value transfer-ownership="none">
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
@@ -5228,6 +5629,10 @@ with non-synchronized streams or sparse streams.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="prepare_list">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="139">Called to prepare the buffer list for @render_list. This
+    function is called before synchronisation is performed.</doc>
         <source-position filename="libs/gst/base/gstbasesink.h" line="204"/>
         <return-value transfer-ownership="none">
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
@@ -5242,6 +5647,9 @@ with non-synchronized streams or sparse streams.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="preroll">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="141">Called to present the preroll buffer if desired.</doc>
         <source-position filename="libs/gst/base/gstbasesink.h" line="207"/>
         <return-value transfer-ownership="none">
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
@@ -5256,6 +5664,9 @@ with non-synchronized streams or sparse streams.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="propose_allocation">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="122">configure the allocation query</doc>
         <source-position filename="libs/gst/base/gstbasesink.h" line="180"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5270,6 +5681,9 @@ with non-synchronized streams or sparse streams.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="query">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="132">perform a #GstQuery on the element.</doc>
         <source-position filename="libs/gst/base/gstbasesink.h" line="195"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5284,6 +5698,10 @@ with non-synchronized streams or sparse streams.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="render">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="142">Called when a buffer should be presented or output, at the
+    correct moment if the #GstBaseSink has been set to sync to the clock.</doc>
         <source-position filename="libs/gst/base/gstbasesink.h" line="208"/>
         <return-value transfer-ownership="none">
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
@@ -5298,6 +5716,10 @@ with non-synchronized streams or sparse streams.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="render_list">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="144">Same as @render but used with buffer lists instead of
+    buffers.</doc>
         <source-position filename="libs/gst/base/gstbasesink.h" line="210"/>
         <return-value transfer-ownership="none">
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
@@ -5312,6 +5734,9 @@ with non-synchronized streams or sparse streams.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="set_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="112">Notify subclass of changed caps</doc>
         <source-position filename="libs/gst/base/gstbasesink.h" line="162"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5326,6 +5751,9 @@ with non-synchronized streams or sparse streams.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="start">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="123">Start processing. Ideal for opening resources in the subclass</doc>
         <source-position filename="libs/gst/base/gstbasesink.h" line="183"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5337,6 +5765,9 @@ with non-synchronized streams or sparse streams.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="stop">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="124">Stop processing. Subclasses should use this to close resources.</doc>
         <source-position filename="libs/gst/base/gstbasesink.h" line="184"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5348,6 +5779,10 @@ with non-synchronized streams or sparse streams.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="unlock">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="125">Unlock any pending access to the resource. Subclasses should
+    unblock any blocked function ASAP and call gst_base_sink_wait_preroll()</doc>
         <source-position filename="libs/gst/base/gstbasesink.h" line="188"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5359,6 +5794,13 @@ with non-synchronized streams or sparse streams.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="unlock_stop">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="127">Clear the previous unlock request. Subclasses should clear
+    any state they set during #GstBaseSinkClass::unlock, and be ready to
+    continue where they left off after gst_base_sink_wait_preroll(),
+    gst_base_sink_wait() or gst_wait_sink_wait_clock() return or
+    #GstBaseSinkClass::render is called again.</doc>
         <source-position filename="libs/gst/base/gstbasesink.h" line="192"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5370,6 +5812,11 @@ with non-synchronized streams or sparse streams.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="wait_event">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="134">Override this to implement custom logic to wait for the event
+    time (for events like EOS and GAP). Subclasses should always first
+    chain up to the default implementation.</doc>
         <source-position filename="libs/gst/base/gstbasesink.h" line="200"/>
         <return-value transfer-ownership="none">
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
@@ -5386,7 +5833,7 @@ with non-synchronized streams or sparse streams.</doc>
       <method name="do_preroll" c:identifier="gst_base_sink_do_preroll">
         <doc xml:space="preserve"
              filename="libs/gst/base/gstbasesink.c"
-             line="2461">If the @sink spawns its own thread for pulling buffers from upstream it
+             line="2465">If the @sink spawns its own thread for pulling buffers from upstream it
 should call this method after it has pulled a buffer. If the element needed
 to preroll, this function will perform the preroll and will then block
 until the element state is changed.
@@ -5396,7 +5843,7 @@ This function should be called with the PREROLL_LOCK held.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/base/gstbasesink.c"
-               line="2473">%GST_FLOW_OK if the preroll completed and processing can
+               line="2477">%GST_FLOW_OK if the preroll completed and processing can
 continue. Any other return value should be returned from the render vmethod.</doc>
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
         </return-value>
@@ -5404,13 +5851,13 @@ continue. Any other return value should be returned from the render vmethod.</do
           <instance-parameter name="sink" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesink.c"
-                 line="2463">the sink</doc>
+                 line="2467">the sink</doc>
             <type name="BaseSink" c:type="GstBaseSink*"/>
           </instance-parameter>
           <parameter name="obj" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesink.c"
-                 line="2464">the mini object that caused the preroll</doc>
+                 line="2468">the mini object that caused the preroll</doc>
             <type name="Gst.MiniObject" c:type="GstMiniObject*"/>
           </parameter>
         </parameters>
@@ -5613,7 +6060,7 @@ information about the render delay.</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="libs/gst/base/gstbasesink.c"
-             line="5893">Return various #GstBaseSink statistics. This function returns a #GstStructure
+             line="5897">Return various #GstBaseSink statistics. This function returns a #GstStructure
 with name `application/x-gst-base-sink-stats` with the following fields:
 
 - "average-rate" G_TYPE_DOUBLE   average frame rate
@@ -5623,14 +6070,14 @@ with name `application/x-gst-base-sink-stats` with the following fields:
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libs/gst/base/gstbasesink.c"
-               line="5904">pointer to #GstStructure</doc>
+               line="5908">pointer to #GstStructure</doc>
           <type name="Gst.Structure" c:type="GstStructure*"/>
         </return-value>
         <parameters>
           <instance-parameter name="sink" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesink.c"
-                 line="5895">#GstBaseSink</doc>
+                 line="5899">#GstBaseSink</doc>
             <type name="BaseSink" c:type="GstBaseSink*"/>
           </instance-parameter>
         </parameters>
@@ -6174,7 +6621,7 @@ buffers.</doc>
       <method name="wait" c:identifier="gst_base_sink_wait">
         <doc xml:space="preserve"
              filename="libs/gst/base/gstbasesink.c"
-             line="2563">This function will wait for preroll to complete and will then block until @time
+             line="2567">This function will wait for preroll to complete and will then block until @time
 is reached. It is usually called by subclasses that use their own internal
 synchronisation but want to let some synchronization (like EOS) be handled
 by the base class.
@@ -6189,20 +6636,20 @@ and will be adjusted with any latency and offset configured in the sink.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/base/gstbasesink.c"
-               line="2581">#GstFlowReturn</doc>
+               line="2585">#GstFlowReturn</doc>
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
         </return-value>
         <parameters>
           <instance-parameter name="sink" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesink.c"
-                 line="2565">the sink</doc>
+                 line="2569">the sink</doc>
             <type name="BaseSink" c:type="GstBaseSink*"/>
           </instance-parameter>
           <parameter name="time" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesink.c"
-                 line="2566">the running_time to be reached</doc>
+                 line="2570">the running_time to be reached</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime"/>
           </parameter>
           <parameter name="jitter"
@@ -6213,7 +6660,7 @@ and will be adjusted with any latency and offset configured in the sink.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesink.c"
-                 line="2567">the jitter to be filled with time diff, or %NULL</doc>
+                 line="2571">the jitter to be filled with time diff, or %NULL</doc>
             <type name="Gst.ClockTimeDiff" c:type="GstClockTimeDiff*"/>
           </parameter>
         </parameters>
@@ -6221,7 +6668,7 @@ and will be adjusted with any latency and offset configured in the sink.</doc>
       <method name="wait_clock" c:identifier="gst_base_sink_wait_clock">
         <doc xml:space="preserve"
              filename="libs/gst/base/gstbasesink.c"
-             line="2305">This function will block until @time is reached. It is usually called by
+             line="2309">This function will block until @time is reached. It is usually called by
 subclasses that use their own internal synchronisation.
 
 If @time is not valid, no synchronisation is done and %GST_CLOCK_BADTIME is
@@ -6240,20 +6687,20 @@ sink.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/base/gstbasesink.c"
-               line="2327">#GstClockReturn</doc>
+               line="2331">#GstClockReturn</doc>
           <type name="Gst.ClockReturn" c:type="GstClockReturn"/>
         </return-value>
         <parameters>
           <instance-parameter name="sink" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesink.c"
-                 line="2307">the sink</doc>
+                 line="2311">the sink</doc>
             <type name="BaseSink" c:type="GstBaseSink*"/>
           </instance-parameter>
           <parameter name="time" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesink.c"
-                 line="2308">the running_time to be reached</doc>
+                 line="2312">the running_time to be reached</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime"/>
           </parameter>
           <parameter name="jitter"
@@ -6264,7 +6711,7 @@ sink.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesink.c"
-                 line="2309">the jitter to be filled with time diff, or %NULL</doc>
+                 line="2313">the jitter to be filled with time diff, or %NULL</doc>
             <type name="Gst.ClockTimeDiff" c:type="GstClockTimeDiff*"/>
           </parameter>
         </parameters>
@@ -6272,7 +6719,7 @@ sink.</doc>
       <method name="wait_preroll" c:identifier="gst_base_sink_wait_preroll">
         <doc xml:space="preserve"
              filename="libs/gst/base/gstbasesink.c"
-             line="2405">If the #GstBaseSinkClass::render method performs its own synchronisation
+             line="2409">If the #GstBaseSinkClass::render method performs its own synchronisation
 against the clock it must unblock when going from PLAYING to the PAUSED state
 and call this method before continuing to render the remaining data.
 
@@ -6294,7 +6741,7 @@ render function.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/base/gstbasesink.c"
-               line="2428">%GST_FLOW_OK if the preroll completed and processing can
+               line="2432">%GST_FLOW_OK if the preroll completed and processing can
 continue. Any other return value should be returned from the render vmethod.</doc>
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
         </return-value>
@@ -6302,7 +6749,7 @@ continue. Any other return value should be returned from the render vmethod.</do
           <instance-parameter name="sink" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesink.c"
-                 line="2407">the sink</doc>
+                 line="2411">the sink</doc>
             <type name="BaseSink" c:type="GstBaseSink*"/>
           </instance-parameter>
         </parameters>
@@ -6537,6 +6984,9 @@ output/present buffers.</doc>
         <type name="Gst.ElementClass" c:type="GstElementClass"/>
       </field>
       <field name="get_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="111">Called to get sink pad caps from the subclass</doc>
         <callback name="get_caps">
           <source-position filename="libs/gst/base/gstbasesink.h" line="160"/>
           <return-value transfer-ownership="full">
@@ -6556,6 +7006,9 @@ output/present buffers.</doc>
         </callback>
       </field>
       <field name="set_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="112">Notify subclass of changed caps</doc>
         <callback name="set_caps">
           <source-position filename="libs/gst/base/gstbasesink.h" line="162"/>
           <return-value transfer-ownership="none">
@@ -6572,6 +7025,10 @@ output/present buffers.</doc>
         </callback>
       </field>
       <field name="fixate">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="113">Only useful in pull mode. Implement if you have
+    ideas about what should be the default values for the caps you support.</doc>
         <callback name="fixate">
           <source-position filename="libs/gst/base/gstbasesink.h" line="165"/>
           <return-value transfer-ownership="full">
@@ -6588,6 +7045,13 @@ output/present buffers.</doc>
         </callback>
       </field>
       <field name="activate_pull">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="115">Subclasses should override this when they can provide an
+    alternate method of spawning a thread to drive the pipeline in pull mode.
+    Should start or stop the pulling thread, depending on the value of the
+    "active" argument. Called after actually activating the sink pad in pull
+    mode. The default implementation starts a task on the sink pad.</doc>
         <callback name="activate_pull">
           <source-position filename="libs/gst/base/gstbasesink.h" line="167"/>
           <return-value transfer-ownership="none">
@@ -6604,6 +7068,10 @@ output/present buffers.</doc>
         </callback>
       </field>
       <field name="get_times">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="120">Called to get the start and end times for synchronising
+    the passed buffer to the clock</doc>
         <callback name="get_times">
           <source-position filename="libs/gst/base/gstbasesink.h" line="176"/>
           <return-value transfer-ownership="none">
@@ -6638,6 +7106,9 @@ output/present buffers.</doc>
         </callback>
       </field>
       <field name="propose_allocation">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="122">configure the allocation query</doc>
         <callback name="propose_allocation">
           <source-position filename="libs/gst/base/gstbasesink.h" line="180"/>
           <return-value transfer-ownership="none">
@@ -6654,6 +7125,9 @@ output/present buffers.</doc>
         </callback>
       </field>
       <field name="start">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="123">Start processing. Ideal for opening resources in the subclass</doc>
         <callback name="start">
           <source-position filename="libs/gst/base/gstbasesink.h" line="183"/>
           <return-value transfer-ownership="none">
@@ -6667,6 +7141,9 @@ output/present buffers.</doc>
         </callback>
       </field>
       <field name="stop">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="124">Stop processing. Subclasses should use this to close resources.</doc>
         <callback name="stop">
           <source-position filename="libs/gst/base/gstbasesink.h" line="184"/>
           <return-value transfer-ownership="none">
@@ -6680,6 +7157,10 @@ output/present buffers.</doc>
         </callback>
       </field>
       <field name="unlock">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="125">Unlock any pending access to the resource. Subclasses should
+    unblock any blocked function ASAP and call gst_base_sink_wait_preroll()</doc>
         <callback name="unlock">
           <source-position filename="libs/gst/base/gstbasesink.h" line="188"/>
           <return-value transfer-ownership="none">
@@ -6693,6 +7174,13 @@ output/present buffers.</doc>
         </callback>
       </field>
       <field name="unlock_stop">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="127">Clear the previous unlock request. Subclasses should clear
+    any state they set during #GstBaseSinkClass::unlock, and be ready to
+    continue where they left off after gst_base_sink_wait_preroll(),
+    gst_base_sink_wait() or gst_wait_sink_wait_clock() return or
+    #GstBaseSinkClass::render is called again.</doc>
         <callback name="unlock_stop">
           <source-position filename="libs/gst/base/gstbasesink.h" line="192"/>
           <return-value transfer-ownership="none">
@@ -6706,6 +7194,9 @@ output/present buffers.</doc>
         </callback>
       </field>
       <field name="query">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="132">perform a #GstQuery on the element.</doc>
         <callback name="query">
           <source-position filename="libs/gst/base/gstbasesink.h" line="195"/>
           <return-value transfer-ownership="none">
@@ -6722,6 +7213,9 @@ output/present buffers.</doc>
         </callback>
       </field>
       <field name="event">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="133">Override this to handle events arriving on the sink pad</doc>
         <callback name="event">
           <source-position filename="libs/gst/base/gstbasesink.h" line="198"/>
           <return-value transfer-ownership="none">
@@ -6738,6 +7232,11 @@ output/present buffers.</doc>
         </callback>
       </field>
       <field name="wait_event">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="134">Override this to implement custom logic to wait for the event
+    time (for events like EOS and GAP). Subclasses should always first
+    chain up to the default implementation.</doc>
         <callback name="wait_event">
           <source-position filename="libs/gst/base/gstbasesink.h" line="200"/>
           <return-value transfer-ownership="none">
@@ -6754,6 +7253,10 @@ output/present buffers.</doc>
         </callback>
       </field>
       <field name="prepare">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="137">Called to prepare the buffer for @render and @preroll. This
+    function is called before synchronisation is performed.</doc>
         <callback name="prepare">
           <source-position filename="libs/gst/base/gstbasesink.h" line="203"/>
           <return-value transfer-ownership="none">
@@ -6770,6 +7273,10 @@ output/present buffers.</doc>
         </callback>
       </field>
       <field name="prepare_list">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="139">Called to prepare the buffer list for @render_list. This
+    function is called before synchronisation is performed.</doc>
         <callback name="prepare_list">
           <source-position filename="libs/gst/base/gstbasesink.h" line="204"/>
           <return-value transfer-ownership="none">
@@ -6786,6 +7293,9 @@ output/present buffers.</doc>
         </callback>
       </field>
       <field name="preroll">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="141">Called to present the preroll buffer if desired.</doc>
         <callback name="preroll">
           <source-position filename="libs/gst/base/gstbasesink.h" line="207"/>
           <return-value transfer-ownership="none">
@@ -6802,6 +7312,10 @@ output/present buffers.</doc>
         </callback>
       </field>
       <field name="render">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="142">Called when a buffer should be presented or output, at the
+    correct moment if the #GstBaseSink has been set to sync to the clock.</doc>
         <callback name="render">
           <source-position filename="libs/gst/base/gstbasesink.h" line="208"/>
           <return-value transfer-ownership="none">
@@ -6818,6 +7332,10 @@ output/present buffers.</doc>
         </callback>
       </field>
       <field name="render_list">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesink.h"
+             line="144">Same as @render but used with buffer lists instead of
+    buffers.</doc>
         <callback name="render_list">
           <source-position filename="libs/gst/base/gstbasesink.h" line="210"/>
           <return-value transfer-ownership="none">
@@ -7026,6 +7544,9 @@ implementation will call alloc if no allocated @buf is provided and then call fi
         </parameters>
       </virtual-method>
       <virtual-method name="decide_allocation">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="125">configure the allocation query</doc>
         <source-position filename="libs/gst/base/gstbasesrc.h" line="200"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -7040,6 +7561,9 @@ implementation will call alloc if no allocated @buf is provided and then call fi
         </parameters>
       </virtual-method>
       <virtual-method name="do_seek">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="143">Perform seeking on the resource to the indicated segment.</doc>
         <source-position filename="libs/gst/base/gstbasesrc.h" line="236"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -7054,6 +7578,9 @@ implementation will call alloc if no allocated @buf is provided and then call fi
         </parameters>
       </virtual-method>
       <virtual-method name="event">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="154">Override this to implement custom event handling.</doc>
         <source-position filename="libs/gst/base/gstbasesrc.h" line="248"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -7068,6 +7595,10 @@ implementation will call alloc if no allocated @buf is provided and then call fi
         </parameters>
       </virtual-method>
       <virtual-method name="fill">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="164">Ask the subclass to fill the buffer with data for offset and size. The
+  passed buffer is guaranteed to hold the requested amount of bytes.</doc>
         <source-position filename="libs/gst/base/gstbasesrc.h" line="269"/>
         <return-value transfer-ownership="none">
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
@@ -7182,6 +7713,9 @@ out. The base class will sync on the clock using these times.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="is_seekable">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="136">Check if the source can seek</doc>
         <source-position filename="libs/gst/base/gstbasesrc.h" line="229"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -7195,7 +7729,7 @@ out. The base class will sync on the clock using these times.</doc>
       <virtual-method name="negotiate" invoker="negotiate" version="1.18">
         <doc xml:space="preserve"
              filename="libs/gst/base/gstbasesrc.c"
-             line="3464">Negotiates src pad caps with downstream elements.
+             line="3466">Negotiates src pad caps with downstream elements.
 Unmarks GST_PAD_FLAG_NEED_RECONFIGURE in any case. But marks it again
 if #GstBaseSrcClass::negotiate fails.
 
@@ -7206,19 +7740,27 @@ buffer is allocated.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/base/gstbasesrc.c"
-               line="3476">%TRUE if the negotiation succeeded, else %FALSE.</doc>
+               line="3478">%TRUE if the negotiation succeeded, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="src" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesrc.c"
-                 line="3466">base source instance</doc>
+                 line="3468">base source instance</doc>
             <type name="BaseSrc" c:type="GstBaseSrc*"/>
           </instance-parameter>
         </parameters>
       </virtual-method>
       <virtual-method name="prepare_seek_segment">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="137">Prepare the #GstSegment that will be passed to the
+  #GstBaseSrcClass::do_seek vmethod for executing a seek
+  request. Sub-classes should override this if they support seeking in
+  formats other than the configured native format. By default, it tries to
+  convert the seek arguments to the configured native format and prepare a
+  segment in that format.</doc>
         <source-position filename="libs/gst/base/gstbasesrc.h" line="233"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -7236,6 +7778,9 @@ buffer is allocated.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="query">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="153">Handle a requested query.</doc>
         <source-position filename="libs/gst/base/gstbasesrc.h" line="245"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -7276,6 +7821,12 @@ buffer is allocated.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="start">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="126">Start processing. Subclasses should open resources and prepare
+   to produce data. Implementation should call gst_base_src_start_complete()
+   when the operation completes, either from the current thread or any other
+   thread that finishes the start operation asynchronously.</doc>
         <source-position filename="libs/gst/base/gstbasesrc.h" line="203"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -7287,6 +7838,9 @@ buffer is allocated.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="stop">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="130">Stop processing. Subclasses should use this to close resources.</doc>
         <source-position filename="libs/gst/base/gstbasesrc.h" line="204"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -7298,6 +7852,14 @@ buffer is allocated.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="unlock">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="144">Unlock any pending access to the resource. Subclasses should unblock
+   any blocked function ASAP. In particular, any `create()` function in
+   progress should be unblocked and should return GST_FLOW_FLUSHING. Any
+   future #GstBaseSrcClass::create function call should also return
+   GST_FLOW_FLUSHING until the #GstBaseSrcClass::unlock_stop function has
+   been called.</doc>
         <source-position filename="libs/gst/base/gstbasesrc.h" line="240"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -7309,6 +7871,11 @@ buffer is allocated.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="unlock_stop">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="150">Clear the previous unlock request. Subclasses should clear any
+   state they set during #GstBaseSrcClass::unlock, such as clearing command
+   queues.</doc>
         <source-position filename="libs/gst/base/gstbasesrc.h" line="242"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -7322,7 +7889,7 @@ buffer is allocated.</doc>
       <method name="get_allocator" c:identifier="gst_base_src_get_allocator">
         <doc xml:space="preserve"
              filename="libs/gst/base/gstbasesrc.c"
-             line="4080">Lets #GstBaseSrc sub-classes to know the memory @allocator
+             line="4082">Lets #GstBaseSrc sub-classes to know the memory @allocator
 used by the base class and its @params.
 
 Unref the @allocator after usage.</doc>
@@ -7334,7 +7901,7 @@ Unref the @allocator after usage.</doc>
           <instance-parameter name="src" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesrc.c"
-                 line="4082">a #GstBaseSrc</doc>
+                 line="4084">a #GstBaseSrc</doc>
             <type name="BaseSrc" c:type="GstBaseSrc*"/>
           </instance-parameter>
           <parameter name="allocator"
@@ -7346,7 +7913,7 @@ Unref the @allocator after usage.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesrc.c"
-                 line="4083">the #GstAllocator
+                 line="4085">the #GstAllocator
 used</doc>
             <type name="Gst.Allocator" c:type="GstAllocator**"/>
           </parameter>
@@ -7358,7 +7925,7 @@ used</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesrc.c"
-                 line="4085">the #GstAllocationParams of @allocator</doc>
+                 line="4087">the #GstAllocationParams of @allocator</doc>
             <type name="Gst.AllocationParams" c:type="GstAllocationParams*"/>
           </parameter>
         </parameters>
@@ -7391,7 +7958,7 @@ used</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libs/gst/base/gstbasesrc.c"
-               line="4062">the instance of the #GstBufferPool used
+               line="4064">the instance of the #GstBufferPool used
 by the src; unref it after usage.</doc>
           <type name="Gst.BufferPool" c:type="GstBufferPool*"/>
         </return-value>
@@ -7399,7 +7966,7 @@ by the src; unref it after usage.</doc>
           <instance-parameter name="src" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesrc.c"
-                 line="4060">a #GstBaseSrc</doc>
+                 line="4062">a #GstBaseSrc</doc>
             <type name="BaseSrc" c:type="GstBaseSrc*"/>
           </instance-parameter>
         </parameters>
@@ -7471,7 +8038,7 @@ by the src; unref it after usage.</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="libs/gst/base/gstbasesrc.c"
-             line="3464">Negotiates src pad caps with downstream elements.
+             line="3466">Negotiates src pad caps with downstream elements.
 Unmarks GST_PAD_FLAG_NEED_RECONFIGURE in any case. But marks it again
 if #GstBaseSrcClass::negotiate fails.
 
@@ -7482,14 +8049,14 @@ buffer is allocated.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/base/gstbasesrc.c"
-               line="3476">%TRUE if the negotiation succeeded, else %FALSE.</doc>
+               line="3478">%TRUE if the negotiation succeeded, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="src" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesrc.c"
-                 line="3466">base source instance</doc>
+                 line="3468">base source instance</doc>
             <type name="BaseSrc" c:type="GstBaseSrc*"/>
           </instance-parameter>
         </parameters>
@@ -7862,7 +8429,7 @@ be GST_STATE_CHANGE_NO_PREROLL.</doc>
       <method name="start_complete" c:identifier="gst_base_src_start_complete">
         <doc xml:space="preserve"
              filename="libs/gst/base/gstbasesrc.c"
-             line="3568">Complete an asynchronous start operation. When the subclass overrides the
+             line="3570">Complete an asynchronous start operation. When the subclass overrides the
 start method, it should call gst_base_src_start_complete() when the start
 operation completes either from the same thread or from an asynchronous
 helper thread.</doc>
@@ -7874,13 +8441,13 @@ helper thread.</doc>
           <instance-parameter name="basesrc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesrc.c"
-                 line="3570">base source instance</doc>
+                 line="3572">base source instance</doc>
             <type name="BaseSrc" c:type="GstBaseSrc*"/>
           </instance-parameter>
           <parameter name="ret" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesrc.c"
-                 line="3571">a #GstFlowReturn</doc>
+                 line="3573">a #GstFlowReturn</doc>
             <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
           </parameter>
         </parameters>
@@ -7888,19 +8455,19 @@ helper thread.</doc>
       <method name="start_wait" c:identifier="gst_base_src_start_wait">
         <doc xml:space="preserve"
              filename="libs/gst/base/gstbasesrc.c"
-             line="3708">Wait until the start operation completes.</doc>
+             line="3710">Wait until the start operation completes.</doc>
         <source-position filename="libs/gst/base/gstbasesrc.h" line="310"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/gst/base/gstbasesrc.c"
-               line="3714">a #GstFlowReturn.</doc>
+               line="3716">a #GstFlowReturn.</doc>
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
         </return-value>
         <parameters>
           <instance-parameter name="basesrc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesrc.c"
-                 line="3710">base source instance</doc>
+                 line="3712">base source instance</doc>
             <type name="BaseSrc" c:type="GstBaseSrc*"/>
           </instance-parameter>
         </parameters>
@@ -7910,7 +8477,7 @@ helper thread.</doc>
               version="1.14">
         <doc xml:space="preserve"
              filename="libs/gst/base/gstbasesrc.c"
-             line="4108">Subclasses can call this from their create virtual method implementation
+             line="4110">Subclasses can call this from their create virtual method implementation
 to submit a buffer list to be pushed out later. This is useful in
 cases where the create function wants to produce multiple buffers to be
 pushed out in one go in form of a #GstBufferList, which can reduce overhead
@@ -7934,13 +8501,13 @@ mode.</doc>
           <instance-parameter name="src" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesrc.c"
-                 line="4110">a #GstBaseSrc</doc>
+                 line="4112">a #GstBaseSrc</doc>
             <type name="BaseSrc" c:type="GstBaseSrc*"/>
           </instance-parameter>
           <parameter name="buffer_list" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesrc.c"
-                 line="4111">a #GstBufferList</doc>
+                 line="4113">a #GstBufferList</doc>
             <type name="Gst.BufferList" c:type="GstBufferList*"/>
           </parameter>
         </parameters>
@@ -8077,6 +8644,9 @@ buffers.</doc>
         <type name="Gst.ElementClass" c:type="GstElementClass"/>
       </field>
       <field name="get_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="120">Called to get the caps to report</doc>
         <callback name="get_caps">
           <source-position filename="libs/gst/base/gstbasesrc.h" line="183"/>
           <return-value transfer-ownership="full">
@@ -8096,25 +8666,32 @@ buffers.</doc>
         </callback>
       </field>
       <field name="negotiate">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="121">Negotiated the caps with the peer.</doc>
         <callback name="negotiate">
           <source-position filename="libs/gst/base/gstbasesrc.h" line="185"/>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/base/gstbasesrc.c"
-                 line="3476">%TRUE if the negotiation succeeded, else %FALSE.</doc>
+                 line="3478">%TRUE if the negotiation succeeded, else %FALSE.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="src" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="libs/gst/base/gstbasesrc.c"
-                   line="3466">base source instance</doc>
+                   line="3468">base source instance</doc>
               <type name="BaseSrc" c:type="GstBaseSrc*"/>
             </parameter>
           </parameters>
         </callback>
       </field>
       <field name="fixate">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="122">Called during negotiation if caps need fixating. Implement instead of
+  setting a fixate function on the source pad.</doc>
         <callback name="fixate">
           <source-position filename="libs/gst/base/gstbasesrc.h" line="195"/>
           <return-value transfer-ownership="full">
@@ -8134,6 +8711,9 @@ buffers.</doc>
         </callback>
       </field>
       <field name="set_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="124">Notify subclass of changed output caps</doc>
         <callback name="set_caps">
           <source-position filename="libs/gst/base/gstbasesrc.h" line="197"/>
           <return-value transfer-ownership="none">
@@ -8159,6 +8739,9 @@ buffers.</doc>
         </callback>
       </field>
       <field name="decide_allocation">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="125">configure the allocation query</doc>
         <callback name="decide_allocation">
           <source-position filename="libs/gst/base/gstbasesrc.h" line="200"/>
           <return-value transfer-ownership="none">
@@ -8175,6 +8758,12 @@ buffers.</doc>
         </callback>
       </field>
       <field name="start">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="126">Start processing. Subclasses should open resources and prepare
+   to produce data. Implementation should call gst_base_src_start_complete()
+   when the operation completes, either from the current thread or any other
+   thread that finishes the start operation asynchronously.</doc>
         <callback name="start">
           <source-position filename="libs/gst/base/gstbasesrc.h" line="203"/>
           <return-value transfer-ownership="none">
@@ -8188,6 +8777,9 @@ buffers.</doc>
         </callback>
       </field>
       <field name="stop">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="130">Stop processing. Subclasses should use this to close resources.</doc>
         <callback name="stop">
           <source-position filename="libs/gst/base/gstbasesrc.h" line="204"/>
           <return-value transfer-ownership="none">
@@ -8201,6 +8793,11 @@ buffers.</doc>
         </callback>
       </field>
       <field name="get_times">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="131">Given a buffer, return the start and stop time when it
+   should be pushed out. The base class will sync on the clock using
+   these times.</doc>
         <callback name="get_times">
           <source-position filename="libs/gst/base/gstbasesrc.h" line="214"/>
           <return-value transfer-ownership="none">
@@ -8229,6 +8826,10 @@ buffers.</doc>
         </callback>
       </field>
       <field name="get_size">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="134">Return the total size of the resource, in the format set by
+    gst_base_src_set_format().</doc>
         <callback name="get_size">
           <source-position filename="libs/gst/base/gstbasesrc.h" line="226"/>
           <return-value transfer-ownership="none">
@@ -8251,6 +8852,9 @@ buffers.</doc>
         </callback>
       </field>
       <field name="is_seekable">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="136">Check if the source can seek</doc>
         <callback name="is_seekable">
           <source-position filename="libs/gst/base/gstbasesrc.h" line="229"/>
           <return-value transfer-ownership="none">
@@ -8264,6 +8868,14 @@ buffers.</doc>
         </callback>
       </field>
       <field name="prepare_seek_segment">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="137">Prepare the #GstSegment that will be passed to the
+  #GstBaseSrcClass::do_seek vmethod for executing a seek
+  request. Sub-classes should override this if they support seeking in
+  formats other than the configured native format. By default, it tries to
+  convert the seek arguments to the configured native format and prepare a
+  segment in that format.</doc>
         <callback name="prepare_seek_segment">
           <source-position filename="libs/gst/base/gstbasesrc.h" line="233"/>
           <return-value transfer-ownership="none">
@@ -8283,6 +8895,9 @@ buffers.</doc>
         </callback>
       </field>
       <field name="do_seek">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="143">Perform seeking on the resource to the indicated segment.</doc>
         <callback name="do_seek">
           <source-position filename="libs/gst/base/gstbasesrc.h" line="236"/>
           <return-value transfer-ownership="none">
@@ -8299,6 +8914,14 @@ buffers.</doc>
         </callback>
       </field>
       <field name="unlock">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="144">Unlock any pending access to the resource. Subclasses should unblock
+   any blocked function ASAP. In particular, any `create()` function in
+   progress should be unblocked and should return GST_FLOW_FLUSHING. Any
+   future #GstBaseSrcClass::create function call should also return
+   GST_FLOW_FLUSHING until the #GstBaseSrcClass::unlock_stop function has
+   been called.</doc>
         <callback name="unlock">
           <source-position filename="libs/gst/base/gstbasesrc.h" line="240"/>
           <return-value transfer-ownership="none">
@@ -8312,6 +8935,11 @@ buffers.</doc>
         </callback>
       </field>
       <field name="unlock_stop">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="150">Clear the previous unlock request. Subclasses should clear any
+   state they set during #GstBaseSrcClass::unlock, such as clearing command
+   queues.</doc>
         <callback name="unlock_stop">
           <source-position filename="libs/gst/base/gstbasesrc.h" line="242"/>
           <return-value transfer-ownership="none">
@@ -8325,6 +8953,9 @@ buffers.</doc>
         </callback>
       </field>
       <field name="query">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="153">Handle a requested query.</doc>
         <callback name="query">
           <source-position filename="libs/gst/base/gstbasesrc.h" line="245"/>
           <return-value transfer-ownership="none">
@@ -8341,6 +8972,9 @@ buffers.</doc>
         </callback>
       </field>
       <field name="event">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="154">Override this to implement custom event handling.</doc>
         <callback name="event">
           <source-position filename="libs/gst/base/gstbasesrc.h" line="248"/>
           <return-value transfer-ownership="none">
@@ -8357,6 +8991,15 @@ buffers.</doc>
         </callback>
       </field>
       <field name="create">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="155">Ask the subclass to create a buffer with offset and size.  When the
+  subclass returns GST_FLOW_OK, it MUST return a buffer of the requested size
+  unless fewer bytes are available because an EOS condition is near. No
+  buffer should be returned when the return value is different from
+  GST_FLOW_OK. A return value of GST_FLOW_EOS signifies that the end of
+  stream is reached. The default implementation will call
+  #GstBaseSrcClass::alloc and then call #GstBaseSrcClass::fill.</doc>
         <callback name="create">
           <source-position filename="libs/gst/base/gstbasesrc.h" line="257"/>
           <return-value transfer-ownership="none">
@@ -8384,6 +9027,10 @@ buffers.</doc>
         </callback>
       </field>
       <field name="alloc">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="162">Ask the subclass to allocate a buffer with for offset and size. The
+  default implementation will create a new buffer from the negotiated allocator.</doc>
         <callback name="alloc">
           <source-position filename="libs/gst/base/gstbasesrc.h" line="266"/>
           <return-value transfer-ownership="none">
@@ -8410,6 +9057,10 @@ buffers.</doc>
         </callback>
       </field>
       <field name="fill">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasesrc.h"
+             line="164">Ask the subclass to fill the buffer with data for offset and size. The
+  passed buffer is guaranteed to hold the requested amount of bytes.</doc>
         <callback name="fill">
           <source-position filename="libs/gst/base/gstbasesrc.h" line="269"/>
           <return-value transfer-ownership="none">
@@ -8586,6 +9237,12 @@ It provides for:
   * Implied %FALSE if ONLY transform function is implemented.</doc>
       <source-position filename="libs/gst/base/gstbasetransform.h" line="314"/>
       <virtual-method name="accept_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="122">Optional.
+                 Subclasses can override this method to check if @caps can be
+                 handled by the element. The default implementation might not be
+                 the most optimal way to check this in all cases.</doc>
         <source-position filename="libs/gst/base/gstbasetransform.h"
                          line="236"/>
         <return-value transfer-ownership="none">
@@ -8604,6 +9261,12 @@ It provides for:
         </parameters>
       </virtual-method>
       <virtual-method name="before_transform">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="186">Optional.
+                   This method is called right before the base class will
+                   start processing. Dynamic properties or other delayed
+                   configuration could be performed in this method.</doc>
         <source-position filename="libs/gst/base/gstbasetransform.h"
                          line="297"/>
         <return-value transfer-ownership="none">
@@ -8619,6 +9282,12 @@ It provides for:
         </parameters>
       </virtual-method>
       <virtual-method name="copy_metadata">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="178">Optional.
+                Copy the metadata from the input buffer to the output buffer.
+                The default implementation will copy the flags, timestamps and
+                offsets of the buffer.</doc>
         <source-position filename="libs/gst/base/gstbasetransform.h"
                          line="292"/>
         <return-value transfer-ownership="none">
@@ -8637,6 +9306,16 @@ It provides for:
         </parameters>
       </virtual-method>
       <virtual-method name="decide_allocation">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="131">Setup the allocation parameters for allocating output
+                   buffers. The passed in query contains the result of the
+                   downstream allocation query. This function is only called
+                   when not operating in passthrough mode. The default
+                   implementation will remove all memory dependent metadata.
+                   If there is a @filter_meta method implementation, it will
+                   be called for all metadata API in the downstream query,
+                   otherwise the metadata API is removed.</doc>
         <source-position filename="libs/gst/base/gstbasetransform.h"
                          line="244"/>
         <return-value transfer-ownership="none">
@@ -8652,6 +9331,11 @@ It provides for:
         </parameters>
       </virtual-method>
       <virtual-method name="filter_meta">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="139">Return %TRUE if the metadata API should be proposed in the
+              upstream allocation query. The default implementation is %NULL
+              and will cause all metadata to be removed.</doc>
         <source-position filename="libs/gst/base/gstbasetransform.h"
                          line="245"/>
         <return-value transfer-ownership="none">
@@ -8754,6 +9438,16 @@ It provides for:
         </parameters>
       </virtual-method>
       <virtual-method name="propose_allocation">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="142">Propose buffer allocation parameters for upstream elements.
+                     This function must be implemented if the element reads or
+                     writes the buffer content. The query that was passed to
+                     the decide_allocation is passed in this method (or %NULL
+                     when the element is in passthrough mode). The default
+                     implementation will pass the query downstream when in
+                     passthrough mode and will copy all the filtered metadata
+                     API in non-passthrough mode.</doc>
         <source-position filename="libs/gst/base/gstbasetransform.h"
                          line="249"/>
         <return-value transfer-ownership="none">
@@ -8772,6 +9466,12 @@ It provides for:
         </parameters>
       </virtual-method>
       <virtual-method name="query">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="127">Optional.
+                 Handle a requested query. Subclasses that implement this
+                 must chain up to the parent if they didn't handle the
+                 query</doc>
         <source-position filename="libs/gst/base/gstbasetransform.h"
                          line="240"/>
         <return-value transfer-ownership="none">
@@ -8790,6 +9490,9 @@ It provides for:
         </parameters>
       </virtual-method>
       <virtual-method name="set_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="126">Allows the subclass to be notified of the actual caps set.</doc>
         <source-position filename="libs/gst/base/gstbasetransform.h"
                          line="238"/>
         <return-value transfer-ownership="none">
@@ -8838,6 +9541,11 @@ It provides for:
         </parameters>
       </virtual-method>
       <virtual-method name="start">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="157">Optional.
+                 Called when the element starts processing.
+                 Allows opening external resources.</doc>
         <source-position filename="libs/gst/base/gstbasetransform.h"
                          line="269"/>
         <return-value transfer-ownership="none">
@@ -8850,6 +9558,11 @@ It provides for:
         </parameters>
       </virtual-method>
       <virtual-method name="stop">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="160">Optional.
+                 Called when the element stops processing.
+                 Allows closing external resources.</doc>
         <source-position filename="libs/gst/base/gstbasetransform.h"
                          line="270"/>
         <return-value transfer-ownership="none">
@@ -8862,6 +9575,15 @@ It provides for:
         </parameters>
       </virtual-method>
       <virtual-method name="submit_input_buffer">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="196">Function which accepts a new input buffer and pre-processes it.
+                 The default implementation performs caps (re)negotiation, then
+                 QoS if needed, and places the input buffer into the @queued_buf
+                 member variable. If the buffer is dropped due to QoS, it returns
+                 GST_BASE_TRANSFORM_FLOW_DROPPED. If this input buffer is not
+                 contiguous with any previous input buffer, then @is_discont
+                 is set to %TRUE. (Since: 1.6)</doc>
         <source-position filename="libs/gst/base/gstbasetransform.h"
                          line="304"/>
         <return-value transfer-ownership="none">
@@ -8880,6 +9602,12 @@ It provides for:
         </parameters>
       </virtual-method>
       <virtual-method name="transform">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="190">Required if the element does not operate in-place.
+                 Transforms one incoming buffer to one outgoing buffer.
+                 The function is allowed to change size/timestamp/duration
+                 of the outgoing buffer.</doc>
         <source-position filename="libs/gst/base/gstbasetransform.h"
                          line="300"/>
         <return-value transfer-ownership="none">
@@ -8898,6 +9626,11 @@ It provides for:
         </parameters>
       </virtual-method>
       <virtual-method name="transform_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="115">Optional.  Given the pad in this direction and the given
+                 caps, what caps are allowed on the other pad in this
+                 element ?</doc>
         <source-position filename="libs/gst/base/gstbasetransform.h"
                          line="226"/>
         <return-value transfer-ownership="full">
@@ -8919,6 +9652,10 @@ It provides for:
         </parameters>
       </virtual-method>
       <virtual-method name="transform_ip">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="194">Required if the element operates in-place.
+                 Transform the incoming buffer in-place.</doc>
         <source-position filename="libs/gst/base/gstbasetransform.h"
                          line="302"/>
         <return-value transfer-ownership="none">
@@ -8934,6 +9671,12 @@ It provides for:
         </parameters>
       </virtual-method>
       <virtual-method name="transform_meta">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="182">Optional. Transform the metadata on the input buffer to the
+                 output buffer. By default this method copies all meta without
+                 tags. Subclasses can implement this method and return %TRUE if
+                 the metadata is to be copied.</doc>
         <source-position filename="libs/gst/base/gstbasetransform.h"
                          line="294"/>
         <return-value transfer-ownership="none">
@@ -9500,6 +10243,11 @@ same type and quantity) it should provide @transform_ip.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </field>
       <field name="transform_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="115">Optional.  Given the pad in this direction and the given
+                 caps, what caps are allowed on the other pad in this
+                 element ?</doc>
         <callback name="transform_caps">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="226"/>
@@ -9523,6 +10271,12 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="fixate_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="118">Optional. Given the pad in this direction and the given
+                 caps, fixate the caps on the other pad. The function takes
+                 ownership of @othercaps and returns a fixated version of
+                 @othercaps. @othercaps is not guaranteed to be writable.</doc>
         <callback name="fixate_caps">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="233"/>
@@ -9546,6 +10300,12 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="accept_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="122">Optional.
+                 Subclasses can override this method to check if @caps can be
+                 handled by the element. The default implementation might not be
+                 the most optimal way to check this in all cases.</doc>
         <callback name="accept_caps">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="236"/>
@@ -9566,6 +10326,9 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="set_caps">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="126">Allows the subclass to be notified of the actual caps set.</doc>
         <callback name="set_caps">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="238"/>
@@ -9586,6 +10349,12 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="query">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="127">Optional.
+                 Handle a requested query. Subclasses that implement this
+                 must chain up to the parent if they didn't handle the
+                 query</doc>
         <callback name="query">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="240"/>
@@ -9606,6 +10375,16 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="decide_allocation">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="131">Setup the allocation parameters for allocating output
+                   buffers. The passed in query contains the result of the
+                   downstream allocation query. This function is only called
+                   when not operating in passthrough mode. The default
+                   implementation will remove all memory dependent metadata.
+                   If there is a @filter_meta method implementation, it will
+                   be called for all metadata API in the downstream query,
+                   otherwise the metadata API is removed.</doc>
         <callback name="decide_allocation">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="244"/>
@@ -9623,6 +10402,11 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="filter_meta">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="139">Return %TRUE if the metadata API should be proposed in the
+              upstream allocation query. The default implementation is %NULL
+              and will cause all metadata to be removed.</doc>
         <callback name="filter_meta">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="245"/>
@@ -9646,6 +10430,16 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="propose_allocation">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="142">Propose buffer allocation parameters for upstream elements.
+                     This function must be implemented if the element reads or
+                     writes the buffer content. The query that was passed to
+                     the decide_allocation is passed in this method (or %NULL
+                     when the element is in passthrough mode). The default
+                     implementation will pass the query downstream when in
+                     passthrough mode and will copy all the filtered metadata
+                     API in non-passthrough mode.</doc>
         <callback name="propose_allocation">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="249"/>
@@ -9666,6 +10460,13 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="transform_size">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="150">Optional. Given the size of a buffer in the given direction
+                 with the given caps, calculate the size in bytes of a buffer
+                 on the other pad with the given other caps.
+                 The default implementation uses get_unit_size and keeps
+                 the number of units the same.</doc>
         <callback name="transform_size">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="256"/>
@@ -9698,6 +10499,10 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="get_unit_size">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="155">Required if the transform is not in-place.
+                 Get the size in bytes of one unit for the given caps.</doc>
         <callback name="get_unit_size">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="265"/>
@@ -9721,6 +10526,11 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="start">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="157">Optional.
+                 Called when the element starts processing.
+                 Allows opening external resources.</doc>
         <callback name="start">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="269"/>
@@ -9735,6 +10545,11 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="stop">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="160">Optional.
+                 Called when the element stops processing.
+                 Allows closing external resources.</doc>
         <callback name="stop">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="270"/>
@@ -9749,6 +10564,11 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="sink_event">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="163">Optional.
+                 Event handler on the sink pad. The default implementation
+                 handles the event and forwards it downstream.</doc>
         <callback name="sink_event">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="277"/>
@@ -9766,6 +10586,11 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="src_event">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="166">Optional.
+                 Event handler on the source pad. The default implementation
+                 handles the event and forwards it upstream.</doc>
         <callback name="src_event">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="282"/>
@@ -9783,6 +10608,17 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="prepare_output_buffer">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="169">Optional.
+                        Subclasses can override this to do their own
+                        allocation of output buffers.  Elements that only do
+                        analysis can return a subbuffer or even just
+                        return a reference to the input buffer (if in
+                        passthrough mode). The default implementation will
+                        use the negotiated allocator or bufferpool and
+                        transform_size to allocate an output buffer or it
+                        will return the input buffer in passthrough mode.</doc>
         <callback name="prepare_output_buffer">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="288"/>
@@ -9806,6 +10642,12 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="copy_metadata">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="178">Optional.
+                Copy the metadata from the input buffer to the output buffer.
+                The default implementation will copy the flags, timestamps and
+                offsets of the buffer.</doc>
         <callback name="copy_metadata">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="292"/>
@@ -9826,6 +10668,12 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="transform_meta">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="182">Optional. Transform the metadata on the input buffer to the
+                 output buffer. By default this method copies all meta without
+                 tags. Subclasses can implement this method and return %TRUE if
+                 the metadata is to be copied.</doc>
         <callback name="transform_meta">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="294"/>
@@ -9849,6 +10697,12 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="before_transform">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="186">Optional.
+                   This method is called right before the base class will
+                   start processing. Dynamic properties or other delayed
+                   configuration could be performed in this method.</doc>
         <callback name="before_transform">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="297"/>
@@ -9866,6 +10720,12 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="transform">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="190">Required if the element does not operate in-place.
+                 Transforms one incoming buffer to one outgoing buffer.
+                 The function is allowed to change size/timestamp/duration
+                 of the outgoing buffer.</doc>
         <callback name="transform">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="300"/>
@@ -9886,6 +10746,10 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="transform_ip">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="194">Required if the element operates in-place.
+                 Transform the incoming buffer in-place.</doc>
         <callback name="transform_ip">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="302"/>
@@ -9903,6 +10767,15 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="submit_input_buffer">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="196">Function which accepts a new input buffer and pre-processes it.
+                 The default implementation performs caps (re)negotiation, then
+                 QoS if needed, and places the input buffer into the @queued_buf
+                 member variable. If the buffer is dropped due to QoS, it returns
+                 GST_BASE_TRANSFORM_FLOW_DROPPED. If this input buffer is not
+                 contiguous with any previous input buffer, then @is_discont
+                 is set to %TRUE. (Since: 1.6)</doc>
         <callback name="submit_input_buffer">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="304"/>
@@ -9923,6 +10796,17 @@ same type and quantity) it should provide @transform_ip.</doc>
         </callback>
       </field>
       <field name="generate_output">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstbasetransform.h"
+             line="203">Called after each new input buffer is submitted repeatedly
+                  until it either generates an error or fails to generate an output
+                  buffer. The default implementation takes the contents of the
+                  @queued_buf variable, generates an output buffer if needed
+                  by calling the class @prepare_output_buffer, and then
+                  calls either @transform or @transform_ip. Elements that don't
+                  do 1-to-1 transformations of input to output buffers can either
+                  return GST_BASE_TRANSFORM_FLOW_DROPPED or simply not generate
+                  an output buffer until they are ready to do so. (Since: 1.6)</doc>
         <callback name="generate_output">
           <source-position filename="libs/gst/base/gstbasetransform.h"
                            line="310"/>
@@ -17345,6 +18229,9 @@ no allocated @buf is provided and then call fill.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="fill">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstpushsrc.h"
+             line="64">Ask the subclass to fill the buffer with data.</doc>
         <source-position filename="libs/gst/base/gstpushsrc.h" line="89"/>
         <return-value transfer-ownership="none">
           <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
@@ -17383,6 +18270,12 @@ buffers.</doc>
         <type name="BaseSrcClass" c:type="GstBaseSrcClass"/>
       </field>
       <field name="create">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstpushsrc.h"
+             line="57">Ask the subclass to create a buffer. The subclass decides which
+         size this buffer should be. Other then that, refer to
+         #GstBaseSrc&lt;!-- --&gt;.create() for more details. If this method is
+         not implemented, @alloc followed by @fill will be called.</doc>
         <callback name="create">
           <source-position filename="libs/gst/base/gstpushsrc.h" line="80"/>
           <return-value transfer-ownership="none">
@@ -17404,6 +18297,11 @@ buffers.</doc>
         </callback>
       </field>
       <field name="alloc">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstpushsrc.h"
+             line="61">Ask the subclass to allocate a buffer. The subclass decides which
+        size this buffer should be. The default implementation will create
+        a new buffer from the negotiated allocator.</doc>
         <callback name="alloc">
           <source-position filename="libs/gst/base/gstpushsrc.h" line="87"/>
           <return-value transfer-ownership="none">
@@ -17424,6 +18322,9 @@ buffers.</doc>
         </callback>
       </field>
       <field name="fill">
+        <doc xml:space="preserve"
+             filename="libs/gst/base/gstpushsrc.h"
+             line="64">Ask the subclass to fill the buffer with data.</doc>
         <callback name="fill">
           <source-position filename="libs/gst/base/gstpushsrc.h" line="89"/>
           <return-value transfer-ownership="none">
